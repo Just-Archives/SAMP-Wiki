@@ -1,0 +1,296 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Creating a simple Menu,Main Page,Scripting Basics,Server Plugins,Scripting Callbacks,Scripting Functions,Tutorials" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>Creating a simple Menu - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Creating a simple Menu</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<div class="scripting" style="color: #4378A4; background-color: #FFFFFF; margin: 2px; margin-bottom: 10px;"><div align="center" style="border: 1px solid #AAAAAA; padding: 3px; padding-left: 5px;"><a href="../wiki-archive.html" title="Main Page">Main Page</a> | <a href="Category_Scripting_Functions.html" title="Category:Scripting Functions">Scripting Functions</a> | <a href="Category_Scripting_Callbacks.html" title="Category:Scripting Callbacks">Scripting Callbacks</a> | <a href="Scripting_Basics.html" title="Scripting Basics">Scripting Basics</a> | <a href="Server_Plugins.html" title="Server Plugins">Server Plugins</a> | <a href="Category_Tutorials.html" title="Category:Tutorials">Tutorials</a></div></div><br />
+<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class='toclevel-1'><a href="#Menus_in_Pawn"><span class="tocnumber">1</span> <span class="toctext">Menus in Pawn</span></a></li>
+<li class='toclevel-1'><a href="#First_menu_steps"><span class="tocnumber">2</span> <span class="toctext">First menu steps</span></a></li>
+<li class='toclevel-1'><a href="#Add_some_menu_items"><span class="tocnumber">3</span> <span class="toctext">Add some menu items</span></a></li>
+<li class='toclevel-1'><a href="#Creating_the_effects_for_the_items"><span class="tocnumber">4</span> <span class="toctext">Creating the effects for the items</span></a></li>
+<li class='toclevel-1'><a href="#Last_steps"><span class="tocnumber">5</span> <span class="toctext">Last steps</span></a></li>
+<li class='toclevel-1'><a href="#Last_words"><span class="tocnumber">6</span> <span class="toctext">Last words</span></a></li>
+<li class='toclevel-1'><a href="#A_full_test_script_for_menus"><span class="tocnumber">7</span> <span class="toctext">A full test script for menus</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Creating_a_simple_Menu.html" title="Edit section: Menus in Pawn">edit</a>]</div><a name="Menus_in_Pawn"></a><h2>Menus in Pawn</h2>
+<p>Menus look very complicated and difficult to script for the most players, although it isn't. Here I will show you how to create a simple menu. At the end we will have created a teleport menu.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Creating_a_simple_Menu.html" title="Edit section: First menu steps">edit</a>]</div><a name="First_menu_steps"></a><h2>First menu steps</h2>
+<p>First we have to create a menu.
+The prefix before is Menu: this makes the variable the correct type [there are different types for different uses such as Float: bool: Text3D: etc]
+Insert this line after the #includes, #defines, forwards etc:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> <span style="color: orange;">Menu</span>:teleportmenu;</pre>
+<p>Okay, we created the variable to store the menu. Now we have to create the menu and assign the variable we created to the menu.
+Type this into OnGameModeInit():
+</p>
+<pre class="pawn">teleportmenu = <a href="http://wiki.sa-mp.com/wiki/CreateMenu"><span style="color: #006400;">CreateMenu</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;Teleportmenu&quot;</span>, <span style="color: #4169e1;">2</span>, <span style="color: #4169e1;">200.0</span>, <span style="color: #4169e1;">100.0</span>, <span style="color: #4169e1;">150.0</span>, <span style="color: #4169e1;">150.0</span><span style="color: #66cc66;">&#41;</span>;</pre>
+<p>Now a bit of an explanation about the CreateMenu arguments.
+</p>
+<pre class="pawn"><a href="http://wiki.sa-mp.com/wiki/CreateMenu"><span style="color: #006400;">CreateMenu</span></a><span style="color: #66cc66;">&#40;</span>title, columns, <span style="color: orange;">Float</span>:x, <span style="color: orange;">Float</span>:y, <span style="color: orange;">Float</span>:col1width, <span style="color: orange;">Float</span>:col2width<span style="color: #66cc66;">&#41;</span>;</pre>
+<pre>title:            The heading of the menu
+columns:          The number here defines how much columns are used [2 is maximum]
+Float:x:          The heigth position of the menu on screen [left to right]
+Float:y:          The width position of the menu on screen [up and down]
+Float:col1width:  The width of the first column
+Float:col2width:  The width of the second column
+</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Creating_a_simple_Menu.html" title="Edit section: Add some menu items">edit</a>]</div><a name="Add_some_menu_items"></a><h2>Add some menu items</h2>
+<p>Ok, now we've got the Menu, but we need some items, under which you can choose in the menu.
+You add them underneath the CreateMenu that we made earlier.
+</p>
+<pre class="pawn"><a href="http://wiki.sa-mp.com/wiki/AddMenuItem"><span style="color: #006400;">AddMenuItem</span></a><span style="color: #66cc66;">&#40;</span>teleportmenu, <span style="color: #4169e1;">0</span>, <span style="color: #b22222;">&quot;LS&quot;</span><span style="color: #66cc66;">&#41;</span>;
+<a href="http://wiki.sa-mp.com/wiki/AddMenuItem"><span style="color: #006400;">AddMenuItem</span></a><span style="color: #66cc66;">&#40;</span>teleportmenu, <span style="color: #4169e1;">0</span>, <span style="color: #b22222;">&quot;LS&quot;</span><span style="color: #66cc66;">&#41;</span>;
+<a href="http://wiki.sa-mp.com/wiki/AddMenuItem"><span style="color: #006400;">AddMenuItem</span></a><span style="color: #66cc66;">&#40;</span>teleportmenu, <span style="color: #4169e1;">0</span>, <span style="color: #b22222;">&quot;SF&quot;</span><span style="color: #66cc66;">&#41;</span>;
+<a href="http://wiki.sa-mp.com/wiki/AddMenuItem"><span style="color: #006400;">AddMenuItem</span></a><span style="color: #66cc66;">&#40;</span>teleportmenu, <span style="color: #4169e1;">0</span>, <span style="color: #b22222;">&quot;SF&quot;</span><span style="color: #66cc66;">&#41;</span>;
+<a href="http://wiki.sa-mp.com/wiki/AddMenuItem"><span style="color: #006400;">AddMenuItem</span></a><span style="color: #66cc66;">&#40;</span>teleportmenu, <span style="color: #4169e1;">0</span>, <span style="color: #b22222;">&quot;LV&quot;</span><span style="color: #66cc66;">&#41;</span>;
+<a href="http://wiki.sa-mp.com/wiki/AddMenuItem"><span style="color: #006400;">AddMenuItem</span></a><span style="color: #66cc66;">&#40;</span>teleportmenu, <span style="color: #4169e1;">0</span>, <span style="color: #b22222;">&quot;LV&quot;</span><span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+<a href="http://wiki.sa-mp.com/wiki/AddMenuItem"><span style="color: #006400;">AddMenuItem</span></a><span style="color: #66cc66;">&#40;</span>teleportmenu, <span style="color: #4169e1;">1</span>, <span style="color: #b22222;">&quot;Grove Street&quot;</span><span style="color: #66cc66;">&#41;</span>;
+<a href="http://wiki.sa-mp.com/wiki/AddMenuItem"><span style="color: #006400;">AddMenuItem</span></a><span style="color: #66cc66;">&#40;</span>teleportmenu, <span style="color: #4169e1;">1</span>, <span style="color: #b22222;">&quot;Starfish Tower&quot;</span><span style="color: #66cc66;">&#41;</span>;
+<a href="http://wiki.sa-mp.com/wiki/AddMenuItem"><span style="color: #006400;">AddMenuItem</span></a><span style="color: #66cc66;">&#40;</span>teleportmenu, <span style="color: #4169e1;">1</span>, <span style="color: #b22222;">&quot;Wheel Arch Angels&quot;</span><span style="color: #66cc66;">&#41;</span>;
+<a href="http://wiki.sa-mp.com/wiki/AddMenuItem"><span style="color: #006400;">AddMenuItem</span></a><span style="color: #66cc66;">&#40;</span>teleportmenu, <span style="color: #4169e1;">1</span>, <span style="color: #b22222;">&quot;Jizzys&quot;</span><span style="color: #66cc66;">&#41;</span>;
+<a href="http://wiki.sa-mp.com/wiki/AddMenuItem"><span style="color: #006400;">AddMenuItem</span></a><span style="color: #66cc66;">&#40;</span>teleportmenu, <span style="color: #4169e1;">1</span>, <span style="color: #b22222;">&quot;4 Dragons&quot;</span><span style="color: #66cc66;">&#41;</span>;
+<a href="http://wiki.sa-mp.com/wiki/AddMenuItem"><span style="color: #006400;">AddMenuItem</span></a><span style="color: #66cc66;">&#40;</span>teleportmenu, <span style="color: #4169e1;">1</span>, <span style="color: #b22222;">&quot;Come-a-Lot&quot;</span><span style="color: #66cc66;">&#41;</span>;</pre>
+<p>The explanation for AddMenuItem:
+</p>
+<pre class="pawn"><a href="http://wiki.sa-mp.com/wiki/AddMenuItem"><span style="color: #006400;">AddMenuItem</span></a><span style="color: #66cc66;">&#40;</span>menuid, column, text<span style="color: #66cc66;">&#41;</span>;</pre>
+<pre>menuid: The menuid of the menu where the item shall be displayed
+column: The column in which the item shall be shown
+text:   The text of the item
+</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Creating_a_simple_Menu.html" title="Edit section: Creating the effects for the items">edit</a>]</div><a name="Creating_the_effects_for_the_items"></a><h2>Creating the effects for the items</h2>
+<p>Okay, now that we have created a full menu with items what should happen when you choose an item? In our example we want to make a teleportmenu, so we should get teleported to the position we choose.
+When a player selects an item on a menu the script calls the callback: public OnPlayerSelectedMenuRow(playerid, row). The best way to do it is to do it with a switch, this is like several if statements to check if a variable is worth certain values.
+But first we only want these effects for the menu we want so we need to create a variable that holds what menu the player is looking at, this is done with 'GetPlayerMenu':
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> <span style="color: orange;">Menu</span>:CurrentMenu = <a href="http://wiki.sa-mp.com/wiki/GetPlayerMenu"><span style="color: #006400;">GetPlayerMenu</span></a><span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span>;</pre>
+<p>Now, when somebody selects something on the menu, their menuid will be saved in 'CurrentMenu'.
+</p><p>Now we have to check that the menu they selected on is the menu we want:
+</p>
+<pre class="pawn"><span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span>CurrentMenu == teleportmenu<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    ...
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>Now in between these brackets is where the 'switch' is, this checks what item the player selected or 'row'
+this can be done with if statements checking what row it is, but the switch is a much simpler way of writing it.
+</p>
+<pre class="pawn"><span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>CurrentMenu == teleportmenu<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <span style="color: #4169e1;">switch</span><span style="color: #66cc66;">&#40;</span>row<span style="color: #66cc66;">&#41;</span>
+    <span style="color: #66cc66;">&#123;</span>
+        <span style="color: orange; font-weight: bold;">case</span> <span style="color: #4169e1;">0</span>: <span style="color: #808080; font-style: italic;">//Grove Street</span>
+        <span style="color: #66cc66;">&#123;</span>
+            <a href="http://wiki.sa-mp.com/wiki/SetPlayerPos"><span style="color: #006400;">SetPlayerPos</span></a><span style="color: #66cc66;">&#40;</span>playerid, <span style="color: #4169e1;">2493.9133</span>, <span style="color: #4169e1;">-1682.3986</span>, <span style="color: #4169e1;">13.3382</span><span style="color: #66cc66;">&#41;</span>;
+            <a href="http://wiki.sa-mp.com/wiki/SetPlayerInterior"><span style="color: #006400;">SetPlayerInterior</span></a><span style="color: #66cc66;">&#40;</span>playerid, <span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span>;
+            <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, 0xFFFFFFFF, <span style="color: #b22222;">&quot;Welcome to Grove Street&quot;</span><span style="color: #66cc66;">&#41;</span>;
+        <span style="color: #66cc66;">&#125;</span>
+        <span style="color: orange; font-weight: bold;">case</span> <span style="color: #4169e1;">1</span>: <span style="color: #808080; font-style: italic;">//Starfish Tower</span>
+        <span style="color: #66cc66;">&#123;</span>
+            <a href="http://wiki.sa-mp.com/wiki/SetPlayerPos"><span style="color: #006400;">SetPlayerPos</span></a><span style="color: #66cc66;">&#40;</span>playerid, <span style="color: #4169e1;">1541.2833</span>, <span style="color: #4169e1;">-1362.4741</span>, <span style="color: #4169e1;">329.6457</span><span style="color: #66cc66;">&#41;</span>;
+            <a href="http://wiki.sa-mp.com/wiki/SetPlayerInterior"><span style="color: #006400;">SetPlayerInterior</span></a><span style="color: #66cc66;">&#40;</span>playerid, <span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span>;
+            <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, 0xFFFFFFFF, <span style="color: #b22222;">&quot;Welcome to the top of Starfish Tower&quot;</span><span style="color: #66cc66;">&#41;</span>;
+        <span style="color: #66cc66;">&#125;</span>
+        <span style="color: orange; font-weight: bold;">case</span> <span style="color: #4169e1;">2</span>: <span style="color: #808080; font-style: italic;">//Wheel Arch Angels</span>
+        <span style="color: #66cc66;">&#123;</span>
+            <a href="http://wiki.sa-mp.com/wiki/SetPlayerPos"><span style="color: #006400;">SetPlayerPos</span></a><span style="color: #66cc66;">&#40;</span>playerid, <span style="color: #4169e1;">-2705.5503</span>, <span style="color: #4169e1;">206.1621</span>, <span style="color: #4169e1;">4.1797</span><span style="color: #66cc66;">&#41;</span>;
+            <a href="http://wiki.sa-mp.com/wiki/SetPlayerInterior"><span style="color: #006400;">SetPlayerInterior</span></a><span style="color: #66cc66;">&#40;</span>playerid, <span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span>;
+            <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, 0xFFFFFFFF, <span style="color: #b22222;">&quot;Welcome to the Wheel Arch Angels tuning-shop&quot;</span><span style="color: #66cc66;">&#41;</span>;
+        <span style="color: #66cc66;">&#125;</span>
+        <span style="color: orange; font-weight: bold;">case</span> <span style="color: #4169e1;">3</span>: <span style="color: #808080; font-style: italic;">//Jizzys</span>
+        <span style="color: #66cc66;">&#123;</span>
+            <a href="http://wiki.sa-mp.com/wiki/SetPlayerPos"><span style="color: #006400;">SetPlayerPos</span></a><span style="color: #66cc66;">&#40;</span>playerid, <span style="color: #4169e1;">-2617.5156</span>, <span style="color: #4169e1;">1390.6353</span>, <span style="color: #4169e1;">7.1105</span><span style="color: #66cc66;">&#41;</span>;
+            <a href="http://wiki.sa-mp.com/wiki/SetPlayerInterior"><span style="color: #006400;">SetPlayerInterior</span></a><span style="color: #66cc66;">&#40;</span>playerid, <span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span>;
+            <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, 0xFFFFFFFF, <span style="color: #b22222;">&quot;Welcome to Jizzy's Nightclub!&quot;</span><span style="color: #66cc66;">&#41;</span>;
+        <span style="color: #66cc66;">&#125;</span>
+        <span style="color: orange; font-weight: bold;">case</span> <span style="color: #4169e1;">4</span>: <span style="color: #808080; font-style: italic;">//4Dragons</span>
+        <span style="color: #66cc66;">&#123;</span>
+            <a href="http://wiki.sa-mp.com/wiki/SetPlayerPos"><span style="color: #006400;">SetPlayerPos</span></a><span style="color: #66cc66;">&#40;</span>playerid, <span style="color: #4169e1;">2028.5538</span>, <span style="color: #4169e1;">1008.3543</span>, <span style="color: #4169e1;">10.8203</span><span style="color: #66cc66;">&#41;</span>;
+            <a href="http://wiki.sa-mp.com/wiki/SetPlayerInterior"><span style="color: #006400;">SetPlayerInterior</span></a><span style="color: #66cc66;">&#40;</span>playerid, <span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span>;
+            <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, 0xFFFFFFFF, <span style="color: #b22222;">&quot;Welcome to the Four Dragons Casino&quot;</span><span style="color: #66cc66;">&#41;</span>;
+        <span style="color: #66cc66;">&#125;</span>
+        <span style="color: orange; font-weight: bold;">case</span> <span style="color: #4169e1;">5</span>: <span style="color: #808080; font-style: italic;">//Com-a-Lot</span>
+        <span style="color: #66cc66;">&#123;</span>
+            <a href="http://wiki.sa-mp.com/wiki/SetPlayerPos"><span style="color: #006400;">SetPlayerPos</span></a><span style="color: #66cc66;">&#40;</span>playerid, <span style="color: #4169e1;">2169.1838</span>, <span style="color: #4169e1;">1122.5426</span>, <span style="color: #4169e1;">12.6107</span><span style="color: #66cc66;">&#41;</span>;
+            <a href="http://wiki.sa-mp.com/wiki/SetPlayerInterior"><span style="color: #006400;">SetPlayerInterior</span></a><span style="color: #66cc66;">&#40;</span>playerid, <span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span>;
+            <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, 0xFFFFFFFF, <span style="color: #b22222;">&quot;Welcome to the Come-a-Lot casino!&quot;</span><span style="color: #66cc66;">&#41;</span>;
+        <span style="color: #66cc66;">&#125;</span>
+    <span style="color: #66cc66;">&#125;</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>Now I'll explain how the switch works,
+in the top there is this:
+</p>
+<pre class="pawn"><span style="color: #4169e1;">switch</span></pre>
+<p>this defines what to check, in this case its the menu row
+then in between the braces under 'switch' there are 'case's, these are the different conditions that the variable in the 'switch' brackets can be, you can define these.
+Under the cases are more braces, this is where you put functions to take place if that case is the right one.
+</p><p><br />
+When everything is done correctly, like I've showed in those examples, the effects for menu items are created <b>successfully</b>.
+</p><p>if there are any questions about menus or indeed any other scripting queries, post a message on the SA:MP Forums
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Creating_a_simple_Menu.html" title="Edit section: Last steps">edit</a>]</div><a name="Last_steps"></a><h2>Last steps</h2>
+<p>Now we need a command to show the menu.
+This is the easiest step. Just a comparison with strcmp and a ShowMenuForPlayer.
+As you should know, this comes in the callback OnPlayerCommandText
+</p>
+<pre class="pawn"><span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span><a href="http://wiki.sa-mp.com/wiki/strcmp"><span style="color: #006400;">strcmp</span></a><span style="color: #66cc66;">&#40;</span>cmdtext, <span style="color: #b22222;">&quot;/teleport&quot;</span>, true<span style="color: #66cc66;">&#41;</span> == <span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <a href="http://wiki.sa-mp.com/wiki/ShowMenuForPlayer"><span style="color: #006400;">ShowMenuForPlayer</span></a><span style="color: #66cc66;">&#40;</span>teleportmenu,playerid<span style="color: #66cc66;">&#41;</span>;
+    <span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>Really easy, wasn't it?
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Creating_a_simple_Menu.html" title="Edit section: Last words">edit</a>]</div><a name="Last_words"></a><h2>Last words</h2>
+<p>Okay, after you read this AND understood it, try your own menu. As you could see, it isn't that difficult, but will impress the players on your server all the more.
+And you can script really cool effects with this. It's also very cool for general stores or supermarkets for the things you can buy. Then you can subtract some money as effect and the price is shown in another column in the menu.
+But now, work on your own.
+</p><p>I hope you learned something from this tutorial.
+If you got any questions, ask in the forums.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Creating_a_simple_Menu.html" title="Edit section: A full test script for menus">edit</a>]</div><a name="A_full_test_script_for_menus"></a><h2>A full test script for menus</h2>
+<pre class="pawn"><span style="color: #808080; font-style: italic;">// Test menu functionality filterscipt</span>
+&nbsp;
+<span style="color: #6b8e23;">#include &lt;a_samp&gt;</span>
+&nbsp;
+<span style="color: #6b8e23;">#define TEST_MENU_ITEMS 6</span>
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">new</span> <span style="color: orange;">Menu</span>:TestMenu = <span style="color: #4169e1;">-1</span>;
+<span style="color: #228b22; font-weight: bold;">new</span> TestMenuStrings<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">6</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">16</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #66cc66;">&#123;</span><span style="color: #b22222;">&quot;Test1&quot;</span>, <span style="color: #b22222;">&quot;Test2&quot;</span>, <span style="color: #b22222;">&quot;Test3&quot;</span>, <span style="color: #b22222;">&quot;Test4&quot;</span>, <span style="color: #b22222;">&quot;Test5&quot;</span>, <span style="color: #b22222;">&quot;Test6&quot;</span><span style="color: #66cc66;">&#125;</span>;
+&nbsp;
+HandleTestMenuSelection<span style="color: #66cc66;">&#40;</span>playerid, row<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #228b22; font-weight: bold;">new</span> s<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">256</span><span style="color: #66cc66;">&#93;</span>;
+&nbsp;
+	<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>row &lt; TEST_MENU_ITEMS<span style="color: #66cc66;">&#41;</span> <span style="color: #66cc66;">&#123;</span>
+		<a href="http://wiki.sa-mp.com/wiki/format"><span style="color: #006400;">format</span></a><span style="color: #66cc66;">&#40;</span>s,<span style="color: #4169e1;">256</span>,<span style="color: #b22222;">&quot;You selected item %s&quot;</span>,TestMenuStrings<span style="color: #66cc66;">&#91;</span>row<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>;
+		<a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid,0xFFFFFFFF,s<span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #66cc66;">&#125;</span>
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+InitTestMenu<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	TestMenu = <a href="http://wiki.sa-mp.com/wiki/CreateMenu"><span style="color: #006400;">CreateMenu</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;Test Menu&quot;</span>, <span style="color: #4169e1;">1</span>, <span style="color: #4169e1;">200.0</span>, <span style="color: #4169e1;">150.0</span>, <span style="color: #4169e1;">200.0</span>, <span style="color: #4169e1;">200.0</span><span style="color: #66cc66;">&#41;</span>;
+        <span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>TestMenu == <span style="color: #4169e1;">-1</span><span style="color: #66cc66;">&#41;</span>
+        <span style="color: #66cc66;">&#123;</span>
+            <a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;The creation of menu failed!&quot;</span><span style="color: #66cc66;">&#41;</span>;
+            <span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">0</span>;
+        <span style="color: #66cc66;">&#125;</span>
+	<span style="color: #4169e1;">for</span><span style="color: #66cc66;">&#40;</span><span style="color: #228b22; font-weight: bold;">new</span> x=<span style="color: #4169e1;">0</span>; x &lt; TEST_MENU_ITEMS; x++<span style="color: #66cc66;">&#41;</span> <span style="color: #66cc66;">&#123;</span>
+    	        <a href="http://wiki.sa-mp.com/wiki/AddMenuItem"><span style="color: #006400;">AddMenuItem</span></a><span style="color: #66cc66;">&#40;</span>TestMenu, <span style="color: #4169e1;">0</span>, TestMenuStrings<span style="color: #66cc66;">&#91;</span>x<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #66cc66;">&#125;</span>
+        <span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnFilterScriptInit"><span style="color: #dc143c">OnFilterScriptInit</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+   	<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>InitTestMenu<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>
+        <span style="color: #66cc66;">&#123;</span>
+            <a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;The creation of menu succeeded!&quot;</span><span style="color: #66cc66;">&#41;</span>;
+        <span style="color: #66cc66;">&#125;</span>
+        <span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnPlayerSelectedMenuRow"><span style="color: #dc143c">OnPlayerSelectedMenuRow</span></a><span style="color: #66cc66;">&#40;</span>playerid, row<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+        <span style="color: #228b22; font-weight: bold;">new</span> <span style="color: orange;">Menu</span>:PlayerMenu = <a href="http://wiki.sa-mp.com/wiki/GetPlayerMenu"><span style="color: #006400;">GetPlayerMenu</span></a><span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+        <span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>PlayerMenu == TestMenu<span style="color: #66cc66;">&#41;</span> <span style="color: #66cc66;">&#123;</span>
+	     HandleTestMenuSelection<span style="color: #66cc66;">&#40;</span>playerid, row<span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #66cc66;">&#125;</span>
+        <span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnPlayerCommandText"><span style="color: #dc143c">OnPlayerCommandText</span></a><span style="color: #66cc66;">&#40;</span>playerid, cmdtext<span style="color: #66cc66;">&#91;</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>!<a href="http://wiki.sa-mp.com/wiki/strcmp"><span style="color: #006400;">strcmp</span></a><span style="color: #66cc66;">&#40;</span>cmdtext, <span style="color: #b22222;">&quot;/menutest&quot;</span>, true<span style="color: #66cc66;">&#41;</span> &amp;&amp; TestMenu&nbsp;!= <span style="color: #4169e1;">-1</span><span style="color: #66cc66;">&#41;</span>	<span style="color: #66cc66;">&#123;</span>
+    	     <a href="http://wiki.sa-mp.com/wiki/ShowMenuForPlayer"><span style="color: #006400;">ShowMenuForPlayer</span></a><span style="color: #66cc66;">&#40;</span>TestMenu, playerid<span style="color: #66cc66;">&#41;</span>;
+    	     <span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+	<span style="color: #66cc66;">&#125;</span>
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">0</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/Creating_a_simple_Menu.html">http://localhost../wiki/Creating_a_simple_Menu.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="Category_Tutorials.html" title="Category:Tutorials">Tutorials</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="Creating_a_simple_Menu.html">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="Talk_Creating_a_simple_Menu.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="Creating_a_simple_Menu.html">Edit</a></li>
+				 <li id="ca-history"><a href="Creating_a_simple_Menu.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-nl"><a href="Creating_a_simple_Menu_NL.html">Nederlands</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 88,923 times.</li>
+				<li id="credits">This page was last modified 12:53, 24 March 2017 by SA-MP Wiki user <a href="User_OstGot.html" title="User:OstGot">OstGot</a>. Based on work by SA-MP Wiki user(s) <a href="User_Onfroi.html" title="User:Onfroi">Onfroi</a>, <a href="User_JoeBullet.html" title="User:JoeBullet">JoeBullet</a> and <a href="User_Southclaw.html" title="User:Southclaw">Southclaw</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 32.73 secs. -->
+</body></html>

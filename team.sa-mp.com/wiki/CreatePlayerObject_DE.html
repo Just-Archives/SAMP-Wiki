@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="CreatePlayerObject DE,AttachObjectToPlayer DE,AttachPlayerObjectToPlayer DE,CreateObject DE,Main Page DE,Scripting Basics DE,Server Plugins,DestroyObject DE,IsValidObject DE,GetPlayerObjectRot DE,MoveObject DE" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>CreatePlayerObject DE - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">CreatePlayerObject DE</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<div class="scripting" style="color: #4378A4; background-color: #FFFFFF; margin: 2px; margin-bottom: 10px;"><div align="center" style="border: 1px solid #AAAAAA; padding: 3px; padding-left: 5px;"><a href="Main_Page_DE.html" title="Main Page DE">Hauptseite</a> | <a href="Scripting_Basics_DE.html" title="Scripting Basics DE">Basics</a> | <a href="Category_Scripting_Functions_DE.html" title="Category:Scripting Functions DE">Funktionen</a> | <a href="Category_Scripting_Callbacks_DE.html" title="Category:Scripting Callbacks DE">Callbacks</a> | <a href="Server_Plugins.html" title="Server Plugins">Plugins (engl.)</a> | <a href="Tutorials.html" class="new" title="Tutorials">Tutorials (engl.)</a></div></div>
+<p><br />
+<b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Erstellt ein Objekt, das nur für einen Spieler sichtbar ist.<br /></div>
+<p><br />
+</p>
+<b>Parameter:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(playerid, modelid, Float:X, Float:Y, Float:Z, Float:rX, Float:rY, Float:rZ, Float:DrawDistance = 0.0)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">Die ID des Spielers, für den das Objekt erstellt werden soll.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">modelid</td><td style="vertical-align:top;">Die <a href="Game_Object_ID_List_DE.html" class="new" title="Game Object ID List DE">Modell ID</a>, die verwendet werden soll.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:X</td><td style="vertical-align:top;">Die X-Koordinate, an der das Objekt erstellt wird.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:Y</td><td style="vertical-align:top;">Die Y-Koordinate, an der das Objekt erstellt wird.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:Z</td><td style="vertical-align:top;">Die Z-Koordinate, an der das Objekt erstellt wird.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:rX</td><td style="vertical-align:top;">Die X-Rotation des Objekts.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:rY</td><td style="vertical-align:top;">Die Y-Rotation des Objekts.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:rZ</td><td style="vertical-align:top;">Die Z-Rotation des Objekts.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:DrawDistance</td><td style="vertical-align:top;">(optional) Die Distanz, aus der das Objekt sichtbar ist. Verwende 0.0, um die vom Spiel vorgegebene Distanz zu verwenden.</td></tr></table></div>
+<div style="padding-left:40px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New';font-weight:bold;">Rückgabe</td><td style="vertical-align:top;">Die ID des neuen, spielerseitig erstellten Objekts.</td></tr></table></div>
+<p><br />
+</p>
+<div style="max-width: 850px; width:auto;">
+<table style="padding: 5px; background-color: #E2FFE5; border-left: 10px solid #81C687;">
+
+<tr>
+<td><a href="Image_Add.png.html" class="image" title="Dies wurde in SA:MP 0.3b   hinzugefügt"><img src="../upload/a/a7/Add.png" alt="Dies wurde in SA:MP 0.3b   hinzugefügt" width="16" height="16" longdesc="Image_Add.png.html" /></a>
+</td><td align="left" style="padding-left:7px; padding-right:7px;"><span style="font-size:14px;">Der Parameter <b>DrawDistance</b> wurde erstmals in <strong>SA:MP 0.3b  </strong> hinzugefügt und funktioniert nicht in älteren Versionen!</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #E6FFFF; border-left: 10px solid #298A66;">
+
+<tr>
+<td><a href="Image_Gear.png.html" class="image" title="Image:Gear.png"><img src="../upload/0/06/Gear.png" alt="Image:Gear.png" width="24" height="24" longdesc="Image_Gear.png.html" /></a>
+</td><td align="left" style="padding-left:7px; padding-right:7px;"><span style="font-size:14px;">Der Parameter <b>DrawDistance</b> wurde in SA:MP 0.3x verändert. Die maximal verwendbare Distanz wurde vor 0.3x auf 300.0 beschränkt. Diese Beschränkung wurde aufgehoben.
+</td></tr></table>
+<p></span>
+</p>
+</div>
+<p><br />
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> pObject<span style="color: #66cc66;">&#91;</span><span style="color: #E9967A; font-weight: bold;">MAX_PLAYERS</span><span style="color: #66cc66;">&#93;</span>;
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnPlayerConnect"><span style="color: #dc143c">OnPlayerConnect</span></a><span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    pObject<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span> = <a href="http://wiki.sa-mp.com/wiki/CreatePlayerObject"><span style="color: #006400;">CreatePlayerObject</span></a><span style="color: #66cc66;">&#40;</span>playerid, <span style="color: #4169e1;">2587</span>, <span style="color: #4169e1;">2001.195679</span>, <span style="color: #4169e1;">1547.113892</span>, <span style="color: #4169e1;">14.283400</span>, <span style="color: #4169e1;">0</span>, <span style="color: #4169e1;">0</span>, <span style="color: #4169e1;">96</span><span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+    <span style="color: #808080; font-style: italic;">// Oder alternativ die Sichtweite so eintstellen, dass das Objekt auch von ganz weit weg gesehen werden kann</span>
+    pObject<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span> = <a href="http://wiki.sa-mp.com/wiki/CreatePlayerObject"><span style="color: #006400;">CreatePlayerObject</span></a><span style="color: #66cc66;">&#40;</span>playerid, <span style="color: #4169e1;">2587</span>, <span style="color: #4169e1;">2001.195679</span>, <span style="color: #4169e1;">1547.113892</span>, <span style="color: #4169e1;">14.283400</span>, <span style="color: #4169e1;">0</span>, <span style="color: #4169e1;">0</span>, <span style="color: #4169e1;">96</span>, <span style="color: #4169e1;">2000.0</span><span style="color: #66cc66;">&#41;</span>;
+    <span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnPlayerDisconnect"><span style="color: #dc143c">OnPlayerDisconnect</span></a><span style="color: #66cc66;">&#40;</span>playerid, reason<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <a href="http://wiki.sa-mp.com/wiki/DestroyPlayerObject"><span style="color: #006400;">DestroyPlayerObject</span></a><span style="color: #66cc66;">&#40;</span>playerid, pObject<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>;
+    <span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Template_RelatedFunctions_DE.html" title="Template:RelatedFunctions DE">edit</a>]</div><a name="Verwandte_Funktionen"></a><h3> <b>Verwandte Funktionen</b> </h3>
+<p>Folgende Funktionen könnten ebenfalls nützlich sein, da sie in der einen oder anderen Weise mit dieser verwandt sind.
+</p>
+<ul><li> <a href="DestroyPlayerObject_DE.html" class="new" title="DestroyPlayerObject DE">DestroyPlayerObject</a>: Löscht ein spielerseitig erstelltes Objekt.
+</li></ul>
+<ul><li> <a href="IsValidPlayerObject_DE.html" class="new" title="IsValidPlayerObject DE">IsValidPlayerObject</a>: Prüft, ob ein spielerseitiges Objekt existiert.
+</li></ul>
+<ul><li> <a href="MovePlayerObject_DE.html" class="new" title="MovePlayerObject DE">MovePlayerObject</a>: Bewegt ein Player-Objekt.
+</li></ul>
+<ul><li> <a href="StopPlayerObject_DE.html" class="new" title="StopPlayerObject DE">StopPlayerObject</a>: Hält ein sich bewegendes, spielerseitig erstelltes Objekt an.
+</li></ul>
+<ul><li> <a href="SetPlayerObjectPos_DE.html" class="new" title="SetPlayerObjectPos DE">SetPlayerObjectPos</a>: Ändert die Position eines spielerseitig erstellten Objekts.
+</li></ul>
+<ul><li> <a href="SetPlayerObjectRot_DE.html" class="new" title="SetPlayerObjectRot DE">SetPlayerObjectRot</a>: Ändert die Rotation eines spielerseitig erstellten Objekts.
+</li></ul>
+<ul><li> <a href="GetPlayerObjectPos_DE.html" class="new" title="GetPlayerObjectPos DE">GetPlayerObjectPos</a>: Gibt die Position eines spielerseitig erstellten Objekts zurück.
+</li></ul>
+<ul><li> <a href="GetPlayerObjectRot_DE.html" class="new" title="GetPlayerObjectRot DE">GetPlayerObjectRot</a>: Gibt die Rotation eines spielerseitig erstellten Objekts zurück.
+</li></ul>
+<ul><li> <a href="AttachPlayerObjectToPlayer_DE.html" title="AttachPlayerObjectToPlayer DE">AttachPlayerObjectToPlayer</a>: Befestigt ein spielerseitig erstelltes Objekt an einem Spieler.
+</li></ul>
+<p><br />
+</p>
+<ul><li> <a href="CreateObject_DE.html" title="CreateObject DE">CreateObject</a>: Erstellt ein Object.
+</li></ul>
+<ul><li> <a href="DestroyObject_DE.html" class="new" title="DestroyObject DE">DestroyObject</a>: Löscht ein Objekt.
+</li></ul>
+<ul><li> <a href="IsValidObject_DE.html" class="new" title="IsValidObject DE">IsValidObject</a>: Prüft, ob ein Objekt existiert.
+</li></ul>
+<ul><li> <a href="MoveObject_DE.html" class="new" title="MoveObject DE">MoveObject</a>: Bewegt ein Objekt.
+</li></ul>
+<ul><li> <a href="StopObject_DE.html" class="new" title="StopObject DE">StopObject</a>: Stop die Bewegung eines Objektes.
+</li></ul>
+<ul><li> <a href="SetObjectPos_DE.html" class="new" title="SetObjectPos DE">SetObjectPos</a>: Ändert die Position eines Objekts.
+</li></ul>
+<ul><li> <a href="SetObjectRot_DE.html" class="new" title="SetObjectRot DE">SetObjectRot</a>: Ändert die Rotation eines Objekts.
+</li></ul>
+<ul><li> <a href="GetObjectPos_DE.html" class="new" title="GetObjectPos DE">GetObjectPos</a>: Gibt die Position eines Objekts zurück.
+</li></ul>
+<ul><li> <a href="GetObjectRot_DE.html" class="new" title="GetObjectRot DE">GetObjectRot</a>: Gibt die Rotation eines Objekts zurück.
+</li></ul>
+<ul><li> <a href="AttachObjectToPlayer_DE.html" title="AttachObjectToPlayer DE">AttachObjectToPlayer</a>: Befestigt ein Objekt an einem Spieler.
+</li></ul>
+<div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/CreatePlayerObject_DE.html">http://localhost../wiki/CreatePlayerObject_DE.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="Category_Added_in_0.3b_DE.html" title="Category:Added in 0.3b DE">Added in 0.3b DE</a></span> | <span dir='ltr'><a href="Category_Scripting_Functions_DE.html" title="Category:Scripting Functions DE">Scripting Functions DE</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="CreatePlayerObject_DE.html">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="Talk_CreatePlayerObject_DE.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="CreatePlayerObject_DE.html">Edit</a></li>
+				 <li id="ca-history"><a href="CreatePlayerObject_DE.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-en"><a href="CreatePlayerObject.html">English</a></li>
+				<li class="interwiki-ru"><a href="CreatePlayerObject_RU.html">Русский</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 4,584 times.</li>
+				<li id="credits">This page was last modified 21:13, 21 February 2013 by SA-MP Wiki user User:. Based on work by SA-MP Wiki user(s) <a href="User_Meta.html" title="User:Meta">Meta</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 84.13 secs. -->
+</body></html>

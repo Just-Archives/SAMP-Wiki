@@ -1,0 +1,1048 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Scripting Functions (a player.inc),AllowPlayerTeleport,ApplyAnimation,ClearAnimations,DisablePlayerCheckpoint,DisablePlayerRaceCheckpoint,ForceClassSelection,GetPlayerAmmo,GetPlayerArmour,GetPlayerColor,GetPlayerFacingAngle" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>Scripting Functions (a player.inc) - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Scripting Functions (a player.inc)</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class='toclevel-1'><a href="#AllowPlayerTeleport"><span class="tocnumber">1</span> <span class="toctext">AllowPlayerTeleport</span></a></li>
+<li class='toclevel-1'><a href="#DisablePlayerCheckpoint"><span class="tocnumber">2</span> <span class="toctext">DisablePlayerCheckpoint</span></a></li>
+<li class='toclevel-1'><a href="#DisablePlayerRaceCheckpoint"><span class="tocnumber">3</span> <span class="toctext">DisablePlayerRaceCheckpoint</span></a></li>
+<li class='toclevel-1'><a href="#GetPlayerAmmo"><span class="tocnumber">4</span> <span class="toctext">GetPlayerAmmo</span></a></li>
+<li class='toclevel-1'><a href="#GetPlayerArmour"><span class="tocnumber">5</span> <span class="toctext">GetPlayerArmour</span></a></li>
+<li class='toclevel-1'><a href="#GetPlayerColor"><span class="tocnumber">6</span> <span class="toctext">GetPlayerColor</span></a></li>
+<li class='toclevel-1'><a href="#GetPlayerFacingAngle"><span class="tocnumber">7</span> <span class="toctext">GetPlayerFacingAngle</span></a></li>
+<li class='toclevel-1'><a href="#GetPlayerHealth"><span class="tocnumber">8</span> <span class="toctext">GetPlayerHealth</span></a></li>
+<li class='toclevel-1'><a href="#GetPlayerInterior"><span class="tocnumber">9</span> <span class="toctext">GetPlayerInterior</span></a></li>
+<li class='toclevel-1'><a href="#GetPlayerIp"><span class="tocnumber">10</span> <span class="toctext">GetPlayerIp</span></a></li>
+<li class='toclevel-1'><a href="#GetPlayerMoney"><span class="tocnumber">11</span> <span class="toctext">GetPlayerMoney</span></a></li>
+<li class='toclevel-1'><a href="#GetPlayerName"><span class="tocnumber">12</span> <span class="toctext">GetPlayerName</span></a></li>
+<li class='toclevel-1'><a href="#GetPlayerPing"><span class="tocnumber">13</span> <span class="toctext">GetPlayerPing</span></a></li>
+<li class='toclevel-1'><a href="#GetPlayerPos"><span class="tocnumber">14</span> <span class="toctext">GetPlayerPos</span></a></li>
+<li class='toclevel-1'><a href="#GetPlayerScore"><span class="tocnumber">15</span> <span class="toctext">GetPlayerScore</span></a></li>
+<li class='toclevel-1'><a href="#GetPlayerSkin"><span class="tocnumber">16</span> <span class="toctext">GetPlayerSkin</span></a></li>
+<li class='toclevel-1'><a href="#GetPlayerState"><span class="tocnumber">17</span> <span class="toctext">GetPlayerState</span></a></li>
+<li class='toclevel-1'><a href="#GetPlayerTeam"><span class="tocnumber">18</span> <span class="toctext">GetPlayerTeam</span></a></li>
+<li class='toclevel-1'><a href="#GetPlayerTime"><span class="tocnumber">19</span> <span class="toctext">GetPlayerTime</span></a></li>
+<li class='toclevel-1'><a href="#GetPlayerVehicleID"><span class="tocnumber">20</span> <span class="toctext">GetPlayerVehicleID</span></a></li>
+<li class='toclevel-1'><a href="#GetPlayerVirtualWorld"><span class="tocnumber">21</span> <span class="toctext">GetPlayerVirtualWorld</span></a></li>
+<li class='toclevel-1'><a href="#GetPlayerWantedLevel"><span class="tocnumber">22</span> <span class="toctext">GetPlayerWantedLevel</span></a></li>
+<li class='toclevel-1'><a href="#GetPlayerWeapon"><span class="tocnumber">23</span> <span class="toctext">GetPlayerWeapon</span></a></li>
+<li class='toclevel-1'><a href="#GetPlayerWeaponData"><span class="tocnumber">24</span> <span class="toctext">GetPlayerWeaponData</span></a></li>
+<li class='toclevel-1'><a href="#GivePlayerMoney"><span class="tocnumber">25</span> <span class="toctext">GivePlayerMoney</span></a></li>
+<li class='toclevel-1'><a href="#GivePlayerWeapon"><span class="tocnumber">26</span> <span class="toctext">GivePlayerWeapon</span></a></li>
+<li class='toclevel-1'><a href="#IsPlayerAdmin"><span class="tocnumber">27</span> <span class="toctext">IsPlayerAdmin</span></a></li>
+<li class='toclevel-1'><a href="#IsPlayerConnected"><span class="tocnumber">28</span> <span class="toctext">IsPlayerConnected</span></a></li>
+<li class='toclevel-1'><a href="#IsPlayerInAnyVehicle"><span class="tocnumber">29</span> <span class="toctext">IsPlayerInAnyVehicle</span></a></li>
+<li class='toclevel-1'><a href="#IsPlayerInCheckpoint"><span class="tocnumber">30</span> <span class="toctext">IsPlayerInCheckpoint</span></a></li>
+<li class='toclevel-1'><a href="#IsPlayerInRaceCheckpoint"><span class="tocnumber">31</span> <span class="toctext">IsPlayerInRaceCheckpoint</span></a></li>
+<li class='toclevel-1'><a href="#IsPlayerInVehicle"><span class="tocnumber">32</span> <span class="toctext">IsPlayerInVehicle</span></a></li>
+<li class='toclevel-1'><a href="#PlayerPlaySound"><span class="tocnumber">33</span> <span class="toctext">PlayerPlaySound</span></a></li>
+<li class='toclevel-1'><a href="#PutPlayerInVehicle"><span class="tocnumber">34</span> <span class="toctext">PutPlayerInVehicle</span></a></li>
+<li class='toclevel-1'><a href="#RemovePlayerFromVehicle"><span class="tocnumber">35</span> <span class="toctext">RemovePlayerFromVehicle</span></a></li>
+<li class='toclevel-1'><a href="#RemovePlayerMapIcon"><span class="tocnumber">36</span> <span class="toctext">RemovePlayerMapIcon</span></a></li>
+<li class='toclevel-1'><a href="#ResetPlayerMoney"><span class="tocnumber">37</span> <span class="toctext">ResetPlayerMoney</span></a></li>
+<li class='toclevel-1'><a href="#ResetPlayerWeapons"><span class="tocnumber">38</span> <span class="toctext">ResetPlayerWeapons</span></a></li>
+<li class='toclevel-1'><a href="#SetCameraBehindPlayer"><span class="tocnumber">39</span> <span class="toctext">SetCameraBehindPlayer</span></a></li>
+<li class='toclevel-1'><a href="#SetPlayerAmmo"><span class="tocnumber">40</span> <span class="toctext">SetPlayerAmmo</span></a></li>
+<li class='toclevel-1'><a href="#SetPlayerArmour"><span class="tocnumber">41</span> <span class="toctext">SetPlayerArmour</span></a></li>
+<li class='toclevel-1'><a href="#SetPlayerCameraLookAt"><span class="tocnumber">42</span> <span class="toctext">SetPlayerCameraLookAt</span></a></li>
+<li class='toclevel-1'><a href="#SetPlayerCameraPos"><span class="tocnumber">43</span> <span class="toctext">SetPlayerCameraPos</span></a></li>
+<li class='toclevel-1'><a href="#SetPlayerCheckpoint"><span class="tocnumber">44</span> <span class="toctext">SetPlayerCheckpoint</span></a></li>
+<li class='toclevel-1'><a href="#SetPlayerColor"><span class="tocnumber">45</span> <span class="toctext">SetPlayerColor</span></a></li>
+<li class='toclevel-1'><a href="#SetPlayerFacingAngle"><span class="tocnumber">46</span> <span class="toctext">SetPlayerFacingAngle</span></a></li>
+<li class='toclevel-1'><a href="#SetPlayerHealth"><span class="tocnumber">47</span> <span class="toctext">SetPlayerHealth</span></a></li>
+<li class='toclevel-1'><a href="#SetPlayerInterior"><span class="tocnumber">48</span> <span class="toctext">SetPlayerInterior</span></a></li>
+<li class='toclevel-1'><a href="#SetPlayerMapIcon"><span class="tocnumber">49</span> <span class="toctext">SetPlayerMapIcon</span></a></li>
+<li class='toclevel-1'><a href="#SetPlayerMarkerForPlayer"><span class="tocnumber">50</span> <span class="toctext">SetPlayerMarkerForPlayer</span></a></li>
+<li class='toclevel-1'><a href="#SetPlayerName"><span class="tocnumber">51</span> <span class="toctext">SetPlayerName</span></a></li>
+<li class='toclevel-1'><a href="#SetPlayerPos"><span class="tocnumber">52</span> <span class="toctext">SetPlayerPos</span></a></li>
+<li class='toclevel-1'><a href="#SetPlayerRaceCheckpoint"><span class="tocnumber">53</span> <span class="toctext">SetPlayerRaceCheckpoint</span></a></li>
+<li class='toclevel-1'><a href="#SetPlayerScore"><span class="tocnumber">54</span> <span class="toctext">SetPlayerScore</span></a></li>
+<li class='toclevel-1'><a href="#SetPlayerSkin"><span class="tocnumber">55</span> <span class="toctext">SetPlayerSkin</span></a></li>
+<li class='toclevel-1'><a href="#SetPlayerTeam"><span class="tocnumber">56</span> <span class="toctext">SetPlayerTeam</span></a></li>
+<li class='toclevel-1'><a href="#SetPlayerTime"><span class="tocnumber">57</span> <span class="toctext">SetPlayerTime</span></a></li>
+<li class='toclevel-1'><a href="#SetPlayerVirtualWorld"><span class="tocnumber">58</span> <span class="toctext">SetPlayerVirtualWorld</span></a></li>
+<li class='toclevel-1'><a href="#SetPlayerWantedLevel"><span class="tocnumber">59</span> <span class="toctext">SetPlayerWantedLevel</span></a></li>
+<li class='toclevel-1'><a href="#SetPlayerWeather"><span class="tocnumber">60</span> <span class="toctext">SetPlayerWeather</span></a></li>
+<li class='toclevel-1'><a href="#SetPlayerWorldBounds"><span class="tocnumber">61</span> <span class="toctext">SetPlayerWorldBounds</span></a></li>
+<li class='toclevel-1'><a href="#ShowPlayerNameTagForPlayer"><span class="tocnumber">62</span> <span class="toctext">ShowPlayerNameTagForPlayer</span></a></li>
+<li class='toclevel-1'><a href="#SpawnPlayer"><span class="tocnumber">63</span> <span class="toctext">SpawnPlayer</span></a></li>
+<li class='toclevel-1'><a href="#TogglePlayerControllable"><span class="tocnumber">64</span> <span class="toctext">TogglePlayerControllable</span></a></li>
+<li class='toclevel-1'><a href="#SetPlayerPosFindZ"><span class="tocnumber">65</span> <span class="toctext">SetPlayerPosFindZ</span></a></li>
+<li class='toclevel-1'><a href="#GetPlayerKeys"><span class="tocnumber">66</span> <span class="toctext">GetPlayerKeys</span></a></li>
+<li class='toclevel-1'><a href="#TogglePlayerClock"><span class="tocnumber">67</span> <span class="toctext">TogglePlayerClock</span></a></li>
+<li class='toclevel-1'><a href="#SetPlayerDisabledWeapons"><span class="tocnumber">68</span> <span class="toctext">SetPlayerDisabledWeapons</span></a></li>
+<li class='toclevel-1'><a href="#ForceClassSelection"><span class="tocnumber">69</span> <span class="toctext">ForceClassSelection</span></a></li>
+<li class='toclevel-1'><a href="#ApplyAnimation"><span class="tocnumber">70</span> <span class="toctext">ApplyAnimation</span></a></li>
+<li class='toclevel-1'><a href="#ClearAnimations"><span class="tocnumber">71</span> <span class="toctext">ClearAnimations</span></a></li>
+<li class='toclevel-1'><a href="#GetPlayerSpecialAction"><span class="tocnumber">72</span> <span class="toctext">GetPlayerSpecialAction</span></a></li>
+<li class='toclevel-1'><a href="#SetPlayerSpecialAction"><span class="tocnumber">73</span> <span class="toctext">SetPlayerSpecialAction</span></a></li>
+<li class='toclevel-1'><a href="#TogglePlayerSpectating"><span class="tocnumber">74</span> <span class="toctext">TogglePlayerSpectating</span></a></li>
+<li class='toclevel-1'><a href="#PlayerSpectatePlayer"><span class="tocnumber">75</span> <span class="toctext">PlayerSpectatePlayer</span></a></li>
+<li class='toclevel-1'><a href="#PlayerSpectateVehicle"><span class="tocnumber">76</span> <span class="toctext">PlayerSpectateVehicle</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: AllowPlayerTeleport">edit</a>]</div><a name="AllowPlayerTeleport"></a><h2> <a href="AllowPlayerTeleport.html" title="AllowPlayerTeleport">AllowPlayerTeleport</a> </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Включает/выключает возможность игроку телепортироваться в любую точку мира отметкой на карте.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">allow</td><td style="vertical-align:top;"><b>1</b> - включить, <b>0</b> - выключить.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">AllowPlayerTeleport(playerid,1);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: DisablePlayerCheckpoint">edit</a>]</div><a name="DisablePlayerCheckpoint"></a><h2><a href="DisablePlayerCheckpoint.html" title="DisablePlayerCheckpoint">DisablePlayerCheckpoint</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Отключить инициализированнные контрольные точки для игрока, в одно и тоже время игрок может иметь только одну контрольную точку.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока, для которого отключить текущую конотрольную точку.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">DisablePlayerCheckpoint(playerid);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: DisablePlayerRaceCheckpoint">edit</a>]</div><a name="DisablePlayerRaceCheckpoint"></a><h2> <a href="DisablePlayerRaceCheckpoint.html" title="DisablePlayerRaceCheckpoint">DisablePlayerRaceCheckpoint</a> </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Отключить гоночный чекпойнт для игрока.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока, для которого отключить текущую конотрольную точку.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">DisablePlayerRaceCheckpoint(playerid);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: GetPlayerAmmo">edit</a>]</div><a name="GetPlayerAmmo"></a><h2> <a href="GetPlayerAmmo.html" title="GetPlayerAmmo">GetPlayerAmmo</a> </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Узнает, сколько патронов оружия, которое игрок сейчас держит в руках.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока.</td></tr></table></div>
+<p><b>Возвращаемые значения:</b><br />
+</p>
+<div style="padding-left:35px;">Количество патронов.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new ammo = GetPlayerAmmo(playerid);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: GetPlayerArmour">edit</a>]</div><a name="GetPlayerArmour"></a><h2> <a href="GetPlayerArmour.html" title="GetPlayerArmour">GetPlayerArmour</a> </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Узнает количество брони игрока и записывает его в переменнную armour.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">&amp;Float:armour</td><td style="vertical-align:top;">Переменная, в которую нужно записать количество брони.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">GetPlayerArmour(playerid, armour);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: GetPlayerColor">edit</a>]</div><a name="GetPlayerColor"></a><h2><a href="GetPlayerColor.html" title="GetPlayerColor">GetPlayerColor</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Эта функция возвращает текущий цвет игрока.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока, цвет которого вы хотите знать.</td></tr></table></div>
+<p><b>Возвращаемые значения:</b><br />
+</p>
+<div style="padding-left:35px;">Цвет игрока в виде целого числа.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new playerColor &#61; GetPlayerColor(playerid);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: GetPlayerFacingAngle">edit</a>]</div><a name="GetPlayerFacingAngle"></a><h2><a href="GetPlayerFacingAngle.html" title="GetPlayerFacingAngle">GetPlayerFacingAngle</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Получает угол поворота текущего вида игрока. Это удобно, например, когда вы создаете систему наблюдения за игроком.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока, угол которого вы хотите знать.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">&amp;Float:ang</td><td style="vertical-align:top;">Переданная по ссылке переменная, в которую записывается угол.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">GetPlayerFacingAngle(playerid, angle);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: GetPlayerHealth">edit</a>]</div><a name="GetPlayerHealth"></a><h2><a href="GetPlayerHealth.html" title="GetPlayerHealth">GetPlayerHealth</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Получает текущее здоровье игрока. Это может прекрасно использоваться, например, для обнаружения читов.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока, здоровье которого вы хотите знать.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">&amp;Float:health</td><td style="vertical-align:top;">Переданная по ссылке переменная, в которую записывается здоровье игрока.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">GetPlayerHealth(playerid, health);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: GetPlayerInterior">edit</a>]</div><a name="GetPlayerInterior"></a><h2> <a href="GetPlayerInterior.html" title="GetPlayerInterior">GetPlayerInterior</a> </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Узнает ID интериора, в котором находится игрок.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока.</td></tr></table></div>
+<p><b>Возвращаемые значения:</b><br />
+</p>
+<div style="padding-left:35px;">ID интериора, в котором находится игрок.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new interior = GetPlayerInterior(playerid);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: GetPlayerIp">edit</a>]</div><a name="GetPlayerIp"></a><h2> <a href="GetPlayerIp.html" title="GetPlayerIp">GetPlayerIp</a> </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Узнает IP-адрес игрока и записывает его в строку.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">name[]</td><td style="vertical-align:top;">Строка, в которую необходимо записать IP игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">len</td><td style="vertical-align:top;">Длина этой строки.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">GetPlayerIp(playerid, playerip, sizeof(playerip));</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: GetPlayerMoney">edit</a>]</div><a name="GetPlayerMoney"></a><h2><a href="GetPlayerMoney.html" title="GetPlayerMoney">GetPlayerMoney</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Получает количество денег, которыми обладает игрок на данный момент. Эта функция может использоваться для обнаружения читов, покупок вещей и т.д.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока, количество денег которого вы хотите знать.</td></tr></table></div>
+<p><b>Возвращаемые значения:</b><br />
+</p>
+<div style="padding-left:35px;">Количество денег, которыми обладает игрок на данный момент.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new playerMoney &#61; GetPlayerMoney(playerid);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: GetPlayerName">edit</a>]</div><a name="GetPlayerName"></a><h2><a href="GetPlayerName.html" title="GetPlayerName">GetPlayerName</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Получает имя игрока и сохраняет его в многоячеистой переменной, которую вы передаете в качестве второго аргумента.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const name[]</td><td style="vertical-align:top;">Переданная по ссылке переменная, в которую записывается имя.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">len</td><td style="vertical-align:top;">Число ячеек, которое будет присвоено переменной.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">GetPlayerName(playerid, playername, MAX_PLAYER_NAME);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: GetPlayerPing">edit</a>]</div><a name="GetPlayerPing"></a><h2> <a href="GetPlayerPing.html" title="GetPlayerPing">GetPlayerPing</a> </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Узнает пинг игрока.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока.</td></tr></table></div>
+<p><b>Возвращаемые значения:</b><br />
+</p>
+<div style="padding-left:35px;">Пинг игрока.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new ping = GetPlayerPing(playerid);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: GetPlayerPos">edit</a>]</div><a name="GetPlayerPos"></a><h2><a href="GetPlayerPos.html" title="GetPlayerPos">GetPlayerPos</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Получает текущую позицию игрока и сохранить ее в переменных, указанный в трех последующих аргументах.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">&amp;Float:x</td><td style="vertical-align:top;">Переданная по ссылке переменная, в которую записывается x-координата.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">&amp;Float:y</td><td style="vertical-align:top;">Переданная по ссылке переменная, в которую записывается y-координата.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">&amp;Float:z</td><td style="vertical-align:top;">Переданная по ссылке переменная, в которую записывается z-координата.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">GetPlayerPos(playerid, x, y, z);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: GetPlayerScore">edit</a>]</div><a name="GetPlayerScore"></a><h2><a href="GetPlayerScore.html" title="GetPlayerScore">GetPlayerScore</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Получает счет (число очков), которые имеются у игрока на данным момент, которые могут быть заданы функцией SetPlayerScore().<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока.</td></tr></table></div>
+<p><b>Возвращаемые значения:</b><br />
+</p>
+<div style="padding-left:35px;">Текущий счет игрока.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new playerScore &#61; GetPlayerScore(playerid);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: GetPlayerSkin">edit</a>]</div><a name="GetPlayerSkin"></a><h2> <a href="GetPlayerSkin.html" title="GetPlayerSkin">GetPlayerSkin</a> </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Узнает, ID скина, который сейчас использует игрок.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока.</td></tr></table></div>
+<p><b>Возвращаемые значения:</b><br />
+</p>
+<div style="padding-left:35px;">ID скина.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new playerskin = GetPlayerSkin(playerid);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: GetPlayerState">edit</a>]</div><a name="GetPlayerState"></a><h2><a href="GetPlayerState.html" title="GetPlayerState">GetPlayerState</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Получает текущее состояние игрока, для проверки, управляет ли он транспортом, или идет пешком, или все еще помещается в стартовую позицию, и т.д.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока, <a href="PlayerStates-2.html" title="PlayerStates">состояние</a> которого выясняется.</td></tr></table></div>
+<p><b>Возвращаемые значения:</b><br />
+</p>
+<div style="padding-left:35px;">Текущее состояние игрока.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new playerState &#61; GetPlayerState(playerid);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: GetPlayerTeam">edit</a>]</div><a name="GetPlayerTeam"></a><h2><a href="GetPlayerTeam.html" title="GetPlayerTeam">GetPlayerTeam</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Получает ID команды, в которой состоит игрок на данный момент. Используется, например, для балансирования команд.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока.</td></tr></table></div>
+<p><b>Возвращаемые значения:</b><br />
+</p>
+<div style="padding-left:35px;">Текущая команда игрока.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new playerTeam &#61; GetPlayerTeam(playerid);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: GetPlayerTime">edit</a>]</div><a name="GetPlayerTime"></a><h2> <a href="GetPlayerTime.html" title="GetPlayerTime">GetPlayerTime</a> </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Узнает игровое время игрока (в правом верхнем углу экрана).<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">&amp;hour</td><td style="vertical-align:top;">Записывается время (часы).</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">&amp;minute</td><td style="vertical-align:top;">Записывается время (минуты).</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">GetPlayerTime(playerid, hr, min);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: GetPlayerVehicleID">edit</a>]</div><a name="GetPlayerVehicleID"></a><h2><a href="GetPlayerVehicleID.html" title="GetPlayerVehicleID">GetPlayerVehicleID</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Получает ID транспорта, которым управляет игрок в данный момент. Она <b>не</b> возвращает ID модели транспорта.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока.</td></tr></table></div>
+<p><b>Возвращаемые значения:</b><br />
+</p>
+<div style="padding-left:35px;">ID транспорта, которым управляет игрок в данный момент.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new playerVehicle &#61; GetPlayerVehicleID(playerid);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: GetPlayerVirtualWorld">edit</a>]</div><a name="GetPlayerVirtualWorld"></a><h2> <a href="GetPlayerVirtualWorld.html" title="GetPlayerVirtualWorld">GetPlayerVirtualWorld</a> </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Узнает ID виртуального мира, в котором находится игрок с данным ID.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока.</td></tr></table></div>
+<p><b>Возвращаемые значения:</b><br />
+</p>
+<div style="padding-left:35px;">ID мира, в котором находится игрок.<br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: GetPlayerWantedLevel">edit</a>]</div><a name="GetPlayerWantedLevel"></a><h2> <a href="GetPlayerWantedLevel.html" title="GetPlayerWantedLevel">GetPlayerWantedLevel</a> </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Узнает уровень разыскиваемости игрока (звездочки на экране).<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока.</td></tr></table></div>
+<p><b>Возвращаемые значения:</b><br />
+</p>
+<div style="padding-left:35px;">Уровень розыска (кол-во звезд).<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new level = GetPlayerWantedLevel(playerid);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: GetPlayerWeapon">edit</a>]</div><a name="GetPlayerWeapon"></a><h2> <a href="GetPlayerWeapon.html" title="GetPlayerWeapon">GetPlayerWeapon</a> </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Узнает ID оружия, которое игрок сейчас держит в руках.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока.</td></tr></table></div>
+<p><b>Возвращаемые значения:</b><br />
+</p>
+<div style="padding-left:35px;">ID оружия.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new weapon = GetPlayerWeapon(playerid);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: GetPlayerWeaponData">edit</a>]</div><a name="GetPlayerWeaponData"></a><h2> <a href="GetPlayerWeaponData.html" title="GetPlayerWeaponData">GetPlayerWeaponData</a> </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Узнает информацию об оружие и количестве патронов в конкретном слоте игрока брони игрока.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">slot</td><td style="vertical-align:top;">Слот оружия, информацию о котором нужно получить (0-12).</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">&amp;weapons</td><td style="vertical-align:top;">Переменная, в которую нужно записать ID оружия в данном слоте.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">&amp;ammo</td><td style="vertical-align:top;">Переменная, в которую нужно записать количество патронов в данном слоте.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">GetPlayerWeaponData(playerid, 7, weapons, ammo);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: GivePlayerMoney">edit</a>]</div><a name="GivePlayerMoney"></a><h2><a href="GivePlayerMoney.html" title="GivePlayerMoney">GivePlayerMoney</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Эта функция позволяет Вам либо дать, либо отнять у игрока деньги. Если игроку дать отрицательное число денег, то количество его денег уменьшиться.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">money</td><td style="vertical-align:top;">Число денег, которые вы хотите дать/отнять.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">GivePlayerMoney(playerid, 10000);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: GivePlayerWeapon">edit</a>]</div><a name="GivePlayerWeapon"></a><h2><a href="GivePlayerWeapon.html" title="GivePlayerWeapon">GivePlayerWeapon</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Дает игроку указанное оружие, вы можете указать, какое оружие и сколько аммуниции должен получить игрок.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">weaponid</td><td style="vertical-align:top;"><a href="Weapons.html" title="Weapons">ID оружия</a>, даваемого игроку.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">ammo</td><td style="vertical-align:top;">Количестов аммуниции, даваемое игроку вместе с оружием.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">GivePlayerWeapon(playerid, 26, 250);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: IsPlayerAdmin">edit</a>]</div><a name="IsPlayerAdmin"></a><h2><a href="IsPlayerAdmin.html" title="IsPlayerAdmin">IsPlayerAdmin</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Определяет, вошел ли игрок с rcon-функциями.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока.</td></tr></table></div>
+<p><b>Возвращаемые значения:</b><br />
+</p>
+<div style="padding-left:35px;"><b>1</b>, если игрок - админ, <b>0</b>,если нет.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">if(IsPlayerAdmin(playerid)){</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: IsPlayerConnected">edit</a>]</div><a name="IsPlayerConnected"></a><h2><a href="IsPlayerConnected.html" title="IsPlayerConnected">IsPlayerConnected</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Эта функция может быть использована для проверки, подключен ли игрок к серверу.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока.</td></tr></table></div>
+<p><b>Возвращаемые значения:</b><br />
+</p>
+<div style="padding-left:35px;"><b>1</b>, если он подключен, <b>0</b>, если нет.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">if(IsPlayerConnected(playerid)){</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: IsPlayerInAnyVehicle">edit</a>]</div><a name="IsPlayerInAnyVehicle"></a><h2><a href="IsPlayerInAnyVehicle.html" title="IsPlayerInAnyVehicle">IsPlayerInAnyVehicle</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Эта функция может быть использована для проверки, находится ли игрок в каком-либо транспорте в данный момент.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока.</td></tr></table></div>
+<p><b>Возвращаемые значения:</b><br />
+</p>
+<div style="padding-left:35px;"><b>1</b>, если игрок находится в транспорте, <b>0</b>, если нет.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">if(IsPlayerInAnyVehicle(playerid)){</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: IsPlayerInCheckpoint">edit</a>]</div><a name="IsPlayerInCheckpoint"></a><h2><a href="IsPlayerInCheckpoint.html" title="IsPlayerInCheckpoint">IsPlayerInCheckpoint</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Проверяет, находится ли игрок внутри контрольной точки в данный момент. Функция может быть использована для свойств, точек телепортации или гонок, например.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока.</td></tr></table></div>
+<p><b>Возвращаемые значения:</b><br />
+</p>
+<div style="padding-left:35px;"><b>1</b>, если игрок внутри контрольной точки, <b>0</b>, если нет.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">if(IsPlayerInCheckpoint(playerid)){</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: IsPlayerInRaceCheckpoint">edit</a>]</div><a name="IsPlayerInRaceCheckpoint"></a><h2> <a href="IsPlayerInRaceCheckpoint.html" title="IsPlayerInRaceCheckpoint">IsPlayerInRaceCheckpoint</a> </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Проверяет, находится ли игрок в гоночном чекпойнте в данный момент.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока.</td></tr></table></div>
+<p><b>Возвращаемые значения:</b><br />
+</p>
+<div style="padding-left:35px;"><b>1</b>, если игрок в гоночном чекпойнте, <b>0</b>, если нет.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">if(IsPlayerInRaceCheckpoint(playerid)){</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: IsPlayerInVehicle">edit</a>]</div><a name="IsPlayerInVehicle"></a><h2><a href="IsPlayerInVehicle.html" title="IsPlayerInVehicle">IsPlayerInVehicle</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Проверяет, находится ли игрок в указанном транспорте в данный момент. Запомните, вы должны использовать ID транспорта, а не ID <i>модели</i> транспорта!<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">vehicleid</td><td style="vertical-align:top;">ID транспорта.</td></tr></table></div>
+<p><b>Возвращаемые значения:</b><br />
+</p>
+<div style="padding-left:35px;"><b>1</b>, если игрок в этом транспорте, <b>0</b>, если нет.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">if(IsPlayerInVehicle(playerid, 32)){</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: PlayerPlaySound">edit</a>]</div><a name="PlayerPlaySound"></a><h2><a href="PlayerPlaySound.html" title="PlayerPlaySound">PlayerPlaySound</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Эта функция воспроизводит звук для игрока. Звуки могут быть добавлены для некоторых замечательных эффектов, но доступно лишь несколько звуков, потому тчо вы не можете загрузить никакие экстра-звуки.<br /></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #FFEAEA; border-left: 10px solid #FCA9A9;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #FCA9A9;"><a href="Image_32px-Circle-style-warning.png.html" class="image" title="Image:32px-Circle-style-warning.png"><img src="../upload/5/57/32px-Circle-style-warning.png" alt="Image:32px-Circle-style-warning.png" width="32" height="32" longdesc="Image_32px-Circle-style-warning.png.html" /></a><br />
+<p><strong>Важное<br />Примечание</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">x/y/z-координаты, видимо, не оказывают большого влияния на звук.</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">soundid</td><td style="vertical-align:top;"><a href="SoundID.html" title="SoundID">ID звука</a>.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:x</td><td style="vertical-align:top;">X-координата места, где надо проиграть звук.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:y</td><td style="vertical-align:top;">Y-координата места, где надо проиграть звук.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:z</td><td style="vertical-align:top;">Z-координата места, где надо проиграть звук.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">PlayerPlaySound(playerid, 1025, 0.0, 0.0, 0.0);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: PutPlayerInVehicle">edit</a>]</div><a name="PutPlayerInVehicle"></a><h2><a href="PutPlayerInVehicle.html" title="PutPlayerInVehicle">PutPlayerInVehicle</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Вы можете использовать эту функцию, чтобы поместить игрока в указанный транспорт. Вы можете указать помимо ID транспорта еще и ID сиденья, которые предоставляют вам много настроек.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">vehicleid</td><td style="vertical-align:top;">ID транспорта.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">seatid</td><td style="vertical-align:top;">ID сиденья.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">PutPlayerInVehicle(playerid, 0, 1);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: RemovePlayerFromVehicle">edit</a>]</div><a name="RemovePlayerFromVehicle"></a><h2><a href="RemovePlayerFromVehicle.html" title="RemovePlayerFromVehicle">RemovePlayerFromVehicle</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Эта функция вытаскивает игрока из транспорта. Запомните, что вызываемая функция OnPlayerExitVehicle не сработает!<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">RemovePlayerFromVehicle(playerid);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: RemovePlayerMapIcon">edit</a>]</div><a name="RemovePlayerMapIcon"></a><h2> <a href="RemovePlayerMapIcon.html" title="RemovePlayerMapIcon">RemovePlayerMapIcon</a> </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Удаляет иконку на карте игрока.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID иконки.</td></tr></table></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: ResetPlayerMoney">edit</a>]</div><a name="ResetPlayerMoney"></a><h2><a href="ResetPlayerMoney.html" title="ResetPlayerMoney">ResetPlayerMoney</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Сбрасывает деньги, которые имеются у игрока. Это может быть использовано при создании команды <a href="SetPlayerMoney.html" class="new" title="SetPlayerMoney">SetPlayerMoney</a>.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">ResetPlayerMoney(playerid);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: ResetPlayerWeapons">edit</a>]</div><a name="ResetPlayerWeapons"></a><h2><a href="ResetPlayerWeapons.html" title="ResetPlayerWeapons">ResetPlayerWeapons</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Сбрасывает все оружие, которое носит игрок в данный момент. Применима, например, если кто-то убивает своего напарника по команде, то все его оружие заменяется цветочками.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">ResetPlayerWeapons(playerid);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: SetCameraBehindPlayer">edit</a>]</div><a name="SetCameraBehindPlayer"></a><h2><a href="SetCameraBehindPlayer.html" title="SetCameraBehindPlayer">SetCameraBehindPlayer</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Восстановить камеру на место позади игрока после использования функций, подобных SetPlayerCameraPos.<br /></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #FFEAEA; border-left: 10px solid #FCA9A9;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #FCA9A9;"><a href="Image_32px-Circle-style-warning.png.html" class="image" title="Image:32px-Circle-style-warning.png"><img src="../upload/5/57/32px-Circle-style-warning.png" alt="Image:32px-Circle-style-warning.png" width="32" height="32" longdesc="Image_32px-Circle-style-warning.png.html" /></a><br />
+<p><strong>Важное<br />Примечание</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">Эта функция работает только тогда, когда игрок еще не поместился в стартовую позицию. Используется в OnPlayerSpawn, например.</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">SetCameraBehindPlayer(playerid);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: SetPlayerAmmo">edit</a>]</div><a name="SetPlayerAmmo"></a><h2> <a href="SetPlayerAmmo.html" title="SetPlayerAmmo">SetPlayerAmmo</a> </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Установить для игрока количество патронов в данном слоте.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">weaponslot</td><td style="vertical-align:top;">Номер слота.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">ammo</td><td style="vertical-align:top;">Количество оружия.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">SetPlayerAmmo(playerid, 8, 150);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: SetPlayerArmour">edit</a>]</div><a name="SetPlayerArmour"></a><h2> <a href="SetPlayerArmour.html" title="SetPlayerArmour">SetPlayerArmour</a> </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Устанавливает количество брони для игрока.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:armour</td><td style="vertical-align:top;">Количество брони.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">SetPlayerArmour(playerid, 100.0);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: SetPlayerCameraLookAt">edit</a>]</div><a name="SetPlayerCameraLookAt"></a><h2><a href="SetPlayerCameraLookAt.html" title="SetPlayerCameraLookAt">SetPlayerCameraLookAt</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Устанавливает направление и место, куда будет смотреть камера игрока. Вам следует использовать ее в комбинации с SetPlayerCameraPos.<br /></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #FFEAEA; border-left: 10px solid #FCA9A9;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #FCA9A9;"><a href="Image_32px-Circle-style-warning.png.html" class="image" title="Image:32px-Circle-style-warning.png"><img src="../upload/5/57/32px-Circle-style-warning.png" alt="Image:32px-Circle-style-warning.png" width="32" height="32" longdesc="Image_32px-Circle-style-warning.png.html" /></a><br />
+<p><strong>Важное<br />Примечание</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">Вам придется использовать функцию SetCameraBehindPlayer для восстановления камеры игрока.</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:x</td><td style="vertical-align:top;">X-координата, куда будет смотреть камера.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:y</td><td style="vertical-align:top;">Y-координата, куда будет смотреть камера.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:z</td><td style="vertical-align:top;">Z-координата, куда будет смотреть камера.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">SetPlayerCameraLookAt(playerid, 324.34, 54.122. -173.35);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: SetPlayerCameraPos">edit</a>]</div><a name="SetPlayerCameraPos"></a><h2><a href="SetPlayerCameraPos.html" title="SetPlayerCameraPos">SetPlayerCameraPos</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Устанавливает новую позицию камеры игрока.<br /></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #FFEAEA; border-left: 10px solid #FCA9A9;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #FCA9A9;"><a href="Image_32px-Circle-style-warning.png.html" class="image" title="Image:32px-Circle-style-warning.png"><img src="../upload/5/57/32px-Circle-style-warning.png" alt="Image:32px-Circle-style-warning.png" width="32" height="32" longdesc="Image_32px-Circle-style-warning.png.html" /></a><br />
+<p><strong>Важное<br />Примечание</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">Вам придется использовать функцию SetCameraBehindPlayer для восстановления камеры игрока.</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:x</td><td style="vertical-align:top;">Новая x-координата камеры.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:y</td><td style="vertical-align:top;">Новая y-координата камеры.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:z</td><td style="vertical-align:top;">Новая z-координата камеры.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">SetPlayerCameraPos(playerid, 652.23, 457.21, 10.84);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: SetPlayerCheckpoint">edit</a>]</div><a name="SetPlayerCheckpoint"></a><h2><a href="SetPlayerCheckpoint.html" title="SetPlayerCheckpoint">SetPlayerCheckpoint</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Установить текущую контрольную точку для игрока. В один и тот же момоент времени вы можете использовать только одну контрольную точку, вам следует использовать DisablePlayerCheckpoint, чтобы сначала уничтожить предыдущую.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:x</td><td style="vertical-align:top;">X-координата для новой контрольной точки.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:y</td><td style="vertical-align:top;">Y-координата для новой контрольной точки.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:z</td><td style="vertical-align:top;">Z-координата для новой контрольной точки.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:size</td><td style="vertical-align:top;">Размер контрольной точки.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">SetPlayerCheckpoint(playerid, 354.12, 932.12, 19.34, 2.0);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: SetPlayerColor">edit</a>]</div><a name="SetPlayerColor"></a><h2><a href="SetPlayerColor.html" title="SetPlayerColor">SetPlayerColor</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Эта функция позволяет Вам изменить текущий цвет игрока.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">color</td><td style="vertical-align:top;">Новый цвет игрока, целое число.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">SetPlayerColor(playerid, 0xFFFF00AA);</span><br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">SetPlayerColor(playerid, 4294901930);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: SetPlayerFacingAngle">edit</a>]</div><a name="SetPlayerFacingAngle"></a><h2><a href="SetPlayerFacingAngle.html" title="SetPlayerFacingAngle">SetPlayerFacingAngle</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Устанавливает текущий угол поворота игрока.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:ang</td><td style="vertical-align:top;">Новый угол поворота игрока.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">SetPlayerFacingAngle(playerid, 90.0);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: SetPlayerHealth">edit</a>]</div><a name="SetPlayerHealth"></a><h2><a href="SetPlayerHealth.html" title="SetPlayerHealth">SetPlayerHealth</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Изменяет текущее здоровье игрока. Параметр health указывается в процентах, так 100 означает, что полоса здоровья полная.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:health</td><td style="vertical-align:top;">Новое здоровье, вещественное число.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">SetPlayerHealth(playerid, 95.0);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: SetPlayerInterior">edit</a>]</div><a name="SetPlayerInterior"></a><h2><a href="SetPlayerInterior.html" title="SetPlayerInterior">SetPlayerInterior</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Изменяет текущее местоположение игрока. Список всех известных на данный момент мест и их позиции можно найти на <a href="InteriorIDs.html" title="InteriorIDs">этой</a> странице.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">interiorid</td><td style="vertical-align:top;">ID нового места (или Universe ID) игрока.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">SetPlayerInterior(playerid, 0);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: SetPlayerMapIcon">edit</a>]</div><a name="SetPlayerMapIcon"></a><h2> <a href="SetPlayerMapIcon.html" title="SetPlayerMapIcon">SetPlayerMapIcon</a> </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Устанавливает для игрока иконку на радаре и карте.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">iconid</td><td style="vertical-align:top;">ID для данной иконки.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:x</td><td style="vertical-align:top;">X-координата для положения иконки.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:y</td><td style="vertical-align:top;">Y-координата для положения иконки.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:z</td><td style="vertical-align:top;">Z-координата для положения иконки.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">markertype</td><td style="vertical-align:top;">Тип (модель) иконки.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">color</td><td style="vertical-align:top;">Цвет иконки.</td></tr></table></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: SetPlayerMarkerForPlayer">edit</a>]</div><a name="SetPlayerMarkerForPlayer"></a><h2> <a href="SetPlayerMarkerForPlayer.html" title="SetPlayerMarkerForPlayer">SetPlayerMarkerForPlayer</a> </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Установить отображение маркера игрока на карте для другого игрока.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">showplayerid</td><td style="vertical-align:top;">ID игрока, которому нужно показать маркер.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">color</td><td style="vertical-align:top;">Цвет маркера.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">SetPlayerMarkerForPlayer(playerid, 0, COLOR_GREEN);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: SetPlayerName">edit</a>]</div><a name="SetPlayerName"></a><h2> <a href="SetPlayerName.html" title="SetPlayerName">SetPlayerName</a> </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Меняет имя игрока.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const name[]</td><td style="vertical-align:top;">Новое имя игрока.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">SetPlayerName(playerid, "[NoTeam]Player");</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: SetPlayerPos">edit</a>]</div><a name="SetPlayerPos"></a><h2><a href="SetPlayerPos.html" title="SetPlayerPos">SetPlayerPos</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Изменяет позицию игрока на другую позицию на карте.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:x</td><td style="vertical-align:top;">X-координата для новой позиции игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:y</td><td style="vertical-align:top;">Y-координата для новой позиции игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:z</td><td style="vertical-align:top;">Z-координата для новой позиции игрока.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">SetPlayerPos(playerid, 34.236, 934.323, 12.345);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: SetPlayerRaceCheckpoint">edit</a>]</div><a name="SetPlayerRaceCheckpoint"></a><h2> <a href="SetPlayerRaceCheckpoint.html" title="SetPlayerRaceCheckpoint">SetPlayerRaceCheckpoint</a> </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Устанавливает гоночный чекпойнт для игрока.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">type</td><td style="vertical-align:top;">Тип гоночного чекпойнта:
+<dl><dd>0 - Наземный нормальный
+</dd><dd>1 - Наземный финиш
+</dd><dd>2 - Наземный пустой (Без стрелки)
+</dd><dd>3 - Воздушный нормальный
+</dd><dd>4 - Воздушный финиш</td></tr></table></div>
+</dd></dl>
+<p><br />
+</p>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:x</td><td style="vertical-align:top;">X-координата для чекпойнта.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:y</td><td style="vertical-align:top;">Y-координата для чекпойнта.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:z</td><td style="vertical-align:top;">Z-координата для чекпойнта.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:nextx</td><td style="vertical-align:top;">X-координата точки, на которую будет "смотреть" стрелка чекпойнта.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:nexty</td><td style="vertical-align:top;">Y-координата точки, на которую будет "смотреть" стрелка чекпойнта.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:nextz</td><td style="vertical-align:top;">Z-координата точки, на которую будет "смотреть" стрелка чекпойнта.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:size</td><td style="vertical-align:top;">Размер контрольной точки.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">SetPlayerCheckpoint(playerid, 354.12, 932.12, 19.34, 368.4, 898.2, 19.5, 2.0);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: SetPlayerScore">edit</a>]</div><a name="SetPlayerScore"></a><h2><a href="SetPlayerScore.html" title="SetPlayerScore">SetPlayerScore</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Обновляет счет игрока до другого значения.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">score</td><td style="vertical-align:top;">Новый счет игрока.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">SetPlayerScore(playerid, 10000);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: SetPlayerSkin">edit</a>]</div><a name="SetPlayerSkin"></a><h2><a href="SetPlayerSkin.html" title="SetPlayerSkin">SetPlayerSkin</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Изменяет скин игрока. Вам следует проверить в General Referance на форумах, может ли использоваться скин, так как некоторые скины могут привести к вылету игры.<br /></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #FFEAEA; border-left: 10px solid #FCA9A9;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #FCA9A9;"><a href="Image_32px-Circle-style-warning.png.html" class="image" title="Image:32px-Circle-style-warning.png"><img src="../upload/5/57/32px-Circle-style-warning.png" alt="Image:32px-Circle-style-warning.png" width="32" height="32" longdesc="Image_32px-Circle-style-warning.png.html" /></a><br />
+<p><strong>Важное<br />Примечание</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">Этот игрок может привести к вылету Вашей игры!</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">skinid</td><td style="vertical-align:top;">ID нового скина для игрока.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">SetPlayerSkin(playerid, 121);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: SetPlayerTeam">edit</a>]</div><a name="SetPlayerTeam"></a><h2><a href="SetPlayerTeam.html" title="SetPlayerTeam">SetPlayerTeam</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Используйте эту функцию для изменения команды игрока. Игроки одной команды не смогут навредить друг другу.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">teamid</td><td style="vertical-align:top;">ID команды, членом которой станет игрок.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">SetPlayerTeam(playerid, TEAM_BALLAS);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: SetPlayerTime">edit</a>]</div><a name="SetPlayerTime"></a><h2> <a href="SetPlayerTime.html" title="SetPlayerTime">SetPlayerTime</a> </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Устанавливает игровое время для игрока (в правом верхнем углу экрана).<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">hour</td><td style="vertical-align:top;">Время (часы).</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">minute</td><td style="vertical-align:top;">Время (минуты).</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">SetPlayerTime(playerid, 18, 30);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: SetPlayerVirtualWorld">edit</a>]</div><a name="SetPlayerVirtualWorld"></a><h2> <a href="SetPlayerVirtualWorld.html" title="SetPlayerVirtualWorld">SetPlayerVirtualWorld</a> </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Перемещает игрока в виртуальный мир с данным ID.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID мира, в который нужно переместить игрока.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">SetPlayerVirtualWorld(playerid,1);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: SetPlayerWantedLevel">edit</a>]</div><a name="SetPlayerWantedLevel"></a><h2> <a href="SetPlayerWantedLevel.html" title="SetPlayerWantedLevel">SetPlayerWantedLevel</a> </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Устанавливает уровень разыскиваемости игрока (звездочки на экране).<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">level</td><td style="vertical-align:top;">Уровень розыска (кол-во звезд).</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">SetPlayerWantedLevel(playerid, 6);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: SetPlayerWeather">edit</a>]</div><a name="SetPlayerWeather"></a><h2> <a href="SetPlayerWeather.html" title="SetPlayerWeather">SetPlayerWeather</a> </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Установить погоду для отдельного игрока.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">weather</td><td style="vertical-align:top;">ID погоды.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">SetPlayerWeather(playerid, 14);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: SetPlayerWorldBounds">edit</a>]</div><a name="SetPlayerWorldBounds"></a><h2><a href="SetPlayerWorldBounds.html" title="SetPlayerWorldBounds">SetPlayerWorldBounds</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Эта функция может быть использована для изменения границ для игрока в игровом мире, мест, до куда он может добраться.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:x_max</td><td style="vertical-align:top;">Макс. x-координата того, куда игрок может попасть.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:x_min</td><td style="vertical-align:top;">Мин. x-координата того, куда игрок может попасть.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:y_max</td><td style="vertical-align:top;">Макс. y-координата того, куда игрок может попасть.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:y_min</td><td style="vertical-align:top;">Мин. y-координата того, куда игрок может попасть.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">SetPlayerWorldBounds(playerid, 20.0, 0.0, 20.0, 0.0);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: ShowPlayerNameTagForPlayer">edit</a>]</div><a name="ShowPlayerNameTagForPlayer"></a><h2> <a href="ShowPlayerNameTagForPlayer.html" title="ShowPlayerNameTagForPlayer">ShowPlayerNameTagForPlayer</a> </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Позволяет включить/выключить отображение имени игрока для другого игрока.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">showplayerid</td><td style="vertical-align:top;">ID игрока, которому нужно показать имя.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">show</td><td style="vertical-align:top;"><b>1</b> - показывать, <b>0</b> - не показывать.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">SetPlayerWeather(playerid, 0, 1);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: SpawnPlayer">edit</a>]</div><a name="SpawnPlayer"></a><h2><a href="SpawnPlayer.html" title="SpawnPlayer">SpawnPlayer</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Эта функция может быть использована, чтобы переразместить игрока в стартовой позиции, хорошо подходит, например, после установки различных позиций камеры.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">SpawnPlayer(playerid);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: TogglePlayerControllable">edit</a>]</div><a name="TogglePlayerControllable"></a><h2><a href="TogglePlayerControllable.html" title="TogglePlayerControllable">TogglePlayerControllable</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Эта функция позволяет Вам включать/выключать разрешение двигаться для игрока. Используется для замораживания игроков, которых Вы подозреваете в читерстве, например.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">moveable</td><td style="vertical-align:top;"><b>true</b> - игрок сможет двигаться, <b>false</b> - не сможет.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">TogglePlayerControllable(playerid, 0);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: SetPlayerPosFindZ">edit</a>]</div><a name="SetPlayerPosFindZ"></a><h2> <a href="SetPlayerPosFindZ.html" title="SetPlayerPosFindZ">SetPlayerPosFindZ</a> </h2>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: GetPlayerKeys">edit</a>]</div><a name="GetPlayerKeys"></a><h2> <a href="GetPlayerKeys.html" title="GetPlayerKeys">GetPlayerKeys</a> </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Узнает состояние кнопок у игрока.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: TogglePlayerClock">edit</a>]</div><a name="TogglePlayerClock"></a><h2> <a href="TogglePlayerClock.html" title="TogglePlayerClock">TogglePlayerClock</a> </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Позволяет включать/выключать игровые часы у игрока.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">toggle</td><td style="vertical-align:top;"><b>1</b> - включить, <b>0</b> - отключить.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">TogglePlayerClock(playerid, 1);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: SetPlayerDisabledWeapons">edit</a>]</div><a name="SetPlayerDisabledWeapons"></a><h2> <a href="SetPlayerDisabledWeapons.html" title="SetPlayerDisabledWeapons">SetPlayerDisabledWeapons</a> </h2>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #FFAAA4; border-left: 10px solid #cd5c5c;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #cd5c5c;"><a href="Image_32px-Circle-style-warning.png.html" class="image" title="Image:32px-Circle-style-warning.png"><img src="../upload/5/57/32px-Circle-style-warning.png" alt="Image:32px-Circle-style-warning.png" width="32" height="32" longdesc="Image_32px-Circle-style-warning.png.html" /></a><br />
+<p><strong>Предупреждение!</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">Эта функция не работает в текущей версии SA:MP!</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: ForceClassSelection">edit</a>]</div><a name="ForceClassSelection"></a><h2> <a href="ForceClassSelection.html" title="ForceClassSelection">ForceClassSelection</a> </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Заставляет игрока вернуться к выбору класса.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">ForceClassSelection(playerid);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: ApplyAnimation">edit</a>]</div><a name="ApplyAnimation"></a><h2> <a href="ApplyAnimation.html" title="ApplyAnimation">ApplyAnimation</a> </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Установить анимацию для игрока<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: ClearAnimations">edit</a>]</div><a name="ClearAnimations"></a><h2> <a href="ClearAnimations.html" title="ClearAnimations">ClearAnimations</a> </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Убрать анимацию у игрока.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: GetPlayerSpecialAction">edit</a>]</div><a name="GetPlayerSpecialAction"></a><h2> <a href="GetPlayerSpecialAction.html" title="GetPlayerSpecialAction">GetPlayerSpecialAction</a> </h2>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: SetPlayerSpecialAction">edit</a>]</div><a name="SetPlayerSpecialAction"></a><h2> <a href="SetPlayerSpecialAction.html" title="SetPlayerSpecialAction">SetPlayerSpecialAction</a> </h2>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: TogglePlayerSpectating">edit</a>]</div><a name="TogglePlayerSpectating"></a><h2> <a href="TogglePlayerSpectating.html" title="TogglePlayerSpectating">TogglePlayerSpectating</a> </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Переключает игрока в режим спектатора и обратно.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">toggle</td><td style="vertical-align:top;"><b>1</b> - включить режим спектатора, <b>0</b> - отключить режим спектатора.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">TogglePlayerSpectating(playerid, 1);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: PlayerSpectatePlayer">edit</a>]</div><a name="PlayerSpectatePlayer"></a><h2> <a href="PlayerSpectatePlayer.html" title="PlayerSpectatePlayer">PlayerSpectatePlayer</a> </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Позволяет игроку наблюдать за другим игроком в режиме спектатора.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока, который будет осуществлять наблюдение.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">targetplayerid,</td><td style="vertical-align:top;">ID игрока, за которым будет осуществляться наблюдение.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">mode</td><td style="vertical-align:top;">Режим наблюдения.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">PlayerSpectatePlayer(playerid, 4, SPECTATE_MODE_NORMAL);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_player.inc%2529.html" title="Edit section: PlayerSpectateVehicle">edit</a>]</div><a name="PlayerSpectateVehicle"></a><h2> <a href="PlayerSpectateVehicle.html" title="PlayerSpectateVehicle">PlayerSpectateVehicle</a> </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Позволяет игроку наблюдать за транспортным средством в режиме спектатора.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока, который будет осуществлять наблюдение.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">targetvehicleid</td><td style="vertical-align:top;">ID транспортного средства, за которым будет осуществляться наблюдение.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">mode</td><td style="vertical-align:top;">Режим наблюдения.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">PlayerSpectateVehicle(playerid, 278, SPECTATE_MODE_NORMAL);</span><br /></div>
+<div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/Scripting_Functions_%2528a_player.inc%2529.html">http://localhost../wiki/Scripting_Functions_%2528a_player.inc%2529.html</a>"</div>
+						<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="Scripting_Functions_%2528a_player.inc%2529.html">Article</a></li>
+				 <li id="ca-talk"><a href="Talk_Scripting_Functions_%2528a_player.inc%2529.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="Scripting_Functions_%2528a_player.inc%2529.html">Edit</a></li>
+				 <li id="ca-history"><a href="Scripting_Functions_%2528a_player.inc%2529.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 23,658 times.</li>
+				<li id="credits">This page was last modified 17:19, 19 August 2015 by SA-MP Wiki user <a href="User_OstGot.html" title="User:OstGot">OstGot</a>. Based on work by SA-MP Wiki user(s) <a href="User_MP2.html" title="User:MP2">MP2</a> and <a href="User_BerG.html" class="new" title="User:BerG">BerG</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 6.33 secs. -->
+</body></html>

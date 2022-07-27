@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="INFINITY RU" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>INFINITY RU - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">INFINITY RU</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<p><b>Ход разработки мода INFINITY RPG U1 (Update 1) for Role Play Gaming Server.</b>
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+<p><strong>Примечание</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">Внимание, дата реализации данного мода неизвестна, просим сохранять спокойствие, и наблюдать за событиями.</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<b>Обновления на 07.06.10:</b><div style="margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">Оптимизация диалоговых окон: Создание 3 типа оружейных магазинов, с различными оружиями в них. Цены на оружие в магазине, могут редактироваться владельцами того или иного оружейного завода штата San Andreas. Все виды оружия сгруппированы по группам, в соответствующие категории, что упростит выбор оружий для игроков, как по классу, так и по разрешению на ношения того или иного класса оружия (холодные, пистолеты, ружья, автоматы, дробовики).</div>
+<div style="margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">Исправлено: Исправление недостающей скобки, в процессе работы над оптимизацией диалоговых окон. (Сложность ошибки: 100%).<br /></div>
+<div style="margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">Оптимизированы входы и выходы в бизнесы/дома на кнопках, теперь это затрачивает куда меньше процесса, чем до этого с 3-4 циклами.<br /></div>
+<b>Обновления на 08.06.10:</b><div style="margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">Оптимизация и сокращение циклов в системе динамических транспортных средств путём запроса в базу данных mySQL.</div>
+<div style="margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">Исправлено: GetPlayerID возвращал -1, при попытке узнать ID бота.<br /></div>
+<div style="margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">Исправлено: Краш диалоговых окон на старте register/login, из-за недопустимого размера массива (MAX_STRING).<br /></div>
+<div style="margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">Исправлено: Падение игрока во время просмотра обучения.<br /></div>
+<div style="margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">Подработана обучающая система, которая будет со временем изменяться, дополняться.<br /></div>
+<div style="margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">Исправлено: Ошибка возврата mySQL русских букв из базы данных.<br /></div>
+<div style="margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">Исправлено: Создана непробиваемая защита от хака денег, фальшивые деньги - просто спускаются вниз на первоначальный статус.<br /></div>
+<div style="margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">Исправлено: 3D Текст не показывался над пикапами бизнесов и домов.<br /></div>
+<div style="margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">Добавлено: Новый параметр в бизнес: Ключ, на тот случай, если владелец закрывает бизнес, тот, кто имеет ключ, может зайти туда, так-же добавлен новый параметр в базу данных - иконка, которая может выбираться в зависимости от типа бизнеса. Список доступных иконок, можно посмотреть здесь - <a href="http://wiki.sa-mp.com/wiki/MapIcons" class='external free' title="http://wiki.sa-mp.com/wiki/MapIcons" rel="nofollow">http://wiki.sa-mp.com/wiki/MapIcons</a><br /></div>
+<b>Обновления на 14.06.10:</b><div style="margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">После выхода PVar'ов - динамических переменных для хранения интригеров, текстов и точек было принято решения полного перехода на них. Однако после перевода большой части массивов выяснилось, что GetPVarString не возвращает русский текст и их работа намного медленнее, чем обычные статические массивы. Было принято решение перевода на статические массивы, ибо эти PVar'ы компенсируют всю нагрузку, которую мы так тщательно оптимизируем. Это заняло большое время.</div>
+<b>Обновления на 18.06.10:</b><div style="margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">Идёт создание терминалов, создана система штрафов, полиция может удалено выписывать, управлять штрафами игрока. Все штрафы сохраняются в базе данных навсегда, таким образом можно всегда посмотреть, какие штрафы и за что, имел тот или инои игрок.</div>
+<div style="margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">Создан запрос поддержки для полицеиского бортового компьютера. Приимущество даннои поддержки от обычных, является то, что вызывая поддержку, вы будите отслеживать значок патрульнои машины, пока из неё не выидет тот игрок, которыи вызвал поддержку, таким образом вам ненужно будет постоянно вызывать каждые несколько секунд поддержку.<br /></div>
+<b>Обновления на 19.06.10:</b><div style="margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">Оптимизация и удаление циклов, замена циклов на динамические циклы foreach.</div>
+<div style="margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">Создано сохранение жизнеи ТС и его повреждении, таким образом, после перезагрузки мода, все повреждения и жизни вашего ТС будет сохранено.<br /></div>
+<div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/INFINITY_RU.html">http://localhost../wiki/INFINITY_RU.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="Category_Outdated.html" title="Category:Outdated">Outdated</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="INFINITY_RU.html">Article</a></li>
+				 <li id="ca-talk"><a href="Talk_INFINITY_RU.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="INFINITY_RU.html">Edit</a></li>
+				 <li id="ca-history"><a href="INFINITY_RU.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 4,321 times.</li>
+				<li id="credits">This page was last modified 11:56, 27 March 2017 by SA-MP Wiki user <a href="User_OstGot.html" title="User:OstGot">OstGot</a>. Based on work by SA-MP Wiki user(s) <a href="User_Toneysix.html" class="new" title="User:Toneysix">Toneysix</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 50.64 secs. -->
+</body></html>

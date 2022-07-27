@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Server.cfg NL,RCON,Server.cfg NL" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>Server.cfg NL - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Server.cfg NL</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<div class="thumb tright"><div style="width:182px;"><a href="Image_SA-MP_Wiki_Windows_2.gif.html" class="internal" title="Een werkende server!"><img src="../upload/thumb/7/7e/SA-MP_Wiki_Windows_2.gif/180px-SA-MP_Wiki_Windows_2.gif" alt="Een werkende server!" width="180" height="148" longdesc="Image_SA-MP_Wiki_Windows_2.gif.html" /></a>  <div class="thumbcaption" ><div class="magnify" style="float:right"><a href="Image_SA-MP_Wiki_Windows_2.gif.html" class="internal" title="Enlarge"><img src="../skins/common/images/magnify-clip.png" width="15" height="11" alt="Enlarge" /></a></div>Een werkende server!</div></div></div>
+<ul><li> <i><b>echo</b></i> - Dit is een manier om iets te laten zien op de console zodra de server wordt gestart.
+</li><li> <i><b>lanmode</b></i> - Als je deze aan zet (1), wordt er meer bandbreedte verbruikt, maar is er minder lag en meer synchronisatie.
+</li><li> <i><b>maxplayers</b></i> - Maximaal aantal spelers op een gegeven moment.
+</li><li> <i><b>port</b></i> - De poort van de server <a href="http://www.portforward.com/" class='external text' title="http://www.portforward.com" rel="nofollow">Portforward</a>. Standaard is <b>7777</b>
+</li><li> <i><b>hostname</b></i> - Dit is de naam voor je server.
+</li><li> <i><b>gamemodeXX (N) (t)</b></i> - Het is mogelijk om welk gamemode te laten lopen die je wilt. De nummers voor meerdere gamemodes lopen op. <b>(N)</b> is de filename van de gamemode (gamemodes/naam.amx), <b>(t)</b> is het aantal keren spelen voordat de volgende gamemode wordt geladen.
+<ul><li> gamemode0 lvdm 1
+</li><li> gamemode1 rivershell 1
+</li><li> gamemode2 area51 1
+</li><li> gamemode4 sftdm 1
+</li></ul>
+</li><li> <i><b>weburl</b></i> - Dit is extra informatie over je server, in dit geval de website. 
+</li><li> <i><b>rcon_password</b></i> - Dit is een wachtwoord voor <a href="RCON.html" title="RCON">RCON</a>, deze moet anders zijn dan <b>changeme</b>, anders start de server niet.
+</li><li> <i><b>filterscripts (N)</b></i> - Filterscripts zijn scripts die kunnen worden geladen, gescheiden met een spatie. Voorbeeld: <i>filterscripts script1 script2</i>
+</li><li> <i><b>password (p)</b></i> - Als je een verplicht wachtwoord wilt voor iemand om de server te joinen <b>password xxx</b>
+</li></ul>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #E2FFE5; border-left: 10px solid #81C687;">
+
+<tr>
+<td><a href="Image_Add.png.html" class="image" title="Server.cfg NL was added in SA-MP 0.3a"><img src="../upload/a/a7/Add.png" alt="Server.cfg NL was added in SA-MP 0.3a" width="16" height="16" longdesc="Image_Add.png.html" /></a>
+</td><td align="left" style="padding-left:7px; padding-right:7px;"><span style="font-size:14px;">This server directive was added in <strong>SA-MP 0.3a</strong> and will not work in earlier versions!</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<ul><li> <i><b>rcon 0/1</b></i> - Als je 0 gebruikt wordt RCON uitgeschakeld.
+</li><li> <i><b>maxnpc</b></i> - Het maximum aantal npc's in je server.
+</li><li> <i><b>onfoot_rate</b></i> - Zendratio van te voet data paketten.
+</li><li> <i><b>incar_rate</b></i> - Zendratio van auto data paketten.
+</li><li> <i><b>weapon_rate</b></i> - Zendratio van wapen data paketten.
+</li><li> <i><b>stream_distance</b></i> - De afstand vanaf waar een speler of auto getoond word. Maximum 500.0 <sup>[<a href="Talk_Server.cfg_NL.html" title="Talk:Server.cfg NL">Bron?</a>]</sup>.
+</li><li> <i><b>stream_rate</b></i> - Hoe vaak de server moet checken of iets word gestreamd.
+</li></ul>
+<div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/Server.cfg_NL.html">http://localhost../wiki/Server.cfg_NL.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="Category_Added_in_0.3.html" title="Category:Added in 0.3">Added in 0.3</a></span> | <span dir='ltr'><a href="Category_Server_Documentation_NL.html" title="Category:Server Documentation NL">Server Documentation NL</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="Server.cfg_NL.html">Article</a></li>
+				 <li id="ca-talk"><a href="Talk_Server.cfg_NL.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="Server.cfg_NL.html">Edit</a></li>
+				 <li id="ca-history"><a href="Server.cfg_NL.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-en"><a href="Server.cfg.html">English</a></li>
+				<li class="interwiki-ru"><a href="Server.cfg_RU.html">Русский</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 16,645 times.</li>
+				<li id="credits">This page was last modified 08:42, 8 December 2016 by SA-MP Wiki user <a href="User_OstGot.html" title="User:OstGot">OstGot</a>. Based on work by SA-MP Wiki user(s) <a href="User_Vince.html" title="User:Vince">Vince</a> and <a href="User_VWOer.html" title="User:VWOer">VWOer</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 5.45 secs. -->
+</body></html>

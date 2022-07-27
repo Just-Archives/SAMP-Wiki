@@ -1,0 +1,338 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Scripting Basics NL,FUNExtreme,HellFly" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>Scripting Basics NL - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Scripting Basics NL</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class='toclevel-1'><a href="#Type_variabelen"><span class="tocnumber">1</span> <span class="toctext">Type variabelen</span></a>
+<ul>
+<li class='toclevel-2'><a href="#Integer"><span class="tocnumber">1.1</span> <span class="toctext">Integer</span></a>
+<ul>
+<li class='toclevel-3'><a href="#Voorbeeld"><span class="tocnumber">1.1.1</span> <span class="toctext">Voorbeeld</span></a></li>
+<li class='toclevel-3'><a href="#Mogelijke_gebruikswijze"><span class="tocnumber">1.1.2</span> <span class="toctext">Mogelijke gebruikswijze</span></a></li>
+</ul>
+</li>
+<li class='toclevel-2'><a href="#Float"><span class="tocnumber">1.2</span> <span class="toctext">Float</span></a>
+<ul>
+<li class='toclevel-3'><a href="#Voorbeeld_2"><span class="tocnumber">1.2.1</span> <span class="toctext">Voorbeeld</span></a></li>
+<li class='toclevel-3'><a href="#Mogelijke_gebruikswijze_2"><span class="tocnumber">1.2.2</span> <span class="toctext">Mogelijke gebruikswijze</span></a></li>
+</ul>
+</li>
+<li class='toclevel-2'><a href="#String"><span class="tocnumber">1.3</span> <span class="toctext">String</span></a>
+<ul>
+<li class='toclevel-3'><a href="#Voorbeelden"><span class="tocnumber">1.3.1</span> <span class="toctext">Voorbeelden</span></a></li>
+<li class='toclevel-3'><a href="#Meest_gebruikte_mogelijkheid"><span class="tocnumber">1.3.2</span> <span class="toctext">Meest gebruikte mogelijkheid</span></a></li>
+<li class='toclevel-3'><a href="#Mogelijke_gebruikswijze_3"><span class="tocnumber">1.3.3</span> <span class="toctext">Mogelijke gebruikswijze</span></a></li>
+</ul>
+</li>
+<li class='toclevel-2'><a href="#Boolean"><span class="tocnumber">1.4</span> <span class="toctext">Boolean</span></a>
+<ul>
+<li class='toclevel-3'><a href="#Voorbeelden_2"><span class="tocnumber">1.4.1</span> <span class="toctext">Voorbeelden</span></a></li>
+<li class='toclevel-3'><a href="#Mogelijke_gebruikswijze_4"><span class="tocnumber">1.4.2</span> <span class="toctext">Mogelijke gebruikswijze</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#Array"><span class="tocnumber">2</span> <span class="toctext">Array</span></a>
+<ul>
+<li class='toclevel-2'><a href="#E.C3.A9n_dimensie_array"><span class="tocnumber">2.1</span> <span class="toctext">Eén dimensie array</span></a>
+<ul>
+<li class='toclevel-3'><a href="#Voorbeeld_3"><span class="tocnumber">2.1.1</span> <span class="toctext">Voorbeeld</span></a></li>
+<li class='toclevel-3'><a href="#Mogelijk_Gebruik"><span class="tocnumber">2.1.2</span> <span class="toctext">Mogelijk Gebruik</span></a></li>
+</ul>
+</li>
+<li class='toclevel-2'><a href="#twee_dimensie_array"><span class="tocnumber">2.2</span> <span class="toctext">twee dimensie array</span></a>
+<ul>
+<li class='toclevel-3'><a href="#Voorbeeld_4"><span class="tocnumber">2.2.1</span> <span class="toctext">Voorbeeld</span></a></li>
+<li class='toclevel-3'><a href="#Mogelijk_Gebruik_2"><span class="tocnumber">2.2.2</span> <span class="toctext">Mogelijk Gebruik</span></a></li>
+</ul>
+</li>
+<li class='toclevel-2'><a href="#Drie_dimensionale_arrays_-_twee_dimensionale_array_strings"><span class="tocnumber">2.3</span> <span class="toctext">Drie dimensionale arrays - twee dimensionale array strings</span></a>
+<ul>
+<li class='toclevel-3'><a href="#Twee_dimensionale_array_strings"><span class="tocnumber">2.3.1</span> <span class="toctext">Twee dimensionale array strings</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#Condities"><span class="tocnumber">3</span> <span class="toctext">Condities</span></a>
+<ul>
+<li class='toclevel-2'><a href="#if.2Felse"><span class="tocnumber">3.1</span> <span class="toctext">if/else</span></a>
+<ul>
+<li class='toclevel-3'><a href="#Relationele_Operatoren"><span class="tocnumber">3.1.1</span> <span class="toctext">Relationele Operatoren</span></a></li>
+<li class='toclevel-3'><a href="#Voorbeeld_5"><span class="tocnumber">3.1.2</span> <span class="toctext">Voorbeeld</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_NL.html" title="Edit section: Type variabelen">edit</a>]</div><a name="Type_variabelen"></a><h1>Type variabelen</h1>
+<p>Variabelen zijn ruimtes om data op te slaan. In PAWN zijn de namen van variabelen hoofdletter gevoelig, dit houd in dat een variabele genaamd "lol" anders is dan "loL" en "LOL", daarnaast moeten variabelen altijd beginnen met een letter.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_NL.html" title="Edit section: Integer">edit</a>]</div><a name="Integer"></a><h2>Integer</h2>
+<p>Dit is het standaard type variabele, deze word gebruikt om hele cijfers in op te slaan. Dit houd dus in dat cijfers met een punt er tussen hier niet in opgeslagen moeten worden.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_NL.html" title="Edit section: Voorbeeld">edit</a>]</div><a name="Voorbeeld"></a><h3>Voorbeeld</h3>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> integer = <span style="color: #4169e1;">1337</span>; <span style="color: #808080; font-style: italic;">// Dit slaat de waarde 1337 op in de variabele &quot;integer&quot;.</span>
+<span style="color: #228b22; font-weight: bold;">new</span> integer; <span style="color: #808080; font-style: italic;">// Deze manier slaat de waarde 0 op in &quot;integer&quot; vanwege dat dit de standaard waarde is voor een integer.</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_NL.html" title="Edit section: Mogelijke gebruikswijze">edit</a>]</div><a name="Mogelijke_gebruikswijze"></a><h3>Mogelijke gebruikswijze</h3>
+<pre class="pawn"><span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>integer == <span style="color: #4169e1;">1337</span><span style="color: #66cc66;">&#41;</span> <span style="color: #66cc66;">&#123;</span> <span style="color: #808080; font-style: italic;">/* Doe iets */</span> <span style="color: #66cc66;">&#125;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_NL.html" title="Edit section: Float">edit</a>]</div><a name="Float"></a><h2>Float</h2>
+<p>Dit type variablen kan getallen opslaan die 1 of meer decimalen heeft, zoals bijvoorbeeld 1.01, hierbij is het niet mogelijk om een getal op te slaan zonder decimaal.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_NL.html" title="Edit section: Voorbeeld">edit</a>]</div><a name="Voorbeeld_2"></a><h3>Voorbeeld</h3>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> <span style="color: orange;">Float</span>:<a href="http://wiki.sa-mp.com/wiki/float"><span style="color: #006400;">float</span></a>; <span style="color: #808080; font-style: italic;">// Dit maakt een nieuwe lege variabele aan met de naam &quot;float&quot;.</span>
+<span style="color: #228b22; font-weight: bold;">new</span> <span style="color: orange;">Float</span>:<a href="http://wiki.sa-mp.com/wiki/float"><span style="color: #006400;">float</span></a> = <span style="color: #4169e1;">2.0</span>; <span style="color: #808080; font-style: italic;">// Deze manier maakt de variabele &quot;float&quot; aan en geeft het de waarde 2.0.</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_NL.html" title="Edit section: Mogelijke gebruikswijze">edit</a>]</div><a name="Mogelijke_gebruikswijze_2"></a><h3>Mogelijke gebruikswijze</h3>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> <span style="color: orange;">Float</span>:<a href="http://wiki.sa-mp.com/wiki/float"><span style="color: #006400;">float</span></a> = <span style="color: #4169e1;">2.0</span>;
+<a href="http://wiki.sa-mp.com/wiki/SetPlayerPos"><span style="color: #006400;">SetPlayerPos</span></a><span style="color: #66cc66;">&#40;</span>playerid, <a href="http://wiki.sa-mp.com/wiki/float"><span style="color: #006400;">float</span></a>, <span style="color: #4169e1;">2.0</span>, <span style="color: #4169e1;">1400.0</span><span style="color: #66cc66;">&#41;</span>;</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_NL.html" title="Edit section: String">edit</a>]</div><a name="String"></a><h2>String</h2>
+<p>Deze variabele manier slaat een letter of symbool op per cel, de hoeveelheid cellen zal aangegeven moeten worden door middel van een array, hierbij zal 1 extra cell opgetelt moeten worden.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_NL.html" title="Edit section: Voorbeelden">edit</a>]</div><a name="Voorbeelden"></a><h3>Voorbeelden</h3>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> string<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">7</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #b22222;">&quot;String&quot;</span>; <span style="color: #808080; font-style: italic;">// Aangezien de tekst 6 characters is zullen er 7 cellen moeten zijn vanwege de extra cell.</span>
+string<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #b22222;">'S'</span>;
+string<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">1</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #b22222;">'t'</span>;
+string<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">2</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #b22222;">'r'</span>;
+string<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">3</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #b22222;">'i'</span>;
+string<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">4</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #b22222;">'n'</span>;
+string<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">5</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #b22222;">'g'</span>;
+string<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">6</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #4169e1;">0</span>;</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_NL.html" title="Edit section: Meest gebruikte mogelijkheid">edit</a>]</div><a name="Meest_gebruikte_mogelijkheid"></a><h3>Meest gebruikte mogelijkheid</h3>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> string<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">128</span><span style="color: #66cc66;">&#93;</span>;</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_NL.html" title="Edit section: Mogelijke gebruikswijze">edit</a>]</div><a name="Mogelijke_gebruikswijze_3"></a><h3>Mogelijke gebruikswijze</h3>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> string<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">7</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #b22222;">&quot;String&quot;</span>;
+<a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, 0xFFFFFFAA, string<span style="color: #66cc66;">&#41;</span>;</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_NL.html" title="Edit section: Boolean">edit</a>]</div><a name="Boolean"></a><h2>Boolean</h2>
+<p>Het variabele type "Boolean" word gebruikt om waar (true) of niet waar (false) in op te slaan, waar staat gelijk aan 1 en niet waar aan 0. Nieuw aangemaakt Booleans zijn automatisch niet waar.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_NL.html" title="Edit section: Voorbeelden">edit</a>]</div><a name="Voorbeelden_2"></a><h3>Voorbeelden</h3>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> <span style="color: orange;">bool</span>:boolname;</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_NL.html" title="Edit section: Mogelijke gebruikswijze">edit</a>]</div><a name="Mogelijke_gebruikswijze_4"></a><h3>Mogelijke gebruikswijze</h3>
+<pre class="pawn"><span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>boolname == true<span style="color: #66cc66;">&#41;</span> <span style="color: #66cc66;">&#123;</span> <span style="color: #808080; font-style: italic;">/* mocht boolname waar zijn, voer dan iets uit */</span> <span style="color: #66cc66;">&#125;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_NL.html" title="Edit section: Array">edit</a>]</div><a name="Array"></a><h1>Array</h1>
+<p>Arrays zijn grote opslagplaatsen voor data, het zijn virtuele tabellen. Je kan een dimensie arrays en meerdere dimensie arrays hebben.
+Je moet een nieuwe float of boolean array op de zelfde manier maken als je zou doen bij een niet-array item door de tags (bool:, Float:) te gebruiken.
+<b>Weet dat je in een array laatste rij of lijn kan gebruiken.'</b>
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_NL.html" title="Edit section: Eén dimensie array">edit</a>]</div><a name="E.C3.A9n_dimensie_array"></a><h2>Eén dimensie array</h2>
+<p>Een één dimensie array is één lijn verdeeld in een gespeciefeerd aantal cellen.
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> eendimensiearray<span style="color: #66cc66;">&#91;</span>CELLS<span style="color: #66cc66;">&#93;</span>;</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_NL.html" title="Edit section: Voorbeeld">edit</a>]</div><a name="Voorbeeld_3"></a><h3>Voorbeeld</h3>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> eendimensiearray<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">5</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">4</span>, <span style="color: #4169e1;">6</span>, <span style="color: #4169e1;">7</span>, <span style="color: #4169e1;">9</span>, <span style="color: #4169e1;">2</span><span style="color: #66cc66;">&#125;</span>; <span style="color: #808080; font-style: italic;">// De &quot;5&quot; tussen de [] is het aantal cellen in de array.</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_NL.html" title="Edit section: Mogelijk Gebruik">edit</a>]</div><a name="Mogelijk_Gebruik"></a><h3>Mogelijk Gebruik</h3>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> randomcijfer = <a href="http://wiki.sa-mp.com/wiki/random"><span style="color: #006400;">random</span></a><span style="color: #66cc66;">&#40;</span><span style="color: orange; font-weight: bold;">sizeof</span><span style="color: #66cc66;">&#40;</span>eendimensiearray<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// Verkrijgt een random nummer cellen.</span>
+<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;Random number is: %d&quot;</span>, onedimensionalarray<span style="color: #66cc66;">&#91;</span><a href="http://wiki.sa-mp.com/wiki/random"><span style="color: #006400;">random</span></a><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// Gebruik een random nummer om een cel te selecteren.</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_NL.html" title="Edit section: twee dimensie array">edit</a>]</div><a name="twee_dimensie_array"></a><h2>twee dimensie array</h2>
+<p>Twee dimensionale arrays laten toe om meerdere kolomen en rijen te hebben.
+Two dimensional array allows you to have many collumns and rows.
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> tweedimensiearra<span style="color: #66cc66;">&#91;</span>RIJEN<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>KOLOMEN<span style="color: #66cc66;">&#93;</span>;</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_NL.html" title="Edit section: Voorbeeld">edit</a>]</div><a name="Voorbeeld_4"></a><h3>Voorbeeld</h3>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> <span style="color: orange;">Float</span>:tweedimensiarray<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">4</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">3</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #66cc66;">&#123;</span>
+<span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">3.0</span>, <span style="color: #4169e1;">4.5</span>, <span style="color: #4169e1;">5.76</span><span style="color: #66cc66;">&#125;</span>, <span style="color: #808080; font-style: italic;">// Rij nummer 0</span>
+<span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">10.85</span>, <span style="color: #4169e1;">76.34</span>, <span style="color: #4169e1;">23.54</span><span style="color: #66cc66;">&#125;</span>, <span style="color: #808080; font-style: italic;">// Rij nummer 1</span>
+<span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">2.32</span>, <span style="color: #4169e1;">10.23</span>, <span style="color: #4169e1;">80.2</span><span style="color: #66cc66;">&#125;</span>, <span style="color: #808080; font-style: italic;">// Rij nummer 2</span>
+<span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">6.6666</span>, <span style="color: #4169e1;">45.3</span>, <span style="color: #4169e1;">32.64</span><span style="color: #66cc66;">&#125;</span> <span style="color: #808080; font-style: italic;">// Rij nummer 3</span>
+<span style="color: #66cc66;">&#125;</span>;</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_NL.html" title="Edit section: Mogelijk Gebruik">edit</a>]</div><a name="Mogelijk_Gebruik_2"></a><h3>Mogelijk Gebruik</h3>
+<pre class="pawn"><a href="http://wiki.sa-mp.com/wiki/SetPlayerPos"><span style="color: #006400;">SetPlayerPos</span></a><span style="color: #66cc66;">&#40;</span>playerid, tweedimensiearray<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">2</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">2</span><span style="color: #66cc66;">&#93;</span>, tweedimensiearray<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">3</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">1</span><span style="color: #66cc66;">&#93;</span>, tweedimensiearray<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">2</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>;</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_NL.html" title="Edit section: Drie dimensionale arrays - twee dimensionale array strings">edit</a>]</div><a name="Drie_dimensionale_arrays_-_twee_dimensionale_array_strings"></a><h2>Drie dimensionale arrays - twee dimensionale array strings</h2>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> driedimensiarray<span style="color: #66cc66;">&#91;</span>RIJEN<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>KOLOMEN<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>Z<span style="color: #66cc66;">&#93;</span>;</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_NL.html" title="Edit section: Twee dimensionale array strings">edit</a>]</div><a name="Twee_dimensionale_array_strings"></a><h3>Twee dimensionale array strings</h3>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> tweedimensionalearraystring<span style="color: #66cc66;">&#91;</span>RIJEN<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>KOLOM<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">255</span><span style="color: #66cc66;">&#93;</span>; <span style="color: #808080; font-style: italic;">//Voor een 256 bytes lange string</span></pre>
+<p>Vertaald door: <a href="User_FUNExtreme.html" title="User:FUNExtreme">FUNExtreme</a>
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_NL.html" title="Edit section: Condities">edit</a>]</div><a name="Condities"></a><h1>Condities</h1>
+<p>Condities laten je toe te zien of de data voldoet aan de conditie als uitgevoerde code afhankelijk van het resultaat. Het meest voorkomende type van condities is de if/else condietie, maar er zijn nog veel andere - case, for loop and while loop.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_NL.html" title="Edit section: if/else">edit</a>]</div><a name="if.2Felse"></a><h2>if/else</h2>
+<p>De if/else condities laten je toe om te zien of een set van data voldoet met een coditie door het gebruik van deze operatoren en dan als de date aan de conditie voldoet word de code uitgevoerd.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_NL.html" title="Edit section: Relationele Operatoren">edit</a>]</div><a name="Relationele_Operatoren"></a><h3>Relationele Operatoren</h3>
+<p>Relationele Operatoren worden vaak gebruikt in if/else statements; ze checken de relatie tussen twee sets van data alvorens de code uit te voeren.
+</p>
+<table class="wikitable">
+
+<tr>
+<th>Operator
+</th><th>Uitleg
+</th><th>Gebruik
+</th></tr>
+<tr>
+<td> ==
+</td><td> Links is gelijk aan Rechts
+</td><td> if(Links == Rechts)
+</td></tr>
+<tr>
+<td>!=
+</td><td> Links is niet gelijk aan Rechts
+</td><td> if(Links&nbsp;!= Rechts)
+</td></tr>
+<tr>
+<td> >
+</td><td> Links is groter dan Rechts
+</td><td> if(Links > Rechts)
+</td></tr>
+<tr>
+<td> >=
+</td><td> Links is groter dan of gelijk aan Rechts
+</td><td> if(Links >= Rechts)
+</td></tr>
+<tr>
+<td> &lt;
+</td><td> Links is kleiner dan Rechts
+</td><td> if(Links &lt; Rechts)
+</td></tr>
+<tr>
+<td> &lt;=
+</td><td> Links is minder of gelijk aan Rechts
+</td><td> if(Links &lt;= Rechts)
+</td></tr></table>
+<table class="wikitable">
+
+<tr>
+<th>Operator
+</th><th>Uitleg
+</th><th>Gebruik
+</th></tr>
+<tr>
+<td> &amp;&amp;
+</td><td> EN
+</td><td> if(Links &amp;&amp; Rechts)
+</td></tr>
+<tr>
+<td></td><td>
+</td><td> OF
+</td><td> if(Links </td><td> Rechtst)
+</td></tr>
+<tr>
+<td>&nbsp;!
+</td><td> NEE
+</td><td> if(!Variable)
+</td></tr>
+<tr>
+<td>
+</td><td> NIET/OF
+</td><td> if(!(Links </td><td> Rechts))
+</td></tr>
+<tr>
+<td>
+</td><td> NIET/EN
+</td><td> if(!(Links &amp;&amp; Rechts))
+</td></tr>
+<tr>
+<td>
+</td><td> XOF
+</td><td> if((Links &amp;&amp;&nbsp;!Rechts)</td><td>(!Links &amp;&amp; Rechts))
+</td></tr>
+<tr>
+<td>
+</td><td> NIETXOF
+</td><td> if(!((Links &amp;&amp;&nbsp;!Rechts)</td><td>(!Links &amp;&amp; Rechts)))
+</td></tr></table>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_NL.html" title="Edit section: Voorbeeld">edit</a>]</div><a name="Voorbeeld_5"></a><h3>Voorbeeld</h3>
+<pre class="pawn"><span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>lwaarde &gt; rwaarde<span style="color: #66cc66;">&#41;</span> <span style="color: #66cc66;">&#123;</span> <span style="color: #808080; font-style: italic;">/* Voer code uit. */</span> <span style="color: #66cc66;">&#125;</span></pre>
+<p>In dit voorbeel is de <b>if</b> conditie tussen <i>lvalue</i> en <i>rvalue</i> waar en zal de code uitgevoerd worden. De conditie is <b>if</b> <i>lvalue</i> is groter dan <i>rvalue</i> ...
+</p><p>Nog een voorbeeld, door <a href="User_HellFly.html" title="User:HellFly">HellFly</a>
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> links;
+<span style="color: #228b22; font-weight: bold;">new</span> rechts;
+links = <a href="http://wiki.sa-mp.com/wiki/random"><span style="color: #006400;">random</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">1</span><span style="color: #66cc66;">&#41;</span>;<span style="color: #808080; font-style: italic;">//links = 1 of 0</span>
+rechts = <a href="http://wiki.sa-mp.com/wiki/random"><span style="color: #006400;">random</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">1</span><span style="color: #66cc66;">&#41;</span>;<span style="color: #808080; font-style: italic;">//rechts = 1 of 0</span>
+<span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span>links &gt; rechts<span style="color: #66cc66;">&#41;</span><span style="color: #808080; font-style: italic;">//als links meer is als rechts</span>
+<span style="color: #66cc66;">&#123;</span>
+    <span style="color: #808080; font-style: italic;">//voer code uit</span>
+<span style="color: #66cc66;">&#125;</span>
+<span style="color: #4169e1;">else</span><span style="color: #808080; font-style: italic;">//anders, dus als links niet meer is als rechts</span>
+<span style="color: #66cc66;">&#123;</span>
+    <span style="color: #808080; font-style: italic;">//voer code uit</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>Vertaald door: <a href="User_FUNExtreme.html" title="User:FUNExtreme">FUNExtreme</a>
+</p><div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/Scripting_Basics_NL.html">http://localhost../wiki/Scripting_Basics_NL.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="Category_Scripting_Documentation_NL.html" title="Category:Scripting Documentation NL">Scripting Documentation NL</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="Scripting_Basics_NL.html">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="Talk_Scripting_Basics_NL.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="Scripting_Basics_NL.html">Edit</a></li>
+				 <li id="ca-history"><a href="Scripting_Basics_NL.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-en"><a href="Scripting_Basics.html">English</a></li>
+				<li class="interwiki-de"><a href="Scripting_Basics_DE.html">Deutsch</a></li>
+				<li class="interwiki-ru"><a href="Scripting_Basics_RU.html">Русский</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 20,781 times.</li>
+				<li id="credits">This page was last modified 15:14, 21 April 2014 by SA-MP Wiki user <a href="User_MP2.html" title="User:MP2">MP2</a>. Based on work by SA-MP Wiki user(s) <a href="User_HellFly.html" title="User:HellFly">HellFly</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 6.37 secs. -->
+</body></html>

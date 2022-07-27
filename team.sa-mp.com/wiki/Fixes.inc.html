@@ -1,0 +1,761 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Fixes.inc" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>Fixes.inc - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Fixes.inc</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class='toclevel-1'><a href="#fixes.inc"><span class="tocnumber">1</span> <span class="toctext">fixes.inc</span></a>
+<ul>
+<li class='toclevel-2'><a href="#Introduction"><span class="tocnumber">1.1</span> <span class="toctext">Introduction</span></a></li>
+<li class='toclevel-2'><a href="#Download"><span class="tocnumber">1.2</span> <span class="toctext">Download</span></a></li>
+<li class='toclevel-2'><a href="#Use"><span class="tocnumber">1.3</span> <span class="toctext">Use</span></a></li>
+<li class='toclevel-2'><a href="#fixes"><span class="tocnumber">1.4</span> <span class="toctext">fixes</span></a></li>
+<li class='toclevel-2'><a href="#Expansion"><span class="tocnumber">1.5</span> <span class="toctext">Expansion</span></a></li>
+<li class='toclevel-2'><a href="#Translations"><span class="tocnumber">1.6</span> <span class="toctext">Translations</span></a></li>
+<li class='toclevel-2'><a href="#Other_fixes"><span class="tocnumber">1.7</span> <span class="toctext">Other fixes</span></a></li>
+<li class='toclevel-2'><a href="#Bugs"><span class="tocnumber">1.8</span> <span class="toctext">Bugs</span></a></li>
+</ul>
+</li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Fixes.inc.html" title="Edit section: fixes.inc">edit</a>]</div><a name="fixes.inc"></a><h1 class="firstheading" style="position:absolute; top:0px; background:#FFF; width:95%;">fixes.inc</h1>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Fixes.inc.html" title="Edit section: Introduction">edit</a>]</div><a name="Introduction"></a><h2>Introduction</h2>
+<p>SA:MP is beta software written by a small team in their spare time, thus it has bugs (as does all software). Some of these have been known for a long time but are low priority due to their minor effects, others go undiscovered for a long time. Many of these bugs have solutions which can be implemented in PAWN (and this may be simpler than implementing them in the SA:MP source code). This include aims to collect fixes for as many of these bugs as possible from the community (i.e. anyone who has a fix) together in to one easy to use place for everyone's benefit.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Fixes.inc.html" title="Edit section: Download">edit</a>]</div><a name="Download"></a><h2>Download</h2>
+<p>Current stable version:
+</p><p><a href="https://github.com/Open-GTO/sa-mp-fixes" class='external free' title="https://github.com/Open-GTO/sa-mp-fixes" rel="nofollow">https://github.com/Open-GTO/sa-mp-fixes</a>
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Fixes.inc.html" title="Edit section: Use">edit</a>]</div><a name="Use"></a><h2>Use</h2>
+<p>To use this, simply include it after the default SA:MP functions, but before third party includes:
+</p>
+<pre class="pawn"><span style="color: #6b8e23;">#include &lt;a_samp&gt;</span>
+<span style="color: #808080; font-style: italic;">// Any default re-definitions should go here.</span>
+<span style="color: #808080; font-style: italic;">//#undef MAX_PLAYERS</span>
+<span style="color: #808080; font-style: italic;">//#define MAX_PLAYERS 10</span>
+<span style="color: #6b8e23;">#include &lt;fixes&gt;</span>
+<span style="color: #6b8e23;">#include &lt;other&gt;</span></pre>
+<p>To disable any fix for whatever reason simply do:
+</p>
+<pre class="pawn"><span style="color: #6b8e23;">#define FIX_&lt;name&gt; 0</span></pre>
+<p>For example, to disable all the file.inc fixes if you always correctly check the file handle, do:
+</p>
+<pre class="pawn"><span style="color: #6b8e23;">#include &lt;a_samp&gt;</span>
+<span style="color: #6b8e23;">#define FIX_file_inc 0</span>
+<span style="color: #6b8e23;">#include &lt;fixes&gt;</span>
+<span style="color: #6b8e23;">#include &lt;other&gt;</span></pre>
+<p>All the names of the fixes are single words, and are all listed with their fix descriptions below.
+</p><p>If you only have one script running on your server (i.e. no Filter Scripts), you can use this define to improve the fixes.inc code:
+</p>
+<pre class="pawn"><span style="color: #6b8e23;">#include &lt;a_samp&gt;</span>
+<span style="color: #6b8e23;">#define FIXES_Single 1</span>
+<span style="color: #6b8e23;">#include &lt;fixes&gt;</span>
+<span style="color: #6b8e23;">#include &lt;other&gt;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Fixes.inc.html" title="Edit section: fixes">edit</a>]</div><a name="fixes"></a><h2>fixes</h2>
+<p>Full list of all available fixes <a href="https://github.com/Open-GTO/sa-mp-fixes#fixes" class='external text' title="https://github.com/Open-GTO/sa-mp-fixes#fixes" rel="nofollow">here</a>.
+</p>
+<table>
+<tr>
+<th>Name</th>
+<th>Bug</th>
+<th>Author</th>
+<th>Post</th>
+<th>Officially Fixed?</th>
+</tr>
+<tr>
+<td>GetPlayerColor</td>
+<td>Returns “0” if “SetPlayerColor” has never been called.</td>
+<td>KoczkaHUN</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>FILTERSCRIPT</td>
+<td>Despite the fact that is in every new script, many people don’t define “FILTERSCRIPT” where appropriate.</td>
+<td><a href="https://github.com/Y-Less/" class='external text' title="https://github.com/Y-Less/" rel="nofollow">Y_Less</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>SpawnPlayer</td>
+<td>Kills the player if they are in a vehicle.</td>
+<td><a href="https://github.com/Y-Less/" class='external text' title="https://github.com/Y-Less/" rel="nofollow">Y_Less</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>SetPlayerName</td>
+<td>Using “SetPlayerName” when the new name only differs from the old name in case does not alter the name at all.</td>
+<td><a href="https://github.com/Y-Less/" class='external text' title="https://github.com/Y-Less/" rel="nofollow">Y_Less</a>/<a href="https://github.com/simonepri/" class='external text' title="https://github.com/simonepri/" rel="nofollow">simonepri</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>GetPlayerSkin</td>
+<td>Returns the new skin after "SetSpawnInfo" is called but before the player actually respawns to get the new skin.</td>
+<td><a href="https://github.com/Y-Less/" class='external text' title="https://github.com/Y-Less/" rel="nofollow">Y_Less</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>GetWeaponName</td>
+<td>Returns nothing for 18, 44, and 45.</td>
+<td><a href="https://github.com/Y-Less/" class='external text' title="https://github.com/Y-Less/" rel="nofollow">Y_Less</a></td>
+<td></td>
+<td>0.3.7</td>
+</tr>
+<tr>
+<td>SetPlayerWorldBounds</td>
+<td>Aiming can bypass the edge.</td>
+<td><a href="https://github.com/Y-Less/" class='external text' title="https://github.com/Y-Less/" rel="nofollow">Y_Less</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>TogglePlayerControllable</td>
+<td>Other players see you moving on the spot.</td>
+<td><a href="https://github.com/oscar-broman/" class='external text' title="https://github.com/oscar-broman/" rel="nofollow">Slice</a></td>
+<td><a href="http://forum.sa-mp.com/showpost.php?p=876854" class='external text' title="http://forum.sa-mp.com/showpost.php?p=876854" rel="nofollow">Link</a></td>
+<td></td>
+</tr>
+<tr>
+<td>HydraSniper</td>
+<td>Entring military aircraft with a sniper rifle messes up vies.</td>
+<td>funky1234</td>
+<td><a href="http://forum.sa-mp.com/showpost.php?p=965644" class='external text' title="http://forum.sa-mp.com/showpost.php?p=965644" rel="nofollow">Link</a></td>
+<td></td>
+</tr>
+<tr>
+<td>IsPlayerInCheckpoint</td>
+<td>Function returns an undefined value if it is called before any other checkpoint functions are called to initialise the value.</td>
+<td><a href="https://github.com/Y-Less/" class='external text' title="https://github.com/Y-Less/" rel="nofollow">Y_Less</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>IsPlayerInRaceCheckpoint</td>
+<td>Function returns an undefined value if it is called before any other race checkpoint functions are called to initialise the value.</td>
+<td><a href="https://github.com/Y-Less/" class='external text' title="https://github.com/Y-Less/" rel="nofollow">Y_Less</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>GetPlayerWeapon</td>
+<td>Returns the old value after using “SetPlayerArmedWeapon” when they are in a vehicle.</td>
+<td><a href="https://github.com/Y-Less/" class='external text' title="https://github.com/Y-Less/" rel="nofollow">Y_Less</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>PutPlayerInVehicle</td>
+<td>If this is used on a passenger the driver of their old vehicle doesn’t see them in their new vehicle.</td>
+<td>leong124/<a href="https://github.com/Y-Less/" class='external text' title="https://github.com/Y-Less/" rel="nofollow">Y_Less</a></td>
+<td><a href="http://forum.sa-mp.com/showpost.php?p=1265965" class='external text' title="http://forum.sa-mp.com/showpost.php?p=1265965" rel="nofollow">Link</a></td>
+<td></td>
+</tr>
+<tr>
+<td>KEY_AIM</td>
+<td>“KEY_AIM” isn’t defined by default.</td>
+<td><a href="https://github.com/Y-Less/" class='external text' title="https://github.com/Y-Less/" rel="nofollow">Y_Less</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>SetPlayerCheckpoint</td>
+<td>If a checkpoint is already set it will use the size of that checkpoint instead of the new one.</td>
+<td><a href="https://github.com/ziggi/" class='external text' title="https://github.com/ziggi/" rel="nofollow">ziggi</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>SetPlayerRaceCheckpoint</td>
+<td>If a checkpoint is already set it will use the size of that checkpoint instead of the new one.</td>
+<td><a href="https://github.com/ziggi/" class='external text' title="https://github.com/ziggi/" rel="nofollow">ziggi</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>TextDrawCreate</td>
+<td>Crashes on a blank string.</td>
+<td>wups</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>TextDrawSetString</td>
+<td>Crashes on a blank string and size greater than 1024.</td>
+<td>TomTrox</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>AllowInteriorWeapons</td>
+<td>Does nothing.</td>
+<td>KoczkaHUN</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>OnPlayerEnterVehicle</td>
+<td>Crashes other players when people enter an invalid seat.</td>
+<td>RyDeR`/<a href="https://github.com/Y-Less/" class='external text' title="https://github.com/Y-Less/" rel="nofollow">Y_Less</a></td>
+<td><a href="http://forum.sa-mp.com/showpost.php?p=1410296" class='external text' title="http://forum.sa-mp.com/showpost.php?p=1410296" rel="nofollow">Link</a></td>
+<td></td>
+</tr>
+<tr>
+<td>OnPlayerEnterVehicle_2</td>
+<td>Crashes the server when hacks enter an invalid vehicle.</td>
+<td>im/<a href="https://github.com/Y-Less/" class='external text' title="https://github.com/Y-Less/" rel="nofollow">Y_Less</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>AllowTeleport</td>
+<td>0.3dRC9 removed “AllowPlayerTeleport” and “AllowAdminTeleport” in favour of “OnPlayerClickMap”. Some scripts used the old code and.</td>
+<td><a href="https://github.com/Y-Less/" class='external text' title="https://github.com/Y-Less/" rel="nofollow">Y_Less</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>SetPlayerSpecialAction</td>
+<td>Removing jetpacks from players by setting their special action to 0 causes the sound to stay until death.</td>
+<td>MP2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>OnDialogResponse</td>
+<td>Cheaters can spoof the dialogid they are using to respond to ones they can’t actually see.</td>
+<td><a href="https://github.com/Y-Less/" class='external text' title="https://github.com/Y-Less/" rel="nofollow">Y_Less</a></td>
+<td></td>
+<td>0.3e RC6</td>
+</tr>
+<tr>
+<td>GetPlayerDialog (Disabled)</td>
+<td>This function doesn’t exist.</td>
+<td><a href="https://github.com/Y-Less/" class='external text' title="https://github.com/Y-Less/" rel="nofollow">Y_Less</a>/<a href="https://github.com/simonepri/" class='external text' title="https://github.com/simonepri/" rel="nofollow">simonepri</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>PlayerDialogResponse</td>
+<td>A player’s dialog doesn’t hide when the gamemode restarts, causing the server to print “Warning: PlayerDialogResponse PlayerId: 0 dialog ID doesn’t match last sent dialog ID”.</td>
+<td><a href="https://github.com/simonepri/" class='external text' title="https://github.com/simonepri/" rel="nofollow">simonepri</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>SetSpawnInfo</td>
+<td>Kicks the player if “SpawnPlayer” is called before “SetSpawnInfo”.</td>
+<td><a href="https://github.com/Y-Less/" class='external text' title="https://github.com/Y-Less/" rel="nofollow">Y_Less</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>SetPlayerSkin</td>
+<td>Breaks sitting on bikes.</td>
+<td>CyNiC</td>
+<td><a href="http://forum.sa-mp.com/showpost.php?p=1756094" class='external text' title="http://forum.sa-mp.com/showpost.php?p=1756094" rel="nofollow">Link</a></td>
+<td></td>
+</tr>
+<tr>
+<td>HideMenuForPlayer</td>
+<td>Crashes when passed an invalid menu ID.</td>
+<td><a href="https://github.com/Y-Less/" class='external text' title="https://github.com/Y-Less/" rel="nofollow">Y_Less</a></td>
+<td><a href="http://forum.sa-mp.com/showpost.php?p=1787297" class='external text' title="http://forum.sa-mp.com/showpost.php?p=1787297" rel="nofollow">Link</a></td>
+<td></td>
+</tr>
+<tr>
+<td>valstr</td>
+<td>Crashes on large numbers.</td>
+<td><a href="https://github.com/oscar-broman/" class='external text' title="https://github.com/oscar-broman/" rel="nofollow">Slice</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>fclose (Disabled)</td>
+<td>Crashes on an invalid handle.</td>
+<td><a href="https://github.com/oscar-broman/" class='external text' title="https://github.com/oscar-broman/" rel="nofollow">Slice</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>fwrite (Disabled)</td>
+<td>Crashes on an invalid handle.</td>
+<td><a href="https://github.com/oscar-broman/" class='external text' title="https://github.com/oscar-broman/" rel="nofollow">Slice</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>fread (Disabled)</td>
+<td>Crashes on an invalid handle.</td>
+<td><a href="https://github.com/oscar-broman/" class='external text' title="https://github.com/oscar-broman/" rel="nofollow">Slice</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>fputchar (Disabled)</td>
+<td>Crashes on an invalid handle.</td>
+<td><a href="https://github.com/oscar-broman/" class='external text' title="https://github.com/oscar-broman/" rel="nofollow">Slice</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>fgetchar (Disabled)</td>
+<td>Crashes on an invalid handle.</td>
+<td><a href="https://github.com/oscar-broman/" class='external text' title="https://github.com/oscar-broman/" rel="nofollow">Slice</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>fblockwrite (Disabled)</td>
+<td>Crashes on an invalid handle.</td>
+<td><a href="https://github.com/oscar-broman/" class='external text' title="https://github.com/oscar-broman/" rel="nofollow">Slice</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>fblockread (Disabled)</td>
+<td>Crashes on an invalid handle.</td>
+<td><a href="https://github.com/oscar-broman/" class='external text' title="https://github.com/oscar-broman/" rel="nofollow">Slice</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>fseek (Disabled)</td>
+<td>Crashes on an invalid handle.</td>
+<td><a href="https://github.com/oscar-broman/" class='external text' title="https://github.com/oscar-broman/" rel="nofollow">Slice</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>flength (Disabled)</td>
+<td>Crashes on an invalid handle.</td>
+<td><a href="https://github.com/oscar-broman/" class='external text' title="https://github.com/oscar-broman/" rel="nofollow">Slice</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>file_inc (Disabled)</td>
+<td>Includes or excludes all the file function fixes together (can cause major overhead).</td>
+<td><a href="https://github.com/Y-Less/" class='external text' title="https://github.com/Y-Less/" rel="nofollow">Y_Less</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>IsPlayerAttachedObjectSlotUsed</td>
+<td>Doesn’t work in OnPlayerDisconnect.</td>
+<td><a href="https://github.com/Y-Less/" class='external text' title="https://github.com/Y-Less/" rel="nofollow">Y_Less</a></td>
+<td><a href="http://forum.sa-mp.com/showpost.php?p=1794167" class='external text' title="http://forum.sa-mp.com/showpost.php?p=1794167" rel="nofollow">Link</a></td>
+<td></td>
+</tr>
+<tr>
+<td>SetPlayerAttachedObject</td>
+<td>Doesn’t remove objects when the mode ends.</td>
+<td><a href="https://github.com/Y-Less/" class='external text' title="https://github.com/Y-Less/" rel="nofollow">Y_Less</a></td>
+<td><a href="http://forum.sa-mp.com/showpost.php?p=1794167" class='external text' title="http://forum.sa-mp.com/showpost.php?p=1794167" rel="nofollow">Link</a></td>
+<td></td>
+</tr>
+<tr>
+<td>OnPlayerDeath</td>
+<td>Clients get stuck when they die with an animation applied.</td>
+<td>h02</td>
+<td><a href="http://forum.sa-mp.com/showpost.php?p=1641144" class='external text' title="http://forum.sa-mp.com/showpost.php?p=1641144" rel="nofollow">Link</a></td>
+<td></td>
+</tr>
+<tr>
+<td>strins</td>
+<td>Ignores the “maxlength” parameter causing possible crashes.</td>
+<td><a href="https://github.com/oscar-broman/" class='external text' title="https://github.com/oscar-broman/" rel="nofollow">Slice</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>IsPlayerConnected</td>
+<td>Only uses the lower two bytes of a passed ID.</td>
+<td><a href="https://github.com/oscar-broman/" class='external text' title="https://github.com/oscar-broman/" rel="nofollow">Slice</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>OnPlayerCommandText</td>
+<td>Can crash ZCMD when passed a null string.</td>
+<td><a href="https://github.com/Y-Less/" class='external text' title="https://github.com/Y-Less/" rel="nofollow">Y_Less</a></td>
+<td><a href="http://forum.sa-mp.com/showpost.php?p=1909511" class='external text' title="http://forum.sa-mp.com/showpost.php?p=1909511" rel="nofollow">Link</a></td>
+<td></td>
+</tr>
+<tr>
+<td>TrainExit</td>
+<td>When getting out of a train entered by “PutPlayerInVehicle”, the camera does not reset properly.</td>
+<td>Terminator3/<a href="https://github.com/Y-Less/" class='external text' title="https://github.com/Y-Less/" rel="nofollow">Y_Less</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Kick</td>
+<td>Calling “Kick” in “OnPlayerConnect” doesn’t work properly.</td>
+<td><a href="https://github.com/Y-Less/" class='external text' title="https://github.com/Y-Less/" rel="nofollow">Y_Less</a></td>
+<td><a href="http://forum.sa-mp.com/showpost.php?p=1989453" class='external text' title="http://forum.sa-mp.com/showpost.php?p=1989453" rel="nofollow">Link</a></td>
+<td>0.3x</td>
+</tr>
+<tr>
+<td>OnVehicleMod</td>
+<td>Crashes other players when invalid mods are applied.</td>
+<td><a href="https://github.com/JernejL/" class='external text' title="https://github.com/JernejL/" rel="nofollow">JernejL</a>/<a href="https://github.com/Y-Less/" class='external text' title="https://github.com/Y-Less/" rel="nofollow">Y_Less</a></td>
+<td><a href="http://forum.sa-mp.com/showpost.php?p=1671500" class='external text' title="http://forum.sa-mp.com/showpost.php?p=1671500" rel="nofollow">Link</a></td>
+<td></td>
+</tr>
+<tr>
+<td>random (Disabled)</td>
+<td>Doesn’t work with negative numbers.</td>
+<td><a href="https://github.com/simonepri/" class='external text' title="https://github.com/simonepri/" rel="nofollow">simonepri</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>sleep</td>
+<td>Leaks bytes from the stack.</td>
+<td><a href="https://github.com/Y-Less/" class='external text' title="https://github.com/Y-Less/" rel="nofollow">Y_Less</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>AddMenuItem</td>
+<td>Crashes when passed an invalid menu ID.</td>
+<td><a href="https://github.com/Y-Less/" class='external text' title="https://github.com/Y-Less/" rel="nofollow">Y_Less</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>SetMenuColumnHeader</td>
+<td>Crashes when passed an invalid menu ID.</td>
+<td><a href="https://github.com/Y-Less/" class='external text' title="https://github.com/Y-Less/" rel="nofollow">Y_Less</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ShowMenuForPlayer</td>
+<td>Crashes when passed an invalid menu ID.</td>
+<td><a href="https://github.com/Y-Less/" class='external text' title="https://github.com/Y-Less/" rel="nofollow">Y_Less</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>HideMenuForPlayer</td>
+<td>Crashes when passed an invalid menu ID.</td>
+<td><a href="https://github.com/Y-Less/" class='external text' title="https://github.com/Y-Less/" rel="nofollow">Y_Less</a></td>
+<td><a href="http://forum.sa-mp.com/showpost.php?p=1787297" class='external text' title="http://forum.sa-mp.com/showpost.php?p=1787297" rel="nofollow">Link</a></td>
+<td></td>
+</tr>
+<tr>
+<td>HideMenuForPlayer_2 (Disabled)</td>
+<td>Ignores the “menuid” parameter.</td>
+<td><a href="https://github.com/Y-Less/" class='external text' title="https://github.com/Y-Less/" rel="nofollow">Y_Less</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>DisableMenu</td>
+<td>Crashes when passed an invalid menu ID.</td>
+<td><a href="https://github.com/Y-Less/" class='external text' title="https://github.com/Y-Less/" rel="nofollow">Y_Less</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>DisableMenuRow</td>
+<td>Crashes when passed an invalid menu ID.</td>
+<td><a href="https://github.com/Y-Less/" class='external text' title="https://github.com/Y-Less/" rel="nofollow">Y_Less</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Menus</td>
+<td>All menu function fixes are included separately for major overhead.</td>
+<td><a href="https://github.com/Y-Less/" class='external text' title="https://github.com/Y-Less/" rel="nofollow">Y_Less</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>GetPlayerMenu</td>
+<td>Returns previous menu when none is displayed.</td>
+<td><a href="https://github.com/Y-Less/" class='external text' title="https://github.com/Y-Less/" rel="nofollow">Y_Less</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>GetPlayerInterior</td>
+<td>Always returns 0 for NPCs.</td>
+<td><a href="https://github.com/Y-Less/" class='external text' title="https://github.com/Y-Less/" rel="nofollow">Y_Less</a>/<a href="https://github.com/simonepri/" class='external text' title="https://github.com/simonepri/" rel="nofollow">simonepri</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ClearAnimations</td>
+<td>Use ClearAnimation while you are in a vehicle cause the player exit from it.</td>
+<td><a href="https://github.com/simonepri/" class='external text' title="https://github.com/simonepri/" rel="nofollow">simonepri</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ClearAnimations_2</td>
+<td>ClearAnimations doesn’t do anything when the animation ends if we pass 1 for the freeze parameter in ApplyAnimation.</td>
+<td><a href="https://github.com/simonepri/" class='external text' title="https://github.com/simonepri/" rel="nofollow">simonepri</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>KEY_CROUCH</td>
+<td>If you press KEY_CROUCH while you’re passenger and if you are armed, the player start to aim; if you repress KEY_CROUCH the player don’t return in vehicle.</td>
+<td><a href="https://github.com/simonepri/" class='external text' title="https://github.com/simonepri/" rel="nofollow">simonepri</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>GangZoneCreate</td>
+<td>Gang zones bug on the main map for players at certain angles relative to them.</td>
+<td><a href="https://github.com/simonepri/" class='external text' title="https://github.com/simonepri/" rel="nofollow">simonepri</a>/<a href="https://github.com/Y-Less/" class='external text' title="https://github.com/Y-Less/" rel="nofollow">Y_Less</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>SPECIAL_ACTION_PISSING</td>
+<td>Define it.</td>
+<td><a href="https://github.com/simonepri/" class='external text' title="https://github.com/simonepri/" rel="nofollow">simonepri</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>IsValidVehicle</td>
+<td>“IsValidVehicle” isn’t defined by default.</td>
+<td><a href="https://github.com/simonepri/" class='external text' title="https://github.com/simonepri/" rel="nofollow">simonepri</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ApplyAnimation</td>
+<td>Passing an invalid animation library in ApplyAnimation causes a client crash for streamed in players.</td>
+<td><a href="https://github.com/simonepri/" class='external text' title="https://github.com/simonepri/" rel="nofollow">simonepri</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ApplyAnimation_2</td>
+<td>When ApplyAnimation was called the first time next the player spawn, it don’t work.</td>
+<td><a href="https://github.com/simonepri/" class='external text' title="https://github.com/simonepri/" rel="nofollow">simonepri</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>OnPlayerSpawn</td>
+<td>San Andreas deducts $100 from players.</td>
+<td><a href="https://github.com/Y-Less/" class='external text' title="https://github.com/Y-Less/" rel="nofollow">Y_Less</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>GetGravity</td>
+<td>“GetGravity” isn’t defined by default.</td>
+<td><a href="https://github.com/Whitetigerswt/" class='external text' title="https://github.com/Whitetigerswt/" rel="nofollow">Whitetiger</a></td>
+<td><a href="http://forum.sa-mp.com/showpost.php?p=1706447" class='external text' title="http://forum.sa-mp.com/showpost.php?p=1706447" rel="nofollow">Link</a></td>
+<td></td>
+</tr>
+<tr>
+<td>gpci</td>
+<td>“gpci” isn’t defined by default.</td>
+<td><a href="https://github.com/simonepri/" class='external text' title="https://github.com/simonepri/" rel="nofollow">simonepri</a></td>
+<td><a href="http://pastebin.com/VQSGpbSm" class='external text' title="http://pastebin.com/VQSGpbSm" rel="nofollow">Link</a></td>
+<td></td>
+</tr>
+<tr>
+<td>Natives</td>
+<td>Several natives are included by default, this enables or disables them all. Therefore this is an umbrella fix for several fixes.</td>
+<td><a href="https://github.com/Y-Less/" class='external text' title="https://github.com/Y-Less/" rel="nofollow">Y_Less</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>OnPlayerConnect</td>
+<td>This function isn’t called for players when a filterscript starts.</td>
+<td><a href="https://github.com/Y-Less/" class='external text' title="https://github.com/Y-Less/" rel="nofollow">Y_Less</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>OnPlayerDisconnect</td>
+<td>This function isn’t called for players when a filterscript ends.</td>
+<td><a href="https://github.com/Y-Less/" class='external text' title="https://github.com/Y-Less/" rel="nofollow">Y_Less</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>GameText</td>
+<td>Several styles do not display for the time specified.</td>
+<td><a href="https://github.com/Y-Less/" class='external text' title="https://github.com/Y-Less/" rel="nofollow">Y_Less</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>GameTextStyles</td>
+<td>San Andreas has fixed styles for area and vehicle names, but they are not included in the GameText styles list.</td>
+<td><a href="https://github.com/Y-Less/" class='external text' title="https://github.com/Y-Less/" rel="nofollow">Y_Less</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>HideGameText</td>
+<td>There is no “HideGameTextForXYZ” function.</td>
+<td><a href="https://github.com/Y-Less/" class='external text' title="https://github.com/Y-Less/" rel="nofollow">Y_Less</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>BODYPARTS</td>
+<td>The bodyparts to be used in OnPlayer(Take/Give)Damage are not defined by default</td>
+<td><a href="https://github.com/Whitetigerswt/" class='external text' title="https://github.com/Whitetigerswt/" rel="nofollow">Whitetiger</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CAMERAMODES</td>
+<td>The camera modes for GetPlayerCameraMode are not defined by default.</td>
+<td><a href="https://github.com/Whitetigerswt/" class='external text' title="https://github.com/Whitetigerswt/" rel="nofollow">Whitetiger</a></td>
+<td><a href="http://forum.sa-mp.com/showpost.php?p=1309730" class='external text' title="http://forum.sa-mp.com/showpost.php?p=1309730" rel="nofollow">Link</a></td>
+<td></td>
+</tr>
+<tr>
+<td>SetPlayerCamera</td>
+<td>Using the camera functions directly after enabling spectator mode doesn’t work.</td>
+<td><a href="https://github.com/emmet-jones/" class='external text' title="https://github.com/emmet-jones/" rel="nofollow">Emmet_</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>SetPlayerTime</td>
+<td>Using this function under “OnPlayerConnect” doesn’t work.</td>
+<td><a href="https://github.com/emmet-jones/" class='external text' title="https://github.com/emmet-jones/" rel="nofollow">Emmet_</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>OnPlayerRequestClass</td>
+<td>Random blunts and bottles sometimes appear in class selection.</td>
+<td><a href="https://github.com/Y-Less/" class='external text' title="https://github.com/Y-Less/" rel="nofollow">Y_Less</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>SetPlayerColor</td>
+<td>If used under OnPlayerConnect, the affecting player will not see the color in the TAB menu.</td>
+<td><a href="https://github.com/emmet-jones/" class='external text' title="https://github.com/emmet-jones/" rel="nofollow">Emmet_</a></td>
+<td><a href="http://forum.sa-mp.com/showthread.php?t=452407" class='external text' title="http://forum.sa-mp.com/showthread.php?t=452407" rel="nofollow">Link</a></td>
+<td></td>
+</tr>
+<tr>
+<td>FileMaths</td>
+<td>You can write gibberish like “File:a; ++a;”.</td>
+<td><a href="https://github.com/Y-Less/" class='external text' title="https://github.com/Y-Less/" rel="nofollow">Y_Less</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>GetPlayerWeaponData</td>
+<td>Old weapons with no ammo left are still returned.</td>
+<td><a href="https://github.com/Y-Less/" class='external text' title="https://github.com/Y-Less/" rel="nofollow">Y_Less</a></td>
+<td><a href="http://forum.sa-mp.com/showthread.php?t=567400" class='external text' title="http://forum.sa-mp.com/showthread.php?t=567400" rel="nofollow">Link</a></td>
+<td></td>
+</tr>
+</table>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Fixes.inc.html" title="Edit section: Expansion">edit</a>]</div><a name="Expansion"></a><h2>Expansion</h2>
+<p>The file is fairly well documented, with a list of the currently (hopefully) fixed bugs at the top. If you know of others, or have solutions for others, it would be greatly appreciated if you could post them in this topic (following the structure already laid out). The fixes also need extensive testing to find bugs in the fixes.
+</p><p>Again, this is a community project, merely managed by Y_Less - it anyone has comments, contributions, criticisms etc. please post them in this topic. This includes additions to source code, documentation, presentation, translations (mainly of this post - multiple versions of the include should be avoided to reduce fragmentation), or any other related area you can think of.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Fixes.inc.html" title="Edit section: Translations">edit</a>]</div><a name="Translations"></a><h2>Translations</h2>
+<p><a href="http://forum.sa-mp.com/showpost.php?p=1481795" class='external text' title="http://forum.sa-mp.com/showpost.php?p=1481795" rel="nofollow">English</a>
+<a href="http://forum.sa-mp.com/showpost.php?p=1792964" class='external text' title="http://forum.sa-mp.com/showpost.php?p=1792964" rel="nofollow">Balcan</a>
+</p><p>Note that these are only samp forum topic translations - the source is always the same. Please also post any additions in the original English topic as otherwise they may not be seen and added.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Fixes.inc.html" title="Edit section: Other fixes">edit</a>]</div><a name="Other_fixes"></a><h2>Other fixes</h2>
+<p>There are a few other includes which aim to fix issues too large to be included here:
+</p><p><a href="http://forum.sa-mp.com/showthread.php?t=303682" class='external text' title="http://forum.sa-mp.com/showthread.php?t=303682" rel="nofollow">SQLitei</a> - Slice's fixes and improvements for many SQLite functions
+<a href="http://forum.sa-mp.com/showthread.php?t=289675" class='external text' title="http://forum.sa-mp.com/showthread.php?t=289675" rel="nofollow">Timer Fix</a> - Slice's fixes to make "SetTimer" and "SetTimerEx" vastly more accurate in their delays.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Fixes.inc.html" title="Edit section: Bugs">edit</a>]</div><a name="Bugs"></a><h2>Bugs</h2>
+<p><cite><a href="http://forum.sa-mp.com/showthread.php?p=1481795#post1481795" class='external text' title="http://forum.sa-mp.com/showthread.php?p=1481795#post1481795" rel="nofollow">Y_Less said</a>: [This] is beta software written by a small team in their spare time, thus it has bugs (as does all software).</cite>
+</p><p>This software is explicitly designed to solve bugs, not cause them, but there may still be bugs.
+</p><p>The most likely cause of bugs is certain combinations of disabled fixes. Some fixes are inter-mixed and while they SHOULD work when the fixes they are combined with are disabled, not every combination has been tested.
+</p><div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/Fixes.inc.html">http://localhost../wiki/Fixes.inc.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="Category_Useful_includes.html" class="new" title="Category:Useful includes">Useful includes</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="Fixes.inc.html">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="Talk_Fixes.inc.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="Fixes.inc.html">Edit</a></li>
+				 <li id="ca-history"><a href="Fixes.inc.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 14,394 times.</li>
+				<li id="credits">This page was last modified 14:04, 3 August 2017 by SA-MP Wiki user <a href="User_OstGot.html" title="User:OstGot">OstGot</a>. Based on work by SA-MP Wiki user(s) <a href="User_ZiGGi.html" title="User:ZiGGi">ZiGGi</a> and <a href="User_Legodude.html" title="User:Legodude">Legodude</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 74.40 secs. -->
+</body></html>

@@ -1,0 +1,434 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Fast Commands,Main Page,Scripting Basics,Server Plugins,Sscanf code,Scripting Callbacks,Scripting Functions,Tutorials" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>Fast Commands - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Fast Commands</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<div class="scripting" style="color: #4378A4; background-color: #FFFFFF; margin: 2px; margin-bottom: 10px;"><div align="center" style="border: 1px solid #AAAAAA; padding: 3px; padding-left: 5px;"><a href="../wiki-archive.html" title="Main Page">Main Page</a> | <a href="Category_Scripting_Functions.html" title="Category:Scripting Functions">Scripting Functions</a> | <a href="Category_Scripting_Callbacks.html" title="Category:Scripting Callbacks">Scripting Callbacks</a> | <a href="Scripting_Basics.html" title="Scripting Basics">Scripting Basics</a> | <a href="Server_Plugins.html" title="Server Plugins">Server Plugins</a> | <a href="Category_Tutorials.html" title="Category:Tutorials">Tutorials</a></div></div><br />
+<p><br />
+</p>
+<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class='toclevel-1'><a href="#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class='toclevel-1'><a href="#dcmd"><span class="tocnumber">2</span> <span class="toctext">dcmd</span></a>
+<ul>
+<li class='toclevel-2'><a href="#Comparison_example"><span class="tocnumber">2.1</span> <span class="toctext">Comparison example</span></a></li>
+<li class='toclevel-2'><a href="#Explanation"><span class="tocnumber">2.2</span> <span class="toctext">Explanation</span></a></li>
+<li class='toclevel-2'><a href="#Define_line"><span class="tocnumber">2.3</span> <span class="toctext">Define line</span></a></li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#zcmd"><span class="tocnumber">3</span> <span class="toctext">zcmd</span></a>
+<ul>
+<li class='toclevel-2'><a href="#Information"><span class="tocnumber">3.1</span> <span class="toctext">Information</span></a></li>
+<li class='toclevel-2'><a href="#Differences_from_dcmd"><span class="tocnumber">3.2</span> <span class="toctext">Differences from dcmd</span></a></li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#sscanf"><span class="tocnumber">4</span> <span class="toctext">sscanf</span></a>
+<ul>
+<li class='toclevel-2'><a href="#example_revisited"><span class="tocnumber">4.1</span> <span class="toctext">example revisited</span></a></li>
+<li class='toclevel-2'><a href="#Explanation_2"><span class="tocnumber">4.2</span> <span class="toctext">Explanation</span></a></li>
+<li class='toclevel-2'><a href="#Data_types"><span class="tocnumber">4.3</span> <span class="toctext">Data types</span></a></li>
+<li class='toclevel-2'><a href="#Users"><span class="tocnumber">4.4</span> <span class="toctext">Users</span></a></li>
+<li class='toclevel-2'><a href="#Strings"><span class="tocnumber">4.5</span> <span class="toctext">Strings</span></a></li>
+<li class='toclevel-2'><a href="#Optional_strings"><span class="tocnumber">4.6</span> <span class="toctext">Optional strings</span></a></li>
+<li class='toclevel-2'><a href="#Other_notes"><span class="tocnumber">4.7</span> <span class="toctext">Other notes</span></a></li>
+<li class='toclevel-2'><a href="#Code"><span class="tocnumber">4.8</span> <span class="toctext">Code</span></a></li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#givecash"><span class="tocnumber">5</span> <span class="toctext">givecash</span></a></li>
+<li class='toclevel-1'><a href="#Other_commands"><span class="tocnumber">6</span> <span class="toctext">Other commands</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Fast_Commands.html" title="Edit section: Introduction">edit</a>]</div><a name="Introduction"></a><h2> Introduction </h2>
+<p>By far the most common command processing system in terms of use is the strtok method first used for SA:MP in the original LVDM by jax.  This exposure from the very start has firmly established it's use in scripts, however it is very slow in comparison to other methods, one of these methods, dcmd, is explained here along with a method of extracting parameters safely and quickly from the entered command.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Fast_Commands.html" title="Edit section: dcmd">edit</a>]</div><a name="dcmd"></a><h2> dcmd </h2>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Fast_Commands.html" title="Edit section: Comparison example">edit</a>]</div><a name="Comparison_example"></a><h3> Comparison example </h3>
+<p>Using strtok:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnPlayerCommandText"><span style="color: #dc143c">OnPlayerCommandText</span></a><span style="color: #66cc66;">&#40;</span>playerid, cmdtext<span style="color: #66cc66;">&#91;</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #228b22; font-weight: bold;">new</span> index, cmd<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">20</span><span style="color: #66cc66;">&#93;</span>;
+	cmd = strtok<span style="color: #66cc66;">&#40;</span>cmdtext, index<span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+	<span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span><a href="http://wiki.sa-mp.com/wiki/strcmp"><span style="color: #006400;">strcmp</span></a><span style="color: #66cc66;">&#40;</span>cmd, <span style="color: #b22222;">&quot;/heal&quot;</span>, true<span style="color: #66cc66;">&#41;</span> == <span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span>
+	<span style="color: #66cc66;">&#123;</span>
+		<span style="color: #228b22; font-weight: bold;">new</span> tmp<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">20</span><span style="color: #66cc66;">&#93;</span>;
+		tmp = strtok<span style="color: #66cc66;">&#40;</span>cmdtext, index<span style="color: #66cc66;">&#41;</span>;
+                <span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>!<a href="http://wiki.sa-mp.com/wiki/strlen"><span style="color: #006400;">strlen</span></a><span style="color: #66cc66;">&#40;</span>tmp<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span> <span style="color: orange; font-weight: bold;">return</span> <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, 0xFF0000AA, <span style="color: #b22222;">&quot;Usage&nbsp;: /heal &lt;ID&gt;&quot;</span><span style="color: #66cc66;">&#41;</span>;
+		<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>!<a href="http://wiki.sa-mp.com/wiki/IsPlayerConnected"><span style="color: #006400;">IsPlayerConnected</span></a><span style="color: #66cc66;">&#40;</span><a href="http://wiki.sa-mp.com/wiki/strval"><span style="color: #006400;">strval</span></a><span style="color: #66cc66;">&#40;</span>tmp<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span> <span style="color: orange; font-weight: bold;">return</span> <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, 0xFF0000AA, <span style="color: #b22222;">&quot;Player not found&quot;</span><span style="color: #66cc66;">&#41;</span>;
+		<a href="http://wiki.sa-mp.com/wiki/SetPlayerHealth"><span style="color: #006400;">SetPlayerHealth</span></a><span style="color: #66cc66;">&#40;</span><a href="http://wiki.sa-mp.com/wiki/strval"><span style="color: #006400;">strval</span></a><span style="color: #66cc66;">&#40;</span>tmp<span style="color: #66cc66;">&#41;</span>, <span style="color: #4169e1;">100.0</span><span style="color: #66cc66;">&#41;</span>;
+		<a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span><a href="http://wiki.sa-mp.com/wiki/strval"><span style="color: #006400;">strval</span></a><span style="color: #66cc66;">&#40;</span>tmp<span style="color: #66cc66;">&#41;</span>, 0x00FF00AA, <span style="color: #b22222;">&quot;You have been healed&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	        <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, 0x00FF00AA, <span style="color: #b22222;">&quot;Player healed&quot;</span><span style="color: #66cc66;">&#41;</span>;
+		<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+	<span style="color: #66cc66;">&#125;</span>
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">0</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>Using dcmd:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnPlayerCommandText"><span style="color: #dc143c">OnPlayerCommandText</span></a><span style="color: #66cc66;">&#40;</span>playerid, cmdtext<span style="color: #66cc66;">&#91;</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	dcmd<span style="color: #66cc66;">&#40;</span>heal, <span style="color: #4169e1;">4</span>, cmdtext<span style="color: #66cc66;">&#41;</span>;
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">0</span>;
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+dcmd_heal<span style="color: #66cc66;">&#40;</span>playerid, params<span style="color: #66cc66;">&#91;</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+        <span style="color: #228b22; font-weight: bold;">new</span> id;
+	<span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span>!<a href="http://wiki.sa-mp.com/wiki/strlen"><span style="color: #006400;">strlen</span></a><span style="color: #66cc66;">&#40;</span>params<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span> <span style="color: orange; font-weight: bold;">return</span> <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, 0xFF0000AA, <span style="color: #b22222;">&quot;Usage: <span style="color: #000099; font-weight: bold;">\&quot;</span>/heal &lt;playerid&gt;<span style="color: #000099; font-weight: bold;">\&quot;</span>&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	id = <a href="http://wiki.sa-mp.com/wiki/strval"><span style="color: #006400;">strval</span></a><span style="color: #66cc66;">&#40;</span>params<span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span>!<a href="http://wiki.sa-mp.com/wiki/IsPlayerConnected"><span style="color: #006400;">IsPlayerConnected</span></a><span style="color: #66cc66;">&#40;</span>id<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span> <span style="color: orange; font-weight: bold;">return</span> <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, 0xFF0000AA, <span style="color: #b22222;">&quot;Player not found&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	<a href="http://wiki.sa-mp.com/wiki/SetPlayerHealth"><span style="color: #006400;">SetPlayerHealth</span></a><span style="color: #66cc66;">&#40;</span>id, <span style="color: #4169e1;">100.0</span><span style="color: #66cc66;">&#41;</span>;
+	<a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>id, 0x00FF00AA, <span style="color: #b22222;">&quot;You have been healed&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	<a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, 0x00FF00AA, <span style="color: #b22222;">&quot;Player healed&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>There is already less code and we've barely done anything, converting the first example into the second took less than 30 seconds and will save a lot of time in processing.  Plus the command being in a separate function means you can put it in a separate file if you want and just have a list of commands in OnPlayerCommandText, not a huge load of code.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Fast_Commands.html" title="Edit section: Explanation">edit</a>]</div><a name="Explanation"></a><h3> Explanation </h3>
+<pre>dcmd(heal, 4, cmdtext);
+</pre>
+<p>That line basically declares the command, it checks the variable cmdtext to see if you typed /heal, the number 4 is the length of the word "heal", the word "heal" (without double quotes) is both the command to type and part of the function to call.
+</p><p>The function dcmd_heal is the command name you entered in the dcmd line with dcmd_ put in front.  It has two parameters, the first, playerid, is the player who typed the command, just like OnPlayerCommandText.  The second, params[], is the string entered after the command, this is very similar to cmdtext[] but ONLY contains command parameters (or nothing if no parameters were entered, as shown in the example above).
+</p><p>This is all you need to know to use dcmd, most people are put off by the last remaining part, however this was purposefully left to last as you do not need to understand it at all to use it.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Fast_Commands.html" title="Edit section: Define line">edit</a>]</div><a name="Define_line"></a><h3> Define line </h3>
+<p>This is the dcmd define line, just copy the following line to the top of your script, near the includes, and forget about it (Note: may scroll off to the right):
+</p>
+<pre class="pawn"><span style="color: #6b8e23;">#define dcmd(%1,%2,%3) if (!strcmp((%3)[1], #%1, true, (%2)) &amp;&amp; ((((%3)[(%2) + 1] == '\0') &amp;&amp; (dcmd_%1(playerid, &quot;&quot;))) || (((%3)[(%2) + 1] == ' ') &amp;&amp; (dcmd_%1(playerid, (%3)[(%2) + 2]))))) return 1</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Fast_Commands.html" title="Edit section: zcmd">edit</a>]</div><a name="zcmd"></a><h2> zcmd </h2>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Fast_Commands.html" title="Edit section: Information">edit</a>]</div><a name="Information"></a><h3> Information </h3>
+<p>After using strcmp and dcmd, there is another way of processing commands very fast. We're talking about zcmd. zcmd is the fastest way of processing commands which is available at the moment. You can download the include here: <a href="http://forum.sa-mp.com/showthread.php?t=91354" class='external free' title="http://forum.sa-mp.com/showthread.php?t=91354" rel="nofollow">http://forum.sa-mp.com/showthread.php?t=91354</a>
+For the speed results see this post: <a href="http://forum.sa-mp.com/showpost.php?p=815452&amp;postcount=182" class='external free' title="http://forum.sa-mp.com/showpost.php?p=815452&amp;postcount=182" rel="nofollow">http://forum.sa-mp.com/showpost.php?p=815452&amp;postcount=182</a>
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Fast_Commands.html" title="Edit section: Differences from dcmd">edit</a>]</div><a name="Differences_from_dcmd"></a><h3> Differences from dcmd </h3>
+<p>We're already using sscanf here, for the fastest way to process commands.
+</p>
+<pre class="pawn">dcmd_heal<span style="color: #66cc66;">&#40;</span>playerid, params<span style="color: #66cc66;">&#91;</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #228b22; font-weight: bold;">new</span>
+		id;
+	<span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span>sscanf<span style="color: #66cc66;">&#40;</span>params, <span style="color: #b22222;">&quot;u&quot;</span>, id<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span> <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, 0xFF0000AA, <span style="color: #b22222;">&quot;Usage: <span style="color: #000099; font-weight: bold;">\&quot;</span>/heal &lt;playerid&gt;<span style="color: #000099; font-weight: bold;">\&quot;</span>&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #4169e1;">else</span> <span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span>id == <span style="color: #E9967A; font-weight: bold;">INVALID_PLAYER_ID</span><span style="color: #66cc66;">&#41;</span> <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, 0xFF0000AA, <span style="color: #b22222;">&quot;Player not found&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #4169e1;">else</span>
+	<span style="color: #66cc66;">&#123;</span>
+		<a href="http://wiki.sa-mp.com/wiki/SetPlayerHealth"><span style="color: #006400;">SetPlayerHealth</span></a><span style="color: #66cc66;">&#40;</span>id, <span style="color: #4169e1;">100.0</span><span style="color: #66cc66;">&#41;</span>;
+		<a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>id, 0x00FF00AA, <span style="color: #b22222;">&quot;You have been healed&quot;</span><span style="color: #66cc66;">&#41;</span>;
+		<a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, 0x00FF00AA, <span style="color: #b22222;">&quot;Player healed&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #66cc66;">&#125;</span>
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+<span style="color: orange;">CMD</span>:heal<span style="color: #66cc66;">&#40;</span>playerid, params<span style="color: #66cc66;">&#91;</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #228b22; font-weight: bold;">new</span>
+		id;
+	<span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span>sscanf<span style="color: #66cc66;">&#40;</span>params, <span style="color: #b22222;">&quot;u&quot;</span>, id<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span> <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, 0xFF0000AA, <span style="color: #b22222;">&quot;Usage: <span style="color: #000099; font-weight: bold;">\&quot;</span>/heal &lt;playerid&gt;<span style="color: #000099; font-weight: bold;">\&quot;</span>&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #4169e1;">else</span> <span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span>id == <span style="color: #E9967A; font-weight: bold;">INVALID_PLAYER_ID</span><span style="color: #66cc66;">&#41;</span> <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, 0xFF0000AA, <span style="color: #b22222;">&quot;Player not found&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #4169e1;">else</span>
+	<span style="color: #66cc66;">&#123;</span>
+		<a href="http://wiki.sa-mp.com/wiki/SetPlayerHealth"><span style="color: #006400;">SetPlayerHealth</span></a><span style="color: #66cc66;">&#40;</span>id, <span style="color: #4169e1;">100.0</span><span style="color: #66cc66;">&#41;</span>;
+		<a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>id, 0x00FF00AA, <span style="color: #b22222;">&quot;You have been healed&quot;</span><span style="color: #66cc66;">&#41;</span>;
+		<a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, 0x00FF00AA, <span style="color: #b22222;">&quot;Player healed&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #66cc66;">&#125;</span>
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>All you actually have to do is CMD:heal(playerid, params[]), you can also do COMMAND:heal(playerid, params[]). The third method is command(heal, playerid, params[])
+As you can see it's almost the same, but the code that's behind it is much faster.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Fast_Commands.html" title="Edit section: sscanf">edit</a>]</div><a name="sscanf"></a><h2> sscanf </h2>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Fast_Commands.html" title="Edit section: example revisited">edit</a>]</div><a name="example_revisited"></a><h3> example revisited </h3>
+<p>The above example can be simplified even further by the use of sscanf:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnPlayerCommandText"><span style="color: #dc143c">OnPlayerCommandText</span></a><span style="color: #66cc66;">&#40;</span>playerid, cmdtext<span style="color: #66cc66;">&#91;</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	dcmd<span style="color: #66cc66;">&#40;</span>heal, <span style="color: #4169e1;">4</span>, cmdtext<span style="color: #66cc66;">&#41;</span>;
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">0</span>;
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+dcmd_heal<span style="color: #66cc66;">&#40;</span>playerid, params<span style="color: #66cc66;">&#91;</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #228b22; font-weight: bold;">new</span>
+		id;
+	<span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span>sscanf<span style="color: #66cc66;">&#40;</span>params, <span style="color: #b22222;">&quot;u&quot;</span>, id<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span> <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, 0xFF0000AA, <span style="color: #b22222;">&quot;Usage: <span style="color: #000099; font-weight: bold;">\&quot;</span>/heal &lt;playerid&gt;<span style="color: #000099; font-weight: bold;">\&quot;</span>&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #4169e1;">else</span> <span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span>id == <span style="color: #E9967A; font-weight: bold;">INVALID_PLAYER_ID</span><span style="color: #66cc66;">&#41;</span> <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, 0xFF0000AA, <span style="color: #b22222;">&quot;Player not found&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #4169e1;">else</span>
+	<span style="color: #66cc66;">&#123;</span>
+		<a href="http://wiki.sa-mp.com/wiki/SetPlayerHealth"><span style="color: #006400;">SetPlayerHealth</span></a><span style="color: #66cc66;">&#40;</span>id, <span style="color: #4169e1;">100.0</span><span style="color: #66cc66;">&#41;</span>;
+		<a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>id, 0x00FF00AA, <span style="color: #b22222;">&quot;You have been healed&quot;</span><span style="color: #66cc66;">&#41;</span>;
+		<a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, 0x00FF00AA, <span style="color: #b22222;">&quot;Player healed&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #66cc66;">&#125;</span>
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Fast_Commands.html" title="Edit section: Explanation">edit</a>]</div><a name="Explanation_2"></a><h3> Explanation </h3>
+<p>sscanf takes two main parameters, the string you want to get information from (in this case params) and the type of information you want to get out (see below).  It then takes additional parameters, equal in number to the amount of data you want, in this example we only want one piece of data (the id of the player to heal), players are special so we can use 'u' so people can enter their name OR ID.
+</p><p>If sscanf gets all the data properly it returns 0, so we can check it's not 0 and if it is then it failed and the player typing the command didn't enter the data correctly.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Fast_Commands.html" title="Edit section: Data types">edit</a>]</div><a name="Data_types"></a><h3> Data types </h3>
+<p>The second parameter is a list of the types of data required.  sscanf can get strings, numbers, characters, floats and hex numbers from a command (or any other string).  For example:
+</p>
+<pre>/givecash &lt;playerid/partname&gt; &lt;amount&gt;
+</pre>
+<p>That is a player and a number, so the list type would be "player number"; numbers are represented by either "i" or "d" (as in format and printf) so the format parameter for that command could be either of:
+</p>
+<pre>"ui"
+"ud"
+</pre>
+<p>Another common example is:
+</p>
+<pre>/me &lt;action&gt;
+</pre>
+<p>The action is just a string so the format parameter is simply "s", "z" is also string, but that's an optional string, an example of which could be:
+</p>
+<pre>/ban &lt;playerid&gt; [reason]
+</pre>
+<p>The parameters for which are "uz".
+</p>
+<table class="wikitable">
+
+<tr>
+<th> Format character
+</th><th> Data type
+</th><th> Example
+</th></tr>
+<tr>
+<td> d
+</td><td rowspan="2"> Integer
+</td><td rowspan="2"> Money
+</td></tr>
+<tr>
+<td> i
+</td></tr>
+<tr>
+<td> c
+</td><td> Character
+</td><td> A single letter
+</td></tr>
+<tr>
+<td> u
+</td><td> User ID or name
+</td><td> Player
+</td></tr>
+<tr>
+<td> s
+</td><td> String
+</td><td> Any length of text
+</td></tr>
+<tr>
+<td> h
+</td><td rowspan="2"> Hex number
+</td><td rowspan="2"> Colour
+</td></tr>
+<tr>
+<td> x
+</td></tr>
+<tr>
+<td> f
+</td><td> Float
+</td><td> Co-ordinate
+</td></tr>
+<tr>
+<td> z (deprecated)
+</td><td> Optional string. Deprecated, use S instead.
+</td><td> A reason e.g. Ban Reason, only optional at the end of a format string
+</td></tr>
+<tr>
+<td> p&lt;delimiter&gt;
+</td><td> Splitter
+</td><td> The next character is used as a string delimiter, example:
+<pre>"p|iii"
+</pre>
+<p>Will split this string into three integers:
+</p>
+<pre>1|2|3
+</pre>
+<p>Note that on things other than strings space is still used as well.
+</p>
+</td></tr>
+<tr>
+<td> '...'
+</td><td> Match string where ... is text to find
+</td><td> Text you want included but don't use
+</td></tr>
+</table>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Fast_Commands.html" title="Edit section: Users">edit</a>]</div><a name="Users"></a><h3> Users </h3>
+<p>The latest version of sscanf introduced the "u" parameter, this replaces "d" or "i" when you want that parameter to be used as a playerid rather than just a normal number.  This parameter allows you to type either a number for playerid or part of a name, in which case sscanf will find the first matching player and return their id.  It also has checks so if the player doesn't exist or isn't connected it returns INVALID_PLAYER_ID.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Fast_Commands.html" title="Edit section: Strings">edit</a>]</div><a name="Strings"></a><h3> Strings </h3>
+<p>Strings are handled slightly cleverly in sscanf.  If the "s" is the last format parameter the string will contain everything remaining in the source string, if it isn't it will just get a single word similar to strtok:
+</p>
+<pre>sscanf("hello there you", "s", string);
+</pre>
+<p>string will be "hello there you"
+</p>
+<pre>sscanf("hello there you", "ss", string1, string2);
+</pre>
+<p>string1 will be "hello", string2 will be "there you" (neither string will contain the space between "hello" and "there").
+</p>
+<pre>sscanf("hello 0", "si", string, num);
+</pre>
+<p>string will contain "hello", num will be 0.
+</p>
+<pre>sscanf("hello there 0", "si", string, num);
+</pre>
+<p>This sscanf will actually fail as string will get "hello", but "num" isn't a number (it finds "there"), which is the required parameter type.
+</p><p>If you want the last parameter to be a string but only want one word you can simply put a space after the "s" in the parameter string, this will trick sscanf into thinking there's more types wanted but it will just skip the space when it gets to it:
+</p>
+<pre>sscanf("hello there", "s ", string);
+</pre>
+<p>string will now only contain "hello".
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Fast_Commands.html" title="Edit section: Optional strings">edit</a>]</div><a name="Optional_strings"></a><h3> Optional strings </h3>
+<p>The "z" format parameter when used at the end of a string will create an optional string parameter.  It behaves exactly the same as the "s" parameter, especially when used in parts of the format string other than the end, but if the text passed is not long enough the sscanf function still returns 0 for true:
+</p>
+<pre class="pawn">dcmd_ban<span style="color: #66cc66;">&#40;</span>playerid, params<span style="color: #66cc66;">&#91;</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #228b22; font-weight: bold;">new</span>
+		id,
+		reason<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">64</span><span style="color: #66cc66;">&#93;</span>;
+	<span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span>sscanf<span style="color: #66cc66;">&#40;</span>params, <span style="color: #b22222;">&quot;uz&quot;</span>, id, reason<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span> <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, 0xFF0000AA, <span style="color: #b22222;">&quot;Usage: <span style="color: #000099; font-weight: bold;">\&quot;</span>/ban &lt;playerid/partname&gt; &lt;reason (optional)&gt;<span style="color: #000099; font-weight: bold;">\&quot;</span>&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #4169e1;">else</span> <span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span>id == <span style="color: #E9967A; font-weight: bold;">INVALID_PLAYER_ID</span><span style="color: #66cc66;">&#41;</span> <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, 0xFF0000AA, <span style="color: #b22222;">&quot;Player not found&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #4169e1;">else</span>
+	<span style="color: #66cc66;">&#123;</span>
+		<a href="http://wiki.sa-mp.com/wiki/BanEx"><span style="color: #006400;">BanEx</span></a><span style="color: #66cc66;">&#40;</span>id, reason<span style="color: #66cc66;">&#41;</span>;
+		<a href="http://wiki.sa-mp.com/wiki/format"><span style="color: #006400;">format</span></a><span style="color: #66cc66;">&#40;</span>reason, <span style="color: orange; font-weight: bold;">sizeof</span> <span style="color: #66cc66;">&#40;</span>reason<span style="color: #66cc66;">&#41;</span>, <span style="color: #b22222;">&quot;You have been banned%s%s.&quot;</span>, reason<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#93;</span>&nbsp;? <span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot; for: &quot;</span><span style="color: #66cc66;">&#41;</span>&nbsp;: <span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;&quot;</span><span style="color: #66cc66;">&#41;</span>, reason<span style="color: #66cc66;">&#41;</span>;
+		<a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>id, 0xFF0000AA, reason<span style="color: #66cc66;">&#41;</span>;
+		<a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, 0x00FF00AA, <span style="color: #b22222;">&quot;Player banned&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #66cc66;">&#125;</span>
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Fast_Commands.html" title="Edit section: Other notes">edit</a>]</div><a name="Other_notes"></a><h3> Other notes </h3>
+<ul><li> sscanf has inbuilt protection against the long number crash (where very long numbers can crash strval).
+</li><li> IsNumeric is included, sscanf won't try to evaluate strings as numbers (which will just return 0) if they typed the command wrong.
+</li><li> Simple to add more parameters to a command without major code restructuring.
+</li></ul>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Fast_Commands.html" title="Edit section: Code">edit</a>]</div><a name="Code"></a><h3> Code </h3>
+<p>To use sscanf simply copy the code <a href="Sscanf_code.html" title="Sscanf code">here</a> somewhere in your mode or download the <a href="http://forum.sa-mp.com/showthread.php?t=120356" class='external text' title="http://forum.sa-mp.com/showthread.php?t=120356" rel="nofollow">plugin</a> which is faster.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Fast_Commands.html" title="Edit section: givecash">edit</a>]</div><a name="givecash"></a><h2> givecash </h2>
+<p>The infamous givecash command from LVDM using dcmd and sscanf, this is obviously much shorter than normal implementations.  This is a slightly unfair comparison as the sscanf versions actually does MORE than the original in that it can take a player name or a playerid.
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnPlayerCommandText"><span style="color: #dc143c">OnPlayerCommandText</span></a><span style="color: #66cc66;">&#40;</span>playerid, cmdtext<span style="color: #66cc66;">&#91;</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	dcmd<span style="color: #66cc66;">&#40;</span>givecash, <span style="color: #4169e1;">8</span>, cmdtext<span style="color: #66cc66;">&#41;</span>;
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">0</span>;
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+dcmd_givecash<span style="color: #66cc66;">&#40;</span>playerid, params<span style="color: #66cc66;">&#91;</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #228b22; font-weight: bold;">new</span>
+		giveplayerid,
+		amount;
+	<span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span>sscanf<span style="color: #66cc66;">&#40;</span>params, <span style="color: #b22222;">&quot;ud&quot;</span>, giveplayerid, amount<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span> <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, 0xFF0000AA, <span style="color: #b22222;">&quot;Usage: /givecash [playerid/partname] [amount]&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #4169e1;">else</span> <span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span>giveplayerid == <span style="color: #E9967A; font-weight: bold;">INVALID_PLAYER_ID</span><span style="color: #66cc66;">&#41;</span> <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, 0xFF0000AA, <span style="color: #b22222;">&quot;Player not found&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #4169e1;">else</span> <span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span>amount &gt; <a href="http://wiki.sa-mp.com/wiki/GetPlayerMoney"><span style="color: #006400;">GetPlayerMoney</span></a><span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span> <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, 0xFF0000AA, <span style="color: #b22222;">&quot;Insufficient Funds&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #4169e1;">else</span>
+	<span style="color: #66cc66;">&#123;</span>
+		<a href="http://wiki.sa-mp.com/wiki/GivePlayerMoney"><span style="color: #006400;">GivePlayerMoney</span></a><span style="color: #66cc66;">&#40;</span>giveplayerid, amount<span style="color: #66cc66;">&#41;</span>;
+		<a href="http://wiki.sa-mp.com/wiki/GivePlayerMoney"><span style="color: #006400;">GivePlayerMoney</span></a><span style="color: #66cc66;">&#40;</span>playerid, <span style="color: #4169e1;">0</span> - amount<span style="color: #66cc66;">&#41;</span>;
+		<a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, 0x00FF00AA, <span style="color: #b22222;">&quot;Money sent&quot;</span><span style="color: #66cc66;">&#41;</span>;
+		<a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>giveplayerid, 0x00FF00AA, <span style="color: #b22222;">&quot;Money received&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #66cc66;">&#125;</span>
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Fast_Commands.html" title="Edit section: Other commands">edit</a>]</div><a name="Other_commands"></a><h2> Other commands </h2>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnPlayerCommandText"><span style="color: #dc143c">OnPlayerCommandText</span></a><span style="color: #66cc66;">&#40;</span>playerid, cmdtext<span style="color: #66cc66;">&#91;</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	dcmd<span style="color: #66cc66;">&#40;</span>sethealth, <span style="color: #4169e1;">9</span>, cmdtext<span style="color: #66cc66;">&#41;</span>;
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">0</span>;
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+dcmd_sethealth<span style="color: #66cc66;">&#40;</span>playerid, params<span style="color: #66cc66;">&#91;</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span><a href="http://wiki.sa-mp.com/wiki/IsPlayerAdmin"><span style="color: #006400;">IsPlayerAdmin</span></a><span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span> <span style="color: #808080; font-style: italic;">// IsPlayerAdmin check (we want only RCON admins to use this command (error message at bottom if the player isn't logged into RCON)</span>
+	<span style="color: #66cc66;">&#123;</span>
+		<span style="color: #228b22; font-weight: bold;">new</span> id, <span style="color: orange;">Float</span>:amount, string<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">70</span><span style="color: #66cc66;">&#93;</span>, pName<span style="color: #66cc66;">&#91;</span><span style="color: #E9967A; font-weight: bold;">MAX_PLAYER_NAME</span><span style="color: #66cc66;">&#93;</span>; <span style="color: #808080; font-style: italic;">// Create the variables needed for this command. id = the id we want to set the health of, amount = the amount we're gonna set id's health to and pName is just where we store id's name.</span>
+		<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>sscanf<span style="color: #66cc66;">&#40;</span>params, <span style="color: #b22222;">&quot;uf&quot;</span>, id, amount<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span> <span style="color: orange; font-weight: bold;">return</span> <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, 0xFF0000AA, <span style="color: #b22222;">&quot;Usage: /sethealth (id) (amount)&quot;</span><span style="color: #66cc66;">&#41;</span>;
+		<span style="color: #808080; font-style: italic;">// Here sscanf checks if the command was typed with the correct usage, it were not, so lets send an error message.</span>
+		<span style="color: #808080; font-style: italic;">// the &quot;ud&quot; part in the code means: u = playerid or part of player's name, f = the float amount we will set ids health to (So you can also type 100.0 instead of just 100)</span>
+		<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>!<a href="http://wiki.sa-mp.com/wiki/IsPlayerConnected"><span style="color: #006400;">IsPlayerConnected</span></a><span style="color: #66cc66;">&#40;</span>id<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span> <span style="color: orange; font-weight: bold;">return</span> <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, 0xFF0000AA, <span style="color: #b22222;">&quot;This player is not connected.&quot;</span><span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// ID is not connected, send an error message</span>
+	        <span style="color: #4169e1;">else</span>
+		<span style="color: #66cc66;">&#123;</span>
+			<a href="http://wiki.sa-mp.com/wiki/GetPlayerName"><span style="color: #006400;">GetPlayerName</span></a><span style="color: #66cc66;">&#40;</span>id, pName, <span style="color: #E9967A; font-weight: bold;">MAX_PLAYER_NAME</span><span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// Getting id's name and storing the name in the variable pName</span>
+			<a href="http://wiki.sa-mp.com/wiki/SetPlayerHealth"><span style="color: #006400;">SetPlayerHealth</span></a><span style="color: #66cc66;">&#40;</span>id, amount<span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// Setting id's health to what the user typed as the amount</span>
+			<a href="http://wiki.sa-mp.com/wiki/format"><span style="color: #006400;">format</span></a><span style="color: #66cc66;">&#40;</span>string, <span style="color: orange; font-weight: bold;">sizeof</span><span style="color: #66cc66;">&#40;</span>string<span style="color: #66cc66;">&#41;</span>, <span style="color: #b22222;">&quot;You've Set %s's (%d) Health To %d.&quot;</span>, pName, id, amount<span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// Formating the string wich will say how much we set id's health to.</span>
+			<a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, 0x00FF00AA, string<span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// Sending the message to the player who typed the command</span>
+			<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>; <span style="color: #808080; font-style: italic;">// The command was successfully processed</span>
+		<span style="color: #66cc66;">&#125;</span>
+	<span style="color: #66cc66;">&#125;</span>
+	<span style="color: #4169e1;">else</span> <span style="color: orange; font-weight: bold;">return</span> <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, 0xFF0000AA, <span style="color: #b22222;">&quot;Looks like you forgot the commands! Use /commands for a list of commands.&quot;</span><span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// Sending the error message to the player who typed the command because he's not logged into RCON</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/Fast_Commands.html">http://localhost../wiki/Fast_Commands.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="Category_Scripting_Documentation.html" title="Category:Scripting Documentation">Scripting Documentation</a></span> | <span dir='ltr'><a href="Category_Tutorials.html" title="Category:Tutorials">Tutorials</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="Fast_Commands.html">Article</a></li>
+				 <li id="ca-talk"><a href="Talk_Fast_Commands.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="Fast_Commands.html">Edit</a></li>
+				 <li id="ca-history"><a href="Fast_Commands.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 201,207 times.</li>
+				<li id="credits">This page was last modified 15:36, 3 April 2016 by SA-MP Wiki user <a href="User_OstGot.html" title="User:OstGot">OstGot</a>. Based on work by SA-MP Wiki user(s) <a href="User_HazardouS.html" class="new" title="User:HazardouS">HazardouS</a>, <a href="User_Vince.html" title="User:Vince">Vince</a>, <a href="User_Linuxthefish.html" title="User:Linuxthefish">Linuxthefish</a>, <a href="User_Connor_Mead.html" title="User:Connor Mead">Connor Mead</a> and <a href="User_LaZ.html" title="User:LaZ">LaZ</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 33.46 secs. -->
+</body></html>

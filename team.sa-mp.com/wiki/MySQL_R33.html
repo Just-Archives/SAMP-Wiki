@@ -1,0 +1,1970 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="MySQL/R33,MySQL/R33,Public functions" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>MySQL/R33 - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">MySQL/R33</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<div style="max-width:750px; width:auto; margin:0 auto 10px auto;">
+<table style="padding: 5px; background-color:#ffeecc; border-left: 10px solid #ffcc99;">
+
+<tr>
+<td align="left"><a href="Image_50px-Ambox_outdated_serious.png.html" class="image" title="Image:50px-Ambox_outdated_serious.png"><img src="../upload/b/b4/50px-Ambox_outdated_serious.png" alt="Image:50px-Ambox_outdated_serious.png" width="50" height="50" longdesc="Image_50px-Ambox_outdated_serious.png.html" /></a>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">This article is outdated. It may use methods or functions which no longer exist or which are deemed obsolete by the community. Caution is advised.  </span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<table class="wikitable" style="float:right;">
+<tr>
+<th colspan="2">MySQL Plugin<br /><span style="color:#9A1134"><i>Plugin</i></span>
+</th></tr>
+<tr>
+<td style="text-align:center;">Author</td><td style="text-align:center;"><span class="plainlinks"><a href="http://forum.sa-mp.com/member.php?u=13918" class='external text' title="http://forum.sa-mp.com/member.php?u=13918" rel="nofollow">BlueG / maddinat0r</a></span>
+</td></tr>
+<tr>
+<td style="text-align:center;">Released</td><td style="text-align:center;">29/11/2008
+</td></tr>
+<tr>
+<td style="text-align:center;">Latest Version</td><td style="text-align:center;">R39-6 <small>(27/08/2016)</small>
+</td></tr>
+<tr>
+<td style="text-align:center;">Development Status </td><td style="text-align:center;"> Active
+</td></tr>
+<tr>
+<td style="text-align:center;">License </td><td style="text-align:center;"> <a href="https://github.com/pBlueG/SA-MP-MySQL/blob/master/LICENSE" class='external text' title="https://github.com/pBlueG/SA-MP-MySQL/blob/master/LICENSE" rel="nofollow">License</a>
+</td></tr>
+<tr>
+<td colspan="2" style="text-align:center;"><a href="http://forum.sa-mp.com/showthread.php?t=56564" class='external text' title="http://forum.sa-mp.com/showthread.php?t=56564" rel="nofollow">Forum Topic</a>
+</td></tr></table>
+<p>For the latest functions <a href="http://wiki.sa-mp.com/wiki/MySQL/R40" class='external text' title="http://wiki.sa-mp.com/wiki/MySQL/R40" rel="nofollow">go here</a>.
+</p><p>Documentation for BlueG's MySQL plugin version R33 to R39-6. Forum topic and download links can be found <a href="http://forum.sa-mp.com/showthread.php?t=56564" class='external text' title="http://forum.sa-mp.com/showthread.php?t=56564" rel="nofollow">here</a>.
+</p>
+<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class='toclevel-1'><a href="#ORM_functions"><span class="tocnumber">1</span> <span class="toctext">ORM functions</span></a>
+<ul>
+<li class='toclevel-2'><a href="#orm_create"><span class="tocnumber">1.1</span> <span class="toctext">orm_create</span></a></li>
+<li class='toclevel-2'><a href="#orm_destroy"><span class="tocnumber">1.2</span> <span class="toctext">orm_destroy</span></a></li>
+<li class='toclevel-2'><a href="#orm_errno"><span class="tocnumber">1.3</span> <span class="toctext">orm_errno</span></a></li>
+<li class='toclevel-2'><a href="#orm_apply_cache"><span class="tocnumber">1.4</span> <span class="toctext">orm_apply_cache</span></a></li>
+<li class='toclevel-2'><a href="#orm_select"><span class="tocnumber">1.5</span> <span class="toctext">orm_select</span></a></li>
+<li class='toclevel-2'><a href="#orm_update"><span class="tocnumber">1.6</span> <span class="toctext">orm_update</span></a></li>
+<li class='toclevel-2'><a href="#orm_insert"><span class="tocnumber">1.7</span> <span class="toctext">orm_insert</span></a></li>
+<li class='toclevel-2'><a href="#orm_delete"><span class="tocnumber">1.8</span> <span class="toctext">orm_delete</span></a></li>
+<li class='toclevel-2'><a href="#orm_load"><span class="tocnumber">1.9</span> <span class="toctext">orm_load</span></a></li>
+<li class='toclevel-2'><a href="#orm_save"><span class="tocnumber">1.10</span> <span class="toctext">orm_save</span></a></li>
+<li class='toclevel-2'><a href="#orm_addvar_int"><span class="tocnumber">1.11</span> <span class="toctext">orm_addvar_int</span></a></li>
+<li class='toclevel-2'><a href="#orm_addvar_float"><span class="tocnumber">1.12</span> <span class="toctext">orm_addvar_float</span></a></li>
+<li class='toclevel-2'><a href="#orm_addvar_string"><span class="tocnumber">1.13</span> <span class="toctext">orm_addvar_string</span></a></li>
+<li class='toclevel-2'><a href="#orm_delvar"><span class="tocnumber">1.14</span> <span class="toctext">orm_delvar</span></a></li>
+<li class='toclevel-2'><a href="#orm_setkey"><span class="tocnumber">1.15</span> <span class="toctext">orm_setkey</span></a></li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#MySQL_functions"><span class="tocnumber">2</span> <span class="toctext">MySQL functions</span></a>
+<ul>
+<li class='toclevel-2'><a href="#mysql_log"><span class="tocnumber">2.1</span> <span class="toctext">mysql_log</span></a>
+<ul>
+<li class='toclevel-3'><a href="#Log_levels"><span class="tocnumber">2.1.1</span> <span class="toctext">Log levels</span></a></li>
+<li class='toclevel-3'><a href="#Log_types"><span class="tocnumber">2.1.2</span> <span class="toctext">Log types</span></a></li>
+</ul>
+</li>
+<li class='toclevel-2'><a href="#mysql_connect"><span class="tocnumber">2.2</span> <span class="toctext">mysql_connect</span></a></li>
+<li class='toclevel-2'><a href="#mysql_close"><span class="tocnumber">2.3</span> <span class="toctext">mysql_close</span></a></li>
+<li class='toclevel-2'><a href="#mysql_reconnect"><span class="tocnumber">2.4</span> <span class="toctext">mysql_reconnect</span></a></li>
+<li class='toclevel-2'><a href="#mysql_unprocessed_queries"><span class="tocnumber">2.5</span> <span class="toctext">mysql_unprocessed_queries</span></a></li>
+<li class='toclevel-2'><a href="#mysql_current_handle"><span class="tocnumber">2.6</span> <span class="toctext">mysql_current_handle</span></a></li>
+<li class='toclevel-2'><a href="#mysql_option"><span class="tocnumber">2.7</span> <span class="toctext">mysql_option</span></a>
+<ul>
+<li class='toclevel-3'><a href="#Options"><span class="tocnumber">2.7.1</span> <span class="toctext">Options</span></a></li>
+</ul>
+</li>
+<li class='toclevel-2'><a href="#mysql_errno"><span class="tocnumber">2.8</span> <span class="toctext">mysql_errno</span></a></li>
+<li class='toclevel-2'><a href="#mysql_escape_string"><span class="tocnumber">2.9</span> <span class="toctext">mysql_escape_string</span></a></li>
+<li class='toclevel-2'><a href="#mysql_format"><span class="tocnumber">2.10</span> <span class="toctext">mysql_format</span></a>
+<ul>
+<li class='toclevel-3'><a href="#Format_strings"><span class="tocnumber">2.10.1</span> <span class="toctext">Format strings</span></a></li>
+</ul>
+</li>
+<li class='toclevel-2'><a href="#mysql_pquery"><span class="tocnumber">2.11</span> <span class="toctext">mysql_pquery</span></a>
+<ul>
+<li class='toclevel-3'><a href="#Format_specifiers"><span class="tocnumber">2.11.1</span> <span class="toctext">Format specifiers</span></a></li>
+</ul>
+</li>
+<li class='toclevel-2'><a href="#mysql_tquery"><span class="tocnumber">2.12</span> <span class="toctext">mysql_tquery</span></a>
+<ul>
+<li class='toclevel-3'><a href="#Format_specifiers_2"><span class="tocnumber">2.12.1</span> <span class="toctext">Format specifiers</span></a></li>
+</ul>
+</li>
+<li class='toclevel-2'><a href="#mysql_query"><span class="tocnumber">2.13</span> <span class="toctext">mysql_query</span></a></li>
+<li class='toclevel-2'><a href="#mysql_stat"><span class="tocnumber">2.14</span> <span class="toctext">mysql_stat</span></a></li>
+<li class='toclevel-2'><a href="#mysql_get_charset"><span class="tocnumber">2.15</span> <span class="toctext">mysql_get_charset</span></a></li>
+<li class='toclevel-2'><a href="#mysql_set_charset"><span class="tocnumber">2.16</span> <span class="toctext">mysql_set_charset</span></a></li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#Cache_functions"><span class="tocnumber">3</span> <span class="toctext">Cache functions</span></a>
+<ul>
+<li class='toclevel-2'><a href="#cache_get_data"><span class="tocnumber">3.1</span> <span class="toctext">cache_get_data</span></a></li>
+<li class='toclevel-2'><a href="#cache_get_row_count"><span class="tocnumber">3.2</span> <span class="toctext">cache_get_row_count</span></a></li>
+<li class='toclevel-2'><a href="#cache_get_field_count"><span class="tocnumber">3.3</span> <span class="toctext">cache_get_field_count</span></a></li>
+<li class='toclevel-2'><a href="#cache_get_field_name"><span class="tocnumber">3.4</span> <span class="toctext">cache_get_field_name</span></a></li>
+<li class='toclevel-2'><a href="#cache_get_row"><span class="tocnumber">3.5</span> <span class="toctext">cache_get_row</span></a></li>
+<li class='toclevel-2'><a href="#cache_get_row_int"><span class="tocnumber">3.6</span> <span class="toctext">cache_get_row_int</span></a></li>
+<li class='toclevel-2'><a href="#cache_get_row_float"><span class="tocnumber">3.7</span> <span class="toctext">cache_get_row_float</span></a></li>
+<li class='toclevel-2'><a href="#cache_get_field_content"><span class="tocnumber">3.8</span> <span class="toctext">cache_get_field_content</span></a></li>
+<li class='toclevel-2'><a href="#cache_get_field_content_int"><span class="tocnumber">3.9</span> <span class="toctext">cache_get_field_content_int</span></a></li>
+<li class='toclevel-2'><a href="#cache_get_field_content_float"><span class="tocnumber">3.10</span> <span class="toctext">cache_get_field_content_float</span></a></li>
+<li class='toclevel-2'><a href="#cache_save"><span class="tocnumber">3.11</span> <span class="toctext">cache_save</span></a></li>
+<li class='toclevel-2'><a href="#cache_delete"><span class="tocnumber">3.12</span> <span class="toctext">cache_delete</span></a></li>
+<li class='toclevel-2'><a href="#cache_set_active"><span class="tocnumber">3.13</span> <span class="toctext">cache_set_active</span></a></li>
+<li class='toclevel-2'><a href="#cache_is_valid"><span class="tocnumber">3.14</span> <span class="toctext">cache_is_valid</span></a></li>
+<li class='toclevel-2'><a href="#cache_affected_rows"><span class="tocnumber">3.15</span> <span class="toctext">cache_affected_rows</span></a></li>
+<li class='toclevel-2'><a href="#cache_insert_id"><span class="tocnumber">3.16</span> <span class="toctext">cache_insert_id</span></a></li>
+<li class='toclevel-2'><a href="#cache_warning_count"><span class="tocnumber">3.17</span> <span class="toctext">cache_warning_count</span></a></li>
+<li class='toclevel-2'><a href="#cache_get_query_exec_time"><span class="tocnumber">3.18</span> <span class="toctext">cache_get_query_exec_time</span></a>
+<ul>
+<li class='toclevel-3'><a href="#Time_units"><span class="tocnumber">3.18.1</span> <span class="toctext">Time units</span></a></li>
+</ul>
+</li>
+<li class='toclevel-2'><a href="#cache_get_query_string"><span class="tocnumber">3.19</span> <span class="toctext">cache_get_query_string</span></a></li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#Plugin_callbacks"><span class="tocnumber">4</span> <span class="toctext">Plugin callbacks</span></a>
+<ul>
+<li class='toclevel-2'><a href="#OnQueryError"><span class="tocnumber">4.1</span> <span class="toctext">OnQueryError</span></a></li>
+</ul>
+</li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R33.html" title="Edit section: ORM functions">edit</a>]</div><a name="ORM_functions"></a><h1> ORM functions </h1>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+<p><strong>Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">A good tutorial for this system can be found <a href="http://forum.sa-mp.com/showthread.php?t=461766" class='external text' title="http://forum.sa-mp.com/showthread.php?t=461766" rel="nofollow">here</a>.</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R33.html" title="Edit section: orm_create">edit</a>]</div><a name="orm_create"></a><h2> orm_create </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Creates an ORM instance and returns its id.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(const table[], connectionHandle &#61; 1)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const table[]</td><td style="vertical-align:top;">The name of the table you wish to control.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">connectionHandle</td><td style="vertical-align:top;">The connection handle this will be processed on (optional).</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">ORM id on success, 0 on failure.<br /></div>
+<p><br />
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnPlayerConnect"><span style="color: #dc143c">OnPlayerConnect</span></a><span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #228b22; font-weight: bold;">new</span> <span style="color: orange;">ORM</span>:orm_id = Player<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>ORM_ID<span style="color: #66cc66;">&#93;</span> = orm_create<span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;players&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R33.html" title="Edit section: orm_destroy">edit</a>]</div><a name="orm_destroy"></a><h2> orm_destroy </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Destroys an ORM instance.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(ORM:id)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">ORM:id</td><td style="vertical-align:top;">The id of the ORM instance.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">This function does not return any specific values.<br /></div>
+<p><br />
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnPlayerDisconnect"><span style="color: #dc143c">OnPlayerDisconnect</span></a><span style="color: #66cc66;">&#40;</span>playerid, reason<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	orm_destroy<span style="color: #66cc66;">&#40;</span>Player<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>ORM_ID<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R33.html" title="Edit section: orm_errno">edit</a>]</div><a name="orm_errno"></a><h2> orm_errno </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Returns the error-id of the last ORM operation.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(ORM:id)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">ORM:id</td><td style="vertical-align:top;">The id of the ORM instance.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">Error id.<br /></div>
+<p><br />
+</p>
+<table class="wikitable">
+<caption style="text-align: left;"><b>Available errors</b>
+</caption><tr>
+<th> Error </th><th>  Meaning
+</th></tr>
+<tr>
+<td> ERROR_OK </td><td> No error happened.
+</td></tr>
+<tr>
+<td> ERROR_NO_DATA  </td><td> No data has been found in the table.
+</td></tr></table>
+<pre class="pawn">orm_select<span style="color: #66cc66;">&#40;</span>Player<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>ORM_ID<span style="color: #66cc66;">&#93;</span>, <span style="color: #b22222;">&quot;OnStuffSelected&quot;</span>, <span style="color: #b22222;">&quot;d&quot;</span>, playerid<span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">public</span> OnStuffSelected<span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #4169e1;">switch</span><span style="color: #66cc66;">&#40;</span>orm_errno<span style="color: #66cc66;">&#40;</span>Player<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>ORM_ID<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>
+	<span style="color: #66cc66;">&#123;</span>
+		<span style="color: orange; font-weight: bold;">case</span> ERROR_OK:
+			<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;There is no error.&quot;</span><span style="color: #66cc66;">&#41;</span>;
+		<span style="color: orange; font-weight: bold;">case</span> ERROR_NO_DATA:
+			<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;No data in the table found.&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #66cc66;">&#125;</span>
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R33.html" title="Edit section: orm_apply_cache">edit</a>]</div><a name="orm_apply_cache"></a><h2> orm_apply_cache </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Applies the data of the active cache to an ORM instance.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(ORM:id, row)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">ORM:id</td><td style="vertical-align:top;">The id of the ORM instance.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">row</td><td style="vertical-align:top;">The row index to take the cache data from.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">1 on success, 0 on failure.<br /></div>
+<p><br />
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> query<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">128</span><span style="color: #66cc66;">&#93;</span>;
+<a href="http://wiki.sa-mp.com/wiki/format"><span style="color: #006400;">format</span></a><span style="color: #66cc66;">&#40;</span>query, <span style="color: orange; font-weight: bold;">sizeof</span><span style="color: #66cc66;">&#40;</span>query<span style="color: #66cc66;">&#41;</span>, <span style="color: #b22222;">&quot;SELECT * FROM `players` WHERE `id` = '%d'&quot;</span>, Player<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>ID<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>;
+mysql_tquery<span style="color: #66cc66;">&#40;</span>MySQL, query, <span style="color: #b22222;">&quot;OnStuffSelected&quot;</span>, <span style="color: #b22222;">&quot;d&quot;</span>, playerid<span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">public</span> OnStuffSelected<span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	orm_apply_cache<span style="color: #66cc66;">&#40;</span>Player<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>ORM_ID<span style="color: #66cc66;">&#93;</span>, <span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span>;
+	<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;Player %s has %d Money and is on PosX with %f.&quot;</span>, Player<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>Name<span style="color: #66cc66;">&#93;</span>, Player<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>Money<span style="color: #66cc66;">&#93;</span>, Player<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>PosX<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R33.html" title="Edit section: orm_select">edit</a>]</div><a name="orm_select"></a><h2> orm_select </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Sends a SELECT query and applies the retrieved data to the previously registered variables.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(ORM:id, callback[] &#61; "", format[] &#61; "", {Float, _}:...)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">ORM:id</td><td style="vertical-align:top;">The id of the ORM instance.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">callback[]</td><td style="vertical-align:top;">The name of the callback to call when the operation is done (optional).</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">format[]</td><td style="vertical-align:top;">The format specifier for the callback (optional).</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">{Float, _}:...</td><td style="vertical-align:top;">Indefinite number of parameters to pass to the callback (optional).</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">1 on success, 0 on failure.<br /></div>
+<p><br />
+</p>
+<pre class="pawn">orm_select<span style="color: #66cc66;">&#40;</span>Player<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>ORM_ID<span style="color: #66cc66;">&#93;</span>, <span style="color: #b22222;">&quot;OnPlayerDataLoaded&quot;</span>, <span style="color: #b22222;">&quot;d&quot;</span>, playerid<span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">public</span> OnPlayerDataLoaded<span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;Player %s has %d Money and is on PosX with %f.&quot;</span>, Player<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>Name<span style="color: #66cc66;">&#93;</span>, Player<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>Money<span style="color: #66cc66;">&#93;</span>, Player<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>PosX<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R33.html" title="Edit section: orm_update">edit</a>]</div><a name="orm_update"></a><h2> orm_update </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Sends an UPDATE query with the current values of the registered variables.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(ORM:id)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">ORM:id</td><td style="vertical-align:top;">The id of the ORM instance.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">1 on success, 0 on failure.<br /></div>
+<p><br />
+</p>
+<pre class="pawn">orm_update<span style="color: #66cc66;">&#40;</span>Player<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>ORM_ID<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #808080; font-style: italic;">//this generates a query like &quot;UPDATE `players` SET ´name´='PlayerName', `money`='23141', `pos_x`='231.432' WHERE `id`='42'&quot; and executes it</span></pre>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R33.html" title="Edit section: orm_insert">edit</a>]</div><a name="orm_insert"></a><h2> orm_insert </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Sends an INSERT query with the current values of the registered variables.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(ORM:id, callback[] &#61; "", format[] &#61; "", {Float, _}:...)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">ORM:id</td><td style="vertical-align:top;">The id of the ORM instance.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">callback[]</td><td style="vertical-align:top;">The name of the callback to call when the operation is done (optional).</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">format[]</td><td style="vertical-align:top;">The format specifier for the callback (optional).</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">{Float, _}:...</td><td style="vertical-align:top;">Indefinite number of parameters to pass to the callback (optional).</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">1 on success, 0 on failure.<br /></div>
+<p><br />
+</p>
+<pre class="pawn">orm_insert<span style="color: #66cc66;">&#40;</span>Player<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>ORM_ID<span style="color: #66cc66;">&#93;</span>, <span style="color: #b22222;">&quot;OnPlayerRegistered&quot;</span>, <span style="color: #b22222;">&quot;d&quot;</span>, playerid<span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">public</span> OnPlayerRegistered<span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;Player %s has registered with id %d.&quot;</span>, Player<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>Name<span style="color: #66cc66;">&#93;</span>, Player<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>ID<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R33.html" title="Edit section: orm_delete">edit</a>]</div><a name="orm_delete"></a><h2> orm_delete </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Sends a DELETE query.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(ORM:id, bool:clearvars &#61; true)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">ORM:id</td><td style="vertical-align:top;">The id of the ORM instance.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">bool:clearvars</td><td style="vertical-align:top;">True if the values of the registered variables should be set to zero (optional).</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">1 on success, 0 on failure.<br /></div>
+<p><br />
+</p>
+<pre class="pawn">orm_delete<span style="color: #66cc66;">&#40;</span>Player<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>ORM_ID<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #808080; font-style: italic;">//this generates a query like &quot;DELETE FROM `players` WHERE `id`='42'&quot; and executes it</span></pre>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R33.html" title="Edit section: orm_load">edit</a>]</div><a name="orm_load"></a><h2> orm_load </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Fetches data from a table and applies it to the previously registered variables. This function is technically the same as <a href="MySQL_R33.html#orm_select" title="MySQL/R33">orm_select()</a>.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(ORM:id, callback[] &#61; "", format[] &#61; "", {Float, _}:...)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">ORM:id</td><td style="vertical-align:top;">The id of the ORM instance.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">callback[]</td><td style="vertical-align:top;">The name of the callback to call when the operation is done (optional).</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">format[]</td><td style="vertical-align:top;">The format specifier for the callback (optional).</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">{Float, _}:...</td><td style="vertical-align:top;">Indefinite number of parameters to pass to the callback (optional).</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">1 on success, 0 on failure.<br /></div>
+<p><br />
+</p>
+<pre class="pawn">orm_load<span style="color: #66cc66;">&#40;</span>Player<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>ORM_ID<span style="color: #66cc66;">&#93;</span>, <span style="color: #b22222;">&quot;OnPlayerDataLoaded&quot;</span>, <span style="color: #b22222;">&quot;d&quot;</span>, playerid<span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">public</span> OnPlayerDataLoaded<span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;Player %s has %d Money and is on PosX with %f.&quot;</span>, Player<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>Name<span style="color: #66cc66;">&#93;</span>, Player<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>Money<span style="color: #66cc66;">&#93;</span>, Player<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>PosX<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R33.html" title="Edit section: orm_save">edit</a>]</div><a name="orm_save"></a><h2> orm_save </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Saves data to a table. This function is a combination of <a href="MySQL_R33.html#orm_insert" title="MySQL/R33">orm_insert()</a> and <a href="MySQL_R33.html#orm_update" title="MySQL/R33">orm_update()</a>. If the previously specified key variable has a valid value, orm_save calls <a href="MySQL_R33.html#orm_update" title="MySQL/R33">orm_update</a>, else <a href="MySQL_R33.html#orm_insert" title="MySQL/R33">orm_insert</a>.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(ORM:id, callback[] &#61; "", format[] &#61; "", {Float, _}:...)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">ORM:id</td><td style="vertical-align:top;">The id of the ORM instance.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">callback[]</td><td style="vertical-align:top;">The name of the callback to call when the operation is done (optional).</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">format[]</td><td style="vertical-align:top;">The format specifier for the callback (optional).</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">{Float, _}:...</td><td style="vertical-align:top;">Indefinite number of parameters to pass to the callback (optional).</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">1 on success, 0 on failure.<br /></div>
+<p><br />
+</p>
+<pre class="pawn">Player<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>Money<span style="color: #66cc66;">&#93;</span> = <a href="http://wiki.sa-mp.com/wiki/GetPlayerMoney"><span style="color: #006400;">GetPlayerMoney</span></a><span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span>;
+orm_save<span style="color: #66cc66;">&#40;</span>Player<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>ORM_ID<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>;</pre>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R33.html" title="Edit section: orm_addvar_int">edit</a>]</div><a name="orm_addvar_int"></a><h2> orm_addvar_int </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Registers an integer variable to an ORM instance and links it to the specified field.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(ORM:id, &amp;var, varname[])<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">ORM:id</td><td style="vertical-align:top;">The id of the ORM instance.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">&amp;var</td><td style="vertical-align:top;">The variable to register.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">varname[]</td><td style="vertical-align:top;">The name of the field in the MySQL table.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">1 if successfully added, 0 if not.<br /></div>
+<p><br />
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> <span style="color: orange;">ORM</span>:ormid = orm_create<span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;players&quot;</span><span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+orm_addvar_int<span style="color: #66cc66;">&#40;</span>ormid, Player<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>ID<span style="color: #66cc66;">&#93;</span>, <span style="color: #b22222;">&quot;id&quot;</span><span style="color: #66cc66;">&#41;</span>;
+orm_addvar_int<span style="color: #66cc66;">&#40;</span>ormid, Player<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>Money<span style="color: #66cc66;">&#93;</span>, <span style="color: #b22222;">&quot;money&quot;</span><span style="color: #66cc66;">&#41;</span>;</pre>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R33.html" title="Edit section: orm_addvar_float">edit</a>]</div><a name="orm_addvar_float"></a><h2> orm_addvar_float </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Registers a floating point variable to an ORM instance and links it to the specified field.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(ORM:id, &amp;var, varname[])<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">ORM:id</td><td style="vertical-align:top;">The id of the ORM instance.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">&amp;Float:var</td><td style="vertical-align:top;">The variable to register.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">varname[]</td><td style="vertical-align:top;">The name of the field in the MySQL table.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">1 if successfully added, 0 if not.<br /></div>
+<p><br />
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> <span style="color: orange;">ORM</span>:ormid = orm_create<span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;players&quot;</span><span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+orm_addvar_float<span style="color: #66cc66;">&#40;</span>ormid, Player<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>PosX<span style="color: #66cc66;">&#93;</span>, <span style="color: #b22222;">&quot;pos_x&quot;</span><span style="color: #66cc66;">&#41;</span>;
+orm_addvar_float<span style="color: #66cc66;">&#40;</span>ormid, Player<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>PosY<span style="color: #66cc66;">&#93;</span>, <span style="color: #b22222;">&quot;pos_y&quot;</span><span style="color: #66cc66;">&#41;</span>;</pre>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R33.html" title="Edit section: orm_addvar_string">edit</a>]</div><a name="orm_addvar_string"></a><h2> orm_addvar_string </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Registers a string variable to an ORM instance and links it to the specified field.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(ORM:id, var[], var_maxlen, varname[])<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">ORM:id</td><td style="vertical-align:top;">The id of the ORM instance.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">var[]</td><td style="vertical-align:top;">The variable to register.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">var_maxlen</td><td style="vertical-align:top;">The size of the registered variable.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">varname[]</td><td style="vertical-align:top;">The name of the field in the MySQL table.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">1 if successfully added, 0 if not.<br /></div>
+<p><br />
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">enum</span> E_PLAYER <span style="color: #66cc66;">&#123;</span>
+	<span style="color: #808080; font-style: italic;">// ...</span>
+	Name<span style="color: #66cc66;">&#91;</span><span style="color: #E9967A; font-weight: bold;">MAX_PLAYER_NAME</span><span style="color: #66cc66;">&#93;</span>,
+	Password<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">129</span><span style="color: #66cc66;">&#93;</span>
+<span style="color: #66cc66;">&#125;</span>;
+<span style="color: #228b22; font-weight: bold;">new</span> Player<span style="color: #66cc66;">&#91;</span><span style="color: #E9967A; font-weight: bold;">MAX_PLAYERS</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>E_PLAYER<span style="color: #66cc66;">&#93;</span>;
+&nbsp;
+<span style="color: #808080; font-style: italic;">// ...</span>
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">new</span> <span style="color: orange;">ORM</span>:ormid = orm_create<span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;players&quot;</span><span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+orm_addvar_string<span style="color: #66cc66;">&#40;</span>ormid, Player<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>Name<span style="color: #66cc66;">&#93;</span>, <span style="color: #E9967A; font-weight: bold;">MAX_PLAYER_NAME</span>, <span style="color: #b22222;">&quot;name&quot;</span><span style="color: #66cc66;">&#41;</span>;
+orm_addvar_string<span style="color: #66cc66;">&#40;</span>ormid, Player<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>Password<span style="color: #66cc66;">&#93;</span>, <span style="color: #4169e1;">129</span>, <span style="color: #b22222;">&quot;passwd&quot;</span><span style="color: #66cc66;">&#41;</span>;</pre>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R33.html" title="Edit section: orm_delvar">edit</a>]</div><a name="orm_delvar"></a><h2> orm_delvar </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Removes a previously registered variable from the specified ORM instance by its field name.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(ORM:id, varname[])<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">ORM:id</td><td style="vertical-align:top;">The id of the ORM instance.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">varname[]</td><td style="vertical-align:top;">The name of the field.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">1 if successfully deleted, 0 if not.<br /></div>
+<p><br />
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> <span style="color: orange;">ORM</span>:ormid = orm_create<span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;players&quot;</span><span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+orm_addvar_int<span style="color: #66cc66;">&#40;</span>ormid, Player<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>ID<span style="color: #66cc66;">&#93;</span>, <span style="color: #b22222;">&quot;id&quot;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #808080; font-style: italic;">// ...</span>
+orm_delvar<span style="color: #66cc66;">&#40;</span>ormid, <span style="color: #b22222;">&quot;id&quot;</span><span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">//returns true, variable &quot;Player[playerid][ID]&quot; has been removed</span>
+orm_delvar<span style="color: #66cc66;">&#40;</span>ormid, <span style="color: #b22222;">&quot;id&quot;</span><span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">//returns false, because the variable couldn't be found as it was already removed</span></pre>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R33.html" title="Edit section: orm_setkey">edit</a>]</div><a name="orm_setkey"></a><h2> orm_setkey </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Sets a previously registered variable as key specified by the field name the variable has been linked to.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(ORM:id, varname[])<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">ORM:id</td><td style="vertical-align:top;">The id of the ORM instance.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">varname[]</td><td style="vertical-align:top;">The name of the field in the MySQL table.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">This function does not return any specific values.<br /></div>
+<p><br />
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> <span style="color: orange;">ORM</span>:ormid = orm_create<span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;players&quot;</span><span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+orm_addvar_int<span style="color: #66cc66;">&#40;</span>ormid, Player<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>ID<span style="color: #66cc66;">&#93;</span>, <span style="color: #b22222;">&quot;id&quot;</span><span style="color: #66cc66;">&#41;</span>;
+orm_addvar_float<span style="color: #66cc66;">&#40;</span>ormid, Player<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>PosX<span style="color: #66cc66;">&#93;</span>, <span style="color: #b22222;">&quot;pos_x&quot;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #808080; font-style: italic;">// ...</span>
+orm_setkey<span style="color: #66cc66;">&#40;</span>ormid, <span style="color: #b22222;">&quot;id&quot;</span><span style="color: #66cc66;">&#41;</span>;</pre>
+<p><br />
+</p><p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R33.html" title="Edit section: MySQL functions">edit</a>]</div><a name="MySQL_functions"></a><h1> MySQL functions </h1>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+<p><strong>Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">Almost every function has a connectionHandle parameter. If you use only one database connection you don't need to mind it. Connection handle is 1 by default.</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R33.html" title="Edit section: mysql_log">edit</a>]</div><a name="mysql_log"></a><h2> mysql_log </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Controls what information will be logged.<br /></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+<p><strong>Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">Logging is always enabled by default, even if you don't call mysql_log.</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(E_LOGLEVEL:loglevel &#61; LOG_ERROR &#124; LOG_WARNING, E_LOGTYPE:logtype &#61; LOG_TYPE_TEXT)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">E_LOGLEVEL:loglevel</td><td style="vertical-align:top;">Specifies what type of log messages will be logged (optional).</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">E_LOGTYPE:logtype</td><td style="vertical-align:top;">Type of the logging (optional).</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">This function does not return any specific values.<br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R33.html" title="Edit section: Log levels">edit</a>]</div><a name="Log_levels"></a><h4> Log levels </h4>
+<table class="wikitable">
+<tr>
+<th> Log type  </th><th>  Description
+</th></tr>
+<tr>
+<td> LOG_NONE </td><td> Logs absolutely nothing.
+</td></tr>
+<tr>
+<td> LOG_ERROR </td><td> Logs errors.
+</td></tr>
+<tr>
+<td> LOG_WARNING </td><td> Logs warnings.
+</td></tr>
+<tr>
+<td> LOG_DEBUG </td><td> Logs debug messages.
+</td></tr>
+<tr>
+<td> LOG_ALL </td><td> Logs everything.
+</td></tr></table>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #FFEAEA; border-left: 10px solid #FCA9A9;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #FCA9A9;"><a href="Image_32px-Circle-style-warning.png.html" class="image" title="Image:32px-Circle-style-warning.png"><img src="../upload/5/57/32px-Circle-style-warning.png" alt="Image:32px-Circle-style-warning.png" width="32" height="32" longdesc="Image_32px-Circle-style-warning.png.html" /></a><br />
+<p><strong>Important<br />Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">The log type <i>LOG_ALL</i> was added in R35 and can't be used in any version below.</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R33.html" title="Edit section: Log types">edit</a>]</div><a name="Log_types"></a><h4> Log types </h4>
+<table class="wikitable">
+<tr>
+<th> Log type  </th><th>  Description
+</th></tr>
+<tr>
+<td> LOG_TYPE_TEXT </td><td> Writes log messages into a text file.
+</td></tr>
+<tr>
+<td> LOG_TYPE_HTML </td><td> Writes log messages into a visual HTML file.
+</td></tr></table>
+<p><br />
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnGameModeInit"><span style="color: #dc143c">OnGameModeInit</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	mysql_log<span style="color: #66cc66;">&#40;</span>LOG_ERROR | LOG_WARNING, LOG_TYPE_HTML<span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">//logs errors and warnings into a nice HTML file</span>
+	<span style="color: #808080; font-style: italic;">//...</span>
+	mysql_log<span style="color: #66cc66;">&#40;</span>LOG_ALL<span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">//logs everything (errors, warnings and debug messages) into a regular text file</span>
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R33.html" title="Edit section: mysql_connect">edit</a>]</div><a name="mysql_connect"></a><h2> mysql_connect </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Connects to a MySQL server and database.<br /></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #FFEAEA; border-left: 10px solid #FCA9A9;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #FCA9A9;"><a href="Image_32px-Circle-style-warning.png.html" class="image" title="Image:32px-Circle-style-warning.png"><img src="../upload/5/57/32px-Circle-style-warning.png" alt="Image:32px-Circle-style-warning.png" width="32" height="32" longdesc="Image_32px-Circle-style-warning.png.html" /></a><br />
+<p><strong>Important<br />Notes</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">
+<ul><li> Do not use this function to reconnect to the database. Use <a href="MySQL_R33.html#mysql_reconnect" title="MySQL/R33">mysql_reconnect()</a> instead.
+</li><li> The parameter <i>pool_size</i> was added in R35 and can't be used in any version below.</span>
+</li></ul>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(const host[], const user[], const database[], const password[], port &#61; 3306, bool:autoreconnect &#61; true, pool_size &#61; 2)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const host[]</td><td style="vertical-align:top;">IP or hostname of the MySQL server.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const user[]</td><td style="vertical-align:top;">Username of the account you want to connect to.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const database[]</td><td style="vertical-align:top;">Name of the database you want to connect to.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const password[]</td><td style="vertical-align:top;">Password of the account you want to connect to.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">port</td><td style="vertical-align:top;">Port of the MySQL server (optional).</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">bool:autoreconnect</td><td style="vertical-align:top;">True to enable, false to disable automatic reconnection (optional).</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">pool_size</td><td style="vertical-align:top;">Size of the connection pool to use for <a href="MySQL_R33.html#mysql_pquery" title="MySQL/R33">mysql_pquery()</a> (optional).</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">Connection handle.<br /></div>
+<p><br />
+</p><p><br />
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> MySQL;
+<span style="color: #808080; font-style: italic;">// ...</span>
+<span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnGameModeInit"><span style="color: #dc143c">OnGameModeInit</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	MySQL = mysql_connect<span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;127.0.0.1&quot;</span>, <span style="color: #b22222;">&quot;root&quot;</span>, <span style="color: #b22222;">&quot;mydatabase&quot;</span>, <span style="color: #b22222;">&quot;mypass&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #808080; font-style: italic;">// ...</span>
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R33.html" title="Edit section: mysql_close">edit</a>]</div><a name="mysql_close"></a><h2> mysql_close </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Closes the MySQL connection.<br /></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+<p><strong>Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">The `wait` parameter has been removed in R36. `mysql_close` will now always wait until all queued queries are executed.</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(connectionHandle &#61; 1, bool:wait &#61; true)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">connectionHandle</td><td style="vertical-align:top;">The connection handle this will be processed on (optional).</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">bool:wait</td><td style="vertical-align:top;">True if to wait until all queued queries are executed (optional).</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">1 on success, 0 on fail.<br /></div>
+<p><br />
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnGameModeExit"><span style="color: #dc143c">OnGameModeExit</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	mysql_tquery<span style="color: #66cc66;">&#40;</span>MySQL, <span style="color: #b22222;">&quot;UPDATE `players` SET `is_online` = '0'&quot;</span>, <span style="color: #b22222;">&quot;&quot;</span>, <span style="color: #b22222;">&quot;&quot;</span><span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+	mysql_close<span style="color: #66cc66;">&#40;</span>MySQL<span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">//mysql_close will now halt the server until the query we just sent is executed.</span>
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R33.html" title="Edit section: mysql_reconnect">edit</a>]</div><a name="mysql_reconnect"></a><h2> mysql_reconnect </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Reconnects to the selected connection handle.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(connectionHandle &#61; 1)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">connectionHandle</td><td style="vertical-align:top;">The connection handle this will be processed on (optional).</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">This function does not return any specific values.<br /></div>
+<p><br />
+</p>
+<pre class="pawn"><span style="color: #808080; font-style: italic;">//connection was lost for some reason, let's reconnect</span>
+mysql_reconnect<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>;</pre>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R33.html" title="Edit section: mysql_unprocessed_queries">edit</a>]</div><a name="mysql_unprocessed_queries"></a><h2> mysql_unprocessed_queries </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Returns the number of unprocessed (threaded) queries.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(connectionHandle &#61; 1)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">connectionHandle</td><td style="vertical-align:top;">The connection handle this will be processed on (optional).</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">Number of unprocessed queries.<br /></div>
+<p><br />
+</p>
+<pre class="pawn"><a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;There are %d unprocessed queries.&quot;</span>, mysql_unprocessed_queries<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>;</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R33.html" title="Edit section: mysql_current_handle">edit</a>]</div><a name="mysql_current_handle"></a><h2> mysql_current_handle </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Returns the connection id currently used by the active cache.<br /></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #FFEAEA; border-left: 10px solid #FCA9A9;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #FCA9A9;"><a href="Image_32px-Circle-style-warning.png.html" class="image" title="Image:32px-Circle-style-warning.png"><img src="../upload/5/57/32px-Circle-style-warning.png" alt="Image:32px-Circle-style-warning.png" width="32" height="32" longdesc="Image_32px-Circle-style-warning.png.html" /></a><br />
+<p><strong>Important<br />Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">This native was added in R35 and can't be used in any version below.</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<div style="padding-left:35px; margin-top: 10px;">This function does not take any parameters.<br /></div>
+<p><b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">ID of currently used connection or 0 if there is none.<br /></div>
+<p><br />
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">forward</span> OnHouseDataLoaded<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnGameModeInit"><span style="color: #dc143c">OnGameModeInit</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	mysql_tquery<span style="color: #66cc66;">&#40;</span>MySQL, <span style="color: #b22222;">&quot;SELECT * FROM `houses`&quot;</span>, <span style="color: #b22222;">&quot;OnHouseDataLoaded&quot;</span><span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+	<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;Current connection id: %d&quot;</span>. mysql_current_handle<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #808080; font-style: italic;">//this would print &quot;Current connection id: 0&quot;, since there is no active cache and thus no active connection</span>
+&nbsp;
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">public</span> OnHouseDataLoaded<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;House data loaded on connection id %d.&quot;</span>, mysql_current_handle<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #808080; font-style: italic;">//this would print &quot;House data loaded on connection id 1.&quot;</span>
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R33.html" title="Edit section: mysql_option">edit</a>]</div><a name="mysql_option"></a><h2> mysql_option </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Sets global options regarding the MySQL plugin.<br /></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #FFEAEA; border-left: 10px solid #FCA9A9;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #FCA9A9;"><a href="Image_32px-Circle-style-warning.png.html" class="image" title="Image:32px-Circle-style-warning.png"><img src="../upload/5/57/32px-Circle-style-warning.png" alt="Image:32px-Circle-style-warning.png" width="32" height="32" longdesc="Image_32px-Circle-style-warning.png.html" /></a><br />
+<p><strong>Important<br />Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">This native was added in R35 and can't be used in any version below.</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(E_MYSQL_OPTION:type, value)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">E_MYSQL_OPTION:type</td><td style="vertical-align:top;">Option to change.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">value</td><td style="vertical-align:top;">Value the option should be set to.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">This function does not return any specific values.<br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R33.html" title="Edit section: Options">edit</a>]</div><a name="Options"></a><h4> Options </h4>
+<table class="wikitable">
+<tr>
+<th> Option  </th><th>  Description
+</th></tr>
+<tr>
+<td> DUPLICATE_CONNECTIONS </td><td> Allows to create multiple connections to the same database and server.
+</td></tr>
+<tr>
+<td> LOG_TRUNCATE_DATA </td><td> Controls whether MySQL data (that means queries and fetched result data) should be truncated (queries to 64 characters, result data to 1024 characters) in the log file or not (true by default).
+</td></tr></table>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnGameModeInit"><span style="color: #dc143c">OnGameModeInit</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	mysql_option<span style="color: #66cc66;">&#40;</span>DUPLICATE_CONNECTIONS, true<span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">//allows the use of dupl. connections</span>
+&nbsp;
+	<span style="color: #228b22; font-weight: bold;">new</span> MySQL1 = mysql_connect<span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;127.0.0.1&quot;</span>, <span style="color: #b22222;">&quot;root&quot;</span>, <span style="color: #b22222;">&quot;mydatabase&quot;</span>, <span style="color: #b22222;">&quot;mypass&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #228b22; font-weight: bold;">new</span> MySQL2 = mysql_connect<span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;127.0.0.1&quot;</span>, <span style="color: #b22222;">&quot;root&quot;</span>, <span style="color: #b22222;">&quot;mydatabase&quot;</span>, <span style="color: #b22222;">&quot;mypass&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;connection1: %d, connection2: %d&quot;</span>, MySQL1, MySQL2<span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #808080; font-style: italic;">//output: &quot;connection1: 1, connection2: 2&quot;, without allowing duplicate connections, both variables would be '1'</span>
+&nbsp;
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R33.html" title="Edit section: mysql_errno">edit</a>]</div><a name="mysql_errno"></a><h2> mysql_errno </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Returns the error code of the error message from the previous MySQL operation.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(connectionHandle &#61; 1)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">connectionHandle</td><td style="vertical-align:top;">The connection handle this will be processed on (optional).</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">Error code, 0 if no error occurred, -1 if invalid connection handle.<br /></div>
+<p><br />
+</p>
+<pre class="pawn">mysql_connect<span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;127.0.0.1&quot;</span>, <span style="color: #b22222;">&quot;root&quot;</span>, <span style="color: #b22222;">&quot;mydatabase&quot;</span>, <span style="color: #b22222;">&quot;mypass&quot;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>mysql_errno<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>&nbsp;!= <span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span> 
+	<a href="http://wiki.sa-mp.com/wiki/print"><span style="color: #006400;">print</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;Could not connect to database!&quot;</span><span style="color: #66cc66;">&#41;</span>;</pre>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R33.html" title="Edit section: mysql_escape_string">edit</a>]</div><a name="mysql_escape_string"></a><h2> mysql_escape_string </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Escapes special characters in a string for the use in a SQL statement. It prepends backslashes to the following characters: \x00, \n, \r, \, ', " and \x1a.<br /></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #FFEAEA; border-left: 10px solid #FCA9A9;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #FCA9A9;"><a href="Image_32px-Circle-style-warning.png.html" class="image" title="Image:32px-Circle-style-warning.png"><img src="../upload/5/57/32px-Circle-style-warning.png" alt="Image:32px-Circle-style-warning.png" width="32" height="32" longdesc="Image_32px-Circle-style-warning.png.html" /></a><br />
+<p><strong>Important<br />Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">Always use this function (if you don't use <a href="MySQL_R33.html#mysql_format" title="MySQL/R33">mysql_format()</a> with the '%e' specifier) before inserting user inputs in a query. You can be victim of a <a href="http://en.wikipedia.org/wiki/SQL_injection" class='external text' title="http://en.wikipedia.org/wiki/SQL_injection" rel="nofollow">SQL injection</a> if you do not do so.</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(const source[], destination[], connectionHandle &#61; 1, max_len &#61; sizeof(destination))<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const source[]</td><td style="vertical-align:top;">The string you want to be escaped.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">destination[]</td><td style="vertical-align:top;">The string to store escaped data in.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">connectionHandle</td><td style="vertical-align:top;">The connection handle this will be processed on (optional).</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">max_len</td><td style="vertical-align:top;">The size of the destination (optional).</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">Length of escaped string.<br /></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a><br />
+<p><strong>Notes</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">
+<ul><li> A database connection is required before using this function.
+</li><li> It does not escape % and _. These are wildcards in MySQL if combined with LIKE, GRANT, or REVOKE.</span>
+</li></ul>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #FFEAEA; border-left: 10px solid #FCA9A9;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #FCA9A9;"><a href="Image_32px-Circle-style-warning.png.html" class="image" title="Image:32px-Circle-style-warning.png"><img src="../upload/5/57/32px-Circle-style-warning.png" alt="Image:32px-Circle-style-warning.png" width="32" height="32" longdesc="Image_32px-Circle-style-warning.png.html" /></a><br />
+<p><strong>Important<br />Notes</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">
+<ul><li> You have to provide the size (<i>max_len</i>) by yourself if you use an enum-array as destination.
+</li><li> If the <i>destination</i> cannot hold the whole text escaped, the function will silently fail and leave <i>destination</i> unchanged.</span>
+</li></ul>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">enum</span> E_PLAYER <span style="color: #66cc66;">&#123;</span>
+	<span style="color: #808080; font-style: italic;">// ...</span>
+	LastMsg<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">128</span><span style="color: #66cc66;">&#93;</span>,
+	<span style="color: #808080; font-style: italic;">// ...</span>
+<span style="color: #66cc66;">&#125;</span>;
+<span style="color: #228b22; font-weight: bold;">new</span> PlayerInfo<span style="color: #66cc66;">&#91;</span><span style="color: #E9967A; font-weight: bold;">MAX_PLAYERS</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>E_PLAYER<span style="color: #66cc66;">&#93;</span>;
+<span style="color: #808080; font-style: italic;">// ...</span>
+<span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnPlayerText"><span style="color: #dc143c">OnPlayerText</span></a><span style="color: #66cc66;">&#40;</span>playerid, text<span style="color: #66cc66;">&#91;</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #228b22; font-weight: bold;">new</span> escape<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">140</span>*<span style="color: #4169e1;">2</span><span style="color: #66cc66;">&#93;</span>;
+	mysql_escape_string<span style="color: #66cc66;">&#40;</span>text, escape<span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">//string is now safe to be put in a query</span>
+	<span style="color: #808080; font-style: italic;">// ...</span>
+	mysql_escape_string<span style="color: #66cc66;">&#40;</span>text, PlayerInfo<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>LastMsg<span style="color: #66cc66;">&#93;</span>, MySQL, <span style="color: #4169e1;">128</span><span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">//correctly saves the escaped string into an enum-array</span>
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R33.html" title="Edit section: mysql_format">edit</a>]</div><a name="mysql_format"></a><h2> mysql_format </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;"> Allows you to format a string which you can safely use in a query.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(connectionHandle, output[], len, format[], {Float,_}:...)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">connectionHandle</td><td style="vertical-align:top;">The connection handle this will be processed on.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">output[]</td><td style="vertical-align:top;">The string to save the result to.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">len</td><td style="vertical-align:top;">The size of the output.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">format[]</td><td style="vertical-align:top;">The format string.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">{Float,_}:...</td><td style="vertical-align:top;">Indefinite number of arguments.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">Length of the formatted string.<br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R33.html" title="Edit section: Format strings">edit</a>]</div><a name="Format_strings"></a><h4> Format strings </h4>
+<table class="wikitable">
+<tr>
+<th> Placeholder </th><th>  Meaning
+</th></tr>
+<tr>
+<td> %e </td><td> Escapes data directly without the need to call mysql_escape_string() before.
+</td></tr>
+<tr>
+<td> %s </td><td> Inserts a string.
+</td></tr>
+<tr>
+<td> %d / %i </td><td> Inserts an integer number.
+</td></tr>
+<tr>
+<td> %f </td><td> Inserts a floating point number.
+</td></tr>
+<tr>
+<td> %X </td><td> Inserts a hexadecimal number in uppercase.
+</td></tr>
+<tr>
+<td> %x </td><td> Inserts a hexadecimal number in lowercase.
+</td></tr>
+<tr>
+<td> %b </td><td> Inserts a binary number.
+</td></tr></table>
+<p>The values for the placeholders follow in the exact same order as parameters in the call.
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> query<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">128</span><span style="color: #66cc66;">&#93;</span>;
+mysql_format<span style="color: #66cc66;">&#40;</span>MySQL, query, <span style="color: orange; font-weight: bold;">sizeof</span><span style="color: #66cc66;">&#40;</span>query<span style="color: #66cc66;">&#41;</span>, <span style="color: #b22222;">&quot;SELECT * FROM `%s` WHERE `bar` = '%e' AND `foobar` = '%f' LIMIT %d&quot;</span>, <span style="color: #b22222;">&quot;foobar&quot;</span>, <span style="color: #b22222;">&quot;escape'me<span style="color: #000099; font-weight: bold;">\&quot;</span>please&quot;</span>, <span style="color: #4169e1;">1.2345</span>, <span style="color: #4169e1;">1337</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #808080; font-style: italic;">// the variable 'query' contains now the formatted query (including the escaped string)</span>
+mysql_tquery<span style="color: #66cc66;">&#40;</span>MySQL, query, <span style="color: #b22222;">&quot;OnStuffSelected&quot;</span>, <span style="color: #b22222;">&quot;&quot;</span><span style="color: #66cc66;">&#41;</span>;</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R33.html" title="Edit section: mysql_pquery">edit</a>]</div><a name="mysql_pquery"></a><h2> mysql_pquery </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Sends a query which will be executed in another thread concurrently and calls the callback (if there is one) when the execution is finished.<br /></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #FFEAEA; border-left: 10px solid #FCA9A9;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #FCA9A9;"><a href="Image_32px-Circle-style-warning.png.html" class="image" title="Image:32px-Circle-style-warning.png"><img src="../upload/5/57/32px-Circle-style-warning.png" alt="Image:32px-Circle-style-warning.png" width="32" height="32" longdesc="Image_32px-Circle-style-warning.png.html" /></a><br />
+<p><strong>Important<br />Notes</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">
+<ul><li> This native was added in R35 and can't be used in any version below.
+</li><li> This type of query doesn't support transactions.</span>
+</li></ul>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+<p><strong>Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">The difference between this native and <a href="MySQL_R33.html#mysql_tquery" title="MySQL/R33">mysql_tquery()</a> is, that this type of query uses multi-threading, thus it's faster depending on how many connections are used. The number of connections can be specified in <a href="MySQL_R33.html#mysql_connect" title="MySQL/R33">mysql_connect()</a> through the <i>pool_size</i> parameter. Each connection resembles a thread.</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(connectionHandle, query[], callback[] &#61; "", format[] &#61; "", {Float,_}:...)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">connectionHandle</td><td style="vertical-align:top;">The connection handle this will be processed on.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">query[]</td><td style="vertical-align:top;">The query you want to execute.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">callback[]</td><td style="vertical-align:top;">The query you want to process (optional).</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">format[]</td><td style="vertical-align:top;">The format specifier string (optional).</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">{Float,_}:...</td><td style="vertical-align:top;">Indefinite number of arguments (optional).</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">1 on success, 0 on fail.<br /></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a><br />
+<p><strong>Notes</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">
+<ul><li> The callback must be a <a href="Public_functions.html" title="Public functions">public</a> function. That means it has to be <a href="Public_functions.html#Forwarding" title="Public functions">forwarded</a>.
+</li><li> The length of the format specifier must be the same as the number of arguments passed, or otherwise the query won't be executed!</span>
+</li></ul>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R33.html" title="Edit section: Format specifiers">edit</a>]</div><a name="Format_specifiers"></a><h4> Format specifiers </h4>
+<table class="wikitable">
+<tr>
+<th> Specifier </th><th>  Meaning
+</th></tr>
+<tr>
+<td> d/i </td><td> integer number
+</td></tr>
+<tr>
+<td> s</td><td> string
+</td></tr>
+<tr>
+<td> f </td><td> floating point number
+</td></tr></table>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">forward</span> OnPlayerDataLoaded<span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnPlayerConnect"><span style="color: #dc143c">OnPlayerConnect</span></a><span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #228b22; font-weight: bold;">new</span> query<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">128</span><span style="color: #66cc66;">&#93;</span>, pname<span style="color: #66cc66;">&#91;</span><span style="color: #E9967A; font-weight: bold;">MAX_PLAYER_NAME</span><span style="color: #66cc66;">&#93;</span>;
+	<a href="http://wiki.sa-mp.com/wiki/GetPlayerName"><span style="color: #006400;">GetPlayerName</span></a><span style="color: #66cc66;">&#40;</span>playerid, pname, <span style="color: #E9967A; font-weight: bold;">MAX_PLAYER_NAME</span><span style="color: #66cc66;">&#41;</span>;
+	mysql_format<span style="color: #66cc66;">&#40;</span>MySQL, query, <span style="color: orange; font-weight: bold;">sizeof</span><span style="color: #66cc66;">&#40;</span>query<span style="color: #66cc66;">&#41;</span>, <span style="color: #b22222;">&quot;SELECT * FROM `players` WHERE `Name` = '%e' LIMIT 1&quot;</span>, pname<span style="color: #66cc66;">&#41;</span>;
+	mysql_pquery<span style="color: #66cc66;">&#40;</span>MySQL, query, <span style="color: #b22222;">&quot;OnPlayerDataLoaded&quot;</span>, <span style="color: #b22222;">&quot;d&quot;</span>, playerid<span style="color: #66cc66;">&#41;</span>;
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">public</span> OnPlayerDataLoaded<span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #808080; font-style: italic;">//Query processed, you can now execute cache functions (like cache_get_row) here.</span>
+	<span style="color: #228b22; font-weight: bold;">new</span> NumRows = cache_num_rows<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>;
+	<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;There are %d players with the same name.&quot;</span>, NumRows<span style="color: #66cc66;">&#41;</span>;
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R33.html" title="Edit section: mysql_tquery">edit</a>]</div><a name="mysql_tquery"></a><h2> mysql_tquery </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Sends a query which will be executed in another thread and calls the callback (if there is one) when the execution is finished.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(connectionHandle, query[], callback[] &#61; "", format[] &#61; "", {Float,_}:...)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">connectionHandle</td><td style="vertical-align:top;">The connection handle this will be processed on.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">query[]</td><td style="vertical-align:top;">The query you want to execute.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">callback[]</td><td style="vertical-align:top;">The query you want to process (optional).</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">format[]</td><td style="vertical-align:top;">The format specifier string (optional).</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">{Float,_}:...</td><td style="vertical-align:top;">Indefinite number of arguments (optional).</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">1 on success, 0 on fail.<br /></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a><br />
+<p><strong>Notes</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">
+<ul><li> The callback must be a <a href="Public_functions.html" title="Public functions">public</a> function. That means it has to be <a href="Public_functions.html#Forwarding" title="Public functions">forwarded</a>.
+</li><li> The length of the format specifier must be the same as the number of arguments passed, or otherwise the query won't be executed!</span>
+</li></ul>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R33.html" title="Edit section: Format specifiers">edit</a>]</div><a name="Format_specifiers_2"></a><h4> Format specifiers </h4>
+<table class="wikitable">
+<tr>
+<th> Specifier </th><th>  Meaning
+</th></tr>
+<tr>
+<td> d/i </td><td> integer number
+</td></tr>
+<tr>
+<td> s</td><td> string
+</td></tr>
+<tr>
+<td> f </td><td> floating point number
+</td></tr></table>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">forward</span> OnPlayerDataLoaded<span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnPlayerConnect"><span style="color: #dc143c">OnPlayerConnect</span></a><span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #228b22; font-weight: bold;">new</span> query<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">128</span><span style="color: #66cc66;">&#93;</span>, pname<span style="color: #66cc66;">&#91;</span><span style="color: #E9967A; font-weight: bold;">MAX_PLAYER_NAME</span><span style="color: #66cc66;">&#93;</span>;
+	<a href="http://wiki.sa-mp.com/wiki/GetPlayerName"><span style="color: #006400;">GetPlayerName</span></a><span style="color: #66cc66;">&#40;</span>playerid, pname, <span style="color: orange; font-weight: bold;">sizeof</span><span style="color: #66cc66;">&#40;</span>pname<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>;
+	mysql_format<span style="color: #66cc66;">&#40;</span>MySQL, query, <span style="color: orange; font-weight: bold;">sizeof</span><span style="color: #66cc66;">&#40;</span>query<span style="color: #66cc66;">&#41;</span>, <span style="color: #b22222;">&quot;SELECT * FROM `players` WHERE `Name` = '%e'&quot;</span>, pname<span style="color: #66cc66;">&#41;</span>;
+	mysql_tquery<span style="color: #66cc66;">&#40;</span>MySQL, query, <span style="color: #b22222;">&quot;OnPlayerDataLoaded&quot;</span>, <span style="color: #b22222;">&quot;d&quot;</span>, playerid<span style="color: #66cc66;">&#41;</span>;
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">public</span> OnPlayerDataLoaded<span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #808080; font-style: italic;">//Query processed, you can now execute cache functions (like cache_get_row) here.</span>
+	<span style="color: #228b22; font-weight: bold;">new</span> NumRows = cache_num_rows<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>;
+	<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;There are %d players with the same name.&quot;</span>, NumRows<span style="color: #66cc66;">&#41;</span>;
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R33.html" title="Edit section: mysql_query">edit</a>]</div><a name="mysql_query"></a><h2> mysql_query </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">This native sends a non-threaded query to the MySQL server. The SA:MP server (the main PAWN thread) waits until the query has been executed and then returns the cache handle.<br /></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #FFEAEA; border-left: 10px solid #FCA9A9;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #FCA9A9;"><a href="Image_32px-Circle-style-warning.png.html" class="image" title="Image:32px-Circle-style-warning.png"><img src="../upload/5/57/32px-Circle-style-warning.png" alt="Image:32px-Circle-style-warning.png" width="32" height="32" longdesc="Image_32px-Circle-style-warning.png.html" /></a><br />
+<p><strong>Important<br />Notes</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">
+<ul><li> It's highly recommended to thread all your queries (even INSERT &amp; UPDATE).
+</li><li> Use <a href="MySQL_R33.html#cache_delete" title="MySQL/R33">cache_delete()</a> if you don't need the query's result anymore or you will experience memory leaks.
+</li></ul>
+<p></span>
+</p>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(conhandle, query[], bool:use_cache &#61; true)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">conhandle</td><td style="vertical-align:top;">The connection handle this will be processed on.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">query[]</td><td style="vertical-align:top;">The query you want to execute.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">bool:use_cache</td><td style="vertical-align:top;">Set to true if you intend to use the cache/result mysql_query returns (optional).</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">A valid cache-id if <i>use_cache</i> is set to true.<br /></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+<p><strong>Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">If <i>use_cache</i> is set to false, there won't be any valid cache to use, so all cache-related natives wont work. You also don't need to call <a href="MySQL_R33.html#cache_delete" title="MySQL/R33">cache_delete()</a> in this case.</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> <span style="color: orange;">Cache</span>:result = mysql_query<span style="color: #66cc66;">&#40;</span>MySQL, <span style="color: #b22222;">&quot;SELECT COUNT(*) FROM `players`&quot;</span><span style="color: #66cc66;">&#41;</span>;
+<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;There are %d players in the database.&quot;</span>, cache_get_row_int<span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">0</span>, <span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>;
+cache_delete<span style="color: #66cc66;">&#40;</span>result<span style="color: #66cc66;">&#41;</span>;</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R33.html" title="Edit section: mysql_stat">edit</a>]</div><a name="mysql_stat"></a><h2> mysql_stat </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Use this function to get some statistics of the MySQL server.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(destination[], connectionHandle &#61; 1, max_len &#61; sizeof(destination))<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const destination[]</td><td style="vertical-align:top;">The string to store extracted data in.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">connectionHandle</td><td style="vertical-align:top;">The connection handle this will be processed on (optional).</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">max_len</td><td style="vertical-align:top;">The size of the destination string (optional).</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">This function does not return any specific values.<br /></div>
+<p><br />
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> stats<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">150</span><span style="color: #66cc66;">&#93;</span>; 
+mysql_stat<span style="color: #66cc66;">&#40;</span>stats<span style="color: #66cc66;">&#41;</span>; 
+<a href="http://wiki.sa-mp.com/wiki/print"><span style="color: #006400;">print</span></a><span style="color: #66cc66;">&#40;</span>stats<span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+<span style="color: #808080; font-style: italic;">//Output would be something like:</span>
+<span style="color: #808080; font-style: italic;">// Uptime: 380  Threads: 1  Questions: 3  Slow queries: 0  Opens: 12  Flush tables: 1  </span>
+<span style="color: #808080; font-style: italic;">// Open tables: 6  Queries per second avg: 0.008</span></pre>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R33.html" title="Edit section: mysql_get_charset">edit</a>]</div><a name="mysql_get_charset"></a><h2> mysql_get_charset </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Use this function to get the current character set in use.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(destination[], connectionHandle &#61; 1, max_len &#61; sizeof(destination))<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">destination[]</td><td style="vertical-align:top;">The string to store extracted data in.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">connectionHandle</td><td style="vertical-align:top;">The connection handle this will be processed on (optional).</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">max_len</td><td style="vertical-align:top;">The size of the destination string (optional).</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">1 on success, 0 on fail.<br /></div>
+<p><br />
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> charset<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">20</span><span style="color: #66cc66;">&#93;</span>;
+mysql_get_charset<span style="color: #66cc66;">&#40;</span>charset<span style="color: #66cc66;">&#41;</span>;</pre>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R33.html" title="Edit section: mysql_set_charset">edit</a>]</div><a name="mysql_set_charset"></a><h2> mysql_set_charset </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Use this function to change the character set the connection uses. Very useful for servers which often process data with foreign characters.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(charset[], connectionHandle &#61; 1)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">charset[]</td><td style="vertical-align:top;">Code of the character set you want to use.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">connectionHandle</td><td style="vertical-align:top;">The connection handle this will be processed on (optional).</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">1 on success, 0 on fail.<br /></div>
+<p><br />
+</p>
+<pre class="pawn">mysql_set_charset<span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;utf8&quot;</span><span style="color: #66cc66;">&#41;</span>;</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R33.html" title="Edit section: Cache functions">edit</a>]</div><a name="Cache_functions"></a><h1> Cache functions </h1>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+<p><strong>Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">Make sure you use these functions (except cache_delete() and cache_set_active()) only if there is an active cache available.</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R33.html" title="Edit section: cache_get_data">edit</a>]</div><a name="cache_get_data"></a><h2> cache_get_data </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Assigns the number of rows and fields to two variables.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(&amp;num_rows, &amp;num_fields, connectionHandle &#61; 1)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">&amp;num_rows</td><td style="vertical-align:top;">The variable the number of rows will be assigned to.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">&amp;num_fields</td><td style="vertical-align:top;">The variable the number of fields will be assigned to.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">connectionHandle</td><td style="vertical-align:top;">The connection handle this will be processed on (optional).</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">This function does not return any specific values.<br /></div>
+<p><br />
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> rows, fields;
+cache_get_data<span style="color: #66cc66;">&#40;</span>rows, fields<span style="color: #66cc66;">&#41;</span>;
+<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;There are %d rows and %d fields in the current result set (aka cache).&quot;</span>, rows, fields<span style="color: #66cc66;">&#41;</span>;</pre>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R33.html" title="Edit section: cache_get_row_count">edit</a>]</div><a name="cache_get_row_count"></a><h2> cache_get_row_count </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Returns the number of rows.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(connectionHandle &#61; 1)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">connectionHandle</td><td style="vertical-align:top;">The connection handle this will be processed on (optional).</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">Number of rows.<br /></div>
+<p><br />
+</p>
+<pre class="pawn"><a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;There are %d rows in the current result set.&quot;</span>, cache_get_row_count<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>;</pre>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R33.html" title="Edit section: cache_get_field_count">edit</a>]</div><a name="cache_get_field_count"></a><h2> cache_get_field_count </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Returns the number of fields.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(connectionHandle &#61; 1)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">connectionHandle</td><td style="vertical-align:top;">The connection handle this will be processed on (optional).</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">Number of fields.<br /></div>
+<p><br />
+</p>
+<pre class="pawn"><a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;There are %d fields in the current result set.&quot;</span>, cache_get_field_count<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>;</pre>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R33.html" title="Edit section: cache_get_field_name">edit</a>]</div><a name="cache_get_field_name"></a><h2> cache_get_field_name </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Retrieves a field's name specified by an index.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(field_index, destination[], connectionHandle &#61; 1, max_len &#61; sizeof(destination))<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">field_index</td><td style="vertical-align:top;">The index of the field whose name to retrieve.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">destination[]</td><td style="vertical-align:top;">The string to store the name into.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">connectionHandle</td><td style="vertical-align:top;">The connection handle this will be processed on (optional).</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">max_len</td><td style="vertical-align:top;">The size of the destination string (optional).</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">This function does not return any specific values.<br /></div>
+<p><br />
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> field_name<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">32</span><span style="color: #66cc66;">&#93;</span>;
+cache_get_field_name<span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">0</span>, field_name<span style="color: #66cc66;">&#41;</span>;
+<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;The first field name in the current result set is '%s'.&quot;</span>, field_name<span style="color: #66cc66;">&#41;</span>;</pre>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R33.html" title="Edit section: cache_get_row">edit</a>]</div><a name="cache_get_row"></a><h2> cache_get_row </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Retrieves a value from the result set as a string.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(row, field_idx, destination[], connectionHandle &#61; 1, max_len &#61; sizeof(destination))<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">row</td><td style="vertical-align:top;">The row's index (starts at '0').</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">field_idx</td><td style="vertical-align:top;">The index of the field (starts at '0').</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">destination[]</td><td style="vertical-align:top;">The string to store the data into.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">connectionHandle</td><td style="vertical-align:top;">The connection handle this will be processed on (optional).</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">max_len</td><td style="vertical-align:top;">The size of the destination string (optional).</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">This function does not return any specific values.<br /></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #FFEAEA; border-left: 10px solid #FCA9A9;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #FCA9A9;"><a href="Image_32px-Circle-style-warning.png.html" class="image" title="Image:32px-Circle-style-warning.png"><img src="../upload/5/57/32px-Circle-style-warning.png" alt="Image:32px-Circle-style-warning.png" width="32" height="32" longdesc="Image_32px-Circle-style-warning.png.html" /></a><br />
+<p><strong>Important<br />Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">You have to provide the size (<i>max_len</i>) by yourself if you use an enum-array as destination.</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> dest<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">128</span><span style="color: #66cc66;">&#93;</span>;
+cache_get_row<span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">0</span>, <span style="color: #4169e1;">0</span>, dest<span style="color: #66cc66;">&#41;</span>;
+<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;The very first value in the current result set is '%s'.&quot;</span>, dest<span style="color: #66cc66;">&#41;</span>;</pre>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R33.html" title="Edit section: cache_get_row_int">edit</a>]</div><a name="cache_get_row_int"></a><h2> cache_get_row_int </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Retrieves a value from the result set as a integer (normal number).<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(row, field_idx, connectionHandle &#61; 1)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">row</td><td style="vertical-align:top;">The row's index (starts at '0').</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">field_idx</td><td style="vertical-align:top;">The index of the field (starts at '0').</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">connectionHandle</td><td style="vertical-align:top;">The connection handle this will be processed on (optional).</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">Retrieved value as integer (number).<br /></div>
+<p><br />
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> int_dest = cache_get_row_int<span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">3</span>, <span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span>;
+<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;The number stored in the fourth row and first field is '%d'.&quot;</span>, int_dest<span style="color: #66cc66;">&#41;</span>;</pre>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R33.html" title="Edit section: cache_get_row_float">edit</a>]</div><a name="cache_get_row_float"></a><h2> cache_get_row_float </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Retrieves a value from the result set as a floating point number.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(row, field_idx, connectionHandle &#61; 1)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">row</td><td style="vertical-align:top;">The row's index (starts at '0').</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">field_idx</td><td style="vertical-align:top;">The index of the field (starts at '0').</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">connectionHandle</td><td style="vertical-align:top;">The connection handle this will be processed on (optional).</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">Retrieved value as floating point number.<br /></div>
+<p><br />
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> <span style="color: orange;">Float</span>:float_dest = cache_get_row_float<span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">3</span>, <span style="color: #4169e1;">4</span><span style="color: #66cc66;">&#41;</span>;
+<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;The floating point number stored in the fourth row and fifth field is '%f'.&quot;</span>, float_dest<span style="color: #66cc66;">&#41;</span>;</pre>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R33.html" title="Edit section: cache_get_field_content">edit</a>]</div><a name="cache_get_field_content"></a><h2> cache_get_field_content </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Retrieves a value from the result set as a string.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(row, const field_name[], destination[], connectionHandle &#61; 1, max_len &#61; sizeof(destination))<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">row</td><td style="vertical-align:top;">The row's index (starts at '0').</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const field_name[]</td><td style="vertical-align:top;">The field's name.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">destination[]</td><td style="vertical-align:top;">The string to store the data into.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">connectionHandle</td><td style="vertical-align:top;">The connection handle this will be processed on (optional).</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">max_len</td><td style="vertical-align:top;">The size of the destination string (optional).</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">This function does not return any specific values.<br /></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #FFEAEA; border-left: 10px solid #FCA9A9;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #FCA9A9;"><a href="Image_32px-Circle-style-warning.png.html" class="image" title="Image:32px-Circle-style-warning.png"><img src="../upload/5/57/32px-Circle-style-warning.png" alt="Image:32px-Circle-style-warning.png" width="32" height="32" longdesc="Image_32px-Circle-style-warning.png.html" /></a><br />
+<p><strong>Important<br />Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">You have to provide the size (<i>max_len</i>) by yourself if you use an enum-array as destination.</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> dest<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">128</span><span style="color: #66cc66;">&#93;</span>;
+cache_get_field_content<span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">0</span>, <span style="color: #b22222;">&quot;name&quot;</span>, dest<span style="color: #66cc66;">&#41;</span>;
+<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;The value in the field 'name' is '%s'.&quot;</span>, dest<span style="color: #66cc66;">&#41;</span>;</pre>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R33.html" title="Edit section: cache_get_field_content_int">edit</a>]</div><a name="cache_get_field_content_int"></a><h2> cache_get_field_content_int </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Retrieves a value from the result set as an integer (normal number).<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(row, const field_name[], connectionHandle &#61; 1)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">row</td><td style="vertical-align:top;">The row's index (starts at '0').</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const field_name[]</td><td style="vertical-align:top;">The field's name.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">connectionHandle</td><td style="vertical-align:top;">The connection handle this will be processed on (optional).</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">Retrieved value as integer (normal number).<br /></div>
+<p><br />
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> int_dest = cache_get_field_content_int<span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">2</span>, <span style="color: #b22222;">&quot;money&quot;</span><span style="color: #66cc66;">&#41;</span>;
+<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;The value in the third row and in the field 'money' is '%d'.&quot;</span>, int_dest<span style="color: #66cc66;">&#41;</span>;</pre>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R33.html" title="Edit section: cache_get_field_content_float">edit</a>]</div><a name="cache_get_field_content_float"></a><h2> cache_get_field_content_float </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Retrieves a value from the result set as an floating point number.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(row, const field_name[], connectionHandle &#61; 1)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">row</td><td style="vertical-align:top;">The row's index (starts at '0').</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const field_name[]</td><td style="vertical-align:top;">The field's name.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">connectionHandle</td><td style="vertical-align:top;">The connection handle this will be processed on (optional).</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">Retrieved value as floating point number.<br /></div>
+<p><br />
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> <span style="color: orange;">Float</span>:float_dest = cache_get_field_content_float<span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">3</span>, <span style="color: #b22222;">&quot;pos_x&quot;</span><span style="color: #66cc66;">&#41;</span>;
+<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;The value in the fourth row and in the field 'pos_x' is '%f'.&quot;</span>, float_dest<span style="color: #66cc66;">&#41;</span>;</pre>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R33.html" title="Edit section: cache_save">edit</a>]</div><a name="cache_save"></a><h2> cache_save </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Saves the active cache in the memory and returns an cache-id to access it for later use.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(connectionHandle &#61; 1)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">connectionHandle</td><td style="vertical-align:top;">The connection handle this will be processed on (optional).</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">Valid cache-id on success or 0 on failure.<br /></div>
+<p><br />
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">enum</span> E_PLAYER <span style="color: #66cc66;">&#123;</span>
+	ID,
+	Name<span style="color: #66cc66;">&#91;</span><span style="color: #E9967A; font-weight: bold;">MAX_PLAYER_NAME</span><span style="color: #66cc66;">&#93;</span>,
+	<span style="color: orange;">Cache</span>:Data,
+	<span style="color: #808080; font-style: italic;">// ...</span>
+<span style="color: #66cc66;">&#125;</span>;
+<span style="color: #228b22; font-weight: bold;">new</span> Player<span style="color: #66cc66;">&#91;</span><span style="color: #E9967A; font-weight: bold;">MAX_PLAYERS</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>E_PLAYER<span style="color: #66cc66;">&#93;</span>;
+&nbsp;
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnPlayerConnect"><span style="color: #dc143c">OnPlayerConnect</span></a><span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #228b22; font-weight: bold;">new</span> query<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">128</span><span style="color: #66cc66;">&#93;</span>;
+	<a href="http://wiki.sa-mp.com/wiki/GetPlayerName"><span style="color: #006400;">GetPlayerName</span></a><span style="color: #66cc66;">&#40;</span>playerid, Player<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>Name<span style="color: #66cc66;">&#93;</span>, <span style="color: #E9967A; font-weight: bold;">MAX_PLAYER_NAME</span><span style="color: #66cc66;">&#41;</span>;
+	mysql_format<span style="color: #66cc66;">&#40;</span>MySQL, query, <span style="color: orange; font-weight: bold;">sizeof</span><span style="color: #66cc66;">&#40;</span>query<span style="color: #66cc66;">&#41;</span>, <span style="color: #b22222;">&quot;SELECT * FROM `players` WHERE `name` = '%e' LIMIT 1&quot;</span>, Player<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>Name<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>;
+	mysql_tquery<span style="color: #66cc66;">&#40;</span>MySQL, query, <span style="color: #b22222;">&quot;OnPlayerDataLoaded&quot;</span>, <span style="color: #b22222;">&quot;d&quot;</span>, playerid<span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">forward</span> OnPlayerDataLoaded<span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #228b22; font-weight: bold;">public</span> OnPlayerDataLoaded<span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>cache_num_rows<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span> == <span style="color: #4169e1;">1</span><span style="color: #66cc66;">&#41;</span>
+	<span style="color: #66cc66;">&#123;</span>
+&nbsp;
+		<span style="color: #808080; font-style: italic;">//save the cache for later use</span>
+		Player<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>Data<span style="color: #66cc66;">&#93;</span> = cache_save<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+		<span style="color: #808080; font-style: italic;">//show login dialog</span>
+		<span style="color: #808080; font-style: italic;">// ShowPlayerDialog(playerid, ...</span>
+	<span style="color: #66cc66;">&#125;</span>
+	<span style="color: #808080; font-style: italic;">// else //show register dialog</span>
+		<span style="color: #808080; font-style: italic;">// ShowPlayerDialog(playerid, ...</span>
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R33.html" title="Edit section: cache_delete">edit</a>]</div><a name="cache_delete"></a><h2> cache_delete </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Deletes the specified cache from the memory.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(Cache:cache_id, connectionHandle &#61; 1)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Cache:cache_id</td><td style="vertical-align:top;">The cache-id which should be deleted.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">connectionHandle</td><td style="vertical-align:top;">The connection handle this will be processed on (optional).</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">1 on success, 0 on fail.<br /></div>
+<p><br />
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">enum</span> E_PLAYER <span style="color: #66cc66;">&#123;</span>
+	ID,
+	Name<span style="color: #66cc66;">&#91;</span><span style="color: #E9967A; font-weight: bold;">MAX_PLAYER_NAME</span><span style="color: #66cc66;">&#93;</span>,
+	<span style="color: orange;">Cache</span>:Data,
+	<span style="color: #808080; font-style: italic;">// ...</span>
+<span style="color: #66cc66;">&#125;</span>;
+<span style="color: #228b22; font-weight: bold;">new</span> Player<span style="color: #66cc66;">&#91;</span><span style="color: #E9967A; font-weight: bold;">MAX_PLAYERS</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>E_PLAYER<span style="color: #66cc66;">&#93;</span>;
+&nbsp;
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnPlayerDisconnect"><span style="color: #dc143c">OnPlayerDisconnect</span></a><span style="color: #66cc66;">&#40;</span>playerid, reason<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	cache_delete<span style="color: #66cc66;">&#40;</span>Player<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>Data<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #808080; font-style: italic;">// ...</span>
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R33.html" title="Edit section: cache_set_active">edit</a>]</div><a name="cache_set_active"></a><h2> cache_set_active </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Sets the specified cache as the active cache.<br /></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+<p><strong>Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">If you specify '0' as cache-id, the active cache will be unset, thus there won't be any cache active.</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(Cache:cache_id, connectionHandle &#61; 1)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Cache:cache_id</td><td style="vertical-align:top;">The cache-id which should be set as active.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">connectionHandle</td><td style="vertical-align:top;">The connection handle this will be processed on (optional).</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">1 on success, 0 on fail.<br /></div>
+<p><br />
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">enum</span> E_PLAYER <span style="color: #66cc66;">&#123;</span>
+	ID,
+	Name<span style="color: #66cc66;">&#91;</span><span style="color: #E9967A; font-weight: bold;">MAX_PLAYER_NAME</span><span style="color: #66cc66;">&#93;</span>,
+	<span style="color: orange;">Cache</span>:Data,
+	Money,
+	<span style="color: orange;">Float</span>:PosX,
+	<span style="color: #808080; font-style: italic;">// ...</span>
+<span style="color: #66cc66;">&#125;</span>;
+<span style="color: #228b22; font-weight: bold;">new</span> Player<span style="color: #66cc66;">&#91;</span><span style="color: #E9967A; font-weight: bold;">MAX_PLAYERS</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>E_PLAYER<span style="color: #66cc66;">&#93;</span>;
+&nbsp;
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">public</span> OnDialogResponse<span style="color: #66cc66;">&#40;</span>playerid, dialogid, response, listitem, inputtext<span style="color: #66cc66;">&#91;</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #4169e1;">switch</span><span style="color: #66cc66;">&#40;</span>dialogid<span style="color: #66cc66;">&#41;</span>
+	<span style="color: #66cc66;">&#123;</span>
+		<span style="color: #808080; font-style: italic;">// ...</span>
+		<span style="color: orange; font-weight: bold;">case</span> DIALOG_LOGIN:
+		<span style="color: #66cc66;">&#123;</span>
+			<span style="color: #808080; font-style: italic;">//if password matches</span>
+			cache_set_active<span style="color: #66cc66;">&#40;</span>Player<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>Data<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+			Player<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>Money<span style="color: #66cc66;">&#93;</span> = cache_get_field_content_int<span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">0</span>, <span style="color: #b22222;">&quot;money&quot;</span><span style="color: #66cc66;">&#41;</span>;
+			Player<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>PosX<span style="color: #66cc66;">&#93;</span> = cache_get_field_content_float<span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">0</span>, <span style="color: #b22222;">&quot;pos_x&quot;</span><span style="color: #66cc66;">&#41;</span>;
+			<span style="color: #808080; font-style: italic;">// ...</span>
+			cache_set_active<span style="color: #66cc66;">&#40;</span><span style="color: orange;">Cache</span>:<span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">//unset active cache</span>
+		<span style="color: #66cc66;">&#125;</span>
+		<span style="color: #808080; font-style: italic;">// ...</span>
+		<span style="color: orange;">default</span>:
+			<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">0</span>;
+	<span style="color: #66cc66;">&#125;</span>
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R33.html" title="Edit section: cache_is_valid">edit</a>]</div><a name="cache_is_valid"></a><h2> cache_is_valid </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Checks if the specified cache is valid.<br /></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #FFEAEA; border-left: 10px solid #FCA9A9;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #FCA9A9;"><a href="Image_32px-Circle-style-warning.png.html" class="image" title="Image:32px-Circle-style-warning.png"><img src="../upload/5/57/32px-Circle-style-warning.png" alt="Image:32px-Circle-style-warning.png" width="32" height="32" longdesc="Image_32px-Circle-style-warning.png.html" /></a><br />
+<p><strong>Important<br />Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">This native was added in R35 and can't be used in any version below.</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(Cache:cache_id, connectionHandle &#61; 1)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Cache:cache_id</td><td style="vertical-align:top;">The cache-id which should be checked.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">connectionHandle</td><td style="vertical-align:top;">The connection handle this will be processed on (optional).</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">1 if valid, 0 if invalid.<br /></div>
+<p><br />
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">enum</span> E_PLAYER <span style="color: #66cc66;">&#123;</span>
+	ID,
+	Name<span style="color: #66cc66;">&#91;</span><span style="color: #E9967A; font-weight: bold;">MAX_PLAYER_NAME</span><span style="color: #66cc66;">&#93;</span>,
+	<span style="color: orange;">Cache</span>:Data,
+	<span style="color: #808080; font-style: italic;">// ...</span>
+<span style="color: #66cc66;">&#125;</span>;
+<span style="color: #228b22; font-weight: bold;">new</span> Player<span style="color: #66cc66;">&#91;</span><span style="color: #E9967A; font-weight: bold;">MAX_PLAYERS</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>E_PLAYER<span style="color: #66cc66;">&#93;</span>;
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">public</span> OnPlayerUpdate<span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #808080; font-style: italic;">//if random event...</span>
+	cache_delete<span style="color: #66cc66;">&#40;</span>Player<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>Data<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnPlayerDisconnect"><span style="color: #dc143c">OnPlayerDisconnect</span></a><span style="color: #66cc66;">&#40;</span>playerid, reason<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>cache_is_valid<span style="color: #66cc66;">&#40;</span>Player<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>Data<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>
+		cache_delete<span style="color: #66cc66;">&#40;</span>Player<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>Data<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #808080; font-style: italic;">// ...</span>
+&nbsp;
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R33.html" title="Edit section: cache_affected_rows">edit</a>]</div><a name="cache_affected_rows"></a><h2> cache_affected_rows </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Returns the number of affected rows if the query was an INSERT, UPDATE, REPLACE or DELETE query.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(connectionHandle &#61; 1)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">connectionHandle</td><td style="vertical-align:top;">The connection handle this will be processed on (optional).</td></tr></table></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+<p><strong>Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">If the last query was a DELETE query with no WHERE clause, all of the records will have been deleted from the table but this function will return zero.</span>
+</td></tr></table>
+</div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">Number of affected rows.<br /></div>
+<p><br />
+</p>
+<pre class="pawn">mysql_tquery<span style="color: #66cc66;">&#40;</span>MySQL, <span style="color: #b22222;">&quot;DELETE FROM mylogs WHERE log_id &gt; 10&quot;</span>, <span style="color: #b22222;">&quot;OnLogsDeleted&quot;</span>, <span style="color: #b22222;">&quot;&quot;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #808080; font-style: italic;">// ...</span>
+<span style="color: #228b22; font-weight: bold;">public</span> OnLogsDeleted<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;%d logs deleted!&quot;</span>, cache_affected_rows<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R33.html" title="Edit section: cache_insert_id">edit</a>]</div><a name="cache_insert_id"></a><h2> cache_insert_id </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Retrieves the ID generated for an AUTO_INCREMENT column by the sent query (usually INSERT).<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(connectionHandle &#61; 1)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">connectionHandle</td><td style="vertical-align:top;">The connection handle this will be processed on (optional).</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">ID generated for an AUTO_INCREMENT column.<br /></div>
+<p><br />
+</p>
+<pre class="pawn">mysql_tquery<span style="color: #66cc66;">&#40;</span>MySQL, <span style="color: #b22222;">&quot;INSERT INTO `players` (`name`, `password`) VALUES ('Ownage', MD5('mypass'))&quot;</span>, <span style="color: #b22222;">&quot;OnPlayerRegister&quot;</span>, <span style="color: #b22222;">&quot;d&quot;</span>, playerid<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #808080; font-style: italic;">// ...</span>
+<span style="color: #228b22; font-weight: bold;">public</span> OnPlayerRegister<span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;New player registered with ID '%d'.&quot;</span>, cache_insert_id<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R33.html" title="Edit section: cache_warning_count">edit</a>]</div><a name="cache_warning_count"></a><h2> cache_warning_count </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Returns the number of warnings the sent query generated.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(connectionHandle &#61; 1)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">connectionHandle</td><td style="vertical-align:top;">The connection handle this will be processed on (optional).</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">Number of warnings, 0 if none.<br /></div>
+<p><br />
+</p>
+<pre class="pawn">mysql_tquery<span style="color: #66cc66;">&#40;</span>MySQL, <span style="color: #b22222;">&quot;UPDATE `notable` SET something=42 WHERE nofield=0&quot;</span>, <span style="color: #b22222;">&quot;OnStuffUpdated&quot;</span>, <span style="color: #b22222;">&quot;&quot;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #808080; font-style: italic;">// ...</span>
+<span style="color: #228b22; font-weight: bold;">public</span> OnStuffUpdated<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>cache_warning_count<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>
+		<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;Some warnings occured!!&quot;</span><span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R33.html" title="Edit section: cache_get_query_exec_time">edit</a>]</div><a name="cache_get_query_exec_time"></a><h2> cache_get_query_exec_time </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Returns the time the query took to be executed.<br /></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #FFEAEA; border-left: 10px solid #FCA9A9;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #FCA9A9;"><a href="Image_32px-Circle-style-warning.png.html" class="image" title="Image:32px-Circle-style-warning.png"><img src="../upload/5/57/32px-Circle-style-warning.png" alt="Image:32px-Circle-style-warning.png" width="32" height="32" longdesc="Image_32px-Circle-style-warning.png.html" /></a><br />
+<p><strong>Important<br />Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">This native was added in R36 and can't be used in any version below.</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(E_EXECTIME_UNIT:unit &#61; UNIT_MICROSECONDS)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">E_EXECTIME_UNIT:unit</td><td style="vertical-align:top;">Time unit which should be used for the execution time (optional).</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">Execution time as positive number.<br /></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+<p><strong>Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">Buffer overflows can easily occur if using microseconds as unit in combination with long queries.</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R33.html" title="Edit section: Time units">edit</a>]</div><a name="Time_units"></a><h4> Time units </h4>
+<table class="wikitable">
+<tr>
+<th> Unit
+</th></tr>
+<tr>
+<td> UNIT_MILLISECONDS
+</td></tr>
+<tr>
+<td> UNIT_MICROSECONDS
+</td></tr></table>
+<pre class="pawn">mysql_tquery<span style="color: #66cc66;">&#40;</span>MySQL, <span style="color: #b22222;">&quot;SELECT * FROM `data`&quot;</span>, <span style="color: #b22222;">&quot;OnDataRetrieved&quot;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #808080; font-style: italic;">// ...</span>
+<span style="color: #228b22; font-weight: bold;">public</span> OnDataRetrieved<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;The query <span style="color: #000099; font-weight: bold;">\&quot;</span>SELECT * FROM `data`<span style="color: #000099; font-weight: bold;">\&quot;</span> took %d milliseconds / %d microseconds to execute.&quot;</span>,
+		cache_get_query_exec_time<span style="color: #66cc66;">&#40;</span>UNIT_MILLISECONDS<span style="color: #66cc66;">&#41;</span>, cache_get_query_exec_time<span style="color: #66cc66;">&#40;</span>UNIT_MICROSECONDS<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+	<span style="color: #808080; font-style: italic;">//output:</span>
+	<span style="color: #808080; font-style: italic;">//	The query &quot;SELECT * FROM `data`&quot; took 9 milliseconds / 9311 microseconds to execute.</span>
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R33.html" title="Edit section: cache_get_query_string">edit</a>]</div><a name="cache_get_query_string"></a><h2> cache_get_query_string </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Returns the query which was executed as string.<br /></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #FFEAEA; border-left: 10px solid #FCA9A9;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #FCA9A9;"><a href="Image_32px-Circle-style-warning.png.html" class="image" title="Image:32px-Circle-style-warning.png"><img src="../upload/5/57/32px-Circle-style-warning.png" alt="Image:32px-Circle-style-warning.png" width="32" height="32" longdesc="Image_32px-Circle-style-warning.png.html" /></a><br />
+<p><strong>Important<br />Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">This native was added in R36 and can't be used in any version below.</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(destination[], max_len &#61; sizeof(destination))<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">destination[]</td><td style="vertical-align:top;">The string to store the query into.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">max_len</td><td style="vertical-align:top;">The maximal size of the destination string (optional).</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">This function does not return any specific values.<br /></div>
+<p><br />
+</p>
+<pre class="pawn">mysql_tquery<span style="color: #66cc66;">&#40;</span>MySQL, <span style="color: #b22222;">&quot;SELECT * FROM `data`&quot;</span>, <span style="color: #b22222;">&quot;OnDataRetrieved&quot;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #808080; font-style: italic;">// ...</span>
+<span style="color: #228b22; font-weight: bold;">public</span> OnDataRetrieved<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #228b22; font-weight: bold;">new</span> query<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">64</span><span style="color: #66cc66;">&#93;</span>;
+	cache_get_query_string<span style="color: #66cc66;">&#40;</span>query<span style="color: #66cc66;">&#41;</span>;
+	<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;Executed query: <span style="color: #000099; font-weight: bold;">\&quot;</span>%s<span style="color: #000099; font-weight: bold;">\&quot;</span>&quot;</span>, query<span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #808080; font-style: italic;">//output:</span>
+	<span style="color: #808080; font-style: italic;">//	Executed query: &quot;SELECT * FROM `data`&quot;</span>
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p><br />
+</p><p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R33.html" title="Edit section: Plugin callbacks">edit</a>]</div><a name="Plugin_callbacks"></a><h1> Plugin callbacks </h1>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R33.html" title="Edit section: OnQueryError">edit</a>]</div><a name="OnQueryError"></a><h2> OnQueryError </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">This callback is called when an error occurs while processing a query.<br /></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+<p><strong>Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">Common error codes for <a href="http://dev.mysql.com/doc/refman/5.1/en/error-messages-client.html" class='external text' title="http://dev.mysql.com/doc/refman/5.1/en/error-messages-client.html" rel="nofollow">client</a> and <a href="http://dev.mysql.com/doc/refman/5.1/en/error-messages-server.html" class='external text' title="http://dev.mysql.com/doc/refman/5.1/en/error-messages-server.html" rel="nofollow">server</a>.</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(errorid, error[], callback[], query[], connectionHandle)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">errorid</td><td style="vertical-align:top;">ID of the error.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">error[]</td><td style="vertical-align:top;">Error message.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">callback[]</td><td style="vertical-align:top;">Name of the callback. It equals to "" (nothing, empty) if it's not used.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">query[]</td><td style="vertical-align:top;">Query which was executed.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">connectionHandle</td><td style="vertical-align:top;">The connection handle this was processed on.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">This callback does not handle returns. <br /></div>
+<p><br />
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">public</span> OnQueryError<span style="color: #66cc66;">&#40;</span>errorid, error<span style="color: #66cc66;">&#91;</span><span style="color: #66cc66;">&#93;</span>, callback<span style="color: #66cc66;">&#91;</span><span style="color: #66cc66;">&#93;</span>, query<span style="color: #66cc66;">&#91;</span><span style="color: #66cc66;">&#93;</span>, connectionHandle<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #4169e1;">switch</span><span style="color: #66cc66;">&#40;</span>errorid<span style="color: #66cc66;">&#41;</span>
+	<span style="color: #66cc66;">&#123;</span>
+		<span style="color: orange; font-weight: bold;">case</span> CR_SERVER_GONE_ERROR:
+		<span style="color: #66cc66;">&#123;</span>
+			<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;Lost connection to server, trying reconnect...&quot;</span><span style="color: #66cc66;">&#41;</span>;
+			mysql_reconnect<span style="color: #66cc66;">&#40;</span>connectionHandle<span style="color: #66cc66;">&#41;</span>;
+		<span style="color: #66cc66;">&#125;</span>
+		<span style="color: orange; font-weight: bold;">case</span> ER_SYNTAX_ERROR:
+		<span style="color: #66cc66;">&#123;</span>
+			<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;Something is wrong in your syntax, query: %s&quot;</span>,query<span style="color: #66cc66;">&#41;</span>;
+		<span style="color: #66cc66;">&#125;</span>
+	<span style="color: #66cc66;">&#125;</span>
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/MySQL_R33.html">http://localhost../wiki/MySQL_R33.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="Category_Outdated.html" title="Category:Outdated">Outdated</a></span> | <span dir='ltr'><a href="Category_Plugin_Documentation.html" title="Category:Plugin Documentation">Plugin Documentation</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="MySQL_R33.html">Article</a></li>
+				 <li id="ca-talk"><a href="Talk_MySQL_R33.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="MySQL_R33.html">Edit</a></li>
+				 <li id="ca-history"><a href="MySQL_R33.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 141,410 times.</li>
+				<li id="credits">This page was last modified 19:43, 15 September 2018 by SA-MP Wiki user <a href="User_Burridge.html" title="User:Burridge">Burridge</a>. Based on work by <a href="User_Jlalt.html" class="new" title="User:Jlalt">Jalal Amir</a>, <a href="User_Kar.html" title="User:Kar">Kar</a> and <a href="User_S4t3K.html" title="User:S4t3K">Soufiane</a> and SA-MP Wiki user(s) <a href="User_OstGot.html" title="User:OstGot">OstGot</a>, <a href="User_Konstantinos.html" title="User:Konstantinos">Konstantinos</a>, <a href="User_Maddinat0r.html" title="User:Maddinat0r">Maddinat0r</a>, <a href="User_Sabretur.html" title="User:Sabretur">Sabretur</a>, <a href="User_RoboN1X.html" title="User:RoboN1X">RoboN1X</a>, <a href="User_GameMan.html" title="User:GameMan">GameMan</a>, <a href="User_Vince.html" title="User:Vince">Vince</a>, <a href="User_JernejL.html" title="User:JernejL">JernejL</a>, <a href="User_Maddinat0r.html" title="User:Maddinat0r">Maddinat0r</a> and <a href="User_W.html" title="User:W">W</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 90.46 secs. -->
+</body></html>

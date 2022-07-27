@@ -1,0 +1,404 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Changelog PL,GetPlayerCameraAspectRatio,GetPlayerCameraZoom,GetPlayerLastShotVectors,GetPlayerNetworkStats,OnPlayerGiveDamage,OnPlayerTakeDamage,OnPlayerWeaponShot,VectorSize" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>Changelog PL - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Changelog PL</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class='toclevel-1'><a href="#Przysz.C5.82e_wydanie_.280.4.29"><span class="tocnumber">1</span> <span class="toctext">Przyszłe wydanie (0.4)</span></a></li>
+<li class='toclevel-1'><a href="#Wydanie_obecne_.280.3z.29"><span class="tocnumber">2</span> <span class="toctext">Wydanie obecne (0.3z)</span></a></li>
+<li class='toclevel-1'><a href="#Przesz.C5.82e_wydania"><span class="tocnumber">3</span> <span class="toctext">Przeszłe wydania</span></a>
+<ul>
+<li class='toclevel-2'><a href="#Seria_0.3"><span class="tocnumber">3.1</span> <span class="toctext">Seria 0.3</span></a>
+<ul>
+<li class='toclevel-3'><a href="#Wersja_0.3c"><span class="tocnumber">3.1.1</span> <span class="toctext">Wersja 0.3c</span></a></li>
+<li class='toclevel-3'><a href="#Wersja_0.3b"><span class="tocnumber">3.1.2</span> <span class="toctext">Wersja 0.3b</span></a></li>
+<li class='toclevel-3'><a href="#Wersja_0.3a"><span class="tocnumber">3.1.3</span> <span class="toctext">Wersja 0.3a</span></a></li>
+</ul>
+</li>
+<li class='toclevel-2'><a href="#Seria_0.2"><span class="tocnumber">3.2</span> <span class="toctext">Seria 0.2</span></a>
+<ul>
+<li class='toclevel-3'><a href="#Wersja_0.2X"><span class="tocnumber">3.2.1</span> <span class="toctext">Wersja 0.2X</span></a></li>
+<li class='toclevel-3'><a href="#Wersja_0.2.2_R3_.28tylko_klient.29"><span class="tocnumber">3.2.2</span> <span class="toctext">Wersja 0.2.2 R3 (tylko klient)</span></a></li>
+<li class='toclevel-3'><a href="#Wersja_0.2.2_R2_.28tylko_klient.29"><span class="tocnumber">3.2.3</span> <span class="toctext">Wersja 0.2.2 R2 (tylko klient)</span></a></li>
+<li class='toclevel-3'><a href="#Wersja_0.2.2"><span class="tocnumber">3.2.4</span> <span class="toctext">Wersja 0.2.2</span></a></li>
+<li class='toclevel-3'><a href="#Wersja_0.2.1_R2_.28tylko_serwer.29"><span class="tocnumber">3.2.5</span> <span class="toctext">Wersja 0.2.1 R2 (tylko serwer)</span></a></li>
+<li class='toclevel-3'><a href="#Wersja_0.2.1"><span class="tocnumber">3.2.6</span> <span class="toctext">Wersja 0.2.1</span></a></li>
+<li class='toclevel-3'><a href="#Wersja_0.2"><span class="tocnumber">3.2.7</span> <span class="toctext">Wersja 0.2</span></a></li>
+</ul>
+</li>
+<li class='toclevel-2'><a href="#Seria_0.1"><span class="tocnumber">3.3</span> <span class="toctext">Seria 0.1</span></a>
+<ul>
+<li class='toclevel-3'><a href="#Wersja_0.1b_R2_.28tylko_serwer.29"><span class="tocnumber">3.3.1</span> <span class="toctext">Wersja 0.1b R2 (tylko serwer)</span></a></li>
+<li class='toclevel-3'><a href="#Wersja_0.1b"><span class="tocnumber">3.3.2</span> <span class="toctext">Wersja 0.1b</span></a></li>
+<li class='toclevel-3'><a href="#Wersja_0.1"><span class="tocnumber">3.3.3</span> <span class="toctext">Wersja 0.1</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Changelog_PL.html" title="Edit section: Przyszłe wydanie (0.4)">edit</a>]</div><a name="Przysz.C5.82e_wydanie_.280.4.29"></a><h1> Przyszłe wydanie (0.4) </h1>
+<p>Następną większą aktualizacją będzie wersja 0.4 (0.4a)
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Changelog_PL.html" title="Edit section: Wydanie obecne (0.3z)">edit</a>]</div><a name="Wydanie_obecne_.280.3z.29"></a><h1> Wydanie obecne (0.3z) </h1>
+<p><b>Data wydania:</b> Nie określono (Release Candidate)
+</p><p>Obecna wersja to 0.3z. Jest to głównie aktualizacja bezpieczeństwa, ale zawiera także kilka nowości.
+</p><p><b>KLIENT</b>
+</p>
+<ul><li> Strzały graczy są teraz kompensowane wobec lagów, co oznacza, że można strzelać bezpośrednio w skina.
+</li><li> Funkcja auto-aim/zablokowania nie jest już dostępna w joypadzie.
+</li><li> Naprawiono problem przy którym strzały długodystansowe mogły być gubione.
+</li><li> Tagi graczy nie są widoczne przez obiekty dodane przez serwer.
+</li><li> Poprawione: gracze którzy "surfowali" na pojazdach nie mogli zostać zastrzeleni.
+</li></ul>
+<p><br />
+<b>SERWER</b>
+</p>
+<ul><li> Nowy callback <a href="OnPlayerWeaponShot.html" title="OnPlayerWeaponShot">OnPlayerWeaponShot</a>.
+</li><li> Parametr 'bodypart' dodany do <a href="OnPlayerGiveDamage.html" title="OnPlayerGiveDamage">OnPlayerGiveDamage</a> i <a href="OnPlayerTakeDamage.html" title="OnPlayerTakeDamage">OnPlayerTakeDamage</a>.
+</li><li> Dodana funkcja <a href="VectorSize.html" title="VectorSize">VectorSize</a>.
+</li><li> Dodano ustawienie "messageholelimit" w server.cfg pozwalające na radzenie sobie ze specyficznymi atakami DoS.
+</li><li> Aktualizacja gamemodu Rivershell do wersji 2.
+</li><li> <a href="OnPlayerGiveDamage.html" title="OnPlayerGiveDamage">OnPlayerGiveDamage</a> jest teraz wywoływane dla NPC.
+</li><li> Dodano <a href="GetPlayerLastShotVectors.html" title="GetPlayerLastShotVectors">GetPlayerLastShotVectors</a> dla rozszerzenia informacji o strzałach.
+</li><li> Dodano "legacy mode" (stary tryb strzelania z lagami) dla strzałów (shotcompmode 2 w server.cfg), który używa jedynie informacji kamery dla celowania i pozwala na auto-aiming w joypadzie
+</li><li> Dodano rozszerzone funkcje do sprawdzenia informacji o kamerze gracza, takich jak <a href="GetPlayerCameraAspectRatio.html" title="GetPlayerCameraAspectRatio">aspect ratio</a> i <a href="GetPlayerCameraZoom.html" title="GetPlayerCameraZoom">poziom przybliżenia</a>.
+</li><li> Rozszerzone funkcje "netstat", dzięki którym skrypt może pobrać informacji o sieci bez konieczności parsowania całego wyniku z funkcji <a href="GetPlayerNetworkStats.html" title="GetPlayerNetworkStats">GetPlayerNetworkStats</a>.
+</li></ul>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Changelog_PL.html" title="Edit section: Przeszłe wydania">edit</a>]</div><a name="Przesz.C5.82e_wydania"></a><h1> Przeszłe wydania </h1>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Changelog_PL.html" title="Edit section: Seria 0.3">edit</a>]</div><a name="Seria_0.3"></a><h2> Seria 0.3 </h2>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Changelog_PL.html" title="Edit section: Wersja 0.3c">edit</a>]</div><a name="Wersja_0.3c"></a><h3> Wersja 0.3c </h3>
+<p><b>Data wydania:</b> 29/12/2010
+</p>
+<ul><li> Przeprojektowany system numerów rejestracyjnych na samochodach.
+</li><li> Cząsteczki objektów dodane takie jak ogień.
+</li><li> Dodane nowe i przeprojektowane modele czapek i innych akcesorii które mogą być ubrane.
+</li><li> Dodane nowe obiekty do stuntów i budynki
+</li><li> Lepszy surfing na pojazdach/obiektach.
+</li><li> Silnik i światła pojazdu mogą być kontrolowane przez serwer.
+</li><li> Teraz możesz strzelać jako pasażer z pojazdu używając prawie każdej broni.
+</li><li> Możliwość zmiany koloru czcionki w czacie i dialogach.
+</li><li> Kilka nowych funkcji w skryptowaniu i napraw.
+</li></ul>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Changelog_PL.html" title="Edit section: Wersja 0.3b">edit</a>]</div><a name="Wersja_0.3b"></a><h3> Wersja 0.3b </h3>
+<p><b>Data wydania:</b> 21/08/2010
+</p><p>Klient:
+</p>
+<ul><li> Dodano komende /headmove żeby włączyć/wyłączyć ruchy głowy gracza lokalnie.
+</li><li> Negatywny wynik gracza będzie wyświetlany jako 0 w przeglądarce.
+</li><li> Usunięto możliwość podniesienia obiektów w domach takie jak telewizory lub radia.
+</li><li> Naprawiono problem z celowaniem na różnych rozdzielczościach.
+</li><li> Naprawiono problem tekstu 3D nie pojawiającego się na graczach po restarcie.
+</li><li> Naprawiono problem gdzie gra crashuje kiedy wychodzisz z gry podczas oglądania kogoś.
+</li><li> Naprawiono błąd w przeglądarce z linkiem samp:// kiedy port miał długość 5 znaków.
+</li><li> Naprawiono renderowanie imion podczas jazdy w pojazdach zdalnie sterowanych (RC cars).
+</li><li> Naprawiono problem z streamowaniem pickupów gdy gracz umierał.
+</li><li> Dodano ruchy głową w pojazdach.
+</li><li> Logowanie czatów.
+</li><li> Poprawiono synchronizacje graczy i animacji.
+</li><li> Poprawiono synchronizacje pojazdów.
+</li><li> Pliki i zrzuty ekranów z gry są teraz zapisywane w '/Moje Dokumenty/GTA San Andreas User Files/SAMP'
+</li><li> Nie ma ograniczeń z rozdzielczością ekranu.
+</li><li> Zmiany w frame limiterze są teraz zapisywane.
+</li><li> Czas i data napisanej wiadomości na czacie można uruchomić poprzez komende '/timestamp'.
+</li></ul>
+<p>Serwer:
+</p>
+<ul><li> Opcja forcesync (0-2) dla ApplyAnimation
+</li><li> Zaktualizowano wersje sqlite do 3.7.0.1
+</li><li> Dodano resetowanie hasła na serwerze kiedy 'password 0' jest wprowadzony w konsole.
+</li><li> Poprawienia w GetPlayerWeaponData i GetPlayerAmmo
+</li><li> Nowe funkcje do prędkości i obrotu pojazdów.
+</li><li> Umiejętność zapamiętywania wszystkich animacji poprzez GetPlayerAnimationIndex
+</li><li> Gracze mogą być oskryptowani do trzymania obiektów.
+</li><li> Klient do HTTP wprowadzony do Pawn (beta)
+</li><li> Nowy limit obiektów to 400.
+</li><li> Możliwość zmiany dystansu w jakim obiekt będzie się pojawiał (max. 300 jednostek)
+</li><li> NPC mogą teraz nagrywać różne animacje.
+</li><li> Zwiększono prędkość PVarów.
+</li></ul>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Changelog_PL.html" title="Edit section: Wersja 0.3a">edit</a>]</div><a name="Wersja_0.3a"></a><h3> Wersja 0.3a </h3>
+<p><b>Data wydania:</b> 17/10/2009
+</p>
+<ul><li> Do 500 graczy na serwer i do 2000 pojazdów.
+</li><li> Nowa obsługa tablicy wyników, czatu i innych funkcji graficznego interfejsu.
+</li><li> Widoczne zniszczenia pojazdów oraz ich naprawy.
+</li><li> Boty NPC mogą prowadzić pociągi, samoloty i więcej.
+</li><li> Serwer całkowicie kontroluje grę.
+</li><li> Poprawa synchronizacji pojazdów.
+</li><li> Dużo nowych funkcji w skrypcie.
+</li><li> Wiele błędów zostało naprawionych - SA-MP 0.3a jest na chwilę obecną najstabilniejszą wersją!
+</li></ul>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Changelog_PL.html" title="Edit section: Seria 0.2">edit</a>]</div><a name="Seria_0.2"></a><h2> Seria 0.2 </h2>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Changelog_PL.html" title="Edit section: Wersja 0.2X">edit</a>]</div><a name="Wersja_0.2X"></a><h3> Wersja 0.2X </h3>
+<p><b>Data wydania:</b> 20/11/2008
+</p>
+<ul><li> Poprawiona obsługa prywatnych wiadomości.
+</li><li> Naprawiona funkcja fragmentowania/MTU pakietów.
+</li><li> Various security updates to the netcode and connection logic.
+</li><li> Security updates to the client binaries.
+</li><li> Removed compression from the aiming vectors to improve accuracy.
+</li><li> Added seconds to server logs and also shows raw incoming UDP connections.
+</li><li> OnVehicleMod/OnVehiclePaintjob/OnVehicleRespray includes the origin playerid.
+</li><li> Added OnPlayerUpdate, a callback fired for every player network update. This will help server-side anti-cheat.
+</li><li> Ograniczenie filterskryptów do 16.
+</li></ul>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Changelog_PL.html" title="Edit section: Wersja 0.2.2 R3 (tylko klient)">edit</a>]</div><a name="Wersja_0.2.2_R3_.28tylko_klient.29"></a><h3> Wersja 0.2.2 R3 (tylko klient) </h3>
+<p><b>Data wydania:</b> 20/06/2008
+</p>
+<ul><li> Usunięto cały kod SAC.
+</li><li> Rozwiązano problem z kopiowanie tekstu ze schowka.
+</li><li> Poprawiono migotanie/dziwne zachowanie się mgły/światła kiedy przepływ czasu jest wyłączony.
+</li><li> Poprawiono problem audio z niektórymi pojazdami (ciche pojazdy).
+</li><li> Poprawiono lagi pojawiające się kiedy załadowanych jest wiele modeli.
+</li><li> Fixed some car mod shop crashes.
+</li><li> Poprawiono kilka crashy związanych z modyfikacjami pojazdów.
+</li><li> Alternatywna syrena w pojazdach policyjnych jest teraz synchronizowana.
+</li><li> Kod TextDrawow kompletnie przepisany. Teraz działa w interiorach i znika przy otwarciu listy graczy wewnątrz gry.
+</li><li> Poprawiono crashe spowodowane DestroyVehicle.
+</li><li> Zaimportowano trochę kodu z 0.3/0.2.5 dot. surfowania pojazdów.
+</li><li> Dodano komendę klienta /fpslimit do zmiany ustawienia limitu klatek. Poprawne wartości od 20 do 100.
+</li></ul>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Changelog_PL.html" title="Edit section: Wersja 0.2.2 R2 (tylko klient)">edit</a>]</div><a name="Wersja_0.2.2_R2_.28tylko_klient.29"></a><h3> Wersja 0.2.2 R2 (tylko klient) </h3>
+<p><b>Data wydania:</b> 30/08/2007
+</p>
+<ul><li> Poprawione crashe związane z modelami/pickupami.
+</li><li> Rozwiązano problem z kolizjami (spadanie obiektów/graczy pod ziemie)
+</li><li> Zawijanie wiadomości na czacie.
+</li><li> Poprawne renderowanie tekstur jeżeli Twoja karta graficzna używa zmodyfikowane d3dx9_25.dll.
+</li></ul>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Changelog_PL.html" title="Edit section: Wersja 0.2.2">edit</a>]</div><a name="Wersja_0.2.2"></a><h3> Wersja 0.2.2 </h3>
+<p><b>Data wydania:</b> 29/08/2007
+</p>
+<ul><li> Chat window is now scrollable with upto 5 pages of text (50 lines).
+</li><li> Chat window now wraps text properly over multiple lines.
+</li><li> Chat entry improved, it allows upto 128 character messages, supports selection, copy and paste etc.
+</li><li> All text rendering has been heavily optimised. Chat text now has no noticable impact on framerate.
+</li><li> Name tags cannot be seen through walls/objects.
+</li><li> A car mod shop crash applying certain car mods has been fixed.
+</li><li> Pickup limit increased to 400.
+</li><li> The server can now disable all interior entrances/exits.
+</li><li> Native sqlite database support for pawn. Sqlite is a lightweight alternative to the mysql plugin.
+</li><li> The name tag drawing distance can be set from the server.
+</li><li> Insane stunt bonuses can be toggled on/off by the server.
+</li><li> Various netcode security updates.
+</li><li> 0.2.2 will use the second major version of SAC.
+</li><li> Player head movement sync added. Player's characters will look in the direction their camera is looking.
+</li><li> A new cellphone action enables players to hold a cellphone and look like they're on a call (useful for pen1 based scripts).
+</li><li> New usable skins; Tenpenny, Pulaski, Hernandez, Ryder, Smoke, Sweet, Mafia Boss.
+</li><li> Bandwidth and ped sync improvements. 0.2.2 will consume less server bandwidth than 0.2.1.
+</li><li> Fixed bug with setting player colors of players 100,101,102.
+</li><li> Increased timeouts to prevent connection loss.
+</li><li> Decreased CPU time required to process vehicles on the client.
+</li><li> Fixed animation problem with fire hydrant and spray can.
+</li><li> Fixed nametags with no player issue.
+</li><li> Fixed an issue where the client wasn't displaying "You are banned", "Server is full." messages.
+</li></ul>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Changelog_PL.html" title="Edit section: Wersja 0.2.1 R2 (tylko serwer)">edit</a>]</div><a name="Wersja_0.2.1_R2_.28tylko_serwer.29"></a><h3> Wersja 0.2.1 R2 (tylko serwer) </h3>
+<p><b>Data wydania:</b> 25/07/2007
+</p>
+<ul><li> Dodano zabezpieczenie przed botami
+</li><li> Dodano SAC (SA-MP AntyCheat)
+</li></ul>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Changelog_PL.html" title="Edit section: Wersja 0.2.1">edit</a>]</div><a name="Wersja_0.2.1"></a><h3> Wersja 0.2.1 </h3>
+<p><b>Data wydania:</b> 24/06/2007
+</p>
+<ul><li> Kilka poprawek
+</li></ul>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Changelog_PL.html" title="Edit section: Wersja 0.2">edit</a>]</div><a name="Wersja_0.2"></a><h3> Wersja 0.2 </h3>
+<p><b>Data wydania:</b> 20/06/2007
+</p>
+<ul><li> CreateObject
+</li><li> SetObjectPosition
+</li><li> SetObjectRotation
+</li><li> GetObjectPosition
+</li><li> GetObjectRotation
+</li><li> DeleteObject
+</li><li> Get/SetPlayerArmour
+</li><li> GetPlayerArmedWeapon
+</li><li> Get/SetPlayerArmour
+</li><li> SetPlayerMarker
+</li><li> Set/RemovePlayerMapIcon
+</li><li> LinkVehicleToInterior
+</li><li> Get/SetPlayerAmmo
+</li><li> GetPlayerInterior
+</li><li> Get/SetGravity
+</li><li> EnableTyrePopping
+</li><li> CallRemoteFunction
+</li><li> AllowPlayerTeleport
+</li><li> AllowAdminTeleport
+</li><li> GetPlayerWeaponData
+</li><li> Attach/DetachTrailerToVehicle
+</li><li> Create/DestroyVehicle
+</li><li> Get/SetVehicleHealth
+</li><li> RCon BANIP added
+</li><li> Fixed Filterscript return in OnPlayerText having no effect
+</li><li> Admins can now teleport to places by right*clicking somewhere on the map
+</li><li> Parachutes being opened in cars fixed
+</li><li> Tire popping synced
+</li><li> Fixed drivebys not syncing occasionally
+</li><li> Race*styled checkpoints
+</li><li> Scripts can now toggle interior weapons being allowed
+</li><li> Trailers
+</li><li> Changable weather
+</li><li> Throwable weapons now work (note: no satchel charges)
+</li><li> Kick/ban now properly disconnects the user
+</li><li> OnPlayerDisconnect now informed of reason
+</li><li> Dynamically created vehicles
+</li><li> Tank turret sync
+</li><li> Interscript communication
+</li><li> Trains re*introduced
+</li><li> Improved text entry
+</li><li> Players drop weapons when they die
+</li><li> Fixed the bug where two players can enter the car as driver
+</li><li> Server*side car position saving
+</li><li> Re*introduced object scripting stuff
+</li><li> Filterscript timers are not killed after a game mode restart/change
+</li><li> Fixed the server crash concerning the samp.ban file having empty lines
+</li><li> Pickups are now reset on game mode change
+</li><li> OnGameModeInit and OnGameModeExit implemented for filterscripts
+</li><li> Fixed OnFilterScriptExit not being called
+</li><li> Given Rcon access to PAWN Commands
+</li><li> Empty /pm or /msg causing a local crash now fixed
+</li><li> New Rcon command: players, which shows the player's name and IP
+</li><li> Fixed a crash where you enter a car mod shop in debug mode
+</li><li> New scripting commands: GetPlayerPing, GetPlayerIP, and GetPlayerWeapon
+</li><li> server_log.txt is flushed instantly, instead delayed
+</li><li> server_log.txt is appended, instead of rewritten
+</li><li> Improving support for weapons
+</li><li> Synced reloading
+</li><li> Instagib
+</li><li> Friendly fire
+</li><li> SetTimerEx, CallRemoteFunction, and CallLocalFunction
+</li><li> CreateExplosion
+</li><li> "white health bar" bug fixed
+</li><li> Weather
+</li><li> Per player time
+</li><li> Objects
+</li><li> Virtual worlds
+</li><li> Pedestrian Animations
+</li><li> Support for 200 players / 700 vehicles / 70 different types of vehicles
+</li><li> Gangzones
+</li><li> Text Draw
+</li><li> Menus
+</li><li> Callbacks
+</li><li> Wanted Level
+</li><li> Desync Weapons
+</li><li> Reduced area chat / chat message pawn function
+</li><li> GetPlayerKeys
+</li><li> GetPlayerAngle and GetVehicleAngle with all the supported angles
+</li><li> A working OnVehicleDeath
+</li><li> A fixed GetVehiclePos
+</li><li> A working PutPlayerInVehicle
+</li><li> Scripting Animations (SetPlayerSpecialAction(), ApplyAnimation() and ClearAnimations() pawn functions)
+</li><li> RC Vehicles
+</li><li> OnPlayerPickUpPickup
+</li><li> SetPlayerName
+</li><li> SetVehicleNumberPlate
+</li><li> SetVehicleVirtualWorld
+</li><li> GetVehicleVirtualWorld
+</li><li> Windowed Mode (alt+enter)
+</li></ul>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Changelog_PL.html" title="Edit section: Seria 0.1">edit</a>]</div><a name="Seria_0.1"></a><h2> Seria 0.1 </h2>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Changelog_PL.html" title="Edit section: Wersja 0.1b R2 (tylko serwer)">edit</a>]</div><a name="Wersja_0.1b_R2_.28tylko_serwer.29"></a><h3> Wersja 0.1b R2 (tylko serwer) </h3>
+<p><b>Data wydania:</b> 17/02/2007
+</p>
+<ul><li> Poprawiono kilka crashy serwera
+</li><li> IP gracza zapisywane przy połączeniu
+</li></ul>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Changelog_PL.html" title="Edit section: Wersja 0.1b">edit</a>]</div><a name="Wersja_0.1b"></a><h3> Wersja 0.1b </h3>
+<p><b>Data wydania:</b> 21/05/2006
+</p>
+<ul><li> Poprawki dla crashy serwera/klienta
+</li><li> Poprawki dla przeglądarki serwerów
+</li></ul>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Changelog_PL.html" title="Edit section: Wersja 0.1">edit</a>]</div><a name="Wersja_0.1"></a><h3> Wersja 0.1 </h3>
+<p><b>Data wydania:</b> 09/05/2006
+</p>
+<ul><li> Pierwsza publiczna wersja
+</li></ul>
+<div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/Changelog_PL.html">http://localhost../wiki/Changelog_PL.html</a>"</div>
+						<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="Changelog_PL.html">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="Talk_Changelog_PL.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="Changelog_PL.html">Edit</a></li>
+				 <li id="ca-history"><a href="Changelog_PL.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-en"><a href="Changelog.html">English</a></li>
+				<li class="interwiki-ru"><a href="Changelog_RU.html">Русский</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 21,406 times.</li>
+				<li id="credits">This page was last modified 03:15, 2 February 2014 by SA-MP Wiki user User:. Based on work by SA-MP Wiki user(s) <a href="User_IceColdKilla.html" class="new" title="User:IceColdKilla">IceColdKilla</a> and <a href="User_Ugresia.html" class="new" title="User:Ugresia">Ugresia</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 52.81 secs. -->
+</body></html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Linux Server RU,Windows Server RU,Управление сервером RU" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>Linux Server RU - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Linux Server RU</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class='toclevel-1'><a href="#Linux_Server"><span class="tocnumber">1</span> <span class="toctext">Linux Server</span></a>
+<ul>
+<li class='toclevel-2'><a href="#.D0.9F.D0.B5.D1.80.D0.B2.D0.BE.D0.BE.D1.87.D0.B5.D1.80.D0.B5.D0.B4.D0.BD.D1.8B.D0.B5_.D1.82.D1.80.D0.B5.D0.B1.D0.BE.D0.B2.D0.B0.D0.BD.D0.B8.D1.8F"><span class="tocnumber">1.1</span> <span class="toctext">Первоочередные требования</span></a></li>
+<li class='toclevel-2'><a href="#.D0.9F.D0.BE.D0.B4.D0.BD.D1.8F.D1.82.D0.B8.D0.B5_.D1.81.D0.B5.D1.80.D0.B2.D0.B5.D1.80.D0.B0"><span class="tocnumber">1.2</span> <span class="toctext">Поднятие сервера</span></a>
+<ul>
+<li class='toclevel-3'><a href="#.D0.97.D0.B0.D0.B3.D1.80.D1.83.D0.B7.D0.BA.D0.B0_.D1.84.D0.B0.D0.B9.D0.BB.D0.BE.D0.B2"><span class="tocnumber">1.2.1</span> <span class="toctext">Загрузка файлов</span></a></li>
+<li class='toclevel-3'><a href="#.D0.9D.D0.B0.D1.81.D1.82.D1.80.D0.BE.D0.B9.D0.BA.D0.B0_.D0.B2.D0.B0.D1.88.D0.B5.D0.B3.D0.BE_.D1.81.D0.B5.D1.80.D0.B2.D0.B5.D1.80.D0.B0"><span class="tocnumber">1.2.2</span> <span class="toctext">Настройка вашего сервера</span></a></li>
+<li class='toclevel-3'><a href="#.D0.97.D0.B0.D0.BF.D1.83.D1.81.D0.BA_.D1.81.D0.B5.D1.80.D0.B2.D0.B5.D1.80.D0.B0"><span class="tocnumber">1.2.3</span> <span class="toctext">Запуск сервера</span></a></li>
+</ul>
+</li>
+<li class='toclevel-2'><a href="#.D0.9F.D0.BE.D0.B4.D0.B4.D0.B5.D1.80.D0.B6.D0.BA.D0.B0_.D1.80.D0.B0.D0.B1.D0.BE.D1.82.D0.BE.D1.81.D0.BF.D0.BE.D1.81.D0.BE.D0.B1.D0.BD.D0.BE.D1.81.D1.82.D0.B8_.D1.81.D0.B5.D1.80.D0.B2.D0.B5.D1.80.D0.B0"><span class="tocnumber">1.3</span> <span class="toctext">Поддержка работоспособности сервера</span></a></li>
+<li class='toclevel-2'><a href="#.D0.9E.D1.88.D0.B8.D0.B1.D0.BA.D0.B0_.D0.BF.D1.80.D0.B8_.D0.B7.D0.B0.D0.BF.D1.83.D1.81.D0.BA.D0.B5_.22No_such_file_or_directory.22"><span class="tocnumber">1.4</span> <span class="toctext">Ошибка при запуске "No such file or directory"</span></a></li>
+</ul>
+</li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Linux_Server_RU.html" title="Edit section: Linux Server">edit</a>]</div><a name="Linux_Server"></a><h1 class="firstheading" style="position:absolute; top:0px; background:#FFF; width:95%;">Linux Server</h1>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Linux_Server_RU.html" title="Edit section: Первоочередные требования">edit</a>]</div><a name=".D0.9F.D0.B5.D1.80.D0.B2.D0.BE.D0.BE.D1.87.D0.B5.D1.80.D0.B5.D0.B4.D0.BD.D1.8B.D0.B5_.D1.82.D1.80.D0.B5.D0.B1.D0.BE.D0.B2.D0.B0.D0.BD.D0.B8.D1.8F"></a><h2>Первоочередные требования</h2>
+<p>Вам нужен сервер Linux с доступом к shell'у, доступ по ftp, libstdc++5 или libstdc++6, и SSH-клиент, такой как <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/" class='external text' title="http://www.chiark.greenend.org.uk/~sgtatham/putty/" rel="nofollow">Putty</a> для соединения с сервером.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Linux_Server_RU.html" title="Edit section: Поднятие сервера">edit</a>]</div><a name=".D0.9F.D0.BE.D0.B4.D0.BD.D1.8F.D1.82.D0.B8.D0.B5_.D1.81.D0.B5.D1.80.D0.B2.D0.B5.D1.80.D0.B0"></a><h2>Поднятие сервера</h2>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Linux_Server_RU.html" title="Edit section: Загрузка файлов">edit</a>]</div><a name=".D0.97.D0.B0.D0.B3.D1.80.D1.83.D0.B7.D0.BA.D0.B0_.D1.84.D0.B0.D0.B9.D0.BB.D0.BE.D0.B2"></a><h3>Загрузка файлов</h3>
+<p>Первым делом зайдите на http:/sa-mp.com/download.php и скачайте сервер Linux, libstdc++5 или libstdc++6, в зависимости от того, что запущено на вашем сервере. Я рекомендую скачать libstdc++6 чтобы проверить для начала, работает ли.  Затем поместите через FTP файлы на ваш сервер, используя любимый FTP-клиент.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Linux_Server_RU.html" title="Edit section: Настройка вашего сервера">edit</a>]</div><a name=".D0.9D.D0.B0.D1.81.D1.82.D1.80.D0.BE.D0.B9.D0.BA.D0.B0_.D0.B2.D0.B0.D1.88.D0.B5.D0.B3.D0.BE_.D1.81.D0.B5.D1.80.D0.B2.D0.B5.D1.80.D0.B0"></a><h3>Настройка вашего сервера</h3>
+<p>После того, как вы скачали файлы, откройте их вашим любимым SSH-клиентом и залогиньтесь. Переместитесь в папку, куда вы установили сервер (например, я использую /home/daniel/sampsvr - ваша папка может быть другой), введя <i><b>cd /your/directoy/sampsvr</b></i>.  Используя ваш любимый текстовый редактор, например, Pico или Nano, отредактируйте server.cfg и измените hostname (имя сервера), RCON password (пароль на RCON) и др., более подробную информацию вы можете найти в  <a href="Windows_Server_RU.html#.D0.9D.D0.B0.D1.81.D1.82.D1.80.D0.BE.D0.B9.D0.BA.D0.B0_.D0.B2.D0.B0.D1.88.D0.B5.D0.B3.D0.BE_.D1.81.D0.B5.D1.80.D0.B2.D0.B5.D1.80.D0.B0" title="Windows Server RU">справке по server.cfg</a> и на странице <a href="%25D0%25A3%25D0%25BF%25D1%2580%25D0%25B0%25D0%25B2%25D0%25BB%25D0%25B5%25D0%25BD%25D0%25B8%25D0%25B5_%25D1%2581%25D0%25B5%25D1%2580%25D0%25B2%25D0%25B5%25D1%2580%25D0%25BE%25D0%25BC_RU.html" class="new" title="Управление сервером RU">Продвинутое управление сервером</a>. Если вы отредактировали ваш линуксовский конфигурационный файл в Windows, то прежде чем запустить сервер, введите "dos2unix server.cfg", иначе у вас будут проблемы с rcon.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Linux_Server_RU.html" title="Edit section: Запуск сервера">edit</a>]</div><a name=".D0.97.D0.B0.D0.BF.D1.83.D1.81.D0.BA_.D1.81.D0.B5.D1.80.D0.B2.D0.B5.D1.80.D0.B0"></a><h3>Запуск сервера</h3>
+<p>После того, как вы сконфигурировали server.cfg должным образом, просто запустите сервер одним из следующих способов. Каждый способ имеет описание под картинкой. Я покажу три наиболее популярных способа запуска сервера. Небольшой SSH-скрипт для поддержания работоспособности вашего сервера может быть найден внизу этой страницы.
+</p><p><i><b>ПРИМЕЧАНИЕ:</b></i> Убедитесь, что вы установили разрешения для samp022svr <b>и</b> укажите, если вы хотите запустить интернет-сервер! Если вы не сделаете этого, то получите ошибку запрета разрешений.
+</p><p><a href="Image_Samp_ssh.jpg.html" class="image" title="Image:Samp_ssh.jpg"><img src="../upload/d/d6/Samp_ssh.jpg" alt="Image:Samp_ssh.jpg" width="675" height="425" longdesc="Image_Samp_ssh.jpg.html" /></a>
+</p><p><b>Способ первый</b>
+</p><p>В первом способе используется команда nohup command для поддержания работоспособности сервера. <i>nohup</i> - это команда Linux, запускающая программу, которая будет игнорировать сигналы <i>SIGHUP</i> - сигналы отключения. Это означает, что сервер будет продолжать работать после того, как вы закроете ранее открытое окно SSH. Амперсанд <i>&amp;</i> в конце команды означает, что сервер должен работать в фоновом режиме, таким образом вы можете продолжать выполнение команд даже после запуска сервера SA-MP.
+</p>
+ <pre class="bash"><span style="color: #c20cb9; font-weight: bold;">nohup</span> ./samp022svr &amp;</pre>
+<p>Подробный лог может быть найден в файле <i>nohup.out</i>, который будет создан в папке, где вы выполнили команду (в данном случае "/home/gta"). Nohup установлен на большинстве Linux-серверов.
+</p><p><br />
+<b>Способ второй</b>
+</p><p>Второй метод позволяет процессу сервера SA-MP идти в фоновом режиме. Преимущество состоит в том, что вы можете продолжать работу в shell-среде, таким образом вам не нужно открывать другое окно. На некоторых Linux-серверах процесс будет выполняться до тех пор, пока окно SSH не закроется, но не во всех случаях.
+</p>
+ <pre class="bash">./samp022svr &amp;</pre>
+<p>Здесь нет лог-файлов и прочих других. Shell вернет PID стартовавшего процесса, 9251 на примере выше. Этот метод поддерживается всеми Linux-серверами.
+</p><p><br />
+<b>Способ третий</b>
+</p><p>Этот метод самый оригинальный и наиболее легкий для понимания. Сервер будет работать на виду, и все ошибки будут выводится прямо на экран (например, segmentation faults). Но имейте в виду, что нормальный вывод, который есть в Windows-сервере, не будет виден на Linux-сервере.
+</p>
+ <pre class="bash">./samp022svr</pre>
+<p>Сервер выключится после при закрытии окна. Этот метод лучше всего подходит для написания скриптов и/или в целях отладки, т.к. он вполне ясный. 
+</p><p><br />
+<i><b>ПРИМЕЧАНИЕ:</b></i> Если вы скачали версию libstdc++6 с сайта SA:MP и получили ошибку о том, что libstdc++6 не может быть найден, просто скачайте версию libstdc++5 с веб-сайта SA:MP и используйте ее. Описанный выше сервер выдает "libstdc++6 cannot be found", и на скриншоте он запущен с использованием libstdc++5.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Linux_Server_RU.html" title="Edit section: Поддержка работоспособности сервера">edit</a>]</div><a name=".D0.9F.D0.BE.D0.B4.D0.B4.D0.B5.D1.80.D0.B6.D0.BA.D0.B0_.D1.80.D0.B0.D0.B1.D0.BE.D1.82.D0.BE.D1.81.D0.BF.D0.BE.D1.81.D0.BE.D0.B1.D0.BD.D0.BE.D1.81.D1.82.D0.B8_.D1.81.D0.B5.D1.80.D0.B2.D0.B5.D1.80.D0.B0"></a><h2>Поддержка работоспособности сервера</h2>
+<p>С небольшим количеством опций против выхода сервера из строя (anti-crash options) есть большая вероятность получения ошибок "Segmentation Fault" и любых других ошибок, сгенерированных вашим режимом игры. Это приведет к завершению работы сервера и Вам придется самим его снова запустить. Все, что вам нужно для использования ниже описанной программы, это среда Linux и возможность использования cron'a. Эта программа проверит, запущен ли процесс samp01b, и если это не так, запустит его вновь. Вам нужно установить следующий crontab:
+</p><p><i><b>*/5 * * * * /путь/к/samp/checksamp.sh</b></i>
+</p><p><br />
+<b>checksamp.sh:</b>
+</p>
+<pre class="bash"><span style="color: #808080; font-style: italic;">#!/bin/sh</span>
+&nbsp;
+ <span style="color: #007800;">PROCESS_COUNT=</span>$<span style="color: #7a0874; font-weight: bold;">&#40;</span><span style="color: #c20cb9; font-weight: bold;">ps</span> -fu root | <span style="color: #c20cb9; font-weight: bold;">grep</span> samp01b | <span style="color: #c20cb9; font-weight: bold;">grep</span> -v <span style="color: #c20cb9; font-weight: bold;">grep</span> | <span style="color: #c20cb9; font-weight: bold;">wc</span> -l<span style="color: #7a0874; font-weight: bold;">&#41;</span>
+ <span style="color: #000000; font-weight: bold;">case</span> <span style="color: #007800;">$PROCESS_COUNT</span> <span style="color: #000000; font-weight: bold;">in</span>
+ <span style="color: #000000;">0</span><span style="color: #7a0874; font-weight: bold;">&#41;</span> /путь/к/samp01b &amp;
+ ;;
+ <span style="color: #000000;">1</span><span style="color: #7a0874; font-weight: bold;">&#41;</span> <span style="color: #808080; font-style: italic;">#OK, программа уже выполняется</span>
+ ;;
+ *<span style="color: #7a0874; font-weight: bold;">&#41;</span> <span style="color: #808080; font-style: italic;">#OK, запущено несколько экземпляров программы</span>
+ ;;
+ <span style="color: #000000; font-weight: bold;">esac</span></pre> 
+<p>Убедитесь, что у вас правильно выставлены все пути, иначе скрипт не будет работать. На данный момент скрипт не может обрабатывать несколько серверов SA-MP на одной машине, зато превосходно работает, когда только один запущен. <b>Требуется с помощью chmod установить права/разрешения на файл checksamp.sh в 0755 (+x)!</b>
+</p><p>Вы также можете перезапустить сервер при помощи этой пары shell-скриптов (спасибо Noosferatu <a href="http://forum.sa-mp.com/index.php?topic=9026.msg61861#msg61861" class='external text' title="http://forum.sa-mp.com/index.php?topic=9026.msg61861#msg61861" rel="nofollow">(пост по теме)</a>)
+</p><p>Скрипт номер 1 
+<b>startgtaserver.sh:</b>
+</p>
+<pre class="bash"><span style="color: #808080; font-style: italic;">#!/bin/bash</span>
+<span style="color: #7a0874; font-weight: bold;">export</span> <span style="color: #007800;">GTA_PATH=</span>/home/sampsvr
+<span style="color: #7a0874; font-weight: bold;">cd</span> <span style="color: #007800;">$GTA_PATH</span>
+<span style="color: #000000; font-weight: bold;">while</span> <span style="color: #7a0874; font-weight: bold;">&#91;</span> <span style="color: #c20cb9; font-weight: bold;">true</span> <span style="color: #7a0874; font-weight: bold;">&#93;</span>; <span style="color: #000000; font-weight: bold;">do</span>
+<span style="color: #c20cb9; font-weight: bold;">cat</span> <span style="color: #7a0874; font-weight: bold;">&#123;</span><span style="color: #007800;">$GTA_PATH</span><span style="color: #7a0874; font-weight: bold;">&#125;</span>/server_log.txt &gt;&gt; <span style="color: #7a0874; font-weight: bold;">&#123;</span><span style="color: #007800;">$GTA_PATH</span><span style="color: #7a0874; font-weight: bold;">&#125;</span>/full_server_log.txt
+<span style="color: #c20cb9; font-weight: bold;">rm</span> <span style="color: #7a0874; font-weight: bold;">&#123;</span><span style="color: #007800;">$GTA_PATH</span><span style="color: #7a0874; font-weight: bold;">&#125;</span>/server_log.txt
+<span style="color: #c20cb9; font-weight: bold;">touch</span> <span style="color: #7a0874; font-weight: bold;">&#123;</span><span style="color: #007800;">$GTA_PATH</span><span style="color: #7a0874; font-weight: bold;">&#125;</span>/server_log.txt
+./samp022svr
+<span style="color: #000000; font-weight: bold;">done</span></pre> 
+<p><br />
+Он работает непосредственно с исполняемым кодом сервера
+</p><p>Второй скрипт, названный  
+<b>gtaserver.sh:</b>
+</p>
+<pre class="bash"><span style="color: #808080; font-style: italic;">#!/bin/bash</span>
+&nbsp;
+ server_start<span style="color: #7a0874; font-weight: bold;">&#40;</span><span style="color: #7a0874; font-weight: bold;">&#41;</span> <span style="color: #7a0874; font-weight: bold;">&#123;</span>
+ /home/sampsvr/startgtaserver.<span style="color: #c20cb9; font-weight: bold;">sh</span> &amp; <span style="color: #808080; font-style: italic;"># замените полным путем и именем запускаемого скрипта</span>
+ <span style="color: #7a0874; font-weight: bold;">&#125;</span> 
+&nbsp;
+ server_stop<span style="color: #7a0874; font-weight: bold;">&#40;</span><span style="color: #7a0874; font-weight: bold;">&#41;</span> <span style="color: #7a0874; font-weight: bold;">&#123;</span>
+ <span style="color: #c20cb9; font-weight: bold;">killall</span> startgtaserver.<span style="color: #c20cb9; font-weight: bold;">sh</span> <span style="color: #808080; font-style: italic;"># имя вашего запускаемого скрипта</span>
+ <span style="color: #c20cb9; font-weight: bold;">killall</span> samp01b <span style="color: #808080; font-style: italic;"># нужно добавить путь к <span style="color: #c20cb9; font-weight: bold;">killall</span>, если он не прописан в <span style="color: #007800;">$PATH</span></span>
+ <span style="color: #7a0874; font-weight: bold;">&#125;</span> 
+&nbsp;
+ server_restart<span style="color: #7a0874; font-weight: bold;">&#40;</span><span style="color: #7a0874; font-weight: bold;">&#41;</span> <span style="color: #7a0874; font-weight: bold;">&#123;</span>
+ server_stop
+ <span style="color: #c20cb9; font-weight: bold;">sleep</span> <span style="color: #000000;">1</span>
+ server_start
+ <span style="color: #7a0874; font-weight: bold;">&#125;</span>
+ <span style="color: #000000; font-weight: bold;">case</span> <span style="color: #ff0000;">&quot;$1&quot;</span> <span style="color: #000000; font-weight: bold;">in</span>
+ <span style="color: #ff0000;">'start'</span><span style="color: #7a0874; font-weight: bold;">&#41;</span>
+ server_start
+ ;;
+ <span style="color: #ff0000;">'stop'</span><span style="color: #7a0874; font-weight: bold;">&#41;</span>
+ server_stop
+ ;;
+ <span style="color: #ff0000;">'restart'</span><span style="color: #7a0874; font-weight: bold;">&#41;</span>
+ server_restart
+ ;;
+ *<span style="color: #7a0874; font-weight: bold;">&#41;</span>
+ <span style="color: #7a0874; font-weight: bold;">echo</span> <span style="color: #ff0000;">&quot;usage $0 start|stop|restart&quot;</span>
+ <span style="color: #000000; font-weight: bold;">esac</span></pre> 
+<p>этот запускается из /usr/local/bin
+</p><p>Только измените пути в обоих скриптах на ваши, и после этого Вы можете запустить Ваш сервер, введя
+</p>
+<pre>gtaserver start
+</pre>
+<p>остановить сервер, введя
+</p>
+<pre>gtaserver stop
+</pre>
+<p>и, наконец, перезапустить его, введя
+</p>
+<pre>gtaserver restart
+</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Linux_Server_RU.html" title="Edit section: Ошибка при запуске &quot;No such file or directory&quot;">edit</a>]</div><a name=".D0.9E.D1.88.D0.B8.D0.B1.D0.BA.D0.B0_.D0.BF.D1.80.D0.B8_.D0.B7.D0.B0.D0.BF.D1.83.D1.81.D0.BA.D0.B5_.22No_such_file_or_directory.22"></a><h2>Ошибка при запуске "No such file or directory"</h2>
+<p>Проблема возникает при запуске samp`а на платформе x64. Для того что бы запустить сервер необходимо установить в вашу систему нужные библиотеки.
+</p>
+<pre>Для Debian: "apt-get install ia32-libs"
+Для Ubuntu: "sudo apt-get install ia32-libs"
+</pre><div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/Linux_Server_RU.html">http://localhost../wiki/Linux_Server_RU.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="Category_%25D0%25A1%25D0%25B5%25D1%2580%25D0%25B2%25D0%25B5%25D1%2580%25D0%25BD%25D0%25B0%25D1%258F_%25D0%25B4%25D0%25BE%25D0%25BA%25D1%2583%25D0%25BC%25D0%25B5%25D0%25BD%25D1%2582%25D0%25B0%25D1%2586%25D0%25B8%25D1%258F.html" title="Category:Серверная документация">Серверная документация</a></span> | <span dir='ltr'><a href="Category_%25D0%2594%25D0%25BE%25D0%25BA%25D1%2583%25D0%25BC%25D0%25B5%25D0%25BD%25D1%2582%25D0%25B0%25D1%2586%25D0%25B8%25D1%258F.html" title="Category:Документация">Документация</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="Linux_Server_RU.html">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="Talk_Linux_Server_RU.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="Linux_Server_RU.html">Edit</a></li>
+				 <li id="ca-history"><a href="Linux_Server_RU.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-en"><a href="Linux_Server.html">English</a></li>
+				<li class="interwiki-de"><a href="Linux_Server_DE.html">Deutsch</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 63,049 times.</li>
+				<li id="credits">This page was last modified 16:28, 22 March 2017 by SA-MP Wiki user <a href="User_OstGot.html" title="User:OstGot">OstGot</a>. Based on work by SA-MP Wiki user(s) <a href="User_GameMan.html" title="User:GameMan">GameMan</a>, <a href="User_SiJAYS_S.html" class="new" title="User:SiJAYS S">SiJAYS S</a> and <a href="User_Eakwarp.html" title="User:Eakwarp">Eakwarp</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 3.72 secs. -->
+</body></html>

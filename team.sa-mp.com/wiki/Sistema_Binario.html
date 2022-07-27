@@ -1,0 +1,506 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Sistema Binario,Kyoshiro" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>Sistema Binario - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Sistema Binario</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class='toclevel-1'><a href="#Sistema_Binario"><span class="tocnumber">1</span> <span class="toctext">Sistema Binario</span></a>
+<ul>
+<li class='toclevel-2'><a href="#.C2.BFQu.C3.A9_es_el_sistema_binario.3F"><span class="tocnumber">1.1</span> <span class="toctext">¿Qué es el sistema binario?</span></a></li>
+<li class='toclevel-2'><a href="#Una_vista_m.C3.A1s_detallada_de_los_Bits"><span class="tocnumber">1.2</span> <span class="toctext">Una vista más detallada de los Bits</span></a>
+<ul>
+<li class='toclevel-3'><a href="#Enteros_con_Signos"><span class="tocnumber">1.2.1</span> <span class="toctext">Enteros con Signos</span></a></li>
+<li class='toclevel-3'><a href="#Enteros_sin_Signos"><span class="tocnumber">1.2.2</span> <span class="toctext">Enteros sin Signos</span></a></li>
+</ul>
+</li>
+<li class='toclevel-2'><a href="#Operadores_Binarios"><span class="tocnumber">1.3</span> <span class="toctext">Operadores Binarios</span></a>
+<ul>
+<li class='toclevel-3'><a href="#AND"><span class="tocnumber">1.3.1</span> <span class="toctext">AND</span></a></li>
+<li class='toclevel-3'><a href="#OR"><span class="tocnumber">1.3.2</span> <span class="toctext">OR</span></a></li>
+<li class='toclevel-3'><a href="#XOR"><span class="tocnumber">1.3.3</span> <span class="toctext">XOR</span></a></li>
+<li class='toclevel-3'><a href="#NOT"><span class="tocnumber">1.3.4</span> <span class="toctext">NOT</span></a></li>
+<li class='toclevel-3'><a href="#Desplazamiento_de_Bits"><span class="tocnumber">1.3.5</span> <span class="toctext">Desplazamiento de Bits</span></a>
+<ul>
+<li class='toclevel-4'><a href="#Desplazamiento_Aritm.C3.A9tico"><span class="tocnumber">1.3.5.1</span> <span class="toctext">Desplazamiento Aritmético</span></a>
+<ul>
+<li class='toclevel-5'><a href="#Desplazamiento_a_la_Derecha"><span class="tocnumber">1.3.5.1.1</span> <span class="toctext">Desplazamiento a la Derecha</span></a></li>
+<li class='toclevel-5'><a href="#Desplazamiento_a_la_Izquierda"><span class="tocnumber">1.3.5.1.2</span> <span class="toctext">Desplazamiento a la Izquierda</span></a></li>
+</ul>
+</li>
+<li class='toclevel-4'><a href="#Desplazamiento_L.C3.B3gico"><span class="tocnumber">1.3.5.2</span> <span class="toctext">Desplazamiento Lógico</span></a>
+<ul>
+<li class='toclevel-5'><a href="#Desplazamiento_a_la_Derecha_2"><span class="tocnumber">1.3.5.2.1</span> <span class="toctext">Desplazamiento a la Derecha</span></a></li>
+<li class='toclevel-5'><a href="#Desplazamiento_a_la_Izquierda_2"><span class="tocnumber">1.3.5.2.2</span> <span class="toctext">Desplazamiento a la Izquierda</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Sistema_Binario.html" title="Edit section: Sistema Binario">edit</a>]</div><a name="Sistema_Binario"></a><h1>Sistema Binario</h1>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Sistema_Binario.html" title="Edit section: ¿Qué es el sistema binario?">edit</a>]</div><a name=".C2.BFQu.C3.A9_es_el_sistema_binario.3F"></a><h2>¿Qué es el sistema binario?</h2>
+<p>El sistema binario es un sistema numérico que usa únicamente dos símbolos para representar números. Mientras el sistema decimal usa diez números (base 10), el sistema binario usa solamente el 0 y el 1. Este sistema puede parecer inútil, sin embargo, es esencial cuando se trata de computadoras. En su más bajo nivel, las computadoras realizan todos sus cálculos manipulando el flujo de electricidad para indicar dos estados: encendido y apagado. Esto es exactamente lo qué es el sistema binario, solo un montón de interruptores encendidos y apagados. Para entender mejor el concepto, vamos a comparar el sistema binario con el decimal.
+</p><p><b>Sistema Decimal (Base 10)</b>
+</p>
+<pre class="pawn"><span style="color: #4169e1;">0</span>
+<span style="color: #4169e1;">1</span>
+<span style="color: #4169e1;">2</span>
+<span style="color: #4169e1;">3</span>
+<span style="color: #4169e1;">4</span>
+<span style="color: #4169e1;">5</span>
+<span style="color: #4169e1;">6</span>
+<span style="color: #4169e1;">7</span>
+<span style="color: #4169e1;">8</span>
+<span style="color: #4169e1;">9</span>
+<span style="color: #4169e1;">10</span>
+<span style="color: #4169e1;">11</span>
+<span style="color: #4169e1;">12</span>
+<span style="color: #4169e1;">13</span></pre>
+<p><b>Sistema Binario (Base 2)</b>
+</p>
+<pre class="pawn"><span style="color: #4169e1;">0</span>    <span style="color: #808080; font-style: italic;">// 0</span>
+<span style="color: #4169e1;">1</span>    <span style="color: #808080; font-style: italic;">// 1</span>
+<span style="color: #4169e1;">10</span>   <span style="color: #808080; font-style: italic;">// 2</span>
+<span style="color: #4169e1;">11</span>   <span style="color: #808080; font-style: italic;">// 3</span>
+<span style="color: #4169e1;">100</span>  <span style="color: #808080; font-style: italic;">// 4</span>
+<span style="color: #4169e1;">101</span>  <span style="color: #808080; font-style: italic;">// 5</span>
+<span style="color: #4169e1;">110</span>  <span style="color: #808080; font-style: italic;">// 6</span>
+<span style="color: #4169e1;">111</span>  <span style="color: #808080; font-style: italic;">// 7</span>
+<span style="color: #4169e1;">1000</span> <span style="color: #808080; font-style: italic;">// 8</span>
+<span style="color: #4169e1;">1001</span> <span style="color: #808080; font-style: italic;">// 9</span>
+<span style="color: #4169e1;">1010</span> <span style="color: #808080; font-style: italic;">// 10</span>
+<span style="color: #4169e1;">1011</span> <span style="color: #808080; font-style: italic;">// 11</span>
+<span style="color: #4169e1;">1100</span> <span style="color: #808080; font-style: italic;">// 12</span>
+<span style="color: #4169e1;">1101</span> <span style="color: #808080; font-style: italic;">// 13</span></pre>
+<p>Viendo lado a lado cada sistema, se nota que se comportan exactamente de la misma manera: una vez que se alcanza el último número disponible, se agrega un dígito más a la cifra. Estos espacios o cifras en el sistema binario son conocidos como bits (<b>b</b>inary dig<b>its</b>) y son simplemente potencias de 2; de la misma manera que los dígitos en el sistema decimal son potencias de 10. Para comprobar esto, demos un vistazo al número 13 en la notación estandar.
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+<p><strong>Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">'^' es el símbolo para las potencias y no un operador de bits exclusivo (cubriremos luego este tema)</span>
+</td></tr></table>
+</div>
+<p><br />
+<b>Sistema Decimal (Base 10)</b>
+</p>
+<pre class="pawn"><span style="color: #4169e1;">13</span>
+&nbsp;
+<span style="color: #808080; font-style: italic;">// Lo que es igual que</span>
+<span style="color: #4169e1;">1</span> * <span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">10</span>^<span style="color: #4169e1;">1</span><span style="color: #66cc66;">&#41;</span> + <span style="color: #4169e1;">3</span> * <span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">10</span>^<span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span>
+&nbsp;
+<span style="color: #808080; font-style: italic;">// Lo que es igual que</span>
+<span style="color: #4169e1;">10</span> + <span style="color: #4169e1;">3</span>
+&nbsp;
+<span style="color: #808080; font-style: italic;">// Lo que es igual que</span>
+<span style="color: #4169e1;">13</span></pre>
+<p><b>Sistema Binario (Base 2)</b>
+</p>
+<pre class="pawn"><span style="color: #4169e1;">1101</span>
+&nbsp;
+<span style="color: #808080; font-style: italic;">// Lo que es igual que</span>
+<span style="color: #4169e1;">1</span> * <span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">2</span>^<span style="color: #4169e1;">3</span><span style="color: #66cc66;">&#41;</span> + <span style="color: #4169e1;">1</span> * <span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">2</span>^<span style="color: #4169e1;">2</span><span style="color: #66cc66;">&#41;</span> + <span style="color: #4169e1;">0</span> * <span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">2</span>^<span style="color: #4169e1;">1</span><span style="color: #66cc66;">&#41;</span> + <span style="color: #4169e1;">1</span> * <span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">2</span>^<span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span>
+&nbsp;
+<span style="color: #808080; font-style: italic;">// Lo que es igual que</span>
+<span style="color: #4169e1;">8</span> + <span style="color: #4169e1;">4</span> + <span style="color: #4169e1;">0</span> + <span style="color: #4169e1;">1</span>
+&nbsp;
+<span style="color: #808080; font-style: italic;">// Lo que es igual que</span>
+<span style="color: #4169e1;">13</span></pre>
+<p>Podemos ver en el ejemplo anterior que si un bit es 0, los podemos ignorar y seguir adelante; después de todo, toda multiplicación por 0 resulta en 0. El ejemplo anterior fue un poco complicado ya que se intentó ser absolutamente claro. Cuando se están convirtiendo binarios lo más importante es colocar las potencia de los bits que están en estado encendido (1).
+</p><p>A continuación, doce potencias de dos:
+</p>
+<pre class="pawn"><span style="color: #4169e1;">4096</span>, <span style="color: #4169e1;">2048</span>, <span style="color: #4169e1;">1024</span>, <span style="color: #4169e1;">512</span>, <span style="color: #4169e1;">256</span>, <span style="color: #4169e1;">128</span>, <span style="color: #4169e1;">64</span>, <span style="color: #4169e1;">32</span>, <span style="color: #4169e1;">16</span>, <span style="color: #4169e1;">8</span>, <span style="color: #4169e1;">4</span>, <span style="color: #4169e1;">2</span>, <span style="color: #4169e1;">1</span></pre>
+<p>Antes de continuar, se debe saber que son potencias. Una potencia es un número multiplicado por si mismo n veces. Con esta información, la lista de números anterior tiene más sentido, excepto por el número 1. Este último número resulta de la potencia 2<sup>0</sup> que resulta en 1 (todo número elevado al 0 es igual a 1).
+</p>
+<pre class="pawn"><span style="color: #4169e1;">2</span>^<span style="color: #4169e1;">1</span> = <span style="color: #4169e1;">2</span>, <span style="color: #4169e1;">2</span>^<span style="color: #4169e1;">2</span> = <span style="color: #4169e1;">4</span>, <span style="color: #4169e1;">2</span>^<span style="color: #4169e1;">3</span> = <span style="color: #4169e1;">8</span></pre>
+<p>Se puede ver que mientras se mueve a la derecha, el valor anterior fue multiplicado por dos; así que podemos asumir que si nos movemos a la izquierda nuestro nuevo valor será el número actual dividido entre dos. La división que corresponde a 2<sup>0</sup> es 2 entre 2, que resulta en 1 (comprobando lo que se dijo anteriormente). Veamos el siguiente ejemplo (algo más complicado).
+</p>
+<pre class="pawn"><span style="color: #4169e1;">111011001011111000</span> <span style="color: #808080; font-style: italic;">// 242424</span>
+&nbsp;
+<span style="color: #808080; font-style: italic;">// Recordar ignorar los bits que no están encendidos (los ceros).</span>
+&nbsp;
+<span style="color: #4169e1;">1</span> * <span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">2</span>^<span style="color: #4169e1;">17</span><span style="color: #66cc66;">&#41;</span> = <span style="color: #4169e1;">131072</span>
+&nbsp;
+<span style="color: #4169e1;">1</span> * <span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">2</span>^<span style="color: #4169e1;">16</span><span style="color: #66cc66;">&#41;</span> = <span style="color: #4169e1;">65536</span>
+&nbsp;
+<span style="color: #4169e1;">1</span> * <span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">2</span>^<span style="color: #4169e1;">15</span><span style="color: #66cc66;">&#41;</span> = <span style="color: #4169e1;">32768</span>
+&nbsp;
+<span style="color: #4169e1;">1</span> * <span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">2</span>^<span style="color: #4169e1;">13</span><span style="color: #66cc66;">&#41;</span> = <span style="color: #4169e1;">8192</span>
+&nbsp;
+<span style="color: #4169e1;">1</span> * <span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">2</span>^<span style="color: #4169e1;">12</span><span style="color: #66cc66;">&#41;</span> = <span style="color: #4169e1;">4096</span>
+&nbsp;
+<span style="color: #4169e1;">1</span> * <span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">2</span>^<span style="color: #4169e1;">9</span><span style="color: #66cc66;">&#41;</span> = <span style="color: #4169e1;">512</span>
+&nbsp;
+<span style="color: #4169e1;">1</span> * <span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">2</span>^<span style="color: #4169e1;">7</span><span style="color: #66cc66;">&#41;</span> = <span style="color: #4169e1;">128</span>
+&nbsp;
+<span style="color: #4169e1;">1</span> * <span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">2</span>^<span style="color: #4169e1;">6</span><span style="color: #66cc66;">&#41;</span> = <span style="color: #4169e1;">64</span>
+&nbsp;
+<span style="color: #4169e1;">1</span> * <span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">2</span>^<span style="color: #4169e1;">5</span><span style="color: #66cc66;">&#41;</span> = <span style="color: #4169e1;">32</span>
+&nbsp;
+<span style="color: #4169e1;">1</span> * <span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">2</span>^<span style="color: #4169e1;">4</span><span style="color: #66cc66;">&#41;</span> = <span style="color: #4169e1;">16</span>
+&nbsp;
+<span style="color: #4169e1;">1</span> * <span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">2</span>^<span style="color: #4169e1;">3</span><span style="color: #66cc66;">&#41;</span> = <span style="color: #4169e1;">8</span>
+&nbsp;
+&nbsp;
+<span style="color: #4169e1;">131072</span> + <span style="color: #4169e1;">65536</span> + <span style="color: #4169e1;">32768</span> + <span style="color: #4169e1;">8192</span> + <span style="color: #4169e1;">4096</span> <span style="color: #4169e1;">+512</span> + <span style="color: #4169e1;">128</span> + <span style="color: #4169e1;">64</span> + <span style="color: #4169e1;">32</span> + <span style="color: #4169e1;">16</span> + <span style="color: #4169e1;">8</span> = <span style="color: #4169e1;">242424</span></pre>
+<p>Recordar al convertir: la primera potencia es 0, no cometer el error de poner el décimo octavo lugar como 2<sup>18</sup>. Realmente si hay 18 potencias, pero estas incluyen la potencia de 0, así que 17 será la potencia más alta.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Sistema_Binario.html" title="Edit section: Una vista más detallada de los Bits">edit</a>]</div><a name="Una_vista_m.C3.A1s_detallada_de_los_Bits"></a><h2> Una vista más detallada de los Bits </h2>
+<p>La mayoría de los lenguajes de programación permiten diferentes tipos de datos, que varían según la cantidad de bits que utilizan para guardar información; sin embargo, Pawn es un lenguaje con variables sin tipo de 32 bits. Esto significa que Pawn siempre tendrá 32 bits disponibles para guardar información. ¿Qué pasa cuando se tiene mucha información? La respuesta a esa pregunta se puede encontrar en los enteros con signos y sin signos.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Sistema_Binario.html" title="Edit section: Enteros con Signos">edit</a>]</div><a name="Enteros_con_Signos"></a><h3>Enteros con Signos</h3>
+<p>¿Has notado alguna vez que cuando un número entero en Pawn es muy grande, se convierte en un número negativo? Esto se debe a que se va por encima del límite de valor en Pawn, el cual es: 
+</p>
+<pre class="pawn"><span style="color: #4169e1;">2</span>^<span style="color: #4169e1;">31</span> - <span style="color: #4169e1;">1</span> <span style="color: #808080; font-style: italic;">// Es una potencia. El -1 está porque contamos el 0 (Hay 2147483648 valores incluyendo 0, así que técnicamente 2147483647 es el máximo valor).</span>
+&nbsp;
+<span style="color: #808080; font-style: italic;">// Lo que equivale a</span>
+<span style="color: #4169e1;">2</span>,<span style="color: #4169e1;">147</span>,<span style="color: #4169e1;">483</span>,<span style="color: #4169e1;">647</span>
+&nbsp;
+<span style="color: #808080; font-style: italic;">// Lo que equivale a (sistema binario)</span>
+&nbsp;
+<span style="color: #4169e1;">1111111111111111111111111111111</span> <span style="color: #808080; font-style: italic;">// 31 bits - todos encendidos</span></pre>
+<p>Puede que nos preguntemos por qué ese es el máximo valor, y no 2<sup>32</sup> - 1 (4294967295). Aquí es donde el signo de los enteros entra en juego. Los enteros con signos tienen la abilidad de guardar valores negativos, mientras los que no tienen signos no pueden. La razón de que el máximo valor del entero no sea 2<sup>32</sup> -1 es que el bit número 32 es usado para denotar si el número es positivo o negativo (una especie de interruptor). A esto se le llama MSB (Most Significant Bit - El bit más significativo), si el MSB está encendido, el número será negativo; sino está apagado, el número será positivo.
+</p><p>Antes de mostrar algunos valores negativos, se necesita explicar como se representan los números negativos en Pawn. Este usa un sistema llamado 2's complement (complemento de 2) que representa valores negativos, lo que básicamente significa que se le da vuelta a cada bit en el número y se le agrega uno al nuevo número para hacerlo negativo.
+</p><p>Veamos algunos valores negativos:
+</p>
+<pre class="pawn"><span style="color: #4169e1;">11111111111111111111111111111111</span> <span style="color: #808080; font-style: italic;">// Todos los 32 bits encendidos.</span>
+&nbsp;
+<span style="color: #808080; font-style: italic;">// Equivale a</span>
+&nbsp;
+<span style="color: #4169e1;">-1</span>
+&nbsp;
+<span style="color: #808080; font-style: italic;">// Y</span>
+&nbsp;
+<span style="color: #4169e1;">11111111111111111111111111111110</span>
+&nbsp;
+<span style="color: #808080; font-style: italic;">// Equivale a</span>
+&nbsp;
+<span style="color: #4169e1;">-2</span>
+&nbsp;
+<span style="color: #808080; font-style: italic;">//Y finalmente</span>
+&nbsp;
+<span style="color: #4169e1;">10000000000000000000000000000000</span>
+&nbsp;
+<span style="color: #808080; font-style: italic;">// Es igual a</span>
+&nbsp;
+<span style="color: #4169e1;">-2147483648</span></pre>
+<p>Como se puede observar, todos los números negativos son simplemente el número positivo original con todos sus bits volteados, incrementado por uno. Esto se ve muy claramente en el último ejemplo, ya que el positivo más alto es 2147483647.
+</p><p>Esto explica porque el rango de valores en los números enteros en Pawn es de hecho:
+</p>
+<pre class="pawn"><span style="color: #4169e1;">-2</span>^<span style="color: #4169e1;">31</span> to + <span style="color: #4169e1;">2</span>^<span style="color: #4169e1;">31</span> - <span style="color: #4169e1;">1</span></pre>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Sistema_Binario.html" title="Edit section: Enteros sin Signos">edit</a>]</div><a name="Enteros_sin_Signos"></a><h3>Enteros sin Signos</h3>
+<p>No hay tal cosa como enteros sin signos en Pawn, aunque la única diferencia entre los enteros con signos y sin signos es que los que no tienen signos no pueden guardar valores negativos. Cuando sobrepasan su valor máximo, no se convierten en negativos, varían su valor hasta llegar a 0.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Sistema_Binario.html" title="Edit section: Operadores Binarios">edit</a>]</div><a name="Operadores_Binarios"></a><h2> Operadores Binarios </h2>
+<p>Los operadores binarios permiten manipular individualmente a los bits mediante un patrón. Veamos una lista de operadores disponibles.
+</p>
+<table class="wikitable">
+
+<tr>
+<th><b>Símbolo</b>
+</th><th><b>Nombre</b>
+</th></tr>
+<tr>
+<td> &gt;&gt; y &lt;&lt;
+</td><td> Desplazamiento aritmético
+</td></tr>
+
+<tr>
+<td> &gt;&gt;&gt;
+</td><td> Desplazamiento lógico
+</td></tr>
+
+<tr>
+<td> ~
+</td><td> NOT (complemento)
+</td></tr>
+
+<tr>
+<td> &amp;
+</td><td> AND
+</td></tr>
+
+<tr>
+<td> |
+</td><td> OR
+</td></tr>
+
+<tr>
+<td> ^
+</td><td> XOR (OR exclusivo)
+</td></tr>
+</table>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Sistema_Binario.html" title="Edit section: AND">edit</a>]</div><a name="AND"></a><h3>AND</h3>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+<p><strong>Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">No confundir con el operador lógico AND <a href="http://wiki.sa-mp.com/wiki/Control_Structures#Operators" class='external autonumber' title="http://wiki.sa-mp.com/wiki/Control_Structures#Operators" rel="nofollow">[1]</a></span>
+</td></tr></table>
+</div>
+<p><br />
+Un AND binario simplemente toma el AND lógico y lo aplica a cada bit en un número en su forma binaria. Suena un poco confuso, así que es mejor verlo en acción. 
+</p>
+<pre class="pawn"><span style="color: #4169e1;">1100</span> <span style="color: #808080; font-style: italic;">// 12</span>
+&amp; 
+<span style="color: #4169e1;">0100</span> <span style="color: #808080; font-style: italic;">// 4</span>
+= 
+<span style="color: #4169e1;">0100</span> <span style="color: #808080; font-style: italic;">// 4 ya que ambos poseen &quot;100&quot; en ellos (el cual equivale a 4 en decimal).</span></pre>
+<p>Eso fue un poco facil, veamos uno más difícil:
+</p>
+<pre class="pawn"><span style="color: #4169e1;">10111000</span> <span style="color: #808080; font-style: italic;">// 184</span>
+&amp; 
+<span style="color: #4169e1;">01001000</span> <span style="color: #808080; font-style: italic;">// 72</span>
+=
+<span style="color: #4169e1;">00001000</span> <span style="color: #808080; font-style: italic;">// 8</span></pre>
+<p>Ver el ejemplo debe dar una buena idea de lo que este operador hace. Compara dos tandas de bits, si <b>ambos</b> comparten un bit con <b>1</b>, el resultado llevará ese mismo bit ENCENDIDO. Si no comparten ningún bit, entonces el resultado es 0.
+</p><p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Sistema_Binario.html" title="Edit section: OR">edit</a>]</div><a name="OR"></a><h3>OR</h3>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+<p><strong>Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">no confundir con el operador lógico OR <a href="http://wiki.sa-mp.com/wiki/Control_Structures#Operators" class='external autonumber' title="http://wiki.sa-mp.com/wiki/Control_Structures#Operators" rel="nofollow">[2]</a></span>
+</td></tr></table>
+</div>
+<p><br />
+OR funciona casí igual que AND. La única diferencia es que el OR solo necesita un bit (del par que se está comparando) encendido para que el resultado tenga el mismo bit encendido. Veamos algunos ejemplos.
+</p>
+<pre class="pawn"><span style="color: #4169e1;">1100</span> <span style="color: #808080; font-style: italic;">// 12</span>
+|
+<span style="color: #4169e1;">0100</span> <span style="color: #808080; font-style: italic;">// 4</span>
+=
+<span style="color: #4169e1;">1100</span> <span style="color: #808080; font-style: italic;">// 12</span></pre>
+<p>Veamos un ejemplo más
+</p>
+<pre class="pawn"><span style="color: #4169e1;">10111000</span> <span style="color: #808080; font-style: italic;">// 184</span>
+|
+<span style="color: #4169e1;">01001000</span> <span style="color: #808080; font-style: italic;">// 72</span>
+=
+<span style="color: #4169e1;">11111000</span> <span style="color: #808080; font-style: italic;">// 248</span></pre>
+<p>No hace falta explicar esto, si cualquiera de los números tiene un bit encendido, el número resultante tendrá ese mismo bit encendido también.
+</p><p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Sistema_Binario.html" title="Edit section: XOR">edit</a>]</div><a name="XOR"></a><h3>XOR</h3>
+<p>Este operador es un poco más parecido a el operador de bits OR, pero tiene una pequeña diferencia. Comparemos los dos operadores a ver si encontramos la diferencia.
+</p>
+<pre class="pawn"><span style="color: #4169e1;">1100</span> <span style="color: #808080; font-style: italic;">// 12</span>
+^
+<span style="color: #4169e1;">0100</span> <span style="color: #808080; font-style: italic;">// 4</span>
+=
+<span style="color: #4169e1;">1000</span> <span style="color: #808080; font-style: italic;">// 8</span></pre>
+<p>Y finalmente:
+</p>
+<pre class="pawn"><span style="color: #4169e1;">10111000</span> <span style="color: #808080; font-style: italic;">// 184</span>
+^
+<span style="color: #4169e1;">01001000</span> <span style="color: #808080; font-style: italic;">// 72</span>
+=
+<span style="color: #4169e1;">11110000</span> <span style="color: #808080; font-style: italic;">// 240</span></pre>
+<p>La única diferencia entre XOR y OR es que en XOR, si <b>ambos</b> patrones de bits tienen un mismo bit encendido, entonces el resultado no tendrá ese bit encendido.
+</p><p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Sistema_Binario.html" title="Edit section: NOT">edit</a>]</div><a name="NOT"></a><h3>NOT</h3>
+<p>Este operador voltea cada bit en un patrón de bits, cambiando todos los 1's a 0's y vise versa.
+</p>
+<pre class="pawn">~<span style="color: #4169e1;">0</span>
+=
+<span style="color: #4169e1;">11111111111111111111111111111111</span> <span style="color: #808080; font-style: italic;">// -1</span>
+&nbsp;
+<span style="color: #808080; font-style: italic;">// Y</span>
+&nbsp;
+~<span style="color: #4169e1;">100</span> <span style="color: #808080; font-style: italic;">// 4</span>
+=
+<span style="color: #4169e1;">11111111111111111111111111111011</span> <span style="color: #808080; font-style: italic;">// -5</span>
+&nbsp;
+<span style="color: #808080; font-style: italic;">//and</span>
+&nbsp;
+~<span style="color: #4169e1;">1111111111111111111111111111111</span> <span style="color: #808080; font-style: italic;">// 2147483647 (no confundir con -1, que tiene 32 bits, no 31)</span>
+=
+<span style="color: #4169e1;">10000000000000000000000000000000</span> <span style="color: #808080; font-style: italic;">// -2147483648 (bit número 32 encendido)</span></pre>
+<p>Si no entiendes por qué los valores negativos están de alguna forma "alrevez", por favor leer la sección acerca de enteros con signos.
+</p><p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Sistema_Binario.html" title="Edit section: Desplazamiento de Bits">edit</a>]</div><a name="Desplazamiento_de_Bits"></a><h3>Desplazamiento de Bits</h3>
+<p>El desplazamiento de bits hace exactamente lo que uno se imagina; desplaza todos los bits de un número hacia cierta dirección. Si recordamos, en un artículo anterior se menciona que Pawn tiene un rango de memoria específico (32 bits que pueden ser usados para almacenamiento). ¿Qué pasa si se desplaza un número fuera de ese rango? La respuesta a esa pregunta depende del operador de desplazamiento que se use, y la dirección en la cual se use.
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+<p><strong>Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">En el siguiente ejemplo, todos los números binarios están expresados en todos los 32 bits, para evitar confusiones.</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Sistema_Binario.html" title="Edit section: Desplazamiento Aritmético">edit</a>]</div><a name="Desplazamiento_Aritm.C3.A9tico"></a><h4>Desplazamiento Aritmético</h4>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Sistema_Binario.html" title="Edit section: Desplazamiento a la Derecha">edit</a>]</div><a name="Desplazamiento_a_la_Derecha"></a><h5>Desplazamiento a la Derecha</h5>
+<p>Todos los bits en un número son desplazados n veces a la derecha cuando usamos este operador. Veamos rápidamente un ejemplo simple.
+</p>
+<pre class="pawn"><span style="color: #4169e1;">00000000000000000000000000001000</span>  <span style="color: #808080; font-style: italic;">// 8</span>
+&gt;&gt;
+<span style="color: #4169e1;">2</span>
+&nbsp;
+=
+&nbsp;
+<span style="color: #4169e1;">00000000000000000000000000000010</span> <span style="color: #808080; font-style: italic;">// 2</span></pre>
+<p>Se puede ver en el ejemplo anterior que cada bit se ha movido a la derecha dos espacios, y dos ceros fuero agregados a la izquierda como relleno. Estos dos ceros son de hecho los valos de los bits más significativos que son muy importantes cuando se habla de desplazamiento de enteros con signos. La razón de que los MSB son usados como relleno es que así se mantiene el signo del número que está siendo desplazado. Veamos el mismo ejemplo, pero ahora vamos a hacerlo negativo.
+</p>
+<pre class="pawn"><span style="color: #4169e1;">11111111111111111111111111111000</span> <span style="color: #808080; font-style: italic;">// -8</span>
+&gt;&gt;
+<span style="color: #4169e1;">2</span>
+&nbsp;
+=
+&nbsp;
+<span style="color: #4169e1;">11111111111111111111111111111110</span> <span style="color: #808080; font-style: italic;">// -2</span></pre>
+<p>Claramente el comportamiento es el mismo que en el ejemplo previo, exceptos por los bits de la izquierda usados para rellenar, que son UNOS; lo cual prueba que el relleno del desplazamiento aritmético hacia la derecha es el valor del bit más significativo.
+</p><p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Sistema_Binario.html" title="Edit section: Desplazamiento a la Izquierda">edit</a>]</div><a name="Desplazamiento_a_la_Izquierda"></a><h5>Desplazamiento a la Izquierda</h5>
+<p>Este operador hace exactamente lo contrario al operador aritmético hacia la derecha. Desplaza todos los buts en un número binario hacia la izquierda n veces. Veamos un ejemplo.
+</p>
+<pre class="pawn"><span style="color: #4169e1;">00000000000000000000000000001000</span>  <span style="color: #808080; font-style: italic;">// 8</span>
+&lt;&lt;
+<span style="color: #4169e1;">2</span>
+&nbsp;
+=
+&nbsp;
+<span style="color: #4169e1;">00000000000000000000000000100000</span> <span style="color: #808080; font-style: italic;">// 32</span></pre>
+<p>La única diferencia entre los dos operadores aritméticos de desplazamiento (además de la dirección) sería la forma en que se maneja el relleno. Hacia la derecha, el relleno es el valor del bit más significativo, hacia la derecha el relleno es simplemente 0. Esto se debe a que no hay información reelevante (cómo el signo de un número) del cual se deba hacer un seguimiento.
+</p>
+<pre class="pawn"><span style="color: #4169e1;">11111111111111111111111111111000</span> <span style="color: #808080; font-style: italic;">// -8</span>
+&lt;&lt;
+<span style="color: #4169e1;">2</span>
+&nbsp;
+=
+&nbsp;
+<span style="color: #4169e1;">11111111111111111111111111100000</span> <span style="color: #808080; font-style: italic;">// -32</span></pre>
+<p>Incluso cuando el relleno siempre es 0, el signo del número se mantiene. La única cosa de la que hay que preocuparse es de desplazar demasiado. Si se desplaza un número positivo más allá de su máximo valor posible, este se convertirá en un número positivo y vise versa con los números negativos (eventualmente llegará a 0).
+</p><p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Sistema_Binario.html" title="Edit section: Desplazamiento Lógico">edit</a>]</div><a name="Desplazamiento_L.C3.B3gico"></a><h4>Desplazamiento Lógico</h4>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Sistema_Binario.html" title="Edit section: Desplazamiento a la Derecha">edit</a>]</div><a name="Desplazamiento_a_la_Derecha_2"></a><h5>Desplazamiento a la Derecha</h5>
+<p>Esto es lo opuesto al desplazamiento aritmético hacia la izquierda. La mejor forma de describirlo sería una mezcla entre dos desplazamientos aritméticos. Veamos como funciona.
+</p>
+<pre class="pawn"><span style="color: #4169e1;">00000000000000000000000000001000</span>  <span style="color: #808080; font-style: italic;">// 8</span>
+&gt;&gt;&gt;
+<span style="color: #4169e1;">2</span>
+&nbsp;
+=
+&nbsp;
+<span style="color: #4169e1;">00000000000000000000000000000010</span> <span style="color: #808080; font-style: italic;">// 2</span></pre>
+<p>Los bits en el número 8 fueron desplazados 2 veces hacia la derecha. ¿Cual es la diferencia con el operador aritmético? La respuesta está en el relleno, en el aritmético el relleno es el valor del bit más significativo. En el lógico el relleno es solo 0. Esto significa que no se mantendrá el signo del número, y el resultado será siempre positivo. Para probar esto, vamos a desplazar un número negativo.
+</p>
+<pre class="pawn"><span style="color: #4169e1;">11111111111111111111111111111000</span> <span style="color: #808080; font-style: italic;">// -8</span>
+&gt;&gt;&gt;
+<span style="color: #4169e1;">2</span>
+&nbsp;
+=
+&nbsp;
+<span style="color: #4169e1;">00111111111111111111111111111110</span> <span style="color: #808080; font-style: italic;">// 1073741822</span></pre>
+<p>Eso prueba que no obtendremos ningún valor negativo mientras usemos el desplazamiento lógico hacia la derecha.
+</p><p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Sistema_Binario.html" title="Edit section: Desplazamiento a la Izquierda">edit</a>]</div><a name="Desplazamiento_a_la_Izquierda_2"></a><h5>Desplazamiento a la Izquierda</h5>
+<p>No hay desplazamiento lógico hacia la izquierda, ya que haría exactamente lo mismo que el operador aritmético.
+</p><p><br />
+</p>
+<hr />
+<p>--<a href="User_Kyoshiro.html" title="User:Kyoshiro">Kyoshiro</a> 02:06, 9 September 2010 (CEST)
+</p><p>Traducido por Miguel Contreras 22 de Julio de 2013
+</p><div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/Sistema_Binario.html">http://localhost../wiki/Sistema_Binario.html</a>"</div>
+						<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="Sistema_Binario.html">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="Talk_Sistema_Binario.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="Sistema_Binario.html">Edit</a></li>
+				 <li id="ca-history"><a href="Sistema_Binario.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 17,580 times.</li>
+				<li id="credits">This page was last modified 23:28, 23 August 2014 by SA-MP Wiki user <a href="User_Miguel.html" class="new" title="User:Miguel">Miguel</a>. Based on work by <a href="User_EnzoMetlc.html" title="User:EnzoMetlc">Enzo</a> and SA-MP Wiki user(s) <a href="User_SAWC.html" class="new" title="User:SAWC">SAWC</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 88.03 secs. -->
+</body></html>

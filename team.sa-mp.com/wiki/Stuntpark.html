@@ -1,0 +1,667 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Stuntpark,AddStaticVehicle,AddStaticVehicleEx,CreateVehicle,Forward,OnFilterScriptInit,OnGameModeInit" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>Stuntpark - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Stuntpark</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<p>This Tutorial will show and explain you how to use timers and Create and Destroy custom objects in a filterscript, and will show off what ways this can be realized.
+</p><p><br />
+</p>
+<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class='toclevel-1'><a href="#Basics"><span class="tocnumber">1</span> <span class="toctext">Basics</span></a></li>
+<li class='toclevel-1'><a href="#Timers"><span class="tocnumber">2</span> <span class="toctext">Timers</span></a></li>
+<li class='toclevel-1'><a href="#Commands"><span class="tocnumber">3</span> <span class="toctext">Commands</span></a></li>
+<li class='toclevel-1'><a href="#Objects"><span class="tocnumber">4</span> <span class="toctext">Objects</span></a></li>
+<li class='toclevel-1'><a href="#Fine_Tuning"><span class="tocnumber">5</span> <span class="toctext">Fine Tuning</span></a>
+<ul>
+<li class='toclevel-2'><a href="#IsPlayerAllowedToTeleportBack.3F"><span class="tocnumber">5.1</span> <span class="toctext">IsPlayerAllowedToTeleportBack?</span></a></li>
+<li class='toclevel-2'><a href="#Objects_don.27t_show_when_loading_the_FS_via_.2Frcon_reloadfs"><span class="tocnumber">5.2</span> <span class="toctext">Objects don't show when loading the FS via /rcon reloadfs</span></a></li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#Overall_Look"><span class="tocnumber">6</span> <span class="toctext">Overall Look</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Stuntpark.html" title="Edit section: Basics">edit</a>]</div><a name="Basics"></a><h2> Basics </h2>
+<p>Alright. First, create a new script and delete all the content, so we got only a blank script.
+</p>
+<pre>
+#include &lt;a_samp&gt;
+</pre>
+<p>That should be on the first line. If not, add it.
+</p><p>Then, you should add color defines of YOUR choice. Here I can provide you few.
+</p>
+<pre>
+#define COLOR_GREEN 0x008000FF
+#define COLOR_ORANGE 0xFF8000FF
+#define COLOR_LIGHTBLUE 0x00BFFFFF
+#define COLOR_PINK 0xFF80C0FF
+</pre>
+<p>There is a workaround for those defines. Simply add the Color Code where you need to place a COLOR_(name)
+</p><p>The following lines should be added to your script, they'll show that message every time you (re)load the filterscript.
+</p>
+<pre>
+public OnFilterScriptInit()
+{ 
+	print(&quot;\n--------------------------------------&quot;);
+	print(&quot; Blank Filterscript by your name here&quot;); 
+	// You should edit the line above. It will be shown in the console 
+	// screen when you (re)load the script.
+	print(&quot;--------------------------------------\n&quot;);
+	return 1;
+}
+</pre>
+<p>Now you should have 
+</p>
+<pre>
+#include &lt;a_samp&gt;
+
+#define COLOR_GREEN 0x008000FF
+#define COLOR_ORANGE 0xFF8000FF
+#define COLOR_LIGHTBLUE 0x00BFFFFF
+#define COLOR_PINK 0xFF80C0FF
+
+public OnFilterScriptInit()
+{ 
+	print(&quot;\n--------------------------------------&quot;);
+	print(&quot; Blank Filterscript by your name here&quot;); 	
+	// You should edit the line above. It will be shown in the console
+	// screen when you (re)load the script.
+	print(&quot;--------------------------------------\n&quot;);
+	return 1;
+}
+</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Stuntpark.html" title="Edit section: Timers">edit</a>]</div><a name="Timers"></a><h2> Timers </h2>
+<p>Ok now let's create our timers - we need to add them above <a href="OnFilterScriptInit.html" title="OnFilterScriptInit">OnFilterScriptInit</a>!
+</p>
+<pre>
+new StuntParkIsOpen=false; // This will make that the stuntpark is closed until AdvertTimer is activated.
+new AdvertTimer;
+
+forward ParkAdvertise(); // This will prevent the &quot;public functions lacks forward&quot; warnings
+forward parkCloseForPublic();
+</pre>
+<p>Add this below the color defines. NOTE: (If no color defines, under <i>#include &lt;a_samp&gt;</i>)
+Now This, in OnFilterScriptInit() - before the return 1;
+</p>
+<pre>
+	AdvertTimer = SetTimer(&quot;ParkAdvertise&quot;,720000,1);// Time for AdvertTimer to be activated
+	StuntParkIsOpen=true;
+	SetTimer(&quot;parkCloseForPublic&quot;,120000,0);// Time for AdvertTimer to be closed.
+</pre>
+<p>Alright. Well done, Way to go!
+Now we're going to add an advertising message, that will show up depending on the time you set above (720 seconds = every 12 minutes) - if the park is open.
+</p>
+<pre>
+public ParkAdvertise()
+{
+	SendClientMessageToAll(COLOR_PINK ,&quot;Stunt Park is OPEN! use /stuntpark to subscribe to the event!&quot;);
+	SendClientMessageToAll(COLOR_PINK ,&quot;Prizes: NRG-500 (if you get out with it), Few Money prizes(comming)&quot;);
+}
+</pre>
+<p>parkCloseForPublic sends a message when the stuntpark will be closed. - according to the above timer, after 2 minutes.
+</p>
+<pre>
+public parkCloseForPublic()
+{
+	KillTimer(AdvertTimer);
+	AdvertTimer=-1;
+	StuntParkIsOpen=false;
+	SendClientMessageToAll(COLOR_PINK ,&quot;The Stunt Park is closed. Come back tomorrow!&quot;);
+}
+</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Stuntpark.html" title="Edit section: Commands">edit</a>]</div><a name="Commands"></a><h2> Commands </h2>
+<p>Now, we're going to add a couple of commands to the end of the script:
+</p>
+<pre>
+public OnPlayerCommandText(playerid, cmdtext[])
+{
+	if(&nbsp;!strcmp(cmdtext, &quot;/stuntpark&quot;, true) )
+	{
+		if(StuntParkIsOpen) // IF the stunt park is open, this command teleports the player there.
+		{
+			IsPlayerAllowedToTeleportBack[playerid]=true; //This Allows player to use /parking
+			SetPlayerPos(playerid,-2029.8400,-125.3162,35.2194);// Teleport the player
+			SetPlayerInterior(playerid,0); // if the player is in an interior, this will set him to outside
+			SendClientMessage(playerid,COLOR_LIGHTBLUE,&quot;Welcome to the Stunt Park! Please use /parking to exit.&quot;);
+			return 1;
+		}
+		else  // Shows this message when you type /stuntpark and the timer is not activated.
+		{
+			SendClientMessage(playerid,COLOR_LIGHTBLUE,&quot;Stunt Park is CLOSED! Please come back.&quot;);
+			SendClientMessage(playerid,COLOR_LIGHTBLUE,&quot;You'll get a message when it's opened again!&quot;);
+			return 1;
+		}
+	}
+	if(&nbsp;!strcmp(cmdtext,&quot;/parking&quot;, true) )
+	{
+		if( IsPlayerAllowedToTeleportBack[playerid] )
+		{
+			SetPlayerPos(playerid,-2026.6072,-99.0327,35.1641);// Teleport the player outside the Stunt Park.
+			IsPlayerAllowedToTeleportBack[playerid]=false;
+			SendClientMessage(playerid,COLOR_ORANGE,&quot;Thank you for participating at the Stunt Park!&quot;);
+			return 1;
+		}
+		else // Sends this message if you type /parking and that you are not allowed to Teleport back.
+		{
+			SendClientMessage(playerid,COLOR_ORANGE,&quot;You are not allowed to use this command&quot;);
+			return 1;
+		}
+	}
+
+	if(&nbsp;!strcmp(cmdtext,&quot;/stuntpark help&quot;, true) ) // That's a simple text command wich will explain how to use the Stunt Park
+	{
+		SendClientMessage(playerid,COLOR_ORANGE,&quot;====) STUNTPARK (====&quot;);
+		SendClientMessage(playerid,COLOR_LIGHTBLUE,&quot;The stuntpark event allow people to access a nice stunt area&quot;);
+		SendClientMessage(playerid,COLOR_LIGHTBLUE,&quot;based in the San Fierro School yard.&quot;);
+		SendClientMessage(playerid,COLOR_LIGHTBLUE,&quot;You may colllect money for stunt bonuses.&quot;);
+		SendClientMessage(playerid,COLOR_GREEN,&quot;Use /stuntpark to enter it and use /parking to leave it.&quot;);
+		SendClientMessage(playerid,COLOR_GREEN,&quot;**CREDITS: [LSB]X_Cutter&quot;);
+		SendClientMessage(playerid,COLOR_ORANGE,&quot;====) CMD MENU (====&quot;);
+		return 1;
+	}
+
+	return 0; // shows unknown command else.
+}
+</pre>
+<p>Look at what you've done! Good job!
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Stuntpark.html" title="Edit section: Objects">edit</a>]</div><a name="Objects"></a><h2> Objects </h2>
+<p>We want to have a stuntpark with a couple of objects, don't we? Of course we want. Since objects are deleted when changing the gamemode, you should go on and put the following code in the Callback <a href="OnGameModeInit.html" title="OnGameModeInit">OnGameModeInit</a> or use a converter to use it with a custom object streamer.
+</p>
+<pre>
+public OnGameModeInit()
+{
+	CreateObject(971, -2029.763062, -124.249550, 37.757751, 0, 0, 0);
+	CreateObject(971, -2034.172485, -119.812218, 37.760315, 0, 0, 269.7591);
+	CreateObject(971, -2025.529541, -119.856903, 37.748856, 0, 0, 272.3375);
+	CreateObject(969, -2034.059082, -120.240891, 37.994469, 0, 0, 0);
+	CreateObject(969, -2034.200195, -123.931404, 41.288780, 269.7592, 0, 359.1406);
+	CreateObject(13648, -2091.278564, -124.417061, 34.266281, 0, 0, 0);
+	CreateObject(13648, -2090.648193, -124.404160, 34.266281, 0, 0, 0);
+	CreateObject(13647, -2091.029541, -171.607254, 34.316284, 0, 0, 269.7591);
+	CreateObject(13641, -2017.510498, -140.976227, 35.459076, 0, 0, 267.1808);
+	CreateObject(13641, -2017.711914, -166.224121, 35.339516, 0, 0, 87.5587);
+	CreateObject(13638, -2027.937134, -271.354767, 36.417580, 0, 0, 0);
+	CreateObject(969, -2034.719727, -280.712860, 40.729832, 0, 0, 0);
+	CreateObject(971, -2033.512817, -275.963165, 37.890167, 0, 0, 268.8997);
+	CreateObject(971, -2033.345337, -267.078613, 37.890167, 0, 0, 268.8997);
+	CreateObject(13666, -2017.970581, -257.768890, 39.150566, 0, 0, 6.0161);
+	CreateObject(13666, -2021.652832, -257.602570, 39.150566, 0, 0, 6.0161);
+	CreateObject(13666, -2025.379028, -257.444092, 39.149769, 0, 0, 6.0161);
+	CreateObject(13666, -2029.010864, -257.287903, 39.140961, 0, 0, 6.0161);
+	CreateObject(13592, -2048.899902, -207.144394, 44.065914, 0, 0, 94.4342);
+	CreateObject(1503, -2030.108276, -264.293335, 42.100739, 0, 0, 0);
+	CreateObject(969, -2018.697144, -245.763580, 43.856308, 269.7591, 0, 267.1808);
+	CreateObject(969, -2011.873779, -252.873688, 40.754837, 0, 0, 269.7591);
+	CreateObject(969, -2011.930908, -261.741760, 40.779839, 0, 0, 269.7591);
+	CreateObject(1245, -2012.014526, -255.663452, 35.807884, 0, 0, 274.0563);
+	CreateObject(969, -2011.853149, -252.607895, 40.729836, 0, 0, 90.2408);
+	CreateObject(971, -2020.831543, -243.861923, 43.847054, 90.2409, 0, 300.6988);
+	CreateObject(971, -2025.311768, -236.276016, 43.844215, 90.2409, 0, 300.6988);
+	CreateObject(1632, -2027.354370, -233.358002, 45.331715, 9.4538, 0, 30.0803);
+	CreateObject(971, -2035.179932, -220.646255, 51.655159, 270.6186, 359.1406, 304.1366);
+	CreateObject(971, -2039.637939, -214.375885, 53.344780, 118.6022, 2.5783, 32.6586);
+	CreateObject(969, -2043.155273, -213.700226, 55.292805, 91.1003, 0.8594, 124.6184);
+	CreateObject(3279, -2045.254150, -205.034012, 55.192551, 0, 0, 339.3735);
+	CreateObject(1633, -2047.360840, -212.829315, 71.570908, 341.0924, 0, 160.6106);
+	CreateObject(1633, -2049.487305, -218.707428, 71.234428, 341.0924, 0, 160.6106);
+	CreateObject(1634, -2051.833252, -225.535767, 72.295769, 0, 0, 159.7512);
+	CreateObject(18262, -2042.169312, -220.294876, 72.434242, 358.2811, 5.1566, 81.6464);
+	CreateObject(18367, -2038.766357, -219.659607, 71.949776, 0, 0, 0);
+	CreateObject(18367, -2039.419922, -249.538071, 75.039330, 359.1406, 0, 268.0403);
+	CreateObject(18367, -2069.020020, -248.742126, 78.449776, 0, 0, 181.2369);
+	CreateObject(18367, -2069.920898, -218.865128, 81.433090, 0, 359.1406, 88.418);
+	CreateObject(18367, -2040.428467, -220.067886, 84.449341, 0, 0, 0);
+	CreateObject(18262, -2046.262573, -249.699524, 88.739952, 0, 0, 83.3653);
+	CreateObject(3279, -2048.043701, -246.104614, 88.021889, 0, 0, 0);
+	CreateObject(1218, -2048.145508, -246.172028, 104.591705, 0, 0, 0);
+	CreateObject(969, -2042.782227, -202.841507, 72.112595, 270.6186, 0, 69.6144);
+	CreateObject(18367, -2041.389160, -194.902969, 72.127640, 37.8152, 5.1566, 159.8555);
+	CreateObject(18262, -2036.823853, -171.200912, 56.720722, 0, 0, 75.6304);
+	CreateObject(3270, -2033.162964, -159.527084, 33.662197, 0, 0, 0);
+	CreateObject(3269, -2056.233154, -160.401627, 33.193459, 0, 0, 304.9961);
+	CreateObject(3363, -2048.090576, -142.612473, 34.155655, 0, 0, 0);
+	CreateObject(3364, -2057.784424, -107.956017, 34.476334, 0, 0, 0);
+	CreateObject(12956, -2058.442383, -246.159454, 35.873535, 0, 0, 0);
+	CreateObject(13590, -2020.764038, -230.338760, 34.946125, 0, 0, 0);
+	CreateObject(13604, -2079.216553, -219.619797, 35.778316, 0, 0, 0);
+	CreateObject(13636, -2068.714600, -191.194214, 36.150677, 0, 0, 0);
+	CreateObject(3279, -2049.909668, -106.821388, 34.091446, 0, 0, 0);
+	CreateObject(3279, -2091.546875, -275.471954, 34.120911, 0, 0, 0);
+	CreateObject(971, -2095.781738, -216.648987, 44.307823, 0, 0, 90.2409);
+	CreateObject(971, -2011.837402, -239.783264, 44.057869, 0, 0, 270.6186);
+	CreateObject(971, -2015.887329, -257.513550, 46.054466, 0, 0, 258.5865);
+	CreateObject(971, -2091.330078, -280.941498, 44.232819, 0, 0, 0);
+	CreateObject(971, -2091.324707, -280.938171, 51.393135, 0, 0, 0);
+	CreateObject(971, -2095.792480, -276.559265, 44.207863, 0, 0, 270.6186);
+	CreateObject(971, -2095.785400, -276.518860, 51.358208, 0, 0, 270.6186);
+	CreateObject(971, -2095.842529, -267.747314, 44.307823, 0, 0, 269.7591);
+	CreateObject(971, -2082.695557, -280.883087, 44.312592, 0, 0, 0);
+	CreateObject(971, -2095.829590, -174.308350, 44.328720, 0, 0, 271.478);
+	CreateObject(971, -2096.033203, -165.487137, 44.332825, 0, 0, 271.478);
+	CreateObject(971, -2096.304443, -156.670258, 44.332886, 0, 0, 271.478);
+	CreateObject(971, -2095.623779, -137.767456, 44.307899, 0, 0, 269.7591);
+	CreateObject(971, -2095.562012, -128.925003, 44.332855, 0, 0, 269.7591);
+	CreateObject(971, -2095.552979, -120.086128, 44.357857, 0, 0, 269.7591);
+	CreateObject(971, -2095.778076, -111.679253, 44.307884, 0, 0, 270.6186);
+	CreateObject(971, -2095.861328, -102.843391, 44.307854, 0, 0, 270.6186);
+	CreateObject(971, -2091.427979, -103.389999, 44.316978, 0, 0, 179.5181);
+	CreateObject(971, -2082.551025, -103.364998, 44.251526, 0, 0, 179.5181);
+	CreateObject(971, -2073.788086, -103.431046, 44.280823, 0, 0, 0);
+	CreateObject(971, -2065.115967, -103.389908, 44.358833, 0, 0, 0);
+	CreateObject(971, -2052.744141, -102.656273, 41.456863, 0, 0, 0);
+	CreateObject(971, -2052.687744, -102.647896, 48.660263, 0, 0, 0);
+	CreateObject(971, -2045.562500, -102.590111, 41.476204, 0, 0, 0.8594);
+	CreateObject(971, -2059.413330, -103.415001, 44.337914, 0, 0, 0);
+	CreateObject(971, -2045.552368, -102.562973, 48.579254, 0, 0, 0.8594);
+	CreateObject(971, -2011.691772, -147.416718, 44.332825, 0, 0, 270.6186);
+	CreateObject(971, -2011.752686, -159.865814, 44.307831, 0, 0, 89.3814);
+	CreateObject(616, -2053.137207, -114.562286, 34.284336, 0, 0, 0);
+	CreateObject(618, -2048.662354, -115.591202, 34.585541, 0, 0, 0);
+	CreateObject(617, -2086.480957, -275.459412, 34.314148, 0, 0, 0);
+	CreateObject(616, -2090.233887, -269.792480, 34.314148, 0, 0, 0);
+}
+</pre>
+<p>However, you might have noticed there's no cars there. But I assume, with your Scripting knowledge you could easily add them - just use <a href="AddStaticVehicle.html" title="AddStaticVehicle">AddStaticVehicle</a><a href="AddStaticVehicleEx.html" title="AddStaticVehicleEx">(Ex)</a> or <a href="CreateVehicle.html" title="CreateVehicle">CreateVehicle</a>.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Stuntpark.html" title="Edit section: Fine Tuning">edit</a>]</div><a name="Fine_Tuning"></a><h2> Fine Tuning </h2>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Stuntpark.html" title="Edit section: IsPlayerAllowedToTeleportBack?">edit</a>]</div><a name="IsPlayerAllowedToTeleportBack.3F"></a><h3> IsPlayerAllowedToTeleportBack? </h3>
+<p>The code we have until now will produce the following error:
+</p>
+<pre>
+error 017: undefined symbol &quot;IsPlayerAllowedToTeleportBack&quot;
+</pre>
+<p>When looking at the line the error happens, it looks like the following:
+</p>
+<pre>
+IsPlayerAllowedToTeleportBack[playerid]=true;
+</pre>
+<p>So it seems this is a player variable, which should be available for ALL players, so have a size of MAX_PLAYERS. We need to put the following above the <a href="Forward.html" title="Forward">forwards</a> in the code:
+</p>
+<pre>
+new IsPlayerAllowedToTeleportBack[ MAX_PLAYERS ];
+</pre>
+<p>This would be a valid declaration of the code, but there's one problem: When a player leaves the server and was in the stuntpark, the code would allow the player to use /parking. We've to look for a solution, which is pretty easy - just set the variable when a player connects.
+</p>
+<pre>
+public OnPlayerConnect( playerid )
+{
+	IsPlayerAllowedToTeleportBack[playerid]=false;
+	return 1;
+}
+</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Stuntpark.html" title="Edit section: Objects don't show when loading the FS via /rcon reloadfs">edit</a>]</div><a name="Objects_don.27t_show_when_loading_the_FS_via_.2Frcon_reloadfs"></a><h3> Objects don't show when loading the FS via /rcon reloadfs </h3>
+<p>Above code in <a href="OnGameModeInit.html" title="OnGameModeInit">OnGameModeInit</a> does add the objects when your server starts first or the game mode changes, but not if you just reload the Filterscript - hence why we got a problem here. On the other side, if you unload this filterscript, it won't destroy the objects - quite as bad also.
+</p><p>To avoid this, we need some new variables and functions - first of all a global variable:
+</p>
+<pre>
+new StuntObjects[MAX_OBJECTS]; // this will save the object ids
+</pre>
+<p>Additionally, we need those two functions for creating/destroying objects just within the stunt park (not destroying other script's objects)
+</p>
+<pre>
+// This function will just set the value of the object id to true if it is a stunt object
+// (has been created with this function)
+CreateStuntObject( modelid, Float:X, Float:Y, Float:Z, Float:rX, Float:rY, Float:rZ )
+{
+	new objectid = CreateObject( modelid, X, Y, Z, rX, rY, rZ );
+	StuntObjects[objectid] = true;
+}
+
+DestroyAllStuntObjects( )
+{
+	for( new i = 0; i &lt; sizeof( StuntObjects ); i ++ )
+	{
+		if( StuntObjects[ i ])
+		{
+			DestroyObject( i );
+			StuntObjects[i] = false;
+		}
+	}
+}
+</pre>
+<p>The Advantage is obvious: We can create the objects and can destroy ONLY THE STUNT objects - when exiting the gamemode, or unloading the filterscript. This needs a few changes in some parts of the script:
+</p><p><a href="OnGameModeInit.html" title="OnGameModeInit">OnGameModeInit</a>
+</p>
+<ol><li> Change all CreateObject to CreateStuntObject (use the REPLACE feature!)
+</li><li> before all Create(Stunt)Object-Lines, add 
+</li></ol>
+<pre>
+	DestroyAllStuntObjects( );
+</pre>
+<p><a href="OnFilterScriptInit.html" title="OnFilterScriptInit">OnFilterScriptInit</a>
+</p>
+<ol><li> before the return 1;, add
+</li></ol>
+<pre>
+	OnGameModeInit( ); // loads all objects
+</pre>
+<p>new Callbacks we need:
+</p>
+<pre>
+public OnGameModeExit( )
+{
+	DestroyAllStuntObjects( );
+	return 1;
+}
+
+public OnFilterScriptExit( )
+{
+	DestroyAllStuntObjects( );
+	return 1;
+}</pre>
+<p>Now you should be able to see the objects at any time, and be able to unload them when unloading the map.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Stuntpark.html" title="Edit section: Overall Look">edit</a>]</div><a name="Overall_Look"></a><h2> Overall Look </h2>
+<p>Good Job! Your Filterscript could look like this:
+</p>
+<pre>
+#include &lt;a_samp&gt;
+
+#define COLOR_GREEN 0x008000FF
+#define COLOR_ORANGE 0xFF8000FF
+#define COLOR_LIGHTBLUE 0x00BFFFFF
+#define COLOR_PINK 0xFF80C0FF
+
+new IsPlayerAllowedToTeleportBack[ MAX_PLAYERS ];
+new StuntParkIsOpen=false; // This will make that the stuntpark is closed until AdvertTimer is activated.
+new AdvertTimer;
+
+new bool:StuntObjects[ MAX_OBJECTS ];
+
+forward ParkAdvertise(); // This will prevent the &quot;public functions lacks forward&quot; warnings
+forward parkCloseForPublic();
+
+public OnFilterScriptInit()
+{
+	print(&quot;\n--------------------------------------&quot;);
+	print(&quot; Blank Filterscript by your name here&quot;);
+	// You should edit the line above. It will be shown in the console
+	// screen when you (re)load the script.
+	print(&quot;--------------------------------------\n&quot;);
+	
+	AdvertTimer = SetTimer(&quot;ParkAdvertise&quot;,720000,1);// Time for AdvertTimer to be activated
+	StuntParkIsOpen=true;
+	SetTimer(&quot;parkCloseForPublic&quot;,120000,0);// Time for AdvertTimer to be closed.
+	
+	OnGameModeInit( ); // loads all objects
+	
+	return 1;
+}
+
+public ParkAdvertise()
+{
+	SendClientMessageToAll(COLOR_PINK ,&quot;Stunt Park is OPEN! use /stuntpark to subscribe to the event!&quot;);
+	SendClientMessageToAll(COLOR_PINK ,&quot;Prizes: NRG-500 (if you get out with it), Few Money prizes(comming)&quot;);
+}
+
+public parkCloseForPublic()
+{
+	KillTimer(AdvertTimer);
+	AdvertTimer=-1;
+	StuntParkIsOpen=false;
+	SendClientMessageToAll(COLOR_PINK ,&quot;The Stunt Park is closed. Come back tomorrow!&quot;);
+}
+
+
+
+public OnPlayerCommandText(playerid, cmdtext[])
+{
+	if(&nbsp;!strcmp(cmdtext, &quot;/stuntpark&quot;, true) )
+	{
+		if(StuntParkIsOpen) // IF the stunt park is open, this command teleports the player there.
+		{
+			IsPlayerAllowedToTeleportBack[playerid]=true; //This Allows player to use /parking
+			SetPlayerPos(playerid,-2029.8400,-125.3162,35.2194);// Teleport the player
+			SetPlayerInterior(playerid,0); // if the player is in an interior, this will set him to outside
+			SendClientMessage(playerid,COLOR_LIGHTBLUE,&quot;Welcome to the Stunt Park! Please use /parking to exit.&quot;);
+			return 1;
+		}
+		else  // Shows this message when you type /stuntpark and the timer is not activated.
+		{
+			SendClientMessage(playerid,COLOR_LIGHTBLUE,&quot;Stunt Park is CLOSED! Please come back.&quot;);
+			SendClientMessage(playerid,COLOR_LIGHTBLUE,&quot;You'll get a message when it's opened again!&quot;);
+			return 1;
+		}
+	}
+	if(&nbsp;!strcmp(cmdtext,&quot;/parking&quot;, true) )
+	{
+		if( IsPlayerAllowedToTeleportBack[playerid] )
+		{
+			SetPlayerPos(playerid,-2026.6072,-99.0327,35.1641);// Teleport the player outside the Stunt Park.
+			IsPlayerAllowedToTeleportBack[playerid]=false;
+			SendClientMessage(playerid,COLOR_ORANGE,&quot;Thank you for participating at the Stunt Park!&quot;);
+			return 1;
+		}
+		else // Sends this message if you type /parking and that you are not allowed to Teleport back.
+		{
+			SendClientMessage(playerid,COLOR_ORANGE,&quot;You are not allowed to use this command&quot;);
+			return 1;
+		}
+	}
+
+	if(&nbsp;!strcmp(cmdtext,&quot;/stuntpark help&quot;, true) ) // That's a simple text command wich will explain how to use the Stunt Park
+	{
+		SendClientMessage(playerid,COLOR_ORANGE,&quot;====) STUNTPARK (====&quot;);
+		SendClientMessage(playerid,COLOR_LIGHTBLUE,&quot;The stuntpark event allow people to access a nice stunt area&quot;);
+		SendClientMessage(playerid,COLOR_LIGHTBLUE,&quot;based in the San Fierro School yard.&quot;);
+		SendClientMessage(playerid,COLOR_LIGHTBLUE,&quot;You may colllect money for stunt bonuses.&quot;);
+		SendClientMessage(playerid,COLOR_GREEN,&quot;Use /stuntpark to enter it and use /parking to leave it.&quot;);
+		SendClientMessage(playerid,COLOR_GREEN,&quot;**CREDITS: [LSB]X_Cutter&quot;);
+		SendClientMessage(playerid,COLOR_ORANGE,&quot;====) CMD MENU (====&quot;);
+		return 1;
+	}
+
+	return 0; // shows unknown command else.
+}
+
+public OnGameModeInit()
+{
+	DestroyAllStuntObjects( );
+	CreateStuntObject(971, -2029.763062, -124.249550, 37.757751, 0, 0, 0);
+	CreateStuntObject(971, -2034.172485, -119.812218, 37.760315, 0, 0, 269.7591);
+	CreateStuntObject(971, -2025.529541, -119.856903, 37.748856, 0, 0, 272.3375);
+	CreateStuntObject(969, -2034.059082, -120.240891, 37.994469, 0, 0, 0);
+	CreateStuntObject(969, -2034.200195, -123.931404, 41.288780, 269.7592, 0, 359.1406);
+	CreateStuntObject(13648, -2091.278564, -124.417061, 34.266281, 0, 0, 0);
+	CreateStuntObject(13648, -2090.648193, -124.404160, 34.266281, 0, 0, 0);
+	CreateStuntObject(13647, -2091.029541, -171.607254, 34.316284, 0, 0, 269.7591);
+	CreateStuntObject(13641, -2017.510498, -140.976227, 35.459076, 0, 0, 267.1808);
+	CreateStuntObject(13641, -2017.711914, -166.224121, 35.339516, 0, 0, 87.5587);
+	CreateStuntObject(13638, -2027.937134, -271.354767, 36.417580, 0, 0, 0);
+	CreateStuntObject(969, -2034.719727, -280.712860, 40.729832, 0, 0, 0);
+	CreateStuntObject(971, -2033.512817, -275.963165, 37.890167, 0, 0, 268.8997);
+	CreateStuntObject(971, -2033.345337, -267.078613, 37.890167, 0, 0, 268.8997);
+	CreateStuntObject(13666, -2017.970581, -257.768890, 39.150566, 0, 0, 6.0161);
+	CreateStuntObject(13666, -2021.652832, -257.602570, 39.150566, 0, 0, 6.0161);
+	CreateStuntObject(13666, -2025.379028, -257.444092, 39.149769, 0, 0, 6.0161);
+	CreateStuntObject(13666, -2029.010864, -257.287903, 39.140961, 0, 0, 6.0161);
+	CreateStuntObject(13592, -2048.899902, -207.144394, 44.065914, 0, 0, 94.4342);
+	CreateStuntObject(1503, -2030.108276, -264.293335, 42.100739, 0, 0, 0);
+	CreateStuntObject(969, -2018.697144, -245.763580, 43.856308, 269.7591, 0, 267.1808);
+	CreateStuntObject(969, -2011.873779, -252.873688, 40.754837, 0, 0, 269.7591);
+	CreateStuntObject(969, -2011.930908, -261.741760, 40.779839, 0, 0, 269.7591);
+	CreateStuntObject(1245, -2012.014526, -255.663452, 35.807884, 0, 0, 274.0563);
+	CreateStuntObject(969, -2011.853149, -252.607895, 40.729836, 0, 0, 90.2408);
+	CreateStuntObject(971, -2020.831543, -243.861923, 43.847054, 90.2409, 0, 300.6988);
+	CreateStuntObject(971, -2025.311768, -236.276016, 43.844215, 90.2409, 0, 300.6988);
+	CreateStuntObject(1632, -2027.354370, -233.358002, 45.331715, 9.4538, 0, 30.0803);
+	CreateStuntObject(971, -2035.179932, -220.646255, 51.655159, 270.6186, 359.1406, 304.1366);
+	CreateStuntObject(971, -2039.637939, -214.375885, 53.344780, 118.6022, 2.5783, 32.6586);
+	CreateStuntObject(969, -2043.155273, -213.700226, 55.292805, 91.1003, 0.8594, 124.6184);
+	CreateStuntObject(3279, -2045.254150, -205.034012, 55.192551, 0, 0, 339.3735);
+	CreateStuntObject(1633, -2047.360840, -212.829315, 71.570908, 341.0924, 0, 160.6106);
+	CreateStuntObject(1633, -2049.487305, -218.707428, 71.234428, 341.0924, 0, 160.6106);
+	CreateStuntObject(1634, -2051.833252, -225.535767, 72.295769, 0, 0, 159.7512);
+	CreateStuntObject(18262, -2042.169312, -220.294876, 72.434242, 358.2811, 5.1566, 81.6464);
+	CreateStuntObject(18367, -2038.766357, -219.659607, 71.949776, 0, 0, 0);
+	CreateStuntObject(18367, -2039.419922, -249.538071, 75.039330, 359.1406, 0, 268.0403);
+	CreateStuntObject(18367, -2069.020020, -248.742126, 78.449776, 0, 0, 181.2369);
+	CreateStuntObject(18367, -2069.920898, -218.865128, 81.433090, 0, 359.1406, 88.418);
+	CreateStuntObject(18367, -2040.428467, -220.067886, 84.449341, 0, 0, 0);
+	CreateStuntObject(18262, -2046.262573, -249.699524, 88.739952, 0, 0, 83.3653);
+	CreateStuntObject(3279, -2048.043701, -246.104614, 88.021889, 0, 0, 0);
+	CreateStuntObject(1218, -2048.145508, -246.172028, 104.591705, 0, 0, 0);
+	CreateStuntObject(969, -2042.782227, -202.841507, 72.112595, 270.6186, 0, 69.6144);
+	CreateStuntObject(18367, -2041.389160, -194.902969, 72.127640, 37.8152, 5.1566, 159.8555);
+	CreateStuntObject(18262, -2036.823853, -171.200912, 56.720722, 0, 0, 75.6304);
+	CreateStuntObject(3270, -2033.162964, -159.527084, 33.662197, 0, 0, 0);
+	CreateStuntObject(3269, -2056.233154, -160.401627, 33.193459, 0, 0, 304.9961);
+	CreateStuntObject(3363, -2048.090576, -142.612473, 34.155655, 0, 0, 0);
+	CreateStuntObject(3364, -2057.784424, -107.956017, 34.476334, 0, 0, 0);
+	CreateStuntObject(12956, -2058.442383, -246.159454, 35.873535, 0, 0, 0);
+	CreateStuntObject(13590, -2020.764038, -230.338760, 34.946125, 0, 0, 0);
+	CreateStuntObject(13604, -2079.216553, -219.619797, 35.778316, 0, 0, 0);
+	CreateStuntObject(13636, -2068.714600, -191.194214, 36.150677, 0, 0, 0);
+	CreateStuntObject(3279, -2049.909668, -106.821388, 34.091446, 0, 0, 0);
+	CreateStuntObject(3279, -2091.546875, -275.471954, 34.120911, 0, 0, 0);
+	CreateStuntObject(971, -2095.781738, -216.648987, 44.307823, 0, 0, 90.2409);
+	CreateStuntObject(971, -2011.837402, -239.783264, 44.057869, 0, 0, 270.6186);
+	CreateStuntObject(971, -2015.887329, -257.513550, 46.054466, 0, 0, 258.5865);
+	CreateStuntObject(971, -2091.330078, -280.941498, 44.232819, 0, 0, 0);
+	CreateStuntObject(971, -2091.324707, -280.938171, 51.393135, 0, 0, 0);
+	CreateStuntObject(971, -2095.792480, -276.559265, 44.207863, 0, 0, 270.6186);
+	CreateStuntObject(971, -2095.785400, -276.518860, 51.358208, 0, 0, 270.6186);
+	CreateStuntObject(971, -2095.842529, -267.747314, 44.307823, 0, 0, 269.7591);
+	CreateStuntObject(971, -2082.695557, -280.883087, 44.312592, 0, 0, 0);
+	CreateStuntObject(971, -2095.829590, -174.308350, 44.328720, 0, 0, 271.478);
+	CreateStuntObject(971, -2096.033203, -165.487137, 44.332825, 0, 0, 271.478);
+	CreateStuntObject(971, -2096.304443, -156.670258, 44.332886, 0, 0, 271.478);
+	CreateStuntObject(971, -2095.623779, -137.767456, 44.307899, 0, 0, 269.7591);
+	CreateStuntObject(971, -2095.562012, -128.925003, 44.332855, 0, 0, 269.7591);
+	CreateStuntObject(971, -2095.552979, -120.086128, 44.357857, 0, 0, 269.7591);
+	CreateStuntObject(971, -2095.778076, -111.679253, 44.307884, 0, 0, 270.6186);
+	CreateStuntObject(971, -2095.861328, -102.843391, 44.307854, 0, 0, 270.6186);
+	CreateStuntObject(971, -2091.427979, -103.389999, 44.316978, 0, 0, 179.5181);
+	CreateStuntObject(971, -2082.551025, -103.364998, 44.251526, 0, 0, 179.5181);
+	CreateStuntObject(971, -2073.788086, -103.431046, 44.280823, 0, 0, 0);
+	CreateStuntObject(971, -2065.115967, -103.389908, 44.358833, 0, 0, 0);
+	CreateStuntObject(971, -2052.744141, -102.656273, 41.456863, 0, 0, 0);
+	CreateStuntObject(971, -2052.687744, -102.647896, 48.660263, 0, 0, 0);
+	CreateStuntObject(971, -2045.562500, -102.590111, 41.476204, 0, 0, 0.8594);
+	CreateStuntObject(971, -2059.413330, -103.415001, 44.337914, 0, 0, 0);
+	CreateStuntObject(971, -2045.552368, -102.562973, 48.579254, 0, 0, 0.8594);
+	CreateStuntObject(971, -2011.691772, -147.416718, 44.332825, 0, 0, 270.6186);
+	CreateStuntObject(971, -2011.752686, -159.865814, 44.307831, 0, 0, 89.3814);
+	CreateStuntObject(616, -2053.137207, -114.562286, 34.284336, 0, 0, 0);
+	CreateStuntObject(618, -2048.662354, -115.591202, 34.585541, 0, 0, 0);
+	CreateStuntObject(617, -2086.480957, -275.459412, 34.314148, 0, 0, 0);
+	CreateStuntObject(616, -2090.233887, -269.792480, 34.314148, 0, 0, 0);
+}
+
+public OnPlayerConnect( playerid )
+{
+	IsPlayerAllowedToTeleportBack[playerid]=false;
+	return 1;
+}
+
+// This function will just set the value of the object id to true if it is a stunt object
+// (has been created with this function)
+CreateStuntObject( modelid, Float:X, Float:Y, Float:Z, Float:rX, Float:rY, Float:rZ )
+{
+	new objectid = CreateObject( modelid, X, Y, Z, rX, rY, rZ );
+	StuntObjects[objectid] = true;
+}
+
+DestroyAllStuntObjects( )
+{
+	for( new i = 0; i &lt; sizeof( StuntObjects ); i ++ )
+	{
+	    if( StuntObjects[i] )
+	    {
+			DestroyObject( i );
+			StuntObjects[i] = false;
+		}
+	}
+}
+
+public OnGameModeExit( )
+{
+	DestroyAllStuntObjects( );
+	return 1;
+}
+
+public OnFilterScriptExit( )
+{
+	DestroyAllStuntObjects( );
+	return 1;
+}
+</pre>
+<p>Haha! You followed all the steps for nothing! But at least you learned something!
+</p><p>Thanks for reading! This tutorial was originally written by X_Cutter.
+Thanks to to anonym who made this tutorial more clean(and fixed bugs)!
+</p><div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/Stuntpark.html">http://localhost../wiki/Stuntpark.html</a>"</div>
+						<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="Stuntpark.html">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="Talk_Stuntpark.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="Stuntpark.html">Edit</a></li>
+				 <li id="ca-history"><a href="Stuntpark.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 28,662 times.</li>
+				<li id="credits">This page was last modified 23:35, 5 September 2010 by SA-MP Wiki user User:. </li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 20.17 secs. -->
+</body></html>

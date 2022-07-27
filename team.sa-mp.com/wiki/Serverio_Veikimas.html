@@ -1,0 +1,741 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Serverio Veikimas,Pagrindinis Puslapis,Callback'ai,Resursai,Funkcijos" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>Serverio Veikimas - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Serverio Veikimas</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<p><center>
+</p>
+<table width="10%" style="border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px; -khtml-border-radius: 10px; -icab-border-radius: 10px; -o-border-radius: 10px; border: 2px groove #AAAAAA; padding: 3px; padding-left: 5px;text-shadow: 0px 1px 1px #fff; background-color: #E3E3E3;position:fixed;;right:2px;top:40px;">
+
+<tr>
+<td><img src="http://youthvoice.network-together.eu/simg/flags/flag_lithuania.png" alt="flag_lithuania.png" />
+</td></tr>
+<tr>
+<td width="20%"><a href="Pagrindinis_Puslapis.html" title="Pagrindinis Puslapis">Pagrindinis</a>
+</td></tr>
+<tr>
+<td width="20%"><a href="Category_Funkcijos.html" class="new" title="Category:Funkcijos">Funkcijos</a>
+</td></tr>
+<tr>
+<td width="20%"><a href="Category_Callback%2527ai.html" title="Category:Callback'ai">Callback'ai</a>
+</td></tr>
+<tr>
+<td width="20%"><a href="Category_Resursai.html" class="new" title="Category:Resursai">Resursai</a>
+</td></tr>
+</table>
+<p></center>
+</p>
+<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class='toclevel-1'><a href="#Serverio_fail.C5.B3_gavimas"><span class="tocnumber">1</span> <span class="toctext">Serverio failų gavimas</span></a></li>
+<li class='toclevel-1'><a href="#Serverio_.C4.AFdiegimas"><span class="tocnumber">2</span> <span class="toctext">Serverio įdiegimas</span></a></li>
+<li class='toclevel-1'><a href="#Serverio_failai"><span class="tocnumber">3</span> <span class="toctext">Serverio failai</span></a></li>
+<li class='toclevel-1'><a href="#Serverio_.C4.AFjungimas"><span class="tocnumber">4</span> <span class="toctext">Serverio įjungimas</span></a></li>
+<li class='toclevel-1'><a href="#Serverio_nustatymai"><span class="tocnumber">5</span> <span class="toctext">Serverio nustatymai</span></a></li>
+<li class='toclevel-1'><a href="#Gamemode_nustatymas"><span class="tocnumber">6</span> <span class="toctext">Gamemode nustatymas</span></a></li>
+<li class='toclevel-1'><a href="#Filterscript.27.C5.B3_kontroliavimas"><span class="tocnumber">7</span> <span class="toctext">Filterscript'ų kontroliavimas</span></a></li>
+<li class='toclevel-1'><a href="#Plugin.27.C5.B3_naudojimas"><span class="tocnumber">8</span> <span class="toctext">Plugin'ų naudojimas</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<a name="Serverio_fail.C5.B3_gavimas"></a><h2> Serverio failų gavimas </h2>
+<p>Norint sukurti SA-MP serverį turėti SA-MP klientą neužtenka. Serveriui kurti mums prireiks specialių serverio failų. Dabartinė SA-MP serverio stabili versija yra 0.3e R2. Kaskart atsinaujinus SA-MP, naujausius serverio failus galite atsisiųsti iš oficialios modifikacijos svetainės <a href="http://www.sa-mp.com/" class='external text' title="http://www.sa-mp.com" rel="nofollow">www.sa-mp.com</a>. Tinklalapyje paspauskite ant nuorodos pavadinimu <a href="http://sa-mp.com/download.php" class='external text' title="http://sa-mp.com/download.php" rel="nofollow">Downloads</a> ir nueisite į siuntinių skyrių. Atsivėrusiame puslapyje turėtumėte matyti kelių rušių SA-MP serverio failus.
+</p><p><center>
+</p>
+<table width="40%" class="wikitable">
+<tr>
+<th width="80%">Operacinė sistema
+</th><th>Versija
+</th></tr>
+<tr>
+<td><a href="http://files.sa-mp.com/samp03e_svr_R2_win32.zip" class='external text' title="http://files.sa-mp.com/samp03e_svr_R2_win32.zip" rel="nofollow">SA-MP Windows Server</a>
+</td><td>0.3e
+</td></tr>
+<tr>
+<td><a href="http://files.sa-mp.com/samp03esvr_R2.tar.gz" class='external text' title="http://files.sa-mp.com/samp03esvr_R2.tar.gz" rel="nofollow">SA-MP Linux Server (x86)</a>
+</td><td>0.3e
+</td></tr></table>
+<p></center>
+</p><p>Šie failai skirti specialiai operacinei sistemai, kurioje jūs planuojate kurti savo SA-MP serverį. Jei naudosite Windows aplinką ( Windows 7, Windows Vista, Windows XP, Windows Server 2003, ... ) pasirinkite pirmąjį variantą. Jei jūsų operacinė sistema yra Linux, tuomet pasirinkite antrąjį variantą. 
+</p><p>Turbūt pas daugumą kompiuteriuose yra naudojama Windows operacinė sistema, tuomet kyla klausimas, "Kur naudoti Linux serverio failus?". Atsakymas paprastas. Dauguma serverių su projektais nėra laikomi paprastuose buitiniuose kompiuteriuose, kadangi kompiuterį tektų laikyti įjungti gana ilgai, o tai nemažai kainuotų, be to reiktų gana greito interneto. Tokių serverių savininkai nuomojasi VPS ( Virtualų privatų serverį ) ir jame laiko serverį. Toks serverio laikymas kainuoja žymiai pigiau, bei saugiau, kadangi daugumoje tokių serverių naudojama Linux operacinė sistema.
+</p><p>Jei norite išbandyti bandomąsias San Andreas Multiplayer versijas, kurios yra kūrimo stadijoje bei nesiūlomos naudoti viešiems serveriams, atsisiųskite šias nurodytas bylas:
+</p><p><center>
+</p>
+<table width="60%" class="wikitable">
+<tr>
+<th width="30%">Klientas
+</th><th width="50%">Serveris
+</th><th>Versija
+</th><th>Data
+</th></tr>
+<tr>
+<td colspan="4">Šiuo metu jokių bandomųjų versijų nėra.
+</td></tr></table>
+<p></center>
+</p>
+<a name="Serverio_.C4.AFdiegimas"></a><h2> Serverio įdiegimas </h2>
+<p>Serverio įdiegimas nėra sudėtingas procesas, kaip gali atrodyti iš pirmo žvilgsnio. Atsisiuntę serverio failus savo naudojamai operacinei sistemai, juos atsidarykite su archyvavimo programa, kadangi failai bus archyve. Tam galima naudoti įvairius archyvatorius. Aš naudosiu turbūt gana dažnam žinomą programą WinRAR. Paspaudžiame ant serverio failų archyvo su dešiniu klavišu ir pasirenkame pasirinkimą "Extract to ...". Archyvatorius turėtų išskleisti failus į naują katalogą.
+</p>
+<div class="center"><span><img src="http://wiki.gta-online.lt/images/e/e4/Idiegimas_1_I3.png" alt="Idiegimas_1_I3.png" /></span> <span><img src="http://wiki.gta-online.lt/images/a/a7/Idiegimas_2_I3.png" alt="Idiegimas_2_I3.png" /></span> <span><img src="http://wiki.gta-online.lt/images/6/63/Idiegimas_3_I3.png" alt="Idiegimas_3_I3.png" /></span></div>
+<a name="Serverio_failai"></a><h2> Serverio failai </h2>
+<p>Dabar atsidarykime atsiradusį aplankalą ir apžvelgsime jame esančius serverio failus.
+</p>
+<div class="center"><img src="http://wiki.gta-online.lt/images/5/5a/Serverio_Failai_I3.png" alt="Serverio_Failai_I3.png" /></div>
+<p><br />
+Pradėsime nuo tekstinių bylų.
+</p><p><center>
+</p>
+<table width="100%" class="wikitable">
+
+<tr>
+<th width="20%">Failas
+</th><th>Paskirtis
+</th></tr>
+<tr>
+<td><i>server-readme</i>
+</td><td>Serverio paleidimo instrukcija anglų kalba.
+</td></tr>
+<tr>
+<td><i>samp-license</i>
+</td><td>Licenziją, kurią turėdami galite laisvai sukurti SA-MP serverį. Taip pat jį vertėtų pasiskaityti prieš pradedant kurti serverį, nes jame surašytos taisyklės, kurių reikia laikytis kitaip licenzija, kurią turite, <i>negalios</i>.
+</td></tr>
+<tr>
+<td><i>server.cfg</i>
+</td><td>Pagrindiniai serverio nustatymai. Su šiais nustatymais susipažinsime vėliau. (*)
+</td></tr></table></center>
+<p>(*) Neišsigąskite jog failo piktograma skiriasi nuo prieš tai minėtų tekstinių bylų. Ji turi kitą failo plėtinį <i>cfg</i>. Ji atidaroma su bet kuriuo tekstinių bylų redaktoriumi.
+</p><p>Ką gi... Likę failai yra svarbiausios serverio dalys.
+</p><p><center>
+</p>
+<table width="100%" class="wikitable">
+
+<tr>
+<th width="20%">Failas
+</th><th>Paskirtis
+</th></tr>
+<tr>
+<td><i>samp-server.exe</i>
+</td><td>Šis failas yra pagrindinė serverio dalis. Jame vyks jūsų suprogramuoti procesai.
+</td></tr>
+<tr>
+<td><i>samp-npc.exe</i>
+</td><td>Šis failas bus naudojamas tik tuomet jei savo serveryje naudosite NPC.
+</td></tr>
+<tr>
+<td><i>announce.exe</i>
+</td><td>Failas reikalingas norint jog jūsų serveris pasiektų pagrindinį Sa-MP serverį, kuriame saugoma informacija apie jūsų serverį. Kitaip tariant, jis padeda jūsų serverį rodyti kitiems žaidėjams savo Sa-MP serverių naršyklėje.
+</td></tr></table></center>
+<p>Pereikime prie serverio aplankų. 
+</p><p><center>
+</p>
+<table width="100%" class="wikitable">
+
+<tr>
+<th width="20%">Failas
+</th><th>Paskirtis
+</th></tr>
+<tr>
+<td><i>filterscripts</i>
+</td><td>Jame laikomi serverio <i>priedai</i> ( įvairūs suprogramuoti skriptai ), kuriuos galite atjungti/prijungti prie serverio veikimo nesustabdę serverio darbo.
+</td></tr>
+<tr>
+<td><i>gamemodes</i>
+</td><td>Laikomi jūsų serverio pagrindiniai suprogramuoti skriptai, be kurių serveris neveiks.
+</td></tr>
+<tr>
+<td><i>include</i>
+</td><td>Šis aplankas nėra būtinas. Jame galite saugoti norimą informaciją. Taippat galite sukurti savo norimą aplanką su norimu pavadinimu, kuriame laikysite savo informaciją, kurią galėsite naudoti serverio tikslams.
+</td></tr>
+<tr>
+<td><i>npcmodes</i>
+</td><td>Aplankas skirtas saugoti prieš tai minėtų NPC informacijai.
+</td></tr>
+<tr>
+<td><i>pawno</i>
+</td><td>Speciali programa, skirta programuoti Sa-MP skriptams.
+</td></tr>
+<tr>
+<td><i>scriptfiles</i>
+</td><td>Aplankas skirtas saugoti įvarius duomenis.
+</td></tr>
+</table></center>
+<a name="Serverio_.C4.AFjungimas"></a><h2> Serverio įjungimas </h2>
+<p>Serverio įjungimas nėra sudėtingas dalykas. Pirmiausia atsidarykime savo serverio aplanką ir susiraskime anksčiau minėtą failą <i>samp-server</i>. Paspauskite ant jo 2 kartus. Jeigu buvote atidūs, turėjote pastebėti juodą programos langą, kuris staiga išsijungė. Išsijungimo priežastis yra ta, jog serverio nustatymai nepilnai sukonfigūruoti.
+</p><p>Vėl atsidarykite savo serverio aplanką ir turite pamatyti naujai susikūrusią tekstinę bylą <i>server_log</i>. Atsidarykime ją su betkokiu tekstinių bylų redaktoriumi. Šioje byloje bus laikomi visi įrašai, kurie bus atspausdinami serverio konsolėje ( tame juodame lange, kuris prieš tai staiga išsijungė ). Taigi matote jog byloje kažkas užrašyta angliškai:
+</p>
+<pre>
+Loaded log file: &quot;server_log.txt&quot;.
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3b R2, (C)2005-2010 SA-MP Team
+
+[14:05:08] Error: Your password must be changed from the default password, please change it.</pre>
+<p>Byloje skaitome tekstą nuo apačios ir ieškome pirmos klaidos dėl kurios išsijungė serveris. Jei mokate anglų kalba, pamatę žodį <i>Error</i>, turėjote suprasti, jog kažkur įvyko klaida. Paskaičius klaidos aprašymą suprantame jog serveris neįsijungia dėl to jog serverio slaptažodis nėra nustatytas.
+</p><p>Norint nustatyti slaptažodį atsidarykime kitą tekstinę bylą <i>server</i>. Primenu jog šioje byloje laikomi serverio pagrindiniai nustatymai. Atsidarę bylą susiraskime eilutę su žodžiu <i>rcon_password</i>. Prie jo matome kitą žodį <i>changeme</i>. Tai prieš tai esančio žodžio reikšmė. Pakeiskime žodį <i>changeme</i> į kitą reikšmę, pvz: <i>123456</i>. Išsaugome bylos pakeitimus. Nuo šiol mūsų serverio slaptažodis bus <i>123456</i>.
+</p><p>Vėl du kartus spustelkite ant <i>samp-server</i> programos. Jei serverį įjungiate pirmą kartą, jums turėtų atsiverti papildomas Windows Security langas su pranešimu apie programos prašymą prisijungti prie interneto. Paspauskite <i>Unblock</i> pasirinkimą. Dabar serveris galės prisijungti prie interneto.
+</p>
+<div class="center"><img src="http://wiki.gta-online.lt/images/2/24/Serveris_I3.png" alt="Serveris_I3.png" /></div>
+<p>Grįžkime prie serverio lango. Matome jog jame yra įvairaus teksto, su įvairias pranešimais. Ką gi sėkmingai serverį įjungėme. Dabar galima serverį išjungti. Tai padarykime išjungę programą, kaip ir kitas programas.
+</p>
+<a name="Serverio_nustatymai"></a><h2> Serverio nustatymai </h2>
+<p>Visų pirma serverį galima kontroliuoti įvairiais būdais. Pirmasis valdymo būdas - tai serverio kontroliavimas naudojant pačio serverio console'ę. 
+</p><p>Įsijunkime savo serverį. Norėdami vykdyti įvairius veiksmus, komandas turėsime rašyti atsidariusioje console'ėje. Pirmiausia įrašykime komandą <i>cmdlist</i> ir paspauskime ENTER klavišą. Matome jog serveris atspausdino tam tikrą tekstą, pažvelkime į jį:
+</p>
+<pre>Console Commands:
+   echo
+   exec
+   cmdlist
+   varlist
+   exit
+   kick
+   ban
+   gmx
+   changemode
+   say
+   reloadbans
+   reloadlog
+   players
+   banip
+   unbanip
+   gravity
+   weather
+   loadfs
+   unloadfs
+   reloadfs</pre>
+<p>Taigi ši komanda <i>cmdlist</i> atvaizduoja komandų sąrašą, kurias galime naudoti console'lėje. Deja čia atvaizduotos ne visos įmanomos komandos. Štai jų pilnas sąrašas su paaiškinimais:
+</p><p><center>
+</p>
+<table width="100%" class="wikitable">
+<tr>
+<th width="20%">Komanda
+</th><th width="20%">Parametrai
+</th><th width="60%">Veiksmas
+</th></tr>
+<tr>
+<td>cmdlist
+</td><td>(-)
+</td><td>Atvaizduojamas komandų sąrašas.
+</td></tr>
+<tr>
+<td>varlist
+</td><td>(-)
+</td><td>Atvaizduojami serverio pagrindiniai kintamieji, bei jų reikšmės.
+</td></tr>
+<tr>
+<td>exit
+</td><td>(-)
+</td><td>Sustabdomas serverio veikimas.
+</td></tr>
+<tr>
+<td>echo
+</td><td>tekstas[]
+</td><td>Atspausdinamas įvestas tekstas console'ėje.
+</td></tr>
+<tr>
+<td>hostname
+</td><td>name[]
+</td><td>Pakeičiamas serverio pavadinimas į įvestą tekstą.
+</td></tr>
+<tr>
+<td>gamemodetext
+</td><td>pavadinimas[]
+</td><td>Pakeičiamas serveryje naudojamo gamemode pavadinimas į įvestą tekstą.
+</td></tr>
+<tr>
+<td>mapname
+</td><td>pavadinimas[]
+</td><td>Pakeičiamas serverio žemėlapio pavadinimas į įvestą tekstą.
+</td></tr>
+<tr>
+<td>exec
+</td><td>failo_pavadinimas[]
+</td><td>Atidaromas tekstinė byla, kurios pavadinimą įvedėte.
+</td></tr>
+<tr>
+<td>kick
+</td><td>id
+</td><td>Išspiriamas iš serverio žaidėjas, kurio ID įvedėte.
+</td></tr>
+<tr>
+<td>ban
+</td><td>id
+</td><td>Užblokuojamas žaidėjas, kurio ID įvedėte.
+</td></tr>
+<tr>
+<td>changemode
+</td><td>gamemode[]
+</td><td>Pakeičiamas serveryje naudojamas gamemode į jūsų įrašytą gamemode.
+</td></tr>
+<tr>
+<td>gmx
+</td><td>(-)
+</td><td>Serveris įjungs patį pirmąjį gamemode, kuris nustatytas server.cfg byloje.
+</td></tr>
+<tr>
+<td>reloadbans
+</td><td>(-)
+</td><td>Bus ištrinama informacija iš samp.ban bylos, kurioje saugoma blokavimų informacija.
+</td></tr>
+<tr>
+<td>reloadlog
+</td><td>(-)
+</td><td>Bus ištrinama informacija iš server_log bylos.
+</td></tr>
+<tr>
+<td>say
+</td><td>tekstas[]
+</td><td>Parodomas įvestas tekstas, žaidėjams esantiems žaidime.
+</td></tr>
+<tr>
+<td>players
+</td><td>(-)
+</td><td>Rodoma serveryje esančių žaidėjų informaciją, įskaitant IP adresus, bei ping.
+</td></tr>
+<tr>
+<td>banip
+</td><td>ip[]
+</td><td>Užblokuojamas įvestas IP adresas.
+</td></tr>
+<tr>
+<td>unbanip
+</td><td>ip[]
+</td><td>Atblokuojams įvestas IP adresas.
+</td></tr>
+<tr>
+<td>gravity
+</td><td>float:gravitacija
+</td><td>Pakeičiama serverio gravitaciją į jūsų įvestą realujį skaičių.
+</td></tr>
+<tr>
+<td>weather
+</td><td>oras
+</td><td>Pakeičiamas serverio oras į jūsų įvestą.
+</td></tr>
+<tr>
+<td>loadfs
+</td><td>filterscript[]
+</td><td>Paleidžiamas įvestas filterscript'as.
+</td></tr>
+<tr>
+<td>unloadfs
+</td><td>filterscript[]
+</td><td>Sustabdomas įvesto filterscript'o veikimas.
+</td></tr>
+<tr>
+<td>reloadfs
+</td><td>filterscript[]
+</td><td>Sustabdomas bei paleidžiamas iš naujo įvestas filterscript'as.
+</td></tr>
+<tr>
+<td>rcon_password
+</td><td>slaptažodis[]
+</td><td>Pakeičiamas serverio slaptažodis į įvestąjį.
+</td></tr>
+<tr>
+<td>announce
+</td><td>0 arba 1
+</td><td>Pakeičiamas privatumas. 0 - serveris nebus rodomas Sa-MP serverių naršyklėje, 1 - rodomas.
+</td></tr>
+<tr style="background-color: #DBD7D8; color: #000;">
+<td>bind
+</td><td>ip[]
+</td><td>Priverčia serverį naudoti įvestą ip, tačiau nurodytas ip turi būti suderintas su tinklo plokšte.
+</td></tr>
+<tr style="background-color: #DBD7D8; color: #000;">
+<td>port
+</td><td>prievadas[]
+</td><td>Nustatomas serverio prievadas.
+</td></tr>
+<tr style="background-color: #DBD7D8; color: #000;">
+<td>filterscripts
+</td><td>filterscriptai[]
+</td><td>Aktyvių filterscriptų sąrašas.
+</td></tr>
+<tr>
+<td>gamemode0
+</td><td>gamemode[], kiekis
+</td><td>Nustatomas pasirinktas gamemode bei kiekis, kiek kartų bus naudojamas šis gamemode.
+</td></tr>
+<tr>
+<td>gamemode1
+</td><td>gamemode[], kiekis
+</td><td>Nustatomas pasirinktas gamemode bei kiekis, kiek kartų bus naudojamas šis gamemode.
+</td></tr>
+<tr>
+<td>gamemode2
+</td><td>gamemode[], kiekis
+</td><td>Nustatomas pasirinktas gamemode bei kiekis, kiek kartų bus naudojamas šis gamemode.
+</td></tr>
+<tr>
+<td>gamemode3
+</td><td>gamemode[], kiekis
+</td><td>Nustatomas pasirinktas gamemode bei kiekis, kiek kartų bus naudojamas šis gamemode.
+</td></tr>
+<tr>
+<td>gamemode4
+</td><td>gamemode[], kiekis
+</td><td>Nustatomas pasirinktas gamemode bei kiekis, kiek kartų bus naudojamas šis gamemode.
+</td></tr>
+<tr>
+<td>gamemode5
+</td><td>gamemode[], kiekis
+</td><td>Nustatomas pasirinktas gamemode bei kiekis, kiek kartų bus naudojamas šis gamemode.
+</td></tr>
+<tr>
+<td>gamemode6
+</td><td>gamemode[], kiekis
+</td><td>Nustatomas pasirinktas gamemode bei kiekis, kiek kartų bus naudojamas šis gamemode.
+</td></tr>
+<tr>
+<td>gamemode7
+</td><td>gamemode[], kiekis
+</td><td>Nustatomas pasirinktas gamemode bei kiekis, kiek kartų bus naudojamas šis gamemode.
+</td></tr>
+<tr>
+<td>gamemode8
+</td><td>gamemode[], kiekis
+</td><td>Nustatomas pasirinktas gamemode bei kiekis, kiek kartų bus naudojamas šis gamemode.
+</td></tr>
+<tr>
+<td>gamemode9
+</td><td>gamemode[], kiekis
+</td><td>Nustatomas pasirinktas gamemode bei kiekis, kiek kartų bus naudojamas šis gamemode.
+</td></tr>
+<tr>
+<td>gamemode10
+</td><td>gamemode[], kiekis
+</td><td>Nustatomas pasirinktas gamemode bei kiekis, kiek kartų bus naudojamas šis gamemode.
+</td></tr>
+<tr>
+<td>gamemode11
+</td><td>gamemode[], kiekis
+</td><td>Nustatomas pasirinktas gamemode bei kiekis, kiek kartų bus naudojamas šis gamemode.
+</td></tr>
+<tr>
+<td>gamemode12
+</td><td>gamemode[], kiekis
+</td><td>Nustatomas pasirinktas gamemode bei kiekis, kiek kartų bus naudojamas šis gamemode.
+</td></tr>
+<tr>
+<td>gamemode13
+</td><td>gamemode[], kiekis
+</td><td>Nustatomas pasirinktas gamemode bei kiekis, kiek kartų bus naudojamas šis gamemode.
+</td></tr>
+<tr>
+<td>gamemode14
+</td><td>gamemode[], kiekis
+</td><td>Nustatomas pasirinktas gamemode bei kiekis, kiek kartų bus naudojamas šis gamemode.
+</td></tr>
+<tr>
+<td>gamemode15
+</td><td>gamemode[], kiekis
+</td><td>Nustatomas pasirinktas gamemode bei kiekis, kiek kartų bus naudojamas šis gamemode.
+</td></tr>
+<tr style="background-color: #DBD7D8; color: #000;">
+<td>incar_rate
+</td><td>rate
+</td><td>Minimalus milisekundžių kiekis, per kurį žaidėjo informacija siunčiama serveriui kuomet jis būna tranporto priemonėje.
+</td></tr>
+<tr style="background-color: #DBD7D8; color: #000;">
+<td>onfoot_rate
+</td><td>rate
+</td><td>Minimalus milisekundžių kiekis, per kurį žaidėjo informacija siunčiama serveriui kuomet jis nėra tranporto priemonėje.
+</td></tr>
+<tr style="background-color: #DBD7D8; color: #000;">
+<td>weapon_rate
+</td><td>rate
+</td><td>Minimalus milisekundžių kiekis, per kurį žaidėjo informacija siunčiama serveriui kuomet jis naudojasi ginklais.
+</td></tr>
+<tr>
+<td>stream_distance
+</td><td>atstumas
+</td><td>Atstumas dvimatėje plokštumoje, kuriam esant tarp prisijungusių žaidėjų bus atnaujinama žaidėjų informacija.
+</td></tr>
+<tr>
+<td>stream_rate
+</td><td>rate
+</td><td>Milisekundžių kiekis, kuris turi praeiti kol tikrins stream_distance atstumą su atstumu esančių tarp žaidėjų.
+</td></tr>
+<tr>
+<td>lanmode
+</td><td>0 arba 1
+</td><td>Pakeiča lanmode rėžimą. 0 - išjungia, 1 - įjungia.
+</td></tr>
+<tr>
+<td>maxnpc
+</td><td>npc_kiekis
+</td><td>Nustato maksimalų leistiną NPC kiekį serveryje.
+</td></tr>
+<tr style="background-color: #DBD7D8; color: #000;">
+<td>max_players
+</td><td>žaidėjų_kiekis
+</td><td>Nustato maksimalų leistiną žaidėjų kiekį serveryje.
+</td></tr>
+<tr>
+<td>password
+</td><td>slaptažodis[]
+</td><td>Nustatomas slaptažodis, kurį reikės įvesti norint prisijungti į serverį.
+</td></tr>
+<tr style="background-color: #DBD7D8; color: #000;">
+<td>plugins
+</td><td>plugin'ai[]
+</td><td>Serverio naudojamų plugin'ų sąrašas.
+</td></tr>
+<tr>
+<td>rcon
+</td><td>0 arba 1
+</td><td>Nustatomas nuotolinio serverio valdymo galimybė. 0 - išjungia, 1 - įjungta.
+</td></tr>
+<tr style="background-color: #FCD4DE; color: #000;">
+<td>version
+</td><td>tekstas[]
+</td><td>Serverio versija.
+</td></tr>
+<tr>
+<td>weburl
+</td><td>adresas[]
+</td><td>Pakeičiamas serverio internetinis puslapis į įvestąjį.
+</td></tr>
+<tr>
+<td>worldtime
+</td><td>laikas
+</td><td>Nustatomas globalus serverio laikas į įvestąjį.
+</td></tr>
+<tr>
+<td>timestamp
+</td><td>0 arba 1
+</td><td>1 - įjungiamas laiko žymeklis prie kiekvieno įrašo server_log byloje, 0 - išjungiamas.
+</td></tr>
+<tr style="background-color: #DBD7D8; color: #000;">
+<td>nosign
+</td><td>tekstas[]
+</td><td>Reikšmė nežinoma.
+</td></tr>
+<tr>
+<td>myriad
+</td><td>0 arba 1
+</td><td>Reikšmė nežinoma.
+</td></tr>
+<tr>
+<td>query
+</td><td>0 arba 1
+</td><td>0 - išjungiamas galimas jungimasis prie serverio (dvipusis ryšys - angl. „socket connection“), 1 - ryšys įgalinamas.
+</td></tr>
+<tr>
+<td>logqueries
+</td><td>0 arba 1
+</td><td>1 - įjungiamas jungimųsi prie serverio fiksavimas, 0 - išjungiamas. Įjungus šį parametrą, bus parodomi visi prisijungimai prie serverio aprašyti prie aukščiau esančio kintamojo „query“.
+</td></tr>
+<tr>
+<td>sleep
+</td><td>kintamasis
+</td><td>Laiko tarpas tarp serverio vykdomų procesų, per kurį serveris nieko nevykdo. Naudojant didesnę reikšmę, serveriui prireiks mažiau išteklių, kadangi procesai vyks rečiau, tačiau dėl to kentės žaidimo kokybė. Naudojant mažesnę reikšmę, serveris sunaudos daugiau resursų, tačiau pagerės serverio darbas, visi jo vykdomi procesai taps tikslesni.
+</td></tr>
+<tr>
+<td>output
+</td><td>0 arba 1
+</td><td>1 -&nbsp;?, 0 -&nbsp;?.Šis nustatymas neturi įtakos, jei serveris veikia Windows platformoje.
+</td></tr></table></center>
+<p>Nuo SA-MP 0.3c R2 versijos galimos komandos: 
+<center>
+</p>
+<table width="100%" class="wikitable">
+
+<tr>
+<th width="20%">Komanda
+</th><th width="20%">Parametrai
+</th><th width="60%">Veiksmas
+</th></tr>
+<tr>
+<td>logtimeformat
+</td><td>datos_formatas[]
+</td><td>Nustato datos formatą, ties kiekvienu sakiniu server_log byloje. Pavyzdžiui nustačius reikšmę į "[%Y/%m/%d/ %H:%M:%S]", data bus atvaizduojama taip: "[metai/mėnuo/diena/ valanda:minutė:sekundė]".
+</td></tr></table></center>
+<p>Nuo SA-MP 0.3e R2 versijos galimos komandos: 
+<center>
+</p>
+<table width="100%" class="wikitable">
+<tr>
+<th width="20%">Komanda
+</th><th width="20%">Parametrai
+</th><th width="60%">Veiksmas
+</th></tr>
+<tr>
+<td>chatlogging
+</td><td>reikšmė
+</td><td>Kontroliuojamas pokalbių lango pranešimų saugojimą į „server_log.txt“ bylą. 1 - žinutės bus įrašomos į bylą, 0 - nebus.
+</td></tr></table></center>
+<p><center>
+</p>
+<table width="40%" class="wikitable">
+
+<tr>
+<th>Reikšmė
+</th></tr>
+<tr>
+<td>Šio parametro naudojamo serveris neriboja.
+</td></tr>
+<tr style="background-color: #DBD7D8; color: #000;">
+<td>Šio parametro keisti negalima, jei serveris aktyvus.
+</td></tr>
+<tr style="background-color: #FCD4DE; color: #000;">
+<td>Šio parametro keisti negalima.
+</td></tr></table></center>
+<p>Serverio nustatymai, kurie nebeegzistuoja dabartinėje SA-MP <b>0.3e R2</b> versijoje:
+</p><p><center>
+</p>
+<table width="100%" class="wikitable">
+<tr>
+<th width="15%">Komanda
+</th><th width="15%">Parametrai
+</th><th width="60%">Veiksmas
+</th><th width="10%">Panaikinta
+</th></tr>
+<tr>
+<td>anticheat
+</td><td>0 arba 1
+</td><td>1 - nurodoma, jog serveris turi naudoti apsaugos priemones, 0 - apsaugos priemonės nenaudojamos.
+</td><td>0.2.2 R3
+</td></tr>
+<tr>
+<td>instagib
+</td><td>0 arba 1
+</td><td>Nurodo, ar žaidėjas turi mirti peršautas nuo vienos kulkos. 1 - ypatybė įjungiama, 0 - išjungiama.
+</td><td>0.3
+</td></tr>
+<tr>
+<td>incar_rate_idle
+</td><td>rate
+</td><td>Reikšmė nežinoma. Šis nustatymas egzistavo tik SA-MP <b>0.2.5</b> versijoje, kurios oficialaus išleidimo nebuvo.
+</td><td>n/a
+</td></tr>
+<tr>
+<td>onfoot_rate_idle
+</td><td>rate
+</td><td>Reikšmė nežinoma. Šis nustatymas egzistavo tik SA-MP <b>0.2.5</b> versijoje, kurios oficialaus išleidimo nebuvo.
+</td><td>n/a
+</td></tr>
+<tr>
+<td>density_multiplier
+</td><td>multiplier
+</td><td>Reikšmė nežinoma. Šis nustatymas egzistavo tik SA-MP <b>0.2.5</b> versijoje, kurios oficialaus išleidimo nebuvo.
+</td><td>n/a
+</td></tr></table></center>
+<p>Daugumą šių nustatymų galite kontroliuoti tekstinėje byloje <i>server</i> su plėtiniu cfg. Atsidarykite jį ir prie norimos komandos parašykite jums reikalingą reikšmę. Jei byloje nėra jums reikiamos komandos, tuomet ją įrašykite naujoje eilutėje. 
+</p><p>Kitas būdas valdyti serverį - tai serverio valdymas per nuotolį (ang. remote console). Šis įrankis yra jūsų GTA San Andreas žaidimo pagrindiniame aplanke bei pačioje SA-MP kliento programoje. 
+</p><p>Šiuo metu RCON įrankis nėra įdiegtas pačiame kliente, todėl norėdami jį pasileisti turite jo paleidimą atlikti rankiniu būdu. Jei apie tai nenusimanote, patariame pasinaudoti vienu iš šių skriptų ( daugiau informacijos apie jį surasite paspaudę atitinkamą nuorodą ):
+</p><p><center>
+</p>
+<table width="40%" class="wikitable">
+
+<tr>
+<th width="70%">Failas
+</th><th>Autorius
+</th></tr>
+<tr>
+<td><a href="http://forum.sa-mp.com/showthread.php?t=175939" class='external text' title="http://forum.sa-mp.com/showthread.php?t=175939" rel="nofollow">Bat RCON Tool</a>
+</td><td><a href="http://forum.sa-mp.com/member.php?u=22349" class='external text' title="http://forum.sa-mp.com/member.php?u=22349" rel="nofollow">Mike Garber</a>
+</td></tr>
+<tr>
+<td><a href="http://forum.sa-mp.com/showthread.php?t=172450" class='external text' title="http://forum.sa-mp.com/showthread.php?t=172450" rel="nofollow">RCON remote console starter</a>
+</td><td><a href="http://forum.sa-mp.com/member.php?u=70717" class='external text' title="http://forum.sa-mp.com/member.php?u=70717" rel="nofollow">Kwarde</a>
+</td></tr></table></center>
+<a name="Gamemode_nustatymas"></a><h2> Gamemode nustatymas </h2>
+<p>Dabar pabandysime paleisti konkretų gamemode serveryje.
+</p><p>Pirmiausia atsidarykite savo serverio pagrindinį aplanką bei suraskite jame <i>gamemodes</i> aplanką. Atidarę jį jau turėtumėte matyti keletą failų. Tai gamemode failai. Norint, jog serveris taisyklingai paleistų gamemode'ą, aplanke turi būti leidžiamo gamemode'o failas su amx plėtiniu. Taigi... Į aplanką <i>gamemodes</i> įkelkite norimo gamemode amx failą.
+</p><p>Įkėlę failą gryžkite į pagrindinį serverio aplanką ir atidarykite nustatymų failą <i>server.cfg</i>. Jame susiradę eilutę <i>gamemode0</i> prie jos prirašykite leidžiamo gamemode'o failo pavadinimą. Mano atveju tai bus:
+</p>
+<pre>gamemode0 lvdm 1</pre>
+<p>Primenu, jog "1" reiškia šio gamemode'o paleidimo kartus.
+</p><p>Uždarykite šią bylą išsaugoję pakeitimus. Dabar galite įjungti serverį ir išbandyti norimą gamemode'ą.
+</p>
+<a name="Filterscript.27.C5.B3_kontroliavimas"></a><h2> Filterscript'ų kontroliavimas </h2>
+<p>Filterscript'ai valdomi taippat kaip gamemode'ai. 
+</p><p>Norėdami paleisti filtersctipt'ą, pirmiausia atidarykite serverio aplanke esantį aplanką - <i>filterscripts</i>. Tai aplankasm kuriame turės būti laikomi filterscript'ų failai su amx plėtiniu.
+</p><p>Susiradę norimą filterscript'ą, įkelkite jo amx failą į nurodytą katalogą ir atsidarykite <i>server.cfg</i> bylą. Joje susiraskite eilutę <i>filterscripts</i>. Prie jos prirašykite naudojamo filterscript'o failo pavadinimą.
+</p><p>Pavyzdys:
+</p>
+<pre>filterscripts adminspec</pre>
+<p>Norėdami prie serverio prijungti daugiau filterscriptų, jų pavadinimus atskirkite tarpo simboliu. Tik neužmirškite jog maksimalus filterscriptų kiekis yra 16.
+</p><p>Jei serveriui veikiant užsimanysite atjungti filtersctipt'ą, tuomet jums reikės serverio konsolėje pasinaudoti komanda <i>unloadfs</i>.  Įvedė šią komandą prie jos parašykite norimo atjungti filterscript'o pavadinimą. Apie veiksmo sekmę jums praneš pats serveris:
+</p>
+<div class="center"><img src="http://wiki.gta-online.lt/images/7/7f/Filterscript_I3.png" alt="Filterscript_I3.png" /></div>
+<a name="Plugin.27.C5.B3_naudojimas"></a><h2> Plugin'ų naudojimas </h2>
+<p>SA-MP modifikacijoje yra galimybė prie serverio prijungti įvairius plugin'us, kurie atlieka tam tikrą paskirtį. Jų naudojimas nėra sudėtingas dalykas. Svarbiausia, jog plugin'o failai būtų serverio pagrindiniame aplanke esančiame <i>plugins</i> aplanke. 
+</p><p>Taigi norėdami prijungti kokį nors plugin'ą... Įkelkime jo failus į nurodytą aplanką. Svarbu nepamiršti, jog dažniausiai kiekvienai operacinei sistemai reikia turėti atskirus plugin'o failus. Įkėlę plugnio failus, atsidarykite serverio nustatymų tekstinę bylą <i>server.cfg</i> ir joje susiradę eilutę <i>plugins</i>, prie jos surašykite visus naudojamus pluginus. Štai ir viskas. Paleidus serverį, automatiškai bus paleistas ir pluginas.
+</p><div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/Serverio_Veikimas.html">http://localhost../wiki/Serverio_Veikimas.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="Category_Serverio_Dokumentacija.html" title="Category:Serverio Dokumentacija">Serverio Dokumentacija</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="Serverio_Veikimas.html">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="Talk_Serverio_Veikimas.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="Serverio_Veikimas.html">Edit</a></li>
+				 <li id="ca-history"><a href="Serverio_Veikimas.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 18,176 times.</li>
+				<li id="credits">This page was last modified 22:33, 2 January 2013 by SA-MP Wiki user User:. </li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 64.04 secs. -->
+</body></html>

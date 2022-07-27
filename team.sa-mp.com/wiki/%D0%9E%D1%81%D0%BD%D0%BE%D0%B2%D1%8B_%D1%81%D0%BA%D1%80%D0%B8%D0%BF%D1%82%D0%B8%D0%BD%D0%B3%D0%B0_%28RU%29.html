@@ -1,0 +1,350 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Основы скриптинга (RU),Главная страница,Плагины сервера,Tutorials RU,Автовызываемые функции,Боты,Функции скриптинга" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>Основы скриптинга (RU) - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Основы скриптинга (RU)</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<div class="scripting" style="color: #4378A4; background-color: #FFFFFF; margin: 2px; margin-bottom: 10px;"><div align="center" style="border: 1px solid #AAAAAA; padding: 3px; padding-left: 5px;"><a href="%25D0%2593%25D0%25BB%25D0%25B0%25D0%25B2%25D0%25BD%25D0%25B0%25D1%258F_%25D1%2581%25D1%2582%25D1%2580%25D0%25B0%25D0%25BD%25D0%25B8%25D1%2586%25D0%25B0.html" title="Главная страница">Главная страница</a> | <strong>Основы скриптинга</strong> | <a href="Category_%25D0%25A4%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0.html" title="Category:Функции скриптинга">Функции скриптинга</a> | <a href="Category_%25D0%2590%25D0%25B2%25D1%2582%25D0%25BE%25D0%25B2%25D1%258B%25D0%25B7%25D1%258B%25D0%25B2%25D0%25B0%25D0%25B5%25D0%25BC%25D1%258B%25D0%25B5_%25D1%2584%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8.html" title="Category:Автовызываемые функции">Автовызываемые функции</a> | <a href="Category_%25D0%2591%25D0%25BE%25D1%2582%25D1%258B.html" title="Category:Боты">Боты</a> | <a href="Category_Tutorials_RU.html" title="Category:Tutorials RU">Учебники</a> | <a href="%25D0%259F%25D0%25BB%25D0%25B0%25D0%25B3%25D0%25B8%25D0%25BD%25D1%258B_%25D1%2581%25D0%25B5%25D1%2580%25D0%25B2%25D0%25B5%25D1%2580%25D0%25B0.html" title="Плагины сервера">Плагины</a></div></div><br />
+<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class='toclevel-1'><a href="#.D0.9E.D1.81.D0.BD.D0.BE.D0.B2.D1.8B_.D1.81.D0.BA.D1.80.D0.B8.D0.BF.D1.82.D0.B8.D0.BD.D0.B3.D0.B0"><span class="tocnumber">1</span> <span class="toctext">Основы скриптинга</span></a></li>
+<li class='toclevel-1'><a href="#.D0.A2.D0.B8.D0.BF.D1.8B_.D0.BF.D0.B5.D1.80.D0.B5.D0.BC.D0.B5.D0.BD.D0.BD.D1.8B.D1.85"><span class="tocnumber">2</span> <span class="toctext">Типы переменных</span></a>
+<ul>
+<li class='toclevel-2'><a href="#.D0.A6.D0.B5.D0.BB.D0.BE.D1.87.D0.B8.D1.81.D0.BB.D0.B5.D0.BD.D0.BD.D1.8B.D0.B9_.D1.82.D0.B8.D0.BF"><span class="tocnumber">2.1</span> <span class="toctext">Целочисленный тип</span></a>
+<ul>
+<li class='toclevel-3'><a href="#.D0.9F.D1.80.D0.B8.D0.BC.D0.B5.D1.80"><span class="tocnumber">2.1.1</span> <span class="toctext">Пример</span></a></li>
+<li class='toclevel-3'><a href="#.D0.92.D0.BE.D0.B7.D0.BC.D0.BE.D0.B6.D0.BD.D0.BE.D0.B5_.D0.B8.D1.81.D0.BF.D0.BE.D0.BB.D1.8C.D0.B7.D0.BE.D0.B2.D0.B0.D0.BD.D0.B8.D0.B5"><span class="tocnumber">2.1.2</span> <span class="toctext">Возможное использование</span></a></li>
+</ul>
+</li>
+<li class='toclevel-2'><a href="#.D0.92.D0.B5.D1.89.D0.B5.D1.81.D1.82.D0.B2.D0.B5.D0.BD.D0.BD.D1.8B.D0.B9_.D1.82.D0.B8.D0.BF"><span class="tocnumber">2.2</span> <span class="toctext">Вещественный тип</span></a>
+<ul>
+<li class='toclevel-3'><a href="#.D0.9F.D1.80.D0.B8.D0.BC.D0.B5.D1.80_2"><span class="tocnumber">2.2.1</span> <span class="toctext">Пример</span></a></li>
+<li class='toclevel-3'><a href="#.D0.92.D0.BE.D0.B7.D0.BC.D0.BE.D0.B6.D0.BD.D0.BE.D0.B5_.D0.B8.D1.81.D0.BF.D0.BE.D0.BB.D1.8C.D0.B7.D0.BE.D0.B2.D0.B0.D0.BD.D0.B8.D0.B5_2"><span class="tocnumber">2.2.2</span> <span class="toctext">Возможное использование</span></a></li>
+</ul>
+</li>
+<li class='toclevel-2'><a href="#.D0.A1.D1.82.D1.80.D0.BE.D0.BA.D0.B0"><span class="tocnumber">2.3</span> <span class="toctext">Строка</span></a>
+<ul>
+<li class='toclevel-3'><a href="#.D0.9F.D1.80.D0.B8.D0.BC.D0.B5.D1.80.D1.8B"><span class="tocnumber">2.3.1</span> <span class="toctext">Примеры</span></a></li>
+<li class='toclevel-3'><a href="#.D0.9E.D0.B1.D1.8B.D1.87.D0.BD.D0.BE.D0.B5_.D0.B8.D1.81.D0.BF.D0.BE.D0.BB.D1.8C.D0.B7.D0.BE.D0.B2.D0.B0.D0.BD.D0.B8.D0.B5"><span class="tocnumber">2.3.2</span> <span class="toctext">Обычное использование</span></a></li>
+<li class='toclevel-3'><a href="#.D0.92.D0.BE.D0.B7.D0.BC.D0.BE.D0.B6.D0.BD.D0.BE.D0.B5_.D0.B8.D1.81.D0.BF.D0.BE.D0.BB.D1.8C.D0.B7.D0.BE.D0.B2.D0.B0.D0.BD.D0.B8.D0.B5_3"><span class="tocnumber">2.3.3</span> <span class="toctext">Возможное использование</span></a></li>
+</ul>
+</li>
+<li class='toclevel-2'><a href="#.D0.9B.D0.BE.D0.B3.D0.B8.D1.87.D0.B5.D1.81.D0.BA.D0.B8.D0.B9_.D1.82.D0.B8.D0.BF"><span class="tocnumber">2.4</span> <span class="toctext">Логический тип</span></a>
+<ul>
+<li class='toclevel-3'><a href="#.D0.9F.D1.80.D0.B8.D0.BC.D0.B5.D1.80.D1.8B_2"><span class="tocnumber">2.4.1</span> <span class="toctext">Примеры</span></a></li>
+<li class='toclevel-3'><a href="#.D0.92.D0.BE.D0.B7.D0.BC.D0.BE.D0.B6.D0.BD.D0.BE.D0.B5_.D0.B8.D1.81.D0.BF.D0.BE.D0.BB.D1.8C.D0.B7.D0.BE.D0.B2.D0.B0.D0.BD.D0.B8.D0.B5_4"><span class="tocnumber">2.4.2</span> <span class="toctext">Возможное использование</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#.D0.9C.D0.B0.D1.81.D1.81.D0.B8.D0.B2"><span class="tocnumber">3</span> <span class="toctext">Массив</span></a>
+<ul>
+<li class='toclevel-2'><a href="#.D0.9E.D0.B4.D0.BD.D0.BE.D0.BC.D0.B5.D1.80.D0.BD.D1.8B.D0.B9_.D0.BC.D0.B0.D1.81.D1.81.D0.B8.D0.B2"><span class="tocnumber">3.1</span> <span class="toctext">Одномерный массив</span></a>
+<ul>
+<li class='toclevel-3'><a href="#.D0.9F.D1.80.D0.B8.D0.BC.D0.B5.D1.80_3"><span class="tocnumber">3.1.1</span> <span class="toctext">Пример</span></a></li>
+<li class='toclevel-3'><a href="#.D0.92.D0.BE.D0.B7.D0.BC.D0.BE.D0.B6.D0.BD.D0.BE.D0.B5_.D0.B8.D1.81.D0.BF.D0.BE.D0.BB.D1.8C.D0.B7.D0.BE.D0.B2.D0.B0.D0.BD.D0.B8.D0.B5_5"><span class="tocnumber">3.1.2</span> <span class="toctext">Возможное использование</span></a></li>
+</ul>
+</li>
+<li class='toclevel-2'><a href="#.D0.94.D0.B2.D1.83.D0.BC.D0.B5.D1.80.D0.BD.D1.8B.D0.B9_.D0.BC.D0.B0.D1.81.D1.81.D0.B8.D0.B2"><span class="tocnumber">3.2</span> <span class="toctext">Двумерный массив</span></a>
+<ul>
+<li class='toclevel-3'><a href="#.D0.9F.D1.80.D0.B8.D0.BC.D0.B5.D1.80_4"><span class="tocnumber">3.2.1</span> <span class="toctext">Пример</span></a></li>
+<li class='toclevel-3'><a href="#.D0.92.D0.BE.D0.B7.D0.BC.D0.BE.D0.B6.D0.BD.D0.BE.D0.B5_.D0.B8.D1.81.D0.BF.D0.BE.D0.BB.D1.8C.D0.B7.D0.BE.D0.B2.D0.B0.D0.BD.D0.B8.D0.B5_6"><span class="tocnumber">3.2.2</span> <span class="toctext">Возможное использование</span></a></li>
+</ul>
+</li>
+<li class='toclevel-2'><a href="#.D0.A2.D1.80.D0.B5.D1.85.D0.BC.D0.B5.D1.80.D0.BD.D1.8B.D0.B9_.D0.BC.D0.B0.D1.81.D1.81.D0.B8.D0.B2_-_.D1.81.D1.82.D1.80.D0.BE.D0.BA.D0.B0_.D0.B4.D0.B2.D1.83.D0.BC.D0.B5.D1.80.D0.BD.D1.8B.D1.85_.D0.BC.D0.B0.D1.81.D1.81.D0.B8.D0.B2.D0.BE.D0.B2"><span class="tocnumber">3.3</span> <span class="toctext">Трехмерный массив - строка двумерных массивов</span></a>
+<ul>
+<li class='toclevel-3'><a href="#.D0.A1.D1.82.D1.80.D0.BE.D0.BA.D0.B0_.D0.B4.D0.B2.D1.83.D0.BC.D0.B5.D1.80.D0.BD.D1.8B.D1.85_.D0.BC.D0.B0.D1.81.D1.81.D0.B8.D0.B2.D0.BE.D0.B2"><span class="tocnumber">3.3.1</span> <span class="toctext">Строка двумерных массивов</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#.D0.A3.D1.81.D0.BB.D0.BE.D0.B2.D0.BD.D1.8B.D0.B5_.D0.BA.D0.BE.D0.BD.D1.81.D1.82.D1.80.D1.83.D0.BA.D1.86.D0.B8.D0.B8"><span class="tocnumber">4</span> <span class="toctext">Условные конструкции</span></a>
+<ul>
+<li class='toclevel-2'><a href="#if.2Felse"><span class="tocnumber">4.1</span> <span class="toctext">if/else</span></a>
+<ul>
+<li class='toclevel-3'><a href="#.D0.9E.D0.BF.D0.B5.D1.80.D0.B0.D1.82.D0.BE.D1.80.D1.8B_.D1.81.D1.80.D0.B0.D0.B2.D0.BD.D0.B5.D0.BD.D0.B8.D1.8F"><span class="tocnumber">4.1.1</span> <span class="toctext">Операторы сравнения</span></a></li>
+<li class='toclevel-3'><a href="#.D0.9F.D1.80.D0.B8.D0.BC.D0.B5.D1.80_5"><span class="tocnumber">4.1.2</span> <span class="toctext">Пример</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%259E%25D1%2581%25D0%25BD%25D0%25BE%25D0%25B2%25D1%258B_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0_%2528RU%2529.html" title="Edit section: Основы скриптинга">edit</a>]</div><a name=".D0.9E.D1.81.D0.BD.D0.BE.D0.B2.D1.8B_.D1.81.D0.BA.D1.80.D0.B8.D0.BF.D1.82.D0.B8.D0.BD.D0.B3.D0.B0"></a><h1 class="firstheading" style="position:absolute; top:0px; background:#FFF; width:95%;">Основы скриптинга</h1>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%259E%25D1%2581%25D0%25BD%25D0%25BE%25D0%25B2%25D1%258B_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0_%2528RU%2529.html" title="Edit section: Типы переменных">edit</a>]</div><a name=".D0.A2.D0.B8.D0.BF.D1.8B_.D0.BF.D0.B5.D1.80.D0.B5.D0.BC.D0.B5.D0.BD.D0.BD.D1.8B.D1.85"></a><h1>Типы переменных</h1>
+<p>Переменные - это места, куда вы можете хранить данные. В PAWN имена переменных чувствительны к регистру, поэтому переменная "lolhax" не то же самое, что и "LOLHAX" или "lOLhAx" к примеру; имена переменных должны также начинаться с буквы алфавита (A-Z)
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%259E%25D1%2581%25D0%25BD%25D0%25BE%25D0%25B2%25D1%258B_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0_%2528RU%2529.html" title="Edit section: Целочисленный тип">edit</a>]</div><a name=".D0.A6.D0.B5.D0.BB.D0.BE.D1.87.D0.B8.D1.81.D0.BB.D0.B5.D0.BD.D0.BD.D1.8B.D0.B9_.D1.82.D0.B8.D0.BF"></a><h2>Целочисленный тип</h2>
+<p>Этот тип переменной по умолчанию, он используется для хранения целых чисел. Вы не должны использовать числа с десятичной точкой, так как они не целые числа, даже в том случае, когда числа после десятичной точки - все нули (например, 5.00), все равно это технически не целое число.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%259E%25D1%2581%25D0%25BD%25D0%25BE%25D0%25B2%25D1%258B_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0_%2528RU%2529.html" title="Edit section: Пример">edit</a>]</div><a name=".D0.9F.D1.80.D0.B8.D0.BC.D0.B5.D1.80"></a><h3>Пример</h3>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new integer = 1337; // Объявляет новую целочисленную переменную с именем &quot;integer&quot; и устанавливает ее значение в &quot;1337&quot;.<br />
+new integer; // Объявляет новую целочисленную переменную с именем &quot;integer&quot; с автоматическим значением &quot;0&quot;.</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%259E%25D1%2581%25D0%25BD%25D0%25BE%25D0%25B2%25D1%258B_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0_%2528RU%2529.html" title="Edit section: Возможное использование">edit</a>]</div><a name=".D0.92.D0.BE.D0.B7.D0.BC.D0.BE.D0.B6.D0.BD.D0.BE.D0.B5_.D0.B8.D1.81.D0.BF.D0.BE.D0.BB.D1.8C.D0.B7.D0.BE.D0.B2.D0.B0.D0.BD.D0.B8.D0.B5"></a><h3>Возможное использование</h3>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">if(integer == 1337) { /* Сделать что-либо */ }</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%259E%25D1%2581%25D0%25BD%25D0%25BE%25D0%25B2%25D1%258B_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0_%2528RU%2529.html" title="Edit section: Вещественный тип">edit</a>]</div><a name=".D0.92.D0.B5.D1.89.D0.B5.D1.81.D1.82.D0.B2.D0.B5.D0.BD.D0.BD.D1.8B.D0.B9_.D1.82.D0.B8.D0.BF"></a><h2>Вещественный тип</h2>
+<p>Переменные вещественного типа могут хранить десятичные числа, так называемые числа "с плавающей точкой".
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%259E%25D1%2581%25D0%25BD%25D0%25BE%25D0%25B2%25D1%258B_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0_%2528RU%2529.html" title="Edit section: Пример">edit</a>]</div><a name=".D0.9F.D1.80.D0.B8.D0.BC.D0.B5.D1.80_2"></a><h3>Пример</h3>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new Float:float; // Объявляет новую пустую вещественную переменную с именем &quot;float&quot;.<br />
+new Float:float = 2.0; // Объявляет новую вещественную переменную с именем &quot;float&quot; и устанавливает ее значение в &quot;2.0&quot;.</span><br /></div>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%259E%25D1%2581%25D0%25BD%25D0%25BE%25D0%25B2%25D1%258B_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0_%2528RU%2529.html" title="Edit section: Возможное использование">edit</a>]</div><a name=".D0.92.D0.BE.D0.B7.D0.BC.D0.BE.D0.B6.D0.BD.D0.BE.D0.B5_.D0.B8.D1.81.D0.BF.D0.BE.D0.BB.D1.8C.D0.B7.D0.BE.D0.B2.D0.B0.D0.BD.D0.B8.D0.B5_2"></a><h3>Возможное использование</h3>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">SetPlayerPos(playerid, float, 2.0, 1400.0);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%259E%25D1%2581%25D0%25BD%25D0%25BE%25D0%25B2%25D1%258B_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0_%2528RU%2529.html" title="Edit section: Строка">edit</a>]</div><a name=".D0.A1.D1.82.D1.80.D0.BE.D0.BA.D0.B0"></a><h2>Строка</h2>
+<p>Строки - это места для хранения символов (букв и/или символов). Строки должны быть помещены в массив, так что каждая ячейка может содержать букву, вы должны указать экстра-ячейку для идентификатора строки - "0".
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%259E%25D1%2581%25D0%25BD%25D0%25BE%25D0%25B2%25D1%258B_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0_%2528RU%2529.html" title="Edit section: Примеры">edit</a>]</div><a name=".D0.9F.D1.80.D0.B8.D0.BC.D0.B5.D1.80.D1.8B"></a><h3>Примеры</h3>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new string[7] = &quot;String&quot;; // 7 - это число ячеек, необходимых для хранения каждой буквы в строке, в том числе и идентификатора.<br />
+<p>new string[7];<br />
+string[0] = 'S';<br />
+string[1] = 't';<br />
+string[2] = 'r';<br />
+string[3] = 'i';<br />
+string[4] = 'n';<br />
+string[5] = 'g';<br />
+</p>
+string[6] = 0;</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%259E%25D1%2581%25D0%25BD%25D0%25BE%25D0%25B2%25D1%258B_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0_%2528RU%2529.html" title="Edit section: Обычное использование">edit</a>]</div><a name=".D0.9E.D0.B1.D1.8B.D1.87.D0.BD.D0.BE.D0.B5_.D0.B8.D1.81.D0.BF.D0.BE.D0.BB.D1.8C.D0.B7.D0.BE.D0.B2.D0.B0.D0.BD.D0.B8.D0.B5"></a><h3>Обычное использование</h3>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new string[255];</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%259E%25D1%2581%25D0%25BD%25D0%25BE%25D0%25B2%25D1%258B_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0_%2528RU%2529.html" title="Edit section: Возможное использование">edit</a>]</div><a name=".D0.92.D0.BE.D0.B7.D0.BC.D0.BE.D0.B6.D0.BD.D0.BE.D0.B5_.D0.B8.D1.81.D0.BF.D0.BE.D0.BB.D1.8C.D0.B7.D0.BE.D0.B2.D0.B0.D0.BD.D0.B8.D0.B5_3"></a><h3>Возможное использование</h3>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">SendClientMessage(playerid, 0xFFFFFFAA, string);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%259E%25D1%2581%25D0%25BD%25D0%25BE%25D0%25B2%25D1%258B_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0_%2528RU%2529.html" title="Edit section: Логический тип">edit</a>]</div><a name=".D0.9B.D0.BE.D0.B3.D0.B8.D1.87.D0.B5.D1.81.D0.BA.D0.B8.D0.B9_.D1.82.D0.B8.D0.BF"></a><h2>Логический тип</h2>
+<p>Используется для результатов "истина" (true) или "ложь" (false). True эквивалентен "1" и false эквивалентен "0", новые переменные этого типа автоматически принимают значение false.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%259E%25D1%2581%25D0%25BD%25D0%25BE%25D0%25B2%25D1%258B_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0_%2528RU%2529.html" title="Edit section: Примеры">edit</a>]</div><a name=".D0.9F.D1.80.D0.B8.D0.BC.D0.B5.D1.80.D1.8B_2"></a><h3>Примеры</h3>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new bool:boolname;</span><br /></div>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%259E%25D1%2581%25D0%25BD%25D0%25BE%25D0%25B2%25D1%258B_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0_%2528RU%2529.html" title="Edit section: Возможное использование">edit</a>]</div><a name=".D0.92.D0.BE.D0.B7.D0.BC.D0.BE.D0.B6.D0.BD.D0.BE.D0.B5_.D0.B8.D1.81.D0.BF.D0.BE.D0.BB.D1.8C.D0.B7.D0.BE.D0.B2.D0.B0.D0.BD.D0.B8.D0.B5_4"></a><h3>Возможное использование</h3>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">if(boolname == true) { /* Сделать что-либо */ }</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%259E%25D1%2581%25D0%25BD%25D0%25BE%25D0%25B2%25D1%258B_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0_%2528RU%2529.html" title="Edit section: Массив">edit</a>]</div><a name=".D0.9C.D0.B0.D1.81.D1.81.D0.B8.D0.B2"></a><h1>Массив</h1>
+<p>Массивы - это большие места для хранения данных, виртуальные таблицы. Вы можете иметь одномерные и многомерные массивы. Вам нужно создать новый массив вещественного или логического типа так же, как вы создаете переменные, не массивы, использую предопределенные имена тегов (bool:, Float:).
+</p><p><b>Заметьте, что в массиве вы НЕ МОЖЕТЕ использовать последний столбец или линию</b>
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%259E%25D1%2581%25D0%25BD%25D0%25BE%25D0%25B2%25D1%258B_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0_%2528RU%2529.html" title="Edit section: Одномерный массив">edit</a>]</div><a name=".D0.9E.D0.B4.D0.BD.D0.BE.D0.BC.D0.B5.D1.80.D0.BD.D1.8B.D0.B9_.D0.BC.D0.B0.D1.81.D1.81.D0.B8.D0.B2"></a><h2>Одномерный массив</h2>
+<p>Одномерный массив - это один столбец, разбитый на указанное число ячеек.
+</p>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new onedimensionalarray[CELLS];</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%259E%25D1%2581%25D0%25BD%25D0%25BE%25D0%25B2%25D1%258B_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0_%2528RU%2529.html" title="Edit section: Пример">edit</a>]</div><a name=".D0.9F.D1.80.D0.B8.D0.BC.D0.B5.D1.80_3"></a><h3>Пример</h3>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new onedimensionarray[5] = {4, 6, 7, 9, 2}; // &quot;5&quot;, написанная в [], указывает, сколько ячеек выделено для хранения данных.</span><br /></div>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%259E%25D1%2581%25D0%25BD%25D0%25BE%25D0%25B2%25D1%258B_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0_%2528RU%2529.html" title="Edit section: Возможное использование">edit</a>]</div><a name=".D0.92.D0.BE.D0.B7.D0.BC.D0.BE.D0.B6.D0.BD.D0.BE.D0.B5_.D0.B8.D1.81.D0.BF.D0.BE.D0.BB.D1.8C.D0.B7.D0.BE.D0.B2.D0.B0.D0.BD.D0.B8.D0.B5_5"></a><h3>Возможное использование</h3>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new randomnumber = random(sizeof(onedimensionalarray)); // Получает случайное число для ячейки.<br />
+printf(&quot;Random number is: %d&quot;, onedimensionalarray[random]); // Использует случайное число для выбора ячейки.</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%259E%25D1%2581%25D0%25BD%25D0%25BE%25D0%25B2%25D1%258B_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0_%2528RU%2529.html" title="Edit section: Двумерный массив">edit</a>]</div><a name=".D0.94.D0.B2.D1.83.D0.BC.D0.B5.D1.80.D0.BD.D1.8B.D0.B9_.D0.BC.D0.B0.D1.81.D1.81.D0.B8.D0.B2"></a><h2>Двумерный массив</h2>
+<p>Двумерный массив позволяет вам иметь много строк и столбцов.
+</p>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new twodimensionalarray[ROWS][COLLUMNS];</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%259E%25D1%2581%25D0%25BD%25D0%25BE%25D0%25B2%25D1%258B_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0_%2528RU%2529.html" title="Edit section: Пример">edit</a>]</div><a name=".D0.9F.D1.80.D0.B8.D0.BC.D0.B5.D1.80_4"></a><h3>Пример</h3>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new Float:twodimensionarray[4][3] = {<br />
+<p>{3.0, 4.5, 5.76}, // Столбец номер 0<br />
+{10.85, 76.34, 23.54}, // Столбец номер 1<br />
+{2.32, 10.23, 80.2}, // Столбец номер 2<br />
+{6.6666, 45.3, 32.64} // Столбец номер 3<br />
+</p>
+};</span><br /></div>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%259E%25D1%2581%25D0%25BD%25D0%25BE%25D0%25B2%25D1%258B_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0_%2528RU%2529.html" title="Edit section: Возможное использование">edit</a>]</div><a name=".D0.92.D0.BE.D0.B7.D0.BC.D0.BE.D0.B6.D0.BD.D0.BE.D0.B5_.D0.B8.D1.81.D0.BF.D0.BE.D0.BB.D1.8C.D0.B7.D0.BE.D0.B2.D0.B0.D0.BD.D0.B8.D0.B5_6"></a><h3>Возможное использование</h3>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">SetPlayerPos(playerid, twodimensionalarray[2][2], twodimensionalarray[3][1], twodimensionalarray[2][0]);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%259E%25D1%2581%25D0%25BD%25D0%25BE%25D0%25B2%25D1%258B_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0_%2528RU%2529.html" title="Edit section: Трехмерный массив - строка двумерных массивов">edit</a>]</div><a name=".D0.A2.D1.80.D0.B5.D1.85.D0.BC.D0.B5.D1.80.D0.BD.D1.8B.D0.B9_.D0.BC.D0.B0.D1.81.D1.81.D0.B8.D0.B2_-_.D1.81.D1.82.D1.80.D0.BE.D0.BA.D0.B0_.D0.B4.D0.B2.D1.83.D0.BC.D0.B5.D1.80.D0.BD.D1.8B.D1.85_.D0.BC.D0.B0.D1.81.D1.81.D0.B8.D0.B2.D0.BE.D0.B2"></a><h2>Трехмерный массив - строка двумерных массивов</h2>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new treedimensionalarray[ROWS][COLLUMNS][Z];</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%259E%25D1%2581%25D0%25BD%25D0%25BE%25D0%25B2%25D1%258B_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0_%2528RU%2529.html" title="Edit section: Строка двумерных массивов">edit</a>]</div><a name=".D0.A1.D1.82.D1.80.D0.BE.D0.BA.D0.B0_.D0.B4.D0.B2.D1.83.D0.BC.D0.B5.D1.80.D0.BD.D1.8B.D1.85_.D0.BC.D0.B0.D1.81.D1.81.D0.B8.D0.B2.D0.BE.D0.B2"></a><h3>Строка двумерных массивов</h3>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new twodimensionalarraystring[ROWS][COLLUMNS][255]; // для строки в 256 байт</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%259E%25D1%2581%25D0%25BD%25D0%25BE%25D0%25B2%25D1%258B_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0_%2528RU%2529.html" title="Edit section: Условные конструкции">edit</a>]</div><a name=".D0.A3.D1.81.D0.BB.D0.BE.D0.B2.D0.BD.D1.8B.D0.B5_.D0.BA.D0.BE.D0.BD.D1.81.D1.82.D1.80.D1.83.D0.BA.D1.86.D0.B8.D0.B8"></a><h1>Условные конструкции</h1>
+<p>Условные конструкции позволяют Вам посмотреть, удовлетворяют ли данные условиям, а затем в зависимости от результата выполнить код. Наиболее распространенный тип условных конструкций - if/else-конструкция, но помимо нее есть много других:  case, цикл for и цикл while.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%259E%25D1%2581%25D0%25BD%25D0%25BE%25D0%25B2%25D1%258B_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0_%2528RU%2529.html" title="Edit section: if/else">edit</a>]</div><a name="if.2Felse"></a><h2> if/else </h2>
+<p>if/else-конструкции позволяют вам посмотреть, удовлетворяют ли данные условию при помощи операторов, и если это так, то выполнить код.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%259E%25D1%2581%25D0%25BD%25D0%25BE%25D0%25B2%25D1%258B_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0_%2528RU%2529.html" title="Edit section: Операторы сравнения">edit</a>]</div><a name=".D0.9E.D0.BF.D0.B5.D1.80.D0.B0.D1.82.D0.BE.D1.80.D1.8B_.D1.81.D1.80.D0.B0.D0.B2.D0.BD.D0.B5.D0.BD.D0.B8.D1.8F"></a><h3>Операторы сравнения</h3>
+<p>Операторы сравнения более всего используются в выражениях if/else; они проверяют соотношение между двумя наборами данных перед выполнением кода.
+</p>
+<table class="wikitable">
+
+<tr>
+<th>Оператор
+</th><th>Значение
+</th><th>Использование
+</th></tr>
+<tr>
+<td> ==
+</td><td> Левое равно правому
+</td><td> if(Left == Right)
+</td></tr>
+<tr>
+<td>!=
+</td><td> Левое не равно правому
+</td><td> if(Left&nbsp;!= Right)
+</td></tr>
+<tr>
+<td> &gt;
+</td><td> Левое больше, чем правое
+</td><td> if(Left &gt; Right)
+</td></tr>
+<tr>
+<td> &gt;=
+</td><td> Левое больше или равно правому
+</td><td> if(Left &gt;= Right)
+</td></tr>
+<tr>
+<td> &lt;
+</td><td> Левое меньше, чем правое
+</td><td> if(Left &lt; Right)
+</td></tr>
+<tr>
+<td> &lt;=
+</td><td> Левое меньше или равно правому
+</td><td> if(Left &lt;= Right)
+</td></tr></table>
+<table class="wikitable">
+
+<tr>
+<th>Оператор
+</th><th>Значение
+</th><th>Использование
+</th></tr>
+<tr>
+<td> &amp;&amp;
+</td><td> И
+</td><td> if(Left &amp;&amp; Right)
+</td></tr>
+<tr>
+<td>||
+</td><td> ИЛИ
+</td><td> if(Left || Right)
+</td></tr>
+<tr>
+<td>&nbsp;!
+</td><td> НЕ
+</td><td> if(!Variable)
+</td></tr>
+<tr>
+<td>
+</td><td> НЕ ИЛИ
+</td><td> if(!(Left || Right))
+</td></tr>
+<tr>
+<td>
+</td><td> НЕ И
+</td><td> if(!(Left &amp;&amp; Right))
+</td></tr>
+<tr>
+<td>
+</td><td> ИЛИ ИЛИ
+</td><td> if((Left &amp;&amp;&nbsp;!Right)||(!Left &amp;&amp; Right))
+</td></tr>
+<tr>
+<td>
+</td><td> НЕ ИЛИ ИЛИ
+</td><td> if(!((Left &amp;&amp;&nbsp;!Right)||(!Left &amp;&amp; Right)))
+</td></tr></table>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%259E%25D1%2581%25D0%25BD%25D0%25BE%25D0%25B2%25D1%258B_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0_%2528RU%2529.html" title="Edit section: Пример">edit</a>]</div><a name=".D0.9F.D1.80.D0.B8.D0.BC.D0.B5.D1.80_5"></a><h3>Пример</h3>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">if(lvalue &gt; rvalue) { /* Выполнить код */ }</span><br /></div>
+<p><br />
+В этом примере <b>если</b> условие между <i>lvalue</i> и <i>rvalue</i> истинно, выполнится код. Условие представляет собой - <b>если</b> <i>lvalue</i> больше, чем <i>rvalue</i>...
+</p><div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/%25D0%259E%25D1%2581%25D0%25BD%25D0%25BE%25D0%25B2%25D1%258B_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0_%2528RU%2529.html">http://localhost../wiki/%25D0%259E%25D1%2581%25D0%25BD%25D0%25BE%25D0%25B2%25D1%258B_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0_%2528RU%2529.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="Category_%25D0%2594%25D0%25BE%25D0%25BA%25D1%2583%25D0%25BC%25D0%25B5%25D0%25BD%25D1%2582%25D0%25B0%25D1%2586%25D0%25B8%25D1%258F_%25D0%25BF%25D0%25BE_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D1%2583.html" title="Category:Документация по скриптингу">Документация по скриптингу</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="%25D0%259E%25D1%2581%25D0%25BD%25D0%25BE%25D0%25B2%25D1%258B_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0_%2528RU%2529.html">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="Talk_%25D0%259E%25D1%2581%25D0%25BD%25D0%25BE%25D0%25B2%25D1%258B_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0_%2528RU%2529.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="%25D0%259E%25D1%2581%25D0%25BD%25D0%25BE%25D0%25B2%25D1%258B_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0_%2528RU%2529.html">Edit</a></li>
+				 <li id="ca-history"><a href="%25D0%259E%25D1%2581%25D0%25BD%25D0%25BE%25D0%25B2%25D1%258B_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0_%2528RU%2529.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-en"><a href="Scripting_Basics.html">English</a></li>
+				<li class="interwiki-de"><a href="Scripting_Basics_DE.html">Deutsch</a></li>
+				<li class="interwiki-nl"><a href="Scripting_Basics_NL.html">Nederlands</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 99,871 times.</li>
+				<li id="credits">This page was last modified 16:31, 22 March 2017 by SA-MP Wiki user <a href="User_OstGot.html" title="User:OstGot">OstGot</a>. Based on work by SA-MP Wiki user(s) <a href="User_MP2.html" title="User:MP2">MP2</a> and <a href="User_MX_Master.html" title="User:MX Master">MX Master</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 3.77 secs. -->
+</body></html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Windows Server HU,LAN,Server.cfg" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>Windows Server HU - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Windows Server HU</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class='toclevel-1'><a href="#Sz.C3.BCks.C3.A9ges:"><span class="tocnumber">1</span> <span class="toctext">Szükséges:</span></a></li>
+<li class='toclevel-1'><a href="#A_szerver_fel.C3.A1ll.C3.ADt.C3.A1sa"><span class="tocnumber">2</span> <span class="toctext">A szerver felállítása</span></a>
+<ul>
+<li class='toclevel-2'><a href="#Szerverf.C3.A1jlok_ment.C3.A9se"><span class="tocnumber">2.1</span> <span class="toctext">Szerverfájlok mentése</span></a></li>
+<li class='toclevel-2'><a href="#A_szerver_be.C3.A1ll.C3.ADt.C3.A1sa"><span class="tocnumber">2.2</span> <span class="toctext">A szerver beállítása</span></a></li>
+<li class='toclevel-2'><a href="#A_szerver_elind.C3.ADt.C3.A1sa"><span class="tocnumber">2.3</span> <span class="toctext">A szerver elindítása</span></a></li>
+<li class='toclevel-2'><a href="#LAN"><span class="tocnumber">2.4</span> <span class="toctext">LAN</span></a></li>
+</ul>
+</li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Windows_Server_HU.html" title="Edit section: Szükséges:">edit</a>]</div><a name="Sz.C3.BCks.C3.A9ges:"></a><h2> Szükséges: </h2>
+<ul><li> Internet hozzáférés (egy szerver, amin 100 játékos játszik, kb 4 Mbps feltöltési sebességet követel)
+</li><li> Egy forwarded UDP port (7777 az alapértelmezett) | <a href="http://www.portforward.com/" class='external text' title="http://www.portforward.com" rel="nofollow">Útmutató</a>
+</li><li> A statikus IP cím hasznos, de nem kötelező.
+</li></ul>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Windows_Server_HU.html" title="Edit section: A szerver felállítása">edit</a>]</div><a name="A_szerver_fel.C3.A1ll.C3.ADt.C3.A1sa"></a><h2> A szerver felállítása </h2>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Windows_Server_HU.html" title="Edit section: Szerverfájlok mentése">edit</a>]</div><a name="Szerverf.C3.A1jlok_ment.C3.A9se"></a><h3> Szerverfájlok mentése </h3>
+<p>Az első lépés a <b>samp szerver</b> felállításához a <b>Windows Server</b> letöltése a <a href="http://www.sa-mp.com/download.php" class='external text' title="http://www.sa-mp.com/download.php" rel="nofollow">SA-MP letöltési oldal</a> -ról. Itt található a legújabb verziója a <b>Windows Server</b>-nek, ehhez kattints a <b>Windows Server</b> linkre! Válassz egy letöltési tükröt, és mentsd el a fájlt!
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Windows_Server_HU.html" title="Edit section: A szerver beállítása">edit</a>]</div><a name="A_szerver_be.C3.A1ll.C3.ADt.C3.A1sa"></a><h3> A szerver beállítása </h3>
+<p>Ha letöltötted a fájlokat, tömörítsd ki őket. (pl. <a href="http://www.7-zip.org/" class='external text' title="http://www.7-zip.org" rel="nofollow">7-zip</a> használatával) A szervernek nincs szüksége telepítésre, sőt, még telepített SA-MP-re sem. A kicsomagolt állomány lesz a szerver.
+</p><p>Keresd meg a <a href="Server.cfg.html" title="Server.cfg">server.cfg</a> fájlt a szerver gyökérkönyvtárában, és nyisd meg egy szövegszerkesztővel! (jobb egérgomb > társítás > jegyzettömb) Ez a fájl tartalmazza a szervered adatait, pl. itt állíthatod be, hogy a szerver <b>lanmode</b>-ban fusson (<i>on</i> vagy <i>off</i>), hogy hányan jöhessenek fel (<b>max players</b>), a portot (<b>server port</b>), a host nevét (<b>host name</b>), a használt gamemodot(<b>game modes</b>), a filterszkripteket (<i><b>filterscripts*</b></i>), a szerver honlapját (<b>weburl</b>) és az rcon, vagy adminjelszót (<b>rcon password</b>). Ez alapértelmezett esetben "changeme", ezt meg kell változtatni, ellenkező esetben a szerver nem indul el.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Windows_Server_HU.html" title="Edit section: A szerver elindítása">edit</a>]</div><a name="A_szerver_elind.C3.ADt.C3.A1sa"></a><h3> A szerver elindítása </h3>
+<p>Miután végeztél a beállításokkal, elindíthatod a szervert. Kattints duplán a <b>samp-server.exe</b> fájlra, és a szerver fut.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Windows_Server_HU.html" title="Edit section: LAN">edit</a>]</div><a name="LAN"></a><h3> LAN </h3>
+<p><a href="LAN.html" title="LAN">Itt</a> található egy útmutató, ha LAN-ban szeretnél játszani.
+</p><div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/Windows_Server_HU.html">http://localhost../wiki/Windows_Server_HU.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="Category_Server_Documentation_HU.html" class="new" title="Category:Server Documentation HU">Server Documentation HU</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="Windows_Server_HU.html">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="Talk_Windows_Server_HU.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="Windows_Server_HU.html">Edit</a></li>
+				 <li id="ca-history"><a href="Windows_Server_HU.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-ru"><a href="Windows_Server_RU.html">Русский</a></li>
+				<li class="interwiki-de"><a href="Windows_Server_DE.html">Deutsch</a></li>
+				<li class="interwiki-nl"><a href="Windows_Server_NL.html">Nederlands</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 7,888 times.</li>
+				<li id="credits">This page was last modified 07:28, 13 February 2010 by SA-MP Wiki user User:. </li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 51.86 secs. -->
+</body></html>

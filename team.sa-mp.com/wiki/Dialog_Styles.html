@@ -1,0 +1,443 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Dialog Styles,Colors List,Game Object ID List,Limits,Main Page,OnDialogResponse,ShowPlayerDialog,Weapons,General Information,Skins,Textdraw" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>Dialog Styles - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Dialog Styles</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<div class="scripting" style="color: #4378A4; background-color: #FFFFFF; margin: 2px; margin-bottom: 10px;"><div align="center" style="border: 1px solid #AAAAAA; padding: 3px; padding-left: 5px;"><a href="../wiki-archive.html" title="Main Page">Main Page</a> | <a href="Category_General_Information.html" title="Category:General Information">General Information</a> | <a href="Category_Skins.html" title="Category:Skins">Skins</a> | <a href="Weapons.html" title="Weapons">Weapons</a> | <a href="Category_Vehicle.html" title="Category:Vehicle">Vehicle Models</a> | <a href="Category_Textdraw.html" title="Category:Textdraw">Textdraws</a> | <a href="Game_Object_ID_List.html" title="Game Object ID List">Object IDs</a></div></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+<p><strong>Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">
+<ul><li> In <a href="OnDialogResponse.html" title="OnDialogResponse">OnDialogResponse</a>, pressing <b>button1</b> sets <b>response</b> to <b>1</b>, while pressing <b>button2</b> sets <b>response</b> to <b>0</b>.
+</li><li> Every dialog can have an optional button 2. To make it disappear leave it empty, like in the first example. Players won't be able to click it, but they will be able to press ESC and trigger <a href="OnDialogResponse.html" title="OnDialogResponse">OnDialogResponse</a> with <b>response</b> = <b>0</b>.
+</li><li> <a href="ShowPlayerDialog.html" title="ShowPlayerDialog">ShowPlayerDialog</a>: <a href="Colors_List.html#Color_embedding" title="Colors List">Color embedding</a> can be used for every string: <b>caption</b>, <b>info</b>, <b>button1</b> and <b>button2</b>.</span>
+</li></ul>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<ul><li> This page describes the behavior of <a href="ShowPlayerDialog.html" title="ShowPlayerDialog">ShowPlayerDialog</a> and <a href="OnDialogResponse.html" title="OnDialogResponse">OnDialogResponse</a>.
+</li><li> For various limitations, visit the <a href="Limits.html" title="Limits">Limits</a> page.
+</li><li> For the response examples, this code will be used:
+</li></ul>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">public</span> OnDialogResponse<span style="color: #66cc66;">&#40;</span> playerid, dialogid, response, listitem, inputtext<span style="color: #66cc66;">&#91;</span> <span style="color: #66cc66;">&#93;</span> <span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span> <span style="color: #b22222;">&quot;playerid = %d, dialogid = YOUR_DIALOGID, response = %d, listitem = %d, inputtext = '%s' (size: %d)&quot;</span>, playerid, response, listitem, inputtext, <a href="http://wiki.sa-mp.com/wiki/strlen"><span style="color: #006400;">strlen</span></a><span style="color: #66cc66;">&#40;</span> inputtext <span style="color: #66cc66;">&#41;</span> <span style="color: #66cc66;">&#41;</span>;
+    <span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Dialog_Styles.html" title="Edit section: Style 0: DIALOG_STYLE_MSGBOX">edit</a>]</div><a name="Style_0:_DIALOG_STYLE_MSGBOX"></a><h2>Style 0: DIALOG_STYLE_MSGBOX</h2>
+<p><a href="Image_Dialog_style_msgbox.png.html" class="image" title="Image:dialog_style_msgbox.png"><img src="../upload/a/a1/Dialog_style_msgbox.png" alt="Image:dialog_style_msgbox.png" width="231" height="115" longdesc="Image_Dialog_style_msgbox.png.html" /></a>
+</p><p><br />
+<b>Showing:</b>
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+<p><strong>Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">
+<ul><li> <b>\t</b> adds a TAB (more space).
+</li><li> <b>\n</b> creates a new line.
+</li><li> <a href="Colors_List.html#Color_embedding" title="Colors List">Color embedding</a> won't reset after <b>\n</b> or <b>\t</b>.</span>
+</li></ul>
+</td></tr></table>
+</div>
+<pre class="pawn">ShowPlayerDialog<span style="color: #66cc66;">&#40;</span>playerid, YOUR_DIALOGID, DIALOG_STYLE_MSGBOX, <span style="color: #b22222;">&quot;Caption&quot;</span>, <span style="color: #b22222;">&quot;Info<span style="color: #000099; font-weight: bold;">\n</span><span style="color: #000099; font-weight: bold;">\t</span>Info&quot;</span>, <span style="color: #b22222;">&quot;Button 1&quot;</span>, <span style="color: #b22222;">&quot;&quot;</span><span style="color: #66cc66;">&#41;</span>;</pre>
+<p><br />
+<b>Response output:</b>
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+<p><strong>Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">
+<ul><li> <b>listitem</b> is always <b>-1</b>.
+</li><li> <b>inputtext</b> is always empty.</span>
+</li></ul>
+</td></tr></table>
+</div>
+<pre class="pawn"><span style="color: #808080; font-style: italic;">// pressed the button</span>
+playerid = <span style="color: #4169e1;">0</span>, dialogid = YOUR_DIALOGID, response = <span style="color: #4169e1;">1</span>, listitem = <span style="color: #4169e1;">-1</span>, inputtext = <span style="color: #b22222;">''</span> <span style="color: #66cc66;">&#40;</span><span style="color: orange;">size</span>: <span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span>
+&nbsp;
+<span style="color: #808080; font-style: italic;">// pressed ESC (as the second button isn't visible)</span>
+playerid = <span style="color: #4169e1;">0</span>, dialogid = YOUR_DIALOGID, response = <span style="color: #4169e1;">0</span>, listitem = <span style="color: #4169e1;">-1</span>, inputtext = <span style="color: #b22222;">''</span> <span style="color: #66cc66;">&#40;</span><span style="color: orange;">size</span>: <span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span></pre>
+<hr />
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Dialog_Styles.html" title="Edit section: Style 1: DIALOG_STYLE_INPUT">edit</a>]</div><a name="Style_1:_DIALOG_STYLE_INPUT"></a><h2>Style 1: DIALOG_STYLE_INPUT</h2>
+<p><a href="Image_Dialog_style_input.png.html" class="image" title="Image:dialog_style_input.png"><img src="../upload/d/d5/Dialog_style_input.png" alt="Image:dialog_style_input.png" width="231" height="139" longdesc="Image_Dialog_style_input.png.html" /></a>
+</p><p><br />
+<b>Showing:</b>
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+<p><strong>Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">
+<ul><li> <b>\t</b> adds a TAB (more space).
+</li><li> <b>\n</b> creates a new line.
+</li><li> <a href="Colors_List.html#Color_embedding" title="Colors List">Color embedding</a> won't reset after <b>\n</b> or <b>\t</b>.</span>
+</li></ul>
+</td></tr></table>
+</div>
+<pre class="pawn">ShowPlayerDialog<span style="color: #66cc66;">&#40;</span>playerid, YOUR_DIALOGID, DIALOG_STYLE_INPUT, <span style="color: #b22222;">&quot;Caption&quot;</span>, <span style="color: #b22222;">&quot;Enter information below:&quot;</span>, <span style="color: #b22222;">&quot;Button 1&quot;</span>, <span style="color: #b22222;">&quot;Button 2&quot;</span><span style="color: #66cc66;">&#41;</span>;</pre>
+<p><br />
+<b>Response output:</b>
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+<p><strong>Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">
+<ul><li> <b>listitem</b> is always <b>-1</b>.
+</li><li> <b>inputtext</b> is the text written by the user, including colors.</span>
+</li></ul>
+</td></tr></table>
+</div>
+<pre class="pawn"><span style="color: #808080; font-style: italic;">// wrote &quot;input&quot; and pressed the left button</span>
+playerid = <span style="color: #4169e1;">0</span>, dialogid = YOUR_DIALOGID, response = <span style="color: #4169e1;">1</span>, listitem = <span style="color: #4169e1;">-1</span>, inputtext = <span style="color: #b22222;">'input'</span> <span style="color: #66cc66;">&#40;</span><span style="color: orange;">size</span>: <span style="color: #4169e1;">5</span><span style="color: #66cc66;">&#41;</span>
+&nbsp;
+<span style="color: #808080; font-style: italic;">// wrote &quot;input&quot; and pressed the right button</span>
+playerid = <span style="color: #4169e1;">0</span>, dialogid = YOUR_DIALOGID, response = <span style="color: #4169e1;">0</span>, listitem = <span style="color: #4169e1;">-1</span>, inputtext = <span style="color: #b22222;">'input'</span> <span style="color: #66cc66;">&#40;</span><span style="color: orange;">size</span>: <span style="color: #4169e1;">5</span><span style="color: #66cc66;">&#41;</span></pre>
+<hr />
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Dialog_Styles.html" title="Edit section: Style 2: DIALOG_STYLE_LIST">edit</a>]</div><a name="Style_2:_DIALOG_STYLE_LIST"></a><h2>Style 2: DIALOG_STYLE_LIST</h2>
+<p><a href="Image_Dialog_style_list.png.html" class="image" title="Image:dialog_style_list.png"><img src="../upload/b/b1/Dialog_style_list.png" alt="Image:dialog_style_list.png" width="401" height="269" longdesc="Image_Dialog_style_list.png.html" /></a>
+</p><p><br />
+<b>Showing:</b>
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+<p><strong>Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">
+<ul><li> <b>\t</b> adds a TAB (more space).
+</li><li> <b>\n</b> creates a new list item.
+</li><li> <a href="Colors_List.html#Color_embedding" title="Colors List">Color embedding</a> resets only after <b>\n</b>.</span>
+</li></ul>
+</td></tr></table>
+</div>
+<pre class="pawn">ShowPlayerDialog<span style="color: #66cc66;">&#40;</span>playerid, YOUR_DIALOGID, DIALOG_STYLE_LIST, <span style="color: #b22222;">&quot;Caption&quot;</span>, <span style="color: #b22222;">&quot;Item 0<span style="color: #000099; font-weight: bold;">\n</span>{FFFF00}Item 1<span style="color: #000099; font-weight: bold;">\n</span>Item 2&quot;</span>, <span style="color: #b22222;">&quot;Button 1&quot;</span>, <span style="color: #b22222;">&quot;Button 2&quot;</span><span style="color: #66cc66;">&#41;</span>;</pre>
+<p><br />
+<b>Response output:</b>
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+<p><strong>Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">
+<ul><li> <b>listitem</b> is the number of the selected item, starting from <b>0</b>.
+</li><li> <b>inputtext</b> is the text contained by the selected <b>listitem</b>, without the colors.</span>
+</li></ul>
+</td></tr></table>
+</div>
+<pre class="pawn"><span style="color: #808080; font-style: italic;">// selected the first list item and pressed the left button</span>
+playerid = <span style="color: #4169e1;">0</span>, dialogid = YOUR_DIALOGID, response = <span style="color: #4169e1;">1</span>, listitem = <span style="color: #4169e1;">0</span>, inputtext = <span style="color: #b22222;">'Item 0'</span> <span style="color: #66cc66;">&#40;</span><span style="color: orange;">size</span>: <span style="color: #4169e1;">6</span><span style="color: #66cc66;">&#41;</span>
+&nbsp;
+<span style="color: #808080; font-style: italic;">// selected the second list item and pressed the right button</span>
+playerid = <span style="color: #4169e1;">0</span>, dialogid = YOUR_DIALOGID, response = <span style="color: #4169e1;">0</span>, listitem = <span style="color: #4169e1;">1</span>, inputtext = <span style="color: #b22222;">'Item 1'</span> <span style="color: #66cc66;">&#40;</span><span style="color: orange;">size</span>: <span style="color: #4169e1;">6</span><span style="color: #66cc66;">&#41;</span></pre>
+<hr />
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Dialog_Styles.html" title="Edit section: Style 3: DIALOG_STYLE_PASSWORD">edit</a>]</div><a name="Style_3:_DIALOG_STYLE_PASSWORD"></a><h2>Style 3: DIALOG_STYLE_PASSWORD</h2>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+<p><strong>Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">
+<ul><li> Similar to <b>DIALOG_STYLE_INPUT</b>.</span>
+</li></ul>
+</td></tr></table>
+</div>
+<p><br />
+<a href="Image_Dialog_style_password.png.html" class="image" title="Image:dialog_style_password.png"><img src="../upload/f/f8/Dialog_style_password.png" alt="Image:dialog_style_password.png" width="268" height="139" longdesc="Image_Dialog_style_password.png.html" /></a>
+</p><p><br />
+<b>Showing:</b>
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+<p><strong>Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">
+<ul><li> <b>\t</b> adds a TAB (more space).
+</li><li> <b>\n</b> creates a new line.</span>
+</li></ul>
+</td></tr></table>
+</div>
+<pre class="pawn">ShowPlayerDialog<span style="color: #66cc66;">&#40;</span>playerid, YOUR_DIALOGID, DIALOG_STYLE_PASSWORD, <span style="color: #b22222;">&quot;Caption&quot;</span>, <span style="color: #b22222;">&quot;Enter private information below:&quot;</span>, <span style="color: #b22222;">&quot;Button 1&quot;</span>, <span style="color: #b22222;">&quot;Button 2&quot;</span><span style="color: #66cc66;">&#41;</span>;</pre>
+<p><br />
+<b>Response output:</b>
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+<p><strong>Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">
+<ul><li> <b>listitem</b> is always <b>-1</b>.
+</li><li> <b>inputtext</b> is the text written by the user, not censored, including colors.</span>
+</li></ul>
+</td></tr></table>
+</div>
+<pre class="pawn"><span style="color: #808080; font-style: italic;">// wrote &quot;input&quot; and pressed the left button</span>
+playerid = <span style="color: #4169e1;">0</span>, dialogid = YOUR_DIALOGID, response = <span style="color: #4169e1;">1</span>, listitem = <span style="color: #4169e1;">-1</span>, inputtext = <span style="color: #b22222;">'input'</span> <span style="color: #66cc66;">&#40;</span><span style="color: orange;">size</span>: <span style="color: #4169e1;">5</span><span style="color: #66cc66;">&#41;</span>
+&nbsp;
+<span style="color: #808080; font-style: italic;">// wrote &quot;input&quot; and pressed the right button</span>
+playerid = <span style="color: #4169e1;">0</span>, dialogid = YOUR_DIALOGID, response = <span style="color: #4169e1;">0</span>, listitem = <span style="color: #4169e1;">-1</span>, inputtext = <span style="color: #b22222;">'input'</span> <span style="color: #66cc66;">&#40;</span><span style="color: orange;">size</span>: <span style="color: #4169e1;">5</span><span style="color: #66cc66;">&#41;</span></pre>
+<hr />
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Dialog_Styles.html" title="Edit section: Style 4: DIALOG_STYLE_TABLIST">edit</a>]</div><a name="Style_4:_DIALOG_STYLE_TABLIST"></a><h2>Style 4: DIALOG_STYLE_TABLIST</h2>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #E2FFE5; border-left: 10px solid #81C687;">
+
+<tr>
+<td><a href="Image_Add.png.html" class="image" title=""><img src="../upload/a/a7/Add.png" alt="" width="16" height="16" longdesc="Image_Add.png.html" /></a>
+</td><td align="left" style="padding-left:7px; padding-right:7px;"><span style="font-size:14px;">This style was added in <strong>SA-MP 0.3.7 </strong> and will not work in earlier versions!</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+<p><strong>Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">
+<ul><li> Similar to <b>DIALOG_STYLE_LIST</b>.</span>
+</li></ul>
+</td></tr></table>
+</div>
+<p><br />
+<a href="Image_Dialog_style_tablist.png.html" class="image" title="Image:dialog_style_tablist.png"><img src="../upload/7/75/Dialog_style_tablist.png" alt="Image:dialog_style_tablist.png" width="401" height="269" longdesc="Image_Dialog_style_tablist.png.html" /></a>
+</p><p><br />
+<b>Showing:</b>
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+<p><strong>Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">
+<ul><li> <b>\t</b> creates a new column.
+</li><li> <b>\n</b> creates a new list item.
+</li><li> <a href="Colors_List.html#Color_embedding" title="Colors List">Color embedding</a> resets after <b>\n</b> and <b>\t</b>.
+</li><li> The first <b>info</b> row contains the header.</span>
+</li></ul>
+</td></tr></table>
+</div>
+<pre class="pawn">ShowPlayerDialog<span style="color: #66cc66;">&#40;</span>playerid, YOUR_DIALOGID, DIALOG_STYLE_TABLIST, <span style="color: #b22222;">&quot;Caption&quot;</span>,
+<span style="color: #b22222;">&quot;Deagle<span style="color: #000099; font-weight: bold;">\t</span>$5000<span style="color: #000099; font-weight: bold;">\t</span>100<span style="color: #000099; font-weight: bold;">\n</span><span style="color: #000099; font-weight: bold;">\</span>
+{FF0000}Sawnoff<span style="color: #000099; font-weight: bold;">\t</span>{33AA33}$5000<span style="color: #000099; font-weight: bold;">\t</span>100<span style="color: #000099; font-weight: bold;">\n</span><span style="color: #000099; font-weight: bold;">\</span>
+Pistol<span style="color: #000099; font-weight: bold;">\t</span>$1000<span style="color: #000099; font-weight: bold;">\t</span>50&quot;</span>,
+<span style="color: #b22222;">&quot;Button 1&quot;</span>, <span style="color: #b22222;">&quot;Button 2&quot;</span><span style="color: #66cc66;">&#41;</span>;</pre>
+<p><br />
+<b>Response output:</b>
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+<p><strong>Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">
+<ul><li> <b>inputtext</b> is the text contained by the <i>first column</i> of the selected <b>listitem</b>, without the colors.</span>
+</li></ul>
+</td></tr></table>
+</div>
+<pre class="pawn"><span style="color: #808080; font-style: italic;">// selected the first list item and pressed the left button</span>
+playerid = <span style="color: #4169e1;">0</span>, dialogid = YOUR_DIALOGID, response = <span style="color: #4169e1;">1</span>, listitem = <span style="color: #4169e1;">0</span>, inputtext = <span style="color: #b22222;">'Deagle'</span> <span style="color: #66cc66;">&#40;</span><span style="color: orange;">size</span>: <span style="color: #4169e1;">6</span><span style="color: #66cc66;">&#41;</span>
+&nbsp;
+<span style="color: #808080; font-style: italic;">// selected the second list item and pressed the right button</span>
+playerid = <span style="color: #4169e1;">0</span>, dialogid = YOUR_DIALOGID, response = <span style="color: #4169e1;">0</span>, listitem = <span style="color: #4169e1;">1</span>, inputtext = <span style="color: #b22222;">'Sawnoff'</span> <span style="color: #66cc66;">&#40;</span><span style="color: orange;">size</span>: <span style="color: #4169e1;">7</span><span style="color: #66cc66;">&#41;</span></pre>
+<hr />
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Dialog_Styles.html" title="Edit section: Style 5: DIALOG_STYLE_TABLIST_HEADERS">edit</a>]</div><a name="Style_5:_DIALOG_STYLE_TABLIST_HEADERS"></a><h2>Style 5: DIALOG_STYLE_TABLIST_HEADERS</h2>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #E2FFE5; border-left: 10px solid #81C687;">
+
+<tr>
+<td><a href="Image_Add.png.html" class="image" title=""><img src="../upload/a/a7/Add.png" alt="" width="16" height="16" longdesc="Image_Add.png.html" /></a>
+</td><td align="left" style="padding-left:7px; padding-right:7px;"><span style="font-size:14px;">This style was added in <strong>SA-MP 0.3.7 </strong> and will not work in earlier versions!</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+<p><strong>Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">
+<ul><li> Similar to <b>DIALOG_STYLE_LIST</b>.</span>
+</li></ul>
+</td></tr></table>
+</div>
+<p><br />
+<a href="Image_Dialog_style_tablist_headers.png.html" class="image" title="Image:dialog_style_tablist_headers.png"><img src="../upload/e/e4/Dialog_style_tablist_headers.png" alt="Image:dialog_style_tablist_headers.png" width="457" height="287" longdesc="Image_Dialog_style_tablist_headers.png.html" /></a>
+</p><p><br />
+<b>Showing:</b>
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+<p><strong>Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">
+<ul><li> <b>\t</b> creates a new column.
+</li><li> <b>\n</b> creates a new list item.
+</li><li> <a href="Colors_List.html#Color_embedding" title="Colors List">Color embedding</a> resets after <b>\n</b> and <b>\t</b>.
+</li><li> The first <b>info</b> row contains the header.</span>
+</li></ul>
+</td></tr></table>
+</div>
+<pre class="pawn">ShowPlayerDialog<span style="color: #66cc66;">&#40;</span>playerid, YOUR_DIALOGID, DIALOG_STYLE_TABLIST_HEADERS, <span style="color: #b22222;">&quot;Caption&quot;</span>,
+<span style="color: #b22222;">&quot;Header 1<span style="color: #000099; font-weight: bold;">\t</span>Header 2<span style="color: #000099; font-weight: bold;">\t</span>Header 3<span style="color: #000099; font-weight: bold;">\n</span><span style="color: #000099; font-weight: bold;">\</span>
+Item 1 Column 1<span style="color: #000099; font-weight: bold;">\t</span>Item 1 Column 2<span style="color: #000099; font-weight: bold;">\t</span>Item 1 Column 3<span style="color: #000099; font-weight: bold;">\n</span><span style="color: #000099; font-weight: bold;">\</span>
+{FF0000}Item 2 Column 1<span style="color: #000099; font-weight: bold;">\t</span>{33AA33}Item 2 Column 2<span style="color: #000099; font-weight: bold;">\t</span>Item 2 Column 3&quot;</span>,
+<span style="color: #b22222;">&quot;Button 1&quot;</span>, <span style="color: #b22222;">&quot;Button 2&quot;</span><span style="color: #66cc66;">&#41;</span>;</pre>
+<p><br />
+<b>Response output:</b>
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+<p><strong>Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">
+<ul><li> <b>inputtext</b> is the text contained by the <i>first column</i> of the selected <b>listitem</b>, without the colors.</span>
+</li></ul>
+</td></tr></table>
+</div>
+<pre class="pawn"><span style="color: #808080; font-style: italic;">// selected the first list item and pressed the left button</span>
+playerid = <span style="color: #4169e1;">0</span>, dialogid = YOUR_DIALOGID, response = <span style="color: #4169e1;">1</span>, listitem = <span style="color: #4169e1;">0</span>, inputtext = <span style="color: #b22222;">'Item 1 Column 1'</span> <span style="color: #66cc66;">&#40;</span><span style="color: orange;">size</span>: <span style="color: #4169e1;">15</span><span style="color: #66cc66;">&#41;</span>
+&nbsp;
+<span style="color: #808080; font-style: italic;">// selected the first list item and pressed the right button</span>
+playerid = <span style="color: #4169e1;">0</span>, dialogid = YOUR_DIALOGID, response = <span style="color: #4169e1;">0</span>, listitem = <span style="color: #4169e1;">1</span>, inputtext = <span style="color: #b22222;">'Item 2 Column 1'</span> <span style="color: #66cc66;">&#40;</span><span style="color: orange;">size</span>: <span style="color: #4169e1;">15</span><span style="color: #66cc66;">&#41;</span></pre>
+<div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/Dialog_Styles.html">http://localhost../wiki/Dialog_Styles.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="Category_Added_in_0.3.7.html" title="Category:Added in 0.3.7">Added in 0.3.7</a></span> | <span dir='ltr'><a href="Category_Scripting_Documentation.html" title="Category:Scripting Documentation">Scripting Documentation</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="Dialog_Styles.html">Article</a></li>
+				 <li id="ca-talk"><a href="Talk_Dialog_Styles.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="Dialog_Styles.html">Edit</a></li>
+				 <li id="ca-history"><a href="Dialog_Styles.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-de"><a href="Dialog_Styles_DE.html">Deutsch</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 211,854 times.</li>
+				<li id="credits">This page was last modified 22:01, 24 January 2018 by SA-MP Wiki user <a href="User_IstuntmanI.html" class="new" title="User:IstuntmanI">IstuntmanI</a>. Based on work by SA-MP Wiki user(s) <a href="User_Izeatfishz.html" class="new" title="User:Izeatfishz">Izeatfishz</a>, <a href="User_JernejL.html" title="User:JernejL">JernejL</a>, <a href="User_MP2.html" title="User:MP2">MP2</a>, <a href="User_HazardouS.html" class="new" title="User:HazardouS">HazardouS</a>, <a href="User_Meta.html" title="User:Meta">Meta</a>, <a href="User_Smithy.html" title="User:Smithy">Smithy</a>, <a href="User_Ev0lution.html" title="User:Ev0lution">Ev0lution</a> and <a href="User_Mikep.html" title="User:Mikep">Mikep</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 46.53 secs. -->
+</body></html>

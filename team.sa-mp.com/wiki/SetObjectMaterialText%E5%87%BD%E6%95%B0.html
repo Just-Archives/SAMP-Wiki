@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="SetObjectMaterialText函数,Colors List,Main Page,Material Size,Scripting Basics,Server Plugins,SetObjectMaterial,SetObjectMaterialText,SetPlayerObjectMaterialText,Text Alignments,Scripting Callbacks" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>SetObjectMaterialText函数 - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">SetObjectMaterialText函数</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<div class="scripting" style="color: #4378A4; background-color: #FFFFFF; margin: 2px; margin-bottom: 10px;"><div align="center" style="border: 1px solid #AAAAAA; padding: 3px; padding-left: 5px;"><a href="../wiki-archive.html" title="Main Page">Main Page</a> | <a href="Category_Scripting_Functions.html" title="Category:Scripting Functions">Scripting Functions</a> | <a href="Category_Scripting_Callbacks.html" title="Category:Scripting Callbacks">Scripting Callbacks</a> | <a href="Scripting_Basics.html" title="Scripting Basics">Scripting Basics</a> | <a href="Server_Plugins.html" title="Server Plugins">Server Plugins</a> | <a href="Category_Tutorials.html" title="Category:Tutorials">Tutorials</a></div></div><br />
+<p><br />
+<b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">将文字嵌入进物件的相关函数,[0.3E新增功能].<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(objectid, text[], materialindex = 0, materialsize = OBJECT_MATERIAL_SIZE_256x128, fontface[] = "Arial", fontsize = 24, bold = 1, fontcolor = 0xFFFFFFFF, backcolor = 0, textalignment = 0)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">objectid</td><td style="vertical-align:top;">你想要嵌入文字的物件ID.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">text</td><td style="vertical-align:top;">你想显示在物件的文字.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">materialindex</td><td style="vertical-align:top;">文本的材料指数.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">materialsize</td><td style="vertical-align:top;">设置材料 <a href="Material_Size.html" title="Material Size">大小</a>.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">fontface</td><td style="vertical-align:top;">设置字体.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">fontsize</td><td style="vertical-align:top;">设置字体 (MAX 255).</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">bold</td><td style="vertical-align:top;">设置加粗选项, 1 为加粗, 0 为不加粗.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">fontcolor</td><td style="vertical-align:top;">输入 ARGB格式的字体前景色.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">backcolor</td><td style="vertical-align:top;">输入 ARGB格式的字体背景色.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">textalignment</td><td style="vertical-align:top;">设置字体文本 <a href="Text_Alignments.html" title="Text Alignments">对齐格式</a> (默认为左).</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">This function does not return any specific values.<br /></div>
+<p><br />
+</p>
+<pre class="pawn"><span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span><a href="http://wiki.sa-mp.com/wiki/strcmp"><span style="color: #006400;">strcmp</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;/text&quot;</span>, cmdtext, true<span style="color: #66cc66;">&#41;</span> == <span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #228b22; font-weight: bold;">new</span> myobject = <a href="http://wiki.sa-mp.com/wiki/CreateObject"><span style="color: #006400;">CreateObject</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">19353</span>, <span style="color: #4169e1;">0</span>, <span style="color: #4169e1;">0</span>, <span style="color: #4169e1;">10</span>, <span style="color: #4169e1;">0.0</span>, <span style="color: #4169e1;">0.0</span>, <span style="color: #4169e1;">90.0</span><span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">//物件名称</span>
+	SetObjectMaterialText<span style="color: #66cc66;">&#40;</span>myobject, <span style="color: #b22222;">&quot;SA-MP {FFFFFF}0.3{008500}e {FF8200}RC7&quot;</span>, <span style="color: #4169e1;">0</span>, OBJECT_MATERIAL_SIZE_256x128,\
+	<span style="color: #b22222;">&quot;Arial&quot;</span>, <span style="color: #4169e1;">28</span>, <span style="color: #4169e1;">0</span>, 0xFFFF8200, 0xFF000000, OBJECT_MATERIAL_TEXT_ALIGN_CENTER<span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #808080; font-style: italic;">// 物件里将会显示 &quot;SA-MP 0.3e RC7&quot; , 字体前景色为橙色,背景色为黑色</span>
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+<p><strong>Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;"><a href="Colors_List.html#Inline_color_embedding" title="Colors List">Color embedding</a> 可以使用字体颜色嵌入.</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Template_RelatedFunctions.html" title="Template:RelatedFunctions">edit</a>]</div><a name="Related_Functions"></a><h3> <b>Related Functions</b> </h3>
+<p>The following functions may be helpful as they relate to this function in one way or another.
+</p>
+<ul><li> <a href="SetPlayerObjectMaterialText.html" title="SetPlayerObjectMaterialText">SetPlayerObjectMaterialText</a>: Replace the texture of a player object with text.
+</li></ul>
+<ul><li> <a href="SetObjectMaterial.html" title="SetObjectMaterial">SetObjectMaterial</a>: Replace the texture of an object with the texture from another model in the game.<a href="SetObjectMaterialText.html" title="SetObjectMaterialText">SetObjectMaterialText</a>
+</li></ul>
+<div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/SetObjectMaterialText%25E5%2587%25BD%25E6%2595%25B0.html">http://localhost../wiki/SetObjectMaterialText%25E5%2587%25BD%25E6%2595%25B0.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="Category_Scripting_Functions_%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="Category:Scripting Functions 函数">Scripting Functions 函数</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="SetObjectMaterialText%25E5%2587%25BD%25E6%2595%25B0.html">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="Talk_SetObjectMaterialText%25E5%2587%25BD%25E6%2595%25B0.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="SetObjectMaterialText%25E5%2587%25BD%25E6%2595%25B0.html">Edit</a></li>
+				 <li id="ca-history"><a href="SetObjectMaterialText%25E5%2587%25BD%25E6%2595%25B0.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 16,002 times.</li>
+				<li id="credits">This page was last modified 07:51, 7 November 2013 by SA-MP Wiki user User:. Based on work by SA-MP Wiki user(s) <a href="User_Meta.html" title="User:Meta">Meta</a> and <a href="User_Yinjin_116s.html" class="new" title="User:Yinjin 116s">Yinjin 116s</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 87.15 secs. -->
+</body></html>

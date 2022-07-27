@@ -1,0 +1,536 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Rnpc,Rec,Mauzen" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>Rnpc - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Rnpc</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<p>This page explains the functions provided by the RNPC plugin by <a href="User_Mauzen.html" title="User:Mauzen">User:Mauzen</a>
+RNPC (Recordfree NPCs) is a server plugin. Its purpose is to create the NPC record files in runtime, so they dont need to be recorded manually.
+This way the NPCs can be controlled dynamically from the script-side. It is based on the knowledge about the <a href="Rec.html" title="Rec">Rec</a>-files.
+</p><p>This article is based on Version 0.4. For earlier Versions check the wiki history.
+</p><p>It can be found in this forum thread: <a href="http://forum.sa-mp.com/showthread.php?t=355849" class='external free' title="http://forum.sa-mp.com/showthread.php?t=355849" rel="nofollow">http://forum.sa-mp.com/showthread.php?t=355849</a>
+</p>
+<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class='toclevel-1'><a href="#Scripting_functions"><span class="tocnumber">1</span> <span class="toctext">Scripting functions</span></a>
+<ul>
+<li class='toclevel-2'><a href="#General"><span class="tocnumber">1.1</span> <span class="toctext">General</span></a>
+<ul>
+<li class='toclevel-3'><a href="#ConnectRNPC"><span class="tocnumber">1.1.1</span> <span class="toctext">ConnectRNPC</span></a></li>
+<li class='toclevel-3'><a href="#MoveRNPC"><span class="tocnumber">1.1.2</span> <span class="toctext">MoveRNPC</span></a></li>
+</ul>
+</li>
+<li class='toclevel-2'><a href="#Record_generation"><span class="tocnumber">1.2</span> <span class="toctext">Record generation</span></a>
+<ul>
+<li class='toclevel-3'><a href="#RNPC_CreateBuild"><span class="tocnumber">1.2.1</span> <span class="toctext">RNPC_CreateBuild</span></a></li>
+<li class='toclevel-3'><a href="#RNPC_FinishBuild"><span class="tocnumber">1.2.2</span> <span class="toctext">RNPC_FinishBuild</span></a></li>
+<li class='toclevel-3'><a href="#RNPC_AddMovement"><span class="tocnumber">1.2.3</span> <span class="toctext">RNPC_AddMovement</span></a></li>
+<li class='toclevel-3'><a href="#RNPC_AddMovementAlt"><span class="tocnumber">1.2.4</span> <span class="toctext">RNPC_AddMovementAlt</span></a></li>
+<li class='toclevel-3'><a href="#RNPC_ConcatMovement"><span class="tocnumber">1.2.5</span> <span class="toctext">RNPC_ConcatMovement</span></a></li>
+<li class='toclevel-3'><a href="#RNPC_AddPause"><span class="tocnumber">1.2.6</span> <span class="toctext">RNPC_AddPause</span></a></li>
+</ul>
+</li>
+<li class='toclevel-2'><a href="#Attribute_setters"><span class="tocnumber">1.3</span> <span class="toctext">Attribute setters</span></a></li>
+<li class='toclevel-2'><a href="#Playback_control"><span class="tocnumber">1.4</span> <span class="toctext">Playback control</span></a>
+<ul>
+<li class='toclevel-3'><a href="#RNPC_StartBuildPlayback"><span class="tocnumber">1.4.1</span> <span class="toctext">RNPC_StartBuildPlayback</span></a></li>
+<li class='toclevel-3'><a href="#RNPC_StartPlayback"><span class="tocnumber">1.4.2</span> <span class="toctext">RNPC_StartPlayback</span></a></li>
+<li class='toclevel-3'><a href="#RNPC_StopPlayback"><span class="tocnumber">1.4.3</span> <span class="toctext">RNPC_StopPlayback</span></a></li>
+<li class='toclevel-3'><a href="#RNPC_PauseRecordingPlayback"><span class="tocnumber">1.4.4</span> <span class="toctext">RNPC_PauseRecordingPlayback</span></a></li>
+<li class='toclevel-3'><a href="#RNPC_ResumeRecordingPlayback"><span class="tocnumber">1.4.5</span> <span class="toctext">RNPC_ResumeRecordingPlayback</span></a></li>
+<li class='toclevel-3'><a href="#RNPC_SetAutorepeat"><span class="tocnumber">1.4.6</span> <span class="toctext">RNPC_SetAutorepeat</span></a></li>
+</ul>
+</li>
+<li class='toclevel-2'><a href="#Damage_management"><span class="tocnumber">1.5</span> <span class="toctext">Damage management</span></a>
+<ul>
+<li class='toclevel-3'><a href="#RNPC_SetShootable"><span class="tocnumber">1.5.1</span> <span class="toctext">RNPC_SetShootable</span></a></li>
+<li class='toclevel-3'><a href="#RNPC_ToggleVehicleCollisionCheck"><span class="tocnumber">1.5.2</span> <span class="toctext">RNPC_ToggleVehicleCollisionCheck</span></a></li>
+<li class='toclevel-3'><a href="#SetRNPCHealth"><span class="tocnumber">1.5.3</span> <span class="toctext">SetRNPCHealth</span></a></li>
+<li class='toclevel-3'><a href="#GetRNPCHealth"><span class="tocnumber">1.5.4</span> <span class="toctext">GetRNPCHealth</span></a></li>
+<li class='toclevel-3'><a href="#RespawnRNPC"><span class="tocnumber">1.5.5</span> <span class="toctext">RespawnRNPC</span></a></li>
+</ul>
+</li>
+<li class='toclevel-2'><a href="#Callbacks"><span class="tocnumber">1.6</span> <span class="toctext">Callbacks</span></a>
+<ul>
+<li class='toclevel-3'><a href="#OnRNPCPlaybackFinished"><span class="tocnumber">1.6.1</span> <span class="toctext">OnRNPCPlaybackFinished</span></a></li>
+<li class='toclevel-3'><a href="#OnRNPCPlaybackStopped"><span class="tocnumber">1.6.2</span> <span class="toctext">OnRNPCPlaybackStopped</span></a></li>
+<li class='toclevel-3'><a href="#OnRNPCDeath"><span class="tocnumber">1.6.3</span> <span class="toctext">OnRNPCDeath</span></a></li>
+<li class='toclevel-3'><a href="#OnRNPCVehicleHit"><span class="tocnumber">1.6.4</span> <span class="toctext">OnRNPCVehicleHit</span></a></li>
+</ul>
+</li>
+<li class='toclevel-2'><a href="#Value-Defines"><span class="tocnumber">1.7</span> <span class="toctext">Value-Defines</span></a></li>
+<li class='toclevel-2'><a href="#Structural_defines"><span class="tocnumber">1.8</span> <span class="toctext">Structural defines</span></a></li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#Example_code"><span class="tocnumber">2</span> <span class="toctext">Example code</span></a>
+<ul>
+<li class='toclevel-2'><a href="#Walk_a_bit_and_rage-shoot"><span class="tocnumber">2.1</span> <span class="toctext">Walk a bit and rage-shoot</span></a></li>
+<li class='toclevel-2'><a href="#Simple_following_script"><span class="tocnumber">2.2</span> <span class="toctext">Simple following script</span></a></li>
+<li class='toclevel-2'><a href="#Flying_drag_race"><span class="tocnumber">2.3</span> <span class="toctext">Flying drag race</span></a></li>
+</ul>
+</li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Rnpc.html" title="Edit section: Scripting functions">edit</a>]</div><a name="Scripting_functions"></a><h1> Scripting functions </h1>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Rnpc.html" title="Edit section: General">edit</a>]</div><a name="General"></a><h2> General </h2>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Rnpc.html" title="Edit section: ConnectRNPC">edit</a>]</div><a name="ConnectRNPC"></a><h3> ConnectRNPC </h3>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Connects a new RNPC to the server. This, or at least using the RNPC npcscript is needed for any other functions. <br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(name[])<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">name[]</td><td style="vertical-align:top;">Name of the NPC.</td></tr></table></div>
+<p><b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">ID of the connected NPC<br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Rnpc.html" title="Edit section: MoveRNPC">edit</a>]</div><a name="MoveRNPC"></a><h3> MoveRNPC </h3>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Simply moves the NPC to the given position. This works without entering build mode first.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(npcid, Float:x, Float:y, Float:z, Float:speed)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">npcid</td><td style="vertical-align:top;">ID of the NPC to move.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">x,y,z</td><td style="vertical-align:top;">Target coordinates.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">speed</td><td style="vertical-align:top;">Movement speed. See the define section for fix values.</td></tr></table></div>
+<p><b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">1 on success, 0 on fail<br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Rnpc.html" title="Edit section: Record generation">edit</a>]</div><a name="Record_generation"></a><h2> Record generation </h2>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Rnpc.html" title="Edit section: RNPC_CreateBuild">edit</a>]</div><a name="RNPC_CreateBuild"></a><h3> RNPC_CreateBuild </h3>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Use this function to enter "build mode".
+<p>It creates the record file for the given NPC and so allows the other function to write to it.
+</p>
+It is important to stop the current playback of a NPC before building a new one, or the NPC will crash. To avoid this you can create the build in another slot.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(npcid, type, slot)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">npcid</td><td style="vertical-align:top;">The ID of the NPC who should be controlled.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">type</td><td style="vertical-align:top;">The recording type, either PLAYER_RECORDING_TYPE_ONFOOT or PLAYER_RECORDING_TYPE_VEHICLE</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">slot</td><td style="vertical-align:top;">The recording slot that should be created. Every slot got its own file, so you can keep multiple recordings for a NPC at once, and later choose which one should be played back. Default value is 0</td></tr></table></div>
+<p><b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">1 on success, 0 if build mode is already active.<br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Rnpc.html" title="Edit section: RNPC_FinishBuild">edit</a>]</div><a name="RNPC_FinishBuild"></a><h3> RNPC_FinishBuild </h3>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Finishes the currently active build and ends the "build mode". This is needed before playing the generated record back.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(clear)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">npcid</td><td style="vertical-align:top;">Determines if a last segment should be added at the end to clear things like velocity and movement, so the NPC just stands still after the playback. Default value is 1</td></tr></table></div>
+<p><b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">1 on success, 0 if there is no active build.<br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Rnpc.html" title="Edit section: RNPC_AddMovement">edit</a>]</div><a name="RNPC_AddMovement"></a><h3> RNPC_AddMovement </h3>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Appends a movement from (x1,y1,z1) to (x2,y2,z2) to the current build. Good to set the NPCs initial position<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(Float:x1, Float:y1, Float:z1, Float:x2, Float:y2, Float:z2, Float:speed, use_zmap)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">x1,y1,z1</td><td style="vertical-align:top;">The coordinates where the NPC should start to move.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">x2,y2,z2</td><td style="vertical-align:top;">The target coordinates.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">speed</td><td style="vertical-align:top;">Movement speed. See the define section for fix values.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">use_zmap</td><td style="vertical-align:top;">If true, RNPC will get the z-coordinates from MapAndreas.</td></tr></table></div>
+<p><b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">1 on success, 0 on fail<br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Rnpc.html" title="Edit section: RNPC_AddMovementAlt">edit</a>]</div><a name="RNPC_AddMovementAlt"></a><h3> RNPC_AddMovementAlt </h3>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Appends a movement from (x1,y1,z1) to (x2,y2,z2) to the current build. Also supports previously set acceleration.
+Theres no real reason to use this for OnFoot-NPCs.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(Float:x1, Float:y1, Float:z1, Float:x2, Float:y2, Float:z2, Float:speed)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">x1,y1,z1</td><td style="vertical-align:top;">The coordinates where the NPC should start to move.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">x2,y2,z2</td><td style="vertical-align:top;">The target coordinates.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">speed</td><td style="vertical-align:top;">Movement speed. See the define section for fix values.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">lock</td><td style="vertical-align:top;">Lock the vehicle to the ground, if MapAndreas was initalized.</td></tr></table></div>
+<p><b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">1 on success, 0 on fail<br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Rnpc.html" title="Edit section: RNPC_ConcatMovement">edit</a>]</div><a name="RNPC_ConcatMovement"></a><h3> RNPC_ConcatMovement </h3>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Appends a movement from the NPCs last position to (x,y,z) to the current build.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(Float:x, Float:y, Float:z, Float:speed, use_zmap)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">x,y,z</td><td style="vertical-align:top;">The target coordinates.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">speed</td><td style="vertical-align:top;">Movement speed. For OnFoot-Running 0.006 is a good value.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">use_zmap</td><td style="vertical-align:top;">If true, RNPC will get the z-coordinates from MapAndreas.</td></tr></table></div>
+<p><b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">1 on success, 0 on fail<br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Rnpc.html" title="Edit section: RNPC_AddPause">edit</a>]</div><a name="RNPC_AddPause"></a><h3> RNPC_AddPause </h3>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Adds a pause to the current build. The NPC wont move, but continue with his current attributes (e.g. keeps shooting).<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(Ftime)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">time</td><td style="vertical-align:top;">Time [ms] to pause.</td></tr></table></div>
+<p><b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">1 on success, 0 on fail<br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Rnpc.html" title="Edit section: Attribute setters">edit</a>]</div><a name="Attribute_setters"></a><h2> Attribute setters </h2>
+<p>Theres a whole bunch of simple setter functions. They are meant to be used in build mode, and affect all following actions of the NPC for that build, until changed again.
+They should be quite self-explaining, so heres just a plain list of all OnFoot-Setters:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">native</span> RNPC_SetLRKeys<span style="color: #66cc66;">&#40;</span>lr<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #228b22; font-weight: bold;">native</span> RNPC_SetUDKeys<span style="color: #66cc66;">&#40;</span>ud<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #228b22; font-weight: bold;">native</span> RNPC_SetKeys<span style="color: #66cc66;">&#40;</span>keys<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #228b22; font-weight: bold;">native</span> RNPC_SetQuat1<span style="color: #66cc66;">&#40;</span><span style="color: orange;">Float</span>:w<span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// Better use SetAngleQuats than this</span>
+<span style="color: #228b22; font-weight: bold;">native</span> RNPC_SetQuat2<span style="color: #66cc66;">&#40;</span><span style="color: orange;">Float</span>:x<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #228b22; font-weight: bold;">native</span> RNPC_SetQuat3<span style="color: #66cc66;">&#40;</span><span style="color: orange;">Float</span>:y<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #228b22; font-weight: bold;">native</span> RNPC_SetQuat4<span style="color: #66cc66;">&#40;</span><span style="color: orange;">Float</span>:z<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #228b22; font-weight: bold;">native</span> RNPC_SetHealth<span style="color: #66cc66;">&#40;</span>hp<span style="color: #66cc66;">&#41;</span>;   <span style="color: #808080; font-style: italic;">// This health value is pretty much useless</span>
+<span style="color: #228b22; font-weight: bold;">native</span> RNPC_SetArmour<span style="color: #66cc66;">&#40;</span>arm<span style="color: #66cc66;">&#41;</span>;  <span style="color: #808080; font-style: italic;">// This armor value is pretty much useless</span>
+<span style="color: #228b22; font-weight: bold;">native</span> RNPC_SetSpecialAction<span style="color: #66cc66;">&#40;</span>sp<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #228b22; font-weight: bold;">native</span> RNPC_SetWeaponID<span style="color: #66cc66;">&#40;</span>weaponid<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #228b22; font-weight: bold;">native</span> RNPC_SetAnimID<span style="color: #66cc66;">&#40;</span>anim<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #228b22; font-weight: bold;">native</span> RNPC_SetAnimParams<span style="color: #66cc66;">&#40;</span>params<span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// Not sure how the params work yet</span>
+<span style="color: #228b22; font-weight: bold;">native</span> RNPC_SetAngleQuats<span style="color: #66cc66;">&#40;</span><span style="color: orange;">Float</span>:a, <span style="color: orange;">Float</span>:h, <span style="color: orange;">Float</span>:b<span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// a, h and b are degree angles, where h is the onfoot facing angle</span>
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">native</span> RNPC_SetSirenState<span style="color: #66cc66;">&#40;</span>siren<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #228b22; font-weight: bold;">native</span> RNPC_SetDriverHealth<span style="color: #66cc66;">&#40;</span>health<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #228b22; font-weight: bold;">native</span> RNPC_SetInternalPos<span style="color: #66cc66;">&#40;</span><span style="color: orange;">Float</span>:x, <span style="color: orange;">Float</span>:y, <span style="color: orange;">Float</span>:z<span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// For debugging</span>
+<span style="color: #228b22; font-weight: bold;">native</span> RNPC_SetAcceleration<span style="color: #66cc66;">&#40;</span><span style="color: orange;">Float</span>:acc<span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// Accleration in speed/second for AddMovementAlt</span>
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">native</span> RNPC_SetUpdateRate<span style="color: #66cc66;">&#40;</span>rate<span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// The interval in ms in which segments are written. Default of 100ms should be fine.</span>
+<span style="color: #228b22; font-weight: bold;">native</span> RNPC_GetBuildLength<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// Returns the lentgh of the currently active, or last finished build in ms</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Rnpc.html" title="Edit section: Playback control">edit</a>]</div><a name="Playback_control"></a><h2> Playback control </h2>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Rnpc.html" title="Edit section: RNPC_StartBuildPlayback">edit</a>]</div><a name="RNPC_StartBuildPlayback"></a><h3> RNPC_StartBuildPlayback </h3>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Starts playing a preciously generated recording.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(npcid, slot)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">npcid</td><td style="vertical-align:top;">The ID of the NPC who should play his recording.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">slot</td><td style="vertical-align:top;">The slot of the build that should be played back. Default value is 0</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">vehicleid</td><td style="vertical-align:top;">If this is set, the NPC will be forced to enter the vehicle twice, to fix issues with vehicles being far away from their recorded position.</td></tr></table></div>
+<p><b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">This function does not return any specific values.<br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Rnpc.html" title="Edit section: RNPC_StartPlayback">edit</a>]</div><a name="RNPC_StartPlayback"></a><h3> RNPC_StartPlayback </h3>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Makes the NPC play back any recording file in the npcmodes directory. Be aware that the NPC will crash if the specified recording file does not exist or is invalid (e.g. vehicle recording when the NPC isnt in a vehicle).<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(npcid, rec[])<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">npcid</td><td style="vertical-align:top;">The ID of the NPC who should play the recording.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">slot</td><td style="vertical-align:top;">The name of the recording that should be played.</td></tr></table></div>
+<p><b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">This function does not return any specific values.<br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Rnpc.html" title="Edit section: RNPC_StopPlayback">edit</a>]</div><a name="RNPC_StopPlayback"></a><h3> RNPC_StopPlayback </h3>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Stops any running playback for the given NPC. Once the stopping finished, OnRNPCPlaybackStopped will be called.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(npcid)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">npcid</td><td style="vertical-align:top;">The ID of the NPC who should stop.</td></tr></table></div>
+<p><b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">This function does not return any specific values.<br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Rnpc.html" title="Edit section: RNPC_PauseRecordingPlayback">edit</a>]</div><a name="RNPC_PauseRecordingPlayback"></a><h3> RNPC_PauseRecordingPlayback </h3>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Pauses the recording playback. Due to SA-MP limitations this has a delay of about 200ms.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(npcid)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">npcid</td><td style="vertical-align:top;">The ID of the NPC who should pause.</td></tr></table></div>
+<p><b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">This function does not return any specific values.<br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Rnpc.html" title="Edit section: RNPC_ResumeRecordingPlayback">edit</a>]</div><a name="RNPC_ResumeRecordingPlayback"></a><h3> RNPC_ResumeRecordingPlayback </h3>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Resumes a previously paused recording playback.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(npcid)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">npcid</td><td style="vertical-align:top;">The ID of the NPC who should resume playback.</td></tr></table></div>
+<p><b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">This function does not return any specific values.<br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Rnpc.html" title="Edit section: RNPC_SetAutorepeat">edit</a>]</div><a name="RNPC_SetAutorepeat"></a><h3> RNPC_SetAutorepeat </h3>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Sets whether the NPC should restart his playback after finishing it.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(npcid, repeat)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">npcid</td><td style="vertical-align:top;">The ID of the NPC to control</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">repeat</td><td style="vertical-align:top;">1/0 to set repeating.</td></tr></table></div>
+<p><b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">This function does not return any specific values.<br /></div>
+<p><br />
+</p><p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Rnpc.html" title="Edit section: Damage management">edit</a>]</div><a name="Damage_management"></a><h2> Damage management </h2>
+<p>Since 0.4 NPCs can handle different kinds of damage, and can get killed. This is disabled by default, the following functions are used to enable and customize it:
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Rnpc.html" title="Edit section: RNPC_SetShootable">edit</a>]</div><a name="RNPC_SetShootable"></a><h3> RNPC_SetShootable </h3>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Sets whether a NPC should automatically take damage from guns. The damage dealt is the default GTA/SA-MP damage.
+Alternatively, use SetRNPCHealth in OnPlayerGiveDamage to use your own damage values.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(npcid, enable)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">npcid</td><td style="vertical-align:top;">The ID of the NPC to control</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">toggle</td><td style="vertical-align:top;">Enable/disable gun damage</td></tr></table></div>
+<p><b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">This function does not return any specific values.<br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Rnpc.html" title="Edit section: RNPC_ToggleVehicleCollisionCheck">edit</a>]</div><a name="RNPC_ToggleVehicleCollisionCheck"></a><h3> RNPC_ToggleVehicleCollisionCheck </h3>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Sets whether a NPC should report if he got hit by a car. (Call OnRNPCVehicleHit).
+This can be a pretty intensive task for big servers, so it should be used with caution.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(npcid, enable)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">npcid</td><td style="vertical-align:top;">The ID of the NPC to control</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">toggle</td><td style="vertical-align:top;">Enable/disable vehicle collision check</td></tr></table></div>
+<p><b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">This function does not return any specific values.<br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Rnpc.html" title="Edit section: SetRNPCHealth">edit</a>]</div><a name="SetRNPCHealth"></a><h3> SetRNPCHealth </h3>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Sets the health of the NPC. This value is independent from the Set/GetPlayerHealth health values.
+If health is set to a value smaller or equal to 0, the NPC dies.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(npcid, Float:health, issuer, reason)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">npcid</td><td style="vertical-align:top;">The ID of the NPC to control</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">health</td><td style="vertical-align:top;">New health value for the NPC.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">issuer</td><td style="vertical-align:top;">ID of the player responsible for the damage, for OnRNPCDeath (default: INVALID_PLAYER_ID)</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">reason</td><td style="vertical-align:top;">Reason for the damage, for OnRNPCDeath (default: 53)</td></tr></table></div>
+<p><b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">This function does not return any specific values.<br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Rnpc.html" title="Edit section: GetRNPCHealth">edit</a>]</div><a name="GetRNPCHealth"></a><h3> GetRNPCHealth </h3>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Returns the current health of the NPC.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(npcid)<br /></div>
+<p><b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">The current health of the NPC as Float<br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Rnpc.html" title="Edit section: RespawnRNPC">edit</a>]</div><a name="RespawnRNPC"></a><h3> RespawnRNPC </h3>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Just a public wrapper function for SpawnPlayer, to be used for timers.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(npcid)<br /></div>
+<p><b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">This function does not return any specific values.<br /></div>
+<p><br />
+</p><p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Rnpc.html" title="Edit section: Callbacks">edit</a>]</div><a name="Callbacks"></a><h2> Callbacks </h2>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Rnpc.html" title="Edit section: OnRNPCPlaybackFinished">edit</a>]</div><a name="OnRNPCPlaybackFinished"></a><h3> OnRNPCPlaybackFinished </h3>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Called when a NPC finished playing back his current recording file.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(npcid)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">npcid</td><td style="vertical-align:top;">The ID of the NPC who finished playback.</td></tr></table></div>
+<p><b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">This callback does not handle returns. <br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Rnpc.html" title="Edit section: OnRNPCPlaybackStopped">edit</a>]</div><a name="OnRNPCPlaybackStopped"></a><h3> OnRNPCPlaybackStopped </h3>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Called when a NPC stopped playing back his current recording file (via script).
+As there is some syncing time between RNPC_StopPlayback and the actual stop, this callback should be used for further NPC instructions.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(npcid)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">npcid</td><td style="vertical-align:top;">The ID of the NPC who stopped playback.</td></tr></table></div>
+<p><b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">This callback does not handle returns. <br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Rnpc.html" title="Edit section: OnRNPCDeath">edit</a>]</div><a name="OnRNPCDeath"></a><h3> OnRNPCDeath </h3>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Called when a NPC died.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(npcid, killerid, reason)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">npcid</td><td style="vertical-align:top;">The ID of the NPC who died.</td></tr></table></div>
+<p><b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">Return 0 to perform the RNPC standard actions (death animation, respawn in 4 seconds, calling OnPlayerDeath), or return 1 to skip them.<br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Rnpc.html" title="Edit section: OnRNPCVehicleHit">edit</a>]</div><a name="OnRNPCVehicleHit"></a><h3> OnRNPCVehicleHit </h3>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Called when a NPC is hit by a car.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(npcid, driverid, vehicleid, times)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">npcid</td><td style="vertical-align:top;">The ID of the NPC who was hit.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">driver</td><td style="vertical-align:top;">The ID of the player who drove the car that hit the NPC</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">vehicleid</td><td style="vertical-align:top;">The ID of the vehicle that hit the NPC</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">times</td><td style="vertical-align:top;">Specifies how long the vehicle is already standing on the NPC in 100ms. Check this for 0 to detect the initial vehicle hit</td></tr></table></div>
+<p><b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">Return 0 to apply the RNPC standard vehicle damage, or return 1 to skip them.<br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Rnpc.html" title="Edit section: Value-Defines">edit</a>]</div><a name="Value-Defines"></a><h2> Value-Defines </h2>
+<pre class="pawn"><span style="color: #808080; font-style: italic;">// Types for RNPC_CreateBuild</span>
+<span style="color: #6b8e23;">#define PLAYER_RECORDING_TYPE_NONE	0	// Unused</span>
+<span style="color: #6b8e23;">#define PLAYER_RECORDING_TYPE_DRIVER	1</span>
+<span style="color: #6b8e23;">#define PLAYER_RECORDING_TYPE_ONFOOT	2</span>
+&nbsp;
+<span style="color: #808080; font-style: italic;">// Movementspeed values</span>
+<span style="color: #808080; font-style: italic;">// Walking animation will be set accordingly</span>
+<span style="color: #6b8e23;">#define RNPC_SPEED_SPRINT				(0.0095)</span>
+<span style="color: #6b8e23;">#define RNPC_SPEED_RUN					(0.0057)</span>
+<span style="color: #6b8e23;">#define RNPC_SPEED_WALK					(0.0015)</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Rnpc.html" title="Edit section: Structural defines">edit</a>]</div><a name="Structural_defines"></a><h2> Structural defines </h2>
+<p>In order to customize RNPC easily, there are several optional defines to deactivate/active certain parts of RNPC. In order to use them they must be defined in the script before #include &lt;rnpc&gt;
+</p>
+<pre class="pawn"><span style="color: #6b8e23;">#define RNPC_DEBUG                      // Prints detailled debug information to the console. Useful for bug reports</span>
+<span style="color: #6b8e23;">#define RNPC_NO_VERSION_CHECK           // Deactivates the version check on startup, and any statistic communication with mauzen.org</span>
+<span style="color: #6b8e23;">#define RNPC_NO_STATUPDATES             // Still check for RNPC updates, but dont send statistics to mauzen.org</span>
+<span style="color: #6b8e23;">#define RNPC_DONT_USE_DEAD_STREAMIN_FIX // Dead NPCs normally replay a death-animation when streaming in. This one disables that behavior.</span>
+<span style="color: #6b8e23;">#define RNPC_DONT_PAUSE_ON_VEHICLEHIT   // Disables autopause/resume on vehiclehits. rnpcData[npcid][RNPC_VEHICLEHIT] needs to be reset to 0 manually then.</span>
+                                        <span style="color: #808080; font-style: italic;">// Dont use this unless you know what you're doing.</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Rnpc.html" title="Edit section: Example code">edit</a>]</div><a name="Example_code"></a><h1> Example code </h1>
+<p>The "build mode-thingy" might be hard to understand just from explaining the single functions.
+So heres some example code that should make it more clear.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Rnpc.html" title="Edit section: Walk a bit and rage-shoot">edit</a>]</div><a name="Walk_a_bit_and_rage-shoot"></a><h2> Walk a bit and rage-shoot </h2>
+<pre class="pawn"><a href="http://wiki.sa-mp.com/wiki/SetPlayerPos"><span style="color: #006400;">SetPlayerPos</span></a><span style="color: #66cc66;">&#40;</span>npcid, <span style="color: #4169e1;">0.0</span>, <span style="color: #4169e1;">0.0</span>, <span style="color: #4169e1;">0.0</span><span style="color: #66cc66;">&#41;</span>;
+RNPC_CreateBuild<span style="color: #66cc66;">&#40;</span>npcid, PLAYER_RECORDING_TYPE_ONFOOT<span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// start build mode</span>
+RNPC_SetWeaponID<span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">32</span><span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// Set weapon</span>
+RNPC_AddPause<span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">500</span><span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// wait a bit</span>
+RNPC_AddMovement<span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">0.0</span>, <span style="color: #4169e1;">0.0</span>, <span style="color: #4169e1;">0.0</span>, <span style="color: #4169e1;">20.0</span>, <span style="color: #4169e1;">20.0</span>, <span style="color: #4169e1;">0.0</span><span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// start moving</span>
+RNPC_ConcatMovement<span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">0.0</span>, <span style="color: #4169e1;">20.0</span>, <span style="color: #4169e1;">0.0</span><span style="color: #66cc66;">&#41;</span>;  <span style="color: #808080; font-style: italic;">// Continue walking</span>
+RNPC_AddPause<span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">200</span><span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// wait a bit again</span>
+RNPC_SetKeys<span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">128</span><span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// aim straight forward</span>
+RNPC_AddPause<span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">500</span><span style="color: #66cc66;">&#41;</span>;
+RNPC_SetKeys<span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">128</span> + <span style="color: #4169e1;">4</span><span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// Start shooting straight forward</span>
+RNPC_AddPause<span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">500</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #4169e1;">for</span> <span style="color: #66cc66;">&#40;</span><span style="color: #228b22; font-weight: bold;">new</span> i = <span style="color: #4169e1;">0</span>; i &lt; <span style="color: #4169e1;">360</span>; i+=<span style="color: #4169e1;">20</span><span style="color: #66cc66;">&#41;</span> <span style="color: #66cc66;">&#123;</span>
+    <span style="color: #808080; font-style: italic;">// Makes the NPC rotate slowly</span>
+    RNPC_SetAngleQuats<span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">0.0</span>, i, <span style="color: #4169e1;">0.0</span><span style="color: #66cc66;">&#41;</span>;
+    RNPC_AddPause<span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">150</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span>
+RNPC_SetKeys<span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">128</span><span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// stop shooting</span>
+RNPC_AddPause<span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">500</span><span style="color: #66cc66;">&#41;</span>;
+RNPC_SetKeys<span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// stop aiming</span>
+RNPC_FinishBuild<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// end the build mode and finish the build</span>
+&nbsp;
+RNPC_StartBuildPlayback<span style="color: #66cc66;">&#40;</span>npcid<span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// start playback</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Rnpc.html" title="Edit section: Simple following script">edit</a>]</div><a name="Simple_following_script"></a><h2> Simple following script </h2>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">stock</span> FollowPlayer<span style="color: #66cc66;">&#40;</span>npcid, targetid<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <a href="http://wiki.sa-mp.com/wiki/SetTimerEx"><span style="color: #006400;">SetTimerEx</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;Follower&quot;</span>, <span style="color: #4169e1;">500</span>, <span style="color: #4169e1;">1</span>, <span style="color: #b22222;">&quot;ii&quot;</span>, npcid, targetid<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">public</span> Follower<span style="color: #66cc66;">&#40;</span>npcid, targetid<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <span style="color: #228b22; font-weight: bold;">new</span> <span style="color: orange;">Float</span>:x, <span style="color: orange;">Float</span>:y, <span style="color: orange;">Float</span>:z;
+    <a href="http://wiki.sa-mp.com/wiki/GetPlayerPos"><span style="color: #006400;">GetPlayerPos</span></a><span style="color: #66cc66;">&#40;</span>targetid, x, y, z<span style="color: #66cc66;">&#41;</span>;
+    MoveRNPC<span style="color: #66cc66;">&#40;</span>npcid, x, y, z, <span style="color: #4169e1;">0.006</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Rnpc.html" title="Edit section: Flying drag race">edit</a>]</div><a name="Flying_drag_race"></a><h2> Flying drag race </h2>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> npc = ConnectRNPC<span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;Racer&quot;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #228b22; font-weight: bold;">new</span> veh = CreateVehicle<span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">420</span>, <span style="color: #4169e1;">0.0</span>, <span style="color: #4169e1;">0.0</span>, <span style="color: #4169e1;">25.0</span>, <span style="color: #4169e1;">0.0</span>, <span style="color: #4169e1;">-1</span>, <span style="color: #4169e1;">-1</span>, <span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span>;
+<a href="http://wiki.sa-mp.com/wiki/PutPlayerInVehicle"><span style="color: #006400;">PutPlayerInVehicle</span></a><span style="color: #66cc66;">&#40;</span>npc, veh, <span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+RNPC_CreateBuild<span style="color: #66cc66;">&#40;</span>npc, PLAYER_RECORDING_TYPE_DRIVER<span style="color: #66cc66;">&#41;</span>;
+RNPC_SetAcceleration<span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">0.003</span><span style="color: #66cc66;">&#41;</span>;
+RNPC_AddMovementAlt<span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">0.0</span>, <span style="color: #4169e1;">0.0</span>, <span style="color: #4169e1;">25.0</span>, <span style="color: #4169e1;">0.0</span>, <span style="color: #4169e1;">500.0</span>, <span style="color: #4169e1;">25.0</span>, <span style="color: #4169e1;">0.15</span>, false<span style="color: #66cc66;">&#41;</span>;
+RNPC_FinishBuild<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+RNPC_StartBuildPlayback<span style="color: #66cc66;">&#40;</span>npc<span style="color: #66cc66;">&#41;</span>;</pre>
+<div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/Rnpc.html">http://localhost../wiki/Rnpc.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="Category_Plugin_Documentation.html" title="Category:Plugin Documentation">Plugin Documentation</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="Rnpc.html">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="Talk_Rnpc.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="Rnpc.html">Edit</a></li>
+				 <li id="ca-history"><a href="Rnpc.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 49,496 times.</li>
+				<li id="credits">This page was last modified 13:39, 1 August 2017 by SA-MP Wiki user <a href="User_OstGot.html" title="User:OstGot">OstGot</a>. Based on work by SA-MP Wiki user(s) <a href="User_ForT.html" class="new" title="User:ForT">ForT</a>, <a href="User_BlackWolf120.html" class="new" title="User:BlackWolf120">BlackWolf120</a>, <a href="User_Mauzen.html" title="User:Mauzen">Mauzen</a> and <a href="User_Mauzen.html" title="User:Mauzen">Mauzen</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 74.74 secs. -->
+</body></html>

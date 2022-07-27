@@ -1,0 +1,625 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Scripting Basics PT,Controlando Estruturas,Keywords,Main Page PT,Print PT,Scripting Basics,Scripting Callbacks PT,Scripting Functions PT" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>Scripting Basics PT - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Scripting Basics PT</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<div class="scripting" style="color: #4378A4; background-color: #FFFFFF; margin: 2px; margin-bottom: 10px;"><div align="center" style="border: 1px solid #AAAAAA; padding: 3px; padding-left: 5px;"><a href="Main_Page_PT.html" title="Main Page PT">Pagina Inicial</a> | <strong>Basico</strong> | <a href="Category_Scripting_Functions_PT.html" title="Category:Scripting Functions PT">Funções</a> | <a href="Category_Scripting_Callbacks_PT.html" title="Category:Scripting Callbacks PT">Callbacks</a></div></div>
+<p><br />
+</p>
+<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class='toclevel-1'><a href="#Iniciando"><span class="tocnumber">1</span> <span class="toctext">Iniciando</span></a>
+<ul>
+<li class='toclevel-2'><a href="#Include"><span class="tocnumber">1.1</span> <span class="toctext">Include</span></a></li>
+<li class='toclevel-2'><a href="#Chamadas"><span class="tocnumber">1.2</span> <span class="toctext">Chamadas</span></a></li>
+<li class='toclevel-2'><a href="#Declara.C3.A7.C3.B5es"><span class="tocnumber">1.3</span> <span class="toctext">Declarações</span></a></li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#Fun.C3.A7.C3.B5es"><span class="tocnumber">2</span> <span class="toctext">Funções</span></a>
+<ul>
+<li class='toclevel-2'><a href="#Chamando"><span class="tocnumber">2.1</span> <span class="toctext">Chamando</span></a></li>
+<li class='toclevel-2'><a href="#Definindo"><span class="tocnumber">2.2</span> <span class="toctext">Definindo</span></a></li>
+<li class='toclevel-2'><a href="#Par.C3.A2metros"><span class="tocnumber">2.3</span> <span class="toctext">Parâmetros</span></a></li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#Vari.C3.A1veis"><span class="tocnumber">3</span> <span class="toctext">Variáveis</span></a>
+<ul>
+<li class='toclevel-2'><a href="#Declara.C3.A7.C3.A3o"><span class="tocnumber">3.1</span> <span class="toctext">Declaração</span></a></li>
+<li class='toclevel-2'><a href="#Ajustando"><span class="tocnumber">3.2</span> <span class="toctext">Ajustando</span></a></li>
+<li class='toclevel-2'><a href="#Matrizes"><span class="tocnumber">3.3</span> <span class="toctext">Matrizes</span></a>
+<ul>
+<li class='toclevel-3'><a href="#Declara.C3.A7.C3.A3o_2"><span class="tocnumber">3.3.1</span> <span class="toctext">Declaração</span></a></li>
+<li class='toclevel-3'><a href="#Accessando"><span class="tocnumber">3.3.2</span> <span class="toctext">Accessando</span></a></li>
+<li class='toclevel-3'><a href="#Exemplo"><span class="tocnumber">3.3.3</span> <span class="toctext">Exemplo</span></a></li>
+</ul>
+</li>
+<li class='toclevel-2'><a href="#Strings"><span class="tocnumber">3.4</span> <span class="toctext">Strings</span></a>
+<ul>
+<li class='toclevel-3'><a href="#Uso_b.C3.A1sico"><span class="tocnumber">3.4.1</span> <span class="toctext">Uso básico</span></a></li>
+<li class='toclevel-3'><a href="#Caractede_de_escape"><span class="tocnumber">3.4.2</span> <span class="toctext">Caractede de escape</span></a></li>
+</ul>
+</li>
+<li class='toclevel-2'><a href="#Tags"><span class="tocnumber">3.5</span> <span class="toctext">Tags</span></a></li>
+<li class='toclevel-2'><a href="#Escopo"><span class="tocnumber">3.6</span> <span class="toctext">Escopo</span></a>
+<ul>
+<li class='toclevel-3'><a href="#local"><span class="tocnumber">3.6.1</span> <span class="toctext">local</span></a></li>
+<li class='toclevel-3'><a href="#local_est.C3.A1tica"><span class="tocnumber">3.6.2</span> <span class="toctext">local estática</span></a></li>
+<li class='toclevel-3'><a href="#global"><span class="tocnumber">3.6.3</span> <span class="toctext">global</span></a></li>
+<li class='toclevel-3'><a href="#global_est.C3.A1tica"><span class="tocnumber">3.6.4</span> <span class="toctext">global estática</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#Controlando_estruturas"><span class="tocnumber">4</span> <span class="toctext">Controlando estruturas</span></a></li>
+<li class='toclevel-1'><a href="#Plavras_chave_.28keywords.29"><span class="tocnumber">5</span> <span class="toctext">Plavras chave (keywords)</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_PT.html" title="Edit section: Iniciando">edit</a>]</div><a name="Iniciando"></a><h1> Iniciando </h1>
+<p>O seguinte exemplo é o código mais básico que você pode escrever:
+</p>
+<pre class="pawn"><span style="color: #6b8e23;">#include &lt;a_samp&gt;</span>
+&nbsp;
+main<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<a href="http://wiki.sa-mp.com/wiki/print"><span style="color: #006400;">print</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;Hello World!&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>Vários aspectos serão abordados por vez, vamos começar pela primeira linha:
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_PT.html" title="Edit section: Include">edit</a>]</div><a name="Include"></a><h2> Include </h2>
+<pre class="pawn"><span style="color: #6b8e23;">#include &lt;a_samp&gt;</span></pre>
+<p>Isso basicamente lê o arquivo include da pasta pawno/includes/a_samp.inc incluindo-o para dentro do seu código, então tudo que tem dentro do arquivo, você pode usar. Outros includes que você pode usar são:
+</p>
+<pre class="pawn"><span style="color: #6b8e23;">#include &lt;core&gt;</span>
+<span style="color: #6b8e23;">#include &lt;float&gt;</span>
+<span style="color: #6b8e23;">#include &lt;string&gt;</span>
+<span style="color: #6b8e23;">#include &lt;file&gt;</span>
+<span style="color: #6b8e23;">#include &lt;time&gt;</span>
+<span style="color: #6b8e23;">#include &lt;datagram&gt;</span>
+<span style="color: #6b8e23;">#include &lt;a_players&gt;</span>
+<span style="color: #6b8e23;">#include &lt;a_vehicles&gt;</span>
+<span style="color: #6b8e23;">#include &lt;a_objects&gt;</span>
+<span style="color: #6b8e23;">#include &lt;a_sampdb&gt;</span></pre>
+<p>Isso incluirá todos os outros arquivos da pasta, então por adicionar essa única linha, você tem acesso à todas as funções do SA:MP (Você lerá mais sobre funções depois).
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_PT.html" title="Edit section: Chamadas">edit</a>]</div><a name="Chamadas"></a><h2> Chamadas </h2>
+A próxima parte mostra os dois lados da chamada de um arquivo.  main() é o ponto de entrada de todo script, a primeira parte do código a ser chamada. <a href="Print_PT.html" title="Print PT">print</a> é uma função que irá escrever na janela do servidor. Tudo que isso vai fazer é carregar, escrever uma seqüência de caracteres (ou seja, imprimir "Olá mundo!"(sem as aspas) (uma tradição em todas as linguagens de programação)) para o console do servidor. O retorno:<pre class="pawn"><span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;</pre>
+<p>Retorna o valor (1) de volta ao lugar onde foi feita a chamada para dizer o que aconteceu (o valor exato que passou aqui não importa, mas em outros lugares faz toda a diferença). Você tem agora o seu script (muito básico). Se você selecionar Arquivo >> novo no PAWNO ele lhe dará um ponto inicial muito maior que todos os códigos vistos até agora (ver abaixo), incluindo as callbacks nativas (parte do código chamada em um determinado momento/acontecimento).
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_PT.html" title="Edit section: Declarações">edit</a>]</div><a name="Declara.C3.A7.C3.B5es"></a><h2> Declarações </h2>
+<p>As linhas do código a seguir, sempre tem um ';' (ponto e vírgula) no final, isso simplesmente denota o fim de uma declaação(uma declaração é um grupo de uma ou mais funções e operadores que juntos fazem algo, semelhante a uma frase em linguagem comum). Muitas pessoas colocam declarações separados pra cada função isso não é necessário, a seguinte declaração é válida:
+</p>
+<pre class="pawn">main<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span> 
+<span style="color: #66cc66;">&#123;</span> 
+     <a href="http://wiki.sa-mp.com/wiki/print"><span style="color: #006400;">print</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;Hello World!&quot;</span><span style="color: #66cc66;">&#41;</span>;
+     <span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>; 
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>As brackets/chaves({}), juntam um grupo de funções que devem ser executadas em conjunto(como um parágrafo em linguagem commum).
+</p>
+<pre class="pawn">main<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span> 
+<a href="http://wiki.sa-mp.com/wiki/print"><span style="color: #006400;">print</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;Hello World!&quot;</span><span style="color: #66cc66;">&#41;</span>; 
+<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;</pre>
+<p>Com a função acima você agora irá receber um erro porquê a declaração "return 1;"  não está em grupo da função main. Os braços contém uma série de instruções em uma única instrução (denominado declaração composta) e funções têm uma simples declaração com elas. Sem os braços, return e print são declarações completamente distintas então como a print é uma função e return não, o código não pode se realizar.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_PT.html" title="Edit section: Funções">edit</a>]</div><a name="Fun.C3.A7.C3.B5es"></a><h1> Funções </h1>
+<p>Uma função é basicamente um pedaço de código que faz algo e pode ser dito para fazer esta coisa de outro lugar. Ele também pode passar dados sobre o que fez e voltar ao lugar que lhe disse para continuar(o lugar que a função foi "chamada").
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_PT.html" title="Edit section: Chamando">edit</a>]</div><a name="Chamando"></a><h2> Chamando </h2>
+<pre class="pawn"><a href="http://wiki.sa-mp.com/wiki/print"><span style="color: #006400;">print</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;Olá Mundo!&quot;</span><span style="color: #66cc66;">&#41;</span>;</pre>
+<p>Como descrito em <a href="Scripting_Basics.html#Starting_out" title="Scripting Basics">Iniciando</a>, isso chama uma função chamada "print" (definida em a_samp.inc, por isso você precisa inclui-lo) e diz pra mostrar no console do servidor as palavras "Olá Mundo".
+</p>
+Uma função consiste no nome dela(e.g. print), que diz ao sistema qual pedaço de código que você deseja chamar, e uma lista de parâmetros, entre ()s após o nome da função, que passam de dados adicionais para a função de ajudá-la a ser executada. Se você não tem os parâmetros, você precisará de milhões de funções:<pre class="pawn">printa<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>;
+printaa<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>;
+printab<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>;
+printac<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>;
+etc...</pre>
+<p>As funções podem ter parâmetros como muitos como você gosta, de 0 (pode haver um limite máximo, mas é, pelo menos, 128):
+</p>
+<pre class="pawn"><a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;Olá Mundo!&quot;</span>, <span style="color: #4169e1;">1</span>, <span style="color: #4169e1;">2</span>, <span style="color: #4169e1;">3</span>, <span style="color: #4169e1;">4</span>, <span style="color: #4169e1;">5</span>, <span style="color: #4169e1;">6</span><span style="color: #66cc66;">&#41;</span>;</pre>
+<p>Não se preocupe com o que essa função faz, por agora, só que ela tem 7 parâmetros, separados por uma vírgula.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_PT.html" title="Edit section: Definindo">edit</a>]</div><a name="Definindo"></a><h2> Definindo </h2>
+<p>Bem como ser chamar funções existentes você pode também criar e chamar as suas:
+</p>
+<pre class="pawn"><span style="color: #6b8e23;">#include &lt;a_samp&gt;</span>
+&nbsp;
+main<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: orange; font-weight: bold;">return</span> MinhaFuncao<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+MinhaFuncao<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<a href="http://wiki.sa-mp.com/wiki/print"><span style="color: #006400;">print</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;Olá Mundo!&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>Isso faz exatamente o mesmo que o código original, mas é arranjado de forma diferente. Quando main () é chamado, ou seja, quando o modo é iniciado (ele é chamado automaticamente) ele chama a nova função personalizada chamada MinhaFuncao(). Esta função imprime a mensagem no console do servidor, em seguida, retorna o número 1 do main (). main () recebe o valor retornado (1) e depois retorna para o próprio servidor (ou seja, o lugar que chamou principal em primeiro lugar). Como "return MinhaFuncao();" é uma declaração única que você poderia fazer:
+</p>
+<pre class="pawn"><span style="color: #6b8e23;">#include &lt;a_samp&gt;</span>
+&nbsp;
+main<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span> <span style="color: orange; font-weight: bold;">return</span> MinhaFuncao<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+MinhaFuncao<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<a href="http://wiki.sa-mp.com/wiki/print"><span style="color: #006400;">print</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;Olá Mundo!&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>Mas a maioria das pessoas não fazem isso para maior clareza no código. Você também pode executar a função assim:
+</p>
+<pre class="pawn"><span style="color: #6b8e23;">#include &lt;a_samp&gt;</span>
+&nbsp;
+main<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	MinhaFuncao<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+MinhaFuncao<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<a href="http://wiki.sa-mp.com/wiki/print"><span style="color: #006400;">print</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;Olá Mundo!&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_PT.html" title="Edit section: Parâmetros">edit</a>]</div><a name="Par.C3.A2metros"></a><h2> Parâmetros </h2>
+<p>Parâmetros são um tipo de <a href="Scripting_Basics.html#Variables" title="Scripting Basics">variáveis</a> que você não precisa declarar já que eles vêm de um lugar que chamou a função:
+</p>
+<pre class="pawn"><span style="color: #6b8e23;">#include &lt;a_samp&gt;</span>
+&nbsp;
+main<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: orange; font-weight: bold;">return</span> MinhaFuncao<span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;Olá Mundo!&quot;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+MinhaFuncao<span style="color: #66cc66;">&#40;</span>string<span style="color: #66cc66;">&#91;</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<a href="http://wiki.sa-mp.com/wiki/print"><span style="color: #006400;">print</span></a><span style="color: #66cc66;">&#40;</span>string<span style="color: #66cc66;">&#41;</span>;
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>O código acima faz a mesma coisa que antes MinhaFuncao(), irá mostrar a(a) palavra(s) entre aspas no console. A chamada passa a string "Olá Mundo!" para a função MinhaFuncao, que tem uma variável chamada string. Os [] colchetes denotam string como array<a href="Scripting_Basics.html#Arrays" title="Scripting Basics">arrays</a> será explicado depois).  A função print é chamada recebendo o conteúdo da variável string, nós sabemos que é uma variável porquê não tem as aspas antes e depois do texto.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_PT.html" title="Edit section: Variáveis">edit</a>]</div><a name="Vari.C3.A1veis"></a><h1> Variáveis </h1>
+<p>Uma variável é basicamente um pouco de memória. É onde os dados são armazenados e podem ser alterados, e lidos. Variáveis são uma ou mais células. Uma célula tem 32 bits (4 bytes) grandes e por padrão são assinadas com os valores: -2147483648 até 2147483647 (embora -2147483648 é pobremente definido em PAWN e dá resultados estranhos quando exibido.  Uma variável feita pra armazenar mais que uma célula é chamada de array, strings sãoum tipo especialde arrays, onde cada célula armazena 1 caractere da string (ou 4 caracteres em packed strings mas elas nãoserão discutidas aqui.)
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_PT.html" title="Edit section: Declaração">edit</a>]</div><a name="Declara.C3.A7.C3.A3o"></a><h2> Declaração </h2>
+<p>Para criar uma variável você precisa declara-la:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span>
+	minhaVariavel;</pre>
+<p>Isso diz ao sistema que deverá ser criada uma variável chamada minhaVariavel, o valor inicial dessa variável será 0.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_PT.html" title="Edit section: Ajustando">edit</a>]</div><a name="Ajustando"></a><h2> Ajustando </h2>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span>
+	minhaVariavel = <span style="color: #4169e1;">7</span>;</pre>
+<p>Isso declara a variável e ajusta seu valor para 7, então imprimindo a variável o valor será 7.  Para mostrar o valor de uma variável que não contenha uma string nós precisamos voltar ao printf() função mencionada antes, e fácil de usar.
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span>
+	minhaVariavel = <span style="color: #4169e1;">7</span>;
+<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;%d&quot;</span>, minhaVariavel<span style="color: #66cc66;">&#41;</span>;</pre>
+<p>De novo, por agora tudo que o código irá fazer é imprimir o valor da variável (i.e. 7 ao ponto) para o servidor.
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span>
+	minhaVariavel = <span style="color: #4169e1;">7</span>;
+<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;%d&quot;</span>, minhaVariavel<span style="color: #66cc66;">&#41;</span>;
+minhaVariavel = <span style="color: #4169e1;">8</span>;
+<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;%d&quot;</span>, minhaVariavel<span style="color: #66cc66;">&#41;</span>;</pre>
+<p>Esse código imrpimirá 7 depois ajustará o valor da variável para 8 e imprimieá 8, logicamente. Abaixo muitas outras coisas que você pode fazer com variáveis, e que são mais listados em outros lugares:
+</p>
+<pre class="pawn">minhaVariavel = minhaVariavel + <span style="color: #4169e1;">4</span>;</pre>
+<p>Ajusta o valor de minhaVariavel para o valor antigo e adciona mais 4 à ela.  Isso também pode ser escrito assim:
+</p>
+<pre class="pawn">minhaVariavel += <span style="color: #4169e1;">4</span>;</pre>
+<p>Irá fazer a mesma coisa.
+</p>
+<pre class="pawn">minhaVariavel -= <span style="color: #4169e1;">4</span>;</pre>
+<p>Isso irá diminuir o valor dela por 4
+</p>
+<pre class="pawn">minhaVariavel *= <span style="color: #4169e1;">4</span>;</pre>
+<p>Isso irá atribuir à variavel o valor dela multiplicado por 4
+</p>
+<pre class="pawn">minhaVariavel /= <span style="color: #4169e1;">4</span>;</pre>
+<p>Isso irá atribuir à variavel o valor dela dividido por 4
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_PT.html" title="Edit section: Matrizes">edit</a>]</div><a name="Matrizes"></a><h2> Matrizes </h2>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_PT.html" title="Edit section: Declaração">edit</a>]</div><a name="Declara.C3.A7.C3.A3o_2"></a><h3> Declaração </h3>
+Uma matriz é uma variável em que você pode armazenar múltiplas peças do dado e acessálo- dinamicamente. Uma matriz é declarada com um tamanho definido em tempo de compilação que você precisa saber quantas peças de dados que você precisa para armazenar de antecedência, um bom exemplo disso é a matriz MAX_PLAYERS muito comum, isso terá um slot para cada jogador, possivelmente ligado , Assim você sabe os dados para um jogador não irá interferir com os dados para um outro jogador (mais sobre constantes mais tarde).<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span>
+	Matriz<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">5</span><span style="color: #66cc66;">&#93;</span>;</pre>
+Esse código irá declarar uma matriz com 5 slots grandes, então você pode armazenar 5 peças de data normal ao mesmo tempo. Uma coisa que você não pode fazer é o seguinte:<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span>
+	minhaVariavel = <span style="color: #4169e1;">5</span>,
+	Matriz<span style="color: #66cc66;">&#91;</span>minhaVariavel<span style="color: #66cc66;">&#93;</span>;</pre>
+<p>Esse código parece que ele irá criar uma matriz do tamanho de qualquer número que está armazenado em minhaVariavel (aqui 5, mas poderia ser qualquer coisa), mas você não pode fazer isso. Em Pawn a memória para as variáveis é atribuído quando você compilar o código, isso significa que as matrizes são sempre um tamanho, não é possível definir o tamanho para o que quiser quando quiser.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_PT.html" title="Edit section: Accessando">edit</a>]</div><a name="Accessando"></a><h3> Accessando </h3>
+Para ajustar um valor em uma matriz você precisa que parte da array você quer que seja armazenado o quê. Isso PODE ser feito com outra variável<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span>
+	Matriz<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">5</span><span style="color: #66cc66;">&#93;</span>;
+minhaVariavel<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">2</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #4169e1;">7</span>;</pre>
+<p>Isso irá declarar uma matriz com 5 espaços e dar ao terceiro espaço o valor 7, as outras variáveis terão o valor 0 Esses serão os valores da array:
+</p>
+<pre>0, 0, 7, 0, 0
+</pre>
+<p>Por quê isto não é?
+</p>
+<pre>0, 7, 0, 0, 0&nbsp;?
+</pre>
+<p>Você está preocupado? Isso acontece porquê a contagem começa do 0, e não 1, como estamos habituados.  Considere os seguintes dados: 
+</p><p>2, 4, 6, 8
+</p><p>Se você percorrer a lista, em seguida, após o número 2, você já teve um número (o 2), isto significa que se você está contando os números com o tempo você chegar ao número 4 já está em um, você não está em um quando chegar a 2, o que você está em zero. Assim, o 2 está na posição zero e os 4 está na posição um, e assim segue-se que o 6 está na posição dois, que é onde a 7 no primeiro exemplo acima é. Segue abaixo a ordem do primeiro exemplo:
+</p>
+<pre>0 1 2 3 4
+0 0 7 0 0
+</pre>
+<p>Há cinco slots, mas como você pode ver, e isso é muito importante, não há espaço CINCO, fazendo o seguinte pode falhar o servidor:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span>
+	Matriz<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">5</span><span style="color: #66cc66;">&#93;</span>;
+Matriz<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">5</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #4169e1;">7</span>;</pre>
+Como mencionado sobre o índice da matriz(o indice é o espaço que você irá escrever) pode ser qualquer coisa, um número, uma variável que retorna um valor.<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span>
+	Matriz<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">5</span><span style="color: #66cc66;">&#93;</span>,
+	MeuIndice = <span style="color: #4169e1;">2</span>;
+Matriz<span style="color: #66cc66;">&#91;</span>MeuIndice<span style="color: #66cc66;">&#93;</span> = <span style="color: #4169e1;">7</span>;</pre>
+<p>Tendo uma matriz e um índice você pode usar esse bloco, exatamente como se fosse qualquer outra variável:
+</p>
+<pre class="pawn">Matriz<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">2</span><span style="color: #66cc66;">&#93;</span> = Matriz<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">2</span><span style="color: #66cc66;">&#93;</span> + <span style="color: #4169e1;">1</span>;
+Matriz<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">2</span><span style="color: #66cc66;">&#93;</span> += <span style="color: #4169e1;">1</span>;
+Matriz<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">2</span><span style="color: #66cc66;">&#93;</span>++;</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_PT.html" title="Edit section: Exemplo">edit</a>]</div><a name="Exemplo"></a><h3> Exemplo </h3>
+<p>Como mencionado acima sobre um tipo comum de matriz é a matriz MAX_PLAYERS. MAX_PLAYERS não é uma variável, é uma definição em constante que será explicada mais tarde, para aceitar um número constante que é igual ao número máximo de jogadores que um servidor pode conter (isso por padrão é 500, mesmo se você mudar o número do seu arquivo server.cfg). O código a seguir utiliza variáveis normais para armazenar dados para 4 jogadores e fazer algo com os jogadores em uma função (por causa da simplicidade, assumir MAX_PLAYERS é de 4 por enquanto):
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span>
+	jogador0,
+	jogador1,
+	jogador2,
+	jogador3;
+&nbsp;
+AjustarValorDoJogador<span style="color: #66cc66;">&#40;</span>jogador, valor<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #4169e1;">switch</span><span style="color: #66cc66;">&#40;</span>jogador<span style="color: #66cc66;">&#41;</span>
+	<span style="color: #66cc66;">&#123;</span>
+	    <span style="color: orange; font-weight: bold;">case</span> <span style="color: #4169e1;">0</span>: jogador0 = valor; <span style="color: #808080; font-style: italic;">// isso é a mesma coisa que usar if(jogador == 0)</span>
+	    <span style="color: orange; font-weight: bold;">case</span> <span style="color: #4169e1;">1</span>: jogador1 = valor; <span style="color: #808080; font-style: italic;">// isso é a mesma coisa que usar if(jogador == 1)</span>
+	    <span style="color: orange; font-weight: bold;">case</span> <span style="color: #4169e1;">2</span>: jogador2 = valor; <span style="color: #808080; font-style: italic;">// isso é a mesma coisa que usar if(jogador == 2)</span>
+	    <span style="color: orange; font-weight: bold;">case</span> <span style="color: #4169e1;">3</span>: jogador3 = valor; <span style="color: #808080; font-style: italic;">// isso é a mesma coisa que usar if(jogador == 3)</span>
+	<span style="color: #66cc66;">&#125;</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>Consulte a seção sobre estruturas de controle para obter mais informações sobre o que está acontecendo por lá, nota-se que isso poderia ser feito como um interruptor, mas isso é menos clara para o exemplo e efetivamente seria o mesmo código de qualquer maneira.
+</p><p>Agora compare isso ao uso de uma matriz com um espaço para cada jogador, tendo em conta que um índice de array pode ser qualquer valor:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span>
+	jogadores<span style="color: #66cc66;">&#91;</span><span style="color: #E9967A; font-weight: bold;">MAX_PLAYERS</span><span style="color: #66cc66;">&#93;</span>;
+&nbsp;
+AjustarValorDoJogador<span style="color: #66cc66;">&#40;</span>jogador, valor<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	jogadores<span style="color: #66cc66;">&#91;</span>jogador<span style="color: #66cc66;">&#93;</span> = valor;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>O código acima cria uma variável global (veja esta seção no escopo) com um espaço pra cada jogador, então a função irá atribuir o que está no "valor" variável para o espaço do jogador. O primeiro exemplo foi grande, com apenas quatro jogadores, com 4 linhas por jogador, que é de 2000 linhas por 500 jogadores (se pode ser menor, mas ainda é muito), a segunda versão é uma única linha, não importa quantos jogadores você tem.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_PT.html" title="Edit section: Strings">edit</a>]</div><a name="Strings"></a><h2> Strings </h2>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_PT.html" title="Edit section: Uso básico">edit</a>]</div><a name="Uso_b.C3.A1sico"></a><h3> Uso básico </h3>
+<p>Uma string é um tipo especial de matriz, que é utilizado para armazenar vários caracteres para criar uma palavra ou frase ou texto de outro ser humano legível. Um caractere é um byte grande (embora haja estendido define onde um caractere é bytes múltiplos, mas estes não estão bem definidas no SA: MP) e por padrão um caractere pega uma célula (uma variável normal ou um espaço de matriz). Os caracteres são codificados em um sistema chamado <a href="http://www.asciitable.com/" class='external text' title="http://www.asciitable.com/" rel="nofollow">ASCII</a>, o caractere "A "é representado pelo número 65, dizendo que o sistema exibe uma série, dará 65, dizendo que o sistema exibe um caractere vai dar uma letra a. Obviamente é um único caractere, ocupando uma única célula de múltiplos caracteres (i.e. text) ocupará várias células, coleções de células, como acabei de explicar, são chamadas de matrizes.
+</p><p>strings em PAWN (e outras línguas) é o que é chamado de "encerrado NULL", isso significa que quando 0 é atingido, a cadeia de caracteres termina. Este não é o mesmo que o caractere "0", representado pelo número 48, este é o caractere nulo, representado pelo número 0. Isso significa que você pode ter uma matriz de seqüência de 20 grandes células, mas apenas ter uma seqüência de três caracteres se o quarto caractere é o caractere NULL, sinalizando o fim da cadeia. Você não pode no entanto ter uma seqüência de 20 caracteres, como o caractere NULL deve ser na seqüência, assim, em uma matriz de células 20 você pode ter uma seqüência de caracteres 19 e um caractere NULL de terminação.
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span>
+	minhaString<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">15</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #b22222;">&quot;Hello World!&quot;</span>;</pre>
+<p>Esse código declara uma nova seqüência de caracteres com espaço suficiente para uma seqüência de 15 caracteres e define-se inicialmente para a seqüência de cinco caracteres "Hello World!", as aspas em torno do texto indicam que ele é uma string. Internamente, a matriz se parece com:
+</p>
+<pre>104 101 108 108 111 0 x x x x x x x x x x
+</pre>
+<p>O "x" não significa nada, neste exemplo, todos eles vão ser 0, mas como eles estão após o caractere nulo, não importa o que são, eles não afetarão a seqüência.
+</p><p>Strings podem ser manipulados como vetores normais, por exemplo:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span>
+	minhaString<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">16</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #b22222;">&quot;Hello World!&quot;</span>;
+minhaString<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">1</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #4169e1;">97</span>;</pre>
+<p>Vai mudar o caractere no espaço 1 para o caratcete representado pelo número 97 (uma minúscula "a "), resultando na seqüência de leitura "alô". Isso pode ser escrito muito mais legívelmente e fácil de editar como:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span>
+	minhaString<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">16</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #b22222;">&quot;Hello World!&quot;</span>;
+minhaString<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">1</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #b22222;">'a'</span>;</pre>
+<p>As aspas simples em torno do "a " significa que ele é um caractere, não uma seqüência, os caracteres não precisam ser NULL finalizado como eles estão sempre apenas uma célula longa, eles também podem ser usados de forma intercambiável com números, se você souber o que eles representam.
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span>
+	minhaString<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">16</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #b22222;">&quot;Hello World!&quot;</span>;
+minhaString<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">1</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #b22222;">'<span style="color: #000099; font-weight: bold;">\0</span>'</span>;</pre>
+<p>'\0' são dois caracteres, no entanto, o \ é um caractere especial, que modifica o próximo caractere, \0 significa NULL, o código é o mesmo que fazer:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span>
+	minhaString<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">16</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #b22222;">&quot;Hello World!&quot;</span>;
+minhaString<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">1</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #4169e1;">0</span>;</pre>
+<p>Mas isso NÃO é o mesmo que:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span>
+	myString<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">16</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #b22222;">&quot;Hello World!&quot;</span>;
+myString<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">1</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #b22222;">'0'</span>;</pre>
+<p>A primeira e a segunda versão resultará na seqüência de ser simplesmente:
+</p>
+<pre>h
+</pre>
+<p>A terceira versão resultará na seqüência de ser simplesmente:
+</p>
+<pre>h0llo
+</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_PT.html" title="Edit section: Caractede de escape">edit</a>]</div><a name="Caractede_de_escape"></a><h3> Caractede de escape </h3>
+<p>Como mencionado brevemente uma barra invertida é um caractere especial, fazendo:
+</p>
+<pre>'\'
+</pre>
+<p>ou:
+</p>
+<pre>"\"
+</pre>
+<p>Vai dar um erro no compilador porque o \ modifica o próximo caractere assim aqueles constantes não serão encerrados corretamente, isso pode ser usado para criar caractere que normalmente não pode ser criado, por exemplo:
+</p><p><br />
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span>
+	minhaString<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">4</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #b22222;">&quot;<span style="color: #000099; font-weight: bold;">\&quot;</span>&quot;</span>;</pre>
+<p>Esse código irá criar uma string que consiste de apenas criar uma aspa, normalmente aspas duplas sinalizam o fim de uma seqüência de escrita, mas a barra invertida faz com que as aspas duplas sejam escritas imediatamente após uma parte da string, e as aspas depois terminam a seqüência de caracteres em vez. Outros caracteres especiais são:
+</p>
+<table class="wikitable">
+
+
+<tr>
+<td> \0
+</td><td> Caractere NULL
+</td><td> finaliza uma string.
+</td></tr>
+<tr>
+<td> \n
+</td><td> saltar linha
+</td><td> use \n para uma nova linha no Linux (também funciona no Windows)
+</td></tr>
+<tr>
+<td> \r
+</td><td> retorno de procedimento
+</td><td> Use \r\n para uma nova linha no Windows
+</td></tr>
+<tr>
+<td> \\
+</td><td> Backslash
+</td><td> Used to put an actual backslash in a string
+</td></tr>
+<tr>
+<td> \'
+</td><td> Aspa simples
+</td><td> Usado para usar uma única barra como um caractere de aspas simples (uso: '\'')
+</td></tr>
+<tr>
+<td> \"
+</td><td> Aspas duplas
+</td><td> Usado pra colocar aspas duplas na string
+</td></tr>
+<tr>
+<td> \xNNN;
+</td><td> Número hexadecimal
+</td><td> Usado para definir o caractere ao caractere representada por um número hexadecimal especificado em lugar de NNN
+</td></tr>
+<tr>
+<td> \NNN;
+</td><td> Número
+</td><td> Usado para definir o caractere ao caractere representado pelo número especificado em lugar de NNN (ver \ 0)
+</td></tr></table>
+<p>Existem outros, mas esses são os principais.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_PT.html" title="Edit section: Tags">edit</a>]</div><a name="Tags"></a><h2> Tags </h2>
+<p>Uma tag é uma peça adicional de informação sobre uma variável que define onde ela pode ser usada. Por exemplo:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span>
+    <span style="color: orange;">Float</span>:a = <span style="color: #4169e1;">6.0</span>;</pre>
+<p>O "Float" parte é a tag, isso define esta variável como float (número de não-inteiros) e determina onde ele pode ser usada.
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">native</span> AjustarGravidade<span style="color: #66cc66;">&#40;</span><span style="color: orange;">Float</span>:gravidade<span style="color: #66cc66;">&#41;</span>;</pre>
+<p>Isto significa que a função AjustarGravidade leva um único parâmetro que deve ser um float, por exemplo:
+</p>
+<pre class="pawn">AjustarGravidade<span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">6.0</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #228b22; font-weight: bold;">new</span>
+   <span style="color: orange;">Float</span>:fGrav = <span style="color: #4169e1;">5.0</span>;
+AjustarGravidade<span style="color: #66cc66;">&#40;</span>fGrav<span style="color: #66cc66;">&#41;</span>;</pre>
+<p>Isso vai definir a gravidade de 6 (6,0 como um float) a 5 (5.0 como um float). Usando a etiqueta errada no lugar errado, muitas vezes, gera um erro(tag mismatch):
+</p>
+<pre class="pawn">AjustarGravidade<span style="color: #66cc66;">&#40;</span><span style="color: orange;">MinhaTag</span>:<span style="color: #4169e1;">7</span><span style="color: #66cc66;">&#41;</span>;</pre>
+<p>Isso vai tentar definir a gravidade a 7 com a tag "myTag", que não é claramente um "Float" isso é errado. Observe também que as tags são case sensitive(diferenciam maiúsculas de minúsculas).
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_PT.html" title="Edit section: Escopo">edit</a>]</div><a name="Escopo"></a><h2> Escopo </h2>
+<p>Escopo é o local onde uma variável pode ser usada. Há quatro âmbitos principais: locais, estáticas local, global e global estática. Todas as variáveis só podem ser usadas depois que eles são declarados por isso esta é a direita:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span>
+    var = <span style="color: #4169e1;">4</span>;
+<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;%d&quot;</span>, var<span style="color: #66cc66;">&#41;</span>;</pre>
+<p>Isso é errado:
+</p>
+<pre class="pawn"><a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;%d&quot;</span>, var<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #228b22; font-weight: bold;">new</span>
+    var = <span style="color: #4169e1;">4</span>;</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_PT.html" title="Edit section: local">edit</a>]</div><a name="local"></a><h3> local </h3>
+<p>Uma variável local é declarada com um "new" dentro de uma função ou parte de uma função:
+</p>
+<pre class="pawn">MyFunc<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <span style="color: #228b22; font-weight: bold;">new</span>
+        var1 = <span style="color: #4169e1;">4</span>;
+    <a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;%d&quot;</span>, var1<span style="color: #66cc66;">&#41;</span>;
+    <span style="color: #66cc66;">&#123;</span>
+        <span style="color: #808080; font-style: italic;">// como este é um nível mais baixo, var1 ainda existe</span>
+        <span style="color: #228b22; font-weight: bold;">new</span>
+            var2 = <span style="color: #4169e1;">8</span>;
+        <a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;%d %d&quot;</span>, var1, var2<span style="color: #66cc66;">&#41;</span>;
+    <span style="color: #66cc66;">&#125;</span>
+    <span style="color: #808080; font-style: italic;">// como este é um nível mais alto, var2 não existe mais</span>
+<span style="color: #66cc66;">&#125;</span>
+<span style="color: #808080; font-style: italic;">// var1 não existe mais</span></pre>
+<p>As variáveis locais são de descanso a cada hora, por exemplo:
+</p>
+<pre class="pawn"><span style="color: #4169e1;">for</span> <span style="color: #66cc66;">&#40;</span><span style="color: #228b22; font-weight: bold;">new</span> i = <span style="color: #4169e1;">0</span>; i &lt; <span style="color: #4169e1;">3</span>; i++<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <span style="color: #228b22; font-weight: bold;">new</span>
+        j = <span style="color: #4169e1;">1</span>;
+    <a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;%d&quot;</span>, j<span style="color: #66cc66;">&#41;</span>;
+    j++;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>Irá imprimir:
+</p>
+<pre>1
+1
+1
+</pre>
+<p>j é criado, impresso, incrementado destruído em seguida, e em seguida.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_PT.html" title="Edit section: local estática">edit</a>]</div><a name="local_est.C3.A1tica"></a><h3> local estática </h3>
+<p>Um local estático pode ser usado do mesmo modo que um local, mas não se esqueça que é o valor antigo, por exemplo:
+</p>
+<pre class="pawn">MyFunc<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <span style="color: #228b22; font-weight: bold;">static</span>
+        var1 = <span style="color: #4169e1;">4</span>;
+    <a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;%d&quot;</span>, var1<span style="color: #66cc66;">&#41;</span>;
+    <span style="color: #66cc66;">&#123;</span>
+        <span style="color: #808080; font-style: italic;">// como este é um nível mais baixo, var1 ainda existe</span>
+        <span style="color: #228b22; font-weight: bold;">static</span>
+            var2 = <span style="color: #4169e1;">8</span>;
+        <a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;%d %d&quot;</span>, var1, var2<span style="color: #66cc66;">&#41;</span>;
+    <span style="color: #66cc66;">&#125;</span>
+    <span style="color: #808080; font-style: italic;">// como este é um nível mais alto, var2 não existe mais</span>
+<span style="color: #66cc66;">&#125;</span>
+<span style="color: #808080; font-style: italic;">// var1 não existe mais</span></pre>
+<p>Esse código vai se comportar exatamente como o novo exemplo:
+</p>
+<pre class="pawn"><span style="color: #4169e1;">for</span> <span style="color: #66cc66;">&#40;</span><span style="color: #228b22; font-weight: bold;">new</span> i = <span style="color: #4169e1;">0</span>; i &lt; <span style="color: #4169e1;">3</span>; i++<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <span style="color: #228b22; font-weight: bold;">static</span>
+        j = <span style="color: #4169e1;">1</span>;
+    <a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;%d&quot;</span>, j<span style="color: #66cc66;">&#41;</span>;
+    j++;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>Irá imprimir
+</p>
+<pre>1
+2
+3
+</pre>
+<p>Como j é estático lembra o seu valor antigo.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_PT.html" title="Edit section: global">edit</a>]</div><a name="global"></a><h3> global </h3>
+<p>As variáveis globais são declaradas fora de uma função e podem ser usadas em todas as funções:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span>
+    gMinhaVar = <span style="color: #4169e1;">4</span>;
+&nbsp;
+MyFunc<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;%d&quot;</span>, gMinhaVar<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>Eles nunca são repostas ou perdidas.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_PT.html" title="Edit section: global estática">edit</a>]</div><a name="global_est.C3.A1tica"></a><h3> global estática </h3>
+<p>Variáveis globais estáticas são como globais normais, mas só podem ser usadas no arquivo em que são declaradas:
+</p><p>File1:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">static</span>
+    gsMinhaVar = <span style="color: #4169e1;">4</span>;
+&nbsp;
+MyFunc<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;%d&quot;</span>, gsMinhaVar<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+<span style="color: #6b8e23;">#include &quot;File2&quot;</span></pre>
+<p>File2:
+</p>
+<pre class="pawn">MinhaFunc2<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    / / Isto está errado pois gsMinhaVar não existe aqui
+    <a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;%d&quot;</span>, gsMinhaVar<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>static também pode ser aplicado à funções da mesma forma.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_PT.html" title="Edit section: Controlando estruturas">edit</a>]</div><a name="Controlando_estruturas"></a><h1>Controlando estruturas</h1>
+<dl><dd><div class="noprint relarticle mainarticle"><i>Main article: <a href="Controlando_Estruturas.html" title="Controlando Estruturas">Controlando Estruturas</a></div></i>
+</dd></dl>
+<p>Estruturas de controle determinam o fluxo do programa. Elas podem executar código ou não com base no conteúdo de variáveis, retornos de funções e outras coisas. Eles também podem fazer as coisas repetidamente, se necessário.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_PT.html" title="Edit section: Plavras chave (keywords)">edit</a>]</div><a name="Plavras_chave_.28keywords.29"></a><h1>Plavras chave (keywords)</h1>
+<dl><dd><div class="noprint relarticle mainarticle"><i>Main article: <a href="Keywords.html" title="Keywords">keywords</a></div></i>
+</dd></dl>
+<div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/Scripting_Basics_PT.html">http://localhost../wiki/Scripting_Basics_PT.html</a>"</div>
+						<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="Scripting_Basics_PT.html">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="Talk_Scripting_Basics_PT.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="Scripting_Basics_PT.html">Edit</a></li>
+				 <li id="ca-history"><a href="Scripting_Basics_PT.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-de"><a href="Scripting_Basics_DE.html">Deutsch</a></li>
+				<li class="interwiki-nl"><a href="Scripting_Basics_NL.html">Nederlands</a></li>
+				<li class="interwiki-ru"><a href="Scripting_Basics_RU.html">Русский</a></li>
+				<li class="interwiki-pt"><a href="Scripting_Basics_PT.html">Português</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 48,830 times.</li>
+				<li id="credits">This page was last modified 20:36, 6 January 2015 by SA-MP Wiki user <a href="User_Dolby.html" title="User:Dolby">Dolby</a>. Based on work by SA-MP Wiki user(s) <a href="User_Badio12.html" title="User:Badio12">Badio12</a>, <a href="User_Dugi.html" title="User:Dugi">Dugi</a> and <a href="User_Allanjader.html" title="User:Allanjader">Allanjader</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 63.17 secs. -->
+</body></html>

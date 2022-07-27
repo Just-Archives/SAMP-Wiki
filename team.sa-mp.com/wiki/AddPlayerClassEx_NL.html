@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="AddPlayerClassEx NL,AddPlayerClass NL,Main Page NL,Scripting Basics NL,Scripting Callbacks NL,SetPlayerSkin NL,SetSpawnInfo NL,Weapons,Skins NL,Server Plugins NL,Scripting Functions NL" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>AddPlayerClassEx NL - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">AddPlayerClassEx NL</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<div class="scripting" style="color: #4378A4; background-color: #FFFFFF; margin: 2px; margin-bottom: 10px;"><div style="border: 1px solid #AAAAAA; padding: 3px; padding-left: 5px; text-align:center;"><a href="Main_Page_NL.html" title="Main Page NL">Hoofdpagina</a> | <a href="Category_Scripting_Functions_NL.html" title="Category:Scripting Functions NL">Functie Overzicht</a> | <a href="Scripting_Basics_NL.html" title="Scripting Basics NL">Beginnen met Pawn</a> | <a href="Scripting_Callbacks_NL.html" title="Scripting Callbacks NL">Callback Functies</a> | <a href="Server_Plugins_NL.html" class="new" title="Server Plugins NL">Server Plugins</a> | <a href="Category_Tutorials_NL.html" title="Category:Tutorials NL">Tutorials</a></div></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="AddPlayerClassEx_NL.html" title="Edit section: AddPlayerClassEx">edit</a>]</div><a name="AddPlayerClassEx"></a><h3> <b>AddPlayerClassEx</b> </h3>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Wanneer je mensen toe wil staan om te spawnen met een specifieke skin met gebruik van het class-selectie scherm is dit de functie die je nodig hebt. Je zal minstens één skin toe moeten voegen voor je gamemode werkt. Mocht je geen team toe willen wijzen dan is <a href="AddPlayerClass_NL.html" title="AddPlayerClass NL">AddPlayerClass</a> een betere optie.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(teamid, skin, Float:x, Float:y, Float:z, Float:Angle, wapen1, ammo_wapen1, wapen2, ammo_wapen2, wapen3, ammo_wapen3)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">teamid</td><td style="vertical-align:top;">Het team waar de speler in geplaats moet worden.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">skin</td><td style="vertical-align:top;">De <a href="Skins_NL.html" class="new" title="Skins NL">skin</a> die je wilt toevoegen.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:X</td><td style="vertical-align:top;">De X-coördinaat van de spawn positie.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:Y</td><td style="vertical-align:top;">De Y-coördinaat van de spawn positie.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:Z</td><td style="vertical-align:top;">De Z-coördinaat van de spawn positie.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:Angle</td><td style="vertical-align:top;">De kant die de gespawnde speler op moet kijken.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">wapen1</td><td style="vertical-align:top;">Eerste <a href="Weapons.html" title="Weapons">wapen</a> voor de speler.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">ammo_wapen1</td><td style="vertical-align:top;">Aantal ammunitie voor het eerste wapen.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">wapen2</td><td style="vertical-align:top;">Tweede <a href="Weapons.html" title="Weapons">wapen</a> voor de speler.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">ammo_wapen2</td><td style="vertical-align:top;">Aantal ammunitie voor het tweede wapen.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">wapen3</td><td style="vertical-align:top;">Derde <a href="Weapons.html" title="Weapons">wapen</a> voor de speler.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">ammo_wapen3</td><td style="vertical-align:top;">Aantal ammunitie voor het derde wapen.</td></tr></table></div>
+<p><br />
+</p>
+<pre>
+public OnGameModeInit( )
+{
+    // Met deze class zijn mensen toegestaan te spawnen met een CJ met 100 minigun
+    kogels, waarbij ze ook meteen in team 1 zitten.
+    AddPlayerClassEx(1, 0, 1958.33, 1343.12, 15.36, 269.15, 38, 100, 0, 0, 0, 0);
+    return 1;
+}
+</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Template_RelatedFunctions_NL.html" title="Template:RelatedFunctions NL">edit</a>]</div><a name="Extra_Functies"></a><h3> Extra Functies </h3>
+<p>De volgende functies zijn mogelijk ook bruikbaar, aangezien ze op een manier erbij horen.
+</p>
+<ul><li> <a href="AddPlayerClass_NL.html" title="AddPlayerClass NL">AddPlayerClass</a>: Dit is precies het zelfde, behalve dat je geen team kan toewijzen.
+</li></ul>
+<ul><li> <a href="SetPlayerSkin_NL.html" title="SetPlayerSkin NL">SetPlayerSkin</a>: Met deze functie kan je een nieuwe skin toewijzen aan een speler.
+</li></ul>
+<ul><li> <a href="SetSpawnInfo_NL.html" title="SetSpawnInfo NL">SetSpawnInfo</a>: Deze functie zorgt ervoor dat je spawninfo gewijzigt word.
+</li></ul>
+<div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/AddPlayerClassEx_NL.html">http://localhost../wiki/AddPlayerClassEx_NL.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="Category_Scripting_Functions_NL.html" title="Category:Scripting Functions NL">Scripting Functions NL</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="AddPlayerClassEx_NL.html">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="Talk_AddPlayerClassEx_NL.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="AddPlayerClassEx_NL.html">Edit</a></li>
+				 <li id="ca-history"><a href="AddPlayerClassEx_NL.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-en"><a href="AddPlayerClassEx.html">English</a></li>
+				<li class="interwiki-de"><a href="AddPlayerClassEx_DE.html">Deutsch</a></li>
+				<li class="interwiki-ko"><a href="AddPlayerClassEx_KO.html">한국어</a></li>
+				<li class="interwiki-ru"><a href="AddPlayerClassEx_RU.html">Русский</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 5,663 times.</li>
+				<li id="credits">This page was last modified 22:03, 9 May 2015 by SA-MP Wiki user <a href="User_MP2.html" title="User:MP2">MP2</a>. Based on work by SA-MP Wiki user(s) <a href="User_Xtent.html" title="User:Xtent">Xtent</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 19.23 secs. -->
+</body></html>

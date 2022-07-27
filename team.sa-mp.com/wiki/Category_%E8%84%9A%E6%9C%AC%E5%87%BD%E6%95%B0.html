@@ -1,0 +1,397 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Category:脚本函数,AddStaticVehicle函数,BanEx函数,Ban函数,CreateObject函数,Kick函数,SetObjectMaterialText函数,语言参考,首页,TextDrawTextSize函数,TextDrawUseBox函数" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>Category:脚本函数 - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-14 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Category:脚本函数</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<div class="scripting" style="color: #4378A4; background-color: #FFFFFF; margin: 2px; margin-bottom: 10px;"><div align="center" style="width: 53%; border: 1px solid #AAAAAA; padding: 3px; padding-left: 5px;"><a href="%25E9%25A6%2596%25E9%25A1%25B5.html" title="首页">首页</a> | <strong>脚本函数</strong> | <a href="Category_%25E8%2584%259A%25E6%259C%25AC%25E5%259B%259E%25E8%25B0%2583.html" title="Category:脚本回调">脚本回调</a> | <a href="%25E8%25AF%25AD%25E8%25A8%2580%25E5%258F%2582%25E8%2580%2583.html" title="语言参考">语言参考</a> | <a href="%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8%25E6%258F%2592%25E4%25BB%25B6.html" class="new" title="服务器插件">服务器插件</a> | <a href="Category_%25E6%2595%2599%25E7%25A8%258B.html" title="Category:教程">教程</a></div></div>
+<p><br />
+This page contains an overview of the hundreds of functions available in San Andreas: Multiplayer. All functions have received their own page with extended information about the function, the required parameters, possible usage and other functions you might want to look at.
+</p><p>Functions get added with every new release of San Andreas: Multiplayer. The <a href="%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8%25E6%258F%2592%25E4%25BB%25B6.html" class="new" title="服务器插件">服务器插件</a> can also add a lot of extra functions to the multiplayer mod, click on the link for more information about the server plugins. There currently are <b>273</b> native functions available.
+</p><p><b>Scroll down for a full list of functions ordered alphabetically.</b>
+</p>
+<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class='toclevel-1'><a href="#.E5.88.86.E7.B1.BB"><span class="tocnumber">1</span> <span class="toctext">分类</span></a>
+<ul>
+<li class='toclevel-2'><a href="#.E8.BD.BD.E5.85.B7"><span class="tocnumber">1.1</span> <span class="toctext">载具</span></a></li>
+<li class='toclevel-2'><a href="#.E7.89.A9.E4.BB.B6_.28Object.29"><span class="tocnumber">1.2</span> <span class="toctext">物件 (Object)</span></a>
+<ul>
+<li class='toclevel-3'><a href="#.E5.85.A8.E5.B1.80.E7.89.A9.E4.BB.B6_.28Object.29"><span class="tocnumber">1.2.1</span> <span class="toctext">全局物件 (Object)</span></a></li>
+<li class='toclevel-3'><a href="#.E7.8E.A9.E5.AE.B6.E4.B8.93.E5.B1.9E.E7.89.A9.E4.BB.B6_.28PlayerObject.29"><span class="tocnumber">1.2.2</span> <span class="toctext">玩家专属物件 (PlayerObject)</span></a></li>
+</ul>
+</li>
+<li class='toclevel-2'><a href="#.E6.96.87.E6.9C.AC.E5.9B.BE.E5.BD.A2_.28TextDraw.29"><span class="tocnumber">1.3</span> <span class="toctext">文本图形 (TextDraw)</span></a></li>
+<li class='toclevel-2'><a href="#.E5.B8.AE.E6.B4.BE.E5.8C.BA.E5.9F.9F_.28GangZone.29"><span class="tocnumber">1.4</span> <span class="toctext">帮派区域 (GangZone)</span></a></li>
+<li class='toclevel-2'><a href="#3D.E6.96.87.E6.9C.AC.E6.A0.87.E7.AD.BE_.283DText.29"><span class="tocnumber">1.5</span> <span class="toctext">3D文本标签 (3DText)</span></a></li>
+<li class='toclevel-2'><a href="#.E6.A3.80.E6.9F.A5.E7.82.B9"><span class="tocnumber">1.6</span> <span class="toctext">检查点</span></a>
+<ul>
+<li class='toclevel-3'><a href="#.E4.B8.80.E8.88.AC.E6.A3.80.E6.9F.A5.E7.82.B9_.28Checkpoint.29"><span class="tocnumber">1.6.1</span> <span class="toctext">一般检查点 (Checkpoint)</span></a></li>
+<li class='toclevel-3'><a href="#.E8.B5.9B.E8.BD.A6.E6.A3.80.E6.9F.A5.E7.82.B9_.28RaceCheckpoint.29"><span class="tocnumber">1.6.2</span> <span class="toctext">赛车检查点 (RaceCheckpoint)</span></a></li>
+</ul>
+</li>
+<li class='toclevel-2'><a href="#.E7.8E.A9.E5.AE.B6.E4.B8.93.E5.B1.9E.E5.8F.98.E9.87.8F_.28PVar.29"><span class="tocnumber">1.7</span> <span class="toctext">玩家专属变量 (PVar)</span></a></li>
+<li class='toclevel-2'><a href="#.E7.8E.A9.E5.AE.B6.E8.A7.82.E7.9C.8B_.28Spectate.29"><span class="tocnumber">1.8</span> <span class="toctext">玩家观看 (Spectate)</span></a></li>
+<li class='toclevel-2'><a href="#.E7.AE.A1.E7.90.86.E5.91.98"><span class="tocnumber">1.9</span> <span class="toctext">管理员</span></a></li>
+</ul>
+</li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Category_%25E8%2584%259A%25E6%259C%25AC%25E5%2587%25BD%25E6%2595%25B0.html" title="Edit section: 分类">edit</a>]</div><a name=".E5.88.86.E7.B1.BB"></a><h1>分类</h1>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Category_%25E8%2584%259A%25E6%259C%25AC%25E5%2587%25BD%25E6%2595%25B0.html" title="Edit section: 载具">edit</a>]</div><a name=".E8.BD.BD.E5.85.B7"></a><h2>载具</h2>
+<table class="wikitable">
+
+<tr>
+<th> 函数
+</th><th> 描述
+</th></tr>
+<tr>
+<td> <a href="AddStaticVehicle%25E5%2587%25BD%25E6%2595%25B0.html" title="AddStaticVehicle函数">AddStaticVehicle</a>
+</td><td> 添加一个固有的载具
+</td></tr>
+<tr>
+<td> <a href="AddStaticVehicleEx%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="AddStaticVehicleEx函数">AddStaticVehicleEx</a>
+</td><td> 添加一个固有的载具
+</td></tr>
+<tr>
+<td> <a href="AddVehicleComponent%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="AddVehicleComponent函数">AddVehicleComponent</a>
+</td><td> 给一个载具添加部件
+</td></tr>
+<tr>
+<td> <a href="AttachTrailerToVehicle%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="AttachTrailerToVehicle函数">AttachTrailerToVehicle</a>
+</td><td> 给一个载具附加上一辆拖车
+</td></tr>
+<tr>
+<td> <a href="ChangeVehicleColor%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="ChangeVehicleColor函数">ChangeVehicleColor</a>
+</td><td> 改变载具的颜色
+</td></tr>
+<tr>
+<td> <a href="ChangeVehiclePaintjob%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="ChangeVehiclePaintjob函数">ChangeVehiclePaintjob</a>
+</td><td> 改变载具的喷漆
+</td></tr>
+<tr>
+<td> <a href="CreateVehicle%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="CreateVehicle函数">CreateVehicle</a>
+</td><td> 创建一个载具
+</td></tr>
+<tr>
+<td> <a href="DestroyVehicle%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="DestroyVehicle函数">DestroyVehicle</a>
+</td><td> 销毁一个载具
+</td></tr>
+<tr>
+<td> <a href="DetachTrailerFromVehicle%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="DetachTrailerFromVehicle函数">DetachTrailerFromVehicle</a>
+</td><td> 分离载具的拖车
+</td></tr>
+<tr>
+<td> <a href="GetPlayerSurfingVehicleID%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="GetPlayerSurfingVehicleID函数">GetPlayerSurfingVehicleID</a>
+</td><td> 获取玩家正冲浪着的 载具ID
+</td></tr>
+<tr>
+<td> <a href="GetPlayerVehicleID%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="GetPlayerVehicleID函数">GetPlayerVehicleID</a>
+</td><td> 获取玩家正在乘坐的 载具ID
+</td></tr>
+<tr>
+<td> <a href="GetVehicleComponentInSlot%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="GetVehicleComponentInSlot函数">GetVehicleComponentInSlot</a>
+</td><td> 获取载具某个部件槽的部件
+</td></tr>
+<tr>
+<td> <a href="GetVehicleComponentType%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="GetVehicleComponentType函数">GetVehicleComponentType</a>
+</td><td> 获得某个部件的类型
+</td></tr>
+<tr>
+<td> <a href="GetVehicleDamageStatus%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="GetVehicleDamageStatus函数">GetVehicleDamageStatus</a>
+</td><td> 获得载具的损坏情况 (看得见的损坏)
+</td></tr>
+<tr>
+<td> <a href="GetVehicleHealth%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="GetVehicleHealth函数">GetVehicleHealth</a>
+</td><td> 获得载具的耐久度 (包括引擎)
+</td></tr>
+<tr>
+<td> <a href="GetVehicleModel%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="GetVehicleModel函数">GetVehicleModel</a>
+</td><td> 获得载具的模型号
+</td></tr>
+<tr>
+<td> <a href="GetVehiclePos%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="GetVehiclePos函数">GetVehiclePos</a>
+</td><td> 获得载具的位置
+</td></tr>
+<tr>
+<td> <a href="GetVehicleTrailer%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="GetVehicleTrailer函数">GetVehicleTrailer</a>
+</td><td> 获得载具的拖车的ID
+</td></tr>
+<tr>
+<td> <a href="GetVehicleVelocity%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="GetVehicleVelocity函数">GetVehicleVelocity</a>
+</td><td> 获得载具的速度
+</td></tr>
+<tr>
+<td> <a href="GetVehicleVirtualWorld%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="GetVehicleVirtualWorld函数">GetVehicleVirtualWorld</a>
+</td><td> 获得载具的虚拟世界值 (virtual world)
+</td></tr>
+<tr>
+<td> <a href="GetVehicleZAngle%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="GetVehicleZAngle函数">GetVehicleZAngle</a>
+</td><td> 获取载具的旋转角度
+</td></tr>
+<tr>
+<td> <a href="IsPlayerInAnyVehicle%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="IsPlayerInAnyVehicle函数">IsPlayerInAnyVehicle</a>
+</td><td> 检查玩家是否在任意载具内
+</td></tr>
+<tr>
+<td> <a href="IsPlayerInVehicle%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="IsPlayerInVehicle函数">IsPlayerInVehicle</a>
+</td><td> 检查玩家是否在特定载具内
+</td></tr>
+<tr>
+<td> <a href="IsTrailerAttachedToVehicle%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="IsTrailerAttachedToVehicle函数">IsTrailerAttachedToVehicle</a>
+</td><td> 检查载具是否被拖车拖着
+</td></tr>
+<tr>
+<td> <a href="IsVehicleStreamedIn%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="IsVehicleStreamedIn函数">IsVehicleStreamedIn</a>
+</td><td> 检查一个特定的玩家是否已缓冲了某个载具
+</td></tr>
+<tr>
+<td> <a href="LinkVehicleToInterior%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="LinkVehicleToInterior函数">LinkVehicleToInterior</a>
+</td><td> 链接载具到一个内部世界
+</td></tr>
+<tr>
+<td> <a href="PlayerSpectateVehicle%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="PlayerSpectateVehicle函数">PlayerSpectateVehicle</a>
+</td><td> 让玩家观看一个载具
+</td></tr>
+<tr>
+<td> <a href="PutPlayerInVehicle%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="PutPlayerInVehicle函数">PutPlayerInVehicle</a>
+</td><td> 将玩家放入一辆载具中
+</td></tr>
+<tr>
+<td> <a href="RemovePlayerFromVehicle%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="RemovePlayerFromVehicle函数">RemovePlayerFromVehicle</a>
+</td><td> 把玩家从所在载具中移除
+</td></tr>
+<tr>
+<td> <a href="RemoveVehicleComponent%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="RemoveVehicleComponent函数">RemoveVehicleComponent</a>
+</td><td> 移除载具上的部件
+</td></tr>
+<tr>
+<td> <a href="RepairVehicle%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="RepairVehicle函数">RepairVehicle</a>
+</td><td> 修理一个载具 (看得见的损坏 + 引擎)
+</td></tr>
+<tr>
+<td> <a href="SetVehicleHealth%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="SetVehicleHealth函数">SetVehicleHealth</a>
+</td><td> 设置载具的耐久度 (包括引擎)
+</td></tr>
+<tr>
+<td> <a href="SetVehicleParamsForPlayer%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="SetVehicleParamsForPlayer函数">SetVehicleParamsForPlayer</a>
+</td><td> 设置载具对玩家的属性 (是否锁住, 跟踪目标)
+</td></tr>
+<tr>
+<td> <a href="SetVehiclePos%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="SetVehiclePos函数">SetVehiclePos</a>
+</td><td> 设置载具的位置
+</td></tr>
+<tr>
+<td> <a href="SetVehicleToRespawn%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="SetVehicleToRespawn函数">SetVehicleToRespawn</a>
+</td><td> 重新刷新一个载具
+</td></tr>
+<tr>
+<td> <a href="SetVehicleVelocity%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="SetVehicleVelocity函数">SetVehicleVelocity</a>
+</td><td> 设置载具的速度
+</td></tr>
+<tr>
+<td> <a href="SetVehicleVirtualWorld%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="SetVehicleVirtualWorld函数">SetVehicleVirtualWorld</a>
+</td><td> 设置载具的虚拟世界值
+</td></tr>
+<tr>
+<td> <a href="SetVehicleZAngle%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="SetVehicleZAngle函数">SetVehicleZAngle</a>
+</td><td> 设置一个载具的旋转角度
+</td></tr>
+<tr>
+<td> <a href="UpdateVehicleDamageStatus%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="UpdateVehicleDamageStatus函数">UpdateVehicleDamageStatus</a>
+</td><td> 更新载具的损坏状态 (看得见的损坏)
+</td></tr></table>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Category_%25E8%2584%259A%25E6%259C%25AC%25E5%2587%25BD%25E6%2595%25B0.html" title="Edit section: 物件 (Object)">edit</a>]</div><a name=".E7.89.A9.E4.BB.B6_.28Object.29"></a><h2>物件 (Object)</h2>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Category_%25E8%2584%259A%25E6%259C%25AC%25E5%2587%25BD%25E6%2595%25B0.html" title="Edit section: 全局物件 (Object)">edit</a>]</div><a name=".E5.85.A8.E5.B1.80.E7.89.A9.E4.BB.B6_.28Object.29"></a><h3>全局物件 (Object)</h3>
+<ul><li><a href="AttachObjectToPlayer%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="AttachObjectToPlayer函数">AttachObjectToPlayer</a> - 给玩家附加上一个物件
+</li><li><a href="CreateObject%25E5%2587%25BD%25E6%2595%25B0.html" title="CreateObject函数">CreateObject</a> - 创建一个物件
+</li><li><a href="DestroyObject%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="DestroyObject函数">DestroyObject</a> - 销毁一个物件
+</li><li><a href="GetObjectPos%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="GetObjectPos函数">GetObjectPos</a> - 获得物件的位置
+</li><li><a href="GetObjectRot%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="GetObjectRot函数">GetObjectRot</a> - 获得物件的旋转角度
+</li><li><a href="IsValidObject%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="IsValidObject函数">IsValidObject</a> - 检查物件是否存在
+</li><li><a href="MoveObject%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="MoveObject函数">MoveObject</a> - 移动一个物件
+</li><li><a href="SetObjectPos%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="SetObjectPos函数">SetObjectPos</a> - 设置物件的位置
+</li><li><a href="SetObjectRot%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="SetObjectRot函数">SetObjectRot</a> - 设置物件的旋转角度
+</li><li><a href="StopObject%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="StopObject函数">StopObject</a> - 使物件停止移动
+</li><li><a href="SetObjectMaterialText%25E5%2587%25BD%25E6%2595%25B0.html" title="SetObjectMaterialText函数">SetObjectMaterialText</a> - 将文字嵌入物件
+</li></ul>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Category_%25E8%2584%259A%25E6%259C%25AC%25E5%2587%25BD%25E6%2595%25B0.html" title="Edit section: 玩家专属物件 (PlayerObject)">edit</a>]</div><a name=".E7.8E.A9.E5.AE.B6.E4.B8.93.E5.B1.9E.E7.89.A9.E4.BB.B6_.28PlayerObject.29"></a><h3>玩家专属物件 (PlayerObject)</h3>
+<ul><li><a href="CreatePlayerObject%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="CreatePlayerObject函数">CreatePlayerObject</a> - 创建一个玩家物件
+</li><li><a href="DestroyPlayerObject%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="DestroyPlayerObject函数">DestroyPlayerObject</a> - 销毁一个玩家物件
+</li><li><a href="GetPlayerObjectPos%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="GetPlayerObjectPos函数">GetPlayerObjectPos</a> - 获得玩家物件的位置
+</li><li><a href="GetPlayerObjectRot%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="GetPlayerObjectRot函数">GetPlayerObjectRot</a> - 获得玩家物件的旋转角度
+</li><li><a href="IsValidPlayerObject%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="IsValidPlayerObject函数">IsValidPlayerObject</a> - 检查玩家物件是否存在
+</li><li><a href="MovePlayerObject%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="MovePlayerObject函数">MovePlayerObject</a> - 移动一个玩家物件
+</li><li><a href="SetPlayerObjectPos%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="SetPlayerObjectPos函数">SetPlayerObjectPos</a> - 设置玩家物件的位置
+</li><li><a href="SetPlayerObjectRot%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="SetPlayerObjectRot函数">SetPlayerObjectRot</a> - 设置玩家物件的旋转角度
+</li><li><a href="StopPlayerObject%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="StopPlayerObject函数">StopPlayerObject</a> - 使玩家物件停止移动
+</li></ul>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Category_%25E8%2584%259A%25E6%259C%25AC%25E5%2587%25BD%25E6%2595%25B0.html" title="Edit section: 文本图形 (TextDraw)">edit</a>]</div><a name=".E6.96.87.E6.9C.AC.E5.9B.BE.E5.BD.A2_.28TextDraw.29"></a><h2>文本图形 (TextDraw)</h2>
+<ul><li><a href="TextDrawAlignment%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="TextDrawAlignment函数">TextDrawAlignment</a> - Set a textdraw's alignment
+</li><li><a href="TextDrawBackgroundColor%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="TextDrawBackgroundColor函数">TextDrawBackgroundColor</a> - Set the background color of a textdraw
+</li><li><a href="TextDrawBoxColor%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="TextDrawBoxColor函数">TextDrawBoxColor</a> - Set the color of a textdraw's box
+</li><li><a href="TextDrawColor%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="TextDrawColor函数">TextDrawColor</a> - Set the color of a textdraw
+</li><li><a href="TextDrawCreate%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="TextDrawCreate函数">TextDrawCreate</a> - Create a textdraw
+</li><li><a href="TextDrawDestroy%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="TextDrawDestroy函数">TextDrawDestroy</a> - Destroy a textdraw
+</li><li><a href="TextDrawFont%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="TextDrawFont函数">TextDrawFont</a> - Set a textdraw's font
+</li><li><a href="TextDrawHideForAll%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="TextDrawHideForAll函数">TextDrawHideForAll</a> - Hide a textdraw for all players
+</li><li><a href="TextDrawHideForPlayer%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="TextDrawHideForPlayer函数">TextDrawHideForPlayer</a> - Hide a textdraw for a specific player
+</li><li><a href="TextDrawLetterSize%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="TextDrawLetterSize函数">TextDrawLetterSize</a> - Set the size of a textdraw's text
+</li><li><a href="TextDrawSetOutline%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="TextDrawSetOutline函数">TextDrawSetOutline</a> - Set the outline thickness of a textdraw
+</li><li><a href="TextDrawSetProportional%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="TextDrawSetProportional函数">TextDrawSetProportional</a> - Set a textdraw's text proportion
+</li><li><a href="TextDrawSetShadow%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="TextDrawSetShadow函数">TextDrawSetShadow</a> - Toggle a shadow behind a textdraw's text
+</li><li><a href="TextDrawSetString%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="TextDrawSetString函数">TextDrawSetString</a> - Set the text in a textdraw
+</li><li><a href="TextDrawShowForAll%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="TextDrawShowForAll函数">TextDrawShowForAll</a> - Show a textdraw for all players
+</li><li><a href="TextDrawShowForPlayer%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="TextDrawShowForPlayer函数">TextDrawShowForPlayer</a> - Show a textdraw for a certain player
+</li><li><a href="TextDrawTextSize%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="TextDrawTextSize函数">TextDrawTextSize</a> - Set the size of a textdraw
+</li><li><a href="TextDrawUseBox%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="TextDrawUseBox函数">TextDrawUseBox</a> - Toggle whether a textdraw should have a box or not
+</li></ul>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Category_%25E8%2584%259A%25E6%259C%25AC%25E5%2587%25BD%25E6%2595%25B0.html" title="Edit section: 帮派区域 (GangZone)">edit</a>]</div><a name=".E5.B8.AE.E6.B4.BE.E5.8C.BA.E5.9F.9F_.28GangZone.29"></a><h2>帮派区域 (GangZone)</h2>
+<ul><li><a href="GangZoneCreate%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="GangZoneCreate函数">GangZoneCreate</a> - 创建一个帮派区域
+</li><li><a href="GangZoneDestroy%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="GangZoneDestroy函数">GangZoneDestroy</a> - 销毁一个帮派区域
+</li><li><a href="GangZoneFlashForAll%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="GangZoneFlashForAll函数">GangZoneFlashForAll</a> - 让帮派区域对所有玩家闪动
+</li><li><a href="GangZoneFlashForPlayer%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="GangZoneFlashForPlayer函数">GangZoneFlashForPlayer</a> - 让帮派区域对某个特定玩家闪动
+</li><li><a href="GangZoneHideForAll%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="GangZoneHideForAll函数">GangZoneHideForAll</a> - 对所有玩家隐藏一个帮派区域
+</li><li><a href="GangZoneHideForPlayer%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="GangZoneHideForPlayer函数">GangZoneHideForPlayer</a> - 对某个玩家隐藏一个帮派区域
+</li><li><a href="GangZoneShowForAll%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="GangZoneShowForAll函数">GangZoneShowForAll</a> - 对所有玩家显示一个帮派区域
+</li><li><a href="GangZoneShowForPlayer%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="GangZoneShowForPlayer函数">GangZoneShowForPlayer</a> - 对某个玩家显示一个帮派区域
+</li><li><a href="GangZoneStopFlashForAll%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="GangZoneStopFlashForAll函数">GangZoneStopFlashForAll</a> - 让帮派区域对所有玩家停止闪动
+</li><li><a href="GangZoneStopFlashForPlayer%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="GangZoneStopFlashForPlayer函数">GangZoneStopFlashForPlayer</a> - 让帮派区域对某个特定玩家停止闪动
+</li></ul>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Category_%25E8%2584%259A%25E6%259C%25AC%25E5%2587%25BD%25E6%2595%25B0.html" title="Edit section: 3D文本标签 (3DText)">edit</a>]</div><a name="3D.E6.96.87.E6.9C.AC.E6.A0.87.E7.AD.BE_.283DText.29"></a><h2>3D文本标签 (3DText)</h2>
+<ul><li><a href="Attach3DTextLabelToPlayer%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="Attach3DTextLabelToPlayer函数">Attach3DTextLabelToPlayer</a> - 附加3D文本标签给玩家
+</li><li><a href="Attach3DTextLabelToVehicle%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="Attach3DTextLabelToVehicle函数">Attach3DTextLabelToVehicle</a> - 附加3D文本标签到载具上
+</li><li><a href="Create3DTextLabel%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="Create3DTextLabel函数">Create3DTextLabel</a> - 创建一个3D文本标签
+</li><li><a href="CreatePlayer3DTextLabel%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="CreatePlayer3DTextLabel函数">CreatePlayer3DTextLabel</a> - 创建一个玩家专属的3D文本标签
+</li><li><a href="Delete3DTextLabel%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="Delete3DTextLabel函数">Delete3DTextLabel</a> - 删除一个3D文本标签
+</li><li><a href="DeletePlayer3DTextLabel%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="DeletePlayer3DTextLabel函数">DeletePlayer3DTextLabel</a> - 删除一个玩家专属的3D文本标签
+</li><li><a href="Update3DTextLabelText%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="Update3DTextLabelText函数">Update3DTextLabelText</a> - 更新3D文本标签的文字和颜色
+</li><li><a href="UpdatePlayer3DTextLabelText%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="UpdatePlayer3DTextLabelText函数">UpdatePlayer3DTextLabelText</a> - 更新玩家专属的3D文本标签的文字和颜色
+</li></ul>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Category_%25E8%2584%259A%25E6%259C%25AC%25E5%2587%25BD%25E6%2595%25B0.html" title="Edit section: 检查点">edit</a>]</div><a name=".E6.A3.80.E6.9F.A5.E7.82.B9"></a><h2>检查点</h2>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Category_%25E8%2584%259A%25E6%259C%25AC%25E5%2587%25BD%25E6%2595%25B0.html" title="Edit section: 一般检查点 (Checkpoint)">edit</a>]</div><a name=".E4.B8.80.E8.88.AC.E6.A3.80.E6.9F.A5.E7.82.B9_.28Checkpoint.29"></a><h3>一般检查点 (Checkpoint)</h3>
+<ul><li><a href="DisablePlayerCheckpoint%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="DisablePlayerCheckpoint函数">DisablePlayerCheckpoint</a> - 禁用玩家的检查点
+</li><li><a href="IsPlayerInCheckpoint%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="IsPlayerInCheckpoint函数">IsPlayerInCheckpoint</a> - 检查玩家是否在检查点内
+</li><li><a href="SetPlayerCheckpoint%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="SetPlayerCheckpoint函数">SetPlayerCheckpoint</a> - 设置玩家的当前检查点
+</li></ul>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Category_%25E8%2584%259A%25E6%259C%25AC%25E5%2587%25BD%25E6%2595%25B0.html" title="Edit section: 赛车检查点 (RaceCheckpoint)">edit</a>]</div><a name=".E8.B5.9B.E8.BD.A6.E6.A3.80.E6.9F.A5.E7.82.B9_.28RaceCheckpoint.29"></a><h3>赛车检查点 (RaceCheckpoint)</h3>
+<ul><li><a href="DisablePlayerRaceCheckpoint%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="DisablePlayerRaceCheckpoint函数">DisablePlayerRaceCheckpoint</a> - 禁用玩家的赛车检查点
+</li><li><a href="IsPlayerInRaceCheckpoint%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="IsPlayerInRaceCheckpoint函数">IsPlayerInRaceCheckpoint</a> - 检查玩家是否在赛车检查点内
+</li><li><a href="SetPlayerRaceCheckpoint%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="SetPlayerRaceCheckpoint函数">SetPlayerRaceCheckpoint</a> - 设置玩家的当前赛车检查点
+</li></ul>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Category_%25E8%2584%259A%25E6%259C%25AC%25E5%2587%25BD%25E6%2595%25B0.html" title="Edit section: 玩家专属变量 (PVar)">edit</a>]</div><a name=".E7.8E.A9.E5.AE.B6.E4.B8.93.E5.B1.9E.E5.8F.98.E9.87.8F_.28PVar.29"></a><h2>玩家专属变量 (PVar)</h2>
+<ul><li><a href="DeletePVar%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="DeletePVar函数">DeletePVar</a> - 删除一个玩家的专属变量
+</li><li><a href="GetPVarFloat%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="GetPVarFloat函数">GetPVarFloat</a> - 获得玩家的一个浮点型的专属变量
+</li><li><a href="GetPVarInt%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="GetPVarInt函数">GetPVarInt</a> -  获得玩家的一个整数型的专属变量
+</li><li><a href="GetPVarString%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="GetPVarString函数">GetPVarString</a> -  获得玩家的一个字符串型的专属变量
+</li><li><a href="SetPVarFloat%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="SetPVarFloat函数">SetPVarFloat</a> - 设置玩家的一个浮点型的专属变量
+</li><li><a href="SetPVarInt%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="SetPVarInt函数">SetPVarInt</a> -  设置玩家的一个整数型的专属变量
+</li><li><a href="SetPVarString%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="SetPVarString函数">SetPVarString</a> -  设置玩家的一个字符串型的专属变量
+</li></ul>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Category_%25E8%2584%259A%25E6%259C%25AC%25E5%2587%25BD%25E6%2595%25B0.html" title="Edit section: 玩家观看 (Spectate)">edit</a>]</div><a name=".E7.8E.A9.E5.AE.B6.E8.A7.82.E7.9C.8B_.28Spectate.29"></a><h2>玩家观看 (Spectate)</h2>
+<ul><li><a href="PlayerSpectatePlayer%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="PlayerSpectatePlayer函数">PlayerSpectatePlayer</a> - 让一个玩家观看另一个玩家
+</li><li><a href="PlayerSpectateVehicle%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="PlayerSpectateVehicle函数">PlayerSpectateVehicle</a> - 让一个玩家监视一个载具
+</li><li><a href="TogglePlayerSpectating%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="TogglePlayerSpectating函数">TogglePlayerSpectating</a> - 切换一个玩家的观看状态为观看中或未观看
+</li></ul>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Category_%25E8%2584%259A%25E6%259C%25AC%25E5%2587%25BD%25E6%2595%25B0.html" title="Edit section: 管理员">edit</a>]</div><a name=".E7.AE.A1.E7.90.86.E5.91.98"></a><h2>管理员</h2>
+<ul><li><a href="Ban%25E5%2587%25BD%25E6%2595%25B0.html" title="Ban函数">Ban</a> - 封禁一个玩家使其无法再连接服务器
+</li><li><a href="BanEx%25E5%2587%25BD%25E6%2595%25B0.html" title="BanEx函数">BanEx</a> - 封禁一个玩家 (可填写操作理由的)
+</li><li><a href="IsPlayerAdmin%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="IsPlayerAdmin函数">IsPlayerAdmin</a> - 检查一个玩家是否已登录RCON
+</li><li><a href="Kick%25E5%2587%25BD%25E6%2595%25B0.html" title="Kick函数">Kick</a> - 将一个玩家踢出服务器
+</li><li><a href="SendRconCommand%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="SendRconCommand函数">SendRconCommand</a> - 通过脚本发送RCON命令给服务器
+</li></ul>
+<br style="clear:both;"/>
+<h2>Articles in category "脚本函数"</h2>
+There are 6 articles in this category.<h3>B</h3>
+<ul><li><a href="BanEx%25E5%2587%25BD%25E6%2595%25B0.html" title="BanEx函数">BanEx函数</a></li><li><a href="Ban%25E5%2587%25BD%25E6%2595%25B0.html" title="Ban函数">Ban函数</a></li></ul><h3>K</h3>
+<ul><li><a href="Kick%25E5%2587%25BD%25E6%2595%25B0.html" title="Kick函数">Kick函数</a></li></ul><h3>S</h3>
+<ul><li><a href="SetPlayerMapIcon%25E5%2587%25BD%25E6%2595%25B0.html" title="SetPlayerMapIcon函数">SetPlayerMapIcon函数</a></li><li><a href="ShowPlayerDialog%25E5%2587%25BD%25E6%2595%25B0.html" title="ShowPlayerDialog函数">ShowPlayerDialog函数</a></li></ul><h3>U</h3>
+<ul><li><a href="UsePlayerPedAnims%25E5%2587%25BD%25E6%2595%25B0.html" title="UsePlayerPedAnims函数">UsePlayerPedAnims函数</a></li></ul><div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/Category_%25E8%2584%259A%25E6%259C%25AC%25E5%2587%25BD%25E6%2595%25B0.html">http://localhost../wiki/Category_%25E8%2584%259A%25E6%259C%25AC%25E5%2587%25BD%25E6%2595%25B0.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="Category_%25E8%2584%259A%25E6%259C%25AC%25E6%2596%2587%25E6%25A1%25A3.html" title="Category:脚本文档">脚本文档</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-category" class="selected"><a href="Category_%25E8%2584%259A%25E6%259C%25AC%25E5%2587%25BD%25E6%2595%25B0.html">Category</a></li>
+				 <li id="ca-talk" class="new"><a href="Category_talk_%25E8%2584%259A%25E6%259C%25AC%25E5%2587%25BD%25E6%2595%25B0.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="Category_%25E8%2584%259A%25E6%259C%25AC%25E5%2587%25BD%25E6%2595%25B0.html">Edit</a></li>
+				 <li id="ca-history"><a href="Category_%25E8%2584%259A%25E6%259C%25AC%25E5%2587%25BD%25E6%2595%25B0.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-en"><a href="Category_Scripting_Functions.html">English</a></li>
+				<li class="interwiki-nl"><a href="Category_Scripting_Functions_NL.html">Nederlands</a></li>
+				<li class="interwiki-de"><a href="Category_Scripting_Functions_DE.html">Deutsch</a></li>
+				<li class="interwiki-ru"><a href="Category_%25D0%25A4%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0_RU.html">Русский</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 26,614 times.</li>
+				<li id="credits">This page was last modified 15:02, 29 March 2013 by SA-MP Wiki user User:. Based on work by SA-MP Wiki user(s) <a href="User_Mk124.html" class="new" title="User:Mk124">Mk124</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 122.63 secs. -->
+</body></html>

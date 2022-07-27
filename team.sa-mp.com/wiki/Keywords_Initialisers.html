@@ -1,0 +1,756 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Keywords:Initialisers,Main Page,Scripting Basics,Server Plugins,Scripting Callbacks,Scripting Functions,Tutorials" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>Keywords:Initialisers - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Keywords:Initialisers</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<div class="scripting" style="color: #4378A4; background-color: #FFFFFF; margin: 2px; margin-bottom: 10px;"><div align="center" style="border: 1px solid #AAAAAA; padding: 3px; padding-left: 5px;"><a href="../wiki-archive.html" title="Main Page">Main Page</a> | <a href="Category_Scripting_Functions.html" title="Category:Scripting Functions">Scripting Functions</a> | <a href="Category_Scripting_Callbacks.html" title="Category:Scripting Callbacks">Scripting Callbacks</a> | <a href="Scripting_Basics.html" title="Scripting Basics">Scripting Basics</a> | <a href="Server_Plugins.html" title="Server Plugins">Server Plugins</a> | <a href="Category_Tutorials.html" title="Category:Tutorials">Tutorials</a></div></div><br />
+<p><br />
+</p>
+<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class='toclevel-1'><a href="#const"><span class="tocnumber">1</span> <span class="toctext">const</span></a></li>
+<li class='toclevel-1'><a href="#enum"><span class="tocnumber">2</span> <span class="toctext">enum</span></a></li>
+<li class='toclevel-1'><a href="#forward"><span class="tocnumber">3</span> <span class="toctext">forward</span></a></li>
+<li class='toclevel-1'><a href="#native"><span class="tocnumber">4</span> <span class="toctext">native</span></a></li>
+<li class='toclevel-1'><a href="#new"><span class="tocnumber">5</span> <span class="toctext">new</span></a></li>
+<li class='toclevel-1'><a href="#operator"><span class="tocnumber">6</span> <span class="toctext">operator</span></a></li>
+<li class='toclevel-1'><a href="#public"><span class="tocnumber">7</span> <span class="toctext">public</span></a></li>
+<li class='toclevel-1'><a href="#static"><span class="tocnumber">8</span> <span class="toctext">static</span></a></li>
+<li class='toclevel-1'><a href="#stock"><span class="tocnumber">9</span> <span class="toctext">stock</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Keywords_Initialisers.html" title="Edit section: const">edit</a>]</div><a name="const"></a><h2> const </h2>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> <span style="color: #228b22; font-weight: bold;">const</span>
+	MY_CONSTANT<span style="color: #66cc66;">&#91;</span><span style="color: #66cc66;">&#93;</span> =  <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1</span>, <span style="color: #4169e1;">2</span>, <span style="color: #4169e1;">3</span><span style="color: #66cc66;">&#125;</span>;</pre>
+<p>const is not widerly used however it declares a variable which can not be modified by code.  There are a few uses for this - functions with const array parameters can sometimes be compiled more efficiently or you may want something like a define but which is an array.  const is a modifier, it must go with new or another variable declarator.  If you try modify a const variable the compiler will complain.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Keywords_Initialisers.html" title="Edit section: enum">edit</a>]</div><a name="enum"></a><h2> enum </h2>
+<p><span style="font-size:smaller;margin-left:20px;" class="plainlinks"><i>enum redirects here. <a href="http://wiki.sa-mp.com/wiki/Special:Search?search=enum&amp;fulltext=Search" class='external text' title="http://wiki.sa-mp.com/wiki/Special:Search?search=enum&amp;fulltext=Search" rel="nofollow">Search</a> for enum instead.</i></span>
+</p><p><br />
+Enumerations are a very useful system for representing large groups of data and modifying constants quickly.  There are a few main uses - replacing large sets of define statements, symbolically representing array slots (these are actually the same thing but they look different) and creating new tags.
+</p><p>By far the most common use is as array definitions:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">enum</span> E_MY_ARRAY
+<span style="color: #66cc66;">&#123;</span>
+	E_MY_ARRAY_MONEY,
+	E_MY_ARRAY_GUN
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">new</span>
+	gPlayerData<span style="color: #66cc66;">&#91;</span><span style="color: #E9967A; font-weight: bold;">MAX_PLAYERS</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>E_MY_ARRAY<span style="color: #66cc66;">&#93;</span>;
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnPlayerConnect"><span style="color: #dc143c">OnPlayerConnect</span></a><span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	gPlayerData<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>E_MY_ARRAY_MONEY<span style="color: #66cc66;">&#93;</span> = <span style="color: #4169e1;">0</span>;
+	gPlayerData<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>E_MY_ARRAY_GUN<span style="color: #66cc66;">&#93;</span> = <span style="color: #4169e1;">5</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>That will create an array with two slots for every player.  Into the one referenced by E_MY_ARRAY_MONEY it'll put 0 when a player connects and 5 into E_MY_ARRAY_GUN.  Without an enum this would look like:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span>
+	gPlayerData<span style="color: #66cc66;">&#91;</span><span style="color: #E9967A; font-weight: bold;">MAX_PLAYERS</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">2</span><span style="color: #66cc66;">&#93;</span>;
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnPlayerConnect"><span style="color: #dc143c">OnPlayerConnect</span></a><span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	gPlayerData<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #4169e1;">0</span>;
+	gPlayerData<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">1</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #4169e1;">5</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>And that is how the first compiles.  This is OK, however it's less readable - what is slot 0 for and what is slot 1 for?  And it's less flexible, what if you want to add another slot between 0 and 1, you have to rename all your 1s to 2s, add the new one and hope you didn't miss anything, wheras with an enum you would just do:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">enum</span> E_MY_ARRAY
+<span style="color: #66cc66;">&#123;</span>
+	E_MY_ARRAY_MONEY,
+	E_MY_ARRAY_AMMO,
+	E_MY_ARRAY_GUN
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">new</span>
+	gPlayerData<span style="color: #66cc66;">&#91;</span><span style="color: #E9967A; font-weight: bold;">MAX_PLAYERS</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>E_MY_ARRAY<span style="color: #66cc66;">&#93;</span>;
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnPlayerConnect"><span style="color: #dc143c">OnPlayerConnect</span></a><span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	gPlayerData<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>E_MY_ARRAY_MONEY<span style="color: #66cc66;">&#93;</span> = <span style="color: #4169e1;">0</span>;
+	gPlayerData<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>E_MY_ARRAY_AMMO<span style="color: #66cc66;">&#93;</span> = <span style="color: #4169e1;">100</span>;
+	gPlayerData<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>E_MY_ARRAY_GUN<span style="color: #66cc66;">&#93;</span> = <span style="color: #4169e1;">5</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>Recompile and everything will be updated for you.
+</p><p>So how does an enum know what values to give things?  The full format of an enum is:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">enum</span> NAME <span style="color: #66cc66;">&#40;</span>modifier<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	NAME_ENTRY_1 = value,
+	NAME_ENTRY_2 = value,
+	...
+	NAME_ENTRY_N = value
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>However much of this is implied.  By default, if you don't specify a modifier it becomes (+= 1), this means that every value in the enum is the last value in the enum + 1, so for:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">enum</span> E_EXAMPLE
+<span style="color: #66cc66;">&#123;</span>
+	E_EXAMPLE_0,
+	E_EXAMPLE_1,
+	E_EXAMPLE_2
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>The first value (E_EXAMPLE_0) is 0 (by default if no other value is specified), so the second value (E_EXAMPLE_1) is 1 (0 + 1) and the third value (E_EXAMPLE_2) is 2 (1 + 1).  This makes the value of E_EXAMPLE 3 (2 + 1), the name of the enum is also the last value in the enum.  If we change the modifier we get different values:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">enum</span> E_EXAMPLE <span style="color: #66cc66;">&#40;</span>+= <span style="color: #4169e1;">5</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	E_EXAMPLE_0,
+	E_EXAMPLE_1,
+	E_EXAMPLE_2
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>In that example every value is the last value + 5 so, starting from 0 again, we get: E_EXAMPLE_0 = 0, E_EXAMPLE_1 = 5, E_EXAMPLE_2 = 10, E_EXAMPLE = 15.  If you were to declare an array of:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span>
+	gEnumArray<span style="color: #66cc66;">&#91;</span>E_EXAMPLE<span style="color: #66cc66;">&#93;</span>;</pre>
+<p>You would get an array 15 cells big however you would only be able to access cells 0, 5 and 10 using the enum values (you could however still use normal numbers).  Lets look at another example:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">enum</span> E_EXAMPLE <span style="color: #66cc66;">&#40;</span>*= <span style="color: #4169e1;">2</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	E_EXAMPLE_0,
+	E_EXAMPLE_1,
+	E_EXAMPLE_2
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>In this all the values are 0.  Why?  Well the first value by default is 0, then 0 * 2 = 0, then 0 * 2 = 0 and 0 * 2 = 0.  So how do we correct this?  This is what custom values are for:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">enum</span> E_EXAMPLE <span style="color: #66cc66;">&#40;</span>*= <span style="color: #4169e1;">2</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	E_EXAMPLE_0 = <span style="color: #4169e1;">1</span>,
+	E_EXAMPLE_1,
+	E_EXAMPLE_2
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>That sets the first value to 1, so you end up with 1, 2, 4 and 8.  Creating an array with that would give you an 8 cell array with named access to cells 1, 2 and 4.  You can set whichever values you like and as many values as you like:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">enum</span> E_EXAMPLE <span style="color: #66cc66;">&#40;</span>*= <span style="color: #4169e1;">2</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	E_EXAMPLE_0,
+	E_EXAMPLE_1 = <span style="color: #4169e1;">1</span>,
+	E_EXAMPLE_2
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>Gives: 
+</p>
+<pre class="pawn"><span style="color: #4169e1;">0</span>, <span style="color: #4169e1;">1</span>, <span style="color: #4169e1;">2</span>, <span style="color: #4169e1;">4</span></pre>
+<p>While:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">enum</span> E_EXAMPLE <span style="color: #66cc66;">&#40;</span>*= <span style="color: #4169e1;">2</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	E_EXAMPLE_0 = <span style="color: #4169e1;">1</span>,
+	E_EXAMPLE_1 = <span style="color: #4169e1;">1</span>,
+	E_EXAMPLE_2 = <span style="color: #4169e1;">1</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>Gives: 
+</p>
+<pre class="pawn"><span style="color: #4169e1;">1</span>, <span style="color: #4169e1;">1</span>, <span style="color: #4169e1;">1</span>, <span style="color: #4169e1;">2</span></pre>
+<p>It's not advised to use anything but += 1 for arrays.
+</p><p>You can also use arrays in enums:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">enum</span> E_EXAMPLE
+<span style="color: #66cc66;">&#123;</span>
+	E_EXAMPLE_0<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">10</span><span style="color: #66cc66;">&#93;</span>,
+	E_EXAMPLE_1,
+	E_EXAMPLE_2
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>That would make E_EXAMPLE_0 = 0, E_EXAMPLE_1 = 10, E_EXAMPLE_2 = 11 and E_EXAMPLE = 12, contrary to the popular belief of 0, 1, 2 and 3.
+</p><p>enums items can also have tags, so for out original example:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">enum</span> E_MY_ARRAY
+<span style="color: #66cc66;">&#123;</span>
+	E_MY_ARRAY_MONEY,
+	E_MY_ARRAY_AMMO,
+	<span style="color: orange;">Float</span>:E_MY_ARRAY_HEALTH,
+	E_MY_ARRAY_GUN
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">new</span>
+	gPlayerData<span style="color: #66cc66;">&#91;</span><span style="color: #E9967A; font-weight: bold;">MAX_PLAYERS</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>E_MY_ARRAY<span style="color: #66cc66;">&#93;</span>;
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnPlayerConnect"><span style="color: #dc143c">OnPlayerConnect</span></a><span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	gPlayerData<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>E_MY_ARRAY_MONEY<span style="color: #66cc66;">&#93;</span> = <span style="color: #4169e1;">0</span>;
+	gPlayerData<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>E_MY_ARRAY_AMMO<span style="color: #66cc66;">&#93;</span> = <span style="color: #4169e1;">100</span>;
+	gPlayerData<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>E_MY_ARRAY_GUN<span style="color: #66cc66;">&#93;</span> = <span style="color: #4169e1;">5</span>;
+	gPlayerData<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>E_MY_ARRAY_HEALTH<span style="color: #66cc66;">&#93;</span> = <span style="color: #4169e1;">50.0</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>That will not give a tag mismatch.
+</p><p>Enums can also be used as tags themselves:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">enum</span> E_MY_TAG <span style="color: #66cc66;">&#40;</span>&lt;&lt;= <span style="color: #4169e1;">1</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	E_MY_TAG_NONE,
+	E_MY_TAG_VAL_1 = <span style="color: #4169e1;">1</span>,
+	E_MY_TAG_VAL_2,
+	E_MY_TAG_VAL_3,
+	E_MY_TAG_VAL_4
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">new</span>
+	<span style="color: orange;">E_MY_TAG</span>:gMyTagVar = E_MY_TAG_VAL_2 | E_MY_TAG_VAL_3;</pre>
+<p>That will create a new variable and assign it the value 6 (4 | 2), and it will have a custom tag so doing:
+</p>
+<pre class="pawn">gMyTagVar = <span style="color: #4169e1;">7</span>;</pre>
+<p>Will generate a tag mismatch warning, although you can use tag overwrites to bypass it:
+</p>
+<pre class="pawn">gMyTagVar = <span style="color: orange;">E_MY_TAG</span>:<span style="color: #4169e1;">7</span>;</pre>
+<p>This can be very useful for flag data (i.e. one bit for some data), or even combined data:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">enum</span> E_MY_TAG <span style="color: #66cc66;">&#40;</span>&lt;&lt;= <span style="color: #4169e1;">1</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	E_MY_TAG_NONE,
+	E_MY_TAG_MASK = 0xFF,
+	E_MY_TAG_VAL_1 = 0x100,
+	E_MY_TAG_VAL_2,
+	E_MY_TAG_VAL_3,
+	E_MY_TAG_VAL_4
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">new</span>
+	<span style="color: orange;">E_MY_TAG</span>:gMyTagVar = E_MY_TAG_VAL_2 | E_MY_TAG_VAL_3 | <span style="color: #66cc66;">&#40;</span><span style="color: orange;">E_MY_TAG</span>:<span style="color: #4169e1;">7</span> &amp; E_MY_TAG_MASK<span style="color: #66cc66;">&#41;</span>;</pre>
+<p>Which will produce a value of 1543 (0x0607).
+</p><p>Finally, as stated originally, enums can be used to replace defines by ommitting the name:
+</p>
+<pre class="pawn"><span style="color: #6b8e23;">#define TEAM_NONE   0</span>
+<span style="color: #6b8e23;">#define TEAM_COP    1</span>
+<span style="color: #6b8e23;">#define TEAM_ROBBER 2</span>
+<span style="color: #6b8e23;">#define TEAM_CIV    3</span>
+<span style="color: #6b8e23;">#define TEAM_CLERK  4</span>
+<span style="color: #6b8e23;">#define TEAM_DRIVER 5</span></pre>
+<p>I'm sure many of you have seen loads of things like that to define teams.  It's all well and good but it's very static.  That can easilly be replaced by an enum to handle numeric assignments automatically:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">enum</span>
+<span style="color: #66cc66;">&#123;</span>
+	TEAM_NONE,
+	TEAM_COP,
+	TEAM_ROBBER,
+	TEAM_CIV,
+	TEAM_CLERK,
+	TEAM_DRIVER
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>Those all have the same values as they had before, and can be used in exactly the same way:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span>
+	gPlayerTeam<span style="color: #66cc66;">&#91;</span><span style="color: #E9967A; font-weight: bold;">MAX_PLAYERS</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #66cc66;">&#123;</span>TEAM_NONE, ...<span style="color: #66cc66;">&#125;</span>;
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnPlayerConnect"><span style="color: #dc143c">OnPlayerConnect</span></a><span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	gPlayerTeam<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span> = TEAM_NONE;
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnPlayerRequestSpawn"><span style="color: #dc143c">OnPlayerRequestSpawn</span></a><span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span>gPlayerSkin<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span> == gCopSkin<span style="color: #66cc66;">&#41;</span>
+	<span style="color: #66cc66;">&#123;</span>
+		gPlayerTeam<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span> = TEAM_COP;
+	<span style="color: #66cc66;">&#125;</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>While we're on the subject there is a much better way of defining teams based on this method:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">enum</span> <span style="color: #66cc66;">&#40;</span>&lt;&lt;= <span style="color: #4169e1;">1</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	TEAM_NONE,
+	TEAM_COP = <span style="color: #4169e1;">1</span>,
+	TEAM_ROBBER,
+	TEAM_CIV,
+	TEAM_CLERK,
+	TEAM_DRIVER
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>Now TEAM_COP is 1, TEAM_ROBBER is 2, TEAM_CIV is 4 etc, which in binary is 0b00000001, 0b00000010 and 0b00000100.  This means that if a player's team is 3 then they are in both the cop team and the robber team.  That may sound pointless but it does open up possibilities:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">enum</span> <span style="color: #66cc66;">&#40;</span>&lt;&lt;= <span style="color: #4169e1;">1</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	TEAM_NONE,
+	TEAM_COP = <span style="color: #4169e1;">1</span>,
+	TEAM_ROBBER,
+	TEAM_CIV,
+	TEAM_CLERK,
+	TEAM_DRIVER,
+	TEAM_ADMIN
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>Using that you can be in both a normal team and the admin team using only a single variable.  Obviously a little code modification is required but that's easy:
+</p><p>To add a player to a team:
+</p>
+<pre class="pawn">gPlayerTeam<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span> |= TEAM_COP;</pre>
+<p>To remove a player from a team:
+</p>
+<pre class="pawn">gPlayerTeam<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span> &amp;= ~TEAM_COP;</pre>
+<p>To check if a player is in a team:
+</p>
+<pre class="pawn"><span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span>gPlayerTeam<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span> &amp; TEAM_COP<span style="color: #66cc66;">&#41;</span></pre>
+<p>Very simple and very useful.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Keywords_Initialisers.html" title="Edit section: forward">edit</a>]</div><a name="forward"></a><h2> forward </h2>
+<p>forward tells the compiler that a function is coming later.  It is required for all public functions however can be used in other places.  It's use is "forward" followed by the full name and parameters of the function you want to forward, followed by a semicolon:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">forward</span> MyPublicFunction<span style="color: #66cc66;">&#40;</span>playerid, <span style="color: #228b22; font-weight: bold;">const</span> string<span style="color: #66cc66;">&#91;</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">public</span> MyPublicFunction<span style="color: #66cc66;">&#40;</span>playerid, <span style="color: #228b22; font-weight: bold;">const</span> string<span style="color: #66cc66;">&#91;</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>As well as being required for all publics forward can be used to fix a rare warning when a function which returns a tag result (e.g. a float) is used before it's declared.
+</p>
+<pre class="pawn">main<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #228b22; font-weight: bold;">new</span>
+		<span style="color: orange;">Float</span>:myVar = MyFloatFunction<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+<span style="color: orange;">Float</span>:MyFloatFunction<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">5.0</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>This will give a reparse warning because the compiler doesn't know how to convert the return of the function to a float because it doesn't know if the function returns a normal number or a float.  Clearly in this example it returns a float.  This can either be solved by putting the function at a point in the code before it's used:
+</p>
+<pre class="pawn"><span style="color: orange;">Float</span>:MyFloatFunction<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">5.0</span>;
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+main<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #228b22; font-weight: bold;">new</span>
+		<span style="color: orange;">Float</span>:myVar = MyFloatFunction<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>Or by forwarding the function so the compiler knows what to do:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">forward</span> <span style="color: orange;">Float</span>:MyFloatFunction<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+main<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #228b22; font-weight: bold;">new</span>
+		<span style="color: orange;">Float</span>:myVar = MyFloatFunction<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+<span style="color: orange;">Float</span>:MyFloatFunction<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">5.0</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>Note the forward includes the return tag too.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Keywords_Initialisers.html" title="Edit section: native">edit</a>]</div><a name="native"></a><h2> native </h2>
+<p>A native function is one defined in the virtual machine (i.e. the thing which runs the script), not in the script itself.  You can only define native functions if they're coded into SA:MP or a plugin, however you can create fake natives.  Because the native functions from .inc files are detected by pawno and listed in the box on the right hand side of pawno it can be useful to use native to get your own custom functions listed there.  A normal native declaration could look like:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">native</span> <a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #228b22; font-weight: bold;">const</span> <a href="http://wiki.sa-mp.com/wiki/format"><span style="color: #006400;">format</span></a><span style="color: #66cc66;">&#91;</span><span style="color: #66cc66;">&#93;</span>, <span style="color: #66cc66;">&#123;</span>Float,_<span style="color: #66cc66;">&#125;</span>:...<span style="color: #66cc66;">&#41;</span>;</pre>
+<p>If you want your own functions to appear without being declared native you can do:
+</p>
+<pre class="pawn"><span style="color: #808080; font-style: italic;">/*
+native MyFunction(playerid);
+*/</span></pre>
+<p>PAWNO doesn't recognise comments like that so will add the function to the list but the compiler does recognise comments like that so will ignore the declaration.
+</p><p>The other interesting thing you can do with native is rename/overload functions:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">native</span> my_print<span style="color: #66cc66;">&#40;</span><span style="color: #228b22; font-weight: bold;">const</span> string<span style="color: #66cc66;">&#91;</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span> = <a href="http://wiki.sa-mp.com/wiki/print"><span style="color: #006400;">print</span></a>;</pre>
+<p>Now the function print doesn't actually exist.  It is still in SA:MP, and the compiler knows it's real name thanks to the "= print" part, but if you try call it in PAWN you will get an error as you have renamed print internally to my_print.  As print now doesn't exist you can define it just like any other function:
+</p>
+<pre class="pawn"><a href="http://wiki.sa-mp.com/wiki/print"><span style="color: #006400;">print</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #228b22; font-weight: bold;">const</span> string<span style="color: #66cc66;">&#91;</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	my_print<span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;Someone called print()&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	my_print<span style="color: #66cc66;">&#40;</span>string<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>Now whenever print() is used in a script your function will be called instead of the original and you can do what you like.  In this case another message is printed first then the original message.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Keywords_Initialisers.html" title="Edit section: new">edit</a>]</div><a name="new"></a><h2> new </h2>
+<p>This is the core of variables, one of the most important keywords about.  new declares a new variable:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span>
+	myVar = <span style="color: #4169e1;">5</span>;</pre>
+<p>That will create a variable, name it myVar and assign it the value of 5.  By default all variables are 0 if nothing is specified:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span>
+	myVar;
+&nbsp;
+<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;%d&quot;</span>, myVar<span style="color: #66cc66;">&#41;</span>;</pre>
+<p>Will give "0".
+</p><p>A variable's scope is where it can be used.  Scope is restricted by braces (the curly brackets - {} ), any variable declared inside a set of braces can only be used within those braces.
+</p>
+<pre class="pawn"><span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span>a == <span style="color: #4169e1;">1</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #808080; font-style: italic;">// Braces start the line above this one</span>
+	<span style="color: #228b22; font-weight: bold;">new</span>
+		myVar = <span style="color: #4169e1;">5</span>;
+&nbsp;
+	<span style="color: #808080; font-style: italic;">// This printf is in the same braces so can use myVar.</span>
+	<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;%d&quot;</span>, myVar<span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+	<span style="color: #808080; font-style: italic;">// This if statement is also within the braces, so it and everything in it can use myVar</span>
+	<span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span>myVar == <span style="color: #4169e1;">1</span><span style="color: #66cc66;">&#41;</span>
+	<span style="color: #66cc66;">&#123;</span>
+		<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;%d&quot;</span>, myVar<span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #66cc66;">&#125;</span>
+	<span style="color: #808080; font-style: italic;">// The braces end the line below this</span>
+<span style="color: #66cc66;">&#125;</span>
+<span style="color: #808080; font-style: italic;">// This is outside the braces so will give an error</span>
+<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;%d&quot;</span>, myVar<span style="color: #66cc66;">&#41;</span>;</pre>
+<p>The example above also shows why correct indentation is so important.
+</p><p>If a global variable (i.e. one declared outside a function) is declared new, it can be used everywhere after the declaration:
+</p><p><b>file1.pwn:</b>
+</p>
+<pre class="pawn">MyFunc1<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #808080; font-style: italic;">// Error, gMyVar doesn't exist yet</span>
+	<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;%d&quot;</span>, gMyVar<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+<span style="color: #808080; font-style: italic;">// gMyVar is declared here</span>
+<span style="color: #228b22; font-weight: bold;">new</span>
+	gMyVar = <span style="color: #4169e1;">10</span>;
+&nbsp;
+MuFunc2<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #808080; font-style: italic;">// Fine as gMyVar now exists</span>
+	<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;%d&quot;</span>, gMyVar<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+<span style="color: #808080; font-style: italic;">// Include another file here</span>
+<span style="color: #6b8e23;">#include &quot;file2.pwn&quot;</span></pre>
+<p><b>file2.pwn:</b>
+</p>
+<pre class="pawn">MyFunc3<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #808080; font-style: italic;">// This is also fine as this file is included in the first file after the declaration and new is not file restricted</span>
+	<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;%d&quot;</span>, gMyVar<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Keywords_Initialisers.html" title="Edit section: operator">edit</a>]</div><a name="operator"></a><h2> operator </h2>
+<p>This allows you to overload operators for custom tags.  For example:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">stock</span> <span style="color: orange;">BigEndian</span>:operator=<span style="color: #66cc66;">&#40;</span>b<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: orange;">BigEndian</span>:<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#40;</span>b &gt;&gt;&gt; <span style="color: #4169e1;">24</span><span style="color: #66cc66;">&#41;</span> &amp; 0x000000FF<span style="color: #66cc66;">&#41;</span> | <span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#40;</span>b &gt;&gt;&gt; <span style="color: #4169e1;">8</span><span style="color: #66cc66;">&#41;</span> &amp; 0x0000FF00<span style="color: #66cc66;">&#41;</span> | <span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#40;</span>b &lt;&lt; <span style="color: #4169e1;">8</span><span style="color: #66cc66;">&#41;</span> &amp; 0x00FF0000<span style="color: #66cc66;">&#41;</span> | <span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#40;</span>b &lt;&lt; <span style="color: #4169e1;">24</span><span style="color: #66cc66;">&#41;</span> &amp; 0xFF000000<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+main<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #228b22; font-weight: bold;">new</span>
+	    <span style="color: orange;">BigEndian</span>:a = <span style="color: #4169e1;">7</span>;
+	<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;%d&quot;</span>, <span style="color: orange;">_</span>:a<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>Normal pawn numbers are stored in what's called little endian.  This operator allows you to define an assignment to convert a normal number to a big endian number.  The difference between big endian and little endian is the byte order.  7 in little endian is stored as:
+</p>
+<pre class="pawn"><span style="color: #4169e1;">07</span> <span style="color: #4169e1;">00</span> <span style="color: #4169e1;">00</span> <span style="color: #4169e1;">00</span></pre>
+<p>7 in big endian is stored as:
+</p>
+<pre class="pawn"><span style="color: #4169e1;">00</span> <span style="color: #4169e1;">00</span> <span style="color: #4169e1;">00</span> <span style="color: #4169e1;">07</span></pre>
+<p>Therefore if you print the contents of a big endian stored number it will try read it as a little endian number and get it backwards, thus printing the numer 0x07000000, aka 117440512, which is what you will get if you run this code.
+</p><p>You can overload the following operators:
+</p>
+<pre class="pawn">+, -, *, /, %, ++, --, ==,&nbsp;!=, &lt;, &gt;, &lt;=, &gt;=,&nbsp;! and =</pre>
+<p>Also note that you can make them do whatever you like:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">stock</span> <span style="color: orange;">BigEndian</span>:operator+<span style="color: #66cc66;">&#40;</span><span style="color: orange;">BigEndian</span>:a, <span style="color: orange;">BigEndian</span>:b<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: orange;">BigEndian</span>:<span style="color: #4169e1;">42</span>;
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+main<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #228b22; font-weight: bold;">new</span>
+	    <span style="color: orange;">BigEndian</span>:a = <span style="color: #4169e1;">7</span>,
+	    <span style="color: orange;">BigEndian</span>:b = <span style="color: #4169e1;">199</span>;
+	<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;%d&quot;</span>, <span style="color: orange;">_</span>:<span style="color: #66cc66;">&#40;</span>a + b<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>Will simply give 42, nothing to do with addition.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Keywords_Initialisers.html" title="Edit section: public">edit</a>]</div><a name="public"></a><h2> public </h2>
+<p>public is used to make a function visible to the Virtual Machine, i.e. it allows the SA:MP server to call the function directly, instead of only allowing the function to be called from inside the PAWN script.  You can also make variables public to read and write their values from the server, however this is never used in SA:MP (although you may be able to utilise it from a plugin, I've never tried) (you can also combine this with const to make a variable which can ONLY be modified from the server).
+</p><p>A public function has it's textual name stored in the amx file, unlike normal functions which only have their address stored for jumps, which is another drawback to decompilation.  This is so that you can call the function by name from outside the script, it also allows you to call functions by name from inside the script by leaving and re-entering it.  A native function call is almost the opposite of a public function call, it calls a function outside the script from inside the script as opposed to calling a function inside the script from outside the script.  If you combine the two you get functions like SetTimer, SetTimerEx, CallRemoteFunction and CallLocalFunction which call functions by name, not address.
+</p><p><b>Calling a function by name:</b>
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">forward</span> MyPublicFunc<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+main<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<a href="http://wiki.sa-mp.com/wiki/CallLocalFunction"><span style="color: #006400;">CallLocalFunction</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;MyPublicFunc&quot;</span>, <span style="color: #b22222;">&quot;&quot;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">public</span> MyPublicFunc<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;Hello&quot;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>public functions prefixed by either "public" or "@" and, as mentioned in the forward section, all require forwarding:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">forward</span> MyPublicFunc<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #228b22; font-weight: bold;">forward</span> @MyOtherPublicFunc<span style="color: #66cc66;">&#40;</span>var<span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+main<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<a href="http://wiki.sa-mp.com/wiki/CallLocalFunction"><span style="color: #006400;">CallLocalFunction</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;MyPublicFunc&quot;</span>, <span style="color: #b22222;">&quot;&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	<a href="http://wiki.sa-mp.com/wiki/SetTimerEx"><span style="color: #006400;">SetTimerEx</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;@MyOtherPublicFunc&quot;</span>, <span style="color: #4169e1;">5000</span>, <span style="color: #4169e1;">0</span>, <span style="color: #b22222;">&quot;i&quot;</span>, <span style="color: #4169e1;">7</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">public</span> MyPublicFunc<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;Hello&quot;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+@MyOtherPublicFunc<span style="color: #66cc66;">&#40;</span>var<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;%d&quot;</span>, var<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>Obviously that example introduced SetTimerEx to call "MyOtherPublicFunc" after 5 seconds and pass it the integer value 7 to print.
+</p><p>main, used in most of these examples, is similar to a public function in that it can be called from outside the script, however it is not a public function - it just has a special known address so the server knows where to jump to to run it.
+</p><p>All SA:MP callbacks are public and called from outside the script automatically:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnPlayerConnect"><span style="color: #dc143c">OnPlayerConnect</span></a><span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;%d connected&quot;</span>, playerid<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>When someone joins the server it will automatically look up this public function in all scripts (gamemode first then filterscripts) and if it finds it, calls it.
+</p><p>If you want to call a public function from inside the script however you do not have to call it by name, public functions also behave as normal functions too:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">forward</span> MyPublicFunc<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+main<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	MyPublicFunc<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">public</span> MyPublicFunc<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;Hello&quot;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>This is obviously much faster than using CallLocalFunction or another native.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Keywords_Initialisers.html" title="Edit section: static">edit</a>]</div><a name="static"></a><h2> static </h2>
+<p>A static variable is like a global new variable but with a more limited scope.  When static is used globally the resulting created variables are limited to only the section in which they were created (see #section).  So taking the earlier "new" example:
+</p><p><br />
+<b>file1.pwn:</b>
+</p>
+<pre class="pawn">MyFunc1<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #808080; font-style: italic;">// Error, gMyVar doesn't exist yet</span>
+	<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;%d&quot;</span>, gMyVar<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+<span style="color: #808080; font-style: italic;">// gMyVar is declared here</span>
+<span style="color: #228b22; font-weight: bold;">new</span>
+	gMyVar = <span style="color: #4169e1;">10</span>;
+&nbsp;
+MuFunc2<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #808080; font-style: italic;">// Fine as gMyVar now exists</span>
+	<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;%d&quot;</span>, gMyVar<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+<span style="color: #808080; font-style: italic;">// Include another file here</span>
+<span style="color: #6b8e23;">#include &quot;file2.pwn&quot;</span></pre>
+<p><b>file2.pwn:</b>
+</p>
+<pre class="pawn">MyFunc3<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #808080; font-style: italic;">// This is also fine as this file is included in the first file after the declaration and new is not file restricted</span>
+	<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;%d&quot;</span>, gMyVar<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>And modifying it for static would give:
+</p><p><b>file1.pwn:</b>
+</p>
+<pre class="pawn">MyFunc1<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #808080; font-style: italic;">// Error, g_sMyVar doesn't exist yet</span>
+	<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;%d&quot;</span>, g_sMyVar<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+<span style="color: #808080; font-style: italic;">// g_sMyVar is declared here</span>
+<span style="color: #228b22; font-weight: bold;">static</span>
+	g_sMyVar = <span style="color: #4169e1;">10</span>;
+&nbsp;
+MuFunc2<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #808080; font-style: italic;">// Fine as _sgMyVar now exists</span>
+	<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;%d&quot;</span>, g_sMyVar<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+<span style="color: #808080; font-style: italic;">// Include another file here</span>
+<span style="color: #6b8e23;">#include &quot;file2.pwn&quot;</span></pre>
+<p><b>file2.pwn:</b>
+</p>
+<pre class="pawn">MyFunc3<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #808080; font-style: italic;">// Error, g_sMyVar is limited to only the file (or section) in which it was declared, this is a different file</span>
+	<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;%d&quot;</span>, g_sMyVar<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>This means you can have two globals of the same name in different files.
+</p><p>If you use static locally (i.e. in a function) then the variable, like local variables created with new, can only be used within the scope (based on braces - see the section on "new") in which it was declared.  However unlike "new" variables "static" variables do not loose their value between calls.
+</p>
+<pre class="pawn">main<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #4169e1;">for</span> <span style="color: #66cc66;">&#40;</span><span style="color: #228b22; font-weight: bold;">new</span> loopVar = <span style="color: #4169e1;">0</span>; loopVar &lt; <span style="color: #4169e1;">4</span>; loopVar++<span style="color: #66cc66;">&#41;</span>
+	<span style="color: #66cc66;">&#123;</span>
+		MyFunc<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #66cc66;">&#125;</span>
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+MyFunc<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #228b22; font-weight: bold;">new</span>
+		i = <span style="color: #4169e1;">0</span>;
+	<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;%d&quot;</span>, i<span style="color: #66cc66;">&#41;</span>;
+	i++;
+	<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;%d&quot;</span>, i<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>Every time the function is called i is reset to 0, so the resulting output will be:
+</p>
+<pre class="pawn"><span style="color: #4169e1;">0</span>
+<span style="color: #4169e1;">1</span>
+<span style="color: #4169e1;">0</span>
+<span style="color: #4169e1;">1</span>
+<span style="color: #4169e1;">0</span>
+<span style="color: #4169e1;">1</span>
+<span style="color: #4169e1;">0</span>
+<span style="color: #4169e1;">1</span></pre>
+<p>If we replace the "new" with "static" we get:
+</p>
+<pre class="pawn">main<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #4169e1;">for</span> <span style="color: #66cc66;">&#40;</span><span style="color: #228b22; font-weight: bold;">new</span> loopVar = <span style="color: #4169e1;">0</span>; loopVar &lt; <span style="color: #4169e1;">4</span>; loopVar++<span style="color: #66cc66;">&#41;</span>
+	<span style="color: #66cc66;">&#123;</span>
+		MyFunc<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #66cc66;">&#125;</span>
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+MyFunc<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #228b22; font-weight: bold;">static</span>
+		i = <span style="color: #4169e1;">0</span>;
+	<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;%d&quot;</span>, i<span style="color: #66cc66;">&#41;</span>;
+	i++;
+	<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;%d&quot;</span>, i<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>And, as static locals keep their value between calls, the resulting output it:
+</p>
+<pre class="pawn"><span style="color: #4169e1;">0</span>
+<span style="color: #4169e1;">1</span>
+<span style="color: #4169e1;">1</span>
+<span style="color: #4169e1;">2</span>
+<span style="color: #4169e1;">2</span>
+<span style="color: #4169e1;">3</span>
+<span style="color: #4169e1;">3</span>
+<span style="color: #4169e1;">4</span></pre>
+<p>The value given in the declaration (if one is given, like new, static variables default to 0) is the value assigned to the variable the first time the function is called.  So if "static i = 5;" were used instead the result would be:
+</p>
+<pre class="pawn"><span style="color: #4169e1;">5</span>
+<span style="color: #4169e1;">6</span>
+<span style="color: #4169e1;">6</span>
+<span style="color: #4169e1;">7</span>
+<span style="color: #4169e1;">7</span>
+<span style="color: #4169e1;">8</span>
+<span style="color: #4169e1;">8</span>
+<span style="color: #4169e1;">9</span></pre>
+<p>Because of the way static variables are stored, they are in fact global variables, the compiler checks they are used in the correct place.  As a result decompiled scripts cannot distinguish between normal globals, global statics and local statics and they are all given as normal globals.
+</p><p>You can also have static functions which can only be called from the file in which they are declared.  This is useful for private style functions.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Keywords_Initialisers.html" title="Edit section: stock">edit</a>]</div><a name="stock"></a><h2> stock </h2>
+<p><span style="font-size:smaller;margin-left:20px;" class="plainlinks"><i>stock redirects here. <a href="http://wiki.sa-mp.com/wiki/Special:Search?search=stock&amp;fulltext=Search" class='external text' title="http://wiki.sa-mp.com/wiki/Special:Search?search=stock&amp;fulltext=Search" rel="nofollow">Search</a> for stock instead.</i></span>
+</p><p><br />
+stock is used to declare variables and functions which may not be used but which you don't want to generate unused warnings for.  With variables stock is like const in that it is a modifier, not a full declaration, so you could have:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> <span style="color: #228b22; font-weight: bold;">stock</span>
+	gMayBeUsedVar;
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">static</span> <span style="color: #228b22; font-weight: bold;">stock</span>
+	g_sMayBeUsedVar;</pre>
+<p>If the variable or function is used the compiler will include it, if it is not used it will exclude it.  This is different to using #pragma unused &lt;symbol&gt; as that will simply surpress (i.e. hide) the warning and include the information anyway, stock will entirely ignore the unused data.
+</p><p>stock is most commonly used for custom libraries.  If you write a library you provide a whole load of functions for other people to use but you've no idea if they'll use them or not.  If your code gives loads of warnings for every function a person doesn't use people will complain (unless it's on purpose as they HAVE to use that function (e.g. for initialising variables).  Having said that however, going from personal experience with YSI people will complain anyway.
+</p>
+<pre class="pawn">main<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	Func1<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+Func1<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;Hello&quot;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+Func2<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;Hi&quot;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>Here Func2 is never called so the compiler will give a warning.  This may be useful as you may have forgotten to call it, as is generally the case in a straight script, however if Func1 and Func2 are in a library the user may simply not need Func2 so you do:
+</p>
+<pre class="pawn">main<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	Func1<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">stock</span> Func1<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;Hello&quot;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">stock</span> Func2<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;Hi&quot;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>And the function won't be compiled and the warning removed.
+</p><div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/Keywords_Initialisers.html">http://localhost../wiki/Keywords_Initialisers.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="Category_Tutorials.html" title="Category:Tutorials">Tutorials</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="Keywords_Initialisers.html">Article</a></li>
+				 <li id="ca-talk"><a href="Talk_Keywords_Initialisers.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="Keywords_Initialisers.html">Edit</a></li>
+				 <li id="ca-history"><a href="Keywords_Initialisers.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 60,517 times.</li>
+				<li id="credits">This page was last modified 12:54, 1 August 2017 by SA-MP Wiki user <a href="User_OstGot.html" title="User:OstGot">OstGot</a>. Based on work by SA-MP Wiki user(s) <a href="User_Vince.html" title="User:Vince">Vince</a>, <a href="User_Vince.html" title="User:Vince">Vince</a> and <a href="User_Y_Less.html" title="User:Y Less">Y Less</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 37.28 secs. -->
+</body></html>

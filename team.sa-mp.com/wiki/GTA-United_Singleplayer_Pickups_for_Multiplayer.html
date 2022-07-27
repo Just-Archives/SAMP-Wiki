@@ -1,0 +1,595 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="GTA-United/Singleplayer Pickups for Multiplayer" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>GTA-United/Singleplayer Pickups for Multiplayer - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">GTA-United/Singleplayer Pickups for Multiplayer</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<p>You can add these pickups only if you have access to edit the script. All "CreatePickup" are going under "OnGameModeInit" or "OnFilterScriptInit". It depends if you use FS or GM. Have Fun!
+</p>
+<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class='toclevel-1'><a href="#Hidden_Packages.28Credits_to_DarkKostas_-_.5BDK.5DAzaxYo.29"><span class="tocnumber">1</span> <span class="toctext">Hidden Packages(Credits to DarkKostas - [DK]AzaxYo)</span></a></li>
+<li class='toclevel-1'><a href="#Health.28Credits_to_Vetle.29"><span class="tocnumber">2</span> <span class="toctext">Health(Credits to Vetle)</span></a></li>
+<li class='toclevel-1'><a href="#Armor.28Credits_to_Vetle.29"><span class="tocnumber">3</span> <span class="toctext">Armor(Credits to Vetle)</span></a></li>
+<li class='toclevel-1'><a href="#Adrenaline.28Credits_to_Vetle.29"><span class="tocnumber">4</span> <span class="toctext">Adrenaline(Credits to Vetle)</span></a></li>
+<li class='toclevel-1'><a href="#Bribe.28Credits_to_Vetle.29"><span class="tocnumber">5</span> <span class="toctext">Bribe(Credits to Vetle)</span></a></li>
+<li class='toclevel-1'><a href="#Weapons.28Credits_to_Vetle.29"><span class="tocnumber">6</span> <span class="toctext">Weapons(Credits to Vetle)</span></a>
+<ul>
+<li class='toclevel-2'><a href="#9mm"><span class="tocnumber">6.1</span> <span class="toctext">9mm</span></a></li>
+<li class='toclevel-2'><a href="#Micro_UZI"><span class="tocnumber">6.2</span> <span class="toctext">Micro UZI</span></a></li>
+<li class='toclevel-2'><a href="#AK47"><span class="tocnumber">6.3</span> <span class="toctext">AK47</span></a></li>
+<li class='toclevel-2'><a href="#Sniper"><span class="tocnumber">6.4</span> <span class="toctext">Sniper</span></a></li>
+<li class='toclevel-2'><a href="#Grenade"><span class="tocnumber">6.5</span> <span class="toctext">Grenade</span></a></li>
+<li class='toclevel-2'><a href="#MP5"><span class="tocnumber">6.6</span> <span class="toctext">MP5</span></a></li>
+<li class='toclevel-2'><a href="#Flamethrower"><span class="tocnumber">6.7</span> <span class="toctext">Flamethrower</span></a></li>
+<li class='toclevel-2'><a href="#Molotov"><span class="tocnumber">6.8</span> <span class="toctext">Molotov</span></a></li>
+<li class='toclevel-2'><a href="#Desert_Eagle"><span class="tocnumber">6.9</span> <span class="toctext">Desert Eagle</span></a></li>
+<li class='toclevel-2'><a href="#Sawnoff"><span class="tocnumber">6.10</span> <span class="toctext">Sawnoff</span></a></li>
+<li class='toclevel-2'><a href="#Shotgun"><span class="tocnumber">6.11</span> <span class="toctext">Shotgun</span></a></li>
+<li class='toclevel-2'><a href="#Silenced"><span class="tocnumber">6.12</span> <span class="toctext">Silenced</span></a></li>
+<li class='toclevel-2'><a href="#M4"><span class="tocnumber">6.13</span> <span class="toctext">M4</span></a></li>
+<li class='toclevel-2'><a href="#TEC9"><span class="tocnumber">6.14</span> <span class="toctext">TEC9</span></a></li>
+<li class='toclevel-2'><a href="#Combat_Shotgun"><span class="tocnumber">6.15</span> <span class="toctext">Combat Shotgun</span></a></li>
+<li class='toclevel-2'><a href="#Rocket_Launcher"><span class="tocnumber">6.16</span> <span class="toctext">Rocket Launcher</span></a></li>
+<li class='toclevel-2'><a href="#Minigun"><span class="tocnumber">6.17</span> <span class="toctext">Minigun</span></a></li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#Other.28Credits_to_Vetle.29"><span class="tocnumber">7</span> <span class="toctext">Other(Credits to Vetle)</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="GTA-United_Singleplayer_Pickups_for_Multiplayer.html" title="Edit section: Hidden Packages(Credits to DarkKostas - [DK]AzaxYo)">edit</a>]</div><a name="Hidden_Packages.28Credits_to_DarkKostas_-_.5BDK.5DAzaxYo.29"></a><h1>Hidden Packages(Credits to DarkKostas - [DK]AzaxYo)</h1>
+<ul><li>new UnitedPackage[50];
+</li><li>UnitedPackage[0] = CreatePickup(6946, 3, -416.6939, 1398.7, 25.5071);
+</li><li>UnitedPackage[1] = CreatePickup(6946, 3, -465.1799, 1631.848, 3.4946);
+</li><li>UnitedPackage[2] = CreatePickup(6946, 3, -588.3328, 2013.401, 9.2775);
+</li><li>UnitedPackage[3] = CreatePickup(6946, 3, -29.741, 1434.613, 15.2435);
+</li><li>UnitedPackage[4] = CreatePickup(6946, 3, 296.169, 1428.594, 33.8512);
+</li><li>UnitedPackage[5] = CreatePickup(6946, 3, 187.2332, 1119.576, 11.7862);
+</li><li>UnitedPackage[6] = CreatePickup(6946, 3, -236.4455, 774.1738, 31.7022);
+</li><li>UnitedPackage[7] = CreatePickup(6946, 3, -553.7753, 798.212, 4.8487);
+</li><li>UnitedPackage[8] = CreatePickup(6946, 3, -374.6487, 1118.784, 24.5878);
+</li><li>UnitedPackage[9] = CreatePickup(6946, 3, -575.619, 1220.348, 23.8204);
+</li><li>UnitedPackage[10] = CreatePickup(6946, 3, -906.5529, 916.3695, 16.1249);
+</li><li>UnitedPackage[11] = CreatePickup(6946, 3, -890.0924, 369.6206, 39.4862);
+</li><li>UnitedPackage[12] = CreatePickup(6946, 3, -1156.787, 159.9383, -3.2015);
+</li><li>UnitedPackage[13] = CreatePickup(6946, 3, -1183.01, 543.5724, 26.0968);
+</li><li>UnitedPackage[14] = CreatePickup(6946, 3, -1340.885, 695.407, 26.5329);
+</li><li>UnitedPackage[15] = CreatePickup(6946, 3, -1003.364, 1472.557, 54.1457);
+</li><li>UnitedPackage[16] = CreatePickup(6946, 3, -1571.295, 1484.26, 1.4081);
+</li><li>UnitedPackage[17] = CreatePickup(6946, 3, -2097.003, 1062.239, 9.805);
+</li><li>UnitedPackage[18] = CreatePickup(6946, 3, -2292.267, 1031.158, 11.0751);
+</li><li>UnitedPackage[19] = CreatePickup(6946, 3, -2747.862, 1299.509, 11.0778);
+</li><li>UnitedPackage[20] = CreatePickup(6946, 3, -2542.295, 1672.583, 44.1742);
+</li><li>UnitedPackage[21] = CreatePickup(6946, 3, -2551.007, 2117.379, 3.4223);
+</li><li>UnitedPackage[22] = CreatePickup(6946, 3, -2102.663, 2404.98, 187.4046);
+</li><li>UnitedPackage[23] = CreatePickup(6946, 3, -2142.544, 1965.285, 32.6222);
+</li><li>UnitedPackage[24] = CreatePickup(6946, 3, -1852.599, 1788.985, 3.8213);
+</li><li>UnitedPackage[25] = CreatePickup(6946, 3, 2241.017, -2071.807, 5.5382);
+</li><li>UnitedPackage[26] = CreatePickup(6946, 3, 1905.631, -2302.92, 4.9268);
+</li><li>UnitedPackage[27] = CreatePickup(6946, 3, 1700.742, -2684.983, 6.0687);
+</li><li>UnitedPackage[28] = CreatePickup(6946, 3, 2529.476, -2682.036, 8.7049);
+</li><li>UnitedPackage[29] = CreatePickup(6946, 3, 1831.964, -2031.912, 10.1823);
+</li><li>UnitedPackage[30] = CreatePickup(6946, 3, 1902.79, -1907.643, 26.142);
+</li><li>UnitedPackage[31] = CreatePickup(6946, 3, 2083.396, -1505.942, 9.4432);
+</li><li>UnitedPackage[32] = CreatePickup(6946, 3, 2624.381, -1180.994, 18.3838);
+</li><li>UnitedPackage[33] = CreatePickup(6946, 3, 2421.156, -743.212, 6.4401);
+</li><li>UnitedPackage[34] = CreatePickup(6946, 3, 2258.544, -923.2042, 6.6141);
+</li><li>UnitedPackage[35] = CreatePickup(6946, 3, 1762.004, -422.1987, 9.4669);
+</li><li>UnitedPackage[36] = CreatePickup(6946, 3, 2029.123, -346.9231, 5.5796);
+</li><li>UnitedPackage[37] = CreatePickup(6946, 3, 2279.367, -508.6312, 3.2459);
+</li><li>UnitedPackage[38] = CreatePickup(6946, 3, 2499.444, -322.6619, 5.5306);
+</li><li>UnitedPackage[39] = CreatePickup(6946, 3, 2528.683, 384.0278, 14.7606);
+</li><li>UnitedPackage[40] = CreatePickup(6946, 3, 2017.965, 197.509, 25.0121);
+</li><li>UnitedPackage[41] = CreatePickup(6946, 3, 1695.027, 124.1838, 3.4526);
+</li><li>UnitedPackage[42] = CreatePickup(6946, 3, 1478.556, 298.9914, 6.2292);
+</li><li>UnitedPackage[43] = CreatePickup(6946, 3, 1120.577, 183.4393, 29.8627);
+</li><li>UnitedPackage[44] = CreatePickup(6946, 3, 895.4058, -597.2645, 6.1002);
+</li><li>UnitedPackage[45] = CreatePickup(6946, 3, 1018.634, -903.5887, 5.0317);
+</li><li>UnitedPackage[46] = CreatePickup(6946, 3, 738.3865, -804.3234, 21.0284);
+</li><li>UnitedPackage[47] = CreatePickup(6946, 3, 1130.665, -1519.283, 14.1126);
+</li><li>UnitedPackage[48] = CreatePickup(6946, 3, 1334.807, -2233.24, 32.8205);
+</li><li>UnitedPackage[49] = CreatePickup(6946, 3, 314.7771, -1874.692, 56.1198);
+</li></ul>
+<ul><li>Also if you wish to get a message after you get the Hidden Package you can add this to your script under "OnPlayerPickUpPickup(playerid, pickupid)"
+</li></ul>
+<hr />
+<p>for(new i=1; i&lt;51; i++)
+{
+	if(pickupid == UnitedPackage[i])
+	{
+		GameTextForPlayer(playerid, "~r~You found a hidden package.", 7000, 3);
+	}
+}
+</p>
+<hr />
+<p>Here <a href="http://www.mediafire.com/?rhymxit4fyn" class='external free' title="http://www.mediafire.com/?rhymxit4fyn" rel="nofollow">http://www.mediafire.com/?rhymxit4fyn</a> is a script that if you find all the 50 packages you get a Minigun&nbsp;:D
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="GTA-United_Singleplayer_Pickups_for_Multiplayer.html" title="Edit section: Health(Credits to Vetle)">edit</a>]</div><a name="Health.28Credits_to_Vetle.29"></a><h1>Health(Credits to Vetle)</h1>
+<ul><li>CreatePickup(1240, 3, -202.25, 1202.938, 14.875);
+</li><li>CreatePickup(1240, 3, -202.25, 1214.75, 14.875);
+</li><li>CreatePickup(1240, 3, -97.25, 945.3125, 20.5625);
+</li><li>CreatePickup(1240, 3, -527.5, 751.312, 14.25);
+</li><li>CreatePickup(1240, 3, -432.0, 1064.125, 14.5625);
+</li><li>CreatePickup(1240, 3, 41.0629, 776.5, 11.875);
+</li><li>CreatePickup(1240, 3, -67.25, 984.625, 15.0);
+</li><li>CreatePickup(1240, 3, -82.437, 1503.438, 39.875);
+</li><li>CreatePickup(1240, 3, -208.25, 1737.0, 7.375);
+</li><li>CreatePickup(1240, 3, -411.5, 1618.125, 4.875);
+</li><li>CreatePickup(1240, 3, -377.125, 1386.813, 15.0625);
+</li><li>CreatePickup(1240, 3, 37.6879, 1343.5, 49.5625);
+</li><li>CreatePickup(1240, 3, -1167.125, 1783.75, 16.1875);
+</li><li>CreatePickup(1240, 3, -1127.438, 1816.0, 16.1875);
+</li><li>CreatePickup(1240, 3, -836.4375, 1119.438, 16.5625);
+</li><li>CreatePickup(1240, 3, -1375.25, 657.75, 26.0625);
+</li><li>CreatePickup(1240, 3, -1398.5, 1221.0, 26.1875);
+</li><li>CreatePickup(1240, 3, -1376.313, 1032.375, 26.125);
+</li><li>CreatePickup(1240, 3, -1374.625, 524.25, 25.6875);
+</li><li>CreatePickup(1240, 3, -1528.313, 391.0, 26.0625);
+</li><li>CreatePickup(1240, 3, -1121.563, 283.687, 27.375);
+</li><li>CreatePickup(1240, 3, -1150.0, 580.875, 26.875);
+</li><li>CreatePickup(1240, 3, -978.75, 771.937, 26.0);
+</li><li>CreatePickup(1240, 3, -1160.313, 1197.813, 28.0625);
+</li><li>CreatePickup(1240, 3, -951.5625, 1511.0, 23.1875);
+</li><li>CreatePickup(1240, 3, -2597.5, 1720.5, 58.75);
+</li><li>CreatePickup(1240, 3, -2597.5, 1717.5, 58.75);
+</li><li>CreatePickup(1240, 3, -2470.688, 2386.375, 68.5625);
+</li><li>CreatePickup(1240, 3, -2422.5, 2249.0, 23.5625);
+</li><li>CreatePickup(1240, 3, -2492.0, 2130.563, 3.375);
+</li><li>CreatePickup(1240, 3, -2548.563, 1760.313, 53.1875);
+</li><li>CreatePickup(1240, 3, -2734.563, 1052.625, 10.875);
+</li><li>CreatePickup(1240, 3, -1816.563, 1830.375, 3.875);
+</li><li>CreatePickup(1240, 3, 1886.8, -1925.7, 4.9);
+</li><li>CreatePickup(1240, 3, 1774.9, -2108.1, 3.6);
+</li><li>CreatePickup(1240, 3, 2456.2, -1421.4, 11.1);
+</li><li>CreatePickup(1240, 3, 2377.4, -482.3, 6.1);
+</li><li>CreatePickup(1240, 3, 2469.6, -252.6, 6.2);
+</li><li>CreatePickup(1240, 3, 2385.3, 260.9, 13.9);
+</li><li>CreatePickup(1240, 3, 2384.3, -193.4, 6.2);
+</li><li>CreatePickup(1240, 3, 2010.7, 149.0, 11.1);
+</li><li>CreatePickup(1240, 3, 2085.3, -547.3, 14.3);
+</li><li>CreatePickup(1240, 3, 1288.3, -1451.7, 5.8);
+</li><li>CreatePickup(1240, 3, 1596.0, -1538.0, 6.1);
+</li><li>CreatePickup(1240, 3, 1593.75, -1516.495, 14.0804);
+</li><li>CreatePickup(1240, 3, 1521.9, 488.5, 10.6);
+</li><li>CreatePickup(1240, 3, 1325.0, 313.3, 19.6);
+</li><li>CreatePickup(1240, 3, 1178.2, 194.8, 20.6);
+</li><li>CreatePickup(1240, 3, 860.6, -894.6, 5.7);
+</li><li>CreatePickup(1240, 3, 709.1, -858.1, 21.4);
+</li><li>CreatePickup(1240, 3, 1114.6, -1433.4, 7.6);
+</li><li>CreatePickup(1240, 3, 1074.9, -1588.3, 10.5);
+</li><li>CreatePickup(1240, 3, 1307.6, -2233.8, 5.6);
+</li><li>CreatePickup(1240, 3, 1344.9, -2456.3, 2.6);
+</li><li>CreatePickup(1240, 3, 600.6, -1815.9, 15.4);
+</li><li>CreatePickup(1240, 3, 1177.4, 187.3, 6.9);
+</li><li>CreatePickup(1240, 3, 1148.6, -1028.8, 6.0);
+</li><li>CreatePickup(1240, 3, 1165.8, -209.4, 5.8);
+</li></ul>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="GTA-United_Singleplayer_Pickups_for_Multiplayer.html" title="Edit section: Armor(Credits to Vetle)">edit</a>]</div><a name="Armor.28Credits_to_Vetle.29"></a><h1>Armor(Credits to Vetle)</h1>
+<ul><li>CreatePickup(1242, 3, -233.625, 562.625, 11.875);
+</li><li>CreatePickup(1242, 3, -99.812, 948.0, 20.5625);
+</li><li>CreatePickup(1242, 3, 238.875, 1176.0, 11.75);
+</li><li>CreatePickup(1242, 3, -114.0, 879.4375, 15.0625);
+</li><li>CreatePickup(1242, 3, -211.312, 766.5, 20.1875);
+</li><li>CreatePickup(1242, 3, -96.375, 1482.125, 34.0625);
+</li><li>CreatePickup(1242, 3, -939.9375, 864.8125, 16.0625);
+</li><li>CreatePickup(1242, 3, -1430.5, 1317.313, 28.75);
+</li><li>CreatePickup(1242, 3, -1327.938, 558.937, 27.75);
+</li><li>CreatePickup(1242, 3, -1198.25, 1693.625, 20.125);
+</li><li>CreatePickup(1242, 3, -1394.688, 343.625, 26.125);
+</li><li>CreatePickup(1242, 3, -951.5625, 1514.625, 23.1875);
+</li><li>CreatePickup(1242, 3, -1776.875, 2090.188, 62.875);
+</li><li>CreatePickup(1242, 3, -2048.0, 1239.313, 22.375);
+</li><li>CreatePickup(1242, 3, -2416.688, 1847.0, 48.875);
+</li><li>CreatePickup(1242, 3, -2536.875, 1759.938, 53.1875);
+</li><li>CreatePickup(1242, 3, -1232.441, 226.898, 245.93);
+</li><li>CreatePickup(1242, 3, 2004.9, -2189.2, 13.7);
+</li><li>CreatePickup(1242, 3, 2205.7, -1835.7, 6.7);
+</li><li>CreatePickup(1242, 3, 2148.8, -1299.9, 3.2);
+</li><li>CreatePickup(1242, 3, 2520.2, -1121.2, 8.4);
+</li><li>CreatePickup(1242, 3, 2430.8, -787.9, 6.3);
+</li><li>CreatePickup(1242, 3, 2416.1, -432.3, 5.7);
+</li><li>CreatePickup(1242, 3, 2350.2, -65.20001, 20.0);
+</li><li>CreatePickup(1242, 3, 2535.3, 264.1, 13.4);
+</li><li>CreatePickup(1242, 3, 2042.8, 1.099976, 5.5);
+</li><li>CreatePickup(1242, 3, 1929.2, -439.4, 6.1);
+</li><li>CreatePickup(1242, 3, 304.4, -1239.4, 24.2);
+</li><li>CreatePickup(1242, 3, 1432.4, 420.36, 10.9);
+</li><li>CreatePickup(1242, 3, 1078.1, -227.1, 5.5);
+</li><li>CreatePickup(1242, 3, 941.1, -1190.6, 12.7);
+</li><li>CreatePickup(1242, 3, 1374.5, -327.8, 6.2);
+</li><li>CreatePickup(1242, 3, 1266.5, -2244.7, 6.9);
+</li><li>CreatePickup(1242, 3, 823.0, -1865.3, 9.4);
+</li><li>CreatePickup(1242, 3, 829.0, -1407.4, 5.2);
+</li></ul>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="GTA-United_Singleplayer_Pickups_for_Multiplayer.html" title="Edit section: Adrenaline(Credits to Vetle)">edit</a>]</div><a name="Adrenaline.28Credits_to_Vetle.29"></a><h1>Adrenaline(Credits to Vetle)</h1>
+<ul><li>CreatePickup(1241, 3, 44.563, 934.625, 11.75);
+</li><li>CreatePickup(1241, 3, -262.5, 1643.5, 9.75);
+</li><li>CreatePickup(1241, 3, -102.937, 944.9375, 20.5625);
+</li><li>CreatePickup(1241, 3, -471.75, 1278.75, 16.5);
+</li><li>CreatePickup(1241, 3, -188.937, 1253.125, 21.5);
+</li><li>CreatePickup(1241, 3, -1180.75, 809.5, 29.5);
+</li><li>CreatePickup(1241, 3, -1118.25, 1461.313, 31.6875);
+</li><li>CreatePickup(1241, 3, -1261.0, 868.25, 27.0625);
+</li><li>CreatePickup(1241, 3, -1137.625, 903.4375, 23.125);
+</li><li>CreatePickup(1241, 3, -2060.063, 1980.25, 28.6875);
+</li><li>CreatePickup(1241, 3, -1851.063, 1862.875, 3.75);
+</li><li>CreatePickup(1241, 3, -2313.0, 1686.625, 34.1875);
+</li><li>CreatePickup(1241, 3, -2724.563, 1052.625, 10.875);
+</li><li>CreatePickup(1241, 3, -2442.0, 1775.813, 48.875);
+</li><li>CreatePickup(1241, 3, 1962.3, -1888.3, 5.0);
+</li><li>CreatePickup(1241, 3, 2471.1, -1394.1, 5.1);
+</li><li>CreatePickup(1241, 3, 2448.6, -933.4, 5.5);
+</li><li>CreatePickup(1241, 3, 2425.6, -728.9, 10.7);
+</li><li>CreatePickup(1241, 3, 2428.4, -2.5, 7.7);
+</li><li>CreatePickup(1241, 3, 2385.6, -197.7, 6.2);
+</li><li>CreatePickup(1241, 3, 1633.4, -1450.3, 5.8);
+</li><li>CreatePickup(1241, 3, 1657.8, -1541.5, 31.4);
+</li><li>CreatePickup(1241, 3, 1618.8, 115.2, 7.5);
+</li><li>CreatePickup(1241, 3, 1269.9, 276.3, 18.7);
+</li><li>CreatePickup(1241, 3, 904.9, -850.6, 6.8);
+</li><li>CreatePickup(1241, 3, 1032.9, -1012.6, 5.5);
+</li><li>CreatePickup(1241, 3, 977.9, -1497.0, 5.7);
+</li><li>CreatePickup(1241, 3, 1118.0, -838.8, 3.8);
+</li><li>CreatePickup(1241, 3, 1142.9, -1033.6, 6.0);
+</li><li>CreatePickup(1241, 3, 1161.0, -209.4, 5.8);
+</li></ul>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="GTA-United_Singleplayer_Pickups_for_Multiplayer.html" title="Edit section: Bribe(Credits to Vetle)">edit</a>]</div><a name="Bribe.28Credits_to_Vetle.29"></a><h1>Bribe(Credits to Vetle)</h1>
+<ul><li>CreatePickup(1247, 3, -560.0, 1239.313, 27.0);
+</li><li>CreatePickup(1247, 3, -66.312, 1411.313, 34.5625);
+</li><li>CreatePickup(1247, 3, 90.188, 908.9375, 11.75);
+</li><li>CreatePickup(1247, 3, -271.125, 887.5, 15.1875);
+</li><li>CreatePickup(1247, 3, -354.25, 1361.25, 22.6875);
+</li><li>CreatePickup(1247, 3, -288.125, 1232.313, 16.5625);
+</li><li>CreatePickup(1247, 3, -490.4375, 818.125, 10.5);
+</li><li>CreatePickup(1247, 3, -427.8125, 951.9375, 14.875);
+</li><li>CreatePickup(1247, 3, -1029.313, 1017.875, 28.75);
+</li><li>CreatePickup(1247, 3, -999.0, 623.437, 16.6875);
+</li><li>CreatePickup(1247, 3, -1241.75, 401.312, 21.75);
+</li><li>CreatePickup(1247, 3, -930.3125, 360.437, 25.5625);
+</li><li>CreatePickup(1247, 3, -1066.438, 990.3125, 28.875);
+</li><li>CreatePickup(1247, 3, -1168.75, 1537.625, 15.875);
+</li><li>CreatePickup(1247, 3, -1366.375, 1341.438, 18.5625);
+</li><li>CreatePickup(1247, 3, -1500.5, 1687.25, 16.125);
+</li><li>CreatePickup(1247, 3, -992.4375, 901.5, 23.5);
+</li><li>CreatePickup(1247, 3, -937.8125, 235.437, 24.5);
+</li><li>CreatePickup(1247, 3, -2597.75, 1936.0, 68.5);
+</li><li>CreatePickup(1247, 3, -1818.563, 1738.0, 3.75);
+</li><li>CreatePickup(1247, 3, -2457.5, 1722.813, 46.0625);
+</li><li>CreatePickup(1247, 3, -1968.688, 1077.438, 18.875);
+</li><li>CreatePickup(1247, 3, -2602.375, 1158.438, 11.0625);
+</li><li>CreatePickup(1247, 3, -2203.375, 1544.438, 32.875);
+</li><li>CreatePickup(1247, 3, -207.0, 1129.0, 15.0);
+</li><li>CreatePickup(1247, 3, 2116.0, -2263.1, -1.1);
+</li><li>CreatePickup(1247, 3, 2393.7, -1610.6, 5.2);
+</li><li>CreatePickup(1247, 3, 2470.7, -879.9, 5.3);
+</li><li>CreatePickup(1247, 3, 2382.7, -585.9, 5.3);
+</li><li>CreatePickup(1247, 3, 2422.4, 21.20001, 6.6);
+</li><li>CreatePickup(1247, 3, 2089.1, -62.59998, 5.0);
+</li><li>CreatePickup(1247, 3, 1177.3, 354.5, 6.2);
+</li><li>CreatePickup(1247, 3, 1099.31, -698.6, 11.6);
+</li><li>CreatePickup(1247, 3, 1026.3, -889.0, 4.9);
+</li><li>CreatePickup(1247, 3, 1062.1, -1064.1, 11.5);
+</li><li>CreatePickup(1247, 3, 984.1, -1577.9, 5.7);
+</li><li>CreatePickup(1247, 3, 1093.7, -1784.0, 10.2);
+</li></ul>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="GTA-United_Singleplayer_Pickups_for_Multiplayer.html" title="Edit section: Weapons(Credits to Vetle)">edit</a>]</div><a name="Weapons.28Credits_to_Vetle.29"></a><h1>Weapons(Credits to Vetle)</h1>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="GTA-United_Singleplayer_Pickups_for_Multiplayer.html" title="Edit section: 9mm">edit</a>]</div><a name="9mm"></a><h2>9mm</h2>
+<p>Top:
+</p><p>new a9mm[4];
+</p><p>Load: (OnGameModeInit or OnFilterScriptInit, it depends what you use)
+</p><p>a9mm[0] = CreatePickup(346, 3, -281.5, 1399.25, 15.1875);
+a9mm[1] = CreatePickup(346, 3, 2126.9, -2194.9, 4.9);
+a9mm[2] = CreatePickup(346, 3, 2340.5, -1199.5, 7.0);
+a9mm[3] = CreatePickup(346, 3, 817.3, -1011.1, 5.9);
+</p><p>Give: (OnPlayerPickUpPickup)
+</p><p>if (pickupid == a9mm[0]) GivePlayerWeapon(playerid, 22, 24);
+if (pickupid == a9mm[1]) GivePlayerWeapon(playerid, 22, 34);
+if (pickupid == a9mm[2]) GivePlayerWeapon(playerid, 22, 34);
+if (pickupid == a9mm[3]) GivePlayerWeapon(playerid, 22, 12);
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="GTA-United_Singleplayer_Pickups_for_Multiplayer.html" title="Edit section: Micro UZI">edit</a>]</div><a name="Micro_UZI"></a><h2>Micro UZI</h2>
+<p>Top:
+</p><p>new uzi[7];
+</p><p>Load: (OnGameModeInit or OnFilterScriptInit, it depends what you use)
+</p><p>uzi[0] = CreatePickup(352, 3, -279.5, 1399.25, 15.1875);
+uzi[1] = CreatePickup(352, 3, -211.312, 764.5, 20.1875);
+uzi[2] = CreatePickup(352, 3, -125.25, 1941.875, 9.25);
+uzi[3] = CreatePickup(352, 3, 2005.4, -2227.0, 4.9);
+uzi[4] = CreatePickup(352, 3, 2157.0, -1845.3, 6.8);
+uzi[5] = CreatePickup(352, 3, 2017.3, 195.7, 18.0);
+uzi[6] = CreatePickup(352, 3, 1454.2, -255.4, 5.5);
+</p><p>Give: (OnPlayerPickUpPickup)
+</p><p>if (pickupid == uzi[0]) GivePlayerWeapon(playerid, 28, 50);
+if (pickupid == uzi[1]) GivePlayerWeapon(playerid, 28, 50);
+if (pickupid == uzi[2]) GivePlayerWeapon(playerid, 28, 50);
+if (pickupid == uzi[3]) GivePlayerWeapon(playerid, 28, 60);
+if (pickupid == uzi[4]) GivePlayerWeapon(playerid, 28, 60);
+if (pickupid == uzi[5]) GivePlayerWeapon(playerid, 28, 60);
+if (pickupid == uzi[6]) GivePlayerWeapon(playerid, 28, 60);
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="GTA-United_Singleplayer_Pickups_for_Multiplayer.html" title="Edit section: AK47">edit</a>]</div><a name="AK47"></a><h2>AK47</h2>
+<p>Top:
+</p><p>new AK47[5];
+</p><p>Load: (OnGameModeInit or OnFilterScriptInit, it depends what you use)
+</p><p>AK47[0] = CreatePickup(355, 3, -1262.469, 265.389, 244.706);
+AK47[1] = CreatePickup(355, 3, -96.375, 1485.938, 34.0625);
+AK47[2] = CreatePickup(355, 3, -927.625, 1708.0, 16.125);
+AK47[3] = CreatePickup(355, 3, -2415.188, 1646.313, 33.6875);
+AK47[4] = CreatePickup(355, 3, 2418.9, -360.1, 12.8);
+</p><p>Give: (OnPlayerPickUpPickup)
+</p><p>if (pickupid == AK47[0]) GivePlayerWeapon(playerid, 30, 60);
+if (pickupid == AK47[1]) GivePlayerWeapon(playerid, 30, 120);
+if (pickupid == AK47[2]) GivePlayerWeapon(playerid, 30, 60);
+if (pickupid == AK47[3]) GivePlayerWeapon(playerid, 30, 60);
+if (pickupid == AK47[4]) GivePlayerWeapon(playerid, 30, 60);
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="GTA-United_Singleplayer_Pickups_for_Multiplayer.html" title="Edit section: Sniper">edit</a>]</div><a name="Sniper"></a><h2>Sniper</h2>
+<p>Top:
+</p><p>new Sniper[6];
+</p><p>Load: (OnGameModeInit or OnFilterScriptInit, it depends what you use)
+</p><p>Sniper[0] = CreatePickup(358, 3, -1259.645, 222.954, 245.206);
+Sniper[1] = CreatePickup(358, 3, -1427.5, 1317.313, 28.75);
+Sniper[2] = CreatePickup(358, 3, -2323.75, 2255.688, 23.5);
+Sniper[3] = CreatePickup(358, 3, 1523.6, -1521.2, 7.4);
+Sniper[4] = CreatePickup(358, 3, 1257.9, -1899.9, 4.4);
+Sniper[5] = CreatePickup(358, 3, 885.7, -1552.0, 20.5);
+</p><p>Give: (OnPlayerPickUpPickup)
+</p><p>if (pickupid == Sniper[0]) GivePlayerWeapon(playerid, 34, 5);
+if (pickupid == Sniper[1]) GivePlayerWeapon(playerid, 34, 15);
+if (pickupid == Sniper[2]) GivePlayerWeapon(playerid, 34, 5);
+if (pickupid == Sniper[3]) GivePlayerWeapon(playerid, 34, 20);
+if (pickupid == Sniper[4]) GivePlayerWeapon(playerid, 34, 20);
+if (pickupid == Sniper[5]) GivePlayerWeapon(playerid, 34, 14);
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="GTA-United_Singleplayer_Pickups_for_Multiplayer.html" title="Edit section: Grenade">edit</a>]</div><a name="Grenade"></a><h2>Grenade</h2>
+<p>Top:
+</p><p>new Grenade[3];
+</p><p>Load: (OnGameModeInit or OnFilterScriptInit, it depends what you use)
+</p><p>Grenade[0] = CreatePickup(342, 3, -1240.655, 213.367, 244.552);
+Grenade[1] = CreatePickup(342, 3, 2362.2, -1450.5, 6.8);
+Grenade[2] = CreatePickup(342, 3, 1060.2, -1414.9, 5.4);
+</p><p>Give: (OnPlayerPickUpPickup)
+</p><p>if (pickupid == Grenade[0]) GivePlayerWeapon(playerid, 16, 20);
+if (pickupid == Grenade[1]) GivePlayerWeapon(playerid, 16, 4);
+if (pickupid == Grenade[2]) GivePlayerWeapon(playerid, 16, 4);
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="GTA-United_Singleplayer_Pickups_for_Multiplayer.html" title="Edit section: MP5">edit</a>]</div><a name="MP5"></a><h2>MP5</h2>
+<p>Top:
+</p><p>new MP5[3];
+</p><p>Load: (OnGameModeInit or OnFilterScriptInit, it depends what you use)
+</p><p>MP5[0] = CreatePickup(353, 3, -1234.643, 240.126, 244.113);
+MP5[1] = CreatePickup(353, 3, -40.5, 1419.125, 40.1875);
+MP5[2] = CreatePickup(353, 3, 255.1, -1238.9, 24.2);
+</p><p>Give: (OnPlayerPickUpPickup)
+</p><p>if (pickupid == MP5[0]) GivePlayerWeapon(playerid, 29, 50);
+if (pickupid == MP5[1]) GivePlayerWeapon(playerid, 29, 50);
+if (pickupid == MP5[2]) GivePlayerWeapon(playerid, 29, 100);
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="GTA-United_Singleplayer_Pickups_for_Multiplayer.html" title="Edit section: Flamethrower">edit</a>]</div><a name="Flamethrower"></a><h2>Flamethrower</h2>
+<p>Top:
+</p><p>new Flame[4];
+</p><p>Load: (OnGameModeInit or OnFilterScriptInit, it depends what you use)
+</p><p>Flame[0] = CreatePickup(361, 3, -2556.563, 1793.438, 53.25);
+Flame[1] = CreatePickup(361, 3, -331.75, 1769.25, 22.5);
+Flame[2] = CreatePickup(361, 3, 1454.0, -1368.9, 4.3);
+Flame[3] = CreatePickup(361, 3, 984.9, -2342.9, 6.0);
+</p><p>Give: (OnPlayerPickUpPickup)
+</p><p>if (pickupid == Flame[0]) GivePlayerWeapon(playerid, 37, 150);
+if (pickupid == Flame[1]) GivePlayerWeapon(playerid, 37, 150);
+if (pickupid == Flame[2]) GivePlayerWeapon(playerid, 37, 300);
+if (pickupid == Flame[3]) GivePlayerWeapon(playerid, 37, 300);
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="GTA-United_Singleplayer_Pickups_for_Multiplayer.html" title="Edit section: Molotov">edit</a>]</div><a name="Molotov"></a><h2>Molotov</h2>
+<p>Top:
+</p><p>new Molotov[3];
+</p><p>Load: (OnGameModeInit or OnFilterScriptInit, it depends what you use)
+</p><p>Molotov[0] = CreatePickup(344, 3, -2560.563, 1793.438, 53.25);
+Molotov[1] = CreatePickup(344, 3, -1147.25, 1691.75, 20.0625);
+Molotov[2] = CreatePickup(344, 3, 1244.3, 397.5, 6.3);
+</p><p>Give: (OnPlayerPickUpPickup)
+</p><p>if (pickupid == Molotov[0]) GivePlayerWeapon(playerid, 18, 20);
+if (pickupid == Molotov[1]) GivePlayerWeapon(playerid, 18, 10);
+if (pickupid == Molotov[2]) GivePlayerWeapon(playerid, 18, 4);
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="GTA-United_Singleplayer_Pickups_for_Multiplayer.html" title="Edit section: Desert Eagle">edit</a>]</div><a name="Desert_Eagle"></a><h2>Desert Eagle</h2>
+<p>Top:
+</p><p>new Desert;
+</p><p>Load: (OnGameModeInit or OnFilterScriptInit, it depends what you use)
+</p><p>Desert = CreatePickup(348, 3, -101.0, 941.5, 20.5625);
+</p><p>Give: (OnPlayerPickUpPickup)
+</p><p>if (pickupid == Desert) GivePlayerWeapon(playerid, 24, 60);
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="GTA-United_Singleplayer_Pickups_for_Multiplayer.html" title="Edit section: Sawnoff">edit</a>]</div><a name="Sawnoff"></a><h2>Sawnoff</h2>
+<p>Top:
+</p><p>new Sawnoff[2];
+</p><p>Load: (OnGameModeInit or OnFilterScriptInit, it depends what you use)
+</p><p>Sawnoff[0] = CreatePickup(350, 3, -132.75, 1544.813, 33.0625);
+Sawnoff[1] = CreatePickup(350, 3, -1256.938, 1075.813, 31.5);
+</p><p>Give: (OnPlayerPickUpPickup)
+</p><p>if (pickupid == Sawnoff[0]) GivePlayerWeapon(playerid, 26, 10);
+if (pickupid == Sawnoff[1]) GivePlayerWeapon(playerid, 26, 10);
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="GTA-United_Singleplayer_Pickups_for_Multiplayer.html" title="Edit section: Shotgun">edit</a>]</div><a name="Shotgun"></a><h2>Shotgun</h2>
+<p>Top:
+</p><p>new Shotgun[4];
+</p><p>Load: (OnGameModeInit or OnFilterScriptInit, it depends what you use)
+</p><p>Shotgun[0] = CreatePickup(349, 3, -411.0, 1686.75, 3.6875);
+Shotgun[1] = CreatePickup(349, 3, -1603.0, 459.687, 5.8125);
+Shotgun[2] = CreatePickup(349, 3, 2042.3, -1909.2, 16.3);
+Shotgun[3] = CreatePickup(349, 3, 2568.9, -1399.3, 5.6);
+</p><p>Give: (OnPlayerPickUpPickup)
+</p><p>if (pickupid == Shotgun[0]) GivePlayerWeapon(playerid, 25, 10);
+if (pickupid == Shotgun[1]) GivePlayerWeapon(playerid, 25, 10);
+if (pickupid == Shotgun[2]) GivePlayerWeapon(playerid, 25, 16);
+if (pickupid == Shotgun[3]) GivePlayerWeapon(playerid, 25, 16);
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="GTA-United_Singleplayer_Pickups_for_Multiplayer.html" title="Edit section: Silenced">edit</a>]</div><a name="Silenced"></a><h2>Silenced</h2>
+<p>Top:
+</p><p>new Silenced;
+</p><p>Load: (OnGameModeInit or OnFilterScriptInit, it depends what you use)
+</p><p>Silenced = CreatePickup(347, 3, -332.437, 839.125, 21.1875);
+</p><p>Give: (OnPlayerPickUpPickup)
+</p><p>if (pickupid == Silenced) GivePlayerWeapon(playerid, 23, 24);
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="GTA-United_Singleplayer_Pickups_for_Multiplayer.html" title="Edit section: M4">edit</a>]</div><a name="M4"></a><h2>M4</h2>
+<p>Top:
+</p><p>new M4[5];
+</p><p>Load: (OnGameModeInit or OnFilterScriptInit, it depends what you use)
+</p><p>M4[0] = CreatePickup(356, 3, -1381.438, 343.625, 26.125);
+M4[1] = CreatePickup(356, 3, -1905.0, 2111.188, 70.75);
+M4[2] = CreatePickup(356, 3, 1967.2, 69.20001, 7.5);
+M4[3] = CreatePickup(356, 3, 1019.6, -831.3, 3.8);
+M4[4] = CreatePickup(356, 3, 779.0, -1591.6, 6.2);
+</p><p>Give: (OnPlayerPickUpPickup)
+</p><p>if (pickupid == M4[0]) GivePlayerWeapon(playerid, 31, 60);
+if (pickupid == M4[1]) GivePlayerWeapon(playerid, 31, 60);
+if (pickupid == M4[2]) GivePlayerWeapon(playerid, 31, 60);
+if (pickupid == M4[3]) GivePlayerWeapon(playerid, 31, 60);
+if (pickupid == M4[4]) GivePlayerWeapon(playerid, 31, 60);
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="GTA-United_Singleplayer_Pickups_for_Multiplayer.html" title="Edit section: TEC9">edit</a>]</div><a name="TEC9"></a><h2>TEC9</h2>
+<p>Top:
+</p><p>new TEC9[4];
+</p><p>Load: (OnGameModeInit or OnFilterScriptInit, it depends what you use)
+</p><p>TEC9[0] = CreatePickup(372, 3, -1331.125, 559.125, 27.75);
+TEC9[1] = CreatePickup(372, 3, -2503.563, 2240.25, 35.5);
+TEC9[2] = CreatePickup(372, 3, 2287.9, -899.3, 5.3);
+TEC9[3] = CreatePickup(372, 3, 1286.7, -2416.0, 5.7);
+</p><p>Give: (OnPlayerPickUpPickup)
+</p><p>if (pickupid == TEC9[0]) GivePlayerWeapon(playerid, 23, 60);
+if (pickupid == TEC9[1]) GivePlayerWeapon(playerid, 23, 60);
+if (pickupid == TEC9[2]) GivePlayerWeapon(playerid, 23, 100);
+if (pickupid == TEC9[3]) GivePlayerWeapon(playerid, 23, 60);
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="GTA-United_Singleplayer_Pickups_for_Multiplayer.html" title="Edit section: Combat Shotgun">edit</a>]</div><a name="Combat_Shotgun"></a><h2>Combat Shotgun</h2>
+<p>Top:
+</p><p>new Combat[2];
+</p><p>Load: (OnGameModeInit or OnFilterScriptInit, it depends what you use)
+</p><p>Combat[0] = CreatePickup(351, 3, -2491.875, 2133.0, 3.375);
+Combat[1] = CreatePickup(351, 3, 641.0, -1692.2, 9.4);
+</p><p>Give: (OnPlayerPickUpPickup)
+</p><p>if (pickupid == Combat[0]) GivePlayerWeapon(playerid, 27, 15);
+if (pickupid == Combat[1]) GivePlayerWeapon(playerid, 27, 14);
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="GTA-United_Singleplayer_Pickups_for_Multiplayer.html" title="Edit section: Rocket Launcher">edit</a>]</div><a name="Rocket_Launcher"></a><h2>Rocket Launcher</h2>
+<p>Top:
+</p><p>new Rocket[2];
+</p><p>Load: (OnGameModeInit or OnFilterScriptInit, it depends what you use)
+</p><p>Rocket[0] = CreatePickup(359, 3, -2205.375, 2104.563, 49.0625);
+Rocket[1] = CreatePickup(359, 3, 1004.9, -2128.1, 8.1);
+</p><p>Give: (OnPlayerPickUpPickup)
+</p><p>if (pickupid == Rocket[0]) GivePlayerWeapon(playerid, 35, 3);
+if (pickupid == Rocket[1]) GivePlayerWeapon(playerid, 35, 4);
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="GTA-United_Singleplayer_Pickups_for_Multiplayer.html" title="Edit section: Minigun">edit</a>]</div><a name="Minigun"></a><h2>Minigun</h2>
+<p>Top:
+</p><p>new Minigun[2];
+</p><p>Load: (OnGameModeInit or OnFilterScriptInit, it depends what you use)
+</p><p>Minigun[0] = CreatePickup(362, 3, -1982.688, 1210.75, 18.75);
+Minigun[1] = CreatePickup(362, 3, 694.8, -772.9, 5.9);
+</p><p>Give: (OnPlayerPickUpPickup)
+</p><p>if (pickupid == Minigun[0]) GivePlayerWeapon(playerid, 38, 300);
+if (pickupid == Minigun[1]) GivePlayerWeapon(playerid, 38, 10);
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="GTA-United_Singleplayer_Pickups_for_Multiplayer.html" title="Edit section: Other(Credits to Vetle)">edit</a>]</div><a name="Other.28Credits_to_Vetle.29"></a><h1>Other(Credits to Vetle)</h1>
+<ul><li>CreatePickup(336, 3, -466.5, 1497.938, 8.0);
+</li><li>CreatePickup(336, 3, 2206.7, -2204.4, 6.5);
+</li><li>CreatePickup(333, -1250.938, 1321.313, 15.875);
+</li><li>CreatePickup(333, 3, 2095.0, -670.8, 16.3);
+</li><li>CreatePickup(341, 3, -2011.063, 1796.25, 18.75);
+</li><li>CreatePickup(341, 3, -42.686, 1336.802, 1367.361);
+</li><li>CreatePickup(341, 3, 2005.64, -1946.9, 4.9);
+</li><li>CreatePickup(335, 3, -34.957, 1354.077, 1368.465);
+</li><li>CreatePickup(335, 3, 2118.7, -2496.1, 5.3);
+</li><li>CreatePickup(371, 3, -1250.697, 436.073, 417.248);
+</li><li>CreatePickup(339, 3, 2402.6, -847.5, 5.9);
+</li><li>CreatePickup(339, 3, 2476.9, 64.90002, 13.7);
+</li><li>CreatePickup(339, 3, 2056.6, -1409.3, 5.9);
+</li><li>CreatePickup(339, 3, 1445.89, -1497.7, 5.2);
+</li><li>CreatePickup(334, 3, 2402.4, -1438.3, 6.9);
+</li><li>CreatePickup(331, 3, 2224.0, -2157.5, 5.5);
+</li></ul>
+<hr />
+<ul><li>336 - Baseball Bat
+</li><li>333 - Golf Club
+</li><li>341 - Chainsaw
+</li><li>335 - Knife
+</li><li>371 - Parachute
+</li><li>339 - Katana
+</li><li>334 - Night Stick
+</li><li>331 - Brass Knuckles
+</li></ul>
+<div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/GTA-United_Singleplayer_Pickups_for_Multiplayer.html">http://localhost../wiki/GTA-United_Singleplayer_Pickups_for_Multiplayer.html</a>"</div>
+						<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="GTA-United_Singleplayer_Pickups_for_Multiplayer.html">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="Talk_GTA-United_Singleplayer_Pickups_for_Multiplayer.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="GTA-United_Singleplayer_Pickups_for_Multiplayer.html">Edit</a></li>
+				 <li id="ca-history"><a href="GTA-United_Singleplayer_Pickups_for_Multiplayer.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 12,781 times.</li>
+				<li id="credits">This page was last modified 13:10, 15 May 2010 by SA-MP Wiki user User:. </li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 42.93 secs. -->
+</body></html>

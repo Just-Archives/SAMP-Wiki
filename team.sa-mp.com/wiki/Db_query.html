@@ -1,0 +1,251 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Db query,Db close,Db debug openfiles,Db debug openresults,Db field name,Db free result,Db get field,Db get field assoc,Db get field assoc float,Db get field assoc int,Db get field float" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>Db query - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Db query</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<div class="scripting" style="color: #4378A4; background-color: #FFFFFF; margin: 2px; margin-bottom: 10px;"><div align="center" style="border: 1px solid #AAAAAA; padding: 3px; padding-left: 5px;"><a href="../wiki-archive.html" title="Main Page">Main Page</a> | <a href="Category_Scripting_Functions.html" title="Category:Scripting Functions">Scripting Functions</a> | <a href="Category_Scripting_Callbacks.html" title="Category:Scripting Callbacks">Scripting Callbacks</a> | <a href="Scripting_Basics.html" title="Scripting Basics">Scripting Basics</a> | <a href="Server_Plugins.html" title="Server Plugins">Server Plugins</a> | <a href="Category_Tutorials.html" title="Category:Tutorials">Tutorials</a></div></div><br />
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Db_query.html" title="Edit section: db_query">edit</a>]</div><a name="db_query"></a><h1 class="firstheading" style="position:absolute; top:0px; background:#FFF; width:95%;">db_query</h1>
+<table style="padding:5px; background-color: #e5f4ff; border-left: 10px solid #3083cc;">
+
+<tr>
+<td align="left"><a href="Image_Farm-Fresh_text_lowercase.png.html" class="image" title="Image:Farm-Fresh text lowercase.png"><img src="../upload/a/a9/Farm-Fresh_text_lowercase.png" alt="Image:Farm-Fresh text lowercase.png" width="32" height="32" longdesc="Image_Farm-Fresh_text_lowercase.png.html" /></a>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;"><strong>Note:</strong> This function name starts with a lowercase letter.</span>
+</td></tr></table>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #FFEAEA; border-left: 10px solid #FCA9A9;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #FCA9A9;"><a href="Image_32px-Circle-style-warning.png.html" class="image" title="Image:32px-Circle-style-warning.png"><img src="../upload/5/57/32px-Circle-style-warning.png" alt="Image:32px-Circle-style-warning.png" width="32" height="32" longdesc="Image_32px-Circle-style-warning.png.html" /></a><br />
+<p><strong>Important<br />Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">Return type for this function has changed since version <b>0.3.7 R2</b>.</span>
+</td></tr></table>
+</div>
+<p><br />
+<b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">This function is used to execute an SQL query on an opened SQLite database.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(DB:db, query[])<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">DB:db</td><td style="vertical-align:top;">The database handle to query.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">query[]</td><td style="vertical-align:top;">The query to execute.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">The query result index (<b>starting at 1</b>).<br /></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #FFEAEA; border-left: 10px solid #FCA9A9;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #FCA9A9;"><a href="Image_32px-Circle-style-warning.png.html" class="image" title="Image:32px-Circle-style-warning.png"><img src="../upload/5/57/32px-Circle-style-warning.png" alt="Image:32px-Circle-style-warning.png" width="32" height="32" longdesc="Image_32px-Circle-style-warning.png.html" /></a><br />
+<p><strong>Important<br />Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;"><b>Always</b> free the result by using <a href="Db_free_result.html" title="Db free result">db_free_result</a>!</span>
+</td></tr></table>
+</div>
+<p><br />
+<b>Example Usage:</b> 
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> <span style="color: orange;">DB</span>:db_handle;
+<span style="color: #808080; font-style: italic;">// ...</span>
+<span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnGameModeInit"><span style="color: #dc143c">OnGameModeInit</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #808080; font-style: italic;">// Create a connection to the database</span>
+	<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#40;</span>db_handle = <a href="http://wiki.sa-mp.com/wiki/db_open"><span style="color: #006400;">db_open</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;example.db&quot;</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span> == <span style="color: orange;">DB</span>:<span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span>
+	<span style="color: #66cc66;">&#123;</span>
+		<span style="color: #808080; font-style: italic;">// Error</span>
+		<a href="http://wiki.sa-mp.com/wiki/print"><span style="color: #006400;">print</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;Failed to open a connection to <span style="color: #000099; font-weight: bold;">\&quot;</span>example.db<span style="color: #000099; font-weight: bold;">\&quot;</span>.&quot;</span><span style="color: #66cc66;">&#41;</span>;
+		<a href="http://wiki.sa-mp.com/wiki/SendRconCommand"><span style="color: #006400;">SendRconCommand</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;exit&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #66cc66;">&#125;</span>
+	<span style="color: #4169e1;">else</span>
+	<span style="color: #66cc66;">&#123;</span>
+		<span style="color: #808080; font-style: italic;">// Success</span>
+		<span style="color: #808080; font-style: italic;">// Creates a &quot;player spawn log&quot; table, if it doesn't exists, and frees the result</span>
+		<a href="http://wiki.sa-mp.com/wiki/db_free_result"><span style="color: #006400;">db_free_result</span></a><span style="color: #66cc66;">&#40;</span><a href="http://wiki.sa-mp.com/wiki/db_query"><span style="color: #006400;">db_query</span></a><span style="color: #66cc66;">&#40;</span>db_handle, <span style="color: #b22222;">&quot;CREATE TABLE IF NOT EXISTS `spawn_log`(`ID` INTEGER PRIMARY KEY AUTOINCREMENT,`PlayerID` INTEGER NOT NULL,`PlayerName` VARCHAR(24) NOT NULL)&quot;</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>;
+		<a href="http://wiki.sa-mp.com/wiki/print"><span style="color: #006400;">print</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;Successfully created a connection to <span style="color: #000099; font-weight: bold;">\&quot;</span>example.db<span style="color: #000099; font-weight: bold;">\&quot;</span>.&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #66cc66;">&#125;</span>
+	<span style="color: #808080; font-style: italic;">// ...</span>
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnGameModeExit"><span style="color: #dc143c">OnGameModeExit</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #808080; font-style: italic;">// If there is a database connection, close it</span>
+	<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>db_handle<span style="color: #66cc66;">&#41;</span> <a href="http://wiki.sa-mp.com/wiki/db_close"><span style="color: #006400;">db_close</span></a><span style="color: #66cc66;">&#40;</span>db_handle<span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #808080; font-style: italic;">// ...</span>
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnPlayerSpawn"><span style="color: #dc143c">OnPlayerSpawn</span></a><span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #808080; font-style: italic;">// Declare &quot;query&quot; and &quot;p_name&quot;</span>
+	<span style="color: #228b22; font-weight: bold;">static</span> query<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">98</span><span style="color: #66cc66;">&#93;</span>, p_name<span style="color: #66cc66;">&#91;</span>MAX_PLAYER_NAME<span style="color: #4169e1;">+1</span><span style="color: #66cc66;">&#93;</span>;
+&nbsp;
+	<span style="color: #808080; font-style: italic;">// Stores the name of the player to &quot;p_name&quot;</span>
+	<a href="http://wiki.sa-mp.com/wiki/GetPlayerName"><span style="color: #006400;">GetPlayerName</span></a><span style="color: #66cc66;">&#40;</span>playerid, p_name, <span style="color: orange; font-weight: bold;">sizeof</span> p_name<span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+	<span style="color: #808080; font-style: italic;">// Formats &quot;query&quot;</span>
+	<a href="http://wiki.sa-mp.com/wiki/format"><span style="color: #006400;">format</span></a><span style="color: #66cc66;">&#40;</span>query, <span style="color: orange; font-weight: bold;">sizeof</span> query, <span style="color: #b22222;">&quot;INSERT INTO `spawn_log` (`PlayerID`,`PlayerName`) VALUES (%d,'%s')&quot;</span>, playerid, p_name<span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+	<span style="color: #808080; font-style: italic;">// Inserts something into &quot;spawn_log&quot; and frees the result</span>
+	<a href="http://wiki.sa-mp.com/wiki/db_free_result"><span style="color: #006400;">db_free_result</span></a><span style="color: #66cc66;">&#40;</span><a href="http://wiki.sa-mp.com/wiki/db_query"><span style="color: #006400;">db_query</span></a><span style="color: #66cc66;">&#40;</span>db_handle, query<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #808080; font-style: italic;">// ...</span>
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+<span style="color: #808080; font-style: italic;">// Example function</span>
+GetNameBySpawnID<span style="color: #66cc66;">&#40;</span>spawn_id<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #808080; font-style: italic;">// Declare &quot;p_name&quot;</span>
+	<span style="color: #228b22; font-weight: bold;">new</span> p_name<span style="color: #66cc66;">&#91;</span>MAX_PLAYER_NAME<span style="color: #4169e1;">+1</span><span style="color: #66cc66;">&#93;</span>;
+&nbsp;
+	<span style="color: #808080; font-style: italic;">// Declare &quot;query&quot; and &quot;db_result&quot;</span>
+	<span style="color: #228b22; font-weight: bold;">static</span> query<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">60</span><span style="color: #66cc66;">&#93;</span>, <span style="color: orange;">DBResult</span>:db_result;
+&nbsp;
+	<span style="color: #808080; font-style: italic;">// Formats &quot;query&quot;</span>
+	<a href="http://wiki.sa-mp.com/wiki/format"><span style="color: #006400;">format</span></a><span style="color: #66cc66;">&#40;</span>query, <span style="color: orange; font-weight: bold;">sizeof</span> query, <span style="color: #b22222;">&quot;SELECT `PlayerName` FROM `spawn_log` WHERE `ID`=%d&quot;</span>, spawn_id<span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+	<span style="color: #808080; font-style: italic;">// Selects the player name by using &quot;spawn_id&quot;</span>
+	db_result = <a href="http://wiki.sa-mp.com/wiki/db_query"><span style="color: #006400;">db_query</span></a><span style="color: #66cc66;">&#40;</span>db_handle, query<span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+	<span style="color: #808080; font-style: italic;">// If there is any valid entry</span>
+	<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span><a href="http://wiki.sa-mp.com/wiki/db_num_rows"><span style="color: #006400;">db_num_rows</span></a><span style="color: #66cc66;">&#40;</span>db_result<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>
+	<span style="color: #66cc66;">&#123;</span>
+		<span style="color: #808080; font-style: italic;">// Store data from &quot;PlayerName&quot; into &quot;p_name&quot;</span>
+		<a href="http://wiki.sa-mp.com/wiki/db_get_field"><span style="color: #006400;">db_get_field</span></a><span style="color: #66cc66;">&#40;</span>db_result, <span style="color: #4169e1;">0</span>, p_name, <span style="color: orange; font-weight: bold;">sizeof</span> p_name<span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+	<span style="color: #808080; font-style: italic;">// Frees the result</span>
+	<a href="http://wiki.sa-mp.com/wiki/db_free_result"><span style="color: #006400;">db_free_result</span></a><span style="color: #66cc66;">&#40;</span>db_result<span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+	<span style="color: #808080; font-style: italic;">// Returns &quot;p_name&quot;</span>
+	<span style="color: orange; font-weight: bold;">return</span> p_name;
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Template_RelatedFunctions.html" title="Template:RelatedFunctions">edit</a>]</div><a name="Related_Functions"></a><h3> <b>Related Functions</b> </h3>
+<p>The following functions may be helpful as they relate to this function in one way or another.
+</p><p><br />
+</p>
+<ul><li> <a href="Db_open.html" title="Db open">db_open</a>: Open a connection to an SQLite database
+</li></ul>
+<ul><li> <a href="Db_close.html" title="Db close">db_close</a>: Close the connection to an SQLite database
+</li></ul>
+<ul><li> <strong>db_query</strong>: Query an SQLite database
+</li></ul>
+<ul><li> <a href="Db_free_result.html" title="Db free result">db_free_result</a>: Free result memory from a <strong>db_query</strong>
+</li></ul>
+<ul><li> <a href="Db_num_rows.html" title="Db num rows">db_num_rows</a>: Get the number of rows in a result
+</li></ul>
+<ul><li> <a href="Db_next_row.html" title="Db next row">db_next_row</a>: Move to the next row
+</li></ul>
+<ul><li> <a href="Db_num_fields.html" title="Db num fields">db_num_fields</a>: Get the number of fields in a result
+</li></ul>
+<ul><li> <a href="Db_field_name.html" title="Db field name">db_field_name</a>: Returns the name of a field at a particular index
+</li></ul>
+<ul><li> <a href="Db_get_field.html" title="Db get field">db_get_field</a>: Get content of field with specified ID from current result row
+</li></ul>
+<ul><li> <a href="Db_get_field_assoc.html" title="Db get field assoc">db_get_field_assoc</a>: Get content of field with specified name from current result row
+</li></ul>
+<ul><li> <a href="Db_get_field_int.html" title="Db get field int">db_get_field_int</a>: Get content of field as an integer with specified ID from current result row
+</li></ul>
+<ul><li> <a href="Db_get_field_assoc_int.html" title="Db get field assoc int">db_get_field_assoc_int</a>: Get content of field as an integer with specified name from current result row
+</li></ul>
+<ul><li> <a href="Db_get_field_float.html" title="Db get field float">db_get_field_float</a>: Get content of field as a float with specified ID from current result row
+</li></ul>
+<ul><li> <a href="Db_get_field_assoc_float.html" title="Db get field assoc float">db_get_field_assoc_float</a>: Get content of field as a float with specified name from current result row
+</li></ul>
+<ul><li> <a href="Db_get_mem_handle.html" title="Db get mem handle">db_get_mem_handle</a>: Get memory handle for an SQLite database that was opened with <a href="Db_open.html" title="Db open">db_open</a>.
+</li></ul>
+<ul><li> <a href="Db_get_result_mem_handle.html" title="Db get result mem handle">db_get_result_mem_handle</a>: Get memory handle for an SQLite query that was executed with <strong>db_query</strong>.
+</li></ul>
+<ul><li> <a href="Db_debug_openfiles.html" title="Db debug openfiles">db_debug_openfiles</a>
+</li></ul>
+<ul><li> <a href="Db_debug_openresults.html" title="Db debug openresults">db_debug_openresults</a>
+</li></ul>
+<div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/Db_query.html">http://localhost../wiki/Db_query.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="Category_Scripting_Functions.html" title="Category:Scripting Functions">Scripting Functions</a></span> | <span dir='ltr'><a href="Category_SQLite.html" title="Category:SQLite">SQLite</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="Db_query.html">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="Talk_Db_query.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="Db_query.html">Edit</a></li>
+				 <li id="ca-history"><a href="Db_query.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-ru"><a href="db_query_RU.html">Русский</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 29,250 times.</li>
+				<li id="credits">This page was last modified 17:59, 1 August 2015 by SA-MP Wiki user <a href="User_Dugi.html" title="User:Dugi">Dugi</a>. Based on work by <a href="User_WopsS.html" title="User:WopsS">Dima Octavian</a> and SA-MP Wiki user(s) <a href="User_Ralfie.html" title="User:Ralfie">Ralfie</a>, <a href="User_BigETI.html" title="User:BigETI">BigETI</a>, <a href="User_MP2.html" title="User:MP2">MP2</a>, <a href="User_Vince.html" title="User:Vince">Vince</a> and <a href="User_Coryf88.html" class="new" title="User:Coryf88">Coryf88</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 42.52 secs. -->
+</body></html>

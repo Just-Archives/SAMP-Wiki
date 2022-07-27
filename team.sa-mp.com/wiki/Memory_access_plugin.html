@@ -1,0 +1,1230 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Memory access plugin" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>Memory access plugin - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Memory access plugin</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class='toclevel-1'><a href="#Memory_access_plugin"><span class="tocnumber">1</span> <span class="toctext">Memory access plugin</span></a></li>
+<li class='toclevel-1'><a href="#General_info"><span class="tocnumber">2</span> <span class="toctext">General info</span></a>
+<ul>
+<li class='toclevel-2'><a href="#About"><span class="tocnumber">2.1</span> <span class="toctext">About</span></a></li>
+<li class='toclevel-2'><a href="#Why.3F"><span class="tocnumber">2.2</span> <span class="toctext">Why?</span></a></li>
+<li class='toclevel-2'><a href="#Dangerous_sides"><span class="tocnumber">2.3</span> <span class="toctext">Dangerous sides</span></a>
+<ul>
+<li class='toclevel-3'><a href="#Memory_leak"><span class="tocnumber">2.3.1</span> <span class="toctext">Memory leak</span></a></li>
+<li class='toclevel-3'><a href="#Memory_fragmentation"><span class="tocnumber">2.3.2</span> <span class="toctext">Memory fragmentation</span></a></li>
+<li class='toclevel-3'><a href="#Accessing_bad_memory"><span class="tocnumber">2.3.3</span> <span class="toctext">Accessing bad memory</span></a></li>
+<li class='toclevel-3'><a href="#Using_null_pointer_to_access_memory"><span class="tocnumber">2.3.4</span> <span class="toctext">Using null pointer to access memory</span></a></li>
+<li class='toclevel-3'><a href="#Out_of_bounds"><span class="tocnumber">2.3.5</span> <span class="toctext">Out of bounds</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#Documentation"><span class="tocnumber">3</span> <span class="toctext">Documentation</span></a>
+<ul>
+<li class='toclevel-2'><a href="#Natives"><span class="tocnumber">3.1</span> <span class="toctext">Natives</span></a>
+<ul>
+<li class='toclevel-3'><a href="#MEM_malloc"><span class="tocnumber">3.1.1</span> <span class="toctext">MEM_malloc</span></a></li>
+<li class='toclevel-3'><a href="#MEM_calloc"><span class="tocnumber">3.1.2</span> <span class="toctext">MEM_calloc</span></a></li>
+<li class='toclevel-3'><a href="#MEM_realloc"><span class="tocnumber">3.1.3</span> <span class="toctext">MEM_realloc</span></a></li>
+<li class='toclevel-3'><a href="#MEM_free"><span class="tocnumber">3.1.4</span> <span class="toctext">MEM_free</span></a></li>
+<li class='toclevel-3'><a href="#MEM_get_val"><span class="tocnumber">3.1.5</span> <span class="toctext">MEM_get_val</span></a></li>
+<li class='toclevel-3'><a href="#MEM_get_arr"><span class="tocnumber">3.1.6</span> <span class="toctext">MEM_get_arr</span></a></li>
+<li class='toclevel-3'><a href="#MEM_set_val"><span class="tocnumber">3.1.7</span> <span class="toctext">MEM_set_val</span></a></li>
+<li class='toclevel-3'><a href="#MEM_set_arr"><span class="tocnumber">3.1.8</span> <span class="toctext">MEM_set_arr</span></a></li>
+<li class='toclevel-3'><a href="#MEM_copy"><span class="tocnumber">3.1.9</span> <span class="toctext">MEM_copy</span></a></li>
+<li class='toclevel-3'><a href="#MEM_zero"><span class="tocnumber">3.1.10</span> <span class="toctext">MEM_zero</span></a></li>
+<li class='toclevel-3'><a href="#MEM_get_addr"><span class="tocnumber">3.1.11</span> <span class="toctext">MEM_get_addr</span></a></li>
+<li class='toclevel-3'><a href="#MEM_sort"><span class="tocnumber">3.1.12</span> <span class="toctext">MEM_sort</span></a></li>
+<li class='toclevel-3'><a href="#MEM_mix"><span class="tocnumber">3.1.13</span> <span class="toctext">MEM_mix</span></a></li>
+<li class='toclevel-3'><a href="#MEM_amx_ptr"><span class="tocnumber">3.1.14</span> <span class="toctext">MEM_amx_ptr</span></a></li>
+<li class='toclevel-3'><a href="#MEM_is"><span class="tocnumber">3.1.15</span> <span class="toctext">MEM_is</span></a></li>
+<li class='toclevel-3'><a href="#MEM_len"><span class="tocnumber">3.1.16</span> <span class="toctext">MEM_len</span></a></li>
+<li class='toclevel-3'><a href="#MEM_result"><span class="tocnumber">3.1.17</span> <span class="toctext">MEM_result</span></a></li>
+</ul>
+</li>
+<li class='toclevel-2'><a href="#Macros"><span class="tocnumber">3.2</span> <span class="toctext">Macros</span></a>
+<ul>
+<li class='toclevel-3'><a href="#MEM_MACR_get_addr"><span class="tocnumber">3.2.1</span> <span class="toctext">MEM_MACR_get_addr</span></a></li>
+<li class='toclevel-3'><a href="#MEM_MACR_get_val"><span class="tocnumber">3.2.2</span> <span class="toctext">MEM_MACR_get_val</span></a></li>
+<li class='toclevel-3'><a href="#MEM_MACR_get_ptr"><span class="tocnumber">3.2.3</span> <span class="toctext">MEM_MACR_get_ptr</span></a></li>
+<li class='toclevel-3'><a href="#MEM_MACR_foreach"><span class="tocnumber">3.2.4</span> <span class="toctext">MEM_MACR_foreach</span></a></li>
+<li class='toclevel-3'><a href="#MEM_MACR_foreach_rev"><span class="tocnumber">3.2.5</span> <span class="toctext">MEM_MACR_foreach_rev</span></a></li>
+<li class='toclevel-3'><a href="#MEM_MACR_increment_ptr"><span class="tocnumber">3.2.6</span> <span class="toctext">MEM_MACR_increment_ptr</span></a></li>
+<li class='toclevel-3'><a href="#MEM_MACR_decrement_ptr"><span class="tocnumber">3.2.7</span> <span class="toctext">MEM_MACR_decrement_ptr</span></a></li>
+</ul>
+</li>
+<li class='toclevel-2'><a href="#Definitions"><span class="tocnumber">3.3</span> <span class="toctext">Definitions</span></a>
+<ul>
+<li class='toclevel-3'><a href="#SECURE_MEMORY_PLUGIN"><span class="tocnumber">3.3.1</span> <span class="toctext">SECURE_MEMORY_PLUGIN</span></a></li>
+<li class='toclevel-3'><a href="#NULL"><span class="tocnumber">3.3.2</span> <span class="toctext">NULL</span></a></li>
+<li class='toclevel-3'><a href="#MEM_MACR_NULL"><span class="tocnumber">3.3.3</span> <span class="toctext">MEM_MACR_NULL</span></a></li>
+<li class='toclevel-3'><a href="#MEM_struct"><span class="tocnumber">3.3.4</span> <span class="toctext">MEM_struct</span></a></li>
+<li class='toclevel-3'><a href="#MEM_MACR_SIZEOF_CELL"><span class="tocnumber">3.3.5</span> <span class="toctext">MEM_MACR_SIZEOF_CELL</span></a></li>
+</ul>
+</li>
+<li class='toclevel-2'><a href="#Enumerators"><span class="tocnumber">3.4</span> <span class="toctext">Enumerators</span></a>
+<ul>
+<li class='toclevel-3'><a href="#MEM_E_sort_type"><span class="tocnumber">3.4.1</span> <span class="toctext">MEM_E_sort_type</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#Setup"><span class="tocnumber">4</span> <span class="toctext">Setup</span></a></li>
+<li class='toclevel-1'><a href="#Downloads"><span class="tocnumber">5</span> <span class="toctext">Downloads</span></a></li>
+<li class='toclevel-1'><a href="#Changelog"><span class="tocnumber">6</span> <span class="toctext">Changelog</span></a></li>
+<li class='toclevel-1'><a href="#Credits"><span class="tocnumber">7</span> <span class="toctext">Credits</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Memory_access_plugin.html" title="Edit section: Memory access plugin">edit</a>]</div><a name="Memory_access_plugin"></a><h1 class="firstheading" style="position:absolute; top:0px; background:#FFF; width:95%;">Memory access plugin</h1>
+<table class="wikitable" style="float:right;">
+<tr>
+<th colspan="2">Memory access plugin<br /><span style="color:#9A1134"><i>Plugin</i></span>
+</th></tr>
+<tr>
+<td style="text-align:center;">Author</td><td style="text-align:center;"><span class="plainlinks"><a href="http://forum.sa-mp.com/member.php?u=84376" class='external text' title="http://forum.sa-mp.com/member.php?u=84376" rel="nofollow">BigETI</a></span>
+</td></tr>
+<tr>
+<td style="text-align:center;">Released</td><td style="text-align:center;">17/07/2013
+</td></tr>
+<tr>
+<td style="text-align:center;">Latest Version</td><td style="text-align:center;">v1.1.1 <small>(17/07/2013)</small>
+</td></tr>
+<tr>
+<td style="text-align:center;">Development Status </td><td style="text-align:center;"> Active
+</td></tr>
+<tr>
+<td style="text-align:center;">License </td><td style="text-align:center;"> <a href="http://www.mozilla.org/MPL/" class='external text' title="http://www.mozilla.org/MPL/" rel="nofollow">Mozilla Public License</a>
+</td></tr>
+<tr>
+<td colspan="2" style="text-align:center;"><a href="http://forum.sa-mp.com/showthread.php?t=451381" class='external text' title="http://forum.sa-mp.com/showthread.php?t=451381" rel="nofollow">Forum Topic</a>
+</td></tr></table>
+<p><br />
+</p><p><br />
+</p><p><br />
+</p><p><br />
+</p><p><br />
+</p><p><br />
+</p><p><br />
+</p><p><br />
+</p><p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Memory_access_plugin.html" title="Edit section: General info">edit</a>]</div><a name="General_info"></a><h1> General info </h1>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Memory_access_plugin.html" title="Edit section: About">edit</a>]</div><a name="About"></a><h2> About </h2>
+<p>This plugin allows you to allocate dynamic memory, use it, and free it after you don't want to use it anymore.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Memory_access_plugin.html" title="Edit section: Why?">edit</a>]</div><a name="Why.3F"></a><h2> Why? </h2>
+<p>PAWN literally doesn't allow you to manage dynamic memory at all. But still there has been releases such as for example <a href="http://forum.sa-mp.com/showthread.php?t=58827" class='external text' title="http://forum.sa-mp.com/showthread.php?t=58827" rel="nofollow">y_malloc</a>, which allows you to use dynamic memory in your PAWN scripts.
+Speed comparison between y_malloc and this plugin can be found here:
+</p>
+<ul><li><a href="http://pastebin.com/cCrT3kS2" class='external text' title="http://pastebin.com/cCrT3kS2" rel="nofollow">y_malloc and memory access plugin speed comparison</a>
+</li><li><a href="http://pastebin.com/hrTDETCN" class='external text' title="http://pastebin.com/hrTDETCN" rel="nofollow">y_malloc_benchmark.pwn</a>
+</li><li><a href="http://pastebin.com/KrPs61XS" class='external text' title="http://pastebin.com/KrPs61XS" rel="nofollow">memory_benchmark.pwn</a>
+</li></ul>
+<ul><li><a href="http://pastebin.com/8fwvn5q0" class='external text' title="http://pastebin.com/8fwvn5q0" rel="nofollow">y_malloc and memory access plugin speed comparison 2</a>
+</li><li><a href="http://pastebin.com/hW4g9qER" class='external text' title="http://pastebin.com/hW4g9qER" rel="nofollow">y_malloc_benchmark2.pwn</a>
+</li><li><a href="http://pastebin.com/haYXBuUL" class='external text' title="http://pastebin.com/haYXBuUL" rel="nofollow">memory_benchmark2.pwn</a>
+</li></ul>
+<p>Allow your scripts to shrink their AMX sizes, by using dynamic memory.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Memory_access_plugin.html" title="Edit section: Dangerous sides">edit</a>]</div><a name="Dangerous_sides"></a><h2> Dangerous sides </h2>
+<p>Be aware of this release. It allows you to easily mess around with your machine. This release can give more and more headaches over time, if you don't know what you are trying to do!
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Memory_access_plugin.html" title="Edit section: Memory leak">edit</a>]</div><a name="Memory_leak"></a><h3> Memory leak </h3>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> <span style="color: orange;">Pointer</span>:my_memory = <span style="color: orange;">MEM</span>::malloc<span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">5</span><span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// Allocate 20 bytes memory (because 5 x 4 bytes)</span>
+my_memory = <span style="color: orange;">Pointer</span>:NULL; <span style="color: #808080; font-style: italic;">// You'll loose the reference to your memory</span></pre>
+<p>You've just lost the reference to the dynamicly allocated memory. This memory still exists, but it becomes totally useless.
+Your OS will probably keep track of the memory and claim it back after the application has finished. But on some special systems leaking memory won't be claimed back at all!
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Memory_access_plugin.html" title="Edit section: Memory fragmentation">edit</a>]</div><a name="Memory_fragmentation"></a><h3> Memory fragmentation </h3>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> <span style="color: orange;">Pointer</span>:mem1 = <span style="color: orange;">MEM</span>::malloc<span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">5</span><span style="color: #66cc66;">&#41;</span>, <span style="color: orange;">Pointer</span>:mem2 = <span style="color: orange;">MEM</span>::malloc<span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">5</span><span style="color: #66cc66;">&#41;</span>, <span style="color: orange;">Pointer</span>:mem3 = <span style="color: orange;">MEM</span>::malloc<span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">5</span><span style="color: #66cc66;">&#41;</span>, <span style="color: orange;">Pointer</span>:mem4 = <span style="color: orange;">MEM</span>::malloc<span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">5</span><span style="color: #66cc66;">&#41;</span>, <span style="color: orange;">Pointer</span>:mem5 = <span style="color: orange;">MEM</span>::malloc<span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">5</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: orange;">MEM</span>::free<span style="color: #66cc66;">&#40;</span>mem2<span style="color: #66cc66;">&#41;</span>;
+<span style="color: orange;">MEM</span>::free<span style="color: #66cc66;">&#40;</span>mem4<span style="color: #66cc66;">&#41;</span>;
+mem2 = <span style="color: orange;">MEM</span>::malloc<span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">10</span><span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// Can't be allocated at its same place anymore</span></pre>
+<p>As you can see we allocate 5 cells 5 times and free memory at <i>mem2</i> and <i>mem4</i>. The new allocated memory (10 cells) can't fit into those free'd memories.
+You'll practically loose useful memory in runtime.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Memory_access_plugin.html" title="Edit section: Accessing bad memory">edit</a>]</div><a name="Accessing_bad_memory"></a><h3> Accessing bad memory </h3>
+<pre class="pawn"><span style="color: orange;">MEM</span>::get_val<span style="color: #66cc66;">&#40;</span><span style="color: orange;">Pointer</span>:<span style="color: #4169e1;">1</span>, _, <span style="color: #4169e1;">1234</span><span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// Trying to set a value into non allocated memory</span></pre>
+<p>Process and memory share the same hardware in your machine. If you attempt to read or manipulate bad memory, your application will get errors and crashes.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Memory_access_plugin.html" title="Edit section: Using null pointer to access memory">edit</a>]</div><a name="Using_null_pointer_to_access_memory"></a><h3> Using null pointer to access memory </h3>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> <span style="color: orange;">Pointer</span>:some_pointer = <span style="color: orange;">MEM</span>::malloc<span style="color: #66cc66;">&#40;</span>0xFFFFFFFF<span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// This pointer can get zero due it wasn't able to allocate that amount of memory</span>
+<span style="color: orange;">MEM</span>::set_val<span style="color: #66cc66;">&#40;</span>some_pointer, _, 0xFFFFFFFF<span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// Crashes your application, if &quot;some_pointer&quot; equals Pointer:0</span></pre>
+<p>It still belongs to accessing bad memory, but in this case you are not able to allocate that amount of memory and <i>MEM::malloc</i> returns <i>Pointer:0</i>.
+To detect this, you should use this step:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> <span style="color: orange;">Pointer</span>:some_pointer = <span style="color: orange;">MEM</span>::malloc<span style="color: #66cc66;">&#40;</span>0xFFFFFFFF<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>some_pointer<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #808080; font-style: italic;">// Good pointer</span>
+<span style="color: #66cc66;">&#125;</span>
+<span style="color: #4169e1;">else</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #808080; font-style: italic;">// Null pointer, handle error</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Memory_access_plugin.html" title="Edit section: Out of bounds">edit</a>]</div><a name="Out_of_bounds"></a><h3> Out of bounds </h3>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> <span style="color: orange;">Pointer</span>:mem = <span style="color: orange;">MEM</span>::malloc<span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">2</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: orange;">MEM</span>::set_val<span style="color: #66cc66;">&#40;</span>mem, <span style="color: #4169e1;">100</span>, <span style="color: #4169e1;">10</span><span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// Obviosly accessing memory out of bounds</span>
+<span style="color: orange;">MEM</span>::set_val<span style="color: #66cc66;">&#40;</span>mem, <span style="color: #4169e1;">-1</span>, <span style="color: #4169e1;">10</span><span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// Accessing over negative index, still out of bounds</span></pre>
+<p>By using indexes greater or equal allocated size accesses memory out of bounds.
+Of course accessing memory using negative indexes causes you to access memory out of bounds.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Memory_access_plugin.html" title="Edit section: Documentation">edit</a>]</div><a name="Documentation"></a><h1> Documentation </h1>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Memory_access_plugin.html" title="Edit section: Natives">edit</a>]</div><a name="Natives"></a><h2> Natives </h2>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Memory_access_plugin.html" title="Edit section: MEM_malloc">edit</a>]</div><a name="MEM_malloc"></a><h3> MEM_malloc </h3>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">
+<ul><li>Allocates uninitialized dynamic memory to use.
+</li><li><i>MEM::malloc</i> can be used aswell!
+</li><li>Always use <i>MEM_free</i> or <i>MEM::free</i> to free previously allocated memory.<br /></div>
+</li></ul>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(cells = 1)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">cells</td><td style="vertical-align:top;">The amount of cells to allocate (1 by default)</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">Returns a pointer to the allocated memory.<br /></div>
+<p><br />
+<b>Example Usage:</b> 
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> <span style="color: orange;">Pointer</span>:mem = MEM_malloc<span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">2</span><span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// Allocates 8 bytes. ( Allocates 4 bytes by default. )</span>
+<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>mem<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #808080; font-style: italic;">// Valid</span>
+&nbsp;
+	<span style="color: #808080; font-style: italic;">// ...</span>
+	<span style="color: #808080; font-style: italic;">// Free memory</span>
+	MEM_free<span style="color: #66cc66;">&#40;</span>mem<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span>
+<span style="color: #4169e1;">else</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #808080; font-style: italic;">// Error</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Memory_access_plugin.html" title="Edit section: MEM_calloc">edit</a>]</div><a name="MEM_calloc"></a><h3> MEM_calloc </h3>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">
+<ul><li>Allocates zero set memory to use.
+</li><li><i>MEM::calloc</i> can be used aswell!
+</li><li>Always use <i>MEM_free</i> or <i>MEM::free</i> to free previously allocated memory.<br /></div>
+</li></ul>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(cells = 1)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">cells</td><td style="vertical-align:top;">The amount of cells to allocate (1 by default)</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">Returns a pointer to the allocated memory.<br /></div>
+<p><br />
+<b>Example Usage:</b> 
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> <span style="color: orange;">Pointer</span>:mem = MEM_calloc<span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">2</span><span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// Allocates 8 bytes. ( Allocates 4 bytes by default. )</span>
+<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>mem<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #808080; font-style: italic;">// Valid</span>
+&nbsp;
+	<span style="color: #808080; font-style: italic;">// ...</span>
+	<span style="color: #808080; font-style: italic;">// Free memory</span>
+	MEM_free<span style="color: #66cc66;">&#40;</span>mem<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span>
+<span style="color: #4169e1;">else</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #808080; font-style: italic;">// Error</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Memory_access_plugin.html" title="Edit section: MEM_realloc">edit</a>]</div><a name="MEM_realloc"></a><h3> MEM_realloc </h3>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">
+<ul><li>Re-allocates memory to use.
+</li><li><i>MEM::realloc</i> can be used aswell!
+</li><li>Always use <i>MEM_free</i> or <i>MEM::free</i> to free previously allocated memory.<br /></div>
+</li></ul>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(Pointer:pointer, cells = 1)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">pointer</td><td style="vertical-align:top;">A pointer to the allocated memory</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">cells</td><td style="vertical-align:top;">The amount of cells to allocate (1 by default)</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">Returns a pointer to the re-allocated memory.<br /></div>
+<p><br />
+<b>Example Usage:</b> 
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> <span style="color: orange;">Pointer</span>:mem = MEM_malloc<span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">2</span><span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// Allocates 8 bytes. ( Allocates 4 bytes by default. )</span>
+<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>mem<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #808080; font-style: italic;">// Valid</span>
+	<span style="color: #228b22; font-weight: bold;">new</span> new_mem = MEM_realloc<span style="color: #66cc66;">&#40;</span>mem, <span style="color: #4169e1;">5</span><span style="color: #66cc66;">&#41;</span> <span style="color: #808080; font-style: italic;">// Re-allocates 20 bytes. ( Re-allocates 4 bytes by default. )</span>
+	<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>new_mem<span style="color: #66cc66;">&#41;</span>
+	<span style="color: #66cc66;">&#123;</span>
+		<span style="color: #808080; font-style: italic;">// Valid</span>
+&nbsp;
+		<span style="color: #808080; font-style: italic;">// &quot;mem&quot; is now invalid</span>
+		mem = <span style="color: orange;">Pointer</span>:NULL;
+&nbsp;
+		<span style="color: #808080; font-style: italic;">// ...</span>
+		MEM_free<span style="color: #66cc66;">&#40;</span>new_mem<span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #66cc66;">&#125;</span>
+	<span style="color: #4169e1;">else</span>
+	<span style="color: #66cc66;">&#123;</span>
+		<span style="color: #808080; font-style: italic;">// Error</span>
+&nbsp;
+		<span style="color: #808080; font-style: italic;">// ...</span>
+		<span style="color: #808080; font-style: italic;">// Free memory</span>
+		MEM_free<span style="color: #66cc66;">&#40;</span>mem<span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #66cc66;">&#125;</span>
+<span style="color: #66cc66;">&#125;</span>
+<span style="color: #4169e1;">else</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #808080; font-style: italic;">// Error</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Memory_access_plugin.html" title="Edit section: MEM_free">edit</a>]</div><a name="MEM_free"></a><h3> MEM_free </h3>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">
+<ul><li>Frees previously allocated memory.
+</li></ul>
+<i>MEM::free</i> can be used aswell!<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(Pointer:pointer)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">pointer</td><td style="vertical-align:top;">A pointer to the previosly allocated memory</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">Always returns <i>true</i> in fast mode
+In secure mode, it returns <i>true</i> after a success, otherwise <i>false</i>.<br /></div>
+<p><br />
+<b>Example Usage:</b> 
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> <span style="color: orange;">Pointer</span>:mem = MEM_malloc<span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">2</span><span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// Allocates 8 bytes. ( Allocates 4 bytes by default. )</span>
+<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>mem<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #808080; font-style: italic;">// Valid</span>
+&nbsp;
+	<span style="color: #808080; font-style: italic;">// ...</span>
+	<span style="color: #808080; font-style: italic;">// Free memory</span>
+	MEM_free<span style="color: #66cc66;">&#40;</span>mem<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span>
+<span style="color: #4169e1;">else</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #808080; font-style: italic;">// Error</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Memory_access_plugin.html" title="Edit section: MEM_get_val">edit</a>]</div><a name="MEM_get_val"></a><h3> MEM_get_val </h3>
+<p>{{Description|
+</p>
+<ul><li>Gets the value from an allocated memory.
+</li><li><i>MEM::get_val</i> can be used aswell!
+</li></ul>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(Pointer:pointer, index = 0)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">pointer</td><td style="vertical-align:top;">A pointer to the allocated memory</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">index</td><td style="vertical-align:top;">Index of the memory block (0 by default)</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">The value from the memory<br /></div>
+<p><br />
+<b>Example Usage:</b> 
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> <span style="color: orange;">Pointer</span>:mem = MEM_malloc<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// Allocates 4 bytes by default</span>
+<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>mem<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #808080; font-style: italic;">// Valid</span>
+	<span style="color: #808080; font-style: italic;">// Get the value using a pointer</span>
+	<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;Value: %d&quot;</span>, MEM_get_val<span style="color: #66cc66;">&#40;</span>mem<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+	<span style="color: #808080; font-style: italic;">// ...</span>
+	<span style="color: #808080; font-style: italic;">// Free memory</span>
+	MEM_free<span style="color: #66cc66;">&#40;</span>mem<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span>
+<span style="color: #4169e1;">else</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #808080; font-style: italic;">// Error</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Memory_access_plugin.html" title="Edit section: MEM_get_arr">edit</a>]</div><a name="MEM_get_arr"></a><h3> MEM_get_arr </h3>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">
+<ul><li>Gets an array of data from an allocated memory.
+</li><li><i>MEM::get_arr</i> can be used aswell!<br /></div>
+</li></ul>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(Pointer:pointer, index = 0, arr[], arr_size = sizeof arr)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">pointer</td><td style="vertical-align:top;">A pointer to the allocated memory</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">index</td><td style="vertical-align:top;">Index of the memory block (0 by default)</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">arr</td><td style="vertical-align:top;">Array to copy data to</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">arr_size</td><td style="vertical-align:top;">Array size in cells</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">Returns the given pointer.<br /></div>
+<p><br />
+<b>Example Usage:</b> 
+</p>
+<pre class="pawn"><span style="color: #808080; font-style: italic;">// My array</span>
+<span style="color: #228b22; font-weight: bold;">new</span> my_array<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">10</span><span style="color: #66cc66;">&#93;</span>;
+&nbsp;
+<span style="color: #808080; font-style: italic;">// Allocate 40 bytes (10 cells)</span>
+<span style="color: #228b22; font-weight: bold;">new</span> <span style="color: orange;">Pointer</span>:mem = MEM_malloc<span style="color: #66cc66;">&#40;</span><span style="color: orange; font-weight: bold;">sizeof</span> my_array<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>mem<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #808080; font-style: italic;">// Valid</span>
+	<span style="color: #808080; font-style: italic;">// Get an array of data using a pointer and size</span>
+	MEM_get_arr<span style="color: #66cc66;">&#40;</span>mem, _, my_array<span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+	<span style="color: #808080; font-style: italic;">// ...</span>
+	<span style="color: #808080; font-style: italic;">// Free memory</span>
+	MEM_free<span style="color: #66cc66;">&#40;</span>mem<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span>
+<span style="color: #4169e1;">else</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #808080; font-style: italic;">// Error</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Memory_access_plugin.html" title="Edit section: MEM_set_val">edit</a>]</div><a name="MEM_set_val"></a><h3> MEM_set_val </h3>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">
+<ul><li>Sets a value in an allocated memory.
+</li><li><i>MEM::set_val</i> can be used aswell!<br /></div>
+</li></ul>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(Pointer:pointer, index = 0, value)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">pointer</td><td style="vertical-align:top;">A pointer to the allocated memory</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">index</td><td style="vertical-align:top;">Index of the memory block (0 by default)</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">value</td><td style="vertical-align:top;">Value to set</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">Returns the given value.<br /></div>
+<p><br />
+<b>Example Usage:</b> 
+</p>
+<pre class="pawn"><span style="color: #808080; font-style: italic;">// Allocates 4 bytes by default</span>
+<span style="color: #228b22; font-weight: bold;">new</span> <span style="color: orange;">Pointer</span>:mem = MEM_malloc<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>mem<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #808080; font-style: italic;">// Valid</span>
+	<span style="color: #808080; font-style: italic;">// Set the value using a pointer</span>
+	MEM_set_val<span style="color: #66cc66;">&#40;</span>mem, _, <span style="color: #4169e1;">100</span><span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+	<span style="color: #808080; font-style: italic;">//...</span>
+	<span style="color: #808080; font-style: italic;">// Free memory</span>
+	MEM_free<span style="color: #66cc66;">&#40;</span>mem<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span>
+<span style="color: #4169e1;">else</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #808080; font-style: italic;">// Error</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Memory_access_plugin.html" title="Edit section: MEM_set_arr">edit</a>]</div><a name="MEM_set_arr"></a><h3> MEM_set_arr </h3>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">
+<ul><li>Sets an array of data into an allocated memory.
+</li><li><i>MEM::set_arr</i> can be used aswell!<br /></div>
+</li></ul>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(Pointer:pointer, index = 0, const data_arr[], arr_size = sizeof data_arr)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">pointer</td><td style="vertical-align:top;">A pointer to the allocated memory</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">index</td><td style="vertical-align:top;">Index of the memory block (0 by default)</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">data_arr</td><td style="vertical-align:top;">Array to copy</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">arr_size</td><td style="vertical-align:top;">Array size in cells</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">The pointer of <i>data_arr</i>.<br /></div>
+<p><br />
+<b>Example Usage:</b> 
+</p>
+<pre class="pawn"><span style="color: #808080; font-style: italic;">// My constant array</span>
+<span style="color: #228b22; font-weight: bold;">new</span> <span style="color: #228b22; font-weight: bold;">const</span> my_array<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">10</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">100</span>, ...<span style="color: #66cc66;">&#125;</span>;
+&nbsp;
+<span style="color: #808080; font-style: italic;">// Allocates 40 bytes (Allocates 4 bytes by default)</span>
+<span style="color: #228b22; font-weight: bold;">new</span> <span style="color: orange;">Pointer</span>:mem = MEM_malloc<span style="color: #66cc66;">&#40;</span><span style="color: orange; font-weight: bold;">sizeof</span> my_array<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>mem<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #808080; font-style: italic;">// Valid</span>
+	<span style="color: #808080; font-style: italic;">// Copy the array of data using a pointer and size</span>
+	MEM_set_arr<span style="color: #66cc66;">&#40;</span>mem, _, my_array<span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+	<span style="color: #808080; font-style: italic;">//...</span>
+	<span style="color: #808080; font-style: italic;">// Free memory</span>
+	MEM_free<span style="color: #66cc66;">&#40;</span>mem<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span>
+<span style="color: #4169e1;">else</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #808080; font-style: italic;">// Error</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Memory_access_plugin.html" title="Edit section: MEM_copy">edit</a>]</div><a name="MEM_copy"></a><h3> MEM_copy </h3>
+<p>{{Description|
+</p>
+<ul><li>Copies blocks of data from one address to another address.
+</li><li><i>MEM::copy</i> can be used aswell!
+</li></ul>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(Pointer:dest, Pointer:src, len, dest_index = 0, src_index = 0)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">dest</td><td style="vertical-align:top;">A pointer to the destination to copy</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">src</td><td style="vertical-align:top;">A pointer to copy data from</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">len</td><td style="vertical-align:top;">Lenght of the memory block to copy</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">dest_index</td><td style="vertical-align:top;">Index of the destination to copy (0 by default)</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">src_index</td><td style="vertical-align:top;">Index of the source to copy from (0 by default)</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">The pointer of <i>dest</i>.<br /></div>
+<p><br />
+<b>Example Usage:</b> 
+</p>
+<pre class="pawn"><span style="color: #808080; font-style: italic;">// My constant array</span>
+<span style="color: #228b22; font-weight: bold;">new</span> <span style="color: #228b22; font-weight: bold;">const</span> my_array<span style="color: #66cc66;">&#91;</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1</span>, <span style="color: #4169e1;">2</span>, <span style="color: #4169e1;">3</span>, <span style="color: #4169e1;">4</span>, <span style="color: #4169e1;">5</span><span style="color: #66cc66;">&#125;</span>;
+&nbsp;
+<span style="color: #808080; font-style: italic;">// Allocates 16 bytes (Allocates 4 bytes by default)</span>
+<span style="color: #228b22; font-weight: bold;">new</span> <span style="color: orange;">Pointer</span>:mem1 = malloc<span style="color: #66cc66;">&#40;</span><span style="color: orange; font-weight: bold;">sizeof</span> my_array<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>mem1<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #808080; font-style: italic;">// Valid</span>
+	<span style="color: #808080; font-style: italic;">// Allocates 16 bytes (Allocates 4 bytes by default)</span>
+	<span style="color: #228b22; font-weight: bold;">new</span> <span style="color: orange;">Pointer</span>:mem2 = malloc<span style="color: #66cc66;">&#40;</span><span style="color: orange; font-weight: bold;">sizeof</span> my_array<span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>mem2<span style="color: #66cc66;">&#41;</span>
+	<span style="color: #66cc66;">&#123;</span>
+		<span style="color: #808080; font-style: italic;">// Valid</span>
+		<span style="color: #808080; font-style: italic;">// Set the array of data using a pointer and size</span>
+		MEM_set_arr<span style="color: #66cc66;">&#40;</span>mem1, _, my_array<span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+		<span style="color: #808080; font-style: italic;">// Copy blocks of data to &quot;mem2&quot;</span>
+		MEM_copy<span style="color: #66cc66;">&#40;</span>mem2, mem1, <span style="color: orange; font-weight: bold;">sizeof</span> my_array<span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+		<span style="color: #808080; font-style: italic;">// ...</span>
+		<span style="color: #808080; font-style: italic;">// Free memory</span>
+		MEM_free<span style="color: #66cc66;">&#40;</span>mem2<span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #66cc66;">&#125;</span>
+	<span style="color: #4169e1;">else</span>
+	<span style="color: #66cc66;">&#123;</span>
+		<span style="color: #808080; font-style: italic;">// Error</span>
+	<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+	<span style="color: #808080; font-style: italic;">// ...</span>
+	<span style="color: #808080; font-style: italic;">// Free memory</span>
+	MEM_free<span style="color: #66cc66;">&#40;</span>mem1<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span>
+<span style="color: #4169e1;">else</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #808080; font-style: italic;">// Error</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Memory_access_plugin.html" title="Edit section: MEM_zero">edit</a>]</div><a name="MEM_zero"></a><h3> MEM_zero </h3>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">
+<ul><li>Zero sets memory
+</li><li><i>MEM::zero</i> can be used aswell!<br /></div>
+</li></ul>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(Pointer:pointer, size, index = 0)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">pointer</td><td style="vertical-align:top;">A pointer to the allocated memory</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">size</td><td style="vertical-align:top;">Size of the memory block in cells</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">index</td><td style="vertical-align:top;">Index of the memory block (0 by default)</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">The pointer of <i>pointer</i>.<br /></div>
+<p><br />
+<b>Example Usage:</b> 
+</p>
+<pre class="pawn"><span style="color: #808080; font-style: italic;">// Allocates 40 bytes (Allocates 4 bytes by default)</span>
+<span style="color: orange;">Pointer</span>:mem = malloc<span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">10</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>mem<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #808080; font-style: italic;">// Valid</span>
+	<span style="color: #808080; font-style: italic;">// Zero sets memory</span>
+	MEM_zero<span style="color: #66cc66;">&#40;</span>mem, <span style="color: #4169e1;">10</span><span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+	<span style="color: #808080; font-style: italic;">// ...</span>
+	<span style="color: #808080; font-style: italic;">// Free memory</span>
+	MEM_free<span style="color: #66cc66;">&#40;</span>mem<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span>
+<span style="color: #4169e1;">else</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #808080; font-style: italic;">// Error</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Memory_access_plugin.html" title="Edit section: MEM_get_addr">edit</a>]</div><a name="MEM_get_addr"></a><h3> MEM_get_addr </h3>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">
+<ul><li>Gets the pysical address of a PAWN sided variable.
+</li><li><i>MEM::get_addr</i> can be used aswell!<br /></div>
+</li></ul>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(&amp;var)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">var</td><td style="vertical-align:top;">Reference of the given variable.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">The pointer of the reference.<br /></div>
+<p><br />
+<b>Example Usage:</b> 
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> my_var;
+<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;my_var address: 0x%x&quot;</span>, <span style="color: orange;">_</span>:MEM_get_addr<span style="color: #66cc66;">&#40;</span>my_var<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>;</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Memory_access_plugin.html" title="Edit section: MEM_sort">edit</a>]</div><a name="MEM_sort"></a><h3> MEM_sort </h3>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">
+<ul><li>Sorts the values inside the block of memory.
+</li><li><i>MEM::sort</i> can be used aswell!
+</li><li>Sorts by ascending order by using <i>MEM_E_sort_default</i>.
+</li><li>Sorts by descending order by using <i>MEM_E_sort_reverse</i>.<br /></div>
+</li></ul>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(Pointer:pointer, index = 0, cells = 2, MEM_E_sort_type:sort = MEM_E_sort_default)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">pointer</td><td style="vertical-align:top;">A pointer to the allocated memory</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">index</td><td style="vertical-align:top;">Index of the memory block (0 by default)</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">cells</td><td style="vertical-align:top;">Amount of cells to mix (2 by default)</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">sort</td><td style="vertical-align:top;">Type of the sorting algorithm</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">Returns <i>true</i> after a success, otherwise <i>false</i>.<br /></div>
+<p><br />
+<b>Example Usage:</b> 
+</p>
+<pre class="pawn"><span style="color: #808080; font-style: italic;">// Allocates 16 bytes (Allocates 4 bytes by default)</span>
+<span style="color: #228b22; font-weight: bold;">new</span> <span style="color: orange;">Pointer</span>:mem = MEM_malloc<span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">4</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>mem<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #808080; font-style: italic;">// Valid</span>
+	<span style="color: #808080; font-style: italic;">// Set data</span>
+	MEM_set_arr<span style="color: #66cc66;">&#40;</span>mem, _, <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">2</span>, <span style="color: #4169e1;">5</span>, <span style="color: #4169e1;">8</span>, <span style="color: #4169e1;">3</span><span style="color: #66cc66;">&#125;</span><span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+	<span style="color: #808080; font-style: italic;">// Sort data by ascending order</span>
+	MEM_sort<span style="color: #66cc66;">&#40;</span>mem, _, <span style="color: #4169e1;">4</span><span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+	<span style="color: #808080; font-style: italic;">// Sort data by descending order</span>
+	MEM_sort<span style="color: #66cc66;">&#40;</span>mem, _, <span style="color: #4169e1;">4</span>, MEM_E_sort_reverse<span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+	<span style="color: #808080; font-style: italic;">// ...</span>
+	<span style="color: #808080; font-style: italic;">// Free memory</span>
+	MEM_free<span style="color: #66cc66;">&#40;</span>mem<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span>
+<span style="color: #4169e1;">else</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #808080; font-style: italic;">// Error</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Memory_access_plugin.html" title="Edit section: MEM_mix">edit</a>]</div><a name="MEM_mix"></a><h3> MEM_mix </h3>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">
+<ul><li>Mixes the values inside the block of memory.
+</li><li><i>MEM::mix</i> can be used aswell!
+</li><li>Mixes randomly by using a mix algorithm.
+</li><li>Mixes data 5 times by default.<br /></div>
+</li></ul>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">Returns <i>true</i> after a success, otherwise <i>false</i>.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(Pointer:pointer, index = 0, cells = 2, mix_times = 5)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">pointer</td><td style="vertical-align:top;">A pointer to the allocated memory</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">index</td><td style="vertical-align:top;">Index of the memory block (0 by default)</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">cells</td><td style="vertical-align:top;">Amount of cells to mix (2 by default)</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">mix_times</td><td style="vertical-align:top;">Times to mix the data inside the block of memory (5 by default)</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">Returns <i>true</i> after a success, otherwise <i>false</i>.<br /></div>
+<p><br />
+<b>Example Usage:</b> 
+</p>
+<pre class="pawn"><span style="color: #808080; font-style: italic;">// Allocates 16 bytes (Allocates 4 bytes by default)</span>
+<span style="color: #228b22; font-weight: bold;">new</span> <span style="color: orange;">Pointer</span>:mem = MEM_malloc<span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">4</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>mem<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #808080; font-style: italic;">// Valid</span>
+	<span style="color: #808080; font-style: italic;">// Set data</span>
+	MEM_set_arr<span style="color: #66cc66;">&#40;</span>mem, _, <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">2</span>, <span style="color: #4169e1;">3</span>, <span style="color: #4169e1;">4</span>, <span style="color: #4169e1;">5</span><span style="color: #66cc66;">&#125;</span><span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+	<span style="color: #808080; font-style: italic;">// Mix data randomly</span>
+	MEM_mix<span style="color: #66cc66;">&#40;</span>mem, _, <span style="color: #4169e1;">4</span><span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+	<span style="color: #808080; font-style: italic;">// ...</span>
+	<span style="color: #808080; font-style: italic;">// Free memory</span>
+	MEM_free<span style="color: #66cc66;">&#40;</span>mem<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span>
+<span style="color: #4169e1;">else</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #808080; font-style: italic;">// Error</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Memory_access_plugin.html" title="Edit section: MEM_amx_ptr">edit</a>]</div><a name="MEM_amx_ptr"></a><h3> MEM_amx_ptr </h3>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">
+<ul><li>Returns the pointer of the current AMX.
+</li><li>MEM::amx_ptr can be used aswell!<br /></div>
+</li></ul>
+<p><br />
+</p>
+<b>Parameters:</b><div style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">This function has no parameters.<br /></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">Returns the address of the AMX.<br /></div>
+<p><br />
+<b>Example Usage:</b> 
+</p>
+<pre class="pawn"><a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot; AMX pointer: 0x%x&quot;</span>, MEM_amx_ptr<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>;</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Memory_access_plugin.html" title="Edit section: MEM_is">edit</a>]</div><a name="MEM_is"></a><h3> MEM_is </h3>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #FFEAEA; border-left: 10px solid #FCA9A9;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #FCA9A9;"><a href="Image_32px-Circle-style-warning.png.html" class="image" title="Image:32px-Circle-style-warning.png"><img src="../upload/5/57/32px-Circle-style-warning.png" alt="Image:32px-Circle-style-warning.png" width="32" height="32" longdesc="Image_32px-Circle-style-warning.png.html" /></a><br />
+<p><strong>Important<br />Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">Only available, if <i>SECURE_MEMORY_PLUGIN</i> has been defined, and only the secure plugin version being used.</span>
+</td></tr></table>
+</div>
+<p><br />
+<b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">
+<ul><li>Checks, if the pointer and index are valid.
+</li><li><i>MEM::is</i> can be used aswell!<br /></div>
+</li></ul>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(Pointer:pointer, index = 0)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">pointer</td><td style="vertical-align:top;">A pointer to the allocated memory</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">index</td><td style="vertical-align:top;">Index of the memory block (0 by default)</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">Returns <i>true</i> if valid, otherwise <i>false</i>.<br /></div>
+<p><br />
+<b>Example Usage:</b> 
+</p>
+<pre class="pawn"><a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot; Valid memory: %s&quot;</span>, MEM_is<span style="color: #66cc66;">&#40;</span><span style="color: orange;">Pointer</span>:<span style="color: #4169e1;">1000</span><span style="color: #66cc66;">&#41;</span>?<span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;Yes&quot;</span><span style="color: #66cc66;">&#41;</span>:<span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;No&quot;</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>;</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Memory_access_plugin.html" title="Edit section: MEM_len">edit</a>]</div><a name="MEM_len"></a><h3> MEM_len </h3>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #FFEAEA; border-left: 10px solid #FCA9A9;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #FCA9A9;"><a href="Image_32px-Circle-style-warning.png.html" class="image" title="Image:32px-Circle-style-warning.png"><img src="../upload/5/57/32px-Circle-style-warning.png" alt="Image:32px-Circle-style-warning.png" width="32" height="32" longdesc="Image_32px-Circle-style-warning.png.html" /></a><br />
+<p><strong>Important<br />Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">Only available, if <i>SECURE_MEMORY_PLUGIN</i> has been defined, and only the secure plugin version being used.</span>
+</td></tr></table>
+</div>
+<p><br />
+<b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">
+<ul><li>Returns the lenght of the allocated memory.
+</li><li><i>MEM::len</i> can be used aswell!<br /></div>
+</li></ul>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(Pointer:pointer)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">pointer</td><td style="vertical-align:top;">A pointer to the allocated memory</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">Returns the lenght of the allocated memory.<br /></div>
+<p><br />
+<b>Example Usage:</b> 
+</p>
+<pre class="pawn"><span style="color: #808080; font-style: italic;">// Allocates 20 bytes (Allocates 4 bytes by default)</span>
+<span style="color: #228b22; font-weight: bold;">new</span> <span style="color: orange;">Pointer</span>:mem = malloc<span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">5</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>mem<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #808080; font-style: italic;">// Prints the lenght of the allocated memory (5 cells)</span>
+	<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot; Memory lenght: %d&quot;</span>, MEM_len<span style="color: #66cc66;">&#40;</span>mem<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+	<span style="color: #808080; font-style: italic;">// ...</span>
+	<span style="color: #808080; font-style: italic;">// Free memory</span>
+	MEM_free<span style="color: #66cc66;">&#40;</span>mem<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span>
+<span style="color: #4169e1;">else</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #808080; font-style: italic;">// Error</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Memory_access_plugin.html" title="Edit section: MEM_result">edit</a>]</div><a name="MEM_result"></a><h3> MEM_result </h3>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #FFEAEA; border-left: 10px solid #FCA9A9;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #FCA9A9;"><a href="Image_32px-Circle-style-warning.png.html" class="image" title="Image:32px-Circle-style-warning.png"><img src="../upload/5/57/32px-Circle-style-warning.png" alt="Image:32px-Circle-style-warning.png" width="32" height="32" longdesc="Image_32px-Circle-style-warning.png.html" /></a><br />
+<p><strong>Important<br />Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">Only available, if <i>SECURE_MEMORY_PLUGIN</i> has been defined, and only the secure plugin version being used.</span>
+</td></tr></table>
+</div>
+<p><br />
+<b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">
+<ul><li><i>MEM::result</i> can be used aswell!<br /></div>
+</li></ul>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(bool:free_result = true)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">free_result</td><td style="vertical-align:top;">Frees the result (<i>true</i> by default)</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">Returns the last result issued by one of the functions.<br /></div>
+<p><br />
+<b>Example Usage:</b> 
+</p>
+<pre class="pawn"><span style="color: #808080; font-style: italic;">// Allocates 40 bytes (Allocates 4 bytes by default)</span>
+<span style="color: #228b22; font-weight: bold;">new</span> <span style="color: orange;">Pointer</span>:mem = malloc<span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">10</span><span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+<span style="color: #808080; font-style: italic;">// Shows the last result</span>
+<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;Result ID: %d&quot;</span>, <span style="color: orange;">_</span>:MEM_result<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>mem<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #808080; font-style: italic;">// ...</span>
+	<span style="color: #808080; font-style: italic;">// Free memory</span>
+	MEM_free<span style="color: #66cc66;">&#40;</span>mem<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span>
+<span style="color: #4169e1;">else</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #808080; font-style: italic;">// Error</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Memory_access_plugin.html" title="Edit section: Macros">edit</a>]</div><a name="Macros"></a><h2> Macros </h2>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Memory_access_plugin.html" title="Edit section: MEM_MACR_get_addr">edit</a>]</div><a name="MEM_MACR_get_addr"></a><h3> MEM_MACR_get_addr </h3>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">
+<i>MEM_EX::get_addr</i> can be used aswell!<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(variable-&gt;index)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">variable</td><td style="vertical-align:top;">A pointer to the allocated memory.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">index</td><td style="vertical-align:top;">Index of the memory block</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">Returns the address of the pointer and index.<br /></div>
+<p><br />
+<b>Example Usage:</b> 
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> my_array<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">5</span><span style="color: #66cc66;">&#93;</span>;
+<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot; my_array[4] address: 0x%x&quot;</span>, MEM_MACR_get_addr<span style="color: #66cc66;">&#40;</span>my_array<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#93;</span>-&gt;<span style="color: #4169e1;">4</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>;</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Memory_access_plugin.html" title="Edit section: MEM_MACR_get_val">edit</a>]</div><a name="MEM_MACR_get_val"></a><h3> MEM_MACR_get_val </h3>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">
+<ul><li><i>MEM_EX::get_val</i> can be used aswell!<br /></div>
+</li></ul>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(pointer-&gt;index)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">pointer</td><td style="vertical-align:top;">A pointer to the allocated memory.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">index</td><td style="vertical-align:top;">Index of the memory block</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">Gets the value from an indexed pointer.<br /></div>
+<p><br />
+<b>Example Usage:</b> 
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> <span style="color: orange;">Pointer</span>:mem = MEM_malloc<span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">5</span><span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// Allocate 20 bytes</span>
+<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>mem<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #808080; font-style: italic;">// Valid</span>
+	<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot; Value: %d&quot;</span>, MEM_MACR_get_val<span style="color: #66cc66;">&#40;</span>mem-&gt;<span style="color: #4169e1;">4</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// Get indexed value</span>
+	MEM_free<span style="color: #66cc66;">&#40;</span>mem<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span>
+<span style="color: #4169e1;">else</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #808080; font-style: italic;">// Error</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Memory_access_plugin.html" title="Edit section: MEM_MACR_get_ptr">edit</a>]</div><a name="MEM_MACR_get_ptr"></a><h3> MEM_MACR_get_ptr </h3>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">
+<ul><li><i>MEM_EX::get_ptr</i> can be used aswell!<br /></div>
+</li></ul>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(pointer-&gt;index)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">pointer</td><td style="vertical-align:top;">A pointer to the allocated memory.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">index</td><td style="vertical-align:top;">Index of the memory block</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">Calculates a pointer of a pointer and index.<br /></div>
+<p><br />
+<b>Example Usage:</b> 
+</p>
+<pre class="pawn"><span style="color: #808080; font-style: italic;">// Allocates 20 bytes (Allocates 4 bytes by default)</span>
+<span style="color: #228b22; font-weight: bold;">new</span> <span style="color: orange;">Pointer</span>:mem = MEM_malloc<span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">5</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>mem<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #808080; font-style: italic;">// Valid</span>
+	<span style="color: #808080; font-style: italic;">// Get pointer by index</span>
+	<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot; Pointer: 0x%x&quot;</span>, <span style="color: orange;">_</span>:MEM_MACR_get_ptr<span style="color: #66cc66;">&#40;</span>mem-&gt;<span style="color: #4169e1;">4</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+	<span style="color: #808080; font-style: italic;">// ...</span>
+	<span style="color: #808080; font-style: italic;">// Free memory</span>
+	MEM_free<span style="color: #66cc66;">&#40;</span>mem<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span>
+<span style="color: #4169e1;">else</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #808080; font-style: italic;">// Error</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Memory_access_plugin.html" title="Edit section: MEM_MACR_foreach">edit</a>]</div><a name="MEM_MACR_foreach"></a><h3> MEM_MACR_foreach </h3>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">
+<ul><li>Loops through indexes using size and allocating an indexed iterator to use. (ascending)
+</li><li><i>MEM_EX::foreach</i> can be used aswell!
+</li><li>Do NOT allocate an indexed iterator by yourself. The macro will do it for you automaticly to use!<br /></div>
+</li></ul>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(size, indexed_iterator)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">size</td><td style="vertical-align:top;">Size of the memory block in cells</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">indexed_iterator</td><td style="vertical-align:top;">Name of the indexed iterator (Declared by this macro)</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">This function does not return any specific values.<br /></div>
+<p><br />
+</p><p><b>Example Usage:</b> 
+</p>
+<pre class="pawn"><span style="color: #808080; font-style: italic;">// Allocates 20 bytes (Allocates 4 bytes by default)</span>
+<span style="color: #228b22; font-weight: bold;">new</span> <span style="color: orange;">Pointer</span>:mem = MEM_malloc<span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">5</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>mem<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #808080; font-style: italic;">// Valid</span>
+	<span style="color: #808080; font-style: italic;">// Iterate through data ascending</span>
+	MEM_MACR_foreach<span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">5</span>, mem_i<span style="color: #66cc66;">&#41;</span>
+	<span style="color: #66cc66;">&#123;</span>
+		<span style="color: #808080; font-style: italic;">// Prints value by index</span>
+		<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot; Value: %d&quot;</span>, MEM_get_val<span style="color: #66cc66;">&#40;</span>mem, mem_i<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+	<span style="color: #808080; font-style: italic;">// ...</span>
+	<span style="color: #808080; font-style: italic;">// Free memory</span>
+	MEM_free<span style="color: #66cc66;">&#40;</span>mem<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span>
+<span style="color: #4169e1;">else</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #808080; font-style: italic;">// Error</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Memory_access_plugin.html" title="Edit section: MEM_MACR_foreach_rev">edit</a>]</div><a name="MEM_MACR_foreach_rev"></a><h3> MEM_MACR_foreach_rev </h3>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">
+<ul><li>Loops through indexes using size and allocating an indexed iterator to use. (descending)
+</li><li><i>MEM_EX::foreach_rev</i> can be used aswell!
+</li><li>Do NOT allocate an indexed iterator by yourself. The macro will do it for you automaticly to use!<br /></div>
+</li></ul>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(size, indexed_iterator)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">size</td><td style="vertical-align:top;">Size of the memory block in cells</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">indexed_iterator</td><td style="vertical-align:top;">Name of the indexed iterator (Declared by this macro)</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">This function does not return any specific values.<br /></div>
+<p><br />
+</p><p><b>Example Usage:</b> 
+</p>
+<pre class="pawn"><span style="color: #808080; font-style: italic;">// Allocates 20 bytes (Allocates 4 bytes by default)</span>
+<span style="color: #228b22; font-weight: bold;">new</span> <span style="color: orange;">Pointer</span>:mem = MEM_malloc<span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">5</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>mem<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #808080; font-style: italic;">// Valid</span>
+	<span style="color: #808080; font-style: italic;">// Iterate through data ascending</span>
+	MEM_MACR_foreach_rev<span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">5</span>, mem_i<span style="color: #66cc66;">&#41;</span>
+	<span style="color: #66cc66;">&#123;</span>
+		<span style="color: #808080; font-style: italic;">// Prints value by index</span>
+		<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot; Value: %d&quot;</span>, MEM_get_val<span style="color: #66cc66;">&#40;</span>mem, mem_i<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+	<span style="color: #808080; font-style: italic;">// ...</span>
+	<span style="color: #808080; font-style: italic;">// Free memory</span>
+	MEM_free<span style="color: #66cc66;">&#40;</span>mem<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span>
+<span style="color: #4169e1;">else</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #808080; font-style: italic;">// Error</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Memory_access_plugin.html" title="Edit section: MEM_MACR_increment_ptr">edit</a>]</div><a name="MEM_MACR_increment_ptr"></a><h3> MEM_MACR_increment_ptr </h3>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">
+<ul><li>Increments a pointer properly
+</li><li><i>MEM_EX::increment_ptr</i> can be used aswell!<br /></div>
+</li></ul>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(pointer)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">pointer</td><td style="vertical-align:top;">A pointer to the allocated memory.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">Returns the incremented pointer.<br /></div>
+<p><br />
+<b>Example Usage:</b> 
+</p>
+<pre class="pawn"><span style="color: #808080; font-style: italic;">// Prints &quot;Pointer: 8&quot;</span>
+<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot; Pointer: %d&quot;</span>, <span style="color: orange;">_</span>:MEM_MACR_increment<span style="color: #66cc66;">&#40;</span><span style="color: orange;">Pointer</span>:<span style="color: #4169e1;">4</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>;</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Memory_access_plugin.html" title="Edit section: MEM_MACR_decrement_ptr">edit</a>]</div><a name="MEM_MACR_decrement_ptr"></a><h3> MEM_MACR_decrement_ptr </h3>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">
+<ul><li>Decrements a pointer properly
+</li><li><i>MEM_EX::decrement_ptr</i> can be used aswell!<br /></div>
+</li></ul>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(pointer)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">pointer</td><td style="vertical-align:top;">A pointer to the allocated memory.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">Returns the decremented pointer.<br /></div>
+<p><br />
+<b>Example Usage:</b> 
+</p>
+<pre class="pawn"><span style="color: #808080; font-style: italic;">// Prints &quot;Pointer: 0&quot;</span>
+<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot; Pointer: %d&quot;</span>, <span style="color: orange;">_</span>:MEM_MACR_increment<span style="color: #66cc66;">&#40;</span><span style="color: orange;">Pointer</span>:<span style="color: #4169e1;">4</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>;</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Memory_access_plugin.html" title="Edit section: Definitions">edit</a>]</div><a name="Definitions"></a><h2> Definitions </h2>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Memory_access_plugin.html" title="Edit section: SECURE_MEMORY_PLUGIN">edit</a>]</div><a name="SECURE_MEMORY_PLUGIN"></a><h3> SECURE_MEMORY_PLUGIN </h3>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">
+<ul><li>If defined, the include will ONLY work for the secure plugin version.<br /></div>
+</li></ul>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Memory_access_plugin.html" title="Edit section: NULL">edit</a>]</div><a name="NULL"></a><h3> NULL </h3>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">
+<ul><li>Not defined, if <i>MEM_NULL_EX</i> is defined!<br /></div>
+</li></ul>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">0<br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Memory_access_plugin.html" title="Edit section: MEM_MACR_NULL">edit</a>]</div><a name="MEM_MACR_NULL"></a><h3> MEM_MACR_NULL </h3>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">
+<ul><li><i>MEM_EX::NULL</i> can be used aswell!
+</li><li>Only defined, if <i>MEM_NULL_EX</i> is defined aswell!<br /></div>
+</li></ul>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">0<br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Memory_access_plugin.html" title="Edit section: MEM_struct">edit</a>]</div><a name="MEM_struct"></a><h3> MEM_struct </h3>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">
+<ul><li>Used to create structs
+</li><li><i>MEM::struct</i> can be used aswell!<br /></div>
+</li></ul>
+<p><br />
+<b>Example Usage:</b> 
+</p>
+<pre class="pawn">MEM_struct my_struct
+<span style="color: #66cc66;">&#123;</span>
+	item_1,
+	item_2<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">10</span><span style="color: #66cc66;">&#93;</span>,
+	item_3
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Memory_access_plugin.html" title="Edit section: MEM_MACR_SIZEOF_CELL">edit</a>]</div><a name="MEM_MACR_SIZEOF_CELL"></a><h3> MEM_MACR_SIZEOF_CELL </h3>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">
+<ul><li>MEM_EX::SIZEOF_CELL[/B] can be used aswell!<br /></div>
+</li></ul>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">4<br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Memory_access_plugin.html" title="Edit section: Enumerators">edit</a>]</div><a name="Enumerators"></a><h2> Enumerators </h2>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Memory_access_plugin.html" title="Edit section: MEM_E_sort_type">edit</a>]</div><a name="MEM_E_sort_type"></a><h3> MEM_E_sort_type </h3>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">
+<ul><li><i>MEM_E::res</i> can be used aswell!<br /></div>
+</li></ul>
+<br /><b>Items:</b><div style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">
+<ul><li><i>MEM_E_res_ok</i> or <i>MEM_E::res_ok</i>
+</li><li><i>MEM_E_res_no_alloc</i> or <i>MEM_E::res_no_alloc</i>
+</li><li><i>MEM_E_res_inv_ptr</i> or <i>MEM_E::res_inv_ptr</i>
+</li><li><i>MEM_E_res_neg_index</i> or <i>MEM_E::res_neg_index</i>
+</li><li><i>MEM_E_res_inv_index</i> or <i>MEM_E::res_inv_index</i>
+</li><li><i>MEM_E_res_null_arr</i> or <i>MEM_E::res_null_arr</i>
+</li><li><i>MEM_E_res_inv_size</i> or <i>MEM_E::res_inv_size</i>
+</li><li><i>MEM_E_res_inv_op</i> or <i>MEM_E::res_inv_op</i><br /></div>
+</li></ul>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Memory_access_plugin.html" title="Edit section: Setup">edit</a>]</div><a name="Setup"></a><h1> Setup </h1>
+<p>Put the plugin binary into your server's <i>plugins</i> folder and set in <i>server.cfg</i>
+</p><p><b>Windows:</b>
+<code>plugins memory</code>
+</p><p><b>LINUX:</b>
+<code>plugins memory.so</code>
+</p><p>After that you can use the memory include in your scripts:
+</p>
+<pre class="pawn"><span style="color: #808080; font-style: italic;">// On top of your script</span>
+<span style="color: #6b8e23;">#include &lt;memory&gt;</span>
+<span style="color: #808080; font-style: italic;">// your code</span></pre>
+<p>Compile and run.
+</p><p><br />
+Alternatively you can use the secure version (which is wastly slower):
+</p><p><b>Windows:</b>
+<code>plugins memory_secure</code>
+</p><p><b>LINUX:</b>
+<code>plugins memory_secure.so</code>
+</p><p>Of course you can use the memory include in your scripts:
+</p>
+<pre class="pawn"><span style="color: #808080; font-style: italic;">// On top of your script</span>
+<span style="color: #6b8e23;">#define SECURE_MEMORY_PLUGIN</span>
+<span style="color: #6b8e23;">#include &lt;memory&gt;</span>
+<span style="color: #808080; font-style: italic;">// your code</span></pre>
+<p>Compile and run.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Memory_access_plugin.html" title="Edit section: Downloads">edit</a>]</div><a name="Downloads"></a><h1> Downloads </h1>
+<ul><li><a href="http://www.solidfiles.com/d/235a593964/memory_win32.zip" class='external text' title="http://www.solidfiles.com/d/235a593964/memory_win32.zip" rel="nofollow">memory.dll, memory_secure.dll (Win32), memory.inc</a>
+</li><li><a href="http://www.solidfiles.com/d/5a567798ae/memory_ubuntu_14_01_lts.zip" class='external text' title="http://www.solidfiles.com/d/5a567798ae/memory_ubuntu_14_01_lts.zip" rel="nofollow">memory.so, memory_secure.so (Ubuntu 14.01 LTS), memory.inc</a>
+</li><li><a href="http://www.solidfiles.com/d/8c8173dba2/memory_debian_7_wheezy.zip" class='external text' title="http://www.solidfiles.com/d/8c8173dba2/memory_debian_7_wheezy.zip" rel="nofollow">memory.so, memory_secure.so (Debian 7 Wheezy), memory.inc</a>
+</li><li><a href="http://www.solidfiles.com/d/d958262269/memory_src.zip" class='external text' title="http://www.solidfiles.com/d/d958262269/memory_src.zip" rel="nofollow">(Source files)</a>
+</li></ul>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Memory_access_plugin.html" title="Edit section: Changelog">edit</a>]</div><a name="Changelog"></a><h1> Changelog </h1>
+<ul><li>v1.1.1 -&gt; Code optimization ( 19.10.2015 )
+</li><li>v1.1 -&gt; Added <i>MEM_copy</i>, <i>MEM_zero</i>, <i>MEM_E_res</i> (secure only), <i>MEM_is</i> (secure only), <i>MEM_len</i> (secure only), and <i>MEM_result</i> (secure only) ( 17.10.2013 )
+</li><li>v1.0.01 -&gt; Updated SDK and changed the includes ( 17.07.2013 )
+</li><li>v1.0 -&gt; Initial release ( 17.07.2013 )
+</li></ul>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Memory_access_plugin.html" title="Edit section: Credits">edit</a>]</div><a name="Credits"></a><h1> Credits </h1>
+<ul><li>BigETI
+</li></ul>
+<pre>Programming
+Creating <a href="http://forum.sa-mp.com/showthread.php?t=451381" class='external free' title="http://forum.sa-mp.com/showthread.php?t=451381" rel="nofollow">http://forum.sa-mp.com/showthread.php?t=451381</a>
+Compiling for Win32 and Ubuntu 14.01 LTS
+</pre>
+<ul><li>Bluescreen
+</li></ul>
+<pre>Compiling for Debian 7 (Wheezy)
+</pre>
+<ul><li>SA:MP Development Team
+</li></ul>
+<pre>SDK
+</pre>
+<ul><li>Y_Less
+</li></ul>
+<pre>For the speed comparison idea
+</pre>
+<p><br />
+Thanks for their previous support:
+</p>
+<ul><li>Mellnik
+</li><li>Mark™
+</li><li>Tenshi
+</li><li>leonardo1434
+</li><li>Josstaa
+</li></ul>
+<div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/Memory_access_plugin.html">http://localhost../wiki/Memory_access_plugin.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="Category_Plugin_Documentation.html" title="Category:Plugin Documentation">Plugin Documentation</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="Memory_access_plugin.html">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="Talk_Memory_access_plugin.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="Memory_access_plugin.html">Edit</a></li>
+				 <li id="ca-history"><a href="Memory_access_plugin.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 14,968 times.</li>
+				<li id="credits">This page was last modified 11:43, 27 March 2017 by SA-MP Wiki user <a href="User_OstGot.html" title="User:OstGot">OstGot</a>. Based on work by SA-MP Wiki user(s) <a href="User_BigETI.html" title="User:BigETI">BigETI</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 104.36 secs. -->
+</body></html>

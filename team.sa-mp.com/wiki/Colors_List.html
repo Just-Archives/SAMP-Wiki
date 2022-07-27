@@ -1,0 +1,309 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Colors List,Create3DTextLabel,Function:SetPlayerColor,GameTextStyle,GetPlayerColor,Hex colors,Original Car Colors,SendClientMessage,SetObjectMaterialText,SetPlayerColor,SetVehicleNumberPlate" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>Colors List - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Colors List</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<div class="thumb tright"><div style="width:182px;"><a href="Image_AdditiveColor.png.html" class="internal" title=""><img src="../upload/thumb/7/79/AdditiveColor.png/180px-AdditiveColor.png" alt="" width="180" height="180" longdesc="Image_AdditiveColor.png.html" /></a>  <div class="thumbcaption" ><div class="magnify" style="float:right"><a href="Image_AdditiveColor.png.html" class="internal" title="Enlarge"><img src="../skins/common/images/magnify-clip.png" width="15" height="11" alt="Enlarge" /></a></div></div></div></div>Colors are everywhere in SA-MP - vehicles, player names and blips, textdraws, gametext and since 0.3c in chat, 3D texts and dialogs (as color embedding)! Below you can find information about these different things.
+<p><br />
+</p>
+<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class='toclevel-1'><a href="#Chat_text_and_player_color"><span class="tocnumber">1</span> <span class="toctext">Chat text and player color</span></a>
+<ul>
+<li class='toclevel-2'><a href="#Alpha_values_.28transparency.29"><span class="tocnumber">1.1</span> <span class="toctext">Alpha values (transparency)</span></a></li>
+<li class='toclevel-2'><a href="#Doing_math"><span class="tocnumber">1.2</span> <span class="toctext">Doing math</span></a></li>
+<li class='toclevel-2'><a href="#Convert_string_to_value_with_pawn"><span class="tocnumber">1.3</span> <span class="toctext">Convert string to value with pawn</span></a></li>
+<li class='toclevel-2'><a href="#Color_embedding"><span class="tocnumber">1.4</span> <span class="toctext">Color embedding</span></a>
+<ul>
+<li class='toclevel-3'><a href="#Example"><span class="tocnumber">1.4.1</span> <span class="toctext">Example</span></a></li>
+<li class='toclevel-3'><a href="#Another_example"><span class="tocnumber">1.4.2</span> <span class="toctext">Another example</span></a></li>
+<li class='toclevel-3'><a href="#Using_GetPlayerColor"><span class="tocnumber">1.4.3</span> <span class="toctext">Using GetPlayerColor</span></a></li>
+</ul>
+</li>
+<li class='toclevel-2'><a href="#Color_Pickers"><span class="tocnumber">1.5</span> <span class="toctext">Color Pickers</span></a></li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#GameText"><span class="tocnumber">2</span> <span class="toctext">GameText</span></a>
+<ul>
+<li class='toclevel-2'><a href="#Example_2"><span class="tocnumber">2.1</span> <span class="toctext">Example</span></a></li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#Vehicle_Color_IDs"><span class="tocnumber">3</span> <span class="toctext">Vehicle Color IDs</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Colors_List.html" title="Edit section: Chat text and player color">edit</a>]</div><a name="Chat_text_and_player_color"></a><h1> Chat text and player color </h1>
+<p>Colors in SA-MP are generally represented in hexadecimal notation (though integers can be used also).
+A chattext or player color looks like this: 
+<span style="font-family:'Courier New'; font-size: 11pt; font-weight: bold;">0x<span style="color:red">RR</span><span style="color:green">GG</span><span style="color:blue">BB</span>AA</span>.
+</p><p><i>RR</i> is the red part of the color, <i>GG</i> the green and <i>BB</i> the blue. <i>AA</i> is the alpha value. If FF is used there, the color will display without transparency and if 00 is used, it will be invisible.
+</p><p>For the Hex code for these colors, go to the <a href="Hex_colors.html" title="Hex colors">Hex colors</a> page.
+</p><p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Colors_List.html" title="Edit section: Alpha values (transparency)">edit</a>]</div><a name="Alpha_values_.28transparency.29"></a><h2> Alpha values (transparency) </h2>
+<p>The following images display the effect of transparency values used with a white quare under the player marker and left to the saving floppy icon. Increments of 0x11 (decimal 17) are used for demonstration, but of course you can use any value.
+</p>
+<table class="gallery" cellspacing="0" cellpadding="0"><tr><td><div class="gallerybox"><div class="thumb" style="padding: 13px 0;"><a href="Image_Alpha-00.jpg.html" title="Image:Alpha-00.jpg"><img src="../upload/thumb/3/30/Alpha-00.jpg/120px-Alpha-00.jpg" width="120" height="120" alt="" /></a></div><div class="gallerytext">
+<p><span style="font-family:'Courier New'; font-size: 11pt;">0xRRGGBB<b>00</b></span>
+</p></div></div></td>
+<td><div class="gallerybox"><div class="thumb" style="padding: 13px 0;"><a href="Image_Alpha-11.jpg.html" title="Image:Alpha-11.jpg"><img src="../upload/thumb/a/a5/Alpha-11.jpg/120px-Alpha-11.jpg" width="120" height="120" alt="" /></a></div><div class="gallerytext">
+<p><span style="font-family:'Courier New'; font-size: 11pt;">0xRRGGBB<b>11</b></span>
+</p></div></div></td>
+<td><div class="gallerybox"><div class="thumb" style="padding: 13px 0;"><a href="Image_Alpha-22.jpg.html" title="Image:Alpha-22.jpg"><img src="../upload/thumb/d/de/Alpha-22.jpg/120px-Alpha-22.jpg" width="120" height="120" alt="" /></a></div><div class="gallerytext">
+<p><span style="font-family:'Courier New'; font-size: 11pt;">0xRRGGBB<b>22</b></span>
+</p></div></div></td>
+<td><div class="gallerybox"><div class="thumb" style="padding: 13px 0;"><a href="Image_Alpha-33.jpg.html" title="Image:Alpha-33.jpg"><img src="../upload/thumb/6/60/Alpha-33.jpg/120px-Alpha-33.jpg" width="120" height="120" alt="" /></a></div><div class="gallerytext">
+<p><span style="font-family:'Courier New'; font-size: 11pt;">0xRRGGBB<b>33</b></span>
+</p></div></div></td>
+</tr><tr><td><div class="gallerybox"><div class="thumb" style="padding: 13px 0;"><a href="Image_Alpha-44.jpg.html" title="Image:Alpha-44.jpg"><img src="../upload/thumb/2/24/Alpha-44.jpg/120px-Alpha-44.jpg" width="120" height="120" alt="" /></a></div><div class="gallerytext">
+<p><span style="font-family:'Courier New'; font-size: 11pt;">0xRRGGBB<b>44</b></span>
+</p></div></div></td>
+<td><div class="gallerybox"><div class="thumb" style="padding: 13px 0;"><a href="Image_Alpha-55.jpg.html" title="Image:Alpha-55.jpg"><img src="../upload/thumb/3/33/Alpha-55.jpg/120px-Alpha-55.jpg" width="120" height="120" alt="" /></a></div><div class="gallerytext">
+<p><span style="font-family:'Courier New'; font-size: 11pt;">0xRRGGBB<b>55</b></span>
+</p></div></div></td>
+<td><div class="gallerybox"><div class="thumb" style="padding: 13px 0;"><a href="Image_Alpha-66.jpg.html" title="Image:Alpha-66.jpg"><img src="../upload/thumb/a/a6/Alpha-66.jpg/120px-Alpha-66.jpg" width="120" height="120" alt="" /></a></div><div class="gallerytext">
+<p><span style="font-family:'Courier New'; font-size: 11pt;">0xRRGGBB<b>66</b></span>
+</p></div></div></td>
+<td><div class="gallerybox"><div class="thumb" style="padding: 13px 0;"><a href="Image_Alpha-77.jpg.html" title="Image:Alpha-77.jpg"><img src="../upload/thumb/5/56/Alpha-77.jpg/120px-Alpha-77.jpg" width="120" height="120" alt="" /></a></div><div class="gallerytext">
+<p><span style="font-family:'Courier New'; font-size: 11pt;">0xRRGGBB<b>77</b></span>
+</p></div></div></td>
+</tr><tr><td><div class="gallerybox"><div class="thumb" style="padding: 13px 0;"><a href="Image_Alpha-88.jpg.html" title="Image:Alpha-88.jpg"><img src="../upload/thumb/1/17/Alpha-88.jpg/120px-Alpha-88.jpg" width="120" height="120" alt="" /></a></div><div class="gallerytext">
+<p><span style="font-family:'Courier New'; font-size: 11pt;">0xRRGGBB<b>88</b></span>
+</p></div></div></td>
+<td><div class="gallerybox"><div class="thumb" style="padding: 13px 0;"><a href="Image_Alpha-99.jpg.html" title="Image:Alpha-99.jpg"><img src="../upload/thumb/4/45/Alpha-99.jpg/120px-Alpha-99.jpg" width="120" height="120" alt="" /></a></div><div class="gallerytext">
+<p><span style="font-family:'Courier New'; font-size: 11pt;">0xRRGGBB<b>99</b></span>
+</p></div></div></td>
+<td><div class="gallerybox"><div class="thumb" style="padding: 13px 0;"><a href="Image_Alpha-AA.jpg.html" title="Image:Alpha-AA.jpg"><img src="../upload/thumb/6/64/Alpha-AA.jpg/120px-Alpha-AA.jpg" width="120" height="120" alt="" /></a></div><div class="gallerytext">
+<p><span style="font-family:'Courier New'; font-size: 11pt;">0xRRGGBB<b>AA</b></span>
+</p></div></div></td>
+<td><div class="gallerybox"><div class="thumb" style="padding: 13px 0;"><a href="Image_Alpha-BB.jpg.html" title="Image:Alpha-BB.jpg"><img src="../upload/thumb/a/a1/Alpha-BB.jpg/120px-Alpha-BB.jpg" width="120" height="120" alt="" /></a></div><div class="gallerytext">
+<p><span style="font-family:'Courier New'; font-size: 11pt;">0xRRGGBB<b>BB</b></span>
+</p></div></div></td>
+</tr><tr><td><div class="gallerybox"><div class="thumb" style="padding: 13px 0;"><a href="Image_Alpha-CC.jpg.html" title="Image:Alpha-CC.jpg"><img src="../upload/thumb/d/d1/Alpha-CC.jpg/120px-Alpha-CC.jpg" width="120" height="120" alt="" /></a></div><div class="gallerytext">
+<p><span style="font-family:'Courier New'; font-size: 11pt;">0xRRGGBB<b>CC</b></span>
+</p></div></div></td>
+<td><div class="gallerybox"><div class="thumb" style="padding: 13px 0;"><a href="Image_Alpha-DD.jpg.html" title="Image:Alpha-DD.jpg"><img src="../upload/thumb/3/3b/Alpha-DD.jpg/120px-Alpha-DD.jpg" width="120" height="120" alt="" /></a></div><div class="gallerytext">
+<p><span style="font-family:'Courier New'; font-size: 11pt;">0xRRGGBB<b>DD</b></span>
+</p></div></div></td>
+<td><div class="gallerybox"><div class="thumb" style="padding: 13px 0;"><a href="Image_Alpha-EE.jpg.html" title="Image:Alpha-EE.jpg"><img src="../upload/thumb/8/82/Alpha-EE.jpg/120px-Alpha-EE.jpg" width="120" height="120" alt="" /></a></div><div class="gallerytext">
+<p><span style="font-family:'Courier New'; font-size: 11pt;">0xRRGGBB<b>EE</b></span>
+</p></div></div></td>
+<td><div class="gallerybox"><div class="thumb" style="padding: 13px 0;"><a href="Image_Alpha-FF.jpg.html" title="Image:Alpha-FF.jpg"><img src="../upload/thumb/8/89/Alpha-FF.jpg/120px-Alpha-FF.jpg" width="120" height="120" alt="" /></a></div><div class="gallerytext">
+<p><span style="font-family:'Courier New'; font-size: 11pt;">0xRRGGBB<b>FF</b></span>
+</p></div></div></td>
+</tr></table>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Colors_List.html" title="Edit section: Doing math">edit</a>]</div><a name="Doing_math"></a><h2> Doing math </h2>
+<p>Since colors are just numbers it is possible to calculate with them, although it may not always make sense. For example, it is possible to adjust the player's radar marker visibility (see above) while keeping their current color the same, regardless of what is is.
+</p>
+<pre class="pawn">SetPlayerMarkerVisibility<span style="color: #66cc66;">&#40;</span>playerid, alpha = 0xFF<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <span style="color: #228b22; font-weight: bold;">new</span> oldcolor, newcolor;
+&nbsp;
+    alpha = <a href="http://wiki.sa-mp.com/wiki/clamp"><span style="color: #006400;">clamp</span></a><span style="color: #66cc66;">&#40;</span>alpha, 0x00, 0xFF<span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// if an out-of-range value is supplied we'll fix it here first</span>
+    oldcolor = <a href="http://wiki.sa-mp.com/wiki/GetPlayerColor"><span style="color: #006400;">GetPlayerColor</span></a><span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// get their color - Note: SetPlayerColor must have been used beforehand</span>
+&nbsp;
+    newcolor = <span style="color: #66cc66;">&#40;</span>oldcolor &amp; ~0xFF<span style="color: #66cc66;">&#41;</span> | alpha; <span style="color: #808080; font-style: italic;">// first we strip of all alpha data (&amp; ~0xFF) and then we replace it with our desired value (| alpha)</span>
+    <span style="color: orange; font-weight: bold;">return</span> <a href="http://wiki.sa-mp.com/wiki/SetPlayerColor"><span style="color: #006400;">SetPlayerColor</span></a><span style="color: #66cc66;">&#40;</span>playerid, newcolor<span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// returns 1 if it succeeded, 0 otherwise</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Colors_List.html" title="Edit section: Convert string to value with pawn">edit</a>]</div><a name="Convert_string_to_value_with_pawn"></a><h2> Convert string to value with pawn </h2>
+<p>Since the colors are just numbers you have to convert them sometimes from an input string "RRGGBBAA" to its number. This can be done using <a href="Sscanf.html" title="Sscanf">sscanf</a> or the following function:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">stock</span> HexToInt<span style="color: #66cc66;">&#40;</span>string<span style="color: #66cc66;">&#91;</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>!string<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span> <span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">0</span>;
+    <span style="color: #228b22; font-weight: bold;">new</span> cur = <span style="color: #4169e1;">1</span>, res = <span style="color: #4169e1;">0</span>;
+    <span style="color: #4169e1;">for</span><span style="color: #66cc66;">&#40;</span><span style="color: #228b22; font-weight: bold;">new</span> i = <a href="http://wiki.sa-mp.com/wiki/strlen"><span style="color: #006400;">strlen</span></a><span style="color: #66cc66;">&#40;</span>string<span style="color: #66cc66;">&#41;</span>; i &gt; <span style="color: #4169e1;">0</span>; i--<span style="color: #66cc66;">&#41;</span>
+    <span style="color: #66cc66;">&#123;</span>
+        res += cur * <span style="color: #66cc66;">&#40;</span>string<span style="color: #66cc66;">&#91;</span>i - <span style="color: #4169e1;">1</span><span style="color: #66cc66;">&#93;</span> - <span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#40;</span>string<span style="color: #66cc66;">&#91;</span>i - <span style="color: #4169e1;">1</span><span style="color: #66cc66;">&#93;</span> &lt; <span style="color: #4169e1;">58</span><span style="color: #66cc66;">&#41;</span>&nbsp;? <span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">48</span><span style="color: #66cc66;">&#41;</span>&nbsp;: <span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">55</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>;
+        cur = cur * <span style="color: #4169e1;">16</span>;
+    <span style="color: #66cc66;">&#125;</span>
+    <span style="color: orange; font-weight: bold;">return</span> res;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>Use HexToInt("RRGGBBAA") and you'll get a usable number as result for <a href="Function_SetPlayerColor.html" title="Function:SetPlayerColor">SetPlayerColor</a>.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Colors_List.html" title="Edit section: Color embedding">edit</a>]</div><a name="Color_embedding"></a><h2> Color embedding </h2>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background: #E2FFE5; border-left: 10px solid #81C687;">
+
+<tr>
+<td><a href="Image_Add.png.html" class="image" title="Colors List was added in SA-MP 0.3c"><img src="../upload/a/a7/Add.png" alt="Colors List was added in SA-MP 0.3c" width="16" height="16" longdesc="Image_Add.png.html" /></a>
+</td><td align="left" style="padding-left:7px; padding-right:7px;"><span style="font-size:14px;">This feature was added in <strong>SA-MP 0.3c </strong> and will not work in earlier versions!</span>
+</td></tr></table>
+</div>
+<p><br />
+It is possible to use colors within text in <a href="SendClientMessage.html" title="SendClientMessage">client messages</a>, <a href="ShowPlayerDialog.html" title="ShowPlayerDialog">dialogs</a>, <a href="Create3DTextLabel.html" title="Create3DTextLabel">3D text labels</a>, <a href="SetObjectMaterialText.html" title="SetObjectMaterialText">object material texts</a> and <a href="SetVehicleNumberPlate.html" title="SetVehicleNumberPlate">vehicle numberplates</a>.
+</p><p>It is very similar to <a href="GameTextStyle.html" title="GameTextStyle">gametext colors</a>, but allows any color to be used.
+</p><p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+<p><strong>Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">This type of color embedding does not work in textdraws. See <a href="GameTextStyle.html" title="GameTextStyle">GameTextStyle</a>.</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Colors_List.html" title="Edit section: Example">edit</a>]</div><a name="Example"></a><h3> Example </h3>
+<pre>{FFFFFF}Hello this is {00FF00}green {FFFFFF}and this is {FF0000}red
+</pre>
+<div style="margin-left:10px;background-color:#000;padding:20px;color:#FFF;font-weight:bold;font-variant:small-caps;font-size:14pt;">Hello this is <span style="color:#00FF00">green</span> and this is <span style="color:#FF0000">red</span></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Colors_List.html" title="Edit section: Another example">edit</a>]</div><a name="Another_example"></a><h3> Another example </h3>
+<p><a href="Image_Cembed.png.html" class="image" title="Image:cembed.png"><img src="../upload/3/3e/Cembed.png" alt="Image:cembed.png" width="226" height="20" longdesc="Image_Cembed.png.html" /></a><br />
+The code for the above chat line looks like this:
+</p>
+<pre class="pawn"><a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, COLOR_WHITE, <span style="color: #b22222;">&quot;Welcome to {00FF00}M{FFFFFF}a{FF0000}r{FFFFFF}c{00FF00}o{FFFFFF}'{FF0000}s {FFFFFF}B{00FF00}i{FFFFFF}s{FF0000}t{FFFFFF}r{00FF00}o{FFFFFF}!&quot;</span><span style="color: #66cc66;">&#41;</span>;</pre>
+<p><br />
+You can define colors to use like so:
+</p>
+<pre class="pawn"><span style="color: #6b8e23;">#define COLOR_RED_EMBED &quot;{FF0000}&quot;</span>
+&nbsp;
+<a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, <span style="color: #4169e1;">-1</span>, <span style="color: #b22222;">&quot;This is white and &quot;</span>COLOR_RED_EMBED<span style="color: #b22222;">&quot;this is red.&quot;</span><span style="color: #66cc66;">&#41;</span>;</pre>
+<p>Or
+</p>
+<pre class="pawn"><span style="color: #6b8e23;">#define COLOR_RED_EMBED &quot;FF0000&quot;</span>
+&nbsp;
+<a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, <span style="color: #4169e1;">-1</span>, <span style="color: #b22222;">&quot;This is white and {&quot;</span>COLOR_RED_EMBED<span style="color: #b22222;">&quot;}this is red.&quot;</span><span style="color: #66cc66;">&#41;</span>;</pre>
+<p>The second example would be better as is it clearer that embedding is used.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Colors_List.html" title="Edit section: Using GetPlayerColor">edit</a>]</div><a name="Using_GetPlayerColor"></a><h3> Using GetPlayerColor </h3>
+<p>To use a player's color as an embedded color, you must first remove the alpha value. To do this, perform a logical right shift.
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> msg<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">128</span><span style="color: #66cc66;">&#93;</span>;
+<a href="http://wiki.sa-mp.com/wiki/format"><span style="color: #006400;">format</span></a><span style="color: #66cc66;">&#40;</span>msg, <span style="color: orange; font-weight: bold;">sizeof</span><span style="color: #66cc66;">&#40;</span>msg<span style="color: #66cc66;">&#41;</span>, <span style="color: #b22222;">&quot;{ffffff}This is white and {%06x}this is the player's color!&quot;</span>, <a href="http://wiki.sa-mp.com/wiki/GetPlayerColor"><span style="color: #006400;">GetPlayerColor</span></a><span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span> &gt;&gt;&gt; <span style="color: #4169e1;">8</span><span style="color: #66cc66;">&#41;</span>;
+<a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, 0xffffffff, msg<span style="color: #66cc66;">&#41;</span>;</pre>
+<p>The %x is the placeholder for hexadecimal values, the 6 ensures that the output string will always be six characters long and the 0 will pad it with zeros if it's not. Note that <a href="GetPlayerColor.html" title="GetPlayerColor">GetPlayerColor</a> only works properly if <a href="SetPlayerColor.html" title="SetPlayerColor">SetPlayerColor</a> has been used beforehand.
+</p><p>The colors used in color embedding are not like normal hex colors in Pawn. There is no '0x' prefix and no alpha value (last 2 digits).
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Colors_List.html" title="Edit section: Color Pickers">edit</a>]</div><a name="Color_Pickers"></a><h2> Color Pickers </h2>
+<ul><li> <a href="http://www.gtavision.com/index.php?section=downloads&amp;site=download&amp;id=1974" class='external text' title="http://www.gtavision.com/index.php?section=downloads&amp;site=download&amp;id=1974" rel="nofollow">SA-MP Colorpicker v1.1.0</a>
+</li><li> <a href="http://www.december.com/html/spec/color.html" class='external text' title="http://www.december.com/html/spec/color.html" rel="nofollow">December.com</a>
+</li><li> <a href="http://psyclops.com/tools/rgb" class='external text' title="http://psyclops.com/tools/rgb" rel="nofollow">RGB Picker</a>
+</li><li> <a href="https://kuler.adobe.com/create/color-wheel/" class='external text' title="https://kuler.adobe.com/create/color-wheel/" rel="nofollow">Adobe Kuler</a>
+</li><li> <a href="http://colorschemedesigner.com/" class='external text' title="http://colorschemedesigner.com/" rel="nofollow">Color Scheme Designer</a>
+</li></ul>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Colors_List.html" title="Edit section: GameText">edit</a>]</div><a name="GameText"></a><h1> GameText </h1>
+<p>For GameText colors you can use special tags to set the following text to a specific color.
+</p>
+<pre>~r~    red
+~g~    green
+~b~    blue
+~w~    white
+~y~    yellow
+~p~    purple
+~l~    black
+~h~    lighter color
+</pre>
+<p>Game text colour tags can be used to form different colours easily. The below colours are not exactly the same colour as above tags.
+</p>
+<pre>~y~                yellow
+~r~~h~             light red
+~r~~h~~h~          red pink
+~r~~h~~h~~h~       dark pink
+~r~~h~~h~~h~~h~    light red pink
+~r~~h~~h~~h~~h~~h~ pink
+~g~~h~             light green
+~g~~h~~h~          more light green
+~g~~h~~h~~h~       sea green
+~g~~h~~h~~h~~h~    offwhite
+~b~~h~             blue
+~b~~h~~h~          purplish blue
+~b~~h~~h~~h~       light blue
+~y~~h~~h~          offwhite
+~p~~h~             medium pink
+
+
+</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Colors_List.html" title="Edit section: Example">edit</a>]</div><a name="Example_2"></a><h2> Example </h2>
+<pre>~w~Hello this is ~b~blue ~w~and this is ~r~red
+</pre>
+<p><a href="Image_Blueandred.png.html" class="image" title="Image:Blueandred.png"><img src="../upload/8/81/Blueandred.png" alt="Image:Blueandred.png" width="510" height="66" longdesc="Image_Blueandred.png.html" /></a>
+</p><p><br />
+Now these colors are pretty dark. You can make them brighter by using <b>~h~</b> after the color code:
+</p>
+<pre>~w~Hello this is ~b~~h~blue ~w~and this is ~r~~h~red
+</pre>
+<p><a href="Image_Blueandred2.png.html" class="image" title="Image:Blueandred2.png"><img src="../upload/c/c9/Blueandred2.png" alt="Image:Blueandred2.png" width="513" height="70" longdesc="Image_Blueandred2.png.html" /></a>
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Colors_List.html" title="Edit section: Vehicle Color IDs">edit</a>]</div><a name="Vehicle_Color_IDs"></a><h1> Vehicle Color IDs </h1>
+<p>There is a full list of <a href="Vehicle_Color_IDs.html" title="Vehicle Color IDs">vehicle color IDs</a>.
+You can find the colors used in single player for each car on the <a href="Original_Car_Colors.html" title="Original Car Colors">Original Car Colors</a> page.
+</p><div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/Colors_List.html">http://localhost../wiki/Colors_List.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="Category_Added_in_0.3c.html" title="Category:Added in 0.3c">Added in 0.3c</a></span> | <span dir='ltr'><a href="Category_Scripting_Documentation.html" title="Category:Scripting Documentation">Scripting Documentation</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="Colors_List.html">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="Talk_Colors_List.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="Colors_List.html">Edit</a></li>
+				 <li id="ca-history"><a href="Colors_List.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 476,431 times.</li>
+				<li id="credits">This page was last modified 09:38, 17 February 2019 by SA-MP Wiki user <a href="User_OstGot.html" title="User:OstGot">OstGot</a>. Based on work by <a href="User_Kar.html" title="User:Kar">Kar</a> and SA-MP Wiki user(s) <a href="User_Ismokezu.html" class="new" title="User:Ismokezu">Ismokezu</a>, <a href="User_Sawalha.html" class="new" title="User:Sawalha">Sawalha</a>, <a href="User_Vince.html" title="User:Vince">Vince</a>, <a href="User_Threshold.html" title="User:Threshold">Threshold</a>, <a href="User_IZN.html" title="User:IZN">IZN</a>, <a href="User_Smithy.html" title="User:Smithy">Smithy</a>, <a href="User_Meta.html" title="User:Meta">Meta</a>, <a href="User_Linuxthefish.html" title="User:Linuxthefish">Linuxthefish</a>, <a href="User_Drebin.html" title="User:Drebin">Drebin</a>, <a href="User_Vince.html" title="User:Vince">Vince</a>, <a href="User_Garsino.html" title="User:Garsino">Garsino</a>, <a href="User_Badgerboy.html" title="User:Badgerboy">Badgerboy</a> and <a href="User_JaloNik.html" title="User:JaloNik">JaloNik</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 1.11 secs. -->
+</body></html>

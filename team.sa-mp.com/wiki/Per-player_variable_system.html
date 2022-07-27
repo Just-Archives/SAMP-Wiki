@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Per-player variable system,DeletePVar,GetPVarFloat,GetPVarInt,GetPVarNameAtIndex,GetPVarString,GetPVarType,GetPVarsUpperIndex,Server variable system,SetPVarFloat,SetPVarInt" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>Per-player variable system - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Per-player variable system</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<p>The <b>per-player variable system</b> (put short, <b>PVar</b>) is a new way of creating player variables in an efficient dynamically created method globally, meaning they can be used in server's gamemode and filterscripts at the same time.<br />
+They are similar to <a href="Server_variable_system.html" title="Server variable system">SVars</a>, but are on a per-player basis.<br />
+See the last 2 posts in <a href="http://forum.sa-mp.com/showthread.php?t=161454&amp;page=3#post1163004" class='external text' title="http://forum.sa-mp.com/showthread.php?t=161454&amp;page=3#post1163004" rel="nofollow">this thread</a> to read about the difference between pawn properties and PVars.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Per-player_variable_system.html" title="Edit section: Advantages">edit</a>]</div><a name="Advantages"></a><h2>Advantages</h2>
+<p>The new system introduced in SA-MP 0.3a R5 server updated has several major advantages over creating an array sized MAX_PLAYERS.
+</p>
+<ul><li> PVars can be shared/accessed across gamemode scripts and filterscripts, making it easier to modularize your code.
+</li><li> PVars are automatically deleted when a player leaves the server (after OnPlayerDisconnect), meaning you don't have to manually reset variables for the next player who joins.
+</li><li> No real need for complex enums/player info structures.
+</li><li> Saves memory by not allocating pawn array elements for playerids which will probably never be used.
+</li><li> You can easily enumerate and print/store the PVar list. This makes both debugging and player info storage easier.
+</li><li> Even if a PVar hasn't been created, it still will return a default value of 0.
+</li><li> PVars can hold very large strings using dynamically allocated memory.
+</li><li> You can Set, Get, Create PVars ingame.
+</li></ul>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Per-player_variable_system.html" title="Edit section: Drawbacks">edit</a>]</div><a name="Drawbacks"></a><h2>Drawbacks</h2>
+<ul><li> PVars are several times slower than regular variables. It is generally more favorable to trade in memory for speed, rather than the other way round.
+</li></ul>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Per-player_variable_system.html" title="Edit section: Functions">edit</a>]</div><a name="Functions"></a><h2>Functions</h2>
+<p>The functions for setting and retrieving the player variables are:
+</p>
+<ul><li> <a href="SetPVarInt.html" title="SetPVarInt">SetPVarInt</a>: Set an integer for a player variable.
+</li></ul>
+<ul><li> <a href="GetPVarInt.html" title="GetPVarInt">GetPVarInt</a>: Get the previously set integer from a player variable.
+</li></ul>
+<ul><li> <a href="SetPVarString.html" title="SetPVarString">SetPVarString</a>: Set a string for a player variable.
+</li></ul>
+<ul><li> <a href="GetPVarString.html" title="GetPVarString">GetPVarString</a>: Get the previously set string from a player variable.
+</li></ul>
+<ul><li> <a href="SetPVarFloat.html" title="SetPVarFloat">SetPVarFloat</a>: Set a float for a player variable.
+</li></ul>
+<ul><li> <a href="GetPVarFloat.html" title="GetPVarFloat">GetPVarFloat</a>: Get the previously set float from a player variable.
+</li></ul>
+<ul><li> <a href="DeletePVar.html" title="DeletePVar">DeletePVar</a>: Delete a player variable.
+</li></ul>
+<p><br />
+Functions and defines that allow you to enumerate and do other sorts of magic with player variables are:
+</p>
+<ul><li> <a href="GetPVarsUpperIndex.html" title="GetPVarsUpperIndex">GetPVarsUpperIndex</a>: Each pVar has an index or 'id'. This returns the highest one.
+</li></ul>
+<ul><li> <a href="GetPVarNameAtIndex.html" title="GetPVarNameAtIndex">GetPVarNameAtIndex</a>: Get the player variable's name from its index.
+</li></ul>
+<ul><li> <a href="GetPVarType.html" title="GetPVarType">GetPVarType</a>: Get the type of the player variable.
+</li></ul>
+<p><br />
+</p>
+<pre class="pawn"><span style="color: #6b8e23;">#define PLAYER_VARTYPE_NONE			0</span>
+<span style="color: #6b8e23;">#define PLAYER_VARTYPE_INT			1</span>
+<span style="color: #6b8e23;">#define PLAYER_VARTYPE_STRING			2</span>
+<span style="color: #6b8e23;">#define PLAYER_VARTYPE_FLOAT			3</span></pre>
+<div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/Per-player_variable_system.html">http://localhost../wiki/Per-player_variable_system.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="Category_Server_Documentation.html" title="Category:Server Documentation">Server Documentation</a></span> | <span dir='ltr'><a href="Category_Tutorials.html" title="Category:Tutorials">Tutorials</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="Per-player_variable_system.html">Article</a></li>
+				 <li id="ca-talk"><a href="Talk_Per-player_variable_system.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="Per-player_variable_system.html">Edit</a></li>
+				 <li id="ca-history"><a href="Per-player_variable_system.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 28,146 times.</li>
+				<li id="credits">This page was last modified 13:28, 1 August 2017 by SA-MP Wiki user <a href="User_OstGot.html" title="User:OstGot">OstGot</a>. Based on work by SA-MP Wiki user(s) <a href="User_Freaksken.html" title="User:Freaksken">Freaksken</a>, <a href="User_Tamer.html" class="new" title="User:Tamer">Tamer</a>, <a href="User_Vince.html" title="User:Vince">Vince</a>, <a href="User_Calgon.html" title="User:Calgon">Calgon</a> and <a href="User_Lolwut.html" class="new" title="User:Lolwut">Lolwut</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 54.62 secs. -->
+</body></html>

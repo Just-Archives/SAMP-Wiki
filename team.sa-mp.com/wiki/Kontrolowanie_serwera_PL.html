@@ -1,0 +1,272 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Kontrolowanie serwera PL,Ban,BanEx,IsPlayerAdmin,OnRconLoginAttempt,SendRconCommand,Server.cfg" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>Kontrolowanie serwera PL - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Kontrolowanie serwera PL</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class='toclevel-1'><a href="#Zmienianie_gamemoda"><span class="tocnumber">1</span> <span class="toctext">Zmienianie gamemoda</span></a>
+<ul>
+<li class='toclevel-2'><a href="#Uruchamianie_w.C5.82asnego_gamemoda.2F.C5.9Bci.C4.85gni.C4.99tego_z_internetu"><span class="tocnumber">1.1</span> <span class="toctext">Uruchamianie własnego gamemoda/ściągniętego z internetu</span></a></li>
+<li class='toclevel-2'><a href="#U.C5.BCywanie_filterskrypt.C3.B3w"><span class="tocnumber">1.2</span> <span class="toctext">Używanie filterskryptów</span></a></li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#Zak.C5.82adanie_has.C5.82a_na_serwer"><span class="tocnumber">2</span> <span class="toctext">Zakładanie hasła na serwer</span></a></li>
+<li class='toclevel-1'><a href="#U.C5.BCywanie_RCONa"><span class="tocnumber">3</span> <span class="toctext">Używanie RCONa</span></a>
+<ul>
+<li class='toclevel-2'><a href="#Zalogowywanie_si.C4.99"><span class="tocnumber">3.1</span> <span class="toctext">Zalogowywanie się</span></a></li>
+<li class='toclevel-2'><a href="#Bany"><span class="tocnumber">3.2</span> <span class="toctext">Bany</span></a>
+<ul>
+<li class='toclevel-3'><a href="#Usuwanie_ban.C3.B3w"><span class="tocnumber">3.2.1</span> <span class="toctext">Usuwanie banów</span></a>
+<ul>
+<li class='toclevel-4'><a href="#samp.ban"><span class="tocnumber">3.2.1.1</span> <span class="toctext">samp.ban</span></a></li>
+<li class='toclevel-4'><a href="#unbanip"><span class="tocnumber">3.2.1.2</span> <span class="toctext">unbanip</span></a></li>
+<li class='toclevel-4'><a href="#reloadbans"><span class="tocnumber">3.2.1.3</span> <span class="toctext">reloadbans</span></a></li>
+</ul>
+</li>
+<li class='toclevel-3'><a href="#Dodawanie_ban.C3.B3w"><span class="tocnumber">3.2.2</span> <span class="toctext">Dodawanie banów</span></a>
+<ul>
+<li class='toclevel-4'><a href="#samp.ban_2"><span class="tocnumber">3.2.2.1</span> <span class="toctext">samp.ban</span></a></li>
+<li class='toclevel-4'><a href="#Funkcja_Ban.28.29"><span class="tocnumber">3.2.2.2</span> <span class="toctext">Funkcja Ban()</span></a></li>
+<li class='toclevel-4'><a href="#Komenda_RCON_ban"><span class="tocnumber">3.2.2.3</span> <span class="toctext">Komenda RCON ban</span></a></li>
+<li class='toclevel-4'><a href="#banip"><span class="tocnumber">3.2.2.4</span> <span class="toctext">banip</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class='toclevel-2'><a href="#Komendy_RCON"><span class="tocnumber">3.3</span> <span class="toctext">Komendy RCON</span></a></li>
+<li class='toclevel-2'><a href="#Related_Callbacks_and_Functions"><span class="tocnumber">3.4</span> <span class="toctext">Related Callbacks and Functions</span></a></li>
+</ul>
+</li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Kontrolowanie_serwera_PL.html" title="Edit section: Zmienianie gamemoda">edit</a>]</div><a name="Zmienianie_gamemoda"></a><h2>Zmienianie gamemoda</h2>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Kontrolowanie_serwera_PL.html" title="Edit section: Uruchamianie własnego gamemoda/ściągniętego z internetu">edit</a>]</div><a name="Uruchamianie_w.C5.82asnego_gamemoda.2F.C5.9Bci.C4.85gni.C4.99tego_z_internetu"></a><h3>Uruchamianie własnego gamemoda/ściągniętego z internetu</h3>
+<ul><li> Otwórz katalog w którym zainstalowano serwer (np.: /Rockstar Games/GTA San Andreas/serwer)
+</li><li> Weź pobrany/skompilowany plik .amx i umieść go w folderze gamemodes, w którym zainstalowano serwer
+</li><li> Otwórz plik server.cfg i znajdź linijkę gamemode0
+</li><li> Dodaj nazwę pliku .amx i wpisz 1 po nazwie
+</li></ul>
+<p>Przykład:
+</p><p>gamemode0 lvdm 1
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Kontrolowanie_serwera_PL.html" title="Edit section: Używanie filterskryptów">edit</a>]</div><a name="U.C5.BCywanie_filterskrypt.C3.B3w"></a><h3>Używanie filterskryptów</h3>
+<p>Tak samo jak działa niestandardowy tryb gry, z wyjątkiem:
+</p>
+<ul><li> Umieść plik .amx w folderze o nazwie /filterscripts
+</li><li> Dodaj do server.cfg    <i>filterscripts <b>scriptname</b></i>
+</li></ul>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Kontrolowanie_serwera_PL.html" title="Edit section: Zakładanie hasła na serwer">edit</a>]</div><a name="Zak.C5.82adanie_has.C5.82a_na_serwer"></a><h2>Zakładanie hasła na serwer</h2>
+<ul><li> Jeśli chcesz dodać hasło żeby tylko twoi znajomi mogli się przyłączać, dodaj do server.cfg:
+</li></ul>
+<pre class="bash">password cokolwiek</pre>
+<ul><li> W ten sposób serwer będzie chroniony hasłem ustawionym jako "cokolwiek" - zmień na co chcesz&nbsp;:)
+</li><li> Możesz również zmienić hasło podczas gry za pomocą <i>/rcon password nowehasło</i>
+</li><li> Możesz usunąć hasło za pomocą <i>/rcon password 0</i>, lub poprzez ponowne uruchomienie serwera.
+</li></ul>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Kontrolowanie_serwera_PL.html" title="Edit section: Używanie RCONa">edit</a>]</div><a name="U.C5.BCywanie_RCONa"></a><h2>Używanie RCONa</h2>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Kontrolowanie_serwera_PL.html" title="Edit section: Zalogowywanie się">edit</a>]</div><a name="Zalogowywanie_si.C4.99"></a><h3>Zalogowywanie się</h3>
+<p>Możesz zalogować się w grze, wpisując '<b>/rcon login hasło'</b>.
+</p><p>Hasło jest takie samo jak ustawiono w <a href="Server.cfg.html" title="Server.cfg">server.cfg</a>
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Kontrolowanie_serwera_PL.html" title="Edit section: Bany">edit</a>]</div><a name="Bany"></a><h3>Bany</h3>
+<p>Ban jest czymś, co zapobiega IP z łączeniem się ze serwerem.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Kontrolowanie_serwera_PL.html" title="Edit section: Usuwanie banów">edit</a>]</div><a name="Usuwanie_ban.C3.B3w"></a><h4>Usuwanie banów</h4>
+<p>Gdy ktoś jest zbanowany, są 2 sposoby na odbanowanie.
+</p>
+<ul><li> Usunąć bana z samp.ban
+</li><li> Komenda RCON unbanip
+</li></ul>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Kontrolowanie_serwera_PL.html" title="Edit section: samp.ban">edit</a>]</div><a name="samp.ban"></a><h5>samp.ban</h5>
+<p>samp.ban można znaleźć w katalogu serwera, zawiera linie z następującymi informacjami o każdym banie:
+</p>
+<ul><li> IP
+</li><li> Data
+</li><li> Czas
+</li><li> Nick (Nick osoby lub powód (patrz <a href="BanEx.html" title="BanEx">BanEx</a>))
+</li><li> Typ banu (INGAME, IP BAN itp.)
+</li></ul>
+<p>Przykłady:
+</p>
+<pre>127.8.57.32 [13/06/09 | 69:69:69] NONE - IP BAN
+13.37.13.37 [28/05/09 | 13:37:00] Kyeman - INGAME BAN
+</pre>
+<p>Aby odbanować ich po prostu usuń linijkę, a następnie wykonaj polecenie rcon reloadbans, aby serwer ponownie wczytał samp.ban.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Kontrolowanie_serwera_PL.html" title="Edit section: unbanip">edit</a>]</div><a name="unbanip"></a><h5>unbanip</h5>
+<p>Komenda RCON unbanip może być wykorzystana w grze lub z konsoli serwera (czarne okienko). Aby odbanować IP, wystarczy wpisać "/rcon unbanip IP" w grze lub "unbanip IP" w konsoli.
+</p><p>Przykład:
+</p>
+<pre>13.37.13.37 [28/05/09 | 13:37:00] Kyeman - INGAME BAN
+/rcon unbanip 13.37.13.37 &lt;&lt; w grze
+unbanip 13.37.13.37 &lt;&lt; w konsoli
+</pre>
+<p>Aby ich odbanować, wystarczy użyć polecenia unbanip, a następnie uruchomić komendę RCON reloadbans aby serwer ponownie wczytał samp.ban.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Kontrolowanie_serwera_PL.html" title="Edit section: reloadbans">edit</a>]</div><a name="reloadbans"></a><h5>reloadbans</h5>
+<p>samp.ban jest plikiem, który przechowuje informacje o IP, które są obecnie zablokowane na serwerze. Ten plik jest czytany podczas uruchamiania serwera, więc jeśli odbanujesz IP / osobe, należy wpisać komendę RCON reloadbans aby serwer wczytał samp.ban ponownie i pozwolił im dołączyć do serwera.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Kontrolowanie_serwera_PL.html" title="Edit section: Dodawanie banów">edit</a>]</div><a name="Dodawanie_ban.C3.B3w"></a><h4>Dodawanie banów</h4>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Kontrolowanie_serwera_PL.html" title="Edit section: samp.ban">edit</a>]</div><a name="samp.ban_2"></a><h5>samp.ban</h5>
+<p>samp.ban jest plik, używany do przechowywania banów, w tym m.in. informacje o banie:
+</p>
+<ul><li> IP
+</li><li> Data
+</li><li> Czas
+</li><li> Nick (Nick osoby lub powód, patrz <a href="BanEx.html" title="BanEx">BanEx</a>)
+</li><li> Typ bana
+</li></ul>
+<p>Aby dodać zakazu, po prostu dodaj linijkę w taki sposób:
+</p>
+<pre>IP [DZIEŃ/MIESIĄC/ROK | GODZINA:MINUTA:SEKUNDA] GRACZ - POWÓD
+</pre>
+<p>Metoda ta trwa dłużej niż komenda RCON banip, więc proponuję używać RCON banip.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Kontrolowanie_serwera_PL.html" title="Edit section: Funkcja Ban()">edit</a>]</div><a name="Funkcja_Ban.28.29"></a><h5>Funkcja Ban()</h5>
+<p>Funkcja <a href="Ban.html" title="Ban">Ban</a> może być używana do blokowania gracza ze skryptu.
+Funkcja <a href="BanEx.html" title="BanEx">BanEx</a> pozwala dodać opcjonalny powód właśnie tak:
+</p>
+<pre>13.37.13.37 [28/05/09 | 13:37:00] Cziter - INGAME BAN
+</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Kontrolowanie_serwera_PL.html" title="Edit section: Komenda RCON ban">edit</a>]</div><a name="Komenda_RCON_ban"></a><h5>Komenda RCON ban</h5>
+<p>Komenda RCON ban wykonywana przez wpisywanie /rcon ban w grze lub "rcon ban" w konsoli, służy do banowania określonego gracza, który jest na serwerze.
+</p><p>Poprostu wpisz:
+</p>
+<pre>/rcon ban PLAYERID &lt;&lt;w grze
+ban PLAYERID &lt;&lt;w konsoli
+</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Kontrolowanie_serwera_PL.html" title="Edit section: banip">edit</a>]</div><a name="banip"></a><h5>banip</h5>
+<p>Komenda RCON banip wykonywana przez wpisywanie /rcon banip w grze lub "rcon ban"  w konsoli, służy do banowania określonego adresu IP. Akceptuje symbole wieloznaczne dla rangebanów.
+</p><p>Poprostu wpisz:
+</p>
+<pre>/rcon banip IP &lt;&lt;w grze
+banip IP &lt;&lt;w konsoli
+</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Kontrolowanie_serwera_PL.html" title="Edit section: Komendy RCON">edit</a>]</div><a name="Komendy_RCON"></a><h3>Komendy RCON</h3>
+<p>Wpisz cmdlist do uzyskania wszystkich komend (lub varlist dla zmiennych) w konsoli lub '<b>/ rcon cmdlist'</b> w grze.
+</p><p>Są to funkcje, które jako admin możesz używać:
+</p>
+<ul><li> /rcon cmdlist - Pokazuje listę z komendami.
+</li><li> /rcon varlist - Pokazuje listę z aktualnymi zmiennymi.
+</li><li> /rcon exit - Zamyka serwer.
+</li><li> /rcon echo [text] - Pokazuje [tekst] w konsoli serwera (NIE klienta konsoli w grze).
+</li><li> /rcon hostname [name] - zmienia imię serwera (<i>np: /rcon hostname mój serwer</i>).
+</li><li> /rcon gamemodetext [name] - zmienia tekst gamemoda (<i>np: /rcon gamemodetext mój gamemod</i>).
+</li><li> /rcon mapname [name] - zmienia tekst mapy (<i>np: /rcon mapname San Andreas</i>).
+</li><li> /rcon exec [filename] - odpala plik, który zawiera serwer.cfg (<i>np: /rcon exec blah.cfg</i>).
+</li><li> /rcon kick [ID] - Wyrzuca gracza z określonym ID (<i>np: /rcon kick 2</i>).
+</li><li> /rcon ban [ID] - Banuje gracza o podanym ID (<i>np: /rcon ban 2</i>).
+</li><li> /rcon changemode [mode] - Polecenie to zmieni obecny tryb gry (<i>np: jeśli chcesz grać w sftdm: /rcon changemode sftdm</i>).
+</li><li> /rcon gmx - Ładuje następny tryb gry w <a href="Server.cfg.html" title="Server.cfg">server.cfg</a>.
+</li><li> /rcon reloadbans - przeładowuje samp.ban gdzie zabronione adresy IP są przechowywane. Spowoduje to usunięcie wszystkich adresów IP.
+</li><li> /rcon reloadlog - czyści plik server_log.txt
+</li><li> /rcon say - pokazuje komunikat do graczy w konsoli klienta (<i>np: /rcon say blah</i>).
+</li><li> /rcon players - Pokazuje graczy, którzy są na serwerze (with their name, IP &amp; ping).
+</li><li> /rcon banip [IP] - Banuje podane IP (<i>np: /rcon banip 127.0.0.1</i>).
+</li><li> /rcon unbanip [IP] - Odbanowywuje podane IP (<i>np: /rcon unbanip 127.0.0.1</i>).
+</li><li> /rcon gravity - Zmienia grawitacje (<i>np: /rcon gravity 0.008</i>). - max 0.1
+</li><li> /rcon weather [ID] - Zmienia pogodę (<i>np: /rcon weather 1</i>).
+</li><li> /rcon loadfs - Ładuje podany filterscript (<i>np: /rcon loadfs adminfs</i>).
+</li><li> /rcon unloadfs  - Zwalnia podany filterscript (<i>np: /rcon unloadfs adminfs</i>).
+</li><li> /rcon reloadfs  - Odświeża podany filterscript (<i>np: /rcon reloadfs adminfs</i>).
+</li><li> /rcon rcon_password [PASSWORD] - Zmienia hasło do RCONa
+</li></ul>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Template_RelatedCallbacksArticle.html" title="Template:RelatedCallbacksArticle">edit</a>]</div><a name="Related_Callbacks_and_Functions"></a><h3> <b>Related Callbacks and Functions</b> </h3>
+<p>The following callbacks and functions might be useful, as they're related to this article in one way or another.
+</p><p><b>Callbacki:</b>
+</p>
+<ul><li> <a href="OnRconLoginAttempt.html" title="OnRconLoginAttempt">OnRconLoginAttempt</a>: Called when an attempt to login to RCON is made.
+</li></ul>
+<p><b>Funkcje:</b>
+</p>
+<ul><li> <a href="IsPlayerAdmin.html" title="IsPlayerAdmin">IsPlayerAdmin</a>: Checks if a player is logged into RCON.
+</li></ul>
+<ul><li> <a href="SendRconCommand.html" title="SendRconCommand">SendRconCommand</a>: Sends an RCON command via the script.
+</li></ul>
+<div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/Kontrolowanie_serwera_PL.html">http://localhost../wiki/Kontrolowanie_serwera_PL.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="Category_Server_Documentation_PL.html" title="Category:Server Documentation PL">Server Documentation PL</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="Kontrolowanie_serwera_PL.html">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="Talk_Kontrolowanie_serwera_PL.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="Kontrolowanie_serwera_PL.html">Edit</a></li>
+				 <li id="ca-history"><a href="Kontrolowanie_serwera_PL.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-en"><a href="Controlling_Your_Server.html">English</a></li>
+				<li class="interwiki-de"><a href="Einen_Server_konfigurieren_DE.html">Deutsch</a></li>
+				<li class="interwiki-hu"><a href="Controlling_Your_Server_HU.html">Magyar</a></li>
+				<li class="interwiki-nl"><a href="Advanced_Server_Controls_NL.html">Nederlands</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 30,745 times.</li>
+				<li id="credits">This page was last modified 04:23, 4 February 2014 by SA-MP Wiki user User:. Based on work by SA-MP Wiki user(s) <a href="User_IceColdKilla.html" class="new" title="User:IceColdKilla">IceColdKilla</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 68.58 secs. -->
+</body></html>

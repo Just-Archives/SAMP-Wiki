@@ -1,0 +1,275 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Controlling Your Server HU,Ban,BanEx,IsPlayerAdmin,OnRconLoginAttempt,Remote Console,SendRconCommand,Server.cfg,Kategória:Server Documentation" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>Controlling Your Server HU - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Controlling Your Server HU</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class='toclevel-1'><a href="#J.C3.A1t.C3.A9km.C3.B3d_v.C3.A1ltoztat.C3.A1sa"><span class="tocnumber">1</span> <span class="toctext">Játékmód változtatása</span></a>
+<ul>
+<li class='toclevel-2'><a href="#Saj.C3.A1t.2FLet.C3.B6lt.C3.B6tt_j.C3.A1t.C3.A9km.C3.B3d_futtat.C3.A1sa_a_szerveren"><span class="tocnumber">1.1</span> <span class="toctext">Saját/Letöltött játékmód futtatása a szerveren</span></a></li>
+<li class='toclevel-2'><a href="#Szkriptek_haszn.C3.A1lata"><span class="tocnumber">1.2</span> <span class="toctext">Szkriptek használata</span></a></li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#Szerver_lejelszavaz.C3.A1sa"><span class="tocnumber">2</span> <span class="toctext">Szerver lejelszavazása</span></a></li>
+<li class='toclevel-1'><a href="#RCON_haszn.C3.A1lata"><span class="tocnumber">3</span> <span class="toctext">RCON használata</span></a>
+<ul>
+<li class='toclevel-2'><a href="#Bejelentkez.C3.A9s"><span class="tocnumber">3.1</span> <span class="toctext">Bejelentkezés</span></a></li>
+<li class='toclevel-2'><a href="#Kitilt.C3.A1sok"><span class="tocnumber">3.2</span> <span class="toctext">Kitiltások</span></a>
+<ul>
+<li class='toclevel-3'><a href="#Kitilt.C3.A1sok_t.C3.B6rl.C3.A9se"><span class="tocnumber">3.2.1</span> <span class="toctext">Kitiltások törlése</span></a>
+<ul>
+<li class='toclevel-4'><a href="#samp.ban"><span class="tocnumber">3.2.1.1</span> <span class="toctext">samp.ban</span></a></li>
+<li class='toclevel-4'><a href="#unbanip"><span class="tocnumber">3.2.1.2</span> <span class="toctext">unbanip</span></a></li>
+<li class='toclevel-4'><a href="#reloadbans"><span class="tocnumber">3.2.1.3</span> <span class="toctext">reloadbans</span></a></li>
+</ul>
+</li>
+<li class='toclevel-3'><a href="#Kitilt.C3.A1s_hozz.C3.A1ad.C3.A1sa"><span class="tocnumber">3.2.2</span> <span class="toctext">Kitiltás hozzáadása</span></a>
+<ul>
+<li class='toclevel-4'><a href="#samp.ban_2"><span class="tocnumber">3.2.2.1</span> <span class="toctext">samp.ban</span></a></li>
+<li class='toclevel-4'><a href="#Ban.28.29_f.C3.BCggv.C3.A9nyek"><span class="tocnumber">3.2.2.2</span> <span class="toctext">Ban() függvények</span></a></li>
+<li class='toclevel-4'><a href="#RCON_ban_parancs"><span class="tocnumber">3.2.2.3</span> <span class="toctext">RCON ban parancs</span></a></li>
+<li class='toclevel-4'><a href="#banip"><span class="tocnumber">3.2.2.4</span> <span class="toctext">banip</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class='toclevel-2'><a href="#RCON_parancsok"><span class="tocnumber">3.3</span> <span class="toctext">RCON parancsok</span></a></li>
+<li class='toclevel-2'><a href="#Related_Callbacks_and_Functions"><span class="tocnumber">3.4</span> <span class="toctext">Related Callbacks and Functions</span></a></li>
+</ul>
+</li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Controlling_Your_Server_HU.html" title="Edit section: Játékmód változtatása">edit</a>]</div><a name="J.C3.A1t.C3.A9km.C3.B3d_v.C3.A1ltoztat.C3.A1sa"></a><h2>Játékmód változtatása</h2>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Controlling_Your_Server_HU.html" title="Edit section: Saját/Letöltött játékmód futtatása a szerveren">edit</a>]</div><a name="Saj.C3.A1t.2FLet.C3.B6lt.C3.B6tt_j.C3.A1t.C3.A9km.C3.B3d_futtat.C3.A1sa_a_szerveren"></a><h3>Saját/Letöltött játékmód futtatása a szerveren</h3>
+<ul><li> Nyisd meg a könyvtárat, és telepítsd a szervert. (/Rockstar Games/GTA San Andreas/server)
+</li><li> Rakd be a gamemode mappába az *amx kiterjesztésű fájlt, ha nincs meg, akkor alakítsd át.
+</li><li> Rconból a szerver leállítása nélkül át lehet rakni a szervert egy másik játékmódra. (changemode)
+</li></ul>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Controlling_Your_Server_HU.html" title="Edit section: Szkriptek használata">edit</a>]</div><a name="Szkriptek_haszn.C3.A1lata"></a><h3>Szkriptek használata</h3>
+<p>Ugyan az mint a játékmódnál, de:
+</p>
+<ul><li> A szkriptet a filterscripts nevű mappába kell berakni.
+</li><li> A server.cfg-nél így néz ki:    <i>filterscripts <b>szkript_neve</b></i>
+</li></ul>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Controlling_Your_Server_HU.html" title="Edit section: Szerver lejelszavazása">edit</a>]</div><a name="Szerver_lejelszavaz.C3.A1sa"></a><h2>Szerver lejelszavazása</h2>
+<ul><li> Ha le szeretnéd jelszavazni a szerveredet, hogy csak pl a barátaid menjenek fel, akkor az így néz ki:
+</li><li> A server.cfg-be írd bele:
+</li></ul>
+<pre class="bash">password Szerver_Jelszava</pre>
+<ul><li> A Szerver_Jelszava helyére azt írd amit szertnél a szervereden jelszónak.
+</li><li> Ha a játékon belül szeretnéd megváltoztatni a SZERVER jelszót akkor: /rcon password Szerver_Jelszava
+</li><li> Ha ki szeretnéd törölni a szerver jelszót, akkor töröld ki a server.cfg-be azt a sort, vagy csak a jelszót, és indítsd újra a szervert.
+</li></ul>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Controlling_Your_Server_HU.html" title="Edit section: RCON használata">edit</a>]</div><a name="RCON_haszn.C3.A1lata"></a><h2>RCON használata</h2>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Controlling_Your_Server_HU.html" title="Edit section: Bejelentkezés">edit</a>]</div><a name="Bejelentkez.C3.A9s"></a><h3>Bejelentkezés</h3>
+<p>A bejelentkezéshez használd ezt a parancsot játékon belül: '<b>/rcon login JELSZAVAD'</b> , vagy játékon kívülről a <a href="Remote_Console.html" title="Remote Console">Remote Console</a>-ból.
+</p><p>Az RCON jelszót a <a href="Server.cfg.html" title="Server.cfg">server.cfg</a>-ben változtathatod meg.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Controlling_Your_Server_HU.html" title="Edit section: Kitiltások">edit</a>]</div><a name="Kitilt.C3.A1sok"></a><h3>Kitiltások</h3>
+<p>A ban arra való, hogy megakadályozza, hogy egy bizonyos IP felcsatlakozzon a szerverre. Ezek az IP címek a samp.ban nevű fájlban vannak.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Controlling_Your_Server_HU.html" title="Edit section: Kitiltások törlése">edit</a>]</div><a name="Kitilt.C3.A1sok_t.C3.B6rl.C3.A9se"></a><h4>Kitiltások törlése</h4>
+<p>2 fajta megoldás van:
+</p>
+<ul><li> Kitörlöd a samp.ban nevű fájlból az IP címét.
+</li><li> Rconból az unbanip parancs segítségével levesszük a tiltást a játékosról.
+</li></ul>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Controlling_Your_Server_HU.html" title="Edit section: samp.ban">edit</a>]</div><a name="samp.ban"></a><h5>samp.ban</h5>
+<p>A samp.ban nevű fájl a szerver főkönyvtárában található.
+Ezek találhatók meg benne:
+</p>
+<ul><li> IP cím
+</li><li> Dátum
+</li><li> Idő
+</li><li> Név (A játékos neve, vagy az indok. (<a href="BanEx.html" title="BanEx">BanEx</a>))
+</li><li> Kitiltás fajtája (INGAME, IP BAN stb.)
+</li></ul>
+<p>Példák:
+</p>
+<pre>127.8.57.32 [13/06/09 | 69:69:69] NONE - IP BAN
+13.37.13.37 [28/05/09 | 13:37:00] Kyeman - INGAME BAN
+</pre>
+<p>Ha le szeretnéd róla venni a tiltást, akkor egész egyszerűen csak a sort kell kitörölni.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Controlling_Your_Server_HU.html" title="Edit section: unbanip">edit</a>]</div><a name="unbanip"></a><h5>unbanip</h5>
+<p>Ez arra való, hogy egy bizonyos IP címről a kitiltást levegyük. Ezt úgy tehetjük meg, hogy:
+</p>
+<ul><li> Játék közben: /rcon inbanip IDE_A_JÁTÉKOS_IP_CÍMÉT
+</li><li> Konzolból: unbanip IDE_A_JÁTÉKOS_IP_CÍMÉT
+</li></ul>
+<p>Példa:
+</p>
+<pre>13.37.13.37 [28/05/09 | 13:37:00] Kyeman - INGAME BAN
+/rcon unbanip 13.37.13.37 &lt;&lt; Játékból
+unbanip 13.37.13.37 &lt;&lt; Konzólból
+</pre>
+<p>A samp.ban fájl frissítésére ezt a parancsot használjuk: /reloadbans
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Controlling_Your_Server_HU.html" title="Edit section: reloadbans">edit</a>]</div><a name="reloadbans"></a><h5>reloadbans</h5>
+<p>Ha a szerver fut, és a közbe módosítjuk a samp.ban nevű fájlt, akkor az nem frissül, erre használjuk a reloadbans parancsot.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Controlling_Your_Server_HU.html" title="Edit section: Kitiltás hozzáadása">edit</a>]</div><a name="Kitilt.C3.A1s_hozz.C3.A1ad.C3.A1sa"></a><h4>Kitiltás hozzáadása</h4>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Controlling_Your_Server_HU.html" title="Edit section: samp.ban">edit</a>]</div><a name="samp.ban_2"></a><h5>samp.ban</h5>
+<p>samp.ban is the file used for storing bans, including the following information about the ban:
+</p>
+<ul><li> IP cím
+</li><li> Dátum
+</li><li> Idő
+</li><li> Név (A játékos neve, vagy az indok. (<a href="BanEx.html" title="BanEx">BanEx</a>))
+</li><li> Kitiltás fajtája (INGAME, IP BAN stb.)
+</li></ul>
+<p>Így néz ki egy kitiltás:
+</p>
+<pre>IP_CÍM [28/05/09 | 13:37:00] INDOK - BAN
+</pre>
+<p>Ahol az IP_CÍM van, oda kerül a kitiltott játékos IP címe.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Controlling_Your_Server_HU.html" title="Edit section: Ban() függvények">edit</a>]</div><a name="Ban.28.29_f.C3.BCggv.C3.A9nyek"></a><h5>Ban() függvények</h5>
+<p>A <a href="Ban.html" title="Ban">Ban</a> függvény szimplán kitiltja a játékos IP címét a szerverről.
+A <a href="BanEx.html" title="BanEx">BanEx</a> függvény indokkal látja el a kitiltott IP címet
+</p>
+<pre>13.37.13.37 [28/05/09 | 13:37:00] Cheater - INGAME BAN
+</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Controlling_Your_Server_HU.html" title="Edit section: RCON ban parancs">edit</a>]</div><a name="RCON_ban_parancs"></a><h5>RCON ban parancs</h5>
+<p>Ez a parancs arra alkalmas, hogy megakadályozza egy bizonyos IP cím feljutását a szerverre a szerver. Játékon belüli alkalmazása a /rcon ban parancs, és játékon kívülről rcon ban parancs.
+</p><p>Fajtái:
+</p>
+<pre>/rcon ban PLAYERID &lt;&lt; Játékon belüli
+ban PLAYERID &lt;&lt; Konzolból
+</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Controlling_Your_Server_HU.html" title="Edit section: banip">edit</a>]</div><a name="banip"></a><h5>banip</h5>
+<p>Ez a kitiltás fajta IP cím / IP tartomány kitiltására alkalmas. Játékon belüli alkalmazása a /rcon banip parancs, és játékon kívülről rcon banip parancs.
+</p><p>Fajtái:
+</p>
+<pre>/rcon banip IP &lt;&lt; Játékon belüli
+banip IP &lt;&lt; Konzolból
+</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Controlling_Your_Server_HU.html" title="Edit section: RCON parancsok">edit</a>]</div><a name="RCON_parancsok"></a><h3>RCON parancsok</h3>
+<p>Konzolból e lista megmutatására a cmdlist parancs alkalmas (vagy játékon belül a ('<b>/rcon cmdlist'</b>).
+</p><p>Ezek a funkciók használhatóak:
+</p>
+<ul><li> /rcon cmdlist - Megmutatja ezt a listát ANGOLUL
+</li><li> /rcon varlist - Megmutatja az aktuális válzotókat
+</li><li> /rcon exit - Szerver leállítása
+</li><li> /rcon echo [text] - Shows the [text] in the console of the server (NOT the client-console in-game).
+</li><li> /rcon hostname [név] - Szerver névének  (<i>példa: /rcon hostname szerver neve</i>).
+</li><li> /rcon gamemodetext [név] - Játékmód nevének módosítása (<i>Példa: /rcon gamemodetext Mód neve ide</i>).
+</li><li> /rcon mapname [név] - Pálya nevének módosítása (<i>Példa: /rcon mapname San Andreas</i>).
+</li><li> /rcon exec [fájlnév] - cfg fájl betöltése (<i>Példa: /rcon exec blah.cfg</i>).
+</li><li> /rcon kick [ID] - Játékos kidobása a szerverről (<i>Példa: /rcon kick 2</i>).
+</li><li> /rcon ban [ID] - Játékos kitiltása a szerverről (<i>Példa: /rcon ban 2</i>).
+</li><li> /rcon changemode [mód] - Szerveren futó játékmód váltása (<i>Példa: /rcon changemode sftdm</i>).
+</li><li> /rcon gmx - Betölti a <a href="Server.cfg.html" title="Server.cfg">server.cfg</a>-ből a gamemode0-t (Újraindítja a szervert).
+</li><li> /rcon reloadbans - Újra tölti a samp.ban nevű fájlt
+</li><li> /rcon reloadlog - Kitörli a server.log tartalmát.
+</li><li> /rcon say - Üzenet megjelenítése a többi játékos számára a szerveren (<i>Példa: /rcon say blabla</i>).
+</li><li> /rcon players - A szerveren tartózkodó játékos adatainak kiírása. (Név, IP, Ping).
+</li><li> /rcon banip [IP] - IP kitiltása a szerverről (<i>Példa: /rcon banip 127.0.0.1</i>).
+</li><li> /rcon unbanip [IP] - Kitiltás levétele egy bizonyos IP címről (<i>Példa: /rcon unbanip 127.0.0.1</i>).
+</li><li> /rcon gravity - Gravitáció értékének módosítása (<i>Példa: /rcon gravity 0.008</i>).
+</li><li> /rcon weather [ID] - Időjárás módosítása (<i>Példa: /rcon weather 1</i>).
+</li><li> /rcon loadfs - Szkript betöltése a szerverre (<i>Példa: /rcon loadfs adminfs</i>).
+</li><li> /rcon unloadfs  - Szkript leállítása (<i>Példa: /rcon unloadfs adminfs</i>).
+</li><li> /rcon reloadfs  - Szkript újraindítása a szerveren (<i>Példa: /rcon reloadfs adminfs</i>).
+</li><li> /rcon rcon_password [JELSZÓ] - Rcon jelszó megváltoztatása
+</li></ul>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Template_RelatedCallbacksArticle.html" title="Template:RelatedCallbacksArticle">edit</a>]</div><a name="Related_Callbacks_and_Functions"></a><h3> <b>Related Callbacks and Functions</b> </h3>
+<p>The following callbacks and functions might be useful, as they're related to this article in one way or another.
+</p><p><b>Visszahívások:</b>
+</p>
+<ul><li> <a href="OnRconLoginAttempt.html" title="OnRconLoginAttempt">OnRconLoginAttempt</a>: Called when an attempt to login to RCON is made.
+</li></ul>
+<p><b>Függvények:</b>
+</p>
+<ul><li> <a href="IsPlayerAdmin.html" title="IsPlayerAdmin">IsPlayerAdmin</a>: Checks if a player is logged into RCON.
+</li></ul>
+<ul><li> <a href="SendRconCommand.html" title="SendRconCommand">SendRconCommand</a>: Sends an RCON command via the script.
+</li></ul>
+<p><br />
+<a href="Kateg%25C3%25B3ria_Server_Documentation.html" class="new" title="Kategória:Server Documentation">Kategória:Server_Documentation</a>
+</p><div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/Controlling_Your_Server_HU.html">http://localhost../wiki/Controlling_Your_Server_HU.html</a>"</div>
+						<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="Controlling_Your_Server_HU.html">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="Talk_Controlling_Your_Server_HU.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="Controlling_Your_Server_HU.html">Edit</a></li>
+				 <li id="ca-history"><a href="Controlling_Your_Server_HU.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-en"><a href="Controlling_Your_Server.html">English</a></li>
+				<li class="interwiki-de"><a href="Einen_Server_konfigurieren_DE.html">Deutsch</a></li>
+				<li class="interwiki-nl"><a href="Advanced_Server_Controls_NL.html">Nederlands</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 11,798 times.</li>
+				<li id="credits">This page was last modified 14:03, 19 May 2010 by SA-MP Wiki user User:. </li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 56.31 secs. -->
+</body></html>

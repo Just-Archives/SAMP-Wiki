@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Создание командного deathmatch,Главная страница,Основы скриптинга (RU),Плагины сервера,Tutorials RU,Автовызываемые функции,Боты,Функции скриптинга" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>Создание командного deathmatch - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Создание командного deathmatch</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<div class="scripting" style="color: #4378A4; background-color: #FFFFFF; margin: 2px; margin-bottom: 10px;"><div align="center" style="border: 1px solid #AAAAAA; padding: 3px; padding-left: 5px;"><a href="%25D0%2593%25D0%25BB%25D0%25B0%25D0%25B2%25D0%25BD%25D0%25B0%25D1%258F_%25D1%2581%25D1%2582%25D1%2580%25D0%25B0%25D0%25BD%25D0%25B8%25D1%2586%25D0%25B0.html" title="Главная страница">Главная страница</a> | <a href="%25D0%259E%25D1%2581%25D0%25BD%25D0%25BE%25D0%25B2%25D1%258B_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0_%2528RU%2529.html" title="Основы скриптинга (RU)">Основы скриптинга</a> | <a href="Category_%25D0%25A4%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0.html" title="Category:Функции скриптинга">Функции скриптинга</a> | <a href="Category_%25D0%2590%25D0%25B2%25D1%2582%25D0%25BE%25D0%25B2%25D1%258B%25D0%25B7%25D1%258B%25D0%25B2%25D0%25B0%25D0%25B5%25D0%25BC%25D1%258B%25D0%25B5_%25D1%2584%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8.html" title="Category:Автовызываемые функции">Автовызываемые функции</a> | <a href="Category_%25D0%2591%25D0%25BE%25D1%2582%25D1%258B.html" title="Category:Боты">Боты</a> | <a href="Category_Tutorials_RU.html" title="Category:Tutorials RU">Учебники</a> | <a href="%25D0%259F%25D0%25BB%25D0%25B0%25D0%25B3%25D0%25B8%25D0%25BD%25D1%258B_%25D1%2581%25D0%25B5%25D1%2580%25D0%25B2%25D0%25B5%25D1%2580%25D0%25B0.html" title="Плагины сервера">Плагины</a></div></div><br />
+<p><br /> Итак, Вы уже знаете, как создать классы и разместить их, теперь попробуем создать команды, наконец-то мы займемся программированием, хоть и довольно простым. Я буду использовать 2 класса, созданные ранее, если у Вас их больше, удалите лишние или создайте новый мод, добавив туда только 2 класса. Классы нумеруются с 0, таким образом первый класс будет иметь номер 0, второй - 1 и т.д. (компьютеры и программы обычно начинают отсчет от 0 (Ваш id в тестовой игре тоже будет 0)). Мы хотим устанавливать команду на основе выбранного игроком класса (Грувы или Балласы). Посмотрев на список вызываемых функций и подумав, вы придете к выводу, что это нужно делать в функции OnPlayerRequestClass, и Вы будете совершенно правы. Когда игрок выбирает класс, нам необходимо определить команду, основываясь на его выборе, это нельзя сделать в OnPlayerSpawn, т.к. там неизвестно, какой класс выбрал пользователь (это - параметр, и только значения параметров, либо глобальных переменных (с этим мы разберемся чуть позже) могут использоваться в функциях). Для начала нам нужно объявить команды, после строк "<i><b>#include</b></i>" в начале файла добавьте следующие строки:
+</p>
+<pre class="pawn"><span style="color: #6b8e23;">#define TEAM_GROVE 1</span>
+ <span style="color: #6b8e23;">#define TEAM_BALLA 2</span>
+ <span style="color: #6b8e23;">#define TEAM_GROVE_COLOR 0x00FF00AA // Bright Green (in RGBA format)</span>
+ <span style="color: #6b8e23;">#define TEAM_BALLA_COLOR 0xFF00FFAA // Bright Purple</span></pre>
+<p>Если Вы хотите сменить цвета, помните, что последние 2 цифры задают прозрачность и чем они меньше, тем менее различим цвет. Эти объявления - просто замены, теперь, если вы захотите использовать число 1 в скрипте, можно использовать TEAM_GROVE, это не самая лучшая идея при обычных вычислениях, т.к. затрудняет их понимание, но при объявлении команд, которые характеризуются только числом, это делает их более понятными (также, в дальнейшем легче поменять команды местами или изменить их, т.к. нужно изменить значение только в 1 месте, а не во всем коде). При компиляции все TEAM_GROVE заменятся на 1, это не переменные, а константы, они не изменяются. Теперь ниже добавьте:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> gTeam<span style="color: #66cc66;">&#91;</span><span style="color: #E9967A; font-weight: bold;">MAX_PLAYERS</span><span style="color: #66cc66;">&#93;</span>;</pre>
+<p>Так мы создаем глобальный массив. Массив - это множество переменных (мест хранения данных для чтения/записи) сгруппированных для сохранения множества данных в 1 переменной. "<i><b>MAX_PLAYERS</b></i>" - предопределенная константа (определена точно так же, как мы определяли свои константы). Значение MAX_PLAYERS равно 100 (в samp 0.2.2 - 200, в 0.2.5 будет 500 - прим. переводчика), это означает, что в массиве может храниться 100 переменных. Буква g в имени означает, что массив глобальный, но не делает его глобальным (это сделано, чтобы было ясно, глобальная переменная или локальная), объявление переменной вне функций делает её глобальной и доступной всем функциям. Все переменные, объявленные внутри функции, локальны для неё, и их имена не могут совпадать с именами других локальных переменных этой функции, либо глобальных переменных (вот почему удобно добавлять g перед именами глобальных переменных), однако их имена могут совпадать с именами локальных переменных других функций. се переменные "<i><b>playerid</b></i>" в Вашем чистом скрипте, на самом деле, независимы, каждая локальна в одной функции, однако они передают одинаковые данные, но помните, что все написанные Вами функции не будут автоматически получать эти данные. Теперь мы можем установить команды:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">public</span> SetPlayerTeamFromClass<span style="color: #66cc66;">&#40;</span>playerid, classid<span style="color: #66cc66;">&#41;</span>
+ <span style="color: #66cc66;">&#123;</span>
+ 	<span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span>classid == <span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span>
+ 	<span style="color: #66cc66;">&#123;</span>
+ 		gTeam<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span> = TEAM_GROVE;
+ 	<span style="color: #66cc66;">&#125;</span>
+ 	<span style="color: #4169e1;">else</span>
+ 	<span style="color: #66cc66;">&#123;</span>
+ 		gTeam<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span> = TEAM_BALLA;
+ 	<span style="color: #66cc66;">&#125;</span>
+ <span style="color: #66cc66;">&#125;</span></pre>
+<p>Разместите этот код ВНЕ функций в Вашем скрипте (т.к. это новая функция) и добавьте следующий код сразу после открывающих скобок в OnPlayerRequestClass (замечание: т.к. переменные не глобальные, нужно передать их в функцию):
+</p>
+<pre class="pawn">SetPlayerTeamFromClass<span style="color: #66cc66;">&#40;</span>playerid, classid<span style="color: #66cc66;">&#41;</span>;</pre>
+<p>Так команды игроков сохранятся в массив с помощью нашей функции. Данные в массиве доступны по номеру, так array[0] это первый элемент массива, array[1] - второй и так далее, т.к. мы используем gTeam[playerid], элемент, в котором будут сохраняться данные, определяется по ID игрока, так для 5 игрока данные будут сохраняться в массиве в позиции 5 (запомните, это шестой по счету элемент). Теперь скопируйте эту функцию:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">public</span> SetPlayerToTeamColor<span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span>
+ <span style="color: #66cc66;">&#123;</span>
+ 	<span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span>gTeam<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span> == TEAM_GROVE<span style="color: #66cc66;">&#41;</span>
+ 	<span style="color: #66cc66;">&#123;</span>
+ 		<a href="http://wiki.sa-mp.com/wiki/SetPlayerColor"><span style="color: #006400;">SetPlayerColor</span></a><span style="color: #66cc66;">&#40;</span>playerid, TEAM_GROVE_COLOR<span style="color: #66cc66;">&#41;</span>;
+ 	<span style="color: #66cc66;">&#125;</span>
+ 	<span style="color: #4169e1;">else</span> <span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span>gTeam<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span> == TEAM_BALLA<span style="color: #66cc66;">&#41;</span>
+ 	<span style="color: #66cc66;">&#123;</span>
+ 		<a href="http://wiki.sa-mp.com/wiki/SetPlayerColor"><span style="color: #006400;">SetPlayerColor</span></a><span style="color: #66cc66;">&#40;</span>playerid, TEAM_BALLA_COLOR<span style="color: #66cc66;">&#41;</span>;
+ 	<span style="color: #66cc66;">&#125;</span>
+ <span style="color: #66cc66;">&#125;</span></pre>
+<p>И добавьте следующую строку в OnPlayerSpawn:
+</p>
+<pre class="pawn">SetPlayerToTeamColor<span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span>;</pre>
+<p>Теперь у нас есть команды, но что же мы на самом деле сделали?
+</p>
+<pre class="pawn"><span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span>classid == <span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span>
+ 	<span style="color: #66cc66;">&#123;</span>
+ 		gTeam<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span> = TEAM_GROVE;
+ 	<span style="color: #66cc66;">&#125;</span></pre>
+<p>В нашей первой функции мы проверяем, какой класс был выбран (не забыли, что классы нумеруются с&nbsp;?) "<i><b>==</b></i>" означает равенство, одиночный знак равенства устанавливает переменной переданное значение (как видно из следующей строки). Фигурные скобки отделяют функции от остального кода, так, они будут вызваны только если выбран 0 класс (cj), в противном случае вызывается блок else (он выполняется всегда, когда условие оператора "<i><b>if</b></i>" ложно (false) (в данном случае класс не 0)), так как мы выбираем только из двух классов, это означает, что выбран Баллас:
+</p>
+<pre class="pawn"><span style="color: #4169e1;">else</span>
+ 	<span style="color: #66cc66;">&#123;</span>
+ 		gTeam<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span> = TEAM_BALLA;
+ 	<span style="color: #66cc66;">&#125;</span></pre>
+<p>Нам не нужно возвращать здесь никакого результата.<br /><br />
+</p><p>Вторая половина устанавливает цвета игроков при респауне, так вы можете сказать, кто в какой команде. Так как мы сохранили информацию о командах в глобальный массив, у нас есть доступ к ней из любых функций.
+</p>
+<pre class="pawn"><span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span>gTeam<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span> == TEAM_GROVE<span style="color: #66cc66;">&#41;</span>
+ 	<span style="color: #66cc66;">&#123;</span>
+ 		<a href="http://wiki.sa-mp.com/wiki/SetPlayerColor"><span style="color: #006400;">SetPlayerColor</span></a><span style="color: #66cc66;">&#40;</span>playerid, TEAM_GROVE_COLOR<span style="color: #66cc66;">&#41;</span>;
+ 	<span style="color: #66cc66;">&#125;</span></pre>
+<p>Думаю, вы понимаете, что делают эти строки, если игрок (в функцию передается его id) в TEAM_GROVE, устанавливаем его цвет в  TEAM_GROVE_COLOR.
+</p>
+<pre class="pawn"><span style="color: #4169e1;">else</span> <span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span>gTeam<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span> == TEAM_BALLA<span style="color: #66cc66;">&#41;</span>
+ 	<span style="color: #66cc66;">&#123;</span>
+ 		<a href="http://wiki.sa-mp.com/wiki/SetPlayerColor"><span style="color: #006400;">SetPlayerColor</span></a><span style="color: #66cc66;">&#40;</span>playerid, TEAM_BALLA_COLOR<span style="color: #66cc66;">&#41;</span>;
+ 	<span style="color: #66cc66;">&#125;</span></pre>
+<p>Следующий участок кода немного отличается, проще его можно было бы сделать таким образом:
+</p>
+<pre class="pawn"><span style="color: #4169e1;">else</span>
+ 	<span style="color: #66cc66;">&#123;</span>
+ 		<a href="http://wiki.sa-mp.com/wiki/SetPlayerColor"><span style="color: #006400;">SetPlayerColor</span></a><span style="color: #66cc66;">&#40;</span>playerid, TEAM_BALLA_COLOR<span style="color: #66cc66;">&#41;</span>;
+ 	<span style="color: #66cc66;">&#125;</span></pre>
+<p>Но таким образом можно будет устанавливать цвет только в TEAM_BALLA_COLOR, если первое условие ложно. В приведенном же ранее варианте, можно добавить больше вариантов, путем добавления блоков "<i><b>else if ()</b></i>" в конце, причем все условия будут проверены последовательно.
+</p><div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/%25D0%25A1%25D0%25BE%25D0%25B7%25D0%25B4%25D0%25B0%25D0%25BD%25D0%25B8%25D0%25B5_%25D0%25BA%25D0%25BE%25D0%25BC%25D0%25B0%25D0%25BD%25D0%25B4%25D0%25BD%25D0%25BE%25D0%25B3%25D0%25BE_deathmatch.html">http://localhost../wiki/%25D0%25A1%25D0%25BE%25D0%25B7%25D0%25B4%25D0%25B0%25D0%25BD%25D0%25B8%25D0%25B5_%25D0%25BA%25D0%25BE%25D0%25BC%25D0%25B0%25D0%25BD%25D0%25B4%25D0%25BD%25D0%25BE%25D0%25B3%25D0%25BE_deathmatch.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="Category_Tutorials_RU.html" title="Category:Tutorials RU">Tutorials RU</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="%25D0%25A1%25D0%25BE%25D0%25B7%25D0%25B4%25D0%25B0%25D0%25BD%25D0%25B8%25D0%25B5_%25D0%25BA%25D0%25BE%25D0%25BC%25D0%25B0%25D0%25BD%25D0%25B4%25D0%25BD%25D0%25BE%25D0%25B3%25D0%25BE_deathmatch.html">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="Talk_%25D0%25A1%25D0%25BE%25D0%25B7%25D0%25B4%25D0%25B0%25D0%25BD%25D0%25B8%25D0%25B5_%25D0%25BA%25D0%25BE%25D0%25BC%25D0%25B0%25D0%25BD%25D0%25B4%25D0%25BD%25D0%25BE%25D0%25B3%25D0%25BE_deathmatch.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="%25D0%25A1%25D0%25BE%25D0%25B7%25D0%25B4%25D0%25B0%25D0%25BD%25D0%25B8%25D0%25B5_%25D0%25BA%25D0%25BE%25D0%25BC%25D0%25B0%25D0%25BD%25D0%25B4%25D0%25BD%25D0%25BE%25D0%25B3%25D0%25BE_deathmatch.html">Edit</a></li>
+				 <li id="ca-history"><a href="%25D0%25A1%25D0%25BE%25D0%25B7%25D0%25B4%25D0%25B0%25D0%25BD%25D0%25B8%25D0%25B5_%25D0%25BA%25D0%25BE%25D0%25BC%25D0%25B0%25D0%25BD%25D0%25B4%25D0%25BD%25D0%25BE%25D0%25B3%25D0%25BE_deathmatch.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 21,435 times.</li>
+				<li id="credits">This page was last modified 13:16, 24 March 2017 by SA-MP Wiki user <a href="User_OstGot.html" title="User:OstGot">OstGot</a>. Based on work by SA-MP Wiki user(s) <a href="User_MazaHACKa.html" class="new" title="User:MazaHACKa">MazaHACKa</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 32.87 secs. -->
+</body></html>

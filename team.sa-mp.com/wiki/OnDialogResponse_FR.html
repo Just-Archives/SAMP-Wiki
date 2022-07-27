@@ -1,0 +1,238 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="OnDialogResponse FR,Keywords:Statements,Kick FR,Main Page FR,Scripting Basics FR,Server Plugins,ShowPlayerDialog FR,Scripting Callbacks FR,Scripting Functions FR,Tutorials FR,ShowPlayerDialogFR" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>OnDialogResponse FR - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">OnDialogResponse FR</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<div class="scripting" style="color: #4378A4; background-color: #FFFFFF; margin: 2px; margin-bottom: 10px;"><div align="center" style="border: 1px solid #AAAAAA; padding: 3px; padding-left: 5px;"><a href="Main_Page_FR.html" title="Main Page FR">Page d'Accueil</a> | <a href="Category_Scripting_Functions_FR.html" title="Category:Scripting Functions FR">Les Fonctions</a> | <a href="Category_Scripting_Callbacks_FR.html" title="Category:Scripting Callbacks FR">Les Callbacks</a> | <a href="Scripting_Basics_FR.html" title="Scripting Basics FR">Les bases du Scripting</a> | <a href="Server_Plugins.html" title="Server Plugins">Plugins de Serveur</a> | <a href="Category_Tutorials_FR.html" title="Category:Tutorials FR">Tutoriaux</a><br /><div style="font-size:10px;padding:0px;margin:-6px;">Ne prenez pas en compte les <b>FR</b> dans les noms</div></div></div><br />
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="OnDialogResponse_FR.html" title="Edit section: OnDialogResponse">edit</a>]</div><a name="OnDialogResponse"></a><h1 class="firstheading" style="position:absolute; top:0px; background:#FFF; width:95%;">OnDialogResponse</h1>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #E2FFE5; border-left: 10px solid #81C687;">
+
+<tr>
+<td><a href="Image_Add.png.html" class="image" title="OnDialogResponse FR was added in SA-MP 0.3a"><img src="../upload/a/a7/Add.png" alt="OnDialogResponse FR was added in SA-MP 0.3a" width="16" height="16" longdesc="Image_Add.png.html" /></a>
+</td><td align="left" style="padding-left:7px; padding-right:7px;"><span style="font-size:14px;">This callback was added in <strong>SA-MP 0.3a</strong> and will not work in earlier versions!</span>
+</td></tr></table>
+</div>
+<p><br />
+</p><p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Cette callback est appelée quand un joueur répond à un dialog affiché en utilisant <a href="ShowPlayerDialog_FR.html" title="ShowPlayerDialog FR">ShowPlayerDialog</a> en cliquant un bouton/item ou en appuyant sur entrée/échap.<br /></div>
+<p><br />
+</p>
+<b>Paramètres:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(playerid, dialogid, response, listitem, inputtext[])<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">L'ID du joueur qui a répondu au dialog.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">dialogid</td><td style="vertical-align:top;">L'ID du dialog auquel le joueur a répondu, assigné dans <a href="ShowPlayerDialog_FR.html" title="ShowPlayerDialog FR">ShowPlayerDialog</a>.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">response</td><td style="vertical-align:top;"><b>1</b> pour le bouton gauche/le double clic/entrée et <b>0</b> pour le bouton droit/échap (si il n'y a qu'un seul bouton, toujours 1).</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">listitem</td><td style="vertical-align:top;">L'ID de l'item d'un dialog LIST sélectionné par le joueur (commence à 0, valable seulement si vous utilisez un dialog style LIST).</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">inputtext[]</td><td style="vertical-align:top;">Le texte entré dans la boite d'entrée par le joueur (DIALOG_STYLE_INPUT/DIALOG_STYLE_PASSWORD) ou le texte de l'item sélectionné par le joueur (DIALOG_STYLE_LIST).</td></tr></table></div>
+<p><b>Retourne:</b><br />
+</p>
+<div style="padding-left:35px;">Retourner <b>0</b> dans cette callback passera le dialog à un autre script chargé puisqu'aucun code correspondant n'a été trouvé dans la callback du Gamemode.<br /></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #E6F3FF; border-left: 10px solid #007BFF;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #007BFF;"><strong>Tip</strong><br />
+<p><a href="Image_Light_bulb_icon.png.html" class="image" title="Image:Light_bulb_icon.png"><img src="../upload/b/b0/Light_bulb_icon.png" alt="Image:Light_bulb_icon.png" width="22" height="32" longdesc="Image_Light_bulb_icon.png.html" /></a>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">C'est approprié d'utiliser <a href="Keywords_Statements.html#switch" title="Keywords:Statements">switch</a> à travers les différents IDs de dialog/listitem si vous en avez beaucoup.</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="OnDialogResponse_FR.html" title="Edit section: DIALOG_STYLE_MSGBOX">edit</a>]</div><a name="DIALOG_STYLE_MSGBOX"></a><h3>DIALOG_STYLE_MSGBOX</h3>
+<pre class="pawn"><span style="color: #808080; font-style: italic;">// Définir l'ID du dialog, pour gérer les réponses</span>
+&nbsp;
+<span style="color: #6b8e23;">#define DIALOG_REGLES (1)</span>
+&nbsp;
+<span style="color: #808080; font-style: italic;">// Dans une commande</span>
+ShowPlayerDialog<span style="color: #66cc66;">&#40;</span>playerid, DIALOG_REGLES, DIALOG_STYLE_MSGBOX, <span style="color: #b22222;">&quot;Règles du serveur&quot;</span>, <span style="color: #b22222;">&quot;- Pas de cheat<span style="color: #000099; font-weight: bold;">\n</span>- Pas de spam<span style="color: #000099; font-weight: bold;">\n</span>- Respecter les autres<span style="color: #000099; font-weight: bold;">\n</span><span style="color: #000099; font-weight: bold;">\n</span>Acceptez-vous ces règles&nbsp;?&quot;</span>, <span style="color: #b22222;">&quot;Oui&quot;</span>, <span style="color: #b22222;">&quot;Non&quot;</span><span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+<span style="color: #808080; font-style: italic;">// Hors de la commande</span>
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">public</span> OnDialogResponse<span style="color: #66cc66;">&#40;</span>playerid, dialogid, response, listitem, inputtext<span style="color: #66cc66;">&#91;</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>dialogid == DIALOG_REGLES<span style="color: #66cc66;">&#41;</span>
+    <span style="color: #66cc66;">&#123;</span>
+        <span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>response<span style="color: #66cc66;">&#41;</span> <span style="color: #808080; font-style: italic;">// Si le joueur a cliqué sur &quot;Oui&quot; ou a appuyé sur Entrée.</span>
+        <span style="color: #66cc66;">&#123;</span>
+            <span style="color: orange; font-weight: bold;">return</span> <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, 0x9ACD32FF, <span style="color: #b22222;">&quot;Merci d'avoir accepté les règles du serveur.&quot;</span><span style="color: #66cc66;">&#41;</span>;
+        <span style="color: #66cc66;">&#125;</span>
+        <span style="color: #4169e1;">else</span> <span style="color: #808080; font-style: italic;">// Appuyé sur Échap ou cliqué sur &quot;Non&quot;</span>
+        <span style="color: #66cc66;">&#123;</span>
+            <span style="color: orange; font-weight: bold;">return</span> KickWithMessage<span style="color: #66cc66;">&#40;</span>playerid, 0xFF0000FF, <span style="color: #b22222;">&quot;Vous DEVEZ accepter les règles du serveur pour pouvoir jouer.&quot;</span><span style="color: #66cc66;">&#41;</span>;
+            <span style="color: #808080; font-style: italic;">// Pour des infos et le code source de cette fonction (indispensable après la version 0.3x), référez vous à la fin de cette page</span>
+        <span style="color: #66cc66;">&#125;</span>
+        <span style="color: #808080; font-style: italic;">// On a utilisé des dialogs, donc on doit retourner quelque chose si il y a un troisième cas (comme il ne peut y avoir que deux réponses, c'est ici inutile)</span>
+    <span style="color: #66cc66;">&#125;</span>
+    <span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">0</span>; <span style="color: #808080; font-style: italic;">// Vous DEVEZ retourner 0 ici, au même titre que sous OnPlayerCommandText</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="OnDialogResponse_FR.html" title="Edit section: DIALOG_STYLE_INPUT/DIALOG_STYLE_PASSWORD">edit</a>]</div><a name="DIALOG_STYLE_INPUT.2FDIALOG_STYLE_PASSWORD"></a><h3>DIALOG_STYLE_INPUT/DIALOG_STYLE_PASSWORD</h3>
+<pre class="pawn"><span style="color: #6b8e23;">#define DIALOG_LOGIN (2)</span>
+&nbsp;
+<span style="color: #808080; font-style: italic;">// Dans une commande</span>
+ShowPlayerDialog<span style="color: #66cc66;">&#40;</span>playerid, DIALOG_LOGIN, DIALOG_STYLE_INPUT, <span style="color: #b22222;">&quot;Connexion&quot;</span>, <span style="color: #b22222;">&quot;Merci d'enter votre mot de passe:&quot;</span>, <span style="color: #b22222;">&quot;Connexion&quot;</span>, <span style="color: #b22222;">&quot;Retour&quot;</span><span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+<span style="color: #808080; font-style: italic;">// Hors de la commande</span>
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">public</span> OnDialogResponse<span style="color: #66cc66;">&#40;</span>playerid, dialogid, response, listitem, inputtext<span style="color: #66cc66;">&#91;</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>dialogid == DIALOG_LOGIN<span style="color: #66cc66;">&#41;</span>
+    <span style="color: #66cc66;">&#123;</span>
+        <span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>!response<span style="color: #66cc66;">&#41;</span> <span style="color: #808080; font-style: italic;">// Si le joueur clique sur &quot;Retour&quot; ou si il appuie sur Échap</span>
+        <span style="color: #66cc66;">&#123;</span>
+            KickWithMessage<span style="color: #66cc66;">&#40;</span>playerid, 0xFF0000FF, <span style="color: #b22222;">&quot;Vous DEVEZ vous connecter pour jouer. Merci de changer de nom.&quot;</span><span style="color: #66cc66;">&#41;</span>;
+        <span style="color: #66cc66;">&#125;</span>
+        <span style="color: #4169e1;">else</span> <span style="color: #808080; font-style: italic;">// Appuyé sur &quot;Entrée&quot; ou cliqué sur &quot;Connexion&quot;</span>
+        <span style="color: #66cc66;">&#123;</span>
+            <span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>CheckPassword<span style="color: #66cc66;">&#40;</span>playerid, inputtext<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span> <span style="color: #808080; font-style: italic;">// Votre fonction pour vérifier les mots de passe</span>
+            <span style="color: #66cc66;">&#123;</span>
+                <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, 0xFF0000FF, <span style="color: #b22222;">&quot;Vous êtes maintenant connecté&nbsp;!&quot;</span><span style="color: #66cc66;">&#41;</span>;
+            <span style="color: #66cc66;">&#125;</span>
+            <span style="color: #4169e1;">else</span>
+            <span style="color: #66cc66;">&#123;</span>
+                <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, 0xFF0000FF, <span style="color: #b22222;">&quot;Connexion ratée&nbsp;!&quot;</span><span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+                <span style="color: #808080; font-style: italic;">// On lui re-montre le dialog de login</span>
+                ShowPlayerDialog<span style="color: #66cc66;">&#40;</span>playerid, DIALOG_LOGIN, DIALOG_STYLE_INPUT, <span style="color: #b22222;">&quot;Connexion&quot;</span>, <span style="color: #b22222;">&quot;Merci d'entrer votre mot de passe:&quot;</span>, <span style="color: #b22222;">&quot;Connexion&quot;</span>, <span style="color: #b22222;">&quot;Retour&quot;</span><span style="color: #66cc66;">&#41;</span>;
+            <span style="color: #66cc66;">&#125;</span>
+        <span style="color: #66cc66;">&#125;</span>
+        <span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>; <span style="color: #808080; font-style: italic;">// Ici, comme on a rien retourné dans les conditions, on DOIT retourner 1 avant de sortir de la condition du dialog</span>
+    <span style="color: #66cc66;">&#125;</span>
+&nbsp;
+    <span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">0</span>; <span style="color: #808080; font-style: italic;">// Vous DEVEZ retourner 0 ici, comme dans OnPlayerCommandText.</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="OnDialogResponse_FR.html" title="Edit section: DIALOG_STYLE_LIST">edit</a>]</div><a name="DIALOG_STYLE_LIST"></a><h3>DIALOG_STYLE_LIST</h3>
+<pre class="pawn"><span style="color: #6b8e23;">#define DIALOG_ARMES (3)</span>
+&nbsp;
+<span style="color: #808080; font-style: italic;">// Dans une commande</span>
+ShowPlayerDialog<span style="color: #66cc66;">&#40;</span>playerid, DIALOG_ARMES, DIALOG_STYLE_LIST, <span style="color: #b22222;">&quot;Armes&quot;</span>, <span style="color: #b22222;">&quot;Desert Eagle<span style="color: #000099; font-weight: bold;">\n</span>AK-47<span style="color: #000099; font-weight: bold;">\n</span>Spas 12&quot;</span>, <span style="color: #b22222;">&quot;Prendre&quot;</span>, <span style="color: #b22222;">&quot;Fermer&quot;</span><span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+<span style="color: #808080; font-style: italic;">// Hors de la commande</span>
+<span style="color: #228b22; font-weight: bold;">public</span> OnDialogResponse<span style="color: #66cc66;">&#40;</span>playerid, dialogid, response, listitem, inputtext<span style="color: #66cc66;">&#91;</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>dialogid == DIALOG_WEAPONS<span style="color: #66cc66;">&#41;</span>
+    <span style="color: #66cc66;">&#123;</span>
+        <span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>response<span style="color: #66cc66;">&#41;</span> <span style="color: #808080; font-style: italic;">// Si il clique sur &quot;Prendre&quot; ou si il appuie sur &quot;Entrée&quot;</span>
+        <span style="color: #66cc66;">&#123;</span>
+            <span style="color: #808080; font-style: italic;">// On lui donne l'arme</span>
+            <span style="color: #4169e1;">switch</span><span style="color: #66cc66;">&#40;</span>listitem<span style="color: #66cc66;">&#41;</span>
+            <span style="color: #66cc66;">&#123;</span>
+                <span style="color: orange; font-weight: bold;">case</span> <span style="color: #4169e1;">0</span>: <a href="http://wiki.sa-mp.com/wiki/GivePlayerWeapon"><span style="color: #006400;">GivePlayerWeapon</span></a><span style="color: #66cc66;">&#40;</span>playerid, <span style="color: #E9967A; font-weight: bold;">WEAPON_DEAGLE</span>, <span style="color: #4169e1;">14</span><span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// On lui donne son desert eagle (WEAPON_DEAGLE est défini à 24)</span>
+                <span style="color: orange; font-weight: bold;">case</span> <span style="color: #4169e1;">1</span>: <a href="http://wiki.sa-mp.com/wiki/GivePlayerWeapon"><span style="color: #006400;">GivePlayerWeapon</span></a><span style="color: #66cc66;">&#40;</span>playerid, <span style="color: #E9967A; font-weight: bold;">WEAPON_AK47</span>, <span style="color: #4169e1;">120</span><span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// On lui donne son AK-47 (WEAPON_AK47 est défini à 31)</span>
+                <span style="color: orange; font-weight: bold;">case</span> <span style="color: #4169e1;">2</span>: <a href="http://wiki.sa-mp.com/wiki/GivePlayerWeapon"><span style="color: #006400;">GivePlayerWeapon</span></a><span style="color: #66cc66;">&#40;</span>playerid, <span style="color: #E9967A; font-weight: bold;">WEAPON_SHOTGSPA</span>, <span style="color: #4169e1;">28</span><span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// On lui donne son Spas 12 (WEAPON_SHOTGSPA est défini à 27)</span>
+            <span style="color: #66cc66;">&#125;</span>
+        <span style="color: #66cc66;">&#125;</span>
+        <span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>; <span style="color: #808080; font-style: italic;">// On retourne 1 en sortant de la condition du dialog</span>
+    <span style="color: #66cc66;">&#125;</span>
+    <span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">0</span>; <span style="color: #808080; font-style: italic;">// On DOIT retourner 0 en sortant de la callback.</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>Fonction KickWithMessage(const &amp;playerid, const couleur, const message[]);&nbsp;:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">forward</span> KickPublic<span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #228b22; font-weight: bold;">public</span> KickPublic<span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span> <span style="color: #66cc66;">&#123;</span> <a href="http://wiki.sa-mp.com/wiki/Kick"><span style="color: #006400;">Kick</span></a><span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span>; <span style="color: #66cc66;">&#125;</span>
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">stock</span> KickWithMessage<span style="color: #66cc66;">&#40;</span>&amp;playerid, <span style="color: #228b22; font-weight: bold;">const</span> couleur, <span style="color: #228b22; font-weight: bold;">const</span> message<span style="color: #66cc66;">&#91;</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, couleur, message<span style="color: #66cc66;">&#41;</span>;
+    <a href="http://wiki.sa-mp.com/wiki/SetTimerEx"><span style="color: #006400;">SetTimerEx</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;KickPublic&quot;</span>, <span style="color: #4169e1;">1000</span>, false, <span style="color: #b22222;">&quot;d&quot;</span>, playerid<span style="color: #66cc66;">&#41;</span>; 	<span style="color: #808080; font-style: italic;">// On le kick 1 seconde après pour qu'il puisse voir le message</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>Pour plus d'infos à propos de cette technique, s'il vous plait visiter <a href="Kick_FR.html" title="Kick FR">Kick()</a>.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Template_RelatedFunctionsCallbackFR.html" title="Template:RelatedFunctionsCallbackFR">edit</a>]</div><a name="Fonctions_relatives"></a><h3> <b>Fonctions relatives</b> </h3>
+<p>Les fonctions suivantes peuvent êtres utiles car elles concernent indirectement ou non cette callback.
+<a href="Template_ShowPlayerDialogFR.html" class="new" title="Template:ShowPlayerDialogFR">Template:ShowPlayerDialogFR</a>
+</p><div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/OnDialogResponse_FR.html">http://localhost../wiki/OnDialogResponse_FR.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="Category_Added_in_0.3.html" title="Category:Added in 0.3">Added in 0.3</a></span> | <span dir='ltr'><a href="Category_Scripting_Callbacks_FR.html" title="Category:Scripting Callbacks FR">Scripting Callbacks FR</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="OnDialogResponse_FR.html">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="Talk_OnDialogResponse_FR.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="OnDialogResponse_FR.html">Edit</a></li>
+				 <li id="ca-history"><a href="OnDialogResponse_FR.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-de"><a href="OnDialogResponse_DE.html">Deutsch</a></li>
+				<li class="interwiki-es"><a href="OnDialogResponse_ES.html">Español</a></li>
+				<li class="interwiki-nl"><a href="OnDialogResponse_NL.html">Nederlands</a></li>
+				<li class="interwiki-ru"><a href="OnDialogResponse_RU.html">Русский</a></li>
+				<li class="interwiki-pt"><a href="OnDialogResponse_PT.html">Português</a></li>
+				<li class="interwiki-en"><a href="OnDialogResponse.html">English</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 4,416 times.</li>
+				<li id="credits">This page was last modified 15:39, 10 December 2016 by SA-MP Wiki user <a href="User_OstGot.html" title="User:OstGot">OstGot</a>. Based on work by <a href="User_S4t3K.html" title="User:S4t3K">Soufiane</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 103.15 secs. -->
+</body></html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="SA-MP Wiki:Translating,Scripting,ScriptingFR,GetPlayerPos FR,Main Page,Main Page FR,Scripting Basics,Scripting Basics FR,Server Plugins,SetPlayerPos,SetPlayerPos FR" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>SA-MP Wiki:Translating - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-4 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">SA-MP Wiki:Translating</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<p>This is a short guide on how to translate pages.
+</p>
+<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class='toclevel-1'><a href="#Find_a_page_to_translate"><span class="tocnumber">1</span> <span class="toctext">Find a page to translate</span></a></li>
+<li class='toclevel-1'><a href="#Translate"><span class="tocnumber">2</span> <span class="toctext">Translate</span></a></li>
+<li class='toclevel-1'><a href="#Preview"><span class="tocnumber">3</span> <span class="toctext">Preview</span></a></li>
+<li class='toclevel-1'><a href="#Linking"><span class="tocnumber">4</span> <span class="toctext">Linking</span></a></li>
+<li class='toclevel-1'><a href="#Closing"><span class="tocnumber">5</span> <span class="toctext">Closing</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="SA-MP_Wiki_Translating.html" title="Edit section: Find a page to translate">edit</a>]</div><a name="Find_a_page_to_translate"></a><h2>Find a page to translate</h2>
+<p>The first step to translating a page is to find a page that needs translating in the first place. Clicking 'Random page' on the left is a good way to find pages. To check if a page needs translating, add your country code to the end of the URL, like so:
+</p><p><a href="SetPlayerPos_FR.html" title="SetPlayerPos FR">SetPlayerPos_FR</a>
+</p><p>This is the French translation of the <a href="SetPlayerPos.html" title="SetPlayerPos">SetPlayerPos</a> page.
+</p><p>If you selected 'Random page' and got 'SetPlayerPos_FR', change the 'FR' to your country code, for example RU for Russia. If there was no country code (just 'SetPlayerPos'), then add your country code, for example _RU for Russia.
+</p><p>If the page exists, you will see it. If it doesn't, a translation is needed.
+</p><p>Translated pages that are linked to but not translated are listed <a href="Category_TranslationNeeded.html" title="Category:TranslationNeeded">here</a>.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="SA-MP_Wiki_Translating.html" title="Edit section: Translate">edit</a>]</div><a name="Translate"></a><h2>Translate</h2>
+<p>Simply copy all the contents from the <b>English</b> page, paste it into the page that you are translating (with the country code). You can then proceed to translate the text. Function names, parameter names etc. should NOT be translated, because the SA-MP API is in English.
+</p><p>Links and templates must be in English with a country code on the end. The suffix for pages should start with an underscore, for example <a href="GetPlayerPos_FR.html" title="GetPlayerPos FR">GetPlayerPos_FR</a>. Templates should ideally use the same format, but most of them don't use an underscore, for example <a href="Template_ScriptingFR.html" title="Template:ScriptingFR">Template:ScriptingFR</a> instead of Template:Scripting_FR.<br />
+For the categories, if the page gonna be visited like Category:Mathematical_Functions_FR, use an underscore.<br />
+Else, like Category:FunctionTemplatesFR, don't use an underscore.
+The <a href="Template_Scripting.html" title="Template:Scripting">{{Scripting}}</a> template looks like this:
+</p>
+<div class="scripting" style="color: #4378A4; background-color: #FFFFFF; margin: 2px; margin-bottom: 10px;"><div align="center" style="border: 1px solid #AAAAAA; padding: 3px; padding-left: 5px;"><a href="../wiki-archive.html" title="Main Page">Main Page</a> | <a href="Category_Scripting_Functions.html" title="Category:Scripting Functions">Scripting Functions</a> | <a href="Category_Scripting_Callbacks.html" title="Category:Scripting Callbacks">Scripting Callbacks</a> | <a href="Scripting_Basics.html" title="Scripting Basics">Scripting Basics</a> | <a href="Server_Plugins.html" title="Server Plugins">Server Plugins</a> | <a href="Category_Tutorials.html" title="Category:Tutorials">Tutorials</a></div></div><br />
+<p><br />
+Can be shown in French using <a href="Template_ScriptingFR.html" title="Template:ScriptingFR">{{ScriptingFR}}</a>, like so:
+</p>
+<div class="scripting" style="color: #4378A4; background-color: #FFFFFF; margin: 2px; margin-bottom: 10px;"><div align="center" style="border: 1px solid #AAAAAA; padding: 3px; padding-left: 5px;"><a href="Main_Page_FR.html" title="Main Page FR">Page d'Accueil</a> | <a href="Category_Scripting_Functions_FR.html" title="Category:Scripting Functions FR">Les Fonctions</a> | <a href="Category_Scripting_Callbacks_FR.html" title="Category:Scripting Callbacks FR">Les Callbacks</a> | <a href="Scripting_Basics_FR.html" title="Scripting Basics FR">Les bases du Scripting</a> | <a href="Server_Plugins.html" title="Server Plugins">Plugins de Serveur</a> | <a href="Category_Tutorials_FR.html" title="Category:Tutorials FR">Tutoriaux</a><br /><div style="font-size:10px;padding:0px;margin:-6px;">Ne prenez pas en compte les <b>FR</b> dans les noms</div></div></div><br />
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="SA-MP_Wiki_Translating.html" title="Edit section: Preview">edit</a>]</div><a name="Preview"></a><h2>Preview</h2>
+<p>Before saving a page, preview it (click the 'Show Preview' button at the bottom of the edit page) to check it looks okay. Some templates may have been mis-linked. Once happy, save it.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="SA-MP_Wiki_Translating.html" title="Edit section: Linking">edit</a>]</div><a name="Linking"></a><h2>Linking</h2>
+<p>Translated pages must be manually linked with each other in order for people to even know they exist. For this example, lets say we are translating pages to French (FR).
+First, go to the <b>English</b> page. On the left side of the page you can see which languages have been linked, like so:
+</p><p><a href="Image_TranslatedPages.png.html" class="image" title="Image:TranslatedPages.png"><img src="../upload/7/71/TranslatedPages.png" alt="Image:TranslatedPages.png" width="152" height="89" longdesc="Image_TranslatedPages.png.html" /></a>
+</p><p>If you go in to edit the English page and look at the bottom, you can see the linked pages, which looks like this:
+</p>
+<table style="width: 75%;">
+<tr>
+<td>
+<pre>[[fr:GetPlayerMoney]]
+[[nl:GetPlayerMoney]]
+[[ru:GetPlayerMoney]]
+</pre>
+</td><td>
+<div style="font-size: 95%; background-color: #FFF; width: 11.6em; color: #000; border-collapse: collapse; border: 1px solid #AAA; padding: 0px 0.8em 0.3em 0.5em;">
+<ul><li> <a href="GetPlayerMoney_FR.html" class='extiw' title="fr:GetPlayerMoney">Français</a>
+</li><li> <a href="GetPlayerMoney_NL.html" class='extiw' title="nl:GetPlayerMoney">Nederlands</a>
+</li><li> <a href="GetPlayerMoney_RU.html" class='extiw' title="ru:GetPlayerMoney">Русский</a></div>
+</li></ul>
+</td></tr></table>
+<p>French (FR) is already linked, but if it wasn't we'd add it. Try to keep the links in alphabetical order.
+</p><p>If we then go to the French (FR) version of that page, we can see more linking:
+</p>
+<table style="width: 75%;">
+<tr>
+<td>
+<pre>[[en:GetPlayerMoney]]
+[[nl:GetPlayerMoney]]
+[[ru:GetPlayerMoney]]
+</pre>
+</td><td>
+<div style="font-size: 95%; background-color: #FFF; width: 11.6em; color: #000; border-collapse: collapse; border: 1px solid #AAA; padding: 0px 0.8em 0.3em 0.5em;">
+<ul><li> <a href="GetPlayerMoney.html" class='extiw' title="en:GetPlayerMoney">English</a>
+</li><li> <a href="GetPlayerMoney_NL.html" class='extiw' title="nl:GetPlayerMoney">Nederlands</a>
+</li><li> <a href="GetPlayerMoney_RU.html" class='extiw' title="ru:GetPlayerMoney">Русский</a></div>
+</li></ul>
+</td></tr></table>
+<p>The fr: link has been replaced by the en: link, this is because the EN page linked to the FR page, then the FR page links back to the EN page. This must be done for every version of a page. Always keep English at the top, as it is the main language.
+</p><p>Here is what the linking would look like on the NL and RU pages:
+</p><p><b>NL:</b>
+</p>
+<table style="width: 75%;">
+<tr>
+<td>
+<pre>[[en:GetPlayerMoney]]
+[[fr:GetPlayerMoney]]
+[[ru:GetPlayerMoney]]
+</pre>
+</td><td>
+<div style="font-size: 95%; background-color: #FFF; width: 11.6em; color: #000; border-collapse: collapse; border: 1px solid #AAA; padding: 0px 0.8em 0.3em 0.5em;">
+<ul><li> <a href="GetPlayerMoney.html" class='extiw' title="en:GetPlayerMoney">English</a>
+</li><li> <a href="GetPlayerMoney_FR.html" class='extiw' title="fr:GetPlayerMoney">Français</a>
+</li><li> <a href="GetPlayerMoney_RU.html" class='extiw' title="ru:GetPlayerMoney">Русский</a></div>
+</li></ul>
+</td></tr></table>
+<p><b>RU:</b>
+</p>
+<table style="width: 75%;">
+<tr>
+<td>
+<pre>[[en:GetPlayerMoney]]
+[[fr:GetPlayerMoney]]
+[[nl:GetPlayerMoney]]
+</pre>
+</td><td>
+<div style="font-size: 95%; background-color: #FFF; width: 11.6em; color: #000; border-collapse: collapse; border: 1px solid #AAA; padding: 0px 0.8em 0.3em 0.5em;">
+<ul><li> <a href="GetPlayerMoney.html" class='extiw' title="en:GetPlayerMoney">English</a>
+</li><li> <a href="GetPlayerMoney_FR.html" class='extiw' title="fr:GetPlayerMoney">Français</a>
+</li><li> <a href="GetPlayerMoney_NL.html" class='extiw' title="nl:GetPlayerMoney">Nederlands</a></div>
+</li></ul>
+</td></tr></table>
+<p>Please note that not all languages can be linked, so if you are unsure if the language is available, click preview first before saving the page!
+</p><p>Currently, SA-MP Wiki only supports a few languages for interwiki link, below is known list.
+</p>
+<table class="wikitable">
+<tr>
+<th> Interwiki Prefix </th><th> Language
+</th></tr>
+<tr>
+<td> en </td><td> English
+</td></tr>
+<tr>
+<td> de </td><td> Deutsch (German)
+</td></tr>
+<tr>
+<td> es </td><td> Español (Spanish)
+</td></tr>
+<tr>
+<td> fr </td><td> Français (French)
+</td></tr>
+<tr>
+<td> hu </td><td> Magyar (Hungarian)
+</td></tr>
+<tr>
+<td> nl </td><td> Nederlands (Dutch)
+</td></tr>
+<tr>
+<td> pt </td><td> Português (Portuguese)
+</td></tr>
+<tr>
+<td> pl </td><td> Polski (Polish)
+</td></tr>
+<tr>
+<td> ru </td><td> Русский (Russian)
+</td></tr>
+<tr>
+<td> cs </td><td> Česky (Czech)
+</td></tr>
+<tr>
+<td> ko </td><td> 한국어 (Korean)
+</td></tr>
+<tr>
+<td> zh </td><td> 中文 (Chinese)
+</td></tr></table>
+<p>If you are still unsure about linking, at least make sure you link with the English version. It's nice to have each version linked with each version though. Every page should be linked with every page, excluding itself. Don't link, for example, the FR page to the FR page.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="SA-MP_Wiki_Translating.html" title="Edit section: Closing">edit</a>]</div><a name="Closing"></a><h2>Closing</h2>
+<p>Thanks for helping to translate the SA-MP wiki. If you're still unsure about anything - <a href="SA-MP_Wiki_talk_Translating.html" title="SA-MP Wiki talk:Translating">ask</a>. Or check pages that have been translated to see what they did.
+</p><div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/SA-MP_Wiki_Translating.html">http://localhost../wiki/SA-MP_Wiki_Translating.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="Category_Help.html" title="Category:Help">Help</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-wp" class="selected"><a href="SA-MP_Wiki_Translating.html">Project page</a></li>
+				 <li id="ca-talk"><a href="SA-MP_Wiki_talk_Translating.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="SA-MP_Wiki_Translating.html">Edit</a></li>
+				 <li id="ca-history"><a href="SA-MP_Wiki_Translating.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 7,325 times.</li>
+				<li id="credits">This page was last modified 13:54, 1 August 2017 by SA-MP Wiki user <a href="User_OstGot.html" title="User:OstGot">OstGot</a>. Based on work by <a href="User_Kilou.html" title="User:Kilou">Killian</a> and SA-MP Wiki user(s) <a href="User_MP2.html" title="User:MP2">MP2</a>, <a href="User_Vince.html" title="User:Vince">Vince</a> and <a href="User_RoboN1X.html" title="User:RoboN1X">RoboN1X</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 100.93 secs. -->
+</body></html>

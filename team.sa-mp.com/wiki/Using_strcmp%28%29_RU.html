@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Using strcmp() RU,OnPlayerCommandText,Strtok,Главная страница,Основы скриптинга (RU),Плагины сервера,Tutorials RU,Автовызываемые функции,Боты,Функции скриптинга" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>Using strcmp() RU - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Using strcmp() RU</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<div class="scripting" style="color: #4378A4; background-color: #FFFFFF; margin: 2px; margin-bottom: 10px;"><div align="center" style="border: 1px solid #AAAAAA; padding: 3px; padding-left: 5px;"><a href="%25D0%2593%25D0%25BB%25D0%25B0%25D0%25B2%25D0%25BD%25D0%25B0%25D1%258F_%25D1%2581%25D1%2582%25D1%2580%25D0%25B0%25D0%25BD%25D0%25B8%25D1%2586%25D0%25B0.html" title="Главная страница">Главная страница</a> | <a href="%25D0%259E%25D1%2581%25D0%25BD%25D0%25BE%25D0%25B2%25D1%258B_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0_%2528RU%2529.html" title="Основы скриптинга (RU)">Основы скриптинга</a> | <a href="Category_%25D0%25A4%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0.html" title="Category:Функции скриптинга">Функции скриптинга</a> | <a href="Category_%25D0%2590%25D0%25B2%25D1%2582%25D0%25BE%25D0%25B2%25D1%258B%25D0%25B7%25D1%258B%25D0%25B2%25D0%25B0%25D0%25B5%25D0%25BC%25D1%258B%25D0%25B5_%25D1%2584%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8.html" title="Category:Автовызываемые функции">Автовызываемые функции</a> | <a href="Category_%25D0%2591%25D0%25BE%25D1%2582%25D1%258B.html" title="Category:Боты">Боты</a> | <a href="Category_Tutorials_RU.html" title="Category:Tutorials RU">Учебники</a> | <a href="%25D0%259F%25D0%25BB%25D0%25B0%25D0%25B3%25D0%25B8%25D0%25BD%25D1%258B_%25D1%2581%25D0%25B5%25D1%2580%25D0%25B2%25D0%25B5%25D1%2580%25D0%25B0.html" title="Плагины сервера">Плагины</a></div></div><br />
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Using_strcmp%2528%2529_RU.html" title="Edit section: Использование strcmp()">edit</a>]</div><a name=".D0.98.D1.81.D0.BF.D0.BE.D0.BB.D1.8C.D0.B7.D0.BE.D0.B2.D0.B0.D0.BD.D0.B8.D0.B5_strcmp.28.29"></a><h1 class="firstheading" style="position:absolute; top:0px; background:#FFF; width:95%;">Использование strcmp()</h1>
+<p><b>Использование strcmp() и strtok() в <a href="OnPlayerCommandText.html" title="OnPlayerCommandText">OnPlayerCommandText</a> для создания собственных команд</b>
+</p><p>Откройте Pawno, File > New.
+</p><p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Using_strcmp%2528%2529_RU.html" title="Edit section: Делаем команду /me">edit</a>]</div><a name=".D0.94.D0.B5.D0.BB.D0.B0.D0.B5.D0.BC_.D0.BA.D0.BE.D0.BC.D0.B0.D0.BD.D0.B4.D1.83_.2Fme"></a><h2> Делаем команду /me </h2>
+<p>Если Вы хотите прочитать о делении строки по пробелам с применением strtok, читайте нижний раздел.
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnPlayerCommandText"><span style="color: #dc143c">OnPlayerCommandText</span></a><span style="color: #66cc66;">&#40;</span>playerid, cmdtext<span style="color: #66cc66;">&#91;</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>!<a href="http://wiki.sa-mp.com/wiki/strcmp"><span style="color: #006400;">strcmp</span></a><span style="color: #66cc66;">&#40;</span>cmdtext, <span style="color: #b22222;">&quot;/me&quot;</span>, true, <span style="color: #4169e1;">3</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span> <span style="color: #808080; font-style: italic;">// сравниваем только первые три символа</span>
+    <span style="color: #66cc66;">&#123;</span>
+        <span style="color: #808080; font-style: italic;">//Если третий символ (отсчет идет с нуля, НЕ единицы) отсутствует, возвращаем функцию и отправляем игроку сообщение с примером правильного применения:</span>
+        <span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>!cmdtext<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">3</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span><span style="color: orange; font-weight: bold;">return</span> <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, 0xFF0000FF, <span style="color: #b22222;">&quot;USAGE: /me [action]&quot;</span><span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+        <span style="color: #228b22; font-weight: bold;">new</span> str<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">128</span><span style="color: #66cc66;">&#93;</span>;
+        <a href="http://wiki.sa-mp.com/wiki/GetPlayerName"><span style="color: #006400;">GetPlayerName</span></a><span style="color: #66cc66;">&#40;</span>playerid, str, <span style="color: orange; font-weight: bold;">sizeof</span><span style="color: #66cc66;">&#40;</span>str<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+        <span style="color: #808080; font-style: italic;">//Форматируем str: ник игрока и далее введенный текст команды, начиная с четвертого символа (отсчет с 0, напоминаю):</span>
+        <a href="http://wiki.sa-mp.com/wiki/format"><span style="color: #006400;">format</span></a><span style="color: #66cc66;">&#40;</span>str, <span style="color: orange; font-weight: bold;">sizeof</span><span style="color: #66cc66;">&#40;</span>str<span style="color: #66cc66;">&#41;</span>, <span style="color: #b22222;">&quot;* %s %s&quot;</span>, str, cmdtext<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">4</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+        <a href="http://wiki.sa-mp.com/wiki/SendClientMessageToAll"><span style="color: #006400;">SendClientMessageToAll</span></a><span style="color: #66cc66;">&#40;</span>0xFFFF00AA, str<span style="color: #66cc66;">&#41;</span>;
+        <span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+    <span style="color: #66cc66;">&#125;</span>
+    <span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">0</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>Теперь, если мы введем команду '/me blabla' , в чате появится сообщение вида "* Nick blabla".
+На заметку: в этом коде после '/me' можно не ставить пробел, а написать абсолютно любой символ (здесь происходит проверка только на наличие четвертого символа, о том, чему он равен, ничего не сказано). Т.е. если мы введем команду '/meAHello', в чате появится сообщение вида "* Nick Hello".
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Using_strcmp%2528%2529_RU.html" title="Edit section: Использование strtok()">edit</a>]</div><a name=".D0.98.D1.81.D0.BF.D0.BE.D0.BB.D1.8C.D0.B7.D0.BE.D0.B2.D0.B0.D0.BD.D0.B8.D0.B5_strtok.28.29"></a><h2> Использование strtok() </h2>
+<p><tt><a href="Strtok.html" title="Strtok">strtok</a></tt> возвращает строку, которая вышла при "отделении" пробелом в указанной строке.
+В частых случаях используется для "изъятия" параметров из команды . Например: /freeze PlayerID или /givecash PlayerID Money. В первом примере сделаем команду /sayhello PlayerID, при которой игроку с указанным ID отправляется сообщение "Hi, Hello!".
+</p><p>Но для начала мы возьмем пример попроще, чтобы в полной мере выяснить, как он работает.
+Будем разбирать на примере строки, содержащей текст, хмм, предположим: "I want to create my gamemod!".
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> text<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">30</span><span style="color: #66cc66;">&#93;</span>; <span style="color: #808080; font-style: italic;">//наш массив, который будет использоваться в качестве строки</span>
+<span style="color: #228b22; font-weight: bold;">new</span> idx = <span style="color: #4169e1;">0</span>; <span style="color: #808080; font-style: italic;">//Эта переменная нам понадобиться для функции strtok, она будет хранить число, которое будет указывать, какое по счету слово нам нужно &quot;вырезать&quot; из строки</span>
+<span style="color: #228b22; font-weight: bold;">new</span> word<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">15</span><span style="color: #66cc66;">&#93;</span>; <span style="color: #808080; font-style: italic;">//а этот массив будет использоваться в качестве строки, в которую будут записываться &quot;вырезанные слова&quot; из текста.</span>
+&nbsp;
+<span style="color: #808080; font-style: italic;">//Собственно, заполняем строку нашей фразой</span>
+<a href="http://wiki.sa-mp.com/wiki/format"><span style="color: #006400;">format</span></a><span style="color: #66cc66;">&#40;</span>text, <span style="color: orange; font-weight: bold;">sizeof</span><span style="color: #66cc66;">&#40;</span>text<span style="color: #66cc66;">&#41;</span>, <span style="color: #b22222;">&quot;I want to create my gamemod!&quot;</span><span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+<span style="color: #808080; font-style: italic;">//Предположим, мы хотим вытащить второе слово. Не забывайте, что в программирование отсчет начинается с нуля, поэтому нам нужно указать, что нам нужно &quot;первое&quot;, а не нулевое слово:</span>
+idx = <span style="color: #4169e1;">1</span>
+word = strtok<span style="color: #66cc66;">&#40;</span>text,idx<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #808080; font-style: italic;">//Вы можете запросто проверить этот код, не заходя в геймплей игры в консоли, в данный момент строка &quot;word&quot; содержит слово &quot;want&quot;.</span>
+&nbsp;
+<span style="color: #808080; font-style: italic;">//Если Вы повторите последнюю строку кода, то строка &quot;word&quot; будет содержать уже следующее слово из фразы, т.к. strtok после использование '''всегда прибавляет единицу ко второму аргументу''', в данном случае к переменной idx.</span>
+word = strtok<span style="color: #66cc66;">&#40;</span>text,idx<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #808080; font-style: italic;">//Так что, сейчас строка &quot;word&quot; содержит слово &quot;to&quot;</span></pre>
+<p>Ну и, естественно, пример частого использования функции strtok - для изъятия аргументов, указываемых игроками. Здесь мы назовем разделение строки не по словам, а по <b>параметрам</b>, как это принято:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnPlayerCommandText"><span style="color: #dc143c">OnPlayerCommandText</span></a><span style="color: #66cc66;">&#40;</span>playerid, cmdtext<span style="color: #66cc66;">&#91;</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <span style="color: #228b22; font-weight: bold;">new</span> cmd<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">30</span><span style="color: #66cc66;">&#93;</span>;    <span style="color: #808080; font-style: italic;">//переменная будет содержать первый параметр (/sayhello)</span>
+    <span style="color: #228b22; font-weight: bold;">new</span> idx;        <span style="color: #808080; font-style: italic;">//переменная будет хранить, какой по-счету параметр записан</span>
+    cmd = strtok<span style="color: #66cc66;">&#40;</span>cmdtext, idx<span style="color: #66cc66;">&#41;</span>;        <span style="color: #808080; font-style: italic;">//заполняем строку cmd первым (нулевым, считая по idx = 0) параметром.</span>
+&nbsp;
+    <span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span><a href="http://wiki.sa-mp.com/wiki/strcmp"><span style="color: #006400;">strcmp</span></a><span style="color: #66cc66;">&#40;</span>cmd, <span style="color: #b22222;">&quot;/sayhello&quot;</span>, true<span style="color: #66cc66;">&#41;</span> == <span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span>        <span style="color: #808080; font-style: italic;">//Если cmd равна '/sayhello':</span>
+    <span style="color: #66cc66;">&#123;</span>
+        <span style="color: #228b22; font-weight: bold;">new</span> tmp<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">30</span><span style="color: #66cc66;">&#93;</span>;
+&nbsp;
+        <span style="color: #808080; font-style: italic;">// заполняем строку tmp вторым (первым, считая по idx = 1) параметром:</span>
+        tmp = strtok<span style="color: #66cc66;">&#40;</span>cmdtext, idx<span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+        <span style="color: #808080; font-style: italic;">// конвертируем строку tmp в целое число</span>
+        <span style="color: #228b22; font-weight: bold;">new</span> otherplayer = <a href="http://wiki.sa-mp.com/wiki/strval"><span style="color: #006400;">strval</span></a><span style="color: #66cc66;">&#40;</span>tmp<span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+        <span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span><a href="http://wiki.sa-mp.com/wiki/IsPlayerConnected"><span style="color: #006400;">IsPlayerConnected</span></a><span style="color: #66cc66;">&#40;</span>otherplayer<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>
+        <span style="color: #66cc66;">&#123;</span>
+            <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>otherplayer, 0xFFFF00AA, <span style="color: #b22222;">&quot;Hi, hello!&quot;</span><span style="color: #66cc66;">&#41;</span>;
+        <span style="color: #66cc66;">&#125;</span>
+        <span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+    <span style="color: #66cc66;">&#125;</span>
+    <span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">0</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/Using_strcmp%2528%2529_RU.html">http://localhost../wiki/Using_strcmp%2528%2529_RU.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="Category_Tutorials_RU.html" title="Category:Tutorials RU">Tutorials RU</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="Using_strcmp%2528%2529_RU.html">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="Talk_Using_strcmp%2528%2529_RU.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="Using_strcmp%2528%2529_RU.html">Edit</a></li>
+				 <li id="ca-history"><a href="Using_strcmp%2528%2529_RU.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-en"><a href="%25D0%2598%25D1%2581%25D0%25BF%25D0%25BE%25D0%25BB%25D1%258C%25D0%25B7%25D0%25BE%25D0%25B2%25D0%25B0%25D0%25BD%25D0%25B8%25D0%25B5_strcmp.html">English</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 9,831 times.</li>
+				<li id="credits">This page was last modified 13:12, 24 March 2017 by SA-MP Wiki user <a href="User_OstGot.html" title="User:OstGot">OstGot</a>. Based on work by SA-MP Wiki user(s) <a href="User_Z.html" title="User:Z">Z</a> and <a href="User_Smithy.html" title="User:Smithy">Smithy</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 70.57 secs. -->
+</body></html>

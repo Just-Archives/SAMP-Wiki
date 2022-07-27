@@ -1,0 +1,313 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Scripting Functions Old,File Functions,Function:floatabs,Function:floatcos,Function:floatfract,Function:floatlog,Function:floatpower,Function:floatsin,Function:floatsqroot,Function:floattan,Function:fmatch" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>Scripting Functions Old - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Scripting Functions Old</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class='toclevel-1'><a href="#File_functions_.28file.inc.29"><span class="tocnumber">1</span> <span class="toctext">File functions (file.inc)</span></a>
+<ul>
+<li class='toclevel-2'><a href="#fmatch"><span class="tocnumber">1.1</span> <span class="toctext">fmatch</span></a></li>
+<li class='toclevel-2'><a href="#fputchar"><span class="tocnumber">1.2</span> <span class="toctext">fputchar</span></a></li>
+<li class='toclevel-2'><a href="#ftemp"><span class="tocnumber">1.3</span> <span class="toctext">ftemp</span></a></li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#Float_functions_.28float.inc.29"><span class="tocnumber">2</span> <span class="toctext">Float functions (float.inc)</span></a>
+<ul>
+<li class='toclevel-2'><a href="#floatabs"><span class="tocnumber">2.1</span> <span class="toctext">floatabs</span></a></li>
+<li class='toclevel-2'><a href="#floatcos"><span class="tocnumber">2.2</span> <span class="toctext">floatcos</span></a></li>
+<li class='toclevel-2'><a href="#floatfract"><span class="tocnumber">2.3</span> <span class="toctext">floatfract</span></a></li>
+<li class='toclevel-2'><a href="#floatlog"><span class="tocnumber">2.4</span> <span class="toctext">floatlog</span></a></li>
+<li class='toclevel-2'><a href="#floatpower"><span class="tocnumber">2.5</span> <span class="toctext">floatpower</span></a></li>
+<li class='toclevel-2'><a href="#floatsin"><span class="tocnumber">2.6</span> <span class="toctext">floatsin</span></a></li>
+<li class='toclevel-2'><a href="#floatsqroot"><span class="tocnumber">2.7</span> <span class="toctext">floatsqroot</span></a></li>
+<li class='toclevel-2'><a href="#floattan"><span class="tocnumber">2.8</span> <span class="toctext">floattan</span></a></li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#String_functions_.28string.inc.29"><span class="tocnumber">3</span> <span class="toctext">String functions (string.inc)</span></a>
+<ul>
+<li class='toclevel-2'><a href="#ispacked"><span class="tocnumber">3.1</span> <span class="toctext">ispacked</span></a></li>
+<li class='toclevel-2'><a href="#strunpack"><span class="tocnumber">3.2</span> <span class="toctext">strunpack</span></a></li>
+<li class='toclevel-2'><a href="#uudecode"><span class="tocnumber">3.3</span> <span class="toctext">uudecode</span></a></li>
+<li class='toclevel-2'><a href="#uuencode"><span class="tocnumber">3.4</span> <span class="toctext">uuencode</span></a></li>
+</ul>
+</li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_Old.html" title="Edit section: File functions (file.inc)">edit</a>]</div><a name="File_functions_.28file.inc.29"></a><h1> <a href="File_Functions.html" title="File Functions">File functions</a> (file.inc) </h1>
+<p>You may refer also on <a href="File_Functions.html" title="File Functions">File tutorial</a> for a tutorial on this.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_Old.html" title="Edit section: fmatch">edit</a>]</div><a name="fmatch"></a><h2><a href="Function_fmatch.html" title="Function:fmatch">fmatch</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">This function checks whether a part of the given file matched the string specified.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(name[],const pattern[],index&#61;0,size&#61;sizeof name)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">name[]</td><td style="vertical-align:top;">The filename to check.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const pattern[]</td><td style="vertical-align:top;">The pattern that should be matched.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">index&#61;0</td><td style="vertical-align:top;">The offset to start searching.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">size&#61;sizeof name</td><td style="vertical-align:top;">The amount of characters to search in.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">fmatch("searchFile.txt", "Peter", 0);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_Old.html" title="Edit section: fputchar">edit</a>]</div><a name="fputchar"></a><h2><a href="Function_fputchar.html" title="Function:fputchar">fputchar</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">This function writes one character to the file.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(handle,value,utf8&#61;true)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">handle</td><td style="vertical-align:top;">The File handle to use, earlier opened by fopen().</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">value</td><td style="vertical-align:top;">The character you want to write.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">utf8&#61;true</td><td style="vertical-align:top;">Should the character be written as UTF8?</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">fputchar(gFile, 'e', false);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_Old.html" title="Edit section: ftemp">edit</a>]</div><a name="ftemp"></a><h2><a href="Function_ftemp.html" title="Function:ftemp">ftemp</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">This function opens a file in the "tmp" or "temp" directory for reading and writing. The file is deleted after you close it with fclose().<br /></div>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #FFEAEA; border-left: 10px solid #FCA9A9;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #FCA9A9;"><a href="Image_32px-Circle-style-warning.png.html" class="image" title="Image:32px-Circle-style-warning.png"><img src="../upload/5/57/32px-Circle-style-warning.png" alt="Image:32px-Circle-style-warning.png" width="32" height="32" longdesc="Image_32px-Circle-style-warning.png.html" /></a><br />
+<p><strong>Important<br />Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">This function can crash your game when the right directory isn't created.</span>
+</td></tr></table>
+</div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(No Parameters)<br /></div>
+<p><b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">The File handle<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new File:gFile &#61; ftemp();</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_Old.html" title="Edit section: Float functions (float.inc)">edit</a>]</div><a name="Float_functions_.28float.inc.29"></a><h1> Float functions (float.inc) </h1>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_Old.html" title="Edit section: floatabs">edit</a>]</div><a name="floatabs"></a><h2><a href="Function_floatabs.html" title="Function:floatabs">floatabs</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Returns the absolute value of a float.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(value)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">value</td><td style="vertical-align:top;">The float you want to check</td></tr></table></div>
+<p><b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">The absolute value of the float.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new Float:fAbs &#61; floatabs(-123.54);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_Old.html" title="Edit section: floatcos">edit</a>]</div><a name="floatcos"></a><h2><a href="Function_floatcos.html" title="Function:floatcos">floatcos</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Calculate the right cosine of a float, with a specific anglemode.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(value,anglemode&#61;radian)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">value</td><td style="vertical-align:top;">The float you want to know the cosine of.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">anglemode&#61;radian</td><td style="vertical-align:top;">The <a href="Anglemode.html" class="new" title="Anglemode">Anglemode</a>.</td></tr></table></div>
+<p><b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">The cosine of the given float.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new Float:fCos &#61; floatcos(87.343, radian);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_Old.html" title="Edit section: floatfract">edit</a>]</div><a name="floatfract"></a><h2><a href="Function_floatfract.html" title="Function:floatfract">floatfract</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Calculate and return the fractional part of a float.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(value)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">value</td><td style="vertical-align:top;">The float you want to know that fractional path of.</td></tr></table></div>
+<p><b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">The fractional part of the float.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new Float:fFract &#61; floatfract(3249.34);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_Old.html" title="Edit section: floatlog">edit</a>]</div><a name="floatlog"></a><h2><a href="Function_floatlog.html" title="Function:floatlog">floatlog</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Use this function if you want to know the logarithm of a float.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(value,base&#61;10.0)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">value</td><td style="vertical-align:top;">The float you want to know the log. of.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">base&#61;10.0</td><td style="vertical-align:top;">The base value to use.</td></tr></table></div>
+<p><b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">The logarithm value of the float.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new Float:fLog &#61; floatlog(128.0);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_Old.html" title="Edit section: floatpower">edit</a>]</div><a name="floatpower"></a><h2><a href="Function_floatpower.html" title="Function:floatpower">floatpower</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Raises the float to the power of the exponent float.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(value,exponent)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">value</td><td style="vertical-align:top;">The float you want to raise.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">exponent</td><td style="vertical-align:top;">The exponent you want, as a float.</td></tr></table></div>
+<p><b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">The float raised by the power of the exponent.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new Float:fPower &#61; floatpower(5.0, 2); // 25</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_Old.html" title="Edit section: floatsin">edit</a>]</div><a name="floatsin"></a><h2><a href="Function_floatsin.html" title="Function:floatsin">floatsin</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Calculate the sinus of the given float, with the anglemode in radian, degrees or grads<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(value,anglemode:mode&#61;radian)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">value</td><td style="vertical-align:top;">The float you want to know the sinus of.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">mode&#61;radian</td><td style="vertical-align:top;">The <a href="Anglemode.html" class="new" title="Anglemode">Anglemode</a>.</td></tr></table></div>
+<p><b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">The sinus of the given float.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new Float:fSin &#61; floatsin(82.4);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_Old.html" title="Edit section: floatsqroot">edit</a>]</div><a name="floatsqroot"></a><h2><a href="Function_floatsqroot.html" title="Function:floatsqroot">floatsqroot</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Calculate the square root of the given float.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(value)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">value</td><td style="vertical-align:top;">The float you want to know the square root of.</td></tr></table></div>
+<p><b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">The square root of the float.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new Float:fSqroot &#61; floatsqroot(743.34);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_Old.html" title="Edit section: floattan">edit</a>]</div><a name="floattan"></a><h2><a href="Function_floattan.html" title="Function:floattan">floattan</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Calculate the tangent of the given float in the first argument, using it on a radian, grads or degree basis.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(value,mode&#61;radian)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">value</td><td style="vertical-align:top;">The float you want to know the tangent of.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">mode&#61;radian</td><td style="vertical-align:top;">The you <a href="Anglemode.html" class="new" title="Anglemode">Anglemode</a> wish to use.</td></tr></table></div>
+<p><b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">The tangent value of the float.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new Float:fTan &#61; floattan(87.4);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_Old.html" title="Edit section: String functions (string.inc)">edit</a>]</div><a name="String_functions_.28string.inc.29"></a><h1> String functions (string.inc) </h1>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_Old.html" title="Edit section: ispacked">edit</a>]</div><a name="ispacked"></a><h2><a href="Function_ispacked.html" title="Function:ispacked">ispacked</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Check if the given string is packed, and return the result.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(const string[])<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const string[]</td><td style="vertical-align:top;">The string you want to check.</td></tr></table></div>
+<p><b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;"><b>1</b> if the string is packed, <b>0</b> if it's unpacked.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">if(ispacked(string)){</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_Old.html" title="Edit section: strunpack">edit</a>]</div><a name="strunpack"></a><h2><a href="Function_strunpack.html" class="new" title="Function:strunpack">strunpack</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">This function unpacks a packed string, into the destination.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(dest[],const source[],maxlength&#61;sizeof dest)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">dest[]</td><td style="vertical-align:top;">The destination for the unpacked string.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const source[]</td><td style="vertical-align:top;">The current packed string to unpack.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">maxlength&#61;sizeof dest</td><td style="vertical-align:top;">The length of the destination string.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">strunpack(string, packedString);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_Old.html" title="Edit section: uudecode">edit</a>]</div><a name="uudecode"></a><h2><a href="Function_uudecode.html" title="Function:uudecode">uudecode</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">This function enables you to decode an UU-encoded stream.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(dest[],const source[],maxlength&#61;sizeof dest)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">dest[]</td><td style="vertical-align:top;">The destination for the decoded string array.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const source[]</td><td style="vertical-align:top;">The UU-encoded source string.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">maxlength&#61;sizeof dest</td><td style="vertical-align:top;">The maximum length of dest that can be used.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">uudecode(decodedString, encodedString);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_Old.html" title="Edit section: uuencode">edit</a>]</div><a name="uuencode"></a><h2><a href="Function_uuencode.html" title="Function:uuencode">uuencode</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">The string you can decode with uudecode, must be encoded with this function.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(dest[],const source[],numbytes,maxlength&#61;sizeof dest)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">dest[]</td><td style="vertical-align:top;">The destination string for the encoded stream.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const source[]</td><td style="vertical-align:top;">The source, non-encoded string.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">numbytes</td><td style="vertical-align:top;">The number of bytes to encode, this should not exceed 45.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">maxlength&#61;sizeof dest</td><td style="vertical-align:top;">The maximum length of the dest[] array.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">uudecode(encodedString, normalString, 45);</span><br /></div>
+<div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/Scripting_Functions_Old.html">http://localhost../wiki/Scripting_Functions_Old.html</a>"</div>
+						<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="Scripting_Functions_Old.html">Article</a></li>
+				 <li id="ca-talk"><a href="Talk_Scripting_Functions_Old.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="Scripting_Functions_Old.html">Edit</a></li>
+				 <li id="ca-history"><a href="Scripting_Functions_Old.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-ru"><a href="Scripting_Functions_RU.html">Русский</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 172,858 times.</li>
+				<li id="credits">This page was last modified 14:09, 17 May 2014 by <a href="User_GtakillerIV.html" title="User:GtakillerIV">GtakillerIV</a>. Based on work by SA-MP Wiki user(s) <a href="User_MP2.html" title="User:MP2">MP2</a> and <a href="User_Dugi.html" title="User:Dugi">Dugi</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 1.53 secs. -->
+</body></html>

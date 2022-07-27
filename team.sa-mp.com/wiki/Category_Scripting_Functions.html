@@ -1,0 +1,432 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Category:Scripting Functions,AddStaticVehicle,AddStaticVehicleEx,AddVehicleComponent,Amx Functions,Attach3DTextLabelToPlayer,Attach3DTextLabelToVehicle,AttachCameraToObject,AttachCameraToPlayerObject,AttachObjectToObject,AttachObjectToPlayer" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>Category:Scripting Functions - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-14 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Category:Scripting Functions</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<div class="scripting" style="color: #4378A4; background-color: #FFFFFF; margin: 2px; margin-bottom: 10px;"><div align="center" style="border: 1px solid #AAAAAA; padding: 3px; padding-left: 5px;"><a href="../wiki-archive.html" title="Main Page">Main Page</a> | <strong>Scripting Functions</strong> | <a href="Category_Scripting_Callbacks.html" title="Category:Scripting Callbacks">Scripting Callbacks</a> | <a href="Scripting_Basics.html" title="Scripting Basics">Scripting Basics</a> | <a href="Server_Plugins.html" title="Server Plugins">Server Plugins</a> | <a href="Category_Tutorials.html" title="Category:Tutorials">Tutorials</a></div></div><br />
+<p><br />
+This page contains an overview of the hundreds of functions available in San Andreas: Multiplayer. All functions have received their own page with extended information about the function, the required parameters, possible usage and other functions you might want to look at.
+</p><p>Functions get added with every new release of San Andreas: Multiplayer. The <a href="Server_Plugins.html" title="Server Plugins">Server Plugins</a> can also add a lot of extra functions to the multiplayer mod, click on the link for more information about the server plugins. There currently are <b>438</b> native functions available.
+</p><p><b>Scroll down for a full list of functions ordered alphabetically.</b>
+</p>
+<a name="Categories"></a><h1>Categories</h1>
+<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class='toclevel-1'><a href="#Categories"><span class="tocnumber">1</span> <span class="toctext">Categories</span></a>
+<ul>
+<li class='toclevel-2'><a href="#Vehicles"><span class="tocnumber">1.1</span> <span class="toctext">Vehicles</span></a></li>
+<li class='toclevel-2'><a href="#Objects"><span class="tocnumber">1.2</span> <span class="toctext">Objects</span></a>
+<ul>
+<li class='toclevel-3'><a href="#Global_Objects"><span class="tocnumber">1.2.1</span> <span class="toctext">Global Objects</span></a></li>
+<li class='toclevel-3'><a href="#Player_Objects"><span class="tocnumber">1.2.2</span> <span class="toctext">Player Objects</span></a></li>
+</ul>
+</li>
+<li class='toclevel-2'><a href="#Textdraws"><span class="tocnumber">1.3</span> <span class="toctext">Textdraws</span></a>
+<ul>
+<li class='toclevel-3'><a href="#Global_Textdraws"><span class="tocnumber">1.3.1</span> <span class="toctext">Global Textdraws</span></a></li>
+<li class='toclevel-3'><a href="#Player_Textdraws"><span class="tocnumber">1.3.2</span> <span class="toctext">Player Textdraws</span></a></li>
+<li class='toclevel-3'><a href="#Selection"><span class="tocnumber">1.3.3</span> <span class="toctext">Selection</span></a></li>
+</ul>
+</li>
+<li class='toclevel-2'><a href="#Gangzones"><span class="tocnumber">1.4</span> <span class="toctext">Gangzones</span></a></li>
+<li class='toclevel-2'><a href="#3D_Text_Labels"><span class="tocnumber">1.5</span> <span class="toctext">3D Text Labels</span></a></li>
+<li class='toclevel-2'><a href="#Checkpoints"><span class="tocnumber">1.6</span> <span class="toctext">Checkpoints</span></a>
+<ul>
+<li class='toclevel-3'><a href="#Normal_Checkpoints"><span class="tocnumber">1.6.1</span> <span class="toctext">Normal Checkpoints</span></a></li>
+<li class='toclevel-3'><a href="#Race_Checkpoints"><span class="tocnumber">1.6.2</span> <span class="toctext">Race Checkpoints</span></a></li>
+</ul>
+</li>
+<li class='toclevel-2'><a href="#Player_Variables_.28pVars.29"><span class="tocnumber">1.7</span> <span class="toctext">Player Variables (pVars)</span></a></li>
+<li class='toclevel-2'><a href="#Spectating"><span class="tocnumber">1.8</span> <span class="toctext">Spectating</span></a></li>
+<li class='toclevel-2'><a href="#Administration"><span class="tocnumber">1.9</span> <span class="toctext">Administration</span></a></li>
+<li class='toclevel-2'><a href="#NPCs"><span class="tocnumber">1.10</span> <span class="toctext">NPCs</span></a>
+<ul>
+<li class='toclevel-3'><a href="#npcmodes"><span class="tocnumber">1.10.1</span> <span class="toctext">npcmodes</span></a></li>
+<li class='toclevel-3'><a href="#Scripts"><span class="tocnumber">1.10.2</span> <span class="toctext">Scripts</span></a></li>
+</ul>
+</li>
+<li class='toclevel-2'><a href="#Plugins"><span class="tocnumber">1.11</span> <span class="toctext">Plugins</span></a></li>
+</ul>
+</li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<p><br />
+</p>
+<a name="Vehicles"></a><h2>Vehicles</h2>
+<ul><li><a href="AddStaticVehicle.html" title="AddStaticVehicle">AddStaticVehicle</a> - Add a static vehicle
+</li><li><a href="AddStaticVehicleEx.html" title="AddStaticVehicleEx">AddStaticVehicleEx</a> - Add a static vehicle with a re-spawn delay
+</li><li><a href="AddVehicleComponent.html" title="AddVehicleComponent">AddVehicleComponent</a> - Add a component (tuning part) to a vehicle
+</li><li><a href="AttachTrailerToVehicle.html" title="AttachTrailerToVehicle">AttachTrailerToVehicle</a> - Attach a trailer to a vehicle
+</li><li><a href="ChangeVehicleColor.html" title="ChangeVehicleColor">ChangeVehicleColor</a> - Change the color(s) of a vehicle
+</li><li><a href="ChangeVehiclePaintjob.html" title="ChangeVehiclePaintjob">ChangeVehiclePaintjob</a> - Change the paintjob of a vehicle
+</li><li><a href="CreateVehicle.html" title="CreateVehicle">CreateVehicle</a> - Create a vehicle
+</li><li><a href="DestroyVehicle.html" title="DestroyVehicle">DestroyVehicle</a> - Destroy a vehicle
+</li><li><a href="DetachTrailerFromVehicle.html" title="DetachTrailerFromVehicle">DetachTrailerFromVehicle</a> - Detach a trailer from a vehicle
+</li><li><a href="GetPlayerSurfingVehicleID.html" title="GetPlayerSurfingVehicleID">GetPlayerSurfingVehicleID</a> - Get the ID of the vehicle a player is surfing
+</li><li><a href="GetPlayerVehicleID.html" title="GetPlayerVehicleID">GetPlayerVehicleID</a> - Get the ID of the vehicle that a player is in
+</li><li><a href="GetVehicleComponentInSlot.html" title="GetVehicleComponentInSlot">GetVehicleComponentInSlot</a> - Get a vehicle's component (tuning part) in a certain slot
+</li><li><a href="GetVehicleComponentType.html" title="GetVehicleComponentType">GetVehicleComponentType</a> - Find out the type of component a component is
+</li><li><a href="GetVehicleDamageStatus.html" title="GetVehicleDamageStatus">GetVehicleDamageStatus</a> - Get a vehicle's damage status (visual damage)
+</li><li><a href="GetVehicleHealth.html" title="GetVehicleHealth">GetVehicleHealth</a> - Get a vehicle's health (engine)
+</li><li><a href="GetVehicleModel.html" title="GetVehicleModel">GetVehicleModel</a> - Get the model of a vehicle
+</li><li><a href="GetVehiclePos.html" title="GetVehiclePos">GetVehiclePos</a> - Get the position of a vehicle
+</li><li><a href="GetVehicleTrailer.html" title="GetVehicleTrailer">GetVehicleTrailer</a> - Get the ID of a vehicle's trailer
+</li><li><a href="GetVehicleVelocity.html" title="GetVehicleVelocity">GetVehicleVelocity</a> - Get a vehicle's velocity
+</li><li><a href="GetVehicleVirtualWorld.html" title="GetVehicleVirtualWorld">GetVehicleVirtualWorld</a> - Get a vehicle's virtual world
+</li><li><a href="GetVehicleZAngle.html" title="GetVehicleZAngle">GetVehicleZAngle</a> - Get the rotation of a vehicle
+</li><li><a href="GetVehicleRotation.html" title="GetVehicleRotation">GetVehicleRotation</a> - Get the rotation of a vehicle on the XYZ axis
+</li><li><a href="GetVehicleRotationQuat.html" title="GetVehicleRotationQuat">GetVehicleRotationQuat</a> - Get the quaternion rotation of a vehicle
+</li><li><a href="IsPlayerInAnyVehicle.html" title="IsPlayerInAnyVehicle">IsPlayerInAnyVehicle</a> - Check if a player is in any vehicle
+</li><li><a href="IsPlayerInVehicle.html" title="IsPlayerInVehicle">IsPlayerInVehicle</a> - Check if a player is in a certain vehicle
+</li><li><a href="IsTrailerAttachedToVehicle.html" title="IsTrailerAttachedToVehicle">IsTrailerAttachedToVehicle</a> - Check if a vehicle has a trailer attached
+</li><li><a href="IsVehicleStreamedIn.html" title="IsVehicleStreamedIn">IsVehicleStreamedIn</a> - Check if a vehicle is streamed in for a certain player
+</li><li><a href="LinkVehicleToInterior.html" title="LinkVehicleToInterior">LinkVehicleToInterior</a> - Link a vehicle into an interior
+</li><li><a href="PlayerSpectateVehicle.html" title="PlayerSpectateVehicle">PlayerSpectateVehicle</a> - Make a player spectate a vehicle
+</li><li><a href="PutPlayerInVehicle.html" title="PutPlayerInVehicle">PutPlayerInVehicle</a> - Put a player in a vehicle
+</li><li><a href="RemovePlayerFromVehicle.html" title="RemovePlayerFromVehicle">RemovePlayerFromVehicle</a> - Remove a player from their vehicle
+</li><li><a href="RemoveVehicleComponent.html" title="RemoveVehicleComponent">RemoveVehicleComponent</a> - Remove a component from a vehicle
+</li><li><a href="RepairVehicle.html" title="RepairVehicle">RepairVehicle</a> - Repair a vehicle (visual damage + engine)
+</li><li><a href="SetVehicleHealth.html" title="SetVehicleHealth">SetVehicleHealth</a> - Set a vehicle's health (engine)
+</li><li><a href="SetVehicleParamsForPlayer.html" title="SetVehicleParamsForPlayer">SetVehicleParamsForPlayer</a> - Set the parameters of a vehicle for a player (locked, objective)
+</li><li><a href="SetVehiclePos.html" title="SetVehiclePos">SetVehiclePos</a> - Set a vehicle's position
+</li><li><a href="SetVehicleToRespawn.html" title="SetVehicleToRespawn">SetVehicleToRespawn</a> - Respawn a vehicle
+</li><li><a href="SetVehicleVelocity.html" title="SetVehicleVelocity">SetVehicleVelocity</a> - Set a vehicle's velocity
+</li><li><a href="SetVehicleVirtualWorld.html" title="SetVehicleVirtualWorld">SetVehicleVirtualWorld</a> - Set a vehicle's virtual world
+</li><li><a href="SetVehicleZAngle.html" title="SetVehicleZAngle">SetVehicleZAngle</a> - Set a vehicle's rotation
+</li><li><a href="UpdateVehicleDamageStatus.html" title="UpdateVehicleDamageStatus">UpdateVehicleDamageStatus</a> - Update the damage status of a vehicle (visual damage)
+</li></ul>
+<a name="Objects"></a><h2>Objects</h2>
+<a name="Global_Objects"></a><h3>Global Objects</h3>
+<ul><li><a href="AttachCameraToObject.html" title="AttachCameraToObject">AttachCameraToObject</a> - Attach a playercamera to an object
+</li><li><a href="AttachObjectToObject.html" title="AttachObjectToObject">AttachObjectToObject</a> - Attach an object to another object
+</li><li><a href="AttachObjectToPlayer.html" title="AttachObjectToPlayer">AttachObjectToPlayer</a> - Attach an object to a player
+</li><li><a href="AttachObjectToVehicle.html" title="AttachObjectToVehicle">AttachObjectToVehicle</a> - Attach an object to a vehicle
+</li><li><a href="CreateObject.html" title="CreateObject">CreateObject</a> - Create an object
+</li><li><a href="DestroyObject.html" title="DestroyObject">DestroyObject</a> - Destroy an object
+</li><li><a href="EditObject.html" title="EditObject">EditObject</a> - Allows a player to edit an object (position and rotation) using their mouse on a GUI
+</li><li><a href="GetObjectPos.html" title="GetObjectPos">GetObjectPos</a> - Get an object's position
+</li><li><a href="GetObjectRot.html" title="GetObjectRot">GetObjectRot</a> - Get an object's rotation
+</li><li><a href="IsValidObject.html" title="IsValidObject">IsValidObject</a> - Check if an object exists
+</li><li><a href="MoveObject.html" title="MoveObject">MoveObject</a> - Move an object
+</li><li><a href="SelectObject.html" title="SelectObject">SelectObject</a> - Display the cursor and allow the player to select an object
+</li><li><a href="SetObjectMaterial.html" title="SetObjectMaterial">SetObjectMaterial</a> - Replace the texture of an object with the texture from another model in the game
+</li><li><a href="SetObjectMaterialText.html" title="SetObjectMaterialText">SetObjectMaterialText</a> - Replace the texture of an object with text
+</li><li><a href="SetObjectPos.html" title="SetObjectPos">SetObjectPos</a> - Set an object's position
+</li><li><a href="SetObjectRot.html" title="SetObjectRot">SetObjectRot</a> - Set an object's rotation
+</li><li><a href="StopObject.html" title="StopObject">StopObject</a> - Stop an object (moving)
+</li></ul>
+<a name="Player_Objects"></a><h3>Player Objects</h3>
+<ul><li><a href="CreatePlayerObject.html" title="CreatePlayerObject">CreatePlayerObject</a> - Create an player-object
+</li><li><a href="DestroyPlayerObject.html" title="DestroyPlayerObject">DestroyPlayerObject</a> - Destroy an object
+</li><li><a href="GetPlayerObjectPos.html" title="GetPlayerObjectPos">GetPlayerObjectPos</a> - Get an object's position
+</li><li><a href="GetPlayerObjectRot.html" title="GetPlayerObjectRot">GetPlayerObjectRot</a> - Get an object's rotation
+</li><li><a href="IsValidPlayerObject.html" title="IsValidPlayerObject">IsValidPlayerObject</a> - Check if an object exists
+</li><li><a href="MovePlayerObject.html" title="MovePlayerObject">MovePlayerObject</a> - Move an object
+</li><li><a href="SetPlayerObjectPos.html" title="SetPlayerObjectPos">SetPlayerObjectPos</a> - Set an object's position
+</li><li><a href="SetPlayerObjectRot.html" title="SetPlayerObjectRot">SetPlayerObjectRot</a> - Set an object's rotation
+</li><li><a href="StopPlayerObject.html" title="StopPlayerObject">StopPlayerObject</a> - Stop an object (moving)
+</li></ul>
+<a name="Textdraws"></a><h2>Textdraws</h2>
+<a name="Global_Textdraws"></a><h3>Global Textdraws</h3>
+<ul><li><a href="TextDrawAlignment.html" title="TextDrawAlignment">TextDrawAlignment</a> - Set a textdraw's alignment
+</li><li><a href="TextDrawBackgroundColor.html" title="TextDrawBackgroundColor">TextDrawBackgroundColor</a> - Set the background color of a textdraw
+</li><li><a href="TextDrawBoxColor.html" title="TextDrawBoxColor">TextDrawBoxColor</a> - Set the color of a textdraw's box
+</li><li><a href="TextDrawColor.html" title="TextDrawColor">TextDrawColor</a> - Set the color of a textdraw
+</li><li><a href="TextDrawCreate.html" title="TextDrawCreate">TextDrawCreate</a> - Create a textdraw
+</li><li><a href="TextDrawDestroy.html" title="TextDrawDestroy">TextDrawDestroy</a> - Destroy a textdraw
+</li><li><a href="TextDrawFont.html" title="TextDrawFont">TextDrawFont</a> - Set a textdraw's font
+</li><li><a href="TextDrawHideForAll.html" title="TextDrawHideForAll">TextDrawHideForAll</a> - Hide a textdraw for all players
+</li><li><a href="TextDrawHideForPlayer.html" title="TextDrawHideForPlayer">TextDrawHideForPlayer</a> - Hide a textdraw for a specific player
+</li><li><a href="TextDrawLetterSize.html" title="TextDrawLetterSize">TextDrawLetterSize</a> - Set the size of a textdraw's text
+</li><li><a href="TextDrawSetOutline.html" title="TextDrawSetOutline">TextDrawSetOutline</a> - Set the outline thickness of a textdraw
+</li><li><a href="TextDrawSetProportional.html" title="TextDrawSetProportional">TextDrawSetProportional</a> - Set a textdraw's text proportion
+</li><li><a href="TextDrawSetShadow.html" title="TextDrawSetShadow">TextDrawSetShadow</a> - Toggle a shadow behind a textdraw's text
+</li><li><a href="TextDrawSetString.html" title="TextDrawSetString">TextDrawSetString</a> - Set the text in a textdraw
+</li><li><a href="TextDrawShowForAll.html" title="TextDrawShowForAll">TextDrawShowForAll</a> - Show a textdraw for all players
+</li><li><a href="TextDrawShowForPlayer.html" title="TextDrawShowForPlayer">TextDrawShowForPlayer</a> - Show a textdraw for a certain player
+</li><li><a href="TextDrawTextSize.html" title="TextDrawTextSize">TextDrawTextSize</a> - Set the size of a textdraw
+</li><li><a href="TextDrawUseBox.html" title="TextDrawUseBox">TextDrawUseBox</a> - Toggle whether a textdraw should have a box or not
+</li><li> <a href="TextDrawSetSelectable.html" title="TextDrawSetSelectable">TextDrawSetSelectable</a>: Sets whether a textdraw is selectable through <a href="SelectTextDraw.html" title="SelectTextDraw">SelectTextDraw</a>
+</li></ul>
+<ul><li> <a href="TextDrawSetPreviewModel.html" title="TextDrawSetPreviewModel">TextDrawSetPreviewModel</a>: Set the 3D preview model of a textdraw.
+</li></ul>
+<ul><li> <a href="TextDrawSetPreviewRot.html" title="TextDrawSetPreviewRot">TextDrawSetPreviewRot</a>: Set rotation of a 3D textdraw preview.
+</li></ul>
+<ul><li> <a href="TextDrawSetPreviewVehCol.html" title="TextDrawSetPreviewVehCol">TextDrawSetPreviewVehCol</a>: Set the colours of a vehicle in a 3D textdraw preview.
+</li></ul>
+<p><br />
+</p>
+<a name="Player_Textdraws"></a><h3>Player Textdraws</h3>
+<ul><li> <a href="CreatePlayerTextDraw.html" title="CreatePlayerTextDraw">CreatePlayerTextDraw</a>: Create a player-textdraw.
+</li></ul>
+<ul><li> <a href="PlayerTextDrawAlignment.html" title="PlayerTextDrawAlignment">PlayerTextDrawAlignment</a>: Set the alignment of a player-textdraw.
+</li></ul>
+<ul><li> <a href="PlayerTextDrawBackgroundColor.html" title="PlayerTextDrawBackgroundColor">PlayerTextDrawBackgroundColor</a>: Set the background color of a player-textdraw.
+</li></ul>
+<ul><li> <a href="PlayerTextDrawBoxColor.html" title="PlayerTextDrawBoxColor">PlayerTextDrawBoxColor</a>: Set the color of a player-textdraw's box.
+</li></ul>
+<ul><li> <a href="PlayerTextDrawColor.html" title="PlayerTextDrawColor">PlayerTextDrawColor</a>: Set the color of the text in a player-textdraw.
+</li></ul>
+<ul><li> <a href="PlayerTextDrawDestroy.html" title="PlayerTextDrawDestroy">PlayerTextDrawDestroy</a>: Destroy a player-textdraw.
+</li></ul>
+<ul><li> <a href="PlayerTextDrawFont.html" title="PlayerTextDrawFont">PlayerTextDrawFont</a>: Set the font of a player-textdraw.
+</li></ul>
+<ul><li> <a href="PlayerTextDrawHide.html" title="PlayerTextDrawHide">PlayerTextDrawHide</a>: Hide a player-textdraw.
+</li></ul>
+<ul><li> <a href="PlayerTextDrawLetterSize.html" title="PlayerTextDrawLetterSize">PlayerTextDrawLetterSize</a>: Set the letter size of the text in a player-textdraw.
+</li></ul>
+<ul><li> <a href="PlayerTextDrawSetOutline.html" title="PlayerTextDrawSetOutline">PlayerTextDrawSetOutline</a>: Toggle the outline on a player-textdraw.
+</li></ul>
+<ul><li> <a href="PlayerTextDrawSetProportional.html" title="PlayerTextDrawSetProportional">PlayerTextDrawSetProportional</a>: Scale the text spacing in a player-textdraw to a proportional ratio.
+</li></ul>
+<ul><li> <a href="PlayerTextDrawSetShadow.html" title="PlayerTextDrawSetShadow">PlayerTextDrawSetShadow</a>: Set the shadow on a player-textdraw.
+</li></ul>
+<ul><li> <a href="PlayerTextDrawSetString.html" title="PlayerTextDrawSetString">PlayerTextDrawSetString</a>: Set the text of a player-textdraw.
+</li></ul>
+<ul><li> <a href="PlayerTextDrawShow.html" title="PlayerTextDrawShow">PlayerTextDrawShow</a>: Show a player-textdraw.
+</li></ul>
+<ul><li> <a href="PlayerTextDrawTextSize.html" title="PlayerTextDrawTextSize">PlayerTextDrawTextSize</a>: Set the size of a player-textdraw box (or clickable area for <a href="PlayerTextDrawSetSelectable.html" title="PlayerTextDrawSetSelectable">PlayerTextDrawSetSelectable</a>).
+</li></ul>
+<ul><li> <a href="PlayerTextDrawUseBox.html" title="PlayerTextDrawUseBox">PlayerTextDrawUseBox</a>: Toggle the box on a player-textdraw.
+</li></ul>
+<ul><li> <a href="PlayerTextDrawSetSelectable.html" title="PlayerTextDrawSetSelectable">PlayerTextDrawSetSelectable</a>: Sets whether a player-textdraw is selectable through <a href="SelectTextDraw.html" title="SelectTextDraw">SelectTextDraw</a>
+</li></ul>
+<ul><li> <a href="PlayerTextDrawSetPreviewModel.html" title="PlayerTextDrawSetPreviewModel">PlayerTextDrawSetPreviewModel</a>: Set model ID of a 3D player textdraw preview.
+</li></ul>
+<ul><li> <a href="PlayerTextDrawSetPreviewRot.html" title="PlayerTextDrawSetPreviewRot">PlayerTextDrawSetPreviewRot</a>: Set rotation of a 3D player textdraw preview.
+</li></ul>
+<ul><li> <a href="PlayerTextDrawSetPreviewVehCol.html" title="PlayerTextDrawSetPreviewVehCol">PlayerTextDrawSetPreviewVehCol</a>: Set the colours of a vehicle in a 3D player textdraw preview.
+</li></ul>
+<p><br />
+</p>
+<a name="Selection"></a><h3>Selection</h3>
+<ul><li> <a href="SelectTextDraw.html" title="SelectTextDraw">SelectTextDraw</a>: Enables the mouse, so the player can select a textdraw
+</li></ul>
+<ul><li> <a href="CancelSelectTextDraw.html" title="CancelSelectTextDraw">CancelSelectTextDraw</a>: Cancel textdraw selection with the mouse
+</li></ul>
+<p><br />
+</p>
+<a name="Gangzones"></a><h2>Gangzones</h2>
+<ul><li><a href="GangZoneCreate.html" title="GangZoneCreate">GangZoneCreate</a> - Create a gangzone
+</li><li><a href="GangZoneDestroy.html" title="GangZoneDestroy">GangZoneDestroy</a> - Destroy a gangzone
+</li><li><a href="GangZoneFlashForAll.html" title="GangZoneFlashForAll">GangZoneFlashForAll</a> - Make a gangzone flash for all players
+</li><li><a href="GangZoneFlashForPlayer.html" title="GangZoneFlashForPlayer">GangZoneFlashForPlayer</a> - Make a gangzone flash for a certain player
+</li><li><a href="GangZoneHideForAll.html" title="GangZoneHideForAll">GangZoneHideForAll</a> - Hide a gangzone for all players
+</li><li><a href="GangZoneHideForPlayer.html" title="GangZoneHideForPlayer">GangZoneHideForPlayer</a> - Hide a gangzone for a specific player
+</li><li><a href="GangZoneShowForAll.html" title="GangZoneShowForAll">GangZoneShowForAll</a> - Show a gangzone for all players
+</li><li><a href="GangZoneShowForPlayer.html" title="GangZoneShowForPlayer">GangZoneShowForPlayer</a> - Show a gangzone for a player
+</li><li><a href="GangZoneStopFlashForAll.html" title="GangZoneStopFlashForAll">GangZoneStopFlashForAll</a> - Stop a gangzone flashing for all players
+</li><li><a href="GangZoneStopFlashForPlayer.html" title="GangZoneStopFlashForPlayer">GangZoneStopFlashForPlayer</a> - Stop a gangzone flashing for a specific player
+</li></ul>
+<a name="3D_Text_Labels"></a><h2>3D Text Labels</h2>
+<ul><li><a href="Attach3DTextLabelToPlayer.html" title="Attach3DTextLabelToPlayer">Attach3DTextLabelToPlayer</a> - Attach a 3D text label to a player
+</li><li><a href="Attach3DTextLabelToVehicle.html" title="Attach3DTextLabelToVehicle">Attach3DTextLabelToVehicle</a> - Attach a 3D text label to a vehicle
+</li><li><a href="Create3DTextLabel.html" title="Create3DTextLabel">Create3DTextLabel</a> - Create a 3D text label
+</li><li><a href="CreatePlayer3DTextLabel.html" title="CreatePlayer3DTextLabel">CreatePlayer3DTextLabel</a> - Create a 3D text label for one player
+</li><li><a href="Delete3DTextLabel.html" title="Delete3DTextLabel">Delete3DTextLabel</a> - Delete a 3D text label
+</li><li><a href="DeletePlayer3DTextLabel.html" title="DeletePlayer3DTextLabel">DeletePlayer3DTextLabel</a> - Delete a player's 3D text label
+</li><li><a href="Update3DTextLabelText.html" title="Update3DTextLabelText">Update3DTextLabelText</a> - Update the text and color of a 3D label
+</li><li><a href="UpdatePlayer3DTextLabelText.html" title="UpdatePlayer3DTextLabelText">UpdatePlayer3DTextLabelText</a> - Update the text and color of a player's 3D label
+</li></ul>
+<a name="Checkpoints"></a><h2>Checkpoints</h2>
+<a name="Normal_Checkpoints"></a><h3>Normal Checkpoints</h3>
+<ul><li><a href="DisablePlayerCheckpoint.html" title="DisablePlayerCheckpoint">DisablePlayerCheckpoint</a> - Disable a player's checkpoint
+</li><li><a href="IsPlayerInCheckpoint.html" title="IsPlayerInCheckpoint">IsPlayerInCheckpoint</a> - Check if a player is in a checkpoint
+</li><li><a href="SetPlayerCheckpoint.html" title="SetPlayerCheckpoint">SetPlayerCheckpoint</a> - Set a player's checkpoint
+</li></ul>
+<a name="Race_Checkpoints"></a><h3>Race Checkpoints</h3>
+<ul><li><a href="DisablePlayerRaceCheckpoint.html" title="DisablePlayerRaceCheckpoint">DisablePlayerRaceCheckpoint</a> - Disable a player's race checkpoint
+</li><li><a href="IsPlayerInRaceCheckpoint.html" title="IsPlayerInRaceCheckpoint">IsPlayerInRaceCheckpoint</a> - Check if a player is in a race checkpoint
+</li><li><a href="SetPlayerRaceCheckpoint.html" title="SetPlayerRaceCheckpoint">SetPlayerRaceCheckpoint</a> - Set a player's race checkpoint
+</li></ul>
+<a name="Player_Variables_.28pVars.29"></a><h2>Player Variables (pVars)</h2>
+<ul><li><a href="DeletePVar.html" title="DeletePVar">DeletePVar</a> - Delete a player variable
+</li><li><a href="GetPVarFloat.html" title="GetPVarFloat">GetPVarFloat</a> - Get a player variable as a float
+</li><li><a href="GetPVarInt.html" title="GetPVarInt">GetPVarInt</a> - Get a player variable as an integer
+</li><li><a href="GetPVarString.html" title="GetPVarString">GetPVarString</a> - Get a player variable as a string
+</li><li><a href="SetPVarFloat.html" title="SetPVarFloat">SetPVarFloat</a> - Set a player variable to a float
+</li><li><a href="SetPVarInt.html" title="SetPVarInt">SetPVarInt</a> - Set a player variable to an integer
+</li><li><a href="SetPVarString.html" title="SetPVarString">SetPVarString</a> - Set a player variable to a string
+</li></ul>
+<a name="Spectating"></a><h2>Spectating</h2>
+<ul><li><a href="PlayerSpectatePlayer.html" title="PlayerSpectatePlayer">PlayerSpectatePlayer</a> - Make a player spectate another player
+</li><li><a href="PlayerSpectateVehicle.html" title="PlayerSpectateVehicle">PlayerSpectateVehicle</a> - Make a player spectate a vehicle
+</li><li><a href="AttachCameraToPlayerObject.html" title="AttachCameraToPlayerObject">AttachCameraToPlayerObject</a> - Make a player spectate a object
+</li><li><a href="TogglePlayerSpectating.html" title="TogglePlayerSpectating">TogglePlayerSpectating</a> - Toggle whether a player is spectating or not
+</li></ul>
+<a name="Administration"></a><h2>Administration</h2>
+<ul><li><a href="Ban.html" title="Ban">Ban</a> - Ban a player so they can't connect to the server
+</li><li><a href="BanEx.html" title="BanEx">BanEx</a> - Ban a player with a custom reason
+</li><li><a href="IsPlayerAdmin.html" title="IsPlayerAdmin">IsPlayerAdmin</a> - Check whether a player is logged into RCON or not
+</li><li><a href="Kick.html" title="Kick">Kick</a> - Kick a player from the server
+</li><li><a href="SendRconCommand.html" title="SendRconCommand">SendRconCommand</a> - Send an RCON command via the script
+</li></ul>
+<a name="NPCs"></a><h2>NPCs</h2>
+<a name="npcmodes"></a><h3>npcmodes</h3>
+<ul><li><a href="NPC_StartRecordingPlayback.html" title="NPC:StartRecordingPlayback">NPC:StartRecordingPlayback</a>
+</li><li><a href="NPC_StopRecordingPlayback.html" title="NPC:StopRecordingPlayback">NPC:StopRecordingPlayback</a>
+</li><li><a href="NPC_PauseRecordingPlayback.html" title="NPC:PauseRecordingPlayback">NPC:PauseRecordingPlayback</a>
+</li><li><a href="NPC_ResumeRecordingPlayback.html" title="NPC:ResumeRecordingPlayback">NPC:ResumeRecordingPlayback</a>
+</li><li><a href="NPC_SendChat.html" title="NPC:SendChat">NPC:SendChat</a>
+</li><li><a href="NPC_SendCommand.html" title="NPC:SendCommand">NPC:SendCommand</a>
+</li><li><a href="NPC_GetMyPos.html" title="NPC:GetMyPos">NPC:GetMyPos</a>
+</li><li><a href="NPC_SetMyPos.html" title="NPC:SetMyPos">NPC:SetMyPos</a>
+</li><li><a href="NPC_GetMyFacingAngle.html" title="NPC:GetMyFacingAngle">NPC:GetMyFacingAngle</a>
+</li><li><a href="NPC_SetMyFacingAngle.html" title="NPC:SetMyFacingAngle">NPC:SetMyFacingAngle</a>
+</li><li><a href="NPC_GetDistanceFromMeToPoint.html" title="NPC:GetDistanceFromMeToPoint">NPC:GetDistanceFromMeToPoint</a>
+</li><li><a href="NPC_IsVehicleStreamedIn.html" title="NPC:IsVehicleStreamedIn">NPC:IsVehicleStreamedIn</a>
+</li><li><a href="NPC_IsPlayerStreamedIn.html" title="NPC:IsPlayerStreamedIn">NPC:IsPlayerStreamedIn</a>
+</li></ul>
+<a name="Scripts"></a><h3>Scripts</h3>
+<ul><li> <a href="ConnectNPC.html" title="ConnectNPC">ConnectNPC</a>: Connect an NPC.
+</li></ul>
+<ul><li> <a href="IsPlayerNPC.html" title="IsPlayerNPC">IsPlayerNPC</a>: Check if a player is an NPC or an actual player.
+</li></ul>
+<p><br />
+</p>
+<a name="Plugins"></a><h2>Plugins</h2>
+<ul><li><a href="Amx_Functions.html" title="Amx Functions">Amx Functions</a>
+</li></ul>
+<br style="clear:both;"/>
+<h2>Subcategories</h2>
+There are 4 subcategories to this category.<h3>M</h3>
+<ul><li><a href="Category_Mathematical_Functions.html" title="Category:Mathematical Functions">Mathematical Functions</a></li></ul><h3>P</h3>
+<ul><li><a href="Category_Properties.html" title="Category:Properties">Properties</a></li></ul><h3>S</h3>
+<ul><li><a href="Category_SQLite.html" title="Category:SQLite">SQLite</a></li><li><a href="Category_Scripting_Functions_NL.html" title="Category:Scripting Functions NL">Scripting Functions NL</a></li></ul><h2>Articles in category "Scripting Functions"</h2>
+There are 511 articles in this category.<table width="100%"><tr valign="top"><td>
+<h3>A</h3>
+<ul><li><a href="AddCharModel.html" title="AddCharModel">AddCharModel</a></li><li><a href="AddMenuItem.html" title="AddMenuItem">AddMenuItem</a></li><li><a href="AddPlayerClass.html" title="AddPlayerClass">AddPlayerClass</a></li><li><a href="AddPlayerClassEx.html" title="AddPlayerClassEx">AddPlayerClassEx</a></li><li><a href="AddSimpleModel.html" title="AddSimpleModel">AddSimpleModel</a></li><li><a href="AddSimpleModelTimed.html" title="AddSimpleModelTimed">AddSimpleModelTimed</a></li><li><a href="AddStaticPickup.html" title="AddStaticPickup">AddStaticPickup</a></li><li><a href="AddStaticVehicle.html" title="AddStaticVehicle">AddStaticVehicle</a></li><li><a href="AddStaticVehicleEx.html" title="AddStaticVehicleEx">AddStaticVehicleEx</a></li><li><a href="AddVehicleComponent.html" title="AddVehicleComponent">AddVehicleComponent</a></li><li><a href="AllowAdminTeleport.html" title="AllowAdminTeleport">AllowAdminTeleport</a></li><li><a href="AllowInteriorWeapons.html" title="AllowInteriorWeapons">AllowInteriorWeapons</a></li><li><a href="AllowPlayerTeleport.html" title="AllowPlayerTeleport">AllowPlayerTeleport</a></li><li><a href="ApplyActorAnimation.html" title="ApplyActorAnimation">ApplyActorAnimation</a></li><li><a href="ApplyAnimation.html" title="ApplyAnimation">ApplyAnimation</a></li><li><a href="Atan.html" title="Atan">Atan</a></li><li><a href="Attach3DTextLabelToPlayer.html" title="Attach3DTextLabelToPlayer">Attach3DTextLabelToPlayer</a></li><li><a href="Attach3DTextLabelToVehicle.html" title="Attach3DTextLabelToVehicle">Attach3DTextLabelToVehicle</a></li><li><a href="AttachCameraToObject.html" title="AttachCameraToObject">AttachCameraToObject</a></li><li><a href="AttachCameraToPlayerObject.html" title="AttachCameraToPlayerObject">AttachCameraToPlayerObject</a></li><li><a href="AttachObjectToObject.html" title="AttachObjectToObject">AttachObjectToObject</a></li><li><a href="AttachObjectToPlayer.html" title="AttachObjectToPlayer">AttachObjectToPlayer</a></li><li><a href="AttachObjectToVehicle.html" title="AttachObjectToVehicle">AttachObjectToVehicle</a></li><li><a href="AttachPlayerObjectToPlayer.html" title="AttachPlayerObjectToPlayer">AttachPlayerObjectToPlayer</a></li><li><a href="AttachPlayerObjectToVehicle.html" title="AttachPlayerObjectToVehicle">AttachPlayerObjectToVehicle</a></li><li><a href="AttachTrailerToVehicle.html" title="AttachTrailerToVehicle">AttachTrailerToVehicle</a></li></ul>
+<h3>B</h3>
+<ul><li><a href="Ban.html" title="Ban">Ban</a></li><li><a href="BanEx.html" title="BanEx">BanEx</a></li><li><a href="BlockIpAddress.html" title="BlockIpAddress">BlockIpAddress</a></li></ul>
+<h3>C</h3>
+<ul><li><a href="CallLocalFunction.html" title="CallLocalFunction">CallLocalFunction</a></li><li><a href="CallRemoteFunction.html" title="CallRemoteFunction">CallRemoteFunction</a></li><li><a href="CancelEdit.html" title="CancelEdit">CancelEdit</a></li><li><a href="CancelSelectTextDraw.html" title="CancelSelectTextDraw">CancelSelectTextDraw</a></li><li><a href="ChangeVehicleColor.html" title="ChangeVehicleColor">ChangeVehicleColor</a></li><li><a href="ChangeVehiclePaintjob.html" title="ChangeVehiclePaintjob">ChangeVehiclePaintjob</a></li><li><a href="Clamp.html" title="Clamp">Clamp</a></li><li><a href="ClearActorAnimations.html" title="ClearActorAnimations">ClearActorAnimations</a></li><li><a href="ClearAnimations.html" title="ClearAnimations">ClearAnimations</a></li><li><a href="ConnectNPC.html" title="ConnectNPC">ConnectNPC</a></li><li><a href="Create3DTextLabel.html" title="Create3DTextLabel">Create3DTextLabel</a></li><li><a href="CreateActor.html" title="CreateActor">CreateActor</a></li><li><a href="CreateExplosion.html" title="CreateExplosion">CreateExplosion</a></li><li><a href="CreateExplosionForPlayer.html" title="CreateExplosionForPlayer">CreateExplosionForPlayer</a></li><li><a href="CreateMenu.html" title="CreateMenu">CreateMenu</a></li><li><a href="CreateObject.html" title="CreateObject">CreateObject</a></li><li><a href="CreatePickup.html" title="CreatePickup">CreatePickup</a></li><li><a href="CreatePlayer3DTextLabel.html" title="CreatePlayer3DTextLabel">CreatePlayer3DTextLabel</a></li><li><a href="CreatePlayerObject.html" title="CreatePlayerObject">CreatePlayerObject</a></li><li><a href="CreatePlayerTextDraw.html" title="CreatePlayerTextDraw">CreatePlayerTextDraw</a></li><li><a href="CreateVehicle.html" title="CreateVehicle">CreateVehicle</a></li></ul>
+<h3>D</h3>
+<ul><li><a href="Db_close.html" title="Db close">Db close</a></li><li><a href="Db_debug_openfiles.html" title="Db debug openfiles">Db debug openfiles</a></li><li><a href="Db_debug_openresults.html" title="Db debug openresults">Db debug openresults</a></li><li><a href="Db_field_name.html" title="Db field name">Db field name</a></li><li><a href="Db_free_result.html" title="Db free result">Db free result</a></li><li><a href="Db_get_field.html" title="Db get field">Db get field</a></li><li><a href="Db_get_field_assoc.html" title="Db get field assoc">Db get field assoc</a></li><li><a href="Db_get_field_assoc_float.html" title="Db get field assoc float">Db get field assoc float</a></li><li><a href="Db_get_field_assoc_int.html" title="Db get field assoc int">Db get field assoc int</a></li><li><a href="Db_get_field_float.html" title="Db get field float">Db get field float</a></li><li><a href="Db_get_field_int.html" title="Db get field int">Db get field int</a></li><li><a href="Db_get_mem_handle.html" title="Db get mem handle">Db get mem handle</a></li><li><a href="Db_get_result_mem_handle.html" title="Db get result mem handle">Db get result mem handle</a></li><li><a href="Db_next_row.html" title="Db next row">Db next row</a></li><li><a href="Db_num_fields.html" title="Db num fields">Db num fields</a></li><li><a href="Db_num_rows.html" title="Db num rows">Db num rows</a></li><li><a href="Db_open.html" title="Db open">Db open</a></li><li><a href="Db_query.html" title="Db query">Db query</a></li><li><a href="Delete3DTextLabel.html" title="Delete3DTextLabel">Delete3DTextLabel</a></li><li><a href="DeletePVar.html" title="DeletePVar">DeletePVar</a></li><li><a href="DeletePlayer3DTextLabel.html" title="DeletePlayer3DTextLabel">DeletePlayer3DTextLabel</a></li><li><a href="DeleteSVar.html" title="DeleteSVar">DeleteSVar</a></li><li><a href="Deleteproperty.html" title="Deleteproperty">Deleteproperty</a></li><li><a href="DestroyActor.html" title="DestroyActor">DestroyActor</a></li><li><a href="DestroyMenu.html" title="DestroyMenu">DestroyMenu</a></li><li><a href="DestroyObject.html" title="DestroyObject">DestroyObject</a></li><li><a href="DestroyPickup.html" title="DestroyPickup">DestroyPickup</a></li><li><a href="DestroyPlayerObject.html" title="DestroyPlayerObject">DestroyPlayerObject</a></li><li><a href="DestroyVehicle.html" title="DestroyVehicle">DestroyVehicle</a></li><li><a href="DetachTrailerFromVehicle.html" title="DetachTrailerFromVehicle">DetachTrailerFromVehicle</a></li><li><a href="DisableInteriorEnterExits.html" title="DisableInteriorEnterExits">DisableInteriorEnterExits</a></li><li><a href="DisableMenu.html" title="DisableMenu">DisableMenu</a></li><li><a href="DisableMenuRow.html" title="DisableMenuRow">DisableMenuRow</a></li><li><a href="DisableNameTagLOS.html" title="DisableNameTagLOS">DisableNameTagLOS</a></li><li><a href="DisablePlayerCheckpoint.html" title="DisablePlayerCheckpoint">DisablePlayerCheckpoint</a></li><li><a href="DisablePlayerRaceCheckpoint.html" title="DisablePlayerRaceCheckpoint">DisablePlayerRaceCheckpoint</a></li><li><a href="DisableRemoteVehicleCollisions.html" title="DisableRemoteVehicleCollisions">DisableRemoteVehicleCollisions</a></li></ul>
+<h3>E</h3>
+<ul><li><a href="EditAttachedObject.html" title="EditAttachedObject">EditAttachedObject</a></li><li><a href="EditObject.html" title="EditObject">EditObject</a></li><li><a href="EditPlayerObject.html" title="EditPlayerObject">EditPlayerObject</a></li><li><a href="EnablePlayerCameraTarget.html" title="EnablePlayerCameraTarget">EnablePlayerCameraTarget</a></li><li><a href="EnableStuntBonusForAll.html" title="EnableStuntBonusForAll">EnableStuntBonusForAll</a></li><li><a href="EnableStuntBonusForPlayer.html" title="EnableStuntBonusForPlayer">EnableStuntBonusForPlayer</a></li><li><a href="EnableTirePopping.html" title="EnableTirePopping">EnableTirePopping</a></li><li><a href="EnableVehicleFriendlyFire.html" title="EnableVehicleFriendlyFire">EnableVehicleFriendlyFire</a></li><li><a href="EnableZoneNames.html" title="EnableZoneNames">EnableZoneNames</a></li><li><a href="Existproperty.html" title="Existproperty">Existproperty</a></li></ul>
+<h3>F</h3>
+<ul><li><a href="Fblockread.html" title="Fblockread">Fblockread</a></li><li><a href="Fblockwrite.html" title="Fblockwrite">Fblockwrite</a></li><li><a href="Fclose.html" title="Fclose">Fclose</a></li><li><a href="Fexist.html" title="Fexist">Fexist</a></li><li><a href="Fgetchar.html" title="Fgetchar">Fgetchar</a></li><li><a href="FindModelFileNameFromCRC.html" title="FindModelFileNameFromCRC">FindModelFileNameFromCRC</a></li><li><a href="FindTextureFileNameFromCRC.html" title="FindTextureFileNameFromCRC">FindTextureFileNameFromCRC</a></li><li><a href="Flength.html" title="Flength">Flength</a></li><li><a href="Float.html" title="Float">Float</a></li><li><a href="Floatabs.html" title="Floatabs">Floatabs</a></li><li><a href="Floatadd.html" title="Floatadd">Floatadd</a></li><li><a href="Floatcmp.html" title="Floatcmp">Floatcmp</a></li><li><a href="Floatcos.html" title="Floatcos">Floatcos</a></li><li><a href="Floatdiv.html" title="Floatdiv">Floatdiv</a></li><li><a href="Floatfract.html" title="Floatfract">Floatfract</a></li><li><a href="Floatlog.html" title="Floatlog">Floatlog</a></li><li><a href="Floatmul.html" title="Floatmul">Floatmul</a></li><li><a href="Floatpower.html" title="Floatpower">Floatpower</a></li><li><a href="Floatround.html" title="Floatround">Floatround</a></li><li><a href="Floatsin.html" title="Floatsin">Floatsin</a></li><li><a href="Floatsqroot.html" title="Floatsqroot">Floatsqroot</a></li><li><a href="Floatstr.html" title="Floatstr">Floatstr</a></li><li><a href="Floatsub.html" title="Floatsub">Floatsub</a></li><li><a href="Floattan.html" title="Floattan">Floattan</a></li><li><a href="Fmatch.html" title="Fmatch">Fmatch</a></li><li><a href="Fopen.html" title="Fopen">Fopen</a></li><li><a href="ForceClassSelection.html" title="ForceClassSelection">ForceClassSelection</a></li><li><a href="Format.html" title="Format">Format</a></li><li><a href="Fputchar.html" title="Fputchar">Fputchar</a></li><li><a href="Fread.html" title="Fread">Fread</a></li><li><a href="Fremove.html" title="Fremove">Fremove</a></li><li><a href="Fseek.html" title="Fseek">Fseek</a></li><li><a href="Ftemp.html" title="Ftemp">Ftemp</a></li><li><a href="Funcidx.html" title="Funcidx">Funcidx</a></li><li><a href="Fwrite.html" title="Fwrite">Fwrite</a></li></ul>
+<h3>G</h3>
+<ul><li><a href="GameModeExit.html" title="GameModeExit">GameModeExit</a></li><li><a href="GameTextForAll.html" title="GameTextForAll">GameTextForAll</a></li><li><a href="GameTextForPlayer.html" title="GameTextForPlayer">GameTextForPlayer</a></li><li><a href="GangZoneCreate.html" title="GangZoneCreate">GangZoneCreate</a></li><li><a href="GangZoneDestroy.html" title="GangZoneDestroy">GangZoneDestroy</a></li><li><a href="GangZoneFlashForAll.html" title="GangZoneFlashForAll">GangZoneFlashForAll</a></li><li><a href="GangZoneFlashForPlayer.html" title="GangZoneFlashForPlayer">GangZoneFlashForPlayer</a></li><li><a href="GangZoneHideForAll.html" title="GangZoneHideForAll">GangZoneHideForAll</a></li><li><a href="GangZoneHideForPlayer.html" title="GangZoneHideForPlayer">GangZoneHideForPlayer</a></li><li><a href="GangZoneShowForAll.html" title="GangZoneShowForAll">GangZoneShowForAll</a></li><li><a href="GangZoneShowForPlayer.html" title="GangZoneShowForPlayer">GangZoneShowForPlayer</a></li><li><a href="GangZoneStopFlashForAll.html" title="GangZoneStopFlashForAll">GangZoneStopFlashForAll</a></li><li><a href="GangZoneStopFlashForPlayer.html" title="GangZoneStopFlashForPlayer">GangZoneStopFlashForPlayer</a></li><li><a href="GetActorFacingAngle.html" title="GetActorFacingAngle">GetActorFacingAngle</a></li><li><a href="GetActorHealth.html" title="GetActorHealth">GetActorHealth</a></li><li><a href="GetActorPoolSize.html" title="GetActorPoolSize">GetActorPoolSize</a></li><li><a href="GetActorPos.html" title="GetActorPos">GetActorPos</a></li><li><a href="GetActorVirtualWorld.html" title="GetActorVirtualWorld">GetActorVirtualWorld</a></li><li><a href="GetAnimationName.html" title="GetAnimationName">GetAnimationName</a></li><li><a href="GetConsoleVarAsBool.html" title="GetConsoleVarAsBool">GetConsoleVarAsBool</a></li><li><a href="GetConsoleVarAsInt.html" title="GetConsoleVarAsInt">GetConsoleVarAsInt</a></li><li><a href="GetConsoleVarAsString.html" title="GetConsoleVarAsString">GetConsoleVarAsString</a></li><li><a href="GetGravity.html" title="GetGravity">GetGravity</a></li><li><a href="GetGravity_FR.html" title="GetGravity FR">GetGravity FR</a></li><li><a href="GetMaxPlayers.html" title="GetMaxPlayers">GetMaxPlayers</a></li><li><a href="GetNetworkStats.html" title="GetNetworkStats">GetNetworkStats</a></li><li><a href="GetObjectModel.html" title="GetObjectModel">GetObjectModel</a></li><li><a href="GetObjectPos.html" title="GetObjectPos">GetObjectPos</a></li><li><a href="GetObjectRot.html" title="GetObjectRot">GetObjectRot</a></li><li><a href="GetPVarFloat.html" title="GetPVarFloat">GetPVarFloat</a></li><li><a href="GetPVarInt.html" title="GetPVarInt">GetPVarInt</a></li><li><a href="GetPVarNameAtIndex.html" title="GetPVarNameAtIndex">GetPVarNameAtIndex</a></li><li><a href="GetPVarString.html" title="GetPVarString">GetPVarString</a></li><li><a href="GetPVarType.html" title="GetPVarType">GetPVarType</a></li><li><a href="GetPVarsUpperIndex.html" title="GetPVarsUpperIndex">GetPVarsUpperIndex</a></li><li><a href="GetPlayerAmmo.html" title="GetPlayerAmmo">GetPlayerAmmo</a></li><li><a href="GetPlayerAmmo_DE.html" title="GetPlayerAmmo DE">GetPlayerAmmo DE</a></li><li><a href="GetPlayerAnimationIndex.html" title="GetPlayerAnimationIndex">GetPlayerAnimationIndex</a></li></ul>
+</td>
+<td>
+<h3>G cont.</h3>
+<ul><li><a href="GetPlayerArmour.html" title="GetPlayerArmour">GetPlayerArmour</a></li><li><a href="GetPlayerCameraAspectRatio.html" title="GetPlayerCameraAspectRatio">GetPlayerCameraAspectRatio</a></li><li><a href="GetPlayerCameraFrontVector.html" title="GetPlayerCameraFrontVector">GetPlayerCameraFrontVector</a></li><li><a href="GetPlayerCameraMode.html" title="GetPlayerCameraMode">GetPlayerCameraMode</a></li><li><a href="GetPlayerCameraPos.html" title="GetPlayerCameraPos">GetPlayerCameraPos</a></li><li><a href="GetPlayerCameraTargetActor.html" title="GetPlayerCameraTargetActor">GetPlayerCameraTargetActor</a></li><li><a href="GetPlayerCameraTargetObject.html" title="GetPlayerCameraTargetObject">GetPlayerCameraTargetObject</a></li><li><a href="GetPlayerCameraTargetPlayer.html" title="GetPlayerCameraTargetPlayer">GetPlayerCameraTargetPlayer</a></li><li><a href="GetPlayerCameraTargetVehicle.html" title="GetPlayerCameraTargetVehicle">GetPlayerCameraTargetVehicle</a></li><li><a href="GetPlayerCameraUpVector.html" title="GetPlayerCameraUpVector">GetPlayerCameraUpVector</a></li><li><a href="GetPlayerCameraZoom.html" title="GetPlayerCameraZoom">GetPlayerCameraZoom</a></li><li><a href="GetPlayerColor.html" title="GetPlayerColor">GetPlayerColor</a></li><li><a href="GetPlayerCustomSkin.html" title="GetPlayerCustomSkin">GetPlayerCustomSkin</a></li><li><a href="GetPlayerDistanceFromPoint.html" title="GetPlayerDistanceFromPoint">GetPlayerDistanceFromPoint</a></li><li><a href="GetPlayerDrunkLevel.html" title="GetPlayerDrunkLevel">GetPlayerDrunkLevel</a></li><li><a href="GetPlayerFacingAngle.html" title="GetPlayerFacingAngle">GetPlayerFacingAngle</a></li><li><a href="GetPlayerFightingStyle.html" title="GetPlayerFightingStyle">GetPlayerFightingStyle</a></li><li><a href="GetPlayerHealth.html" title="GetPlayerHealth">GetPlayerHealth</a></li><li><a href="GetPlayerInterior.html" title="GetPlayerInterior">GetPlayerInterior</a></li><li><a href="GetPlayerIp.html" title="GetPlayerIp">GetPlayerIp</a></li><li><a href="GetPlayerKeys.html" title="GetPlayerKeys">GetPlayerKeys</a></li><li><a href="GetPlayerKeys_FR.html" title="GetPlayerKeys FR">GetPlayerKeys FR</a></li><li><a href="GetPlayerLastShotVectors.html" title="GetPlayerLastShotVectors">GetPlayerLastShotVectors</a></li><li><a href="GetPlayerMenu.html" title="GetPlayerMenu">GetPlayerMenu</a></li><li><a href="GetPlayerMoney.html" title="GetPlayerMoney">GetPlayerMoney</a></li><li><a href="GetPlayerName.html" title="GetPlayerName">GetPlayerName</a></li><li><a href="GetPlayerNetworkStats.html" title="GetPlayerNetworkStats">GetPlayerNetworkStats</a></li><li><a href="GetPlayerObjectModel.html" title="GetPlayerObjectModel">GetPlayerObjectModel</a></li><li><a href="GetPlayerObjectPos.html" title="GetPlayerObjectPos">GetPlayerObjectPos</a></li><li><a href="GetPlayerObjectRot.html" title="GetPlayerObjectRot">GetPlayerObjectRot</a></li><li><a href="GetPlayerPing.html" title="GetPlayerPing">GetPlayerPing</a></li><li><a href="GetPlayerPoolSize.html" title="GetPlayerPoolSize">GetPlayerPoolSize</a></li><li><a href="GetPlayerPos.html" title="GetPlayerPos">GetPlayerPos</a></li><li><a href="GetPlayerScore.html" title="GetPlayerScore">GetPlayerScore</a></li><li><a href="GetPlayerSkin.html" title="GetPlayerSkin">GetPlayerSkin</a></li><li><a href="GetPlayerSpecialAction.html" title="GetPlayerSpecialAction">GetPlayerSpecialAction</a></li><li><a href="GetPlayerState.html" title="GetPlayerState">GetPlayerState</a></li><li><a href="GetPlayerSurfingObjectID.html" title="GetPlayerSurfingObjectID">GetPlayerSurfingObjectID</a></li><li><a href="GetPlayerSurfingVehicleID.html" title="GetPlayerSurfingVehicleID">GetPlayerSurfingVehicleID</a></li><li><a href="GetPlayerTargetActor.html" title="GetPlayerTargetActor">GetPlayerTargetActor</a></li><li><a href="GetPlayerTargetPlayer.html" title="GetPlayerTargetPlayer">GetPlayerTargetPlayer</a></li><li><a href="GetPlayerTeam.html" title="GetPlayerTeam">GetPlayerTeam</a></li><li><a href="GetPlayerTime.html" title="GetPlayerTime">GetPlayerTime</a></li><li><a href="GetPlayerVehicleID.html" title="GetPlayerVehicleID">GetPlayerVehicleID</a></li><li><a href="GetPlayerVehicleSeat.html" title="GetPlayerVehicleSeat">GetPlayerVehicleSeat</a></li><li><a href="GetPlayerVelocity.html" title="GetPlayerVelocity">GetPlayerVelocity</a></li><li><a href="GetPlayerVersion.html" title="GetPlayerVersion">GetPlayerVersion</a></li><li><a href="GetPlayerVirtualWorld.html" title="GetPlayerVirtualWorld">GetPlayerVirtualWorld</a></li><li><a href="GetPlayerWantedLevel.html" title="GetPlayerWantedLevel">GetPlayerWantedLevel</a></li><li><a href="GetPlayerWeapon.html" title="GetPlayerWeapon">GetPlayerWeapon</a></li><li><a href="GetPlayerWeaponData.html" title="GetPlayerWeaponData">GetPlayerWeaponData</a></li><li><a href="GetPlayerWeaponState.html" title="GetPlayerWeaponState">GetPlayerWeaponState</a></li><li><a href="GetSVarFloat.html" title="GetSVarFloat">GetSVarFloat</a></li><li><a href="GetSVarInt.html" title="GetSVarInt">GetSVarInt</a></li><li><a href="GetSVarNameAtIndex.html" title="GetSVarNameAtIndex">GetSVarNameAtIndex</a></li><li><a href="GetSVarString.html" title="GetSVarString">GetSVarString</a></li><li><a href="GetSVarType.html" title="GetSVarType">GetSVarType</a></li><li><a href="GetSVarsUpperIndex.html" title="GetSVarsUpperIndex">GetSVarsUpperIndex</a></li><li><a href="GetServerTickRate.html" title="GetServerTickRate">GetServerTickRate</a></li><li><a href="GetServerVarAsBool.html" title="GetServerVarAsBool">GetServerVarAsBool</a></li><li><a href="GetServerVarAsInt.html" title="GetServerVarAsInt">GetServerVarAsInt</a></li><li><a href="GetServerVarAsString.html" title="GetServerVarAsString">GetServerVarAsString</a></li><li><a href="GetTickCount.html" title="GetTickCount">GetTickCount</a></li><li><a href="GetVehicleComponentInSlot.html" title="GetVehicleComponentInSlot">GetVehicleComponentInSlot</a></li><li><a href="GetVehicleComponentType.html" title="GetVehicleComponentType">GetVehicleComponentType</a></li><li><a href="GetVehicleDamageStatus.html" title="GetVehicleDamageStatus">GetVehicleDamageStatus</a></li><li><a href="GetVehicleDistanceFromPoint.html" title="GetVehicleDistanceFromPoint">GetVehicleDistanceFromPoint</a></li><li><a href="GetVehicleHealth.html" title="GetVehicleHealth">GetVehicleHealth</a></li><li><a href="GetVehicleModel.html" title="GetVehicleModel">GetVehicleModel</a></li><li><a href="GetVehicleModelInfo.html" title="GetVehicleModelInfo">GetVehicleModelInfo</a></li><li><a href="GetVehicleParamsCarDoors.html" title="GetVehicleParamsCarDoors">GetVehicleParamsCarDoors</a></li><li><a href="GetVehicleParamsCarWindows.html" title="GetVehicleParamsCarWindows">GetVehicleParamsCarWindows</a></li><li><a href="GetVehicleParamsSirenState.html" title="GetVehicleParamsSirenState">GetVehicleParamsSirenState</a></li><li><a href="GetVehiclePoolSize.html" title="GetVehiclePoolSize">GetVehiclePoolSize</a></li><li><a href="GetVehiclePos.html" title="GetVehiclePos">GetVehiclePos</a></li><li><a href="GetVehicleRotation.html" title="GetVehicleRotation">GetVehicleRotation</a></li><li><a href="GetVehicleRotationQuat.html" title="GetVehicleRotationQuat">GetVehicleRotationQuat</a></li><li><a href="GetVehicleTrailer.html" title="GetVehicleTrailer">GetVehicleTrailer</a></li><li><a href="GetVehicleVelocity.html" title="GetVehicleVelocity">GetVehicleVelocity</a></li><li><a href="GetVehicleVirtualWorld.html" title="GetVehicleVirtualWorld">GetVehicleVirtualWorld</a></li><li><a href="GetVehicleZAngle.html" title="GetVehicleZAngle">GetVehicleZAngle</a></li><li><a href="GetWeaponName.html" title="GetWeaponName">GetWeaponName</a></li><li><a href="Getarg.html" title="Getarg">Getarg</a></li><li><a href="Getdate.html" title="Getdate">Getdate</a></li><li><a href="Getproperty.html" title="Getproperty">Getproperty</a></li><li><a href="Gettime.html" title="Gettime">Gettime</a></li><li><a href="Gettime_PT.html" title="Gettime PT">Gettime PT</a></li><li><a href="GivePlayerMoney.html" title="GivePlayerMoney">GivePlayerMoney</a></li><li><a href="GivePlayerWeapon.html" title="GivePlayerWeapon">GivePlayerWeapon</a></li><li><a href="Gpci.html" title="Gpci">Gpci</a></li></ul>
+<h3>H</h3>
+<ul><li><a href="HTTP.html" title="HTTP">HTTP</a></li><li><a href="Heapspace.html" title="Heapspace">Heapspace</a></li><li><a href="HideMenuForPlayer.html" title="HideMenuForPlayer">HideMenuForPlayer</a></li></ul>
+<h3>I</h3>
+<ul><li><a href="InterpolateCameraLookAt.html" title="InterpolateCameraLookAt">InterpolateCameraLookAt</a></li><li><a href="InterpolateCameraPos.html" title="InterpolateCameraPos">InterpolateCameraPos</a></li><li><a href="IsActorInvulnerable.html" title="IsActorInvulnerable">IsActorInvulnerable</a></li><li><a href="IsActorStreamedIn.html" title="IsActorStreamedIn">IsActorStreamedIn</a></li><li><a href="IsObjectMoving.html" title="IsObjectMoving">IsObjectMoving</a></li><li><a href="IsPlayerAdmin.html" title="IsPlayerAdmin">IsPlayerAdmin</a></li><li><a href="IsPlayerAttachedObjectSlotUsed.html" title="IsPlayerAttachedObjectSlotUsed">IsPlayerAttachedObjectSlotUsed</a></li><li><a href="IsPlayerConnected.html" title="IsPlayerConnected">IsPlayerConnected</a></li><li><a href="IsPlayerHoldingObject.html" title="IsPlayerHoldingObject">IsPlayerHoldingObject</a></li><li><a href="IsPlayerInAnyVehicle.html" title="IsPlayerInAnyVehicle">IsPlayerInAnyVehicle</a></li><li><a href="IsPlayerInCheckpoint.html" title="IsPlayerInCheckpoint">IsPlayerInCheckpoint</a></li><li><a href="IsPlayerInRaceCheckpoint.html" title="IsPlayerInRaceCheckpoint">IsPlayerInRaceCheckpoint</a></li><li><a href="IsPlayerInRangeOfPoint.html" title="IsPlayerInRangeOfPoint">IsPlayerInRangeOfPoint</a></li><li><a href="IsPlayerInVehicle.html" title="IsPlayerInVehicle">IsPlayerInVehicle</a></li><li><a href="IsPlayerNPC.html" title="IsPlayerNPC">IsPlayerNPC</a></li><li><a href="IsPlayerObjectMoving.html" title="IsPlayerObjectMoving">IsPlayerObjectMoving</a></li><li><a href="IsPlayerStreamedIn.html" title="IsPlayerStreamedIn">IsPlayerStreamedIn</a></li><li><a href="IsTrailerAttachedToVehicle.html" title="IsTrailerAttachedToVehicle">IsTrailerAttachedToVehicle</a></li><li><a href="IsValidActor.html" title="IsValidActor">IsValidActor</a></li><li><a href="IsValidObject.html" title="IsValidObject">IsValidObject</a></li><li><a href="IsValidPlayerObject.html" title="IsValidPlayerObject">IsValidPlayerObject</a></li><li><a href="IsValidVehicle.html" title="IsValidVehicle">IsValidVehicle</a></li><li><a href="IsVehicleStreamedIn.html" title="IsVehicleStreamedIn">IsVehicleStreamedIn</a></li><li><a href="Ispacked.html" title="Ispacked">Ispacked</a></li></ul>
+<h3>K</h3>
+<ul><li><a href="Kick.html" title="Kick">Kick</a></li><li><a href="KillTimer.html" title="KillTimer">KillTimer</a></li></ul>
+<h3>L</h3>
+<ul><li><a href="LimitGlobalChatRadius.html" title="LimitGlobalChatRadius">LimitGlobalChatRadius</a></li><li><a href="LimitPlayerMarkerRadius.html" title="LimitPlayerMarkerRadius">LimitPlayerMarkerRadius</a></li><li><a href="LinkVehicleToInterior.html" title="LinkVehicleToInterior">LinkVehicleToInterior</a></li></ul>
+<h3>M</h3>
+<ul><li><a href="ManualVehicleEngineAndLights.html" title="ManualVehicleEngineAndLights">ManualVehicleEngineAndLights</a></li><li><a href="Memcpy.html" title="Memcpy">Memcpy</a></li><li><a href="MoveObject.html" title="MoveObject">MoveObject</a></li><li><a href="MovePlayerObject.html" title="MovePlayerObject">MovePlayerObject</a></li></ul>
+<h3>N</h3>
+<ul><li><a href="NPC_GetPlayerArmedWeapon.html" title="NPC:GetPlayerArmedWeapon">NPC:GetPlayerArmedWeapon</a></li><li><a href="NPC_IsPlayerStreamedIn.html" title="NPC:IsPlayerStreamedIn">NPC:IsPlayerStreamedIn</a></li><li><a href="NPC_IsVehicleStreamedIn.html" title="NPC:IsVehicleStreamedIn">NPC:IsVehicleStreamedIn</a></li><li><a href="NPC_OnNPCConnect.html" title="NPC:OnNPCConnect">NPC:OnNPCConnect</a></li><li><a href="NPC_OnNPCDisconnect.html" title="NPC:OnNPCDisconnect">NPC:OnNPCDisconnect</a></li><li><a href="NPC_OnNPCEnterVehicle.html" title="NPC:OnNPCEnterVehicle">NPC:OnNPCEnterVehicle</a></li><li><a href="NPC_OnNPCExitVehicle.html" title="NPC:OnNPCExitVehicle">NPC:OnNPCExitVehicle</a></li><li><a href="NPC_OnNPCModeExit.html" title="NPC:OnNPCModeExit">NPC:OnNPCModeExit</a></li><li><a href="NPC_OnNPCModeInit.html" title="NPC:OnNPCModeInit">NPC:OnNPCModeInit</a></li><li><a href="NPC_OnNPCSpawn.html" title="NPC:OnNPCSpawn">NPC:OnNPCSpawn</a></li><li><a href="NPC_PauseRecordingPlayback.html" title="NPC:PauseRecordingPlayback">NPC:PauseRecordingPlayback</a></li><li><a href="NPC_ResumeRecordingPlayback.html" title="NPC:ResumeRecordingPlayback">NPC:ResumeRecordingPlayback</a></li><li><a href="NPC_SendChat.html" title="NPC:SendChat">NPC:SendChat</a></li><li><a href="NPC_SendCommand.html" title="NPC:SendCommand">NPC:SendCommand</a></li><li><a href="NPC_StartRecordingPlayback.html" title="NPC:StartRecordingPlayback">NPC:StartRecordingPlayback</a></li><li><a href="NPC_StopRecordingPlayback.html" title="NPC:StopRecordingPlayback">NPC:StopRecordingPlayback</a></li><li><a href="NetStats_BytesReceived.html" title="NetStats BytesReceived">NetStats BytesReceived</a></li><li><a href="NetStats_BytesSent.html" title="NetStats BytesSent">NetStats BytesSent</a></li><li><a href="NetStats_ConnectionStatus.html" title="NetStats ConnectionStatus">NetStats ConnectionStatus</a></li><li><a href="NetStats_GetConnectedTime.html" title="NetStats GetConnectedTime">NetStats GetConnectedTime</a></li><li><a href="NetStats_GetIpPort.html" title="NetStats GetIpPort">NetStats GetIpPort</a></li><li><a href="NetStats_MessagesReceived.html" title="NetStats MessagesReceived">NetStats MessagesReceived</a></li><li><a href="NetStats_MessagesRecvPerSecond.html" title="NetStats MessagesRecvPerSecond">NetStats MessagesRecvPerSecond</a></li><li><a href="NetStats_MessagesSent.html" title="NetStats MessagesSent">NetStats MessagesSent</a></li><li><a href="NetStats_PacketLossPercent.html" title="NetStats PacketLossPercent">NetStats PacketLossPercent</a></li><li><a href="Numargs.html" title="Numargs">Numargs</a></li></ul>
+<h3>P</h3>
+<ul><li><a href="PlayAudioStreamForPlayer.html" title="PlayAudioStreamForPlayer">PlayAudioStreamForPlayer</a></li><li><a href="PlayCrimeReportForPlayer.html" title="PlayCrimeReportForPlayer">PlayCrimeReportForPlayer</a></li><li><a href="PlayerPlaySound.html" title="PlayerPlaySound">PlayerPlaySound</a></li><li><a href="PlayerSpectatePlayer.html" title="PlayerSpectatePlayer">PlayerSpectatePlayer</a></li><li><a href="PlayerSpectateVehicle.html" title="PlayerSpectateVehicle">PlayerSpectateVehicle</a></li><li><a href="PlayerTextDrawAlignment.html" title="PlayerTextDrawAlignment">PlayerTextDrawAlignment</a></li><li><a href="PlayerTextDrawBackgroundColor.html" title="PlayerTextDrawBackgroundColor">PlayerTextDrawBackgroundColor</a></li><li><a href="PlayerTextDrawBoxColor.html" title="PlayerTextDrawBoxColor">PlayerTextDrawBoxColor</a></li><li><a href="PlayerTextDrawColor.html" title="PlayerTextDrawColor">PlayerTextDrawColor</a></li><li><a href="PlayerTextDrawDestroy.html" title="PlayerTextDrawDestroy">PlayerTextDrawDestroy</a></li><li><a href="PlayerTextDrawFont.html" title="PlayerTextDrawFont">PlayerTextDrawFont</a></li><li><a href="PlayerTextDrawHide.html" title="PlayerTextDrawHide">PlayerTextDrawHide</a></li><li><a href="PlayerTextDrawLetterSize.html" title="PlayerTextDrawLetterSize">PlayerTextDrawLetterSize</a></li><li><a href="PlayerTextDrawSetOutline.html" title="PlayerTextDrawSetOutline">PlayerTextDrawSetOutline</a></li><li><a href="PlayerTextDrawSetPreviewModel.html" title="PlayerTextDrawSetPreviewModel">PlayerTextDrawSetPreviewModel</a></li><li><a href="PlayerTextDrawSetPreviewRot.html" title="PlayerTextDrawSetPreviewRot">PlayerTextDrawSetPreviewRot</a></li><li><a href="PlayerTextDrawSetPreviewVehCol.html" title="PlayerTextDrawSetPreviewVehCol">PlayerTextDrawSetPreviewVehCol</a></li><li><a href="PlayerTextDrawSetProportional.html" title="PlayerTextDrawSetProportional">PlayerTextDrawSetProportional</a></li><li><a href="PlayerTextDrawSetSelectable.html" title="PlayerTextDrawSetSelectable">PlayerTextDrawSetSelectable</a></li></ul>
+</td>
+<td>
+<h3>P cont.</h3>
+<ul><li><a href="PlayerTextDrawSetShadow.html" title="PlayerTextDrawSetShadow">PlayerTextDrawSetShadow</a></li><li><a href="PlayerTextDrawSetString.html" title="PlayerTextDrawSetString">PlayerTextDrawSetString</a></li><li><a href="PlayerTextDrawShow.html" title="PlayerTextDrawShow">PlayerTextDrawShow</a></li><li><a href="PlayerTextDrawTextSize.html" title="PlayerTextDrawTextSize">PlayerTextDrawTextSize</a></li><li><a href="PlayerTextDrawUseBox.html" title="PlayerTextDrawUseBox">PlayerTextDrawUseBox</a></li><li><a href="Print.html" title="Print">Print</a></li><li><a href="Printf.html" title="Printf">Printf</a></li><li><a href="PutPlayerInVehicle.html" title="PutPlayerInVehicle">PutPlayerInVehicle</a></li></ul>
+<h3>R</h3>
+<ul><li><a href="Random.html" title="Random">Random</a></li><li><a href="RedirectDownload.html" title="RedirectDownload">RedirectDownload</a></li><li><a href="RemoveBuildingForPlayer.html" title="RemoveBuildingForPlayer">RemoveBuildingForPlayer</a></li><li><a href="RemovePlayerAttachedObject.html" title="RemovePlayerAttachedObject">RemovePlayerAttachedObject</a></li><li><a href="RemovePlayerFromVehicle.html" title="RemovePlayerFromVehicle">RemovePlayerFromVehicle</a></li><li><a href="RemovePlayerMapIcon.html" title="RemovePlayerMapIcon">RemovePlayerMapIcon</a></li><li><a href="RemoveVehicleComponent.html" title="RemoveVehicleComponent">RemoveVehicleComponent</a></li><li><a href="RepairVehicle.html" title="RepairVehicle">RepairVehicle</a></li><li><a href="ResetPlayerMoney.html" title="ResetPlayerMoney">ResetPlayerMoney</a></li><li><a href="ResetPlayerWeapons.html" title="ResetPlayerWeapons">ResetPlayerWeapons</a></li></ul>
+<h3>S</h3>
+<ul><li><a href="SHA256_PassHash.html" title="SHA256 PassHash">SHA256 PassHash</a></li><li><a href="SelectObject.html" title="SelectObject">SelectObject</a></li><li><a href="SelectTextDraw.html" title="SelectTextDraw">SelectTextDraw</a></li><li><a href="SendClientMessage.html" title="SendClientMessage">SendClientMessage</a></li><li><a href="SendClientMessageToAll.html" title="SendClientMessageToAll">SendClientMessageToAll</a></li><li><a href="SendDeathMessage.html" title="SendDeathMessage">SendDeathMessage</a></li><li><a href="SendDeathMessageToPlayer.html" title="SendDeathMessageToPlayer">SendDeathMessageToPlayer</a></li><li><a href="SendPlayerMessageToAll.html" title="SendPlayerMessageToAll">SendPlayerMessageToAll</a></li><li><a href="SendPlayerMessageToPlayer.html" title="SendPlayerMessageToPlayer">SendPlayerMessageToPlayer</a></li><li><a href="SendRconCommand.html" title="SendRconCommand">SendRconCommand</a></li><li><a href="SetActorFacingAngle.html" title="SetActorFacingAngle">SetActorFacingAngle</a></li><li><a href="SetActorHealth.html" title="SetActorHealth">SetActorHealth</a></li><li><a href="SetActorInvulnerable.html" title="SetActorInvulnerable">SetActorInvulnerable</a></li><li><a href="SetActorPos.html" title="SetActorPos">SetActorPos</a></li><li><a href="SetActorVirtualWorld.html" title="SetActorVirtualWorld">SetActorVirtualWorld</a></li><li><a href="SetCameraBehindPlayer.html" title="SetCameraBehindPlayer">SetCameraBehindPlayer</a></li><li><a href="SetDeathDropAmount.html" title="SetDeathDropAmount">SetDeathDropAmount</a></li><li><a href="SetDisabledWeapons.html" title="SetDisabledWeapons">SetDisabledWeapons</a></li><li><a href="SetGameModeText.html" title="SetGameModeText">SetGameModeText</a></li><li><a href="SetGravity.html" title="SetGravity">SetGravity</a></li><li><a href="SetMenuColumnHeader.html" title="SetMenuColumnHeader">SetMenuColumnHeader</a></li><li><a href="SetNameTagDrawDistance.html" title="SetNameTagDrawDistance">SetNameTagDrawDistance</a></li><li><a href="SetObjectMaterial.html" title="SetObjectMaterial">SetObjectMaterial</a></li><li><a href="SetObjectMaterialText.html" title="SetObjectMaterialText">SetObjectMaterialText</a></li><li><a href="SetObjectNoCameraCol.html" title="SetObjectNoCameraCol">SetObjectNoCameraCol</a></li><li><a href="SetObjectPos.html" title="SetObjectPos">SetObjectPos</a></li><li><a href="SetObjectRot.html" title="SetObjectRot">SetObjectRot</a></li><li><a href="SetObjectsDefaultCameraCol.html" title="SetObjectsDefaultCameraCol">SetObjectsDefaultCameraCol</a></li><li><a href="SetPVarFloat.html" title="SetPVarFloat">SetPVarFloat</a></li><li><a href="SetPVarInt.html" title="SetPVarInt">SetPVarInt</a></li><li><a href="SetPVarString.html" title="SetPVarString">SetPVarString</a></li><li><a href="SetPlayerAmmo.html" title="SetPlayerAmmo">SetPlayerAmmo</a></li><li><a href="SetPlayerAmmo_DE.html" title="SetPlayerAmmo DE">SetPlayerAmmo DE</a></li><li><a href="SetPlayerArmedWeapon.html" title="SetPlayerArmedWeapon">SetPlayerArmedWeapon</a></li><li><a href="SetPlayerArmour.html" title="SetPlayerArmour">SetPlayerArmour</a></li><li><a href="SetPlayerAttachedObject.html" title="SetPlayerAttachedObject">SetPlayerAttachedObject</a></li><li><a href="SetPlayerCameraLookAt.html" title="SetPlayerCameraLookAt">SetPlayerCameraLookAt</a></li><li><a href="SetPlayerCameraPos.html" title="SetPlayerCameraPos">SetPlayerCameraPos</a></li><li><a href="SetPlayerChatBubble.html" title="SetPlayerChatBubble">SetPlayerChatBubble</a></li><li><a href="SetPlayerCheckpoint.html" title="SetPlayerCheckpoint">SetPlayerCheckpoint</a></li><li><a href="SetPlayerColor.html" title="SetPlayerColor">SetPlayerColor</a></li><li><a href="SetPlayerDrunkLevel.html" title="SetPlayerDrunkLevel">SetPlayerDrunkLevel</a></li><li><a href="SetPlayerFacingAngle.html" title="SetPlayerFacingAngle">SetPlayerFacingAngle</a></li><li><a href="SetPlayerFightingStyle.html" title="SetPlayerFightingStyle">SetPlayerFightingStyle</a></li><li><a href="SetPlayerHealth.html" title="SetPlayerHealth">SetPlayerHealth</a></li><li><a href="SetPlayerHoldingObject.html" title="SetPlayerHoldingObject">SetPlayerHoldingObject</a></li><li><a href="SetPlayerInterior.html" title="SetPlayerInterior">SetPlayerInterior</a></li><li><a href="SetPlayerMapIcon.html" title="SetPlayerMapIcon">SetPlayerMapIcon</a></li><li><a href="SetPlayerMarkerForPlayer.html" title="SetPlayerMarkerForPlayer">SetPlayerMarkerForPlayer</a></li><li><a href="SetPlayerName.html" title="SetPlayerName">SetPlayerName</a></li><li><a href="SetPlayerObjectMaterial.html" title="SetPlayerObjectMaterial">SetPlayerObjectMaterial</a></li><li><a href="SetPlayerObjectMaterialText.html" title="SetPlayerObjectMaterialText">SetPlayerObjectMaterialText</a></li><li><a href="SetPlayerObjectNoCameraCol.html" title="SetPlayerObjectNoCameraCol">SetPlayerObjectNoCameraCol</a></li><li><a href="SetPlayerObjectPos.html" title="SetPlayerObjectPos">SetPlayerObjectPos</a></li><li><a href="SetPlayerObjectRot.html" title="SetPlayerObjectRot">SetPlayerObjectRot</a></li><li><a href="SetPlayerPos.html" title="SetPlayerPos">SetPlayerPos</a></li><li><a href="SetPlayerPosFindZ.html" title="SetPlayerPosFindZ">SetPlayerPosFindZ</a></li><li><a href="SetPlayerRaceCheckpoint.html" title="SetPlayerRaceCheckpoint">SetPlayerRaceCheckpoint</a></li><li><a href="SetPlayerScore.html" title="SetPlayerScore">SetPlayerScore</a></li><li><a href="SetPlayerShopName.html" title="SetPlayerShopName">SetPlayerShopName</a></li><li><a href="SetPlayerSkillLevel.html" title="SetPlayerSkillLevel">SetPlayerSkillLevel</a></li><li><a href="SetPlayerSkin.html" title="SetPlayerSkin">SetPlayerSkin</a></li><li><a href="SetPlayerSpecialAction.html" title="SetPlayerSpecialAction">SetPlayerSpecialAction</a></li><li><a href="SetPlayerTeam.html" title="SetPlayerTeam">SetPlayerTeam</a></li><li><a href="SetPlayerTime.html" title="SetPlayerTime">SetPlayerTime</a></li><li><a href="SetPlayerVelocity.html" title="SetPlayerVelocity">SetPlayerVelocity</a></li><li><a href="SetPlayerVirtualWorld.html" title="SetPlayerVirtualWorld">SetPlayerVirtualWorld</a></li><li><a href="SetPlayerWantedLevel.html" title="SetPlayerWantedLevel">SetPlayerWantedLevel</a></li><li><a href="SetPlayerWeather.html" title="SetPlayerWeather">SetPlayerWeather</a></li><li><a href="SetPlayerWorldBounds.html" title="SetPlayerWorldBounds">SetPlayerWorldBounds</a></li><li><a href="SetSVarFloat.html" title="SetSVarFloat">SetSVarFloat</a></li><li><a href="SetSVarInt.html" title="SetSVarInt">SetSVarInt</a></li><li><a href="SetSVarString.html" title="SetSVarString">SetSVarString</a></li><li><a href="SetSpawnInfo.html" title="SetSpawnInfo">SetSpawnInfo</a></li><li><a href="SetTeamCount.html" title="SetTeamCount">SetTeamCount</a></li><li><a href="SetTimer.html" title="SetTimer">SetTimer</a></li><li><a href="SetTimerEx.html" title="SetTimerEx">SetTimerEx</a></li><li><a href="SetVehicleAngularVelocity.html" title="SetVehicleAngularVelocity">SetVehicleAngularVelocity</a></li><li><a href="SetVehicleHealth.html" title="SetVehicleHealth">SetVehicleHealth</a></li><li><a href="SetVehicleNumberPlate.html" title="SetVehicleNumberPlate">SetVehicleNumberPlate</a></li><li><a href="SetVehicleParamsCarDoors.html" title="SetVehicleParamsCarDoors">SetVehicleParamsCarDoors</a></li><li><a href="SetVehicleParamsCarWindows.html" title="SetVehicleParamsCarWindows">SetVehicleParamsCarWindows</a></li><li><a href="SetVehicleParamsEx.html" title="SetVehicleParamsEx">SetVehicleParamsEx</a></li><li><a href="SetVehicleParamsForPlayer.html" title="SetVehicleParamsForPlayer">SetVehicleParamsForPlayer</a></li><li><a href="SetVehiclePos.html" title="SetVehiclePos">SetVehiclePos</a></li><li><a href="SetVehicleToRespawn.html" title="SetVehicleToRespawn">SetVehicleToRespawn</a></li><li><a href="SetVehicleVelocity.html" title="SetVehicleVelocity">SetVehicleVelocity</a></li><li><a href="SetVehicleVirtualWorld.html" title="SetVehicleVirtualWorld">SetVehicleVirtualWorld</a></li><li><a href="SetVehicleZAngle.html" title="SetVehicleZAngle">SetVehicleZAngle</a></li><li><a href="SetWeather.html" title="SetWeather">SetWeather</a></li><li><a href="SetWorldTime.html" title="SetWorldTime">SetWorldTime</a></li><li><a href="Setarg.html" title="Setarg">Setarg</a></li><li><a href="Setproperty.html" title="Setproperty">Setproperty</a></li><li><a href="ShowMenuForPlayer.html" title="ShowMenuForPlayer">ShowMenuForPlayer</a></li><li><a href="ShowNameTags.html" title="ShowNameTags">ShowNameTags</a></li><li><a href="ShowPlayerDialog.html" title="ShowPlayerDialog">ShowPlayerDialog</a></li><li><a href="ShowPlayerMarkers.html" title="ShowPlayerMarkers">ShowPlayerMarkers</a></li><li><a href="ShowPlayerNameTagForPlayer.html" title="ShowPlayerNameTagForPlayer">ShowPlayerNameTagForPlayer</a></li><li><a href="SpawnPlayer.html" title="SpawnPlayer">SpawnPlayer</a></li><li><a href="StartRecordingPlayerData.html" title="StartRecordingPlayerData">StartRecordingPlayerData</a></li><li><a href="StopAudioStreamForPlayer.html" title="StopAudioStreamForPlayer">StopAudioStreamForPlayer</a></li><li><a href="StopObject.html" title="StopObject">StopObject</a></li><li><a href="StopPlayerHoldingObject.html" title="StopPlayerHoldingObject">StopPlayerHoldingObject</a></li><li><a href="StopPlayerObject.html" title="StopPlayerObject">StopPlayerObject</a></li><li><a href="StopRecordingPlayerData.html" title="StopRecordingPlayerData">StopRecordingPlayerData</a></li><li><a href="Strcat.html" title="Strcat">Strcat</a></li><li><a href="Strcmp.html" title="Strcmp">Strcmp</a></li><li><a href="Strdel.html" title="Strdel">Strdel</a></li><li><a href="Strfind.html" title="Strfind">Strfind</a></li><li><a href="Strfind_PT.html" title="Strfind PT">Strfind PT</a></li><li><a href="Strins.html" title="Strins">Strins</a></li><li><a href="Strlen.html" title="Strlen">Strlen</a></li><li><a href="Strmid.html" title="Strmid">Strmid</a></li><li><a href="Strpack.html" title="Strpack">Strpack</a></li><li><a href="Strunpack.html" title="Strunpack">Strunpack</a></li><li><a href="Strval.html" title="Strval">Strval</a></li></ul>
+<h3>T</h3>
+<ul><li><a href="TextDrawAlignment.html" title="TextDrawAlignment">TextDrawAlignment</a></li><li><a href="TextDrawBackgroundColor.html" title="TextDrawBackgroundColor">TextDrawBackgroundColor</a></li><li><a href="TextDrawBoxColor.html" title="TextDrawBoxColor">TextDrawBoxColor</a></li><li><a href="TextDrawColor.html" title="TextDrawColor">TextDrawColor</a></li><li><a href="TextDrawCreate.html" title="TextDrawCreate">TextDrawCreate</a></li><li><a href="TextDrawDestroy.html" title="TextDrawDestroy">TextDrawDestroy</a></li><li><a href="TextDrawFont.html" title="TextDrawFont">TextDrawFont</a></li><li><a href="TextDrawHideForAll.html" title="TextDrawHideForAll">TextDrawHideForAll</a></li><li><a href="TextDrawHideForPlayer.html" title="TextDrawHideForPlayer">TextDrawHideForPlayer</a></li><li><a href="TextDrawLetterSize.html" title="TextDrawLetterSize">TextDrawLetterSize</a></li><li><a href="TextDrawSetOutline.html" title="TextDrawSetOutline">TextDrawSetOutline</a></li><li><a href="TextDrawSetPreviewModel.html" title="TextDrawSetPreviewModel">TextDrawSetPreviewModel</a></li><li><a href="TextDrawSetPreviewRot.html" title="TextDrawSetPreviewRot">TextDrawSetPreviewRot</a></li><li><a href="TextDrawSetPreviewVehCol.html" title="TextDrawSetPreviewVehCol">TextDrawSetPreviewVehCol</a></li><li><a href="TextDrawSetProportional.html" title="TextDrawSetProportional">TextDrawSetProportional</a></li><li><a href="TextDrawSetSelectable.html" title="TextDrawSetSelectable">TextDrawSetSelectable</a></li><li><a href="TextDrawSetShadow.html" title="TextDrawSetShadow">TextDrawSetShadow</a></li><li><a href="TextDrawSetString.html" title="TextDrawSetString">TextDrawSetString</a></li><li><a href="TextDrawShowForAll.html" title="TextDrawShowForAll">TextDrawShowForAll</a></li><li><a href="TextDrawShowForPlayer.html" title="TextDrawShowForPlayer">TextDrawShowForPlayer</a></li><li><a href="TextDrawTextSize.html" title="TextDrawTextSize">TextDrawTextSize</a></li><li><a href="TextDrawUseBox.html" title="TextDrawUseBox">TextDrawUseBox</a></li><li><a href="Tickcount.html" title="Tickcount">Tickcount</a></li><li><a href="TogglePlayerClock.html" title="TogglePlayerClock">TogglePlayerClock</a></li><li><a href="TogglePlayerControllable.html" title="TogglePlayerControllable">TogglePlayerControllable</a></li><li><a href="TogglePlayerSpectating.html" title="TogglePlayerSpectating">TogglePlayerSpectating</a></li><li><a href="Tolower.html" title="Tolower">Tolower</a></li><li><a href="Toupper.html" title="Toupper">Toupper</a></li></ul>
+<h3>U</h3>
+<ul><li><a href="UnBlockIpAddress.html" title="UnBlockIpAddress">UnBlockIpAddress</a></li><li><a href="Update3DTextLabelText.html" title="Update3DTextLabelText">Update3DTextLabelText</a></li><li><a href="UpdatePlayer3DTextLabelText.html" title="UpdatePlayer3DTextLabelText">UpdatePlayer3DTextLabelText</a></li><li><a href="UpdateVehicleDamageStatus.html" title="UpdateVehicleDamageStatus">UpdateVehicleDamageStatus</a></li><li><a href="UsePlayerPedAnims.html" title="UsePlayerPedAnims">UsePlayerPedAnims</a></li><li><a href="Uudecode.html" title="Uudecode">Uudecode</a></li></ul>
+<h3>V</h3>
+<ul><li><a href="Valstr.html" title="Valstr">Valstr</a></li><li><a href="VectorSize.html" title="VectorSize">VectorSize</a></li></ul>
+</td>
+</tr></table><div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/Category_Scripting_Functions.html">http://localhost../wiki/Category_Scripting_Functions.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="Category_Scripting_Documentation.html" title="Category:Scripting Documentation">Scripting Documentation</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-category" class="selected"><a href="Category_Scripting_Functions.html">Category</a></li>
+				 <li id="ca-talk"><a href="Category_talk_Scripting_Functions.html">Discussion</a></li>
+				 <li id="ca-viewsource"><a href="Category_Scripting_Functions.html">View source</a></li>
+				 <li id="ca-history"><a href="Category_Scripting_Functions.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-de"><a href="Category_Scripting_Functions_DE.html">Deutsch</a></li>
+				<li class="interwiki-es"><a href="Category_Scripting_Functions_ES.html">Español</a></li>
+				<li class="interwiki-fr"><a href="Category_Scripting_Functions_FR.html">Français</a></li>
+				<li class="interwiki-nl"><a href="Category_Scripting_Functions_NL.html">Nederlands</a></li>
+				<li class="interwiki-pl"><a href="Category_Scripting_Functions_PL.html">Polski</a></li>
+				<li class="interwiki-pt"><a href="Category_Scripting_Functions_PT.html">Português</a></li>
+				<li class="interwiki-ru"><a href="Category_%25D0%25A4%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0_RU.html">Русский</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 1,025,821 times.</li>
+				<li id="credits">This page was last modified 14:20, 14 July 2018 by SA-MP Wiki user <a href="User_Edugta.html" class="new" title="User:Edugta">Edugta</a>. Based on work by <a href="User_WopsS.html" title="User:WopsS">Dima Octavian</a> and SA-MP Wiki user(s) <a href="User_OstGot.html" title="User:OstGot">OstGot</a>, <a href="User_AbyssMorgan.html" title="User:AbyssMorgan">AbyssMorgan</a>, <a href="User_JernejL.html" title="User:JernejL">JernejL</a>, <a href="User_Ikkentim.html" title="User:Ikkentim">Ikkentim</a>, <a href="User_Benzoamg.html" class="new" title="User:Benzoamg">Benzoamg</a>, <a href="User_1234567890.html" title="User:1234567890">1234567890</a>, <a href="User_Connor_Mead.html" title="User:Connor Mead">Connor Mead</a>, <a href="User_Badio12.html" title="User:Badio12">Badio12</a>, <a href="User_Smithy.html" title="User:Smithy">Smithy</a>, <a href="User_Drebin.html" title="User:Drebin">Drebin</a> and <a href="User_Dugi.html" title="User:Dugi">Dugi</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 121.84 secs. -->
+</body></html>

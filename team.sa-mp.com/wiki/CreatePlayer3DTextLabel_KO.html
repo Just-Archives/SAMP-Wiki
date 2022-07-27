@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="CreatePlayer3DTextLabel KO,Attach3DTextLabelToPlayer,Attach3DTextLabelToVehicle,Create3DTextLabel,Delete3DTextLabel,DeletePlayer3DTextLabel,Main Page,Scripting Basics,Server Plugins,Update3DTextLabelText,UpdatePlayer3DTextLabelText" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>CreatePlayer3DTextLabel KO - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">CreatePlayer3DTextLabel KO</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<div class="scripting" style="color: #4378A4; background-color: #FFFFFF; margin: 2px; margin-bottom: 10px;"><div align="center" style="border: 1px solid #AAAAAA; padding: 3px; padding-left: 5px;"><a href="../wiki-archive.html" title="Main Page">Main Page</a> | <a href="Category_Scripting_Functions.html" title="Category:Scripting Functions">Scripting Functions</a> | <a href="Category_Scripting_Callbacks.html" title="Category:Scripting Callbacks">Scripting Callbacks</a> | <a href="Scripting_Basics.html" title="Scripting Basics">Scripting Basics</a> | <a href="Server_Plugins.html" title="Server Plugins">Server Plugins</a> | <a href="Category_Tutorials.html" title="Category:Tutorials">Tutorials</a></div></div><br />
+<p><br />
+</p><p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #E2FFE5; border-left: 10px solid #81C687;">
+
+<tr>
+<td><a href="Image_Add.png.html" class="image" title="CreatePlayer3DTextLabel KO was added in SA-MP 0.3a"><img src="../upload/a/a7/Add.png" alt="CreatePlayer3DTextLabel KO was added in SA-MP 0.3a" width="16" height="16" longdesc="Image_Add.png.html" /></a>
+</td><td align="left" style="padding-left:7px; padding-right:7px;"><span style="font-size:14px;">This function was added in <strong>SA-MP 0.3a</strong> and will not work in earlier versions!</span>
+</td></tr></table>
+</div>
+<p><br />
+</p><p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">선택된 플레이어에게만 텍스트를 생성한다.<br /></div>
+<p>.
+번역자&nbsp;: Cool
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(playerid, text[], color, Float:X, Float:Y, Float:Z, Float:DrawDistance, attachedplayer, attachedvehicle, testLOS)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">텍스트를 생성시킬 플레이어</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">text[]</td><td style="vertical-align:top;">플레이어에게 보여줄 문자열</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">color</td><td style="vertical-align:top;">플레이어에게 보여줄 문자열의 색상</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">x</td><td style="vertical-align:top;">위치할 맵의 X좌표</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">y</td><td style="vertical-align:top;">위치할 맵의 Y좌표</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">z</td><td style="vertical-align:top;">위치할 맵의 Z좌표)</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">DrawDistance</td><td style="vertical-align:top;">텍스트가 보일 거리</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">attachedplayer</td><td style="vertical-align:top;">텍스트가 따라다닐 플레이어의 id (안할시: INVALID_PLAYER_ID)</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">attachedvehicle</td><td style="vertical-align:top;">텍스트가 따라다닐 차량의 id (안할시: INVALID_VEHICLE_ID)</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">testLOS</td><td style="vertical-align:top;"><b>0</b> - 맵을 통과하여 텍스트가 보임. <b>1</b> - 텍스트가 맵을 통과하지않는다.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;"><b>플레이어</b>에게 3D Text ID를 리턴<br /></div>
+<p><br />
+</p>
+<pre class="pawn"><span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span><a href="http://wiki.sa-mp.com/wiki/strcmp"><span style="color: #006400;">strcmp</span></a><span style="color: #66cc66;">&#40;</span>cmd, <span style="color: #b22222;">&quot;/playerlabel&quot;</span>, true<span style="color: #66cc66;">&#41;</span> == <span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <span style="color: #228b22; font-weight: bold;">new</span> <span style="color: orange;">PlayerText3D</span>:playertextid;
+    <span style="color: #228b22; font-weight: bold;">new</span> <span style="color: orange;">Float</span>:X, <span style="color: orange;">Float</span>:Y, <span style="color: orange;">Float</span>:Z;
+    <a href="http://wiki.sa-mp.com/wiki/GetPlayerPos"><span style="color: #006400;">GetPlayerPos</span></a><span style="color: #66cc66;">&#40;</span> playerid, X, Y, Z <span style="color: #66cc66;">&#41;</span>;
+    playertextid = CreatePlayer3DTextLabel<span style="color: #66cc66;">&#40;</span>playerid,<span style="color: #b22222;">&quot;나에게만 보이는 텍스트&quot;</span>,0x008080FF,X,Y,Z,<span style="color: #4169e1;">40.0</span><span style="color: #66cc66;">&#41;</span>;
+    <span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<a name="Related_Functions"></a><h3> <b>Related Functions</b> </h3>
+<p>The following functions may be helpful as they relate to this function in one way or another.
+</p>
+<ul><li> <a href="Create3DTextLabel.html" title="Create3DTextLabel">Create3DTextLabel</a>: Create a 3D text label.
+</li></ul>
+<ul><li> <a href="Delete3DTextLabel.html" title="Delete3DTextLabel">Delete3DTextLabel</a>: Delete a 3D text label.
+</li></ul>
+<ul><li> <a href="Attach3DTextLabelToPlayer.html" title="Attach3DTextLabelToPlayer">Attach3DTextLabelToPlayer</a>: Attach a 3D text label to a player.
+</li></ul>
+<ul><li> <a href="Attach3DTextLabelToVehicle.html" title="Attach3DTextLabelToVehicle">Attach3DTextLabelToVehicle</a>: Attach a 3D text label to a vehicle.
+</li></ul>
+<ul><li> <a href="Update3DTextLabelText.html" title="Update3DTextLabelText">Update3DTextLabelText</a>: Change the text of a 3D text label.
+</li></ul>
+<p><br />
+</p>
+<ul><li> <a href="DeletePlayer3DTextLabel.html" title="DeletePlayer3DTextLabel">DeletePlayer3DTextLabel</a>: Delete a player's 3D text label.
+</li></ul>
+<ul><li> <a href="UpdatePlayer3DTextLabelText.html" title="UpdatePlayer3DTextLabelText">UpdatePlayer3DTextLabelText</a>: Change the text of a player's 3D text label.
+</li></ul>
+<div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/CreatePlayer3DTextLabel_KO.html">http://localhost../wiki/CreatePlayer3DTextLabel_KO.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="Category_Added_in_0.3.html" title="Category:Added in 0.3">Added in 0.3</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="CreatePlayer3DTextLabel_KO.html">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="Talk_CreatePlayer3DTextLabel_KO.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="CreatePlayer3DTextLabel_KO.html">Edit</a></li>
+				 <li id="ca-history"><a href="CreatePlayer3DTextLabel_KO.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-ru"><a href="CreatePlayer3DTextLabel_RU.html">Русский</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 4,377 times.</li>
+				<li id="credits">This page was last modified 22:24, 13 August 2010 by SA-MP Wiki user User:. </li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 58.83 secs. -->
+</body></html>

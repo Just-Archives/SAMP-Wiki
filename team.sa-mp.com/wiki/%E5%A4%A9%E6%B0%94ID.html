@@ -1,0 +1,204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="天气ID,SetPlayerWeather函数,SetWeather函数" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>天气ID - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">天气ID</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<p>用于 <a href="SetWeather%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="SetWeather函数">SetWeather</a> 和 <a href="SetPlayerWeather%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="SetPlayerWeather函数">SetPlayerWeather</a> 。
+</p>
+<table border="1" cellspacing="0" cellpadding="5" align="center">
+
+<tr style="font-size:18px; text-align: center; background-color:#cee0f2;">
+<td> <b>天气ID</b>
+</td><td> <b>说明</b>
+</td></tr>
+<tr style="font-size:14px; text-align: center;vertical-align:top; background-color:#e1ebeb;">
+<td> 0 - 7
+</td><td> 不同样式的蓝天白云
+</td></tr>
+<tr style="font-size:14px; text-align: center;vertical-align:top; background-color:#e1ebeb;">
+<td> 8
+</td><td> 暴风雨
+</td></tr>
+<tr style="font-size:14px; text-align: center;vertical-align:top; background-color:#e1ebeb;">
+<td> 9
+</td><td> 有雾的
+</td></tr>
+<tr style="font-size:14px; text-align: center;vertical-align:top; background-color:#e1ebeb;">
+<td> 10
+</td><td> 蓝天白云 (与 0-7 同类型)
+</td></tr>
+<tr style="font-size:14px; text-align: center;vertical-align:top; background-color:#e1ebeb;">
+<td> 11
+</td><td> 酷热的天 (LS的热波动)
+</td></tr>
+<tr style="font-size:14px; text-align: center;vertical-align:top; background-color:#e1ebeb;">
+<td> 12 - 15
+</td><td> 非常阴沉，苍白，朦胧的天
+</td></tr>
+<tr style="font-size:14px; text-align: center;vertical-align:top; background-color:#e1ebeb;">
+<td> 16
+</td><td> 阴沉的阴雨天
+</td></tr>
+<tr style="font-size:14px; text-align: center;vertical-align:top; background-color:#e1ebeb;">
+<td> 17 - 18
+</td><td> 酷热/晚上是蓝天
+</td></tr>
+<tr style="font-size:14px; text-align: center;vertical-align:top; background-color:#e1ebeb;">
+<td> 19
+</td><td> 沙尘暴
+</td></tr>
+<tr style="font-size:14px; text-align: center;vertical-align:top; background-color:#e1ebeb;">
+<td> 20
+</td><td> 绿色的雾
+</td></tr>
+<tr style="font-size:14px; text-align: center;vertical-align:top; background-color:#e1ebeb;">
+<td> 21
+</td><td> 非常黑暗的地平线渐变紫色天
+</td></tr>
+<tr style="font-size:14px; text-align: center;vertical-align:top; background-color:#e1ebeb;">
+<td> 22
+</td><td> 非常黑暗的地平线渐变绿色天
+</td></tr>
+<tr style="font-size:14px; text-align: center;vertical-align:top; background-color:#e1ebeb;">
+<td> 23 - 26
+</td><td> 会变动的苍白橙色天
+</td></tr>
+<tr style="font-size:14px; text-align: center;vertical-align:top; background-color:#e1ebeb;">
+<td> 27 - 29
+</td><td> 会变动的清新蓝色天
+</td></tr>
+<tr style="font-size:14px; text-align: center;vertical-align:top; background-color:#e1ebeb;">
+<td> 30 - 32
+</td><td> 会变动的黑暗蓝绿色多云天
+</td></tr>
+<tr style="font-size:14px; text-align: center;vertical-align:top; background-color:#e1ebeb;">
+<td> 33
+</td><td> 黑暗的褐色多云天
+</td></tr>
+<tr style="font-size:14px; text-align: center;vertical-align:top; background-color:#e1ebeb;">
+<td> 34
+</td><td> 有规律的蓝/紫色天
+</td></tr>
+<tr style="font-size:14px; text-align: center;vertical-align:top; background-color:#e1ebeb;">
+<td> 35
+</td><td> 阴沉的褐色天
+</td></tr>
+<tr style="font-size:14px; text-align: center;vertical-align:top; background-color:#e1ebeb;">
+<td> 36 - 38
+</td><td> 明亮的橙色雾天
+</td></tr>
+<tr style="font-size:14px; text-align: center;vertical-align:top; background-color:#e1ebeb;">
+<td> 39
+</td><td> 非常明亮
+</td></tr>
+<tr style="font-size:14px; text-align: center;vertical-align:top; background-color:#e1ebeb;">
+<td> 40 - 42
+</td><td> 蓝/紫色的多云天
+</td></tr>
+<tr style="font-size:14px; text-align: center;vertical-align:top; background-color:#e1ebeb;">
+<td> 43
+</td><td> 黑暗毒云天
+</td></tr>
+<tr style="font-size:14px; text-align: center;vertical-align:top; background-color:#e1ebeb;">
+<td> 44
+</td><td> 黑白色的天空
+</td></tr>
+<tr style="font-size:14px; text-align: center;vertical-align:top; background-color:#e1ebeb;">
+<td> 45
+</td><td> 黑色的天空 (晚上是黑/紫色)
+</td></tr></table>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+<p><strong>注意事项</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">多数天气在不同的时段会有不同的效果。</span>
+</td></tr></table>
+</div>
+<div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/%25E5%25A4%25A9%25E6%25B0%2594ID.html">http://localhost../wiki/%25E5%25A4%25A9%25E6%25B0%2594ID.html</a>"</div>
+						<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="%25E5%25A4%25A9%25E6%25B0%2594ID.html">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="Talk_%25E5%25A4%25A9%25E6%25B0%2594ID.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="%25E5%25A4%25A9%25E6%25B0%2594ID.html">Edit</a></li>
+				 <li id="ca-history"><a href="%25E5%25A4%25A9%25E6%25B0%2594ID.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-en"><a href="WeatherID.html">English</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 7,405 times.</li>
+				<li id="credits">This page was last modified 17:44, 4 April 2011 by SA-MP Wiki user User:. </li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 65.45 secs. -->
+</body></html>

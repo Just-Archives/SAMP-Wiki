@@ -1,0 +1,207 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Door States,GetVehicleDamageStatus,UpdateVehicleDamageStatus" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>Door States - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Door States</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<p>DoorStates can be used with the functions <a href="GetVehicleDamageStatus.html" title="GetVehicleDamageStatus">GetVehicleDamageStatus</a> and <a href="UpdateVehicleDamageStatus.html" title="UpdateVehicleDamageStatus">UpdateVehicleDamageStatus</a>.
+</p>
+<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class='toclevel-1'><a href="#Which_bit_stores_what.3F"><span class="tocnumber">1</span> <span class="toctext">Which bit stores what?</span></a></li>
+<li class='toclevel-1'><a href="#Which_byte_stores_what.3F"><span class="tocnumber">2</span> <span class="toctext">Which byte stores what?</span></a></li>
+<li class='toclevel-1'><a href="#Example"><span class="tocnumber">3</span> <span class="toctext">Example</span></a></li>
+<li class='toclevel-1'><a href="#Info_table"><span class="tocnumber">4</span> <span class="toctext">Info table</span></a></li>
+<li class='toclevel-1'><a href="#Wrapper"><span class="tocnumber">5</span> <span class="toctext">Wrapper</span></a>
+<ul>
+<li class='toclevel-2'><a href="#Example_usage"><span class="tocnumber">5.1</span> <span class="toctext">Example usage</span></a></li>
+</ul>
+</li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Door_States.html" title="Edit section: Which bit stores what?">edit</a>]</div><a name="Which_bit_stores_what.3F"></a><h2> Which bit stores what? </h2>
+<p>The damage of each door (note that the hood and the trunk are also doors) will be saved in 1 byte (which is 8 bits). You can only change the state of one bit for every door at each time - so you have to call the function twice if you want to damage and open the door.
+</p>
+<ul><li>The <b>first bit</b> stores whether the door is <b>opened(1)</b> or <b>not(0)</b> (the door will still lock (and change the first bit to 0) if closed - its just open)
+</li></ul>
+<ul><li>The <b>second bit</b> stores whether the door is <b>damaged(1)</b> or <b>not(0)</b> (If you want a damaged door to turn normal you have to remove and re-attach it undamaged)
+</li></ul>
+<ul><li>The <b>third bit</b> stores whether the door is <b>removed(1)</b> or <b>attached(0)</b>
+</li></ul>
+<ul><li>The rest of the bits are empty
+</li></ul>
+<p>It seems like there is no bit which stores if the door will lock or not.
+</p><p>Notice that you count the bits from behind - so the first is the rightmost bit
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Door_States.html" title="Edit section: Which byte stores what?">edit</a>]</div><a name="Which_byte_stores_what.3F"></a><h2> Which byte stores what? </h2>
+<ul><li>The <b>first byte</b> stores the state of the <b>hood</b>
+</li></ul>
+<ul><li>The <b>second byte</b> stores the state of the <b>trunk</b>
+</li></ul>
+<ul><li>The <b>third byte</b> stores the state of the <b>drivers door</b>
+</li></ul>
+<ul><li>The <b>fourth byte</b> stores the state of the <b>co-drivers door</b>
+</li></ul>
+<p>The states of the 2 rear doors cannot be handled by <a href="GetVehicleDamageStatus.html" title="GetVehicleDamageStatus">GetVehicleDamageStatus</a> and <a href="UpdateVehicleDamageStatus.html" title="UpdateVehicleDamageStatus">UpdateVehicleDamageStatus</a>.
+</p><p>Notice that I count the bytes from behind - so the first is the rightmost byte
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Door_States.html" title="Edit section: Example">edit</a>]</div><a name="Example"></a><h2> Example </h2>
+<p>The following code tells that the hood is removed, the front left door damaged, the front right door opened and the trunk is damaged and opened:
+</p>
+<pre>00000001 00000010 00000011 00000100
+</pre>
+<p>However SA-MP returns a decimal number so you have to convert it to a binary number first to get a result like above.
+What SA-MP would return you in this case is this:
+</p>
+<pre>16909060
+</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Door_States.html" title="Edit section: Info table">edit</a>]</div><a name="Info_table"></a><h2> Info table </h2>
+<p><b>First byte (hood):</b>
+</p>
+<pre>0 (000)   1 (001)   2 (010)   3 (011)   4 (100)   5 (101)   6 (110)   7 (111)
+  °--°      °[]°      °~~°      °{}°      °  °      °  °      °  °      °  °
+  |  |      |  |      |  |      |  |      |  |      |  |      |  |      |  |
+  °--°      °--°      °--°      °--°      °--°      °--°      °--°      °--°
+</pre>
+<p><b>Second byte (trunk):</b>
+</p>
+<pre>0 (000)   1 (001)   2 (010)   3 (011)   4 (100)   5 (101)   6 (110)   7 (111)
+  °--°      °--°      °--°      °--°      °--°      °--°      °--°      °--°
+  |  |      |  |      |  |      |  |      |  |      |  |      |  |      |  |
+  °--°      °[]°      °--°      °{}°      °  °      °  °      °  °      °  °
+</pre>
+<p><b>Third byte (drivers door):</b>
+</p>
+<pre>0 (000)   1 (001)   2 (010)   3 (011)   4 (100)   5 (101)   6 (110)   7 (111)
+  °--°      °--°      °--°      °--°      °--°      °--°      °--°      °--°
+  |  |     --  |      §  |     ww  |         |         |         |         |
+  °--°      °--°      °--°      °--°      °--°      °--°      °--°      °--°
+</pre>
+<p><b>Fourth byte (co-drivers door):</b>
+</p>
+<pre>0 (000)   1 (001)   2 (010)   3 (011)   4 (100)   5 (101)   6 (110)   7 (111)
+  °--°      °--°      °--°      °--°      °--°      °--°      °--°      °--°
+  |  |      |  --     |  §      |  ww     |         |         |         |   
+  °--°      °--°      °--°      °--°      °--°      °--°      °--°      °--°
+</pre>
+<p><br />
+</p><p><i>Legend:</i>
+</p>
+<pre>Static        Doors                    Hood / Trunk
+
+° - Light      | - healthy, closed     -- - healthy, closed
+              -- - healthy, opened     [] - healthy, opened
+               § - damaged, closed     ~~ - damaged, closed
+              ww - damaged, opened     {} - damaged, opened
+                 - missing                - missing
+</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Door_States.html" title="Edit section: Wrapper">edit</a>]</div><a name="Wrapper"></a><h2> Wrapper </h2>
+<p>Usefull little snippet to avoid working with the bits and bytes too much;
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">enum</span> Door
+<span style="color: #66cc66;">&#123;</span>
+	DOOR_HOOD,
+	DOOR_TRUNK,
+	DOOR_DRIVER
+	DOOR_PASSENGER
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">enum</span> DoorState<span style="color: #66cc66;">&#40;</span>&lt;&lt;= <span style="color: #4169e1;">1</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	IS_OPENED = <span style="color: #4169e1;">1</span>,
+	IS_DAMAGED,
+	IS_REMOVED
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">stock</span> GetDoorState<span style="color: #66cc66;">&#40;</span>doorStates, <span style="color: orange;">Door</span>:door, <span style="color: orange;">DoorState</span>:doorState<span style="color: #66cc66;">&#41;</span>
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #66cc66;">&#40;</span>doorStates &gt;&gt;&gt; <span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">8</span> * door<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span> &amp; doorState;</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Door_States.html" title="Edit section: Example usage">edit</a>]</div><a name="Example_usage"></a><h3>Example usage</h3>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> panels, doors, lights, tires;
+GetVehicleDamageStatus<span style="color: #66cc66;">&#40;</span>vehicleid,panels,doors,lights,tires<span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+&nbsp;
+<span style="color: #808080; font-style: italic;">// simple</span>
+<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>GetDoorState<span style="color: #66cc66;">&#40;</span>doors, DOOR_DRIVER, IS_DAMAGED<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, <span style="color: #4169e1;">-1</span>, <span style="color: #b22222;">&quot;The driver door of your vehicle is damaged!&quot;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+<span style="color: #808080; font-style: italic;">// or even combined</span>
+<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>GetDoorState<span style="color: #66cc66;">&#40;</span>doors, DOOR_HOOD, IS_OPENED | IS_DAMAGED<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, <span style="color: #4169e1;">-1</span>, <span style="color: #b22222;">&quot;The hood of your vehicle is both opened and damaged!&quot;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/Door_States.html">http://localhost../wiki/Door_States.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="Category_Scripting_Documentation.html" title="Category:Scripting Documentation">Scripting Documentation</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="Door_States.html">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="Talk_Door_States.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="Door_States.html">Edit</a></li>
+				 <li id="ca-history"><a href="Door_States.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 25,814 times.</li>
+				<li id="credits">This page was last modified 13:27, 3 August 2017 by SA-MP Wiki user <a href="User_OstGot.html" title="User:OstGot">OstGot</a>. Based on work by SA-MP Wiki user(s) <a href="User_Vince.html" title="User:Vince">Vince</a>, <a href="User_Meta.html" title="User:Meta">Meta</a>, <a href="User_Burridge.html" title="User:Burridge">Burridge</a> and <a href="User_Dustboy.html" class="new" title="User:Dustboy">Dustboy</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 57.91 secs. -->
+</body></html>

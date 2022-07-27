@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Floatpower PT,Float PT,Floatabs PT,Floatadd PT,Floatcmp PT,Floatcos PT,Floatdiv PT,Floatfract PT,Floatlog PT,Floatmul PT,Floatround PT" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>Floatpower PT - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Floatpower PT</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<div class="scripting" style="color: #4378A4; background-color: #FFFFFF; margin: 2px; margin-bottom: 10px;"><div align="center" style="border: 1px solid #AAAAAA; padding: 3px; padding-left: 5px;"><a href="Main_Page_PT.html" title="Main Page PT">Pagina Inicial</a> | <a href="Scripting_Basics_PT.html" title="Scripting Basics PT">Basico</a> | <a href="Category_Scripting_Functions_PT.html" title="Category:Scripting Functions PT">Funções</a> | <a href="Category_Scripting_Callbacks_PT.html" title="Category:Scripting Callbacks PT">Callbacks</a></div></div>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Floatpower_PT.html" title="Edit section: floatpower">edit</a>]</div><a name="floatpower"></a><h1 class="firstheading" style="position:absolute; top:0px; background:#FFF; width:95%;">floatpower</h1>
+<table style="padding:5px; background-color: #e5f4ff; border-left: 10px solid #3083cc;">
+
+<tr>
+<td align="left"><a href="Image_Farm-Fresh_text_lowercase.png.html" class="image" title="Image:Farm-Fresh text lowercase.png"><img src="../upload/a/a9/Farm-Fresh_text_lowercase.png" alt="Image:Farm-Fresh text lowercase.png" width="32" height="32" longdesc="Image_Farm-Fresh_text_lowercase.png.html" /></a>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;"><strong>Nota:</strong> O nome desta função começa com uma letra minúscula.</span>
+</td></tr></table>
+<p><br />
+<b>Descrição:</b><br />
+</p>
+<div style="padding-left:35px;">Aumenta o valor dado para a potência do expoente.<br /></div>
+<p><br />
+</p>
+<b>Parâmetros:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(Float:value, Float:exponent)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">value</td><td style="vertical-align:top;">O valor para elevar, um número do tipo float.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">exponent</td><td style="vertical-align:top;">O expoente, pode ser zero ou negativo, também é do tipo float.</td></tr></table></div>
+<p><br />
+<b>Valores de retorno:</b><br />
+</p>
+<div style="padding-left:35px;">Retorna o resultado a potência do expoente.<br /></div>
+<p><br />
+<b>Exemplo de uso:</b>
+</p>
+<pre class="pawn"><a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;2 elevado a 8 é %f&quot;</span>, <a href="http://wiki.sa-mp.com/wiki/floatpower"><span style="color: #006400;">floatpower</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">2</span>, <span style="color: #4169e1;">8</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #808080; font-style: italic;">// Resulto: 256.0</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Template_RelatedFunctions_PT.html" title="Template:RelatedFunctions PT">edit</a>]</div><a name="Fun.C3.A7.C3.B5es_Relacionadas"></a><h3> <b>Funções Relacionadas</b> </h3>
+<p>As seguintes funções podem ser úteis, pois estão de alguma forma, relacionadas a esta função.
+</p><p><br />
+</p>
+<ul><li> <a href="Float_PT.html" title="Float PT">float</a>: Converte um número inteiro para float.
+</li></ul>
+<ul><li> <a href="Floatstr_PT.html" title="Floatstr PT">floatstr</a>: Converte uma string para float.
+</li></ul>
+<ul><li> <a href="Floatmul_PT.html" title="Floatmul PT">floatmul</a>: Multiplica dois valores float. 
+</li></ul>
+<ul><li> <a href="Floatdiv_PT.html" title="Floatdiv PT">floatdiv</a>: Divide dois valores float, divide um pelo outro.
+</li></ul>
+<ul><li> <a href="Floatadd_PT.html" title="Floatadd PT">floatadd</a>: Soma dois valores float. 
+</li></ul>
+<ul><li> <a href="Floatsub_PT.html" title="Floatsub PT">floatsub</a>: Subtrai dois valores float. 
+</li></ul>
+<ul><li> <a href="Floatfract_PT.html" title="Floatfract PT">floatfract</a>: Extrai a parte fracionaria de um float. 
+</li></ul>
+<ul><li> <a href="Floatround_PT.html" title="Floatround PT">floatround</a>: Converte um float para inteiro. 
+</li></ul>
+<ul><li> <a href="Floatcmp_PT.html" title="Floatcmp PT">floatcmp</a>: Compara dois valores float para ver se são iguais ou diferentes. 
+</li></ul>
+<ul><li> <a href="Floatsqroot_PT.html" title="Floatsqroot PT">floatsqroot</a>: Obtém a raiz quadrada de um float.
+</li></ul>
+<ul><li> <strong>floatpower</strong>: Aumenta o valor dado para a potência do expoente.
+</li></ul>
+<ul><li> <a href="Floatlog_PT.html" title="Floatlog PT">floatlog</a>: Obtém o <a href="https://pt.wikipedia.org/wiki/Logaritmo" class='external text' title="https://pt.wikipedia.org/wiki/Logaritmo" rel="nofollow">logaritmo</a> de um float.
+</li></ul>
+<ul><li> <a href="Floatsin_PT.html" title="Floatsin PT">floatsin</a>: Obtém o <a href="https://pt.wikipedia.org/wiki/Seno" class='external text' title="https://pt.wikipedia.org/wiki/Seno" rel="nofollow">seno</a> de um ângulo.
+</li></ul>
+<ul><li> <a href="Floatcos_PT.html" title="Floatcos PT">floatcos</a>: Obtém o <a href="https://pt.wikipedia.org/wiki/Cosseno" class='external text' title="https://pt.wikipedia.org/wiki/Cosseno" rel="nofollow">cosseno</a> de um ângulo.
+</li></ul>
+<ul><li> <a href="Floattan_PT.html" title="Floattan PT">floattan</a>: Obtém a <a href="https://pt.wikipedia.org/wiki/Tangente" class='external text' title="https://pt.wikipedia.org/wiki/Tangente" rel="nofollow">tangente</a> de um ângulo.
+</li></ul>
+<ul><li> <a href="Floatabs_PT.html" title="Floatabs PT">floatabs</a>: Obtém o valor <a href="https://pt.wikipedia.org/wiki/Função_modular" class='external text' title="https://pt.wikipedia.org/wiki/Fun%C3%A7%C3%A3o_modular" rel="nofollow">absoluto</a> de um float.
+</li></ul>
+<div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/Floatpower_PT.html">http://localhost../wiki/Floatpower_PT.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="Category_Scripting_Functions_PT.html" title="Category:Scripting Functions PT">Scripting Functions PT</a></span> | <span dir='ltr'><a href="Category_Mathematical_Functions_PT.html" title="Category:Mathematical Functions PT">Mathematical Functions PT</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="Floatpower_PT.html">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="Talk_Floatpower_PT.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="Floatpower_PT.html">Edit</a></li>
+				 <li id="ca-history"><a href="Floatpower_PT.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 1,118 times.</li>
+				<li id="credits">This page was last modified 21:11, 10 December 2018 by SA-MP Wiki user <a href="User_MultiKill.html" title="User:MultiKill">MultiKill</a>. </li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 114.82 secs. -->
+</body></html>

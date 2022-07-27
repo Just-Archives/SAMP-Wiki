@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Common Problems FR,Getting Started FR" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>Common Problems FR - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Common Problems FR</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class='toclevel-1'><a href="#Client"><span class="tocnumber">1</span> <span class="toctext">Client</span></a>
+<ul>
+<li class='toclevel-2'><a href="#J.27ai_l.27erreur_.22San_Andreas_cannot_be_found.22"><span class="tocnumber">1.1</span> <span class="toctext">J'ai l'erreur "San Andreas cannot be found"</span></a></li>
+<li class='toclevel-2'><a href="#Je_ne_vois_aucun_serveur_dans_la_liste_de_serveur_du_client_SA:MP"><span class="tocnumber">1.2</span> <span class="toctext">Je ne vois aucun serveur dans la liste de serveur du client SA:MP</span></a></li>
+<li class='toclevel-2'><a href="#Le_jeu_solo_charge_.C3.A0_la_place_de_SA:MP"><span class="tocnumber">1.3</span> <span class="toctext">Le jeu solo charge à la place de SA:MP</span></a></li>
+<li class='toclevel-2'><a href="#Lorsque_je_me_connecte_.C3.A0_un_serveur.2C_je_re.C3.A7oit_le_message_.22Unacceptable_NickName.22"><span class="tocnumber">1.4</span> <span class="toctext">Lorsque je me connecte à un serveur, je reçoit le message "Unacceptable NickName"</span></a></li>
+<li class='toclevel-2'><a href="#Screen_sticks_at_.22Connecting_to_ip:port....22"><span class="tocnumber">1.5</span> <span class="toctext">Screen sticks at "Connecting to ip:port..."</span></a></li>
+<li class='toclevel-2'><a href="#J.27ai_modifi.C3.A9_GTA:_San_Andreas_et_SA:MP_ne_se_charge_pas"><span class="tocnumber">1.6</span> <span class="toctext">J'ai modifié GTA: San Andreas et SA:MP ne se charge pas</span></a></li>
+<li class='toclevel-2'><a href="#Lorsque_je_lance_GTA_depuis_SA:MP.2C_.C3.A7a_ne_d.C3.A9marre_pas"><span class="tocnumber">1.7</span> <span class="toctext">Lorsque je lance GTA depuis SA:MP, ça ne démarre pas</span></a></li>
+<li class='toclevel-2'><a href="#The_game_crashes_when_a_vehicle_explodes"><span class="tocnumber">1.8</span> <span class="toctext">The game crashes when a vehicle explodes</span></a></li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#Server"><span class="tocnumber">2</span> <span class="toctext">Server</span></a>
+<ul>
+<li class='toclevel-2'><a href="#Server_instantly_crashes_when_started"><span class="tocnumber">2.1</span> <span class="toctext">Server instantly crashes when started</span></a></li>
+<li class='toclevel-2'><a href="#Server_is_not_working_-_firewall_is_disabled"><span class="tocnumber">2.2</span> <span class="toctext">Server is not working - firewall is disabled</span></a></li>
+<li class='toclevel-2'><a href="#.27Packet_was_modified.27"><span class="tocnumber">2.3</span> <span class="toctext">'Packet was modified'</span></a></li>
+<li class='toclevel-2'><a href="#Players_constantly_getting_.22Unacceptable_NickName.22_error_but_it_is_valid"><span class="tocnumber">2.4</span> <span class="toctext">Players constantly getting "Unacceptable NickName" error but it is valid</span></a></li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#Pawno"><span class="tocnumber">3</span> <span class="toctext">Pawno</span></a>
+<ul>
+<li class='toclevel-2'><a href="#Impossible_de_compiler_sous_Windows_Vista.2F7"><span class="tocnumber">3.1</span> <span class="toctext">Impossible de compiler sous Windows Vista/7</span></a></li>
+</ul>
+</li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Common_Problems_FR.html" title="Edit section: Client">edit</a>]</div><a name="Client"></a><h2> Client </h2>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Common_Problems_FR.html" title="Edit section: J'ai l'erreur &quot;San Andreas cannot be found&quot;">edit</a>]</div><a name="J.27ai_l.27erreur_.22San_Andreas_cannot_be_found.22"></a><h3> J'ai l'erreur "San Andreas cannot be found" </h3>
+<p>Le programme San Andreas Mutiplayer a besoin de GTA San Andreas pour fonctionner. Il a aussi besoin que la version du dit GTA soit la 1.0, les autres versions (2.0 comme sur Steam) ne marcheront pas. <a href="http://grandtheftauto.filefront.com/file/GTA_SA_Downgrader_Patch;74661" class='external text' title="http://grandtheftauto.filefront.com/file/GTA_SA_Downgrader_Patch;74661" rel="nofollow">Cliquez ici</a> pour télecharer un patch qui vous permettra de revenir en 1.0
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Common_Problems_FR.html" title="Edit section: Je ne vois aucun serveur dans la liste de serveur du client SA:MP">edit</a>]</div><a name="Je_ne_vois_aucun_serveur_dans_la_liste_de_serveur_du_client_SA:MP"></a><h3> Je ne vois aucun serveur dans la liste de serveur du client SA:MP </h3>
+<p>Dans un  premier temps, assurez vous d'avoir bien suivis la procédure détaille dans le guide <a href="Getting_Started_FR.html" title="Getting Started FR">"Débuter avec SA:MP"</a>. Si vous avez bien suivis les instructions mais que vous ne pouvez toujours voir aucun serveur dans la liste, assurez vous que votre pare-feux autorise bien la connexion de SA:MP. En arisons du nombre de pare-feux différents actuellement existants, nous ne pouvons offrir plus d'aide quant à leurs configurations. N'oubliez pas de vérifier que vous possédez bien la dernière version du client SA:MP.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Common_Problems_FR.html" title="Edit section: Le jeu solo charge à la place de SA:MP">edit</a>]</div><a name="Le_jeu_solo_charge_.C3.A0_la_place_de_SA:MP"></a><h3> Le jeu solo charge à la place de SA:MP </h3>
+<p>Dans la plus-part des cas, cela est du à l'utilisation d'une version incompatibles de GTA:SA ou à l'installation du client SA:MP dans le mauvais dossier - Pour rappel, SA:MP dois être installé dans le même dossier que GTA:SA. De plus, SA:Mp nécéssite GTA:SA v1.0 pour fonctionner et ne fonctionnera aps avec les versions 1.01 ou 2.0. Si vous possédez GTA:SA dans une version incompatible (1.01 ou 2.0), vous pouvez 'downgrade' votre jeu pour pouvoir jouer à SA:MP. Pour cela, cliquez <a href="http://grandtheftauto.filefront.com/file/GTA_SA_Downgrader_Patch;74661" class='external text' title="http://grandtheftauto.filefront.com/file/GTA_SA_Downgrader_Patch;74661" rel="nofollow">ici</a> pour téélcharger le patch de 'downgrade'.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Common_Problems_FR.html" title="Edit section: Lorsque je me connecte à un serveur, je reçoit le message &quot;Unacceptable NickName&quot;">edit</a>]</div><a name="Lorsque_je_me_connecte_.C3.A0_un_serveur.2C_je_re.C3.A7oit_le_message_.22Unacceptable_NickName.22"></a><h3> Lorsque je me connecte à un serveur, je reçoit le message "Unacceptable NickName" </h3>
+<p>C'est parce que vous utilisez des caractères non autorisé dans votre pseudo (utilisez 0~9, a~z, [], (), $, @, . et = uniquement), ou que votre nom est plus grand que la limite de caractère pour un pseudo (qui est actuellement de 25 caractères). ça peut aussi être causé parce qu'un joueur connecté possède déjà un pseudo identique. Aussi un serveur SA:MP tournant sous windows et ayant un uptime plus grand que 50 jours peut causer ce bug.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Common_Problems_FR.html" title="Edit section: Screen sticks at &quot;Connecting to ip:port...&quot;">edit</a>]</div><a name="Screen_sticks_at_.22Connecting_to_ip:port....22"></a><h3> Screen sticks at "Connecting to ip:port..." </h3>
+<p>The server could be offline, or if you can't connect to any server, disable your firewall and see if it works.  If it does you must set up your firewall properly - go to its website to find out how.
+It could also be that you have an old version of SA-MP, download the latest version from the <a href="http://sa-mp.com/download.php" class='external text' title="http://sa-mp.com/download.php" rel="nofollow">SA-MP download page</a>.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Common_Problems_FR.html" title="Edit section: J'ai modifié GTA: San Andreas et SA:MP ne se charge pas">edit</a>]</div><a name="J.27ai_modifi.C3.A9_GTA:_San_Andreas_et_SA:MP_ne_se_charge_pas"></a><h3> J'ai modifié GTA: San Andreas et SA:MP ne se charge pas </h3>
+<p>Si le jeu ne se charge pas, vous n'avez qu'à supprimer vos modifications.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Common_Problems_FR.html" title="Edit section: Lorsque je lance GTA depuis SA:MP, ça ne démarre pas">edit</a>]</div><a name="Lorsque_je_lance_GTA_depuis_SA:MP.2C_.C3.A7a_ne_d.C3.A9marre_pas"></a><h3> Lorsque je lance GTA depuis SA:MP, ça ne démarre pas </h3>
+<p>Supprimez le fichier gta_sa.set dans vos documents et assurez vous de ne pas avoir de cheats/mods.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Common_Problems_FR.html" title="Edit section: The game crashes when a vehicle explodes">edit</a>]</div><a name="The_game_crashes_when_a_vehicle_explodes"></a><h3> The game crashes when a vehicle explodes </h3>
+<p>If you have 2 monitors then there are 3 ways to solve this:
+</p>
+<ol><li> Disable your 2dr monitor when you play sa-mp. (Maybe not so smart if you like to have the monitor on.)      
+</li><li> Set your Visual FX quality to low. (Esc > Options > Display Setup > Advanced)
+</li><li> Rename your GTA San Andreas folder (e.g. to "GTA San Andreas2") (This often works, however sometimes it may stop working again so you need to rename it to something else.)
+</li></ol>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Common_Problems_FR.html" title="Edit section: Server">edit</a>]</div><a name="Server"></a><h2> Server </h2>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Common_Problems_FR.html" title="Edit section: Server instantly crashes when started">edit</a>]</div><a name="Server_instantly_crashes_when_started"></a><h3> Server instantly crashes when started </h3>
+<p>Most commonly it's an error in your server.cfg file or your gamemode is missing. Check the server_log.txt file and the reason should be located at the bottom. If not, check crashinfo.txt file.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Common_Problems_FR.html" title="Edit section: Server is not working - firewall is disabled">edit</a>]</div><a name="Server_is_not_working_-_firewall_is_disabled"></a><h3> Server is not working - firewall is disabled </h3>
+<p>You will need to forward your ports to allow players to join your server. You can forward your ports using the PF Port Checker. Download it from: www.portforward.com 
+If the ports are not forwarded that means you have to open them in your router.
+You can check the router list at <a href="http://portforward.com/english/routers/port_forwarding/routerindex.htm" class='external free' title="http://portforward.com/english/routers/port_forwarding/routerindex.htm" rel="nofollow">http://portforward.com/english/routers/port_forwarding/routerindex.htm</a>
+</p><p>It has all the information on how to forward ports.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Common_Problems_FR.html" title="Edit section: 'Packet was modified'">edit</a>]</div><a name=".27Packet_was_modified.27"></a><h3> 'Packet was modified' </h3>
+The error commonly shown as: <pre class="pawn"><span style="color: #66cc66;">&#91;</span><span style="color: orange;">hh</span>:<span style="color: orange;">mm</span>:ss<span style="color: #66cc66;">&#93;</span> Packet was modified, sent by <span style="color: orange;">id</span>: &lt;id&gt;, <span style="color: orange;">ip</span>: &lt;ip&gt;:&lt;port&gt;</pre> happens when a player times out or is currently having connection issues. 
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Common_Problems_FR.html" title="Edit section: Players constantly getting &quot;Unacceptable NickName&quot; error but it is valid">edit</a>]</div><a name="Players_constantly_getting_.22Unacceptable_NickName.22_error_but_it_is_valid"></a><h3> Players constantly getting "Unacceptable NickName" error but it is valid </h3>
+<p>If you are sure you use an acceptable name and the server runs on Windows then try to change the compatibility option of the samp-server.exe to Windows 98 and it should be fixed after a server restart.
+</p><p>Windows servers with high up time may also cause this issue to occur. This has been noticed of around 50 days of server up time. To resolve it, a reboot is required.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Common_Problems_FR.html" title="Edit section: Pawno">edit</a>]</div><a name="Pawno"></a><h2> Pawno </h2>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Common_Problems_FR.html" title="Edit section: Impossible de compiler sous Windows Vista/7">edit</a>]</div><a name="Impossible_de_compiler_sous_Windows_Vista.2F7"></a><h3> Impossible de compiler sous Windows Vista/7 </h3>
+<p>Executez pawno.exe en tant qu'Administrateur
+</p><div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/Common_Problems_FR.html">http://localhost../wiki/Common_Problems_FR.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="Category_Information_FR.html" title="Category:Information FR">Information FR</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="Common_Problems_FR.html">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="Talk_Common_Problems_FR.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="Common_Problems_FR.html">Edit</a></li>
+				 <li id="ca-history"><a href="Common_Problems_FR.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 9,478 times.</li>
+				<li id="credits">This page was last modified 15:02, 18 April 2014 by <a href="User_Kilou.html" title="User:Kilou">Killian</a>. Based on work by SA-MP Wiki user(s) <a href="User_Jujuv.html" title="User:Jujuv">Jujuv</a> and <a href="User_Connor_Mead.html" title="User:Connor Mead">Connor Mead</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 79.52 secs. -->
+</body></html>

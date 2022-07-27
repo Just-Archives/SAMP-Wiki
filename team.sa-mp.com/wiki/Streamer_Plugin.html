@@ -1,0 +1,201 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Streamer Plugin,Streamer Plugin" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>Streamer Plugin - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Streamer Plugin</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<div style="width:70%; margin:0 auto 15px auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffcc99;">
+
+<tr>
+<td align="left"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+</td><td align="center"><span style="font-size:14px;">This article is currently a Work In Progress. It is therefore possible that the content of this article is currently incomplete or incorrect.</span>
+</td></tr></table>
+</div>
+<p><br />
+</p><p>Plugin developed by <a href="http://forum.sa-mp.com/member.php?u=925" class='external text' title="http://forum.sa-mp.com/member.php?u=925" rel="nofollow">Incognito</a>, download is available on the <a href="http://forum.sa-mp.com/showthread.php?t=102865" class='external text' title="http://forum.sa-mp.com/showthread.php?t=102865" rel="nofollow">release page</a>.
+</p><p><br />
+This plugin streams objects, pickups, checkpoints, race checkpoints, map icons, and 3D text labels at user-defined server ticks. Basic area detection is also included. Because it is written entirely in C++, much of the overhead from PAWN is avoided. This streamer, as a result, is quite a bit faster than any other implementation currently available in PAWN.
+</p>
+<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class='toclevel-1'><a href="#Streaming"><span class="tocnumber">1</span> <span class="toctext">Streaming</span></a></li>
+<li class='toclevel-1'><a href="#Plugin_Functions"><span class="tocnumber">2</span> <span class="toctext">Plugin Functions</span></a>
+<ul>
+<li class='toclevel-2'><a href="#Streamer_TickRate"><span class="tocnumber">2.1</span> <span class="toctext">Streamer_TickRate</span></a></li>
+<li class='toclevel-2'><a href="#Streamer_MaxItems"><span class="tocnumber">2.2</span> <span class="toctext">Streamer_MaxItems</span></a></li>
+<li class='toclevel-2'><a href="#Streamer_VisibleItems"><span class="tocnumber">2.3</span> <span class="toctext">Streamer_VisibleItems</span></a></li>
+<li class='toclevel-2'><a href="#Streamer_CellDistance"><span class="tocnumber">2.4</span> <span class="toctext">Streamer_CellDistance</span></a></li>
+<li class='toclevel-2'><a href="#Streamer_CellSize"><span class="tocnumber">2.5</span> <span class="toctext">Streamer_CellSize</span></a></li>
+</ul>
+</li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Streamer_Plugin.html" title="Edit section: Streaming">edit</a>]</div><a name="Streaming"></a><h2> Streaming </h2>
+<p>For those of you who don't know how streamers work (The people who always asked why there wasn't an AttachDynamicObjectToVehicle when it wasn't available (It's added now in the latest 0.3e version))
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+<p><strong>Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">Hereafter, the term 'item' will be used to refer to any thing that can be streamed by the plugin: objects, pickups, checkpoints, map icons and areas.</span>
+</td></tr></table>
+</div>
+<p><br />
+</p><p>Streamers create player items instead of global ones (except for pickups for which no 'per-player' version exists), and only show them for the players they are created for if that player is near by. The plugin is a little more advanced than the Pawn streamers but the concept is basically the same.
+A repeating timer loops through each item, checks if the item's respecting player is within it's stream distance and creates the object if they are.
+</p><p>A good example of how streamers work is <a href="http://youtu.be/HhshSJufhJo/right" class='external text' title="http://youtu.be/HhshSJufhJo\right" rel="nofollow">here</a> you can see how in that grid of objects, only the ones within a certain radius of the player are created.
+</p><p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Streamer_Plugin.html" title="Edit section: Plugin Functions">edit</a>]</div><a name="Plugin_Functions"></a><h1> Plugin Functions </h1>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Streamer_Plugin.html" title="Edit section: Streamer_TickRate">edit</a>]</div><a name="Streamer_TickRate"></a><h2> Streamer_TickRate </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">The tick rate does not represent any specific measurement of time and varies depending on the server's processing power. If items stream too slowly, lower the tick rate; if CPU usage gets too high, raise the tick rate. The default tick rate is 50.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(rate)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">rate</td><td style="vertical-align:top;">Set the tickrate.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">This function does not return any specific values.<br /></div>
+<p><br />
+</p><p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Streamer_Plugin.html" title="Edit section: Streamer_MaxItems">edit</a>]</div><a name="Streamer_MaxItems"></a><h2> Streamer_MaxItems </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Set the maximum amount of items that can be streamed for a specific type (object, area, ...). There is generally no need to use this. The default amount is unlimited.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(type, items)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">type</td><td style="vertical-align:top;">The type to set the maximum items for. Refer to <a href="Streamer_Plugin.html#Definitions" title="Streamer Plugin">the definitions</a>.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">items</td><td style="vertical-align:top;">The maximum amount of items to stream.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">This function does not return any specific values.<br /></div>
+<p><br />
+</p><p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Streamer_Plugin.html" title="Edit section: Streamer_VisibleItems">edit</a>]</div><a name="Streamer_VisibleItems"></a><h2> Streamer_VisibleItems </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Set the maximum amount of items that can be visible for a specific player at any one time, for a specific type. The default values are 500 objects, 4096 pickups and 1024 3D text labels.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(type, items)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">type</td><td style="vertical-align:top;">The type of streamed item (object, pickup, 3d text label etc.) to set the maximum visible items for. Refer to <a href="Streamer_Plugin.html#Definitions" title="Streamer Plugin">the definitions</a>.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">items</td><td style="vertical-align:top;">The maximum amount of items that can be visible.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">This function does not return any specific values.<br /></div>
+<p><br />
+</p><p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Streamer_Plugin.html" title="Edit section: Streamer_CellDistance">edit</a>]</div><a name="Streamer_CellDistance"></a><h2> Streamer_CellDistance </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">This function is used to determine whether or not an item needs to be put in a cell for spatial indexing purposes. The default value is 600.0. If an item's streaming distance (or, in the case of areas, an item's size) exceeds that of the cell distance, it will be streamed from any point on the map. For example, if a map icon's streaming distance is set to 100.0, it will only be visible if the player is in the same cell as the map icon or in an adjacent cell (assuming the default cell distance of 600.0 has not been changed). However, if the map icon's streaming distance is set to 1000.0, it will be visible no matter where the player is.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(Float:streamdistance)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">streamdistance</td><td style="vertical-align:top;">The cell distance to set.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">This function does not return any specific values.<br /></div>
+<p><br />
+</p><p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Streamer_Plugin.html" title="Edit section: Streamer_CellSize">edit</a>]</div><a name="Streamer_CellSize"></a><h2> Streamer_CellSize</h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">This function is used to determine the size of each cell in the grid. The default is 300.0.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(Float:size)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">size</td><td style="vertical-align:top;">The cell size to set.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">This function does not return any specific values.<br /></div>
+<div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/Streamer_Plugin.html">http://localhost../wiki/Streamer_Plugin.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="Category_Pages_under_construction.html" class="new" title="Category:Pages under construction">Pages under construction</a></span> | <span dir='ltr'><a href="Category_Plugin_Documentation.html" title="Category:Plugin Documentation">Plugin Documentation</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="Streamer_Plugin.html">Article</a></li>
+				 <li id="ca-talk"><a href="Talk_Streamer_Plugin.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="Streamer_Plugin.html">Edit</a></li>
+				 <li id="ca-history"><a href="Streamer_Plugin.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 26,435 times.</li>
+				<li id="credits">This page was last modified 13:23, 24 March 2017 by SA-MP Wiki user <a href="User_OstGot.html" title="User:OstGot">OstGot</a>. Based on work by SA-MP Wiki user(s) <a href="User_Drebin.html" title="User:Drebin">Drebin</a>, <a href="User_Smithy.html" title="User:Smithy">Smithy</a>, <a href="User_Vince.html" title="User:Vince">Vince</a> and <a href="User_Southclaw.html" title="User:Southclaw">Southclaw</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 74.31 secs. -->
+</body></html>

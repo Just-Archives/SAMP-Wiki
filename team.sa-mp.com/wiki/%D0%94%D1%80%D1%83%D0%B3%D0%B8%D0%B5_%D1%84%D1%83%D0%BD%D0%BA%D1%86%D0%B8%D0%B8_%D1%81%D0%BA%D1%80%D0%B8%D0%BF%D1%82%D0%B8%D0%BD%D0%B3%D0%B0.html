@@ -1,0 +1,792 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Другие функции скриптинга,Fblockread,Fblockwrite,Fclose,Fexist,Fgetchar,File Functions,Flength,Float,Floatabs,Floatadd" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>Другие функции скриптинга - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Другие функции скриптинга</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class='toclevel-1'><a href="#.D0.A4.D1.83.D0.BD.D0.BA.D1.86.D0.B8.D0.B8_.D0.B4.D0.BB.D1.8F_.D1.80.D0.B0.D0.B1.D0.BE.D1.82.D1.8B_.D1.81_.D1.84.D0.B0.D0.B9.D0.BB.D0.B0.D0.BC.D0.B8_.28file.inc.29"><span class="tocnumber">1</span> <span class="toctext">Функции для работы с файлами (file.inc)</span></a>
+<ul>
+<li class='toclevel-2'><a href="#fblockread"><span class="tocnumber">1.1</span> <span class="toctext">fblockread</span></a></li>
+<li class='toclevel-2'><a href="#fblockwrite"><span class="tocnumber">1.2</span> <span class="toctext">fblockwrite</span></a></li>
+<li class='toclevel-2'><a href="#fclose"><span class="tocnumber">1.3</span> <span class="toctext">fclose</span></a></li>
+<li class='toclevel-2'><a href="#fexist"><span class="tocnumber">1.4</span> <span class="toctext">fexist</span></a></li>
+<li class='toclevel-2'><a href="#fgetchar"><span class="tocnumber">1.5</span> <span class="toctext">fgetchar</span></a></li>
+<li class='toclevel-2'><a href="#flength"><span class="tocnumber">1.6</span> <span class="toctext">flength</span></a></li>
+<li class='toclevel-2'><a href="#fmatch"><span class="tocnumber">1.7</span> <span class="toctext">fmatch</span></a></li>
+<li class='toclevel-2'><a href="#fopen"><span class="tocnumber">1.8</span> <span class="toctext">fopen</span></a></li>
+<li class='toclevel-2'><a href="#fputchar"><span class="tocnumber">1.9</span> <span class="toctext">fputchar</span></a></li>
+<li class='toclevel-2'><a href="#fread"><span class="tocnumber">1.10</span> <span class="toctext">fread</span></a></li>
+<li class='toclevel-2'><a href="#fremove"><span class="tocnumber">1.11</span> <span class="toctext">fremove</span></a></li>
+<li class='toclevel-2'><a href="#fseek"><span class="tocnumber">1.12</span> <span class="toctext">fseek</span></a></li>
+<li class='toclevel-2'><a href="#ftemp"><span class="tocnumber">1.13</span> <span class="toctext">ftemp</span></a></li>
+<li class='toclevel-2'><a href="#fwrite"><span class="tocnumber">1.14</span> <span class="toctext">fwrite</span></a></li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#.D0.92.D0.B5.D1.89.D0.B5.D1.81.D1.82.D0.B2.D0.B5.D0.BD.D0.BD.D1.8B.D0.B5_.D1.84.D1.83.D0.BD.D0.BA.D1.86.D0.B8.D0.B8_.28float.inc.29"><span class="tocnumber">2</span> <span class="toctext">Вещественные функции (float.inc)</span></a>
+<ul>
+<li class='toclevel-2'><a href="#float"><span class="tocnumber">2.1</span> <span class="toctext">float</span></a></li>
+<li class='toclevel-2'><a href="#floatabs"><span class="tocnumber">2.2</span> <span class="toctext">floatabs</span></a></li>
+<li class='toclevel-2'><a href="#floatadd"><span class="tocnumber">2.3</span> <span class="toctext">floatadd</span></a></li>
+<li class='toclevel-2'><a href="#floatcmp"><span class="tocnumber">2.4</span> <span class="toctext">floatcmp</span></a></li>
+<li class='toclevel-2'><a href="#floatcos"><span class="tocnumber">2.5</span> <span class="toctext">floatcos</span></a></li>
+<li class='toclevel-2'><a href="#floatdiv"><span class="tocnumber">2.6</span> <span class="toctext">floatdiv</span></a></li>
+<li class='toclevel-2'><a href="#floatfract"><span class="tocnumber">2.7</span> <span class="toctext">floatfract</span></a></li>
+<li class='toclevel-2'><a href="#floatlog"><span class="tocnumber">2.8</span> <span class="toctext">floatlog</span></a></li>
+<li class='toclevel-2'><a href="#floatmul"><span class="tocnumber">2.9</span> <span class="toctext">floatmul</span></a></li>
+<li class='toclevel-2'><a href="#floatpower"><span class="tocnumber">2.10</span> <span class="toctext">floatpower</span></a></li>
+<li class='toclevel-2'><a href="#floatround"><span class="tocnumber">2.11</span> <span class="toctext">floatround</span></a></li>
+<li class='toclevel-2'><a href="#floatsin"><span class="tocnumber">2.12</span> <span class="toctext">floatsin</span></a></li>
+<li class='toclevel-2'><a href="#floatsqroot"><span class="tocnumber">2.13</span> <span class="toctext">floatsqroot</span></a></li>
+<li class='toclevel-2'><a href="#floatsub"><span class="tocnumber">2.14</span> <span class="toctext">floatsub</span></a></li>
+<li class='toclevel-2'><a href="#floattan"><span class="tocnumber">2.15</span> <span class="toctext">floattan</span></a></li>
+<li class='toclevel-2'><a href="#floatstr"><span class="tocnumber">2.16</span> <span class="toctext">floatstr</span></a></li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#.D0.A1.D1.82.D1.80.D0.BE.D0.BA.D0.BE.D0.B2.D1.8B.D0.B5_.D1.84.D1.83.D0.BD.D0.BA.D1.86.D0.B8.D0.B8_.28string.inc.29"><span class="tocnumber">3</span> <span class="toctext">Строковые функции (string.inc)</span></a>
+<ul>
+<li class='toclevel-2'><a href="#format"><span class="tocnumber">3.1</span> <span class="toctext">format</span></a></li>
+<li class='toclevel-2'><a href="#ispacked"><span class="tocnumber">3.2</span> <span class="toctext">ispacked</span></a></li>
+<li class='toclevel-2'><a href="#memcpy"><span class="tocnumber">3.3</span> <span class="toctext">memcpy</span></a></li>
+<li class='toclevel-2'><a href="#strcat"><span class="tocnumber">3.4</span> <span class="toctext">strcat</span></a></li>
+<li class='toclevel-2'><a href="#strcmp"><span class="tocnumber">3.5</span> <span class="toctext">strcmp</span></a></li>
+<li class='toclevel-2'><a href="#strdel"><span class="tocnumber">3.6</span> <span class="toctext">strdel</span></a></li>
+<li class='toclevel-2'><a href="#strfind"><span class="tocnumber">3.7</span> <span class="toctext">strfind</span></a></li>
+<li class='toclevel-2'><a href="#strins"><span class="tocnumber">3.8</span> <span class="toctext">strins</span></a></li>
+<li class='toclevel-2'><a href="#strlen"><span class="tocnumber">3.9</span> <span class="toctext">strlen</span></a></li>
+<li class='toclevel-2'><a href="#strmid"><span class="tocnumber">3.10</span> <span class="toctext">strmid</span></a></li>
+<li class='toclevel-2'><a href="#strpack"><span class="tocnumber">3.11</span> <span class="toctext">strpack</span></a></li>
+<li class='toclevel-2'><a href="#strunpack"><span class="tocnumber">3.12</span> <span class="toctext">strunpack</span></a></li>
+<li class='toclevel-2'><a href="#strval"><span class="tocnumber">3.13</span> <span class="toctext">strval</span></a></li>
+<li class='toclevel-2'><a href="#uudecode"><span class="tocnumber">3.14</span> <span class="toctext">uudecode</span></a></li>
+<li class='toclevel-2'><a href="#uuencode"><span class="tocnumber">3.15</span> <span class="toctext">uuencode</span></a></li>
+<li class='toclevel-2'><a href="#valstr"><span class="tocnumber">3.16</span> <span class="toctext">valstr</span></a></li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#.D0.A4.D1.83.D0.BD.D0.BA.D1.86.D0.B8.D0.B8_.D0.B4.D0.BB.D1.8F_.D1.80.D0.B0.D0.B1.D0.BE.D1.82.D1.8B_.D1.81_.D0.B2.D1.80.D0.B5.D0.BC.D0.B5.D0.BD.D0.B5.D0.BC_.28time.inc.29"><span class="tocnumber">4</span> <span class="toctext">Функции для работы с временем (time.inc)</span></a>
+<ul>
+<li class='toclevel-2'><a href="#getdate"><span class="tocnumber">4.1</span> <span class="toctext">getdate</span></a></li>
+<li class='toclevel-2'><a href="#gettime"><span class="tocnumber">4.2</span> <span class="toctext">gettime</span></a></li>
+<li class='toclevel-2'><a href="#tickcount"><span class="tocnumber">4.3</span> <span class="toctext">tickcount</span></a></li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#.D0.9F.D0.BE.D0.BB.D1.8C.D0.B7.D0.BE.D0.B2.D0.B0.D1.82.D0.B5.D0.BB.D1.8C.D1.81.D0.BA.D0.B8.D0.B5_.D1.84.D1.83.D0.BD.D0.BA.D1.86.D0.B8.D0.B8"><span class="tocnumber">5</span> <span class="toctext">Пользовательские функции</span></a>
+<ul>
+<li class='toclevel-2'><a href="#strtok"><span class="tocnumber">5.1</span> <span class="toctext">strtok</span></a></li>
+</ul>
+</li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%2594%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D0%25B5_%25D1%2584%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0.html" title="Edit section: Функции для работы с файлами (file.inc)">edit</a>]</div><a name=".D0.A4.D1.83.D0.BD.D0.BA.D1.86.D0.B8.D0.B8_.D0.B4.D0.BB.D1.8F_.D1.80.D0.B0.D0.B1.D0.BE.D1.82.D1.8B_.D1.81_.D1.84.D0.B0.D0.B9.D0.BB.D0.B0.D0.BC.D0.B8_.28file.inc.29"></a><h1> <a href="File_Functions.html" title="File Functions">Функции для работы с файлами</a> (file.inc) </h1>
+<p>Вы также можете почитать <a href="File_Functions.html" title="File Functions">Учебник по файлам</a>, чтобы потренироваться в этом.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%2594%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D0%25B5_%25D1%2584%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0.html" title="Edit section: fblockread">edit</a>]</div><a name="fblockread"></a><h2><a href="Fblockread.html" title="Fblockread">fblockread</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Эта функция позволяет Вам прочитать данные из файла без кодируюищих и завершающих символов (в двоичном формате)<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(handle,buffer[],size&#61;sizeof buffer)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">handle</td><td style="vertical-align:top;">Используемый handle файла, открытый функцией fopen()</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">buffer[]</td><td style="vertical-align:top;">Буфер для сохранения прочитанных данных.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">size&#61;sizeof buffer</td><td style="vertical-align:top;">Число ячеек для чтения.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">fblockread(gFile, string, 256);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%2594%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D0%25B5_%25D1%2584%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0.html" title="Edit section: fblockwrite">edit</a>]</div><a name="fblockwrite"></a><h2><a href="Fblockwrite.html" title="Fblockwrite">fblockwrite</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Записывает данные в файл в двоичном формате, игнорируя концы строк и кодировку.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(handle,const buffer[],size&#61;sizeof buffer)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">handle</td><td style="vertical-align:top;">Используемый handle файла, открытый функцией fopen().</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const buffer[]</td><td style="vertical-align:top;">Данные для записи в файл.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">size&#61;sizeof buffer</td><td style="vertical-align:top;">Число ячеек для записи.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">fblockwrite(gFile, "Save this data!", 15);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%2594%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D0%25B5_%25D1%2584%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0.html" title="Edit section: fclose">edit</a>]</div><a name="fclose"></a><h2><a href="Fclose.html" title="Fclose">fclose</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Закрывает handle файла, ранее открытый функцией fopen. Очень важно использовать эту функцию псоле того, как вы закончили чтение/запись!<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(handle)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">handle</td><td style="vertical-align:top;">Закрываемый handle файла, открытый функцией fopen().</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">fclose(gFile);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%2594%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D0%25B5_%25D1%2584%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0.html" title="Edit section: fexist">edit</a>]</div><a name="fexist"></a><h2><a href="Fexist.html" title="Fexist">fexist</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Проверяет, есть ли указанный файл в папке с Вашими скриптами.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(const pattern[])<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const pattern[]</td><td style="vertical-align:top;">Имя файла для проверки на существование.</td></tr></table></div>
+<p><b>Возвращаемые значения:</b><br />
+</p>
+<div style="padding-left:35px;"><b>1</b> - если файл существует, <b>0</b> - если нет.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">if(fexist("datafile.txt")){</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%2594%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D0%25B5_%25D1%2584%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0.html" title="Edit section: fgetchar">edit</a>]</div><a name="fgetchar"></a><h2><a href="Fgetchar.html" title="Fgetchar">fgetchar</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Эта функция читает один символ из файла и сохраняет его в переменной, переданной по ссылке.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(handle,&amp;value,utf8&#61;true)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">handle</td><td style="vertical-align:top;">Используемый handle файла, открытый функцией fopen().</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">&amp;value</td><td style="vertical-align:top;">Переменая, в которую запишется символ.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">utf8&#61;true</td><td style="vertical-align:top;">Прочитать символ в кодировке UTF8.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">fgetchar(gFile, handle, false);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%2594%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D0%25B5_%25D1%2584%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0.html" title="Edit section: flength">edit</a>]</div><a name="flength"></a><h2><a href="Flength.html" title="Flength">flength</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Проверяет длину уже открытого файла.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(handle)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">handle</td><td style="vertical-align:top;">Используемый handle файла, открытый функцией fopen().</td></tr></table></div>
+<p><b>Возвращаемые значения:</b><br />
+</p>
+<div style="padding-left:35px;">Длина файла в байтах.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new fileLength &#61; flength(gFile);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%2594%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D0%25B5_%25D1%2584%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0.html" title="Edit section: fmatch">edit</a>]</div><a name="fmatch"></a><h2><a href="Fmatch.html" title="Fmatch">fmatch</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Эта функция проверяет, соответствует ли часть данного файла указанной строке.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(name[],const pattern[],index&#61;0,size&#61;sizeof name)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">name[]</td><td style="vertical-align:top;">Имя проверяемого файла.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const pattern[]</td><td style="vertical-align:top;">Шаблон соответствия.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">index&#61;0</td><td style="vertical-align:top;">Смещение для начала поиска.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">size&#61;sizeof name</td><td style="vertical-align:top;">Количество символов, в которых будет производится поиск.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">fmatch("searchFile.txt", "Peter", 0);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%2594%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D0%25B5_%25D1%2584%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0.html" title="Edit section: fopen">edit</a>]</div><a name="fopen"></a><h2><a href="Fopen.html" title="Fopen">fopen</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Открывает указанный файл для чтения, записи или для обеих операций. Эта функция нужна для большинства файловых функций.<br /></div>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #FFEAEA; border-left: 10px solid #FCA9A9;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #FCA9A9;"><a href="Image_32px-Circle-style-warning.png.html" class="image" title="Image:32px-Circle-style-warning.png"><img src="../upload/5/57/32px-Circle-style-warning.png" alt="Image:32px-Circle-style-warning.png" width="32" height="32" longdesc="Image_32px-Circle-style-warning.png.html" /></a><br />
+<p><strong>Важное<br />Примечание</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">Эта функция может привести к вылету Вашей игры, когда папка с скриптами или файл в ней не существуют.</span>
+</td></tr></table>
+</div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(const name[],mode&#61;io_readwrite)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const name[]</td><td style="vertical-align:top;">Имя файла, который Вы хотите открыть.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">mode&#61;io_readwrite</td><td style="vertical-align:top;"><a href="Function_fopen.html#open_modes" title="Function:fopen">Режим</a>, в котором вы хотите открыть файл.</td></tr></table></div>
+<p><b>Возвращаемые значения:</b><br />
+</p>
+<div style="padding-left:35px;">Handle файла.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new File:gFile &#61; fopen("exampleFile.txt", io_readwrite);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%2594%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D0%25B5_%25D1%2584%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0.html" title="Edit section: fputchar">edit</a>]</div><a name="fputchar"></a><h2><a href="Fputchar.html" title="Fputchar">fputchar</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Эта функция записывает один символ в файл.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(handle,value,utf8&#61;true)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">handle</td><td style="vertical-align:top;">Используемый handle файла, открытый функцией fopen().</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">value</td><td style="vertical-align:top;">Символ, который вы хотите записать.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">utf8&#61;true</td><td style="vertical-align:top;">Должен ли символ быть записан в кодировке UTF8&nbsp;?</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">fputchar(gFile, 'e', false);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%2594%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D0%25B5_%25D1%2584%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0.html" title="Edit section: fread">edit</a>]</div><a name="fread"></a><h2><a href="Fread.html" title="Fread">fread</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Используйте эту функцию, если Вы хотите прочитать строку из файла. Вам понадобится цикл for или while для чтения нескольких строк.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(handle,&amp;string[],size&#61;sizeof string,pack&#61;false)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">handle</td><td style="vertical-align:top;">Используемый handle файла, открытый функцией fopen().</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">&amp;string[]</td><td style="vertical-align:top;">Переданная по ссылке строка, в которую запишутся данные.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">size&#61;sizeof string</td><td style="vertical-align:top;">Число байт для чтения.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">pack&#61;false</td><td style="vertical-align:top;">Должна ли строка быть запакованной&nbsp;?</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">fread(gFile, string, sizeof(string));</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%2594%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D0%25B5_%25D1%2584%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0.html" title="Edit section: fremove">edit</a>]</div><a name="fremove"></a><h2><a href="Fremove.html" title="Fremove">fremove</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Удаляет существующий файл из папки с Вашими скриптами.<br /></div>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #FFEAEA; border-left: 10px solid #FCA9A9;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #FCA9A9;"><a href="Image_32px-Circle-style-warning.png.html" class="image" title="Image:32px-Circle-style-warning.png"><img src="../upload/5/57/32px-Circle-style-warning.png" alt="Image:32px-Circle-style-warning.png" width="32" height="32" longdesc="Image_32px-Circle-style-warning.png.html" /></a><br />
+<p><strong>Важное<br />Примечание</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">Эта функция может привести к вылету Вашей игры ,если запрошенный файл не существует.</span>
+</td></tr></table>
+</div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(const name[])<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const name[]</td><td style="vertical-align:top;">Имя файла, который Вы хотите удалить.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">fremove("exampleFile.txt");</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%2594%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D0%25B5_%25D1%2584%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0.html" title="Edit section: fseek">edit</a>]</div><a name="fseek"></a><h2><a href="Fseek.html" title="Fseek">fseek</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Изменяет текущую позицию в файле. Вы можете перемещаться по файлу вперед или назад.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(handle,position&#61;0,whence&#61;seek_start)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">handle</td><td style="vertical-align:top;">Используемый handle файла, открытый функцией fopen().</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">position&#61;0</td><td style="vertical-align:top;">Позиция для помещения файлового курсора.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">whence&#61;seek_start</td><td style="vertical-align:top;">Способ, по которому нужно переместиться по файлу.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">fseek(gFile, 25);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%2594%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D0%25B5_%25D1%2584%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0.html" title="Edit section: ftemp">edit</a>]</div><a name="ftemp"></a><h2><a href="Ftemp.html" title="Ftemp">ftemp</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Эта функция открывает файл в папке "tmp" или "temp" для чтения или записи. Файл удалится полсле того, как Вы закроете его функцией fclose().<br /></div>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #FFEAEA; border-left: 10px solid #FCA9A9;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #FCA9A9;"><a href="Image_32px-Circle-style-warning.png.html" class="image" title="Image:32px-Circle-style-warning.png"><img src="../upload/5/57/32px-Circle-style-warning.png" alt="Image:32px-Circle-style-warning.png" width="32" height="32" longdesc="Image_32px-Circle-style-warning.png.html" /></a><br />
+<p><strong>Важное<br />Примечание</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">Эта функция может привести к вылету Вашей игры, если соответствуящая папка не создана.</span>
+</td></tr></table>
+</div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(Нет параметров)<br /></div>
+<p><b>Возвращаемые значения:</b><br />
+</p>
+<div style="padding-left:35px;">Handle файла<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new File:gFile &#61; ftemp();</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%2594%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D0%25B5_%25D1%2584%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0.html" title="Edit section: fwrite">edit</a>]</div><a name="fwrite"></a><h2><a href="Function_fwrite.html" title="Function:fwrite">fwrite</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Записывает указанную строку или линию в файл. Помните, что файл должен быть открыт для записи.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(handle,const string[])<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">handle</td><td style="vertical-align:top;">Используемый handle файла, открытый функцией fopen().</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const string[]</td><td style="vertical-align:top;">Строка, которую Вы хотите записать в файл.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">fwrite(gFile, "This will be put in the file!");</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%2594%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D0%25B5_%25D1%2584%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0.html" title="Edit section: Вещественные функции (float.inc)">edit</a>]</div><a name=".D0.92.D0.B5.D1.89.D0.B5.D1.81.D1.82.D0.B2.D0.B5.D0.BD.D0.BD.D1.8B.D0.B5_.D1.84.D1.83.D0.BD.D0.BA.D1.86.D0.B8.D0.B8_.28float.inc.29"></a><h1> Вещественные функции (float.inc) </h1>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%2594%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D0%25B5_%25D1%2584%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0.html" title="Edit section: float">edit</a>]</div><a name="float"></a><h2><a href="Float.html" title="Float">float</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Эта функция конвертирует целое число в вещественное.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(value)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">value</td><td style="vertical-align:top;">Целое число, которое Вы хотите конверитровать в вещественное.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new Float:fVar &#61; float(122);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%2594%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D0%25B5_%25D1%2584%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0.html" title="Edit section: floatabs">edit</a>]</div><a name="floatabs"></a><h2><a href="Floatabs.html" title="Floatabs">floatabs</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Возвращает абсолютное значение вещественного числа.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(value)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">value</td><td style="vertical-align:top;">Вещественно число</td></tr></table></div>
+<p><b>Возвращаемые значения:</b><br />
+</p>
+<div style="padding-left:35px;">Абсолютное значение вещественного числа.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new Float:fAbs &#61; floatabs(-123.54);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%2594%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D0%25B5_%25D1%2584%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0.html" title="Edit section: floatadd">edit</a>]</div><a name="floatadd"></a><h2><a href="Floatadd.html" title="Floatadd">floatadd</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Вычисляет сумму двух вещественных чисел, то же самое, что и Float1 + Float2.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(oper1,oper2)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">oper1</td><td style="vertical-align:top;">Первое вещественное число.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">oper2</td><td style="vertical-align:top;">Вещественное число, которое вы хотите добавить к первому.</td></tr></table></div>
+<p><b>Возвращаемые значения:</b><br />
+</p>
+<div style="padding-left:35px;">Сумма двух вещественных чисел.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new Float:fSum &#61; floatadd(123.45, 678.90);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%2594%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D0%25B5_%25D1%2584%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0.html" title="Edit section: floatcmp">edit</a>]</div><a name="floatcmp"></a><h2><a href="Floatcmp.html" title="Floatcmp">floatcmp</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Сравнивает два вещественных числа.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(oper1,oper2)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">oper1</td><td style="vertical-align:top;">Первое сравниваемое вещественное число.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">oper2</td><td style="vertical-align:top;">Второе сравниваемое вещественное число.</td></tr></table></div>
+<p><b>Возвращаемые значения:</b><br />
+</p>
+<div style="padding-left:35px;"><b>1</b> - если первый аргумент больше, <b>-1</b> - если второй больше.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new compare &#61; floatcmp(127.45, 127.450);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%2594%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D0%25B5_%25D1%2584%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0.html" title="Edit section: floatcos">edit</a>]</div><a name="floatcos"></a><h2><a href="Floatcos.html" title="Floatcos">floatcos</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Вычисляет правильный косинус вещественного числа с заданной размерностью угла.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(value,anglemode&#61;radian)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">value</td><td style="vertical-align:top;">Вещественное число.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">anglemode&#61;radian</td><td style="vertical-align:top;"><a href="Anglemode.html" class="new" title="Anglemode">Размерность угла</a>.</td></tr></table></div>
+<p><b>Возвращаемые значения:</b><br />
+</p>
+<div style="padding-left:35px;">Косинус данного вещественного числа.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new Float:fCos &#61; floatcos(87.343, radian);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%2594%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D0%25B5_%25D1%2584%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0.html" title="Edit section: floatdiv">edit</a>]</div><a name="floatdiv"></a><h2><a href="Floatdiv.html" title="Floatdiv">floatdiv</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Делит вещественное число на значение, указанное вещественным числом, делителем.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(dividend,divisor)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">dividend</td><td style="vertical-align:top;">Делимое вещественное число.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">divisor</td><td style="vertical-align:top;">Число (вещественное), делитель.</td></tr></table></div>
+<p><b>Возвращаемые значения:</b><br />
+</p>
+<div style="padding-left:35px;">Частное в виде вещественного числа.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new Float:fDivide &#61; floatdiv(128.00, 32.00);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%2594%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D0%25B5_%25D1%2584%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0.html" title="Edit section: floatfract">edit</a>]</div><a name="floatfract"></a><h2><a href="Floatfract.html" title="Floatfract">floatfract</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Вычисляет и возвращяет дробную часть вещественного числа.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(value)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">value</td><td style="vertical-align:top;">Вещественное число.</td></tr></table></div>
+<p><b>Возвращаемые значения:</b><br />
+</p>
+<div style="padding-left:35px;">Дробная часть числа.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new Float:fFract &#61; floatfract(3249.34);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%2594%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D0%25B5_%25D1%2584%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0.html" title="Edit section: floatlog">edit</a>]</div><a name="floatlog"></a><h2><a href="Floatlog.html" title="Floatlog">floatlog</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Используйте эту функцию, если хотите узнать логарифм вещественного числа.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(value,base&#61;10.0)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">value</td><td style="vertical-align:top;">Вещественное число.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">base&#61;10.0</td><td style="vertical-align:top;">Степень логарифма.</td></tr></table></div>
+<p><b>Возвращаемые значения:</b><br />
+</p>
+<div style="padding-left:35px;">Логарифм числа.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new Float:fLog &#61; floatlog(128.0);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%2594%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D0%25B5_%25D1%2584%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0.html" title="Edit section: floatmul">edit</a>]</div><a name="floatmul"></a><h2><a href="Floatmul.html" title="Floatmul">floatmul</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Перемножает два вещественных числа и возвращает произведение.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(oper1,oper2)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">oper1</td><td style="vertical-align:top;">Первый множитель.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">oper2</td><td style="vertical-align:top;">И второй.</td></tr></table></div>
+<p><b>Возвращаемые значения:</b><br />
+</p>
+<div style="padding-left:35px;">Произведение чисел.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new Float:fMul &#61; floatmul(128.1,7.9);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%2594%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D0%25B5_%25D1%2584%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0.html" title="Edit section: floatpower">edit</a>]</div><a name="floatpower"></a><h2><a href="Floatpower.html" title="Floatpower">floatpower</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Возводит вещественное число в степень.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(value,exponent)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">value</td><td style="vertical-align:top;">Возводимое вещественное число.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">exponent</td><td style="vertical-align:top;">Степень возведения в виде вещественного числа.</td></tr></table></div>
+<p><b>Возвращаемые значения:</b><br />
+</p>
+<div style="padding-left:35px;">Вещственное число, возведенное в степень.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new Float:fPower &#61; floatpower(128.0, 8.0); // 1024</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%2594%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D0%25B5_%25D1%2584%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0.html" title="Edit section: floatround">edit</a>]</div><a name="floatround"></a><h2><a href="Floatround.html" title="Floatround">floatround</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Округляет вещественное число указанным методом.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(value,:method&#61;floatround_round)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">value</td><td style="vertical-align:top;">Вещественное число.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">:method&#61;floatround_round</td><td style="vertical-align:top;">Метод <a href="Floatround.html" title="Floatround">округления</a>, который вы хотите использовать.</td></tr></table></div>
+<p><b>Возвращаемые значения:</b><br />
+</p>
+<div style="padding-left:35px;">Округленное целое число.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new round &#61; floatround(128.9, floatround_floor);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%2594%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D0%25B5_%25D1%2584%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0.html" title="Edit section: floatsin">edit</a>]</div><a name="floatsin"></a><h2><a href="Floatsin.html" title="Floatsin">floatsin</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Вычисляет синус данного вещественного числа, заданного размерностью в радианах, градусах или градиентах.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(value,anglemode:mode&#61;radian)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">value</td><td style="vertical-align:top;">Вещественное число.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">mode&#61;radian</td><td style="vertical-align:top;"><a href="Anglemode.html" class="new" title="Anglemode">Размерность угла</a>.</td></tr></table></div>
+<p><b>Возвращаемые значения:</b><br />
+</p>
+<div style="padding-left:35px;">Синус вещественного числа.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new Float:fSin &#61; floatsin(82.4);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%2594%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D0%25B5_%25D1%2584%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0.html" title="Edit section: floatsqroot">edit</a>]</div><a name="floatsqroot"></a><h2><a href="Floatsqroot.html" title="Floatsqroot">floatsqroot</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Вычисляет квадратный корень данного вещественного числа.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(value)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">value</td><td style="vertical-align:top;">Вещественное число.</td></tr></table></div>
+<p><b>Возвращаемые значения:</b><br />
+</p>
+<div style="padding-left:35px;">Квадратный корень из вещественного числа.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new Float:fSqroot &#61; floatsqroot(743.34);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%2594%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D0%25B5_%25D1%2584%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0.html" title="Edit section: floatsub">edit</a>]</div><a name="floatsub"></a><h2><a href="Floatsub.html" title="Floatsub">floatsub</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Уменьшает первое число oper1 на число, указанное в oper2.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(oper1,oper2)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">oper1</td><td style="vertical-align:top;">Вещественное число, которое вы хотите уменьшить на заданное второе.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">oper2</td><td style="vertical-align:top;">Значение, на которое надо уменьшить первое число.</td></tr></table></div>
+<p><b>Возвращаемые значения:</b><br />
+</p>
+<div style="padding-left:35px;">Значение первого аргумента после вычитания.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new Float:fSub &#61; floatsub(233.54, 23.34);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%2594%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D0%25B5_%25D1%2584%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0.html" title="Edit section: floattan">edit</a>]</div><a name="floattan"></a><h2><a href="Floattan.html" title="Floattan">floattan</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Вычисляет тангенс данного вещественного числа, заданного в первом аргументе в радианах, градиентах или градусах.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(value,mode&#61;radian)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">value</td><td style="vertical-align:top;">Вещественное число.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">mode&#61;radian</td><td style="vertical-align:top;"><a href="Anglemode.html" class="new" title="Anglemode">Размерность угла</a>, которую Вы хотите использовать.</td></tr></table></div>
+<p><b>Возвращаемые значения:</b><br />
+</p>
+<div style="padding-left:35px;">Тангенс числа, заданный вещественным числом.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new Float:fTan &#61; floattan(87.4);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%2594%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D0%25B5_%25D1%2584%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0.html" title="Edit section: floatstr">edit</a>]</div><a name="floatstr"></a><h2><a href="Floatstr.html" title="Floatstr">floatstr</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Конвертирует строку в соответствующее вещественное число.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(const string[])<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const string[]</td><td style="vertical-align:top;">Строка, которую Вы хотите конвертироват ьв вещественно число.</td></tr></table></div>
+<p><b>Возвращаемые значения:</b><br />
+</p>
+<div style="padding-left:35px;">Запрошенное вещественное число.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new Float:fFloat &#61; floatstr("124.34");</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%2594%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D0%25B5_%25D1%2584%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0.html" title="Edit section: Строковые функции (string.inc)">edit</a>]</div><a name=".D0.A1.D1.82.D1.80.D0.BE.D0.BA.D0.BE.D0.B2.D1.8B.D0.B5_.D1.84.D1.83.D0.BD.D0.BA.D1.86.D0.B8.D0.B8_.28string.inc.29"></a><h1> Строковые функции (string.inc) </h1>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%2594%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D0%25B5_%25D1%2584%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0.html" title="Edit section: format">edit</a>]</div><a name="format"></a><h2><a href="Format.html" title="Format">format</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Format позволяет Вам использовать переменные в строке; так же как и в printf(), но эта функция возвращает полученную строку.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(const format[],...)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const format[]</td><td style="vertical-align:top;">Формат, в котором вы хотите напечатать последовательность.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"></td><td style="vertical-align:top;">%b представлет число в двоичном формате.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"></td><td style="vertical-align:top;">%c представлет символ.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"></td><td style="vertical-align:top;">%d представлет тип double (или нормлаьное целое число).</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"></td><td style="vertical-align:top;">%f представлет вещественное число.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"></td><td style="vertical-align:top;">%i представлет целое число.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"></td><td style="vertical-align:top;">%s представлет строку.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"></td><td style="vertical-align:top;">%x представлет число в шестнадцатиричном формате.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">format(string, sizeof(string), "This %s has %d words.", "string", 4);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%2594%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D0%25B5_%25D1%2584%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0.html" title="Edit section: ispacked">edit</a>]</div><a name="ispacked"></a><h2><a href="Ispacked.html" title="Ispacked">ispacked</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Проверяет, запакована ли данная строка, и возвращает результат.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(const string[])<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const string[]</td><td style="vertical-align:top;">Строка для проверки.</td></tr></table></div>
+<p><b>Возвращаемые значения:</b><br />
+</p>
+<div style="padding-left:35px;"><b>1</b> - если строка запакована, <b>0</b> - если нет.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">if(ispacked(string)){</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%2594%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D0%25B5_%25D1%2584%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0.html" title="Edit section: memcpy">edit</a>]</div><a name="memcpy"></a><h2><a href="Memcpy.html" title="Memcpy">memcpy</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">memcpy может быть использована для копирования байтов из одного места в другое.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(dest[],const source[],index&#61;0,numbytes,maxlength&#61;sizeof dest)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">dest[]</td><td style="vertical-align:top;">Место назначения копирования.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const source[]</td><td style="vertical-align:top;">Источник для копирования, оригинальная строка.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">index&#61;0</td><td style="vertical-align:top;">Смещение, с которым копировать из источника.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">numbytes</td><td style="vertical-align:top;">Число копируемых байтов.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">maxlength&#61;sizeof dest</td><td style="vertical-align:top;">Размер аргумента-назначения.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">memcpy(playerNames[playerid], playerName, 0, MAX_PLAYER_NAME);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%2594%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D0%25B5_%25D1%2584%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0.html" title="Edit section: strcat">edit</a>]</div><a name="strcat"></a><h2><a href="Strcat.html" title="Strcat">strcat</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Эта функция конкатенирует две строки в назанченую по ссылке строку.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(dest[],const source[],maxlength&#61;sizeof dest)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">dest[]</td><td style="vertical-align:top;">Назначенная строка для конкатенирования.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const source[]</td><td style="vertical-align:top;">Исходная строка.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">maxlength&#61;sizeof dest</td><td style="vertical-align:top;">Максимальная длина строки-назначения.</td></tr></table></div>
+<p><b>Возвращаемые значения:</b><br />
+</p>
+<div style="padding-left:35px;">Длина новой полученной строки-назначения.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">strcat(destination, "Hi, how are you?", sizeof(destination));</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%2594%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D0%25B5_%25D1%2584%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0.html" title="Edit section: strcmp">edit</a>]</div><a name="strcmp"></a><h2><a href="Strcmp.html" title="Strcmp">strcmp</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Сравнивает две строки друг с другом, с такими опциями, как игнорирование заглавных букв или максимальная длина. Очень часто используется в OnPlayerCommandText.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(const string1[],const string2[],ignorecase&#61;false,length&#61;cellmax)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const string1[]</td><td style="vertical-align:top;">Первая сравниваемая строка.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const string2[]</td><td style="vertical-align:top;">Строка, которую вы хотите сравнить с string1.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">ignorecase&#61;false</td><td style="vertical-align:top;">Игнорировать заглавные буквы, если true.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">length&#61;cellmax</td><td style="vertical-align:top;">Максимальное число проверяемых ячеек.</td></tr></table></div>
+<p><b>Возвращаемые значения:</b><br />
+</p>
+<div style="padding-left:35px;"><b>0</b> - если строки равны между собой.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">if(strcmp(cmdtext, "/me", true) &#61;&#61; 0){</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%2594%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D0%25B5_%25D1%2584%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0.html" title="Edit section: strdel">edit</a>]</div><a name="strdel"></a><h2><a href="Strdel.html" title="Strdel">strdel</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Эта функция удаляет часть строки.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(string[],start,end)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">string[]</td><td style="vertical-align:top;">Строка, из которой вы хотите удалить часть.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">start</td><td style="vertical-align:top;">Смещение для удаления.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">end</td><td style="vertical-align:top;">Конец, где надо прекратить удаление (start + number символов)</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">strdel("Peter isn't cool", 8, 10);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%2594%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D0%25B5_%25D1%2584%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0.html" title="Edit section: strfind">edit</a>]</div><a name="strfind"></a><h2><a href="Strfind.html" title="Strfind">strfind</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Используйте эту функцию для поиска подстроки в строке.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(const string[],const sub[],ignorecase&#61;false,pos&#61;0)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const string[]</td><td style="vertical-align:top;">Строка, в которой будет производиться поиск (haystack).</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const sub[]</td><td style="vertical-align:top;">Искомая строка (needle).</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">ignorecase&#61;false</td><td style="vertical-align:top;">Игнорировать заглавные буквы, если true.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">pos&#61;0</td><td style="vertical-align:top;">Смещение для начала поиска.</td></tr></table></div>
+<p><b>Возвращаемые значения:</b><br />
+</p>
+<div style="padding-left:35px;">Вхождение подстроки, <b>-1</b> - если не найдено.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new instring &#61; strfind("Are you in here?", "you", true);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%2594%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D0%25B5_%25D1%2584%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0.html" title="Edit section: strins">edit</a>]</div><a name="strins"></a><h2><a href="Strins.html" title="Strins">strins</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Эта функция вставляет строку в другую строку, заданные аргументами substr и string.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(string[],const substr[],pos,maxlength&#61;sizeof string)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">string[]</td><td style="vertical-align:top;">Строка, в которую вы хотите вставить подстроку.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const substr[]</td><td style="vertical-align:top;">Подстрока, которую вы хотите вставить в строку.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">pos</td><td style="vertical-align:top;">Позиция для вставки.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">maxlength&#61;sizeof string</td><td style="vertical-align:top;">Максимальный вставляемый размер подстроки.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">strins("f3llah1n is a ", "silly boy", 15);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%2594%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D0%25B5_%25D1%2584%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0.html" title="Edit section: strlen">edit</a>]</div><a name="strlen"></a><h2><a href="Strlen.html" title="Strlen">strlen</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Эта функция может быть использована для проверки длины указанной строки.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(const string[])<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const string[]</td><td style="vertical-align:top;">Строка, длину которой вы хотите знать.</td></tr></table></div>
+<p><b>Возвращаемые значения:</b><br />
+</p>
+<div style="padding-left:35px;">Дляина в виде целого числа.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new stringLength &#61; strlen("This is an example string.");</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%2594%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D0%25B5_%25D1%2584%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0.html" title="Edit section: strmid">edit</a>]</div><a name="strmid"></a><h2><a href="Strmid.html" title="Strmid">strmid</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Извлекает диапазон символов из строки.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(dest[],const source[],start,end,maxlength&#61;sizeof dest)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">dest[]</td><td style="vertical-align:top;">СТрока, в которую нужно поместить извлеченные символы.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const source[]</td><td style="vertical-align:top;">Строка, из которой извлекаются символы.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">start</td><td style="vertical-align:top;">Позиция первого символа.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">end</td><td style="vertical-align:top;">Позиция последнего символа.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">maxlength&#61;sizeof dest</td><td style="vertical-align:top;">Максимальная длина строки-назначения для копирования.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">strmid(string, "Grab this word: hi!!", 17, 18);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%2594%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D0%25B5_%25D1%2584%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0.html" title="Edit section: strpack">edit</a>]</div><a name="strpack"></a><h2><a href="Strpack.html" title="Strpack">strpack</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Эта функция может быть использована для запаковки строки.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(dest[],const source[],maxlength&#61;sizeof dest)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">dest[]</td><td style="vertical-align:top;">Переданная по ссылке стррока-назначение для сохранения запакованной строки.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const source[]</td><td style="vertical-align:top;">Исходная оригинальная строка.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">maxlength&#61;sizeof dest</td><td style="vertical-align:top;">Максимальный размер строки-назначения для использования.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">strpack(string, "Hi, how are you?");</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%2594%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D0%25B5_%25D1%2584%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0.html" title="Edit section: strunpack">edit</a>]</div><a name="strunpack"></a><h2><a href="Strunpack.html" title="Strunpack">strunpack</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Эта функция распаковывает запакованную строку в строку-назначение.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(dest[],const source[],maxlength&#61;sizeof dest)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">dest[]</td><td style="vertical-align:top;">Строка-назначение для распакованной строки.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const source[]</td><td style="vertical-align:top;">Текущая запакованная строка, которую нужно распаковать.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">maxlength&#61;sizeof dest</td><td style="vertical-align:top;">Длина строки-назначения.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">strunpack(string, packedString);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%2594%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D0%25B5_%25D1%2584%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0.html" title="Edit section: strval">edit</a>]</div><a name="strval"></a><h2><a href="Strval.html" title="Strval">strval</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">strval может быть использована для конвертирования строки в целое число.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(const string[])<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const string[]</td><td style="vertical-align:top;">Строка, которую Вы хотите конвертировать в целое число.</td></tr></table></div>
+<p><b>Возвращаемые значения:</b><br />
+</p>
+<div style="padding-left:35px;">Целое число, извлеченное из строки.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new iValue &#61; strval("250");</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%2594%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D0%25B5_%25D1%2584%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0.html" title="Edit section: uudecode">edit</a>]</div><a name="uudecode"></a><h2><a href="Uudecode.html" title="Uudecode">uudecode</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Эта функция позволяет Вам декодировать закодированный в UU поток.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(dest[],const source[],maxlength&#61;sizeof dest)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">dest[]</td><td style="vertical-align:top;">Строка-назначение для массива, декодированнной строки.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const source[]</td><td style="vertical-align:top;">Исходная, закодированная в UU, строка.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">maxlength&#61;sizeof dest</td><td style="vertical-align:top;">Максимальный размер строки-назначения для использования.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">uudecode(decodedString, encodedString);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%2594%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D0%25B5_%25D1%2584%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0.html" title="Edit section: uuencode">edit</a>]</div><a name="uuencode"></a><h2><a href="Uuencode.html" title="Uuencode">uuencode</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Строка, которую вы можете декодировать функцией uudecode, должна быть закодирована этой функцией.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(dest[],const source[],numbytes,maxlength&#61;sizeof dest)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">dest[]</td><td style="vertical-align:top;">Строка-назначение для декодированного потока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const source[]</td><td style="vertical-align:top;">Исходная незакодированная строка.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">numbytes</td><td style="vertical-align:top;">Число байт для кодирования, не должно превышать 45.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">maxlength&#61;sizeof dest</td><td style="vertical-align:top;">Максимальная длина массива dest[].</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">uudecode(encodedString, normalString, 45);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%2594%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D0%25B5_%25D1%2584%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0.html" title="Edit section: valstr">edit</a>]</div><a name="valstr"></a><h2><a href="Valstr.html" title="Valstr">valstr</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">конвертирует целое число в строку.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(dest[],value,pack&#61;false)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">dest[]</td><td style="vertical-align:top;">Строка, в которое запишется значение.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">value</td><td style="vertical-align:top;">Конвертируемое целое число.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">pack&#61;false</td><td style="vertical-align:top;">Запакует строку, если true.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">valstr(string, 454);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%2594%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D0%25B5_%25D1%2584%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0.html" title="Edit section: Функции для работы с временем (time.inc)">edit</a>]</div><a name=".D0.A4.D1.83.D0.BD.D0.BA.D1.86.D0.B8.D0.B8_.D0.B4.D0.BB.D1.8F_.D1.80.D0.B0.D0.B1.D0.BE.D1.82.D1.8B_.D1.81_.D0.B2.D1.80.D0.B5.D0.BC.D0.B5.D0.BD.D0.B5.D0.BC_.28time.inc.29"></a><h1> Функции для работы с временем (time.inc) </h1>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%2594%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D0%25B5_%25D1%2584%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0.html" title="Edit section: getdate">edit</a>]</div><a name="getdate"></a><h2><a href="Function_getdate.html" title="Function:getdate">getdate</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Получает текущую дату на сервере, которая запишется в переменные &amp;year, &amp;month и &amp;day.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(&amp;year&#61;0,&amp;month&#61;0,&amp;day&#61;0)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">&amp;year&#61;0</td><td style="vertical-align:top;">Переданная по ссылке переменная, в которую запишется текущий год.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">&amp;month&#61;0</td><td style="vertical-align:top;">Переданная по ссылке переменная, в которую запишется текущий месяц.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">&amp;day&#61;0</td><td style="vertical-align:top;">Переданная по ссылке переменная, в которую запишется текущий день.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">getdate(year, month, day);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%2594%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D0%25B5_%25D1%2584%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0.html" title="Edit section: gettime">edit</a>]</div><a name="gettime"></a><h2><a href="Function_gettime.html" title="Function:gettime">gettime</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Получает текущее время на сервере, которое запишется в переменные &amp;hour, &amp;minute и &amp;second.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(&amp;hour&#61;0,&amp;minute&#61;0,&amp;second&#61;0)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">&amp;hour&#61;0</td><td style="vertical-align:top;">Переданная по ссылке переменная, в которую запишется текущий час.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">&amp;minute&#61;0</td><td style="vertical-align:top;">Переданная по ссылке переменная, в которую запишется текущая минута.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">&amp;second&#61;0</td><td style="vertical-align:top;">Переданная по ссылке переменная, в которую запишется текущая секунда.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">gettime(Hour, Minute, Second);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%2594%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D0%25B5_%25D1%2584%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0.html" title="Edit section: tickcount">edit</a>]</div><a name="tickcount"></a><h2><a href="Function_tickcount.html" title="Function:tickcount">tickcount</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Эта функция может быть использована вместо GetTickCount, так как она возвращает число в миллисекундах с момента последнего запуска.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(&amp;granularity&#61;0)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">&amp;granularity&#61;0</td><td style="vertical-align:top;">Это переданное по ссылке отображение точности функции.</td></tr></table></div>
+<p><b>Возвращаемые значения:</b><br />
+</p>
+<div style="padding-left:35px;">Число тиков с момента последнего запуска сервера.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new iTickCount &#61; tickcount();</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%2594%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D0%25B5_%25D1%2584%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0.html" title="Edit section: Пользовательские функции">edit</a>]</div><a name=".D0.9F.D0.BE.D0.BB.D1.8C.D0.B7.D0.BE.D0.B2.D0.B0.D1.82.D0.B5.D0.BB.D1.8C.D1.81.D0.BA.D0.B8.D0.B5_.D1.84.D1.83.D0.BD.D0.BA.D1.86.D0.B8.D0.B8"></a><h1> Пользовательские функции </h1>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%2594%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D0%25B5_%25D1%2584%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0.html" title="Edit section: strtok">edit</a>]</div><a name="strtok"></a><h2><a href="Strtok.html" title="Strtok">strtok</a></h2>
+<p><i>Эта функция реализуется с помощью пользовательского скрипта, чтобы выспользоваться ею, вставьте в свой код <a href="Strtok.html" title="Strtok">ее описание</a></i>
+{{Description|Сканирует строку на наличие символа (по дефолту это пробел) и возвращает аргумент номер которого указан в переменной (&amp;index). Применяется в основном для команд, чтобы чтобы получать параметры после пробела.
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(strtok(const string[], &amp;index, separator))<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const string[]</td><td style="vertical-align:top;">Строка, которую нужно разделить.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">&amp;index</td><td style="vertical-align:top;">Номер аргумента который вы хотите вернуть.</td></tr></table></div>
+<p><b>Возвращаемые значения:</b><br />
+</p>
+<div style="padding-left:35px;">аргумент номер которого указан в в переменной &amp;index.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">cmd = strtok(cmdtext, idx, ' ');</span><br /></div>
+<div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/%25D0%2594%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D0%25B5_%25D1%2584%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0.html">http://localhost../wiki/%25D0%2594%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D0%25B5_%25D1%2584%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="Category_%25D0%25A4%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0.html" title="Category:Функции скриптинга">Функции скриптинга</a></span> | <span dir='ltr'><a href="Category_%25D0%2594%25D0%25BE%25D0%25BA%25D1%2583%25D0%25BC%25D0%25B5%25D0%25BD%25D1%2582%25D0%25B0%25D1%2586%25D0%25B8%25D1%258F_%25D0%25BF%25D0%25BE_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D1%2583.html" title="Category:Документация по скриптингу">Документация по скриптингу</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="%25D0%2594%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D0%25B5_%25D1%2584%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0.html">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="Talk_%25D0%2594%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D0%25B5_%25D1%2584%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="%25D0%2594%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D0%25B5_%25D1%2584%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0.html">Edit</a></li>
+				 <li id="ca-history"><a href="%25D0%2594%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D0%25B5_%25D1%2584%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D1%2581%25D0%25BA%25D1%2580%25D0%25B8%25D0%25BF%25D1%2582%25D0%25B8%25D0%25BD%25D0%25B3%25D0%25B0.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 27,029 times.</li>
+				<li id="credits">This page was last modified 11:14, 27 March 2017 by SA-MP Wiki user <a href="User_OstGot.html" title="User:OstGot">OstGot</a>. Based on work by SA-MP Wiki user(s) <a href="User_ZiGGi.html" title="User:ZiGGi">ZiGGi</a>, <a href="User_MP2.html" title="User:MP2">MP2</a> and <a href="User_DimanDrugs.html" title="User:DimanDrugs">DimanDrugs</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 32.46 secs. -->
+</body></html>

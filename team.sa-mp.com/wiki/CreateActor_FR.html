@@ -1,0 +1,189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="CreateActor FR,ApplyActorAnimation FR,GetActorPos FR,Main Page FR,OnActorStreamIn FR,OnActorStreamOut FR,Scripting Basics FR,Server Plugins,SetActorInvulnerable FR,SetActorPos FR,Skins:All FR" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>CreateActor FR - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">CreateActor FR</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<div class="scripting" style="color: #4378A4; background-color: #FFFFFF; margin: 2px; margin-bottom: 10px;"><div align="center" style="border: 1px solid #AAAAAA; padding: 3px; padding-left: 5px;"><a href="Main_Page_FR.html" title="Main Page FR">Page d'Accueil</a> | <a href="Category_Scripting_Functions_FR.html" title="Category:Scripting Functions FR">Les Fonctions</a> | <a href="Category_Scripting_Callbacks_FR.html" title="Category:Scripting Callbacks FR">Les Callbacks</a> | <a href="Scripting_Basics_FR.html" title="Scripting Basics FR">Les bases du Scripting</a> | <a href="Server_Plugins.html" title="Server Plugins">Plugins de Serveur</a> | <a href="Category_Tutorials_FR.html" title="Category:Tutorials FR">Tutoriaux</a><br /><div style="font-size:10px;padding:0px;margin:-6px;">Ne prenez pas en compte les <b>FR</b> dans les noms</div></div></div><br />
+<div style="max-width: 850px; width:auto;">
+<table style="padding: 5px; background: #E2FFE5; border-left: 10px solid #81C687;">
+
+<tr>
+<td><a href="Image_Add.png.html" class="image" title="CreateActor FR a été ajoutée SA-MP 0.3.7"><img src="../upload/a/a7/Add.png" alt="CreateActor FR a été ajoutée SA-MP 0.3.7" width="16" height="16" longdesc="Image_Add.png.html" /></a>
+</td><td align="left" style="padding-left:7px; padding-right:7px;"><span style="font-size:14px;">Cette function a été ajoutée dans <strong>SA-MP 0.3.7</strong> et ne fonctionnera pas sur des versions antérieures!</span>
+</td></tr></table>
+</div>
+<p><br />
+</p><p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Créer un actor statique dans le jeu. Ces actors sont comme les NPCs, cependant ils ont des fonctionnalités limités. Ils ne prennent pas de slots au serveur.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(modelid, Float:X, Float:Y, Float:Z, Float:Rotation)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">modelid</td><td style="vertical-align:top;">ID du skin (<a href="Skins_All_FR.html" title="Skins:All FR">liste ID</a>) à appliquer à l'actor.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">x</td><td style="vertical-align:top;">Coordonnée X à laquelle créer l'actor.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">y</td><td style="vertical-align:top;">Coordonnée Y à laquelle créer l'actor.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">z</td><td style="vertical-align:top;">Coordonnée Z à laquelle créer l'actor.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Rotation</td><td style="vertical-align:top;">L'angle de rotation qu'aura l'actor.</td></tr></table></div>
+<p><br />
+<b>Retourne:</b><br />
+</p>
+<div style="padding-left:35px;">
+<ul><li> ID de l'actor crée (Commence à 0).
+</li><li> <b>INVALID_ACTOR_ID (65535)</b> Si la limite d'actor a été atteinte (1000).<br /></div>
+</li></ul>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #FFEAEA; border-left: 10px solid #FCA9A9;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #FCA9A9;"><a href="Image_32px-Circle-style-warning.png.html" class="image" title="Image:32px-Circle-style-warning.png"><img src="../upload/5/57/32px-Circle-style-warning.png" alt="Image:32px-Circle-style-warning.png" width="32" height="32" longdesc="Image_32px-Circle-style-warning.png.html" /></a><br />
+<p><strong>Notes<br />Importantes</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">
+<ul><li> Les actors sont complètements différents des NPCs. Ils n'utilisent PAS de slots du serveur et ne peuvent pas être gérés comme les NPCs.
+</li><li> Les actors sont limités au nombre de 1000 (MAX_ACTORS).
+</li><li> Les actors peuvent être déplacé par les véhicules, utilisez un timer pour les remettre à leur position d'origine.
+</li><li> Depuis la mise à jour 0.3.7 R2, les actors sont <a href="SetActorInvulnerable_FR.html" title="SetActorInvulnerable FR">invulnérables</a> par défaut.</span>
+</li></ul>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #E6F3FF; border-left: 10px solid #007BFF;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #007BFF;"><strong>Astuce</strong><br />
+<p><a href="Image_Light_bulb_icon.png.html" class="image" title="Image:Light_bulb_icon.png"><img src="../upload/b/b0/Light_bulb_icon.png" alt="Image:Light_bulb_icon.png" width="22" height="32" longdesc="Image_Light_bulb_icon.png.html" /></a>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">Les actors sont conçus pour rester fixe, caissier et barman par exemple. Ils peuvent jouer des animations (une fois ou en boucle) en utilisant <a href="ApplyActorAnimation_FR.html" title="ApplyActorAnimation FR">ApplyActorAnimation</a>.</span>
+</td></tr></table>
+</div>
+<p><br />
+<b>Example Usage:</b> 
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> ActorCJ;
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnGameModeInit"><span style="color: #dc143c">OnGameModeInit</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <span style="color: #808080; font-style: italic;">// Créer un actor (CJ) à Blueberry Acres (Centre de la map de SA)</span>
+    ActorCJ = CreateActor<span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">0</span>, <span style="color: #4169e1;">0.0</span>, <span style="color: #4169e1;">0.0</span>, <span style="color: #4169e1;">3.0</span>, <span style="color: #4169e1;">0.0</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Template_RelatedFunctionsFR.html" title="Template:RelatedFunctionsFR">edit</a>]</div><a name="Fonctions_Relatives"></a><h3> <b>Fonctions Relatives</b> </h3>
+<p>Les fonctions suivantes peuvent être utiles car elles sont indirectement ou directement liées a cette fonction.
+</p><p><a href="Template_DestroyActor_FR.html" class="new" title="Template:DestroyActor FR">Template:DestroyActor FR</a>
+</p>
+<ul><li> <a href="SetActorPos_FR.html" title="SetActorPos FR">SetActorPos</a>: modifier la position d'un actor.
+</li></ul>
+<ul><li> <a href="GetActorPos_FR.html" title="GetActorPos FR">GetActorPos</a>: obtenir la position d'un actor.
+</li></ul>
+<p><a href="Template_SetActorFacingAngle_FR.html" class="new" title="Template:SetActorFacingAngle FR">Template:SetActorFacingAngle FR</a>
+<a href="Template_GetActorFacingAngle_FR.html" class="new" title="Template:GetActorFacingAngle FR">Template:GetActorFacingAngle FR</a>
+<a href="Template_SetActorVirtualWorld_FR.html" class="new" title="Template:SetActorVirtualWorld FR">Template:SetActorVirtualWorld FR</a>
+<a href="Template_GetActorVirtualWorld_FR.html" class="new" title="Template:GetActorVirtualWorld FR">Template:GetActorVirtualWorld FR</a>
+<a href="Template_ApplyActorAnimation_FR.html" class="new" title="Template:ApplyActorAnimation FR">Template:ApplyActorAnimation FR</a>
+<a href="Template_ClearActorAnimations_FR.html" class="new" title="Template:ClearActorAnimations FR">Template:ClearActorAnimations FR</a>
+<a href="Template_GetPlayerCameraTargetActor_FR.html" class="new" title="Template:GetPlayerCameraTargetActor FR">Template:GetPlayerCameraTargetActor FR</a>
+<a href="Template_IsActorStreamedIn_FR.html" class="new" title="Template:IsActorStreamedIn FR">Template:IsActorStreamedIn FR</a>
+<a href="Template_SetActorHealth_FR.html" class="new" title="Template:SetActorHealth FR">Template:SetActorHealth FR</a>
+<a href="Template_GetActorHealth_FR.html" class="new" title="Template:GetActorHealth FR">Template:GetActorHealth FR</a>
+<a href="Template_SetActorInvulnerable_FR.html" class="new" title="Template:SetActorInvulnerable FR">Template:SetActorInvulnerable FR</a>
+<a href="Template_IsActorInvulnerable_FR.html" class="new" title="Template:IsActorInvulnerable FR">Template:IsActorInvulnerable FR</a>
+<a href="Template_IsValidActor_FR.html" class="new" title="Template:IsValidActor FR">Template:IsValidActor FR</a>
+<a href="Template_GetActorPoolSize_FR.html" class="new" title="Template:GetActorPoolSize FR">Template:GetActorPoolSize FR</a>
+<a href="Template_GetPlayerTargetActor_FR.html" class="new" title="Template:GetPlayerTargetActor FR">Template:GetPlayerTargetActor FR</a>
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Template_RelatedCallbacksFunctionFR.html" title="Template:RelatedCallbacksFunctionFR">edit</a>]</div><a name="Callbacks_Relatives"></a><h3> <b>Callbacks Relatives</b> </h3>
+<p>Les Callbacks suivantes peuvent être utiles car elles sont indirectement ou directement liées a cette fonction.
+</p>
+<ul><li> <a href="OnActorStreamIn_FR.html" title="OnActorStreamIn FR">OnActorStreamIn</a>: Quand un actor est chargé (devient visible) pour un joueur.
+</li></ul>
+<ul><li> <a href="OnActorStreamOut_FR.html" title="OnActorStreamOut FR">OnActorStreamOut</a>: Quand un actor est déchargé (n'est plus visible) pour un joueur.
+</li></ul>
+<p><a href="Template_OnPlayerGiveDamageActor_FR.html" class="new" title="Template:OnPlayerGiveDamageActor FR">Template:OnPlayerGiveDamageActor FR</a>
+</p><div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/CreateActor_FR.html">http://localhost../wiki/CreateActor_FR.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="Category_Added_in_0.3.7.html" title="Category:Added in 0.3.7">Added in 0.3.7</a></span> | <span dir='ltr'><a href="Category_Scripting_Functions_FR.html" title="Category:Scripting Functions FR">Scripting Functions FR</a></span> | <span dir='ltr'><a href="Category_Actor.html" title="Category:Actor">Actor</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="CreateActor_FR.html">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="Talk_CreateActor_FR.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="CreateActor_FR.html">Edit</a></li>
+				 <li id="ca-history"><a href="CreateActor_FR.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-fr"><a href="CreateActor_FR.html">Français</a></li>
+				<li class="interwiki-es"><a href="CreateActor_ES.html">Español</a></li>
+				<li class="interwiki-ru"><a href="CreateActor_RU.html">Русский</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 3,204 times.</li>
+				<li id="credits">This page was last modified 22:54, 10 July 2017 by SA-MP Wiki user <a href="User_Wjulien91.html" title="User:Wjulien91">Wjulien91</a>. </li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 115.02 secs. -->
+</body></html>

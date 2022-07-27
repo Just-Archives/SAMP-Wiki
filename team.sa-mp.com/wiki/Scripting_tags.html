@@ -1,0 +1,233 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Scripting:tags" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>Scripting:tags - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Scripting:tags</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class='toclevel-1'><a href="#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class='toclevel-1'><a href="#Strong_tags"><span class="tocnumber">2</span> <span class="toctext">Strong tags</span></a></li>
+<li class='toclevel-1'><a href="#Weak_tags"><span class="tocnumber">3</span> <span class="toctext">Weak tags</span></a></li>
+<li class='toclevel-1'><a href="#Use"><span class="tocnumber">4</span> <span class="toctext">Use</span></a>
+<ul>
+<li class='toclevel-2'><a href="#Declaring"><span class="tocnumber">4.1</span> <span class="toctext">Declaring</span></a></li>
+<li class='toclevel-2'><a href="#Functions"><span class="tocnumber">4.2</span> <span class="toctext">Functions</span></a></li>
+<li class='toclevel-2'><a href="#Operators"><span class="tocnumber">4.3</span> <span class="toctext">Operators</span></a></li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#Overwriting"><span class="tocnumber">5</span> <span class="toctext">Overwriting</span></a></li>
+<li class='toclevel-1'><a href="#Enums"><span class="tocnumber">6</span> <span class="toctext">Enums</span></a></li>
+<li class='toclevel-1'><a href="#Multiple_tags"><span class="tocnumber">7</span> <span class="toctext">Multiple tags</span></a></li>
+<li class='toclevel-1'><a href="#Example"><span class="tocnumber">8</span> <span class="toctext">Example</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_tags.html" title="Edit section: Introduction">edit</a>]</div><a name="Introduction"></a><h1> Introduction </h1>
+<p>A tag is a prefix to a variable which tells the compiler to treat the variable specially under certain circumstances.  For example you can use tags to define where a variable can and can't be used, or a special way to add two variables together.
+</p><p>There are two types of tag - strong tags (starting with a capital letter) and weak tags (starting with a lower case letter), for the most part they're the same however under certain circumstances weak tags can be converted to tagless silently by the compiler, i.e. you won't get a warning, most of the time with weak tags, and all the time with strong tags, implicitly changing the tag will result in a warning to tell you data is likely being used wrong.
+</p><p>A very simple example is the following:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span>
+    <span style="color: orange;">File</span>:myfile = <a href="http://wiki.sa-mp.com/wiki/fopen"><span style="color: #006400;">fopen</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;file.txt&quot;</span>, io_read<span style="color: #66cc66;">&#41;</span>;
+myFile += <span style="color: #4169e1;">4</span>;</pre>
+<p>The fopen function will return a value with a tag of type "File:", there is no problem on that line as the return value is being stored to a variable also with a tag of "File:" (note the cases are the same too).  However on the next line the value 4 is added to the file handle.  4 has no tag (it is actually tag type "_:" but variables, values and functions with no tag are automatically set to that and you don't need to worry about it normally) and myFile has a tag of "File:", obviously nothing and something can't possibly be the same so the compiler will issue a warning, this is good as a handle to a file is meaningless in terms of it's actual value and so modifying it will merely destroy the handle and mean the file can't be closed as there is no longer a valid handle to pass and close the file with.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_tags.html" title="Edit section: Strong tags">edit</a>]</div><a name="Strong_tags"></a><h1> Strong tags </h1>
+<p>As mentioned above a strong tag is any tag starting with a capital letter.  Examples of these in SA:MP include:
+</p>
+<pre>Float:
+File:
+Text:
+</pre>
+<p>These cannot be mixed with other variable types and will always issue a warning when you try to do so:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span>
+    <span style="color: orange;">Float</span>:myFloat,
+    <span style="color: orange;">File</span>:myFile,
+    myBlank;
+&nbsp;
+myFile = <a href="http://wiki.sa-mp.com/wiki/fopen"><span style="color: #006400;">fopen</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;file.txt&quot;</span>, io_read<span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// File: = File:, no warning</span>
+&nbsp;
+myFloat = myFile; <span style="color: #808080; font-style: italic;">// Float: = File:, &quot;tag mismatch&quot; warning</span>
+&nbsp;
+myFloat = <span style="color: #4169e1;">4</span>; <span style="color: #808080; font-style: italic;">// Float: = _: (none), &quot;tag mismatch&quot; warning</span>
+&nbsp;
+myBlank = myFloat; <span style="color: #808080; font-style: italic;">// _: (none) = Float:, &quot;tag mismatch&quot; warning</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_tags.html" title="Edit section: Weak tags">edit</a>]</div><a name="Weak_tags"></a><h1> Weak tags </h1>
+<p>A weak tag behaves mostly the same as a strong tag however the compiler will not issue a warning when the destination is tagless and the source is a weak tag.  For example compare the following strong and weak tag codes, the first with the strong tag will give a warning, the second with the weak tag will not:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span>
+    <span style="color: orange;">Strong</span>:myStrong,
+    <span style="color: orange;">weak</span>:myWeak,
+    myNone;
+&nbsp;
+myNone = myStrong; <span style="color: #808080; font-style: italic;">// Warning</span>
+myNone = myWeak; <span style="color: #808080; font-style: italic;">// No warning</span></pre>
+<p>However the reverse is not true:
+</p>
+<pre class="pawn">myWeak = myNone; <span style="color: #808080; font-style: italic;">// Warning</span></pre>
+<p>This is also true with functions, calling a function with a tagless parameter, passing a weak tagged variable will not give a warning:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span>
+    <span style="color: orange;">weak</span>:myWeak;
+MyFunction<span style="color: #66cc66;">&#40;</span>myWeak<span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+&nbsp;
+&nbsp;
+MyFunction<span style="color: #66cc66;">&#40;</span>myVar<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    ...
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>But calling a function with a tagged parameter (weak or strong), passing an untagged parameter will give a warning.  Examples of weak tags in SA:MP are less well known as such though are often used and include:
+</p>
+<pre>bool:
+filemode:
+floatround_method:
+</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_tags.html" title="Edit section: Use">edit</a>]</div><a name="Use"></a><h1> Use </h1>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_tags.html" title="Edit section: Declaring">edit</a>]</div><a name="Declaring"></a><h2> Declaring </h2>
+<p>Declaring a variable with a tag is very simple, just write the tag, there's no need to define a tag in advance in any way however this is possible and does have it's uses as will become apparent later:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span>
+    <span style="color: orange;">Mytag</span>:myVariable;</pre>
+<p>Declaring a variable with one of the existing tags will allow you to use that variable with the functions and operators already written for that tag type.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_tags.html" title="Edit section: Functions">edit</a>]</div><a name="Functions"></a><h2> Functions </h2>
+<p>Creating a function to take or return a tag is very simple, just prefix the relevant part with the desired tag type, for example:
+</p>
+<pre class="pawn"><span style="color: orange;">Float</span>:GetValue<span style="color: #66cc66;">&#40;</span><span style="color: orange;">File</span>:fHnd, <span style="color: #228b22; font-weight: bold;">const</span> name<span style="color: #66cc66;">&#91;</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    ...
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>That function takes the handle to a file and returns a float value (presumably a value read from the file and corresponding to the value name passed in name[]).  This function would most likely use the floatstr function, which also returns a Float: (as you can tell by looking at the status bar of pawno when you click on the function in the right hand function list), after taking a string.  The implementation of this function is not important but it will convert the string to an IEEE float value, which is then stored as a cell (it's actually strictly stored as an integer which just happens to have an identical bit pattern to the relevant IEEE number as PAWN is typeless, but that's what tags are partially there to combat).
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_tags.html" title="Edit section: Operators">edit</a>]</div><a name="Operators"></a><h2> Operators </h2>
+<p>Operators such as +, ==, > etc can be overloaded for different tags, i.e. doing + on two Float:s does something different to doing it on two non-tagged variables.  This is especially useful in the case of float variables as as mentioned they are not really floats they are integers with a very specific bit pattern, if the operators were not overloaded the operations would simply be performed on the integers which would give gibberish if the answer were interpreted as a float again.  For this reason the Float: tag has overloaded versions of most of the operators to call special functions to do the maths in the server instead of in pawn.
+</p><p>An operator is exactly like a normal function but instead of a function name you use "operator&lt;symbol&gt;" where &lt;symbol&gt; is the operator you want to overwrite.  The valid operators are:
+</p>
+<pre>+
+-
+=
+++
+--
+==
+*
+/
+!=
+&gt;
+&lt;
+&gt;=
+&lt;=
+!
+%
+</pre>
+<p>Things like *= etc are done automatically.  Things like &amp; etc can't be overloaded.  You can also overload an operator multiple times with different combinations of tag.  For example:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">stock</span> <span style="color: orange;">Float</span>:operator=<span style="color: #66cc66;">&#40;</span><span style="color: orange;">Mytag</span>:oper<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <span style="color: orange; font-weight: bold;">return</span> <a href="http://wiki.sa-mp.com/wiki/float"><span style="color: #006400;">float</span></a><span style="color: #66cc66;">&#40;</span><span style="color: orange;">_</span>:oper<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>If you add that to your code and do:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span>
+    <span style="color: orange;">Float</span>:myFloat,
+    <span style="color: orange;">Mytag</span>:myTag;
+&nbsp;
+myFloat = myTag;</pre>
+<p>You will no longer get a compiler warning as you would have before because the '=' operator for the case Float: = Mytag: is now handled so the compiler knows exactly what to do.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_tags.html" title="Edit section: Overwriting">edit</a>]</div><a name="Overwriting"></a><h1> Overwriting </h1>
+<p>In the overloading example above the functional line was:
+</p>
+<pre class="pawn"><span style="color: orange; font-weight: bold;">return</span> <a href="http://wiki.sa-mp.com/wiki/float"><span style="color: #006400;">float</span></a><span style="color: #66cc66;">&#40;</span><span style="color: orange;">_</span>:oper<span style="color: #66cc66;">&#41;</span>;</pre>
+<p>This is an example of tag overwriting, the "_:" in front of oper means the compiler basically ignores the fact that oper has a tag type of Mytag: and treats it as tag type _: (i.e. no tag type).  The function float() tags a normal number so must be passed one.  In that example it is assumed that Mytag stores an ordinary integer but overwriting must be dealt with very carefully, for example the following will give very odd results:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span>
+    <span style="color: orange;">Float</span>:f1,
+    <span style="color: orange;">Float</span>:f2 = <span style="color: #4169e1;">4.0</span>;
+f1 = <a href="http://wiki.sa-mp.com/wiki/float"><span style="color: #006400;">float</span></a><span style="color: #66cc66;">&#40;</span><span style="color: orange;">_</span>:f2<span style="color: #66cc66;">&#41;</span>;</pre>
+<p>Sense would dictate that f1 would end up as 4.0, however it won't.  As mentioned f2 stores a representation of 4.0, not just 4 as an integer would, this means the actual value of the variable as an integer is a very odd number.  Thus if you tell the compiler to treat the variable as an integer it will simply take the bit pattern in the variable as the value, it won't convert the float to an integer, so you will get an almost random number (it's not actually random as there's a pattern to IEEE floating points but it will be nothing like 4.0).
+</p><p>If you know what you're doing this can be used to suppress warnings but you should investigate whether it's exactly what's wanted first and that the warning isn't actually telling you something important.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_tags.html" title="Edit section: Enums">edit</a>]</div><a name="Enums"></a><h1> Enums </h1>
+<p>Something about using an enum to define a tag type's valid values, e.g. filemode:
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_tags.html" title="Edit section: Multiple tags">edit</a>]</div><a name="Multiple_tags"></a><h1> Multiple tags </h1>
+<p>Something about {Float,_}:
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_tags.html" title="Edit section: Example">edit</a>]</div><a name="Example"></a><h1> Example </h1>
+<p>Implement a system for using big endian numbers.
+</p><div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/Scripting_tags.html">http://localhost../wiki/Scripting_tags.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="Category_Scripting_Documentation.html" title="Category:Scripting Documentation">Scripting Documentation</a></span> | <span dir='ltr'><a href="Category_Tutorials.html" title="Category:Tutorials">Tutorials</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="Scripting_tags.html">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="Talk_Scripting_tags.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="Scripting_tags.html">Edit</a></li>
+				 <li id="ca-history"><a href="Scripting_tags.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 14,603 times.</li>
+				<li id="credits">This page was last modified 13:43, 1 August 2017 by SA-MP Wiki user <a href="User_OstGot.html" title="User:OstGot">OstGot</a>. Based on work by SA-MP Wiki user(s) <a href="User_Y_Less.html" title="User:Y Less">Y Less</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 34.19 secs. -->
+</body></html>

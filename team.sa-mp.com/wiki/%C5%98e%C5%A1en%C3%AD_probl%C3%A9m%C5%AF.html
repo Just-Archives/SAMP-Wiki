@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Řešení problémů,Getting Started CS" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>Řešení problémů - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Řešení problémů</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class='toclevel-1'><a href="#Klient_SA:MP"><span class="tocnumber">1</span> <span class="toctext">Klient SA:MP</span></a>
+<ul>
+<li class='toclevel-2'><a href="#Chyba_.22San_Andreas_cannot_be_found.22_.28San_Andreas_nelze_nal.C3.A9zt.29"><span class="tocnumber">1.1</span> <span class="toctext">Chyba "San Andreas cannot be found" (San Andreas nelze nalézt)</span></a></li>
+<li class='toclevel-2'><a href="#Nevid.C3.ADm_.C5.BEadn.C3.A9_servery"><span class="tocnumber">1.2</span> <span class="toctext">Nevidím žadné servery</span></a></li>
+<li class='toclevel-2'><a href="#Spou.C5.A1t.C3.AD_se_Single_Player_m.C3.ADsto_SA:MP"><span class="tocnumber">1.3</span> <span class="toctext">Spouští se Single Player místo SA:MP</span></a></li>
+<li class='toclevel-2'><a href="#Chyba_.22Unacceptable_NickName.22_.28Nep.C5.99ijateln.C3.A1_p.C5.99ezd.C3.ADvka.29_p.C5.99i_p.C5.99ipojov.C3.A1n.C3.AD_na_server"><span class="tocnumber">1.4</span> <span class="toctext">Chyba "Unacceptable NickName" (Nepřijatelná přezdívka) při připojování na server</span></a></li>
+<li class='toclevel-2'><a href="#Na_obrazovce_je_jen_.22Connecting_to_ip:port....22"><span class="tocnumber">1.5</span> <span class="toctext">Na obrazovce je jen "Connecting to ip:port..."</span></a></li>
+<li class='toclevel-2'><a href="#M.C3.A1m_v_GTA:_San_Andreas_modifikace.2C_a_SA:MP_se_nespou.C5.A1t.C3.AD"><span class="tocnumber">1.6</span> <span class="toctext">Mám v GTA: San Andreas modifikace, a SA:MP se nespouští</span></a></li>
+<li class='toclevel-2'><a href="#Kdy.C5.BE_spou.C5.A1t.C3.ADm_GTA_se_SA:MP.2C_nespust.C3.AD_se"><span class="tocnumber">1.7</span> <span class="toctext">Když spouštím GTA se SA:MP, nespustí se</span></a></li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#Server"><span class="tocnumber">2</span> <span class="toctext">Server</span></a>
+<ul>
+<li class='toclevel-2'><a href="#Server_ihned_spadne_po_tom.2C_co_jej_spust.C3.ADm"><span class="tocnumber">2.1</span> <span class="toctext">Server ihned spadne po tom, co jej spustím</span></a></li>
+<li class='toclevel-2'><a href="#M.C5.AFj_server_nefunguje._Zkou.C5.A1el_jsem_vypnout_firewall_ale_st.C3.A1le_nefunguje"><span class="tocnumber">2.2</span> <span class="toctext">Můj server nefunguje. Zkoušel jsem vypnout firewall ale stále nefunguje</span></a></li>
+<li class='toclevel-2'><a href="#Hr.C3.A1.C4.8D.C5.AFm_st.C3.A1le_vyskakuje_chyba_.22Unacceptable_NickName.22.2C_ale_p.C5.99itom_jsou_p.C5.99ezd.C3.ADvky_v_po.C5.99.C3.A1dku"><span class="tocnumber">2.3</span> <span class="toctext">Hráčům stále vyskakuje chyba "Unacceptable NickName", ale přitom jsou přezdívky v pořádku</span></a></li>
+</ul>
+</li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25C5%2598e%25C5%25A1en%25C3%25AD_probl%25C3%25A9m%25C5%25AF.html" title="Edit section: Klient SA:MP">edit</a>]</div><a name="Klient_SA:MP"></a><h2> Klient SA:MP </h2>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25C5%2598e%25C5%25A1en%25C3%25AD_probl%25C3%25A9m%25C5%25AF.html" title="Edit section: Chyba &quot;San Andreas cannot be found&quot; (San Andreas nelze nalézt)">edit</a>]</div><a name="Chyba_.22San_Andreas_cannot_be_found.22_.28San_Andreas_nelze_nal.C3.A9zt.29"></a><h3>Chyba "San Andreas cannot be found" (San Andreas nelze nalézt)</h3>
+<p>San Andreas MultiPlayer <b>není</b> samostatný program!  Je to dodatkový program pro hru San Andreas a pro své fungování potřebuje GTA San Andreas pro PC - verzi: <b>EU/US v1.0</b>, jiné verze jako jsou v2.0, Steam nebo Direct2Drive budou fungovat nesprávně nebo vůbec.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25C5%2598e%25C5%25A1en%25C3%25AD_probl%25C3%25A9m%25C5%25AF.html" title="Edit section: Nevidím žadné servery">edit</a>]</div><a name="Nevid.C3.ADm_.C5.BEadn.C3.A9_servery"></a><h3>Nevidím žadné servery</h3>
+<p>Pokud jste postupovali podle návodu <a href="Getting_Started_CS.html" title="Getting Started CS">Jak začít</a> a stále nevidíte žádné servery, zkontrolujte váš FIREWALL, zda neblokuje aplikaci SA:MP a pokud ano, umístěte aplikaci SA:MP do seznamu vyjímek. Pro širokou rozmanitost jednotlivých FIREWALL od různých firem nemůžeme poskytnout větší podporu, ale o tu si můžete zažádat na webu výrobce, nebo zkusit jiný FIREWALL. Také se ujistěte, že máto poslední verzi SA:MP Klientu, <a href="http://sa-mp.com/download.php" class='external text' title="http://sa-mp.com/download.php" rel="nofollow">ZDE</a>.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25C5%2598e%25C5%25A1en%25C3%25AD_probl%25C3%25A9m%25C5%25AF.html" title="Edit section: Spouští se Single Player místo SA:MP">edit</a>]</div><a name="Spou.C5.A1t.C3.AD_se_Single_Player_m.C3.ADsto_SA:MP"></a><h3>Spouští se Single Player místo SA:MP</h3>
+<p><b>Pokud se při spouštění objeví menu s Nová hra, Načíst hru a další... a dale se spouští jen SINGLE PLAYER</b>
+</p><p>Tato chyba má 2 řešení:
+</p>
+<ul><li> - Máte SA:MP nainstalované ve špatné složce a né ve složce se hrou San Andreas
+</li><li> - Máte jinou verzi San Andreas. Jestli že máte chybnou verzi GTA SA je její oprava jednoduchá. Stáhněte si patch pro snížení verze San Andreas. Downgrade patch <a href="http://grandtheftauto.filefront.com/file/GTA_SA_Downgrader_Patch;74661" class='external text' title="http://grandtheftauto.filefront.com/file/GTA_SA_Downgrader_Patch;74661" rel="nofollow">ZDE</a>.
+</li></ul>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25C5%2598e%25C5%25A1en%25C3%25AD_probl%25C3%25A9m%25C5%25AF.html" title="Edit section: Chyba &quot;Unacceptable NickName&quot; (Nepřijatelná přezdívka) při připojování na server">edit</a>]</div><a name="Chyba_.22Unacceptable_NickName.22_.28Nep.C5.99ijateln.C3.A1_p.C5.99ezd.C3.ADvka.29_p.C5.99i_p.C5.99ipojov.C3.A1n.C3.AD_na_server"></a><h3>Chyba "Unacceptable NickName" (Nepřijatelná přezdívka) při připojování na server</h3>
+<p>Ujistěte se, že používáte v přezdívce jen povolené znaky (0-9, a-z, [], (), $, @, ., =), a že přezdívka, kterou jste si vybrali, není delší než 24 znaků. Tato chybová hláška ale může nastat i když je již na serveru hráč se stejnou přezdívkou, jako máte vy a někdy také když se připojíte k serveru hned po tom, co jste byli odpojeni kvůli ztrátě spojení (timeout).
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25C5%2598e%25C5%25A1en%25C3%25AD_probl%25C3%25A9m%25C5%25AF.html" title="Edit section: Na obrazovce je jen &quot;Connecting to ip:port...&quot;">edit</a>]</div><a name="Na_obrazovce_je_jen_.22Connecting_to_ip:port....22"></a><h3>Na obrazovce je jen "Connecting to ip:port..."</h3>
+<p>Server může být offline a nebo pokud se nemůžete připojit k žádnému serveru, postupujte jako u problému 2. Problém může být i v tom, že máte starou verzi sa-mp klienta a v tom případě si stáhněte poslední verzi <a href="http://sa-mp.com/download.php" class='external text' title="http://sa-mp.com/download.php" rel="nofollow">ZDE</a> Verzi používanou na serveru vidíte v detailech serveru po pravé straně.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25C5%2598e%25C5%25A1en%25C3%25AD_probl%25C3%25A9m%25C5%25AF.html" title="Edit section: Mám v GTA: San Andreas modifikace, a SA:MP se nespouští">edit</a>]</div><a name="M.C3.A1m_v_GTA:_San_Andreas_modifikace.2C_a_SA:MP_se_nespou.C5.A1t.C3.AD"></a><h3>Mám v GTA: San Andreas modifikace, a SA:MP se nespouští</h3>
+<p>Pokud se nespustí, smažte cizí modifikace. Postupným mazáním můžete odhalit tu modifikaci, která problém způsobila.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25C5%2598e%25C5%25A1en%25C3%25AD_probl%25C3%25A9m%25C5%25AF.html" title="Edit section: Když spouštím GTA se SA:MP, nespustí se">edit</a>]</div><a name="Kdy.C5.BE_spou.C5.A1t.C3.ADm_GTA_se_SA:MP.2C_nespust.C3.AD_se"></a><h3> Když spouštím GTA se SA:MP, nespustí se </h3>
+<p>Smažte soubor gta_sa.set z vaší složky s uloženými hrami a ujistěte se, že nepoužíváte žádné trainery/modifikace.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25C5%2598e%25C5%25A1en%25C3%25AD_probl%25C3%25A9m%25C5%25AF.html" title="Edit section: Server">edit</a>]</div><a name="Server"></a><h2>Server</h2>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25C5%2598e%25C5%25A1en%25C3%25AD_probl%25C3%25A9m%25C5%25AF.html" title="Edit section: Server ihned spadne po tom, co jej spustím">edit</a>]</div><a name="Server_ihned_spadne_po_tom.2C_co_jej_spust.C3.ADm"></a><h3>Server ihned spadne po tom, co jej spustím</h3>
+<p>Nejčastěji jde o problém ve vašem nastavení serveru v souboru server.cfg. Zkontrolujte také server_log.txt a důvod pádu by měl být zapsán v souboru crashinfo.txt.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25C5%2598e%25C5%25A1en%25C3%25AD_probl%25C3%25A9m%25C5%25AF.html" title="Edit section: Můj server nefunguje. Zkoušel jsem vypnout firewall ale stále nefunguje">edit</a>]</div><a name="M.C5.AFj_server_nefunguje._Zkou.C5.A1el_jsem_vypnout_firewall_ale_st.C3.A1le_nefunguje"></a><h3>Můj server nefunguje. Zkoušel jsem vypnout firewall ale stále nefunguje</h3>
+<p>Musíte naforwardovat porty. Na následující stránce si můžete stáhnout program, díky kterému zjistíte, zda máte dané porty forwardované: <a href="http://www.portforward.com/" class='external text' title="http://www.portforward.com" rel="nofollow">www.portforward.com</a> 
+Pokud ne, tak požadované porty musíte otevřít v nastavení vašeho routeru.
+Na následující adrese najdete seznam routerů a návod na otevření portů <a href="http://portforward.com/english/routers/port_forwarding/routerindex.htm" class='external text' title="http://portforward.com/english/routers/port_forwarding/routerindex.htm" rel="nofollow">http://portforward.com/ (en)</a>
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25C5%2598e%25C5%25A1en%25C3%25AD_probl%25C3%25A9m%25C5%25AF.html" title="Edit section: Hráčům stále vyskakuje chyba &quot;Unacceptable NickName&quot;, ale přitom jsou přezdívky v pořádku">edit</a>]</div><a name="Hr.C3.A1.C4.8D.C5.AFm_st.C3.A1le_vyskakuje_chyba_.22Unacceptable_NickName.22.2C_ale_p.C5.99itom_jsou_p.C5.99ezd.C3.ADvky_v_po.C5.99.C3.A1dku"></a><h3>Hráčům stále vyskakuje chyba "Unacceptable NickName", ale přitom jsou přezdívky v pořádku</h3>
+<p>Pokud se tato chyba děje na Windows serveru, změňte režim kompatibility aplikace samp-server.exe na kompatibilitu s Windows 98 a po restartu serveru by vše mělo být v pořádku.
+</p><p>Také může tato chyba nastat, pokud jde o Windows server běžící příliš dlouho v jednom kuse. Taková chyba byla zaznamenána po 50ti dnech nonstop běhu serveru. Potom je tedy potřeba restart.
+</p>
+<table align="right">
+
+<tr align="center">
+<td><b>Author:</b>  <i><b>deamont66</b></i> <a href="http://jirkasimecek.ic.cz/news.php" class='external text' title="http://jirkasimecek.ic.cz/news.php" rel="nofollow">WEB</a> a <i><b>Vojtas CZ</b></i>
+</td></tr></table>
+<div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/%25C5%2598e%25C5%25A1en%25C3%25AD_probl%25C3%25A9m%25C5%25AF.html">http://localhost../wiki/%25C5%2598e%25C5%25A1en%25C3%25AD_probl%25C3%25A9m%25C5%25AF.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="Category_Information.html" title="Category:Information">Information</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="%25C5%2598e%25C5%25A1en%25C3%25AD_probl%25C3%25A9m%25C5%25AF.html">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="Talk_%25C5%2598e%25C5%25A1en%25C3%25AD_probl%25C3%25A9m%25C5%25AF.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="%25C5%2598e%25C5%25A1en%25C3%25AD_probl%25C3%25A9m%25C5%25AF.html">Edit</a></li>
+				 <li id="ca-history"><a href="%25C5%2598e%25C5%25A1en%25C3%25AD_probl%25C3%25A9m%25C5%25AF.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-en"><a href="Common_Problems.html">English</a></li>
+				<li class="interwiki-de"><a href="Common_Problems_DE.html">Deutsch</a></li>
+				<li class="interwiki-ru"><a href="Common_Problems_RU.html">Русский</a></li>
+				<li class="interwiki-nl"><a href="Common_Problems_NL.html">Nederlands</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 28,748 times.</li>
+				<li id="credits">This page was last modified 15:05, 7 August 2010 by SA-MP Wiki user User:. </li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 59.20 secs. -->
+</body></html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Talk:ApplyAnimation,Lukester16" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>Talk:ApplyAnimation - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-1 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Talk:ApplyAnimation</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<p>Why is this function still in the "Needs Documentation" Category when it clearly has enough documentation. <br />--<a href="User_Lukester16.html" title="User:Lukester16">&#91;Fackin&#39;]Luke</a> 05:20, 7 January 2008 (CET)
+</p><p>I don't know the format you use for including Scripting Ressources pages so I added the link nearly to the top.
+</p>
+<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class='toclevel-1'><a href="#last_parameter_is_not_a_timer"><span class="tocnumber">1</span> <span class="toctext">last parameter is not a timer</span></a></li>
+<li class='toclevel-1'><a href="#it_is"><span class="tocnumber">2</span> <span class="toctext">it is</span></a></li>
+<li class='toclevel-1'><a href="#other_effect.21"><span class="tocnumber">3</span> <span class="toctext">other effect!</span></a></li>
+<li class='toclevel-1'><a href="#update"><span class="tocnumber">4</span> <span class="toctext">update</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Talk_ApplyAnimation.html" title="Edit section: last parameter is not a timer">edit</a>]</div><a name="last_parameter_is_not_a_timer"></a><h2> last parameter is not a timer </h2>
+<p>"Timer in millisecconds. For a never ending loop it should be 0."
+</p><p>Did anyone ever test this? I did, and it has a totally other effect.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Talk_ApplyAnimation.html" title="Edit section: it is">edit</a>]</div><a name="it_is"></a><h2>it is</h2>
+<p>Well ive tested it and it is.
+</p><p><br />
+From my GM:
+</p><p>ApplyAnimation(playerid,"PLAYIDLES","time",4.1,0,1,1,0,5200);
+</p><p>if i set "5200" to say "1000" it stops the animation after a second.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Talk_ApplyAnimation.html" title="Edit section: other effect!">edit</a>]</div><a name="other_effect.21"></a><h2> other effect! </h2>
+<p>And did you test the other effect?
+</p><p>No? Then why did you delete it?
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Talk_ApplyAnimation.html" title="Edit section: update">edit</a>]</div><a name="update"></a><h2> update </h2>
+<p>Now i testet both effects.
+</p><p>Indeed, the last parameter is a timer, but it has no effect, if you set the loop parameter to 1.
+</p><p>When using an non looped animation like
+</p><p>ApplyAnimation(playerid,"Ped","handsup",3.0,0,1,1,1,5000);
+</p><p>it will freeze the player for 5 seconds but the animation won't stop.
+</p><p>And if you set the parameter to 0, it's not an never ending loop!
+</p><p>-1 is a never ending loop.
+</p><p>Mike:
+</p><p>It does have an effect because i tested it 5 times with 1000 2000 3000 4000 and 5000 parameters and the anim stopped after 1 2 3 4 and 5 seconds.
+</p><p><br />
+Cypog:
+</p><p>Me to, and it hasn't. Maybe you didn't understand me. It has an effect, if the loop parameter is set to 0 und you are using an looped animation like the player idle animation. But it has not, if you set the loop parameter to 1.
+</p><div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/Talk_ApplyAnimation.html">http://localhost../wiki/Talk_ApplyAnimation.html</a>"</div>
+						<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main"><a href="ApplyAnimation.html">Article</a></li>
+				 <li id="ca-talk" class="selected"><a href="Talk_ApplyAnimation.html">Discussion</a></li>
+				 <li id="ca-edit" class=" istalk"><a href="Talk_ApplyAnimation.html">Edit</a></li>
+				 <li id="ca-addsection"><a href="Talk_ApplyAnimation.html">+</a></li>
+				 <li id="ca-history"><a href="Talk_ApplyAnimation.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 6,878 times.</li>
+				<li id="credits">This page was last modified 04:21, 14 December 2008 by SA-MP Wiki user <a href="User_Cycle.html" class="new" title="User:Cycle">Cycle</a>. </li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 35.24 secs. -->
+</body></html>

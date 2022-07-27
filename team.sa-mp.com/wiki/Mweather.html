@@ -1,0 +1,428 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Mweather,WeatherID,Mauzen" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>Mweather - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Mweather</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<p>MWeather is an include that expands the weather functionalities of SA-MP by things like (moving) weather zones, and the ability to set real world weather using yahoo weather.
+This page explains the functions provided by the MWeather include by <a href="User_Mauzen.html" title="User:Mauzen">User:Mauzen</a>
+To use the functions, you need to use at least SA-MP server version 0.3b and of course the include that you can get here: <a href="http://forum.sa-mp.com/showthread.php?t=181897" class='external free' title="http://forum.sa-mp.com/showthread.php?t=181897" rel="nofollow">http://forum.sa-mp.com/showthread.php?t=181897</a>
+</p>
+<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class='toclevel-1'><a href="#Defines"><span class="tocnumber">1</span> <span class="toctext">Defines</span></a></li>
+<li class='toclevel-1'><a href="#General"><span class="tocnumber">2</span> <span class="toctext">General</span></a>
+<ul>
+<li class='toclevel-2'><a href="#SetWeatherEx"><span class="tocnumber">2.1</span> <span class="toctext">SetWeatherEx</span></a></li>
+<li class='toclevel-2'><a href="#GetWeatherEx"><span class="tocnumber">2.2</span> <span class="toctext">GetWeatherEx</span></a></li>
+<li class='toclevel-2'><a href="#SetPlayerWeatherEx"><span class="tocnumber">2.3</span> <span class="toctext">SetPlayerWeatherEx</span></a></li>
+<li class='toclevel-2'><a href="#GetPlayerWeatherEx"><span class="tocnumber">2.4</span> <span class="toctext">GetPlayerWeatherEx</span></a></li>
+<li class='toclevel-2'><a href="#SetRealWeatherEx"><span class="tocnumber">2.5</span> <span class="toctext">SetRealWeatherEx</span></a></li>
+<li class='toclevel-2'><a href="#GetRealWeatherEx"><span class="tocnumber">2.6</span> <span class="toctext">GetRealWeatherEx</span></a></li>
+<li class='toclevel-2'><a href="#SetPlayerRealWeatherEx"><span class="tocnumber">2.7</span> <span class="toctext">SetPlayerRealWeatherEx</span></a></li>
+<li class='toclevel-2'><a href="#GetPlayerRealWeatherEx"><span class="tocnumber">2.8</span> <span class="toctext">GetPlayerRealWeatherEx</span></a></li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#Real_weather"><span class="tocnumber">3</span> <span class="toctext">Real weather</span></a>
+<ul>
+<li class='toclevel-2'><a href="#AddWeatherObserver"><span class="tocnumber">3.1</span> <span class="toctext">AddWeatherObserver</span></a></li>
+<li class='toclevel-2'><a href="#RemoveWeatherObserver"><span class="tocnumber">3.2</span> <span class="toctext">RemoveWeatherObserver</span></a></li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#Weather_zones"><span class="tocnumber">4</span> <span class="toctext">Weather zones</span></a>
+<ul>
+<li class='toclevel-2'><a href="#AddWeatherZone"><span class="tocnumber">4.1</span> <span class="toctext">AddWeatherZone</span></a></li>
+<li class='toclevel-2'><a href="#MoveWeatherZone"><span class="tocnumber">4.2</span> <span class="toctext">MoveWeatherZone</span></a></li>
+<li class='toclevel-2'><a href="#StopWeatherZone"><span class="tocnumber">4.3</span> <span class="toctext">StopWeatherZone</span></a></li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#Callbacks"><span class="tocnumber">5</span> <span class="toctext">Callbacks</span></a>
+<ul>
+<li class='toclevel-2'><a href="#OnPlayerWeatherZoneChange"><span class="tocnumber">5.1</span> <span class="toctext">OnPlayerWeatherZoneChange</span></a></li>
+<li class='toclevel-2'><a href="#OnWeatherZoneMoved"><span class="tocnumber">5.2</span> <span class="toctext">OnWeatherZoneMoved</span></a></li>
+<li class='toclevel-2'><a href="#OnRealWeatherUpdate"><span class="tocnumber">5.3</span> <span class="toctext">OnRealWeatherUpdate</span></a></li>
+</ul>
+</li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Mweather.html" title="Edit section: Defines">edit</a>]</div><a name="Defines"></a><h1> Defines </h1>
+<p>Real weather observers use the following defines to represent the weather state of their url.
+Not all are used automatically in the script yet.
+</p>
+<pre class="pawn"><span style="color: #6b8e23;">#define WEATHER_UNKNOWN    	    0</span>
+<span style="color: #6b8e23;">#define WEATHER_SUNNY	 	    1</span>
+<span style="color: #6b8e23;">#define WEATHER_MOSTLY_SUNNY        2</span>
+<span style="color: #6b8e23;">#define WEATHER_PARTLY_CLOUDY       3</span>
+<span style="color: #6b8e23;">#define WEATHER_MOSTLY_CLOUDY       4</span>
+<span style="color: #6b8e23;">#define WEATHER_CLOUDY              5</span>
+<span style="color: #6b8e23;">#define WEATHER_LIGHT_RAIN          6</span>
+<span style="color: #6b8e23;">#define WEATHER_SHOWERS             7</span>
+<span style="color: #6b8e23;">#define WEATHER_RAIN                8</span>
+<span style="color: #6b8e23;">#define WEATHER_LIGHT_THUNDERSTORM  9</span>
+<span style="color: #6b8e23;">#define WEATHER_THUNDERSTORM        10</span>
+<span style="color: #6b8e23;">#define WEATHER_MIST                11</span>
+<span style="color: #6b8e23;">#define WEATHER_SNOWRAIN            12</span>
+<span style="color: #6b8e23;">#define WEATHER_LIGHT_SNOW          13</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Mweather.html" title="Edit section: General">edit</a>]</div><a name="General"></a><h1> General </h1>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Mweather.html" title="Edit section: SetWeatherEx">edit</a>]</div><a name="SetWeatherEx"></a><h2> SetWeatherEx </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Use this function to set the server's global weather.<br /></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #FFEAEA; border-left: 10px solid #FCA9A9;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #FCA9A9;"><a href="Image_32px-Circle-style-warning.png.html" class="image" title="Image:32px-Circle-style-warning.png"><img src="../upload/5/57/32px-Circle-style-warning.png" alt="Image:32px-Circle-style-warning.png" width="32" height="32" longdesc="Image_32px-Circle-style-warning.png.html" /></a><br />
+<p><strong>Important<br />Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">Use this instead of the native SetWeather, or weather will be bugged.</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(weatherid)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">weatherid</td><td style="vertical-align:top;"><a href="WeatherID.html" title="WeatherID">WeatherID</a> to set.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">This function does not return any specific values.<br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Mweather.html" title="Edit section: GetWeatherEx">edit</a>]</div><a name="GetWeatherEx"></a><h2> GetWeatherEx </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">This function returns the actual global weather.<br /></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">The current <a href="WeatherID.html" title="WeatherID">WeatherID</a>, -1 if a global real weather is set.<br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Mweather.html" title="Edit section: SetPlayerWeatherEx">edit</a>]</div><a name="SetPlayerWeatherEx"></a><h2> SetPlayerWeatherEx </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Use this function to set a player's weather.<br /></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #FFEAEA; border-left: 10px solid #FCA9A9;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #FCA9A9;"><a href="Image_32px-Circle-style-warning.png.html" class="image" title="Image:32px-Circle-style-warning.png"><img src="../upload/5/57/32px-Circle-style-warning.png" alt="Image:32px-Circle-style-warning.png" width="32" height="32" longdesc="Image_32px-Circle-style-warning.png.html" /></a><br />
+<p><strong>Important<br />Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">Use this instead of the native SetPlayerWeather, or weather will be bugged.</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(playerid, weatherid)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">The ID of the player to change the weather for.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">weatherid</td><td style="vertical-align:top;"><a href="WeatherID.html" title="WeatherID">WeatherID</a> to set.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">This function does not return any specific values.<br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Mweather.html" title="Edit section: GetPlayerWeatherEx">edit</a>]</div><a name="GetPlayerWeatherEx"></a><h2> GetPlayerWeatherEx </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">This function returns the player's actual weather.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(playerid)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">The ID of the player to get the weather from.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">The current <a href="WeatherID.html" title="WeatherID">WeatherID</a> for the player, -1 if a real weather is set for the player.<br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Mweather.html" title="Edit section: SetRealWeatherEx">edit</a>]</div><a name="SetRealWeatherEx"></a><h2> SetRealWeatherEx </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Use this function to set the server's global weather from a real weather observer, created before using AddWeatherObserver.
+The weather is updated everytime the observer gets new data.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(observerid)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">observerid</td><td style="vertical-align:top;">The observerid of a valid real weather observer.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">This function does not return any specific values.<br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Mweather.html" title="Edit section: GetRealWeatherEx">edit</a>]</div><a name="GetRealWeatherEx"></a><h2> GetRealWeatherEx </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">This function returns the actual real weather observer.<br /></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">The current observerid, -1 if a normal global weather is set.<br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Mweather.html" title="Edit section: SetPlayerRealWeatherEx">edit</a>]</div><a name="SetPlayerRealWeatherEx"></a><h2> SetPlayerRealWeatherEx </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Use this function to set a player's weather from a real weather observer, created before using AddWeatherObserver.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(playerid, observerid)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">The ID of the player to change the weather for.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">observerid</td><td style="vertical-align:top;">The observerid of a valid real weather observer.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">This function does not return any specific values.<br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Mweather.html" title="Edit section: GetPlayerRealWeatherEx">edit</a>]</div><a name="GetPlayerRealWeatherEx"></a><h2> GetPlayerRealWeatherEx </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">This function returns the player's actual weather.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(playerid)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">The ID of the player to get the weather from.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">The current observerid for the player, -1 if a normal weather is set.<br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Mweather.html" title="Edit section: Real weather">edit</a>]</div><a name="Real_weather"></a><h1> Real weather </h1>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Mweather.html" title="Edit section: AddWeatherObserver">edit</a>]</div><a name="AddWeatherObserver"></a><h2> AddWeatherObserver </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Creates a weather observer that updates the data for the url every specified milliseconds.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(url[], updatetime)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">url[]</td><td style="vertical-align:top;">The link to the wanted position from weather.yahoo.com.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">updatetime</td><td style="vertical-align:top;">Interval in ms in which the weather is checked (10 mins are more than enough for normal use).</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">The observerid of the created observer, -1 if it could not be added.<br /></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+<p><strong>Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">To get the URL, go to weather.yahoo.com and search for the town/area you want.
+<p>Use the link up to the last slash (e.g. <a href="http://weather.yahoo.com/bahrain/capital/manama-1967057/" class='external free' title="http://weather.yahoo.com/bahrain/capital/manama-1967057/" rel="nofollow">http://weather.yahoo.com/bahrain/capital/manama-1967057/</a>)</span>
+</p>
+</td></tr></table>
+</div>
+<p><br />
+Example:
+</p>
+<pre class="pawn"><span style="color: #808080; font-style: italic;">//This example creates a weather observer for Chicago</span>
+<span style="color: #808080; font-style: italic;">//and sets it as global weather</span>
+<span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnGameModeInit"><span style="color: #dc143c">OnGameModeInit</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <span style="color: #228b22; font-weight: bold;">new</span> chicago = AddWeatherObserver<span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;http://weather.yahoo.com/united-states/illinois/chicago-2379574/&quot;</span>, <span style="color: #4169e1;">900000</span><span style="color: #66cc66;">&#41;</span>;
+    SetRealWeatherEx<span style="color: #66cc66;">&#40;</span>chicago<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Mweather.html" title="Edit section: RemoveWeatherObserver">edit</a>]</div><a name="RemoveWeatherObserver"></a><h2> RemoveWeatherObserver </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Removes a weather observer. It will stop all update processes<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(observerid)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">observerid</td><td style="vertical-align:top;">The ID to remove.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">1 if removed successfully, 0 if not.<br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Mweather.html" title="Edit section: Weather zones">edit</a>]</div><a name="Weather_zones"></a><h1> Weather zones </h1>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Mweather.html" title="Edit section: AddWeatherZone">edit</a>]</div><a name="AddWeatherZone"></a><h2> AddWeatherZone </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">This creates a weatherzone with the specified size at the given position.
+It will set the weather (normal or real weather) for every player that enters the zone.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(Float:x, Float:y, Float:z, Float:length, Float:width, Float:height, weatherid, bool:observer)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:x/y/z</td><td style="vertical-align:top;">The center position of the zone.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:length/width/height</td><td style="vertical-align:top;">The measurement of the zone</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">weatherid</td><td style="vertical-align:top;">The <a href="WeatherID.html" title="WeatherID">WeatherID</a> or a valid observerid of the weather to set in the zone.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">observer</td><td style="vertical-align:top;">Set this to false, if weatherid is a samp <a href="WeatherID.html" title="WeatherID">WeatherID</a>, and to true, if it is an observerid</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">The ID of the created zone, or -1 if the creation failed.<br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Mweather.html" title="Edit section: MoveWeatherZone">edit</a>]</div><a name="MoveWeatherZone"></a><h2> MoveWeatherZone </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Moves a weather zone from its current position to the specified coords.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(zoneid, Float:tox, Float:toy, Float:toz, Float:speed)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">zoneid</td><td style="vertical-align:top;">The ID of the zone to move.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:tox/toy/toz</td><td style="vertical-align:top;">The target position to move to.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:speed</td><td style="vertical-align:top;">The speed in meters/sec (not exactly in current version) the zone moves with.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">1 if it is a valid zone, 0 if not<br /></div>
+<p><br />
+Example:
+</p>
+<pre class="pawn"><span style="color: #808080; font-style: italic;">//This example creates a rain weatherzone which width covers all SA in the north</span>
+<span style="color: #808080; font-style: italic;">//and moves it down slowly.</span>
+<span style="color: #228b22; font-weight: bold;">new</span> northsouth;
+<span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnGameModeInit"><span style="color: #dc143c">OnGameModeInit</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    northsouth = AddWeatherZone<span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">0.0</span>, <span style="color: #4169e1;">3000.0</span>, <span style="color: #4169e1;">50.0</span>, <span style="color: #4169e1;">6000.0</span>, <span style="color: #4169e1;">500.0</span>, <span style="color: #4169e1;">100.0</span>, <span style="color: #4169e1;">8</span>, false<span style="color: #66cc66;">&#41;</span>;
+    MoveWeatherZone<span style="color: #66cc66;">&#40;</span>northsouth, <span style="color: #4169e1;">0.0</span>, <span style="color: #4169e1;">3000.0</span>, <span style="color: #4169e1;">50.0</span>, <span style="color: #4169e1;">20.0</span><span style="color: #66cc66;">&#41;</span>; 
+<span style="color: #66cc66;">&#125;</span></pre>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Mweather.html" title="Edit section: StopWeatherZone">edit</a>]</div><a name="StopWeatherZone"></a><h2> StopWeatherZone </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Stops the movement of a weather zone<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(zoneid)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">zoneid</td><td style="vertical-align:top;">The ID of the zone to stop.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">1 if it is a valid zone, 0 if not<br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Mweather.html" title="Edit section: Callbacks">edit</a>]</div><a name="Callbacks"></a><h1> Callbacks </h1>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Mweather.html" title="Edit section: OnPlayerWeatherZoneChange">edit</a>]</div><a name="OnPlayerWeatherZoneChange"></a><h2> OnPlayerWeatherZoneChange </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">This callback is called, when the weather zone, a player is currently in, changes.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(playerid, oldzone, newzone)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">The ID of the player, who enters/leaves a zone.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">oldzone</td><td style="vertical-align:top;">The ID of the zone, the player was in previously (-1 means no zone).</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">newzone</td><td style="vertical-align:top;">The ID of the zone, the player is now in (-1 means no zone).</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">This callback does not handle returns. <br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Mweather.html" title="Edit section: OnWeatherZoneMoved">edit</a>]</div><a name="OnWeatherZoneMoved"></a><h2> OnWeatherZoneMoved </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">This callback is called, when a weather zone finished its movement. It is not called, when using StopWeatherZone.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(zoneid)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">zoneid</td><td style="vertical-align:top;">The ID of the zone, that stops moving.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">This callback does not handle returns. <br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Mweather.html" title="Edit section: OnRealWeatherUpdate">edit</a>]</div><a name="OnRealWeatherUpdate"></a><h2> OnRealWeatherUpdate </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">This callback is called, when a real weather observer gets new data. It is also called, when the weatherstate did not change.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(observerid, oldstate, newstate)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">observerid</td><td style="vertical-align:top;">The ID of the real weather observer.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">oldstate</td><td style="vertical-align:top;">The previous weather state of the observer.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">newstate</td><td style="vertical-align:top;">The new weather state of the observer.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">This callback does not handle returns. <br /></div>
+<div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/Mweather.html">http://localhost../wiki/Mweather.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="Category_Useful_includes.html" class="new" title="Category:Useful includes">Useful includes</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="Mweather.html">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="Talk_Mweather.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="Mweather.html">Edit</a></li>
+				 <li id="ca-history"><a href="Mweather.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 17,948 times.</li>
+				<li id="credits">This page was last modified 14:06, 3 August 2017 by SA-MP Wiki user <a href="User_OstGot.html" title="User:OstGot">OstGot</a>. Based on work by SA-MP Wiki user(s) <a href="User_Mauzen.html" title="User:Mauzen">Mauzen</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 61.24 secs. -->
+</body></html>

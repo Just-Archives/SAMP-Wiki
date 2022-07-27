@@ -1,0 +1,330 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Scripting Callbacks DE,GetPlayerKeys,GetPlayerMenu,MoveObject,OnFilterScriptExit,OnFilterScriptInit,OnGameModeExit,OnGameModeInit,OnObjectMoved,OnPlayerCommandText,OnPlayerConnect" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>Scripting Callbacks DE - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Scripting Callbacks DE</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class='toclevel-1'><a href="#Callbacks"><span class="tocnumber">1</span> <span class="toctext">Callbacks</span></a></li>
+<li class='toclevel-1'><a href="#OnGameModeInit"><span class="tocnumber">2</span> <span class="toctext">OnGameModeInit</span></a></li>
+<li class='toclevel-1'><a href="#OnGameModeExit"><span class="tocnumber">3</span> <span class="toctext">OnGameModeExit</span></a></li>
+<li class='toclevel-1'><a href="#OnFilterScriptInit"><span class="tocnumber">4</span> <span class="toctext">OnFilterScriptInit</span></a></li>
+<li class='toclevel-1'><a href="#OnFilterScriptExit"><span class="tocnumber">5</span> <span class="toctext">OnFilterScriptExit</span></a></li>
+<li class='toclevel-1'><a href="#OnPlayerConnect"><span class="tocnumber">6</span> <span class="toctext">OnPlayerConnect</span></a></li>
+<li class='toclevel-1'><a href="#OnPlayerDisconnect"><span class="tocnumber">7</span> <span class="toctext">OnPlayerDisconnect</span></a></li>
+<li class='toclevel-1'><a href="#OnPlayerSpawn"><span class="tocnumber">8</span> <span class="toctext">OnPlayerSpawn</span></a></li>
+<li class='toclevel-1'><a href="#OnPlayerDeath"><span class="tocnumber">9</span> <span class="toctext">OnPlayerDeath</span></a></li>
+<li class='toclevel-1'><a href="#OnVehicleSpawn"><span class="tocnumber">10</span> <span class="toctext">OnVehicleSpawn</span></a></li>
+<li class='toclevel-1'><a href="#OnVehicleDeath"><span class="tocnumber">11</span> <span class="toctext">OnVehicleDeath</span></a></li>
+<li class='toclevel-1'><a href="#OnPlayerText"><span class="tocnumber">12</span> <span class="toctext">OnPlayerText</span></a></li>
+<li class='toclevel-1'><a href="#OnPlayerCommandText"><span class="tocnumber">13</span> <span class="toctext">OnPlayerCommandText</span></a></li>
+<li class='toclevel-1'><a href="#OnPlayerRequestClass"><span class="tocnumber">14</span> <span class="toctext">OnPlayerRequestClass</span></a></li>
+<li class='toclevel-1'><a href="#OnPlayerEnterVehicle"><span class="tocnumber">15</span> <span class="toctext">OnPlayerEnterVehicle</span></a></li>
+<li class='toclevel-1'><a href="#OnPlayerExitVehicle"><span class="tocnumber">16</span> <span class="toctext">OnPlayerExitVehicle</span></a></li>
+<li class='toclevel-1'><a href="#OnPlayerStateChange"><span class="tocnumber">17</span> <span class="toctext">OnPlayerStateChange</span></a></li>
+<li class='toclevel-1'><a href="#OnPlayerEnterCheckpoint"><span class="tocnumber">18</span> <span class="toctext">OnPlayerEnterCheckpoint</span></a></li>
+<li class='toclevel-1'><a href="#OnPlayerLeaveCheckpoint"><span class="tocnumber">19</span> <span class="toctext">OnPlayerLeaveCheckpoint</span></a></li>
+<li class='toclevel-1'><a href="#OnPlayerEnterRaceCheckpoint"><span class="tocnumber">20</span> <span class="toctext">OnPlayerEnterRaceCheckpoint</span></a></li>
+<li class='toclevel-1'><a href="#OnPlayerLeaveRaceCheckpoint"><span class="tocnumber">21</span> <span class="toctext">OnPlayerLeaveRaceCheckpoint</span></a></li>
+<li class='toclevel-1'><a href="#OnRconCommand"><span class="tocnumber">22</span> <span class="toctext">OnRconCommand</span></a></li>
+<li class='toclevel-1'><a href="#OnPlayerPrivmsg"><span class="tocnumber">23</span> <span class="toctext">OnPlayerPrivmsg</span></a></li>
+<li class='toclevel-1'><a href="#OnPlayerRequestSpawn"><span class="tocnumber">24</span> <span class="toctext">OnPlayerRequestSpawn</span></a></li>
+<li class='toclevel-1'><a href="#OnObjectMoved"><span class="tocnumber">25</span> <span class="toctext">OnObjectMoved</span></a></li>
+<li class='toclevel-1'><a href="#OnPlayerObjectMoved"><span class="tocnumber">26</span> <span class="toctext">OnPlayerObjectMoved</span></a></li>
+<li class='toclevel-1'><a href="#OnPlayerPickUpPickup"><span class="tocnumber">27</span> <span class="toctext">OnPlayerPickUpPickup</span></a></li>
+<li class='toclevel-1'><a href="#OnVehiclePaintjob"><span class="tocnumber">28</span> <span class="toctext">OnVehiclePaintjob</span></a></li>
+<li class='toclevel-1'><a href="#OnVehicleRespray"><span class="tocnumber">29</span> <span class="toctext">OnVehicleRespray</span></a></li>
+<li class='toclevel-1'><a href="#OnPlayerSelectedMenuRow"><span class="tocnumber">30</span> <span class="toctext">OnPlayerSelectedMenuRow</span></a></li>
+<li class='toclevel-1'><a href="#OnPlayerExitedMenu"><span class="tocnumber">31</span> <span class="toctext">OnPlayerExitedMenu</span></a></li>
+<li class='toclevel-1'><a href="#OnPlayerInteriorChange"><span class="tocnumber">32</span> <span class="toctext">OnPlayerInteriorChange</span></a></li>
+<li class='toclevel-1'><a href="#OnPlayerKeyStateChange"><span class="tocnumber">33</span> <span class="toctext">OnPlayerKeyStateChange</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Callbacks_DE.html" title="Edit section: Callbacks">edit</a>]</div><a name="Callbacks"></a><h3>Callbacks</h3>
+<p>Eine vollständige Kategorieliste wird derzeit <a href="Category_Scripting_Callbacks_DE.html" title="Category:Scripting Callbacks DE">hier</a> aufgebaut.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Callbacks_DE.html" title="Edit section: OnGameModeInit">edit</a>]</div><a name="OnGameModeInit"></a><h3> <a href="OnGameModeInit.html" title="OnGameModeInit">OnGameModeInit</a> </h3>
+<p>Keine Parameter.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Callbacks_DE.html" title="Edit section: OnGameModeExit">edit</a>]</div><a name="OnGameModeExit"></a><h3> <a href="OnGameModeExit.html" title="OnGameModeExit">OnGameModeExit</a> </h3>
+<p>Keine Parameter.
+</p><p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Callbacks_DE.html" title="Edit section: OnFilterScriptInit">edit</a>]</div><a name="OnFilterScriptInit"></a><h3> <a href="OnFilterScriptInit.html" title="OnFilterScriptInit">OnFilterScriptInit</a> </h3>
+<p>Keine Parameter.
+</p><p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Callbacks_DE.html" title="Edit section: OnFilterScriptExit">edit</a>]</div><a name="OnFilterScriptExit"></a><h3> <a href="OnFilterScriptExit.html" title="OnFilterScriptExit">OnFilterScriptExit</a> </h3>
+<p>Keine Parameter.
+</p><p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Callbacks_DE.html" title="Edit section: OnPlayerConnect">edit</a>]</div><a name="OnPlayerConnect"></a><h3> <a href="OnPlayerConnect.html" title="OnPlayerConnect">OnPlayerConnect</a> </h3>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(playerid)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID des Spielers der Connectet.</td></tr></table></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Callbacks_DE.html" title="Edit section: OnPlayerDisconnect">edit</a>]</div><a name="OnPlayerDisconnect"></a><h3> <a href="OnPlayerDisconnect.html" title="OnPlayerDisconnect">OnPlayerDisconnect</a> </h3>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(playerid, reason)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID des Spielers der Disconnectet.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">reason</td><td style="vertical-align:top;">Art des disconnectens (Leaven,Kicken,Timeout)</td></tr></table></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Callbacks_DE.html" title="Edit section: OnPlayerSpawn">edit</a>]</div><a name="OnPlayerSpawn"></a><h3> <a href="OnPlayerSpawn.html" title="OnPlayerSpawn">OnPlayerSpawn</a> </h3>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(playerid)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID des Spielers der Spawnt.</td></tr></table></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Callbacks_DE.html" title="Edit section: OnPlayerDeath">edit</a>]</div><a name="OnPlayerDeath"></a><h3> <a href="OnPlayerDeath.html" title="OnPlayerDeath">OnPlayerDeath</a> </h3>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(playerid, killerid, reason)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID des Spielers der gestorben ist.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">killer</td><td style="vertical-align:top;">ID des Spielers der getötet hat. INVALID_PLAYER_ID falls der Spieler Selbstmord begeht</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">reason</td><td style="vertical-align:top;">Wodurch der Spieler Starb.ID's: <a href="WeaponID.html" title="WeaponID">WeaponID</a>.</td></tr></table></div>
+<pre class="pawn"><span style="color: #808080; font-style: italic;">//common piece of code to fill the kill list</span>
+<span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnPlayerDeath"><span style="color: #dc143c">OnPlayerDeath</span></a><span style="color: #66cc66;">&#40;</span>playerid, killerid, reason<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span>killerid&nbsp;!= <span style="color: #E9967A; font-weight: bold;">INVALID_PLAYER_ID</span><span style="color: #66cc66;">&#41;</span> <span style="color: #66cc66;">&#123;</span>
+        <span style="color: #808080; font-style: italic;">//teamkill? very bad, punish the player</span>
+        <span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span>gTeam<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span> == gTeam<span style="color: #66cc66;">&#91;</span>killerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span> <span style="color: #66cc66;">&#123;</span>
+            <a href="http://wiki.sa-mp.com/wiki/SetPlayerScore"><span style="color: #006400;">SetPlayerScore</span></a><span style="color: #66cc66;">&#40;</span>killerid, <a href="http://wiki.sa-mp.com/wiki/GetPlayerScore"><span style="color: #006400;">GetPlayerScore</span></a><span style="color: #66cc66;">&#40;</span>killerid<span style="color: #66cc66;">&#41;</span> - <span style="color: #4169e1;">1</span><span style="color: #66cc66;">&#41;</span>;
+        <span style="color: #66cc66;">&#125;</span>
+        <span style="color: #4169e1;">else</span> <span style="color: #66cc66;">&#123;</span>
+            <a href="http://wiki.sa-mp.com/wiki/SetPlayerScore"><span style="color: #006400;">SetPlayerScore</span></a><span style="color: #66cc66;">&#40;</span>killerid, <a href="http://wiki.sa-mp.com/wiki/GetPlayerScore"><span style="color: #006400;">GetPlayerScore</span></a><span style="color: #66cc66;">&#40;</span>killerid<span style="color: #66cc66;">&#41;</span> + <span style="color: #4169e1;">1</span><span style="color: #66cc66;">&#41;</span>;
+        <span style="color: #66cc66;">&#125;</span>
+    <span style="color: #66cc66;">&#125;</span>
+    <a href="http://wiki.sa-mp.com/wiki/SendDeathMessage"><span style="color: #006400;">SendDeathMessage</span></a><span style="color: #66cc66;">&#40;</span>killerid, playerid, reason<span style="color: #66cc66;">&#41;</span>;
+    <span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Callbacks_DE.html" title="Edit section: OnVehicleSpawn">edit</a>]</div><a name="OnVehicleSpawn"></a><h3> <a href="OnVehicleSpawn.html" title="OnVehicleSpawn">OnVehicleSpawn</a> </h3>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(vehicleid)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">vehicleid</td><td style="vertical-align:top;">ID des gespawnten Fahrzeuges</td></tr></table></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Callbacks_DE.html" title="Edit section: OnVehicleDeath">edit</a>]</div><a name="OnVehicleDeath"></a><h3> <a href="OnVehicleDeath.html" title="OnVehicleDeath">OnVehicleDeath</a> </h3>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(vehicleid, killerid)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">vehicleid</td><td style="vertical-align:top;">ID des Fahrzeuges welches zerstört wurde</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">killerid</td><td style="vertical-align:top;">ID des Spielers der Fahrzeug zerstörte</td></tr></table></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Callbacks_DE.html" title="Edit section: OnPlayerText">edit</a>]</div><a name="OnPlayerText"></a><h3> <a href="OnPlayerText.html" title="OnPlayerText">OnPlayerText</a> </h3>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(playerid, text[])<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID des Spielers der schreibt</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">text[]</td><td style="vertical-align:top;">Text welcher der Spieler gesendet hat</td></tr></table></div>
+<p><b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">Return 0 falls man Nachricht nicht übermitteln will (bsp MuteScript)<br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Callbacks_DE.html" title="Edit section: OnPlayerCommandText">edit</a>]</div><a name="OnPlayerCommandText"></a><h3> <a href="OnPlayerCommandText.html" title="OnPlayerCommandText">OnPlayerCommandText</a> </h3>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(playerid, cmdtext[])<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID des Spielers der Command gesendet hat.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">cmdtext[]</td><td style="vertical-align:top;">Command Text</td></tr></table></div>
+<p><b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">Return 1 falls der Command erfolgreich übermittelt wurde. Returning 0 wird die Nachricht "SERVER: Unknown Command."- im Chat erscheinen lassen.<br /></div>
+<p><b>Notes:</b> Die Funktion wird nur aufgerufen wenn die Textnachricht mit einem Backslash beginnt (/).
+</p><p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Callbacks_DE.html" title="Edit section: OnPlayerRequestClass">edit</a>]</div><a name="OnPlayerRequestClass"></a><h3> <a href="OnPlayerRequestClass.html" title="OnPlayerRequestClass">OnPlayerRequestClass</a> </h3>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(playerid, classid)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID des Spielers der in der Classauswahl ist</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">classid</td><td style="vertical-align:top;">ID der Klasse die der Spieler zur Zeit auswählt.</td></tr></table></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Callbacks_DE.html" title="Edit section: OnPlayerEnterVehicle">edit</a>]</div><a name="OnPlayerEnterVehicle"></a><h3> <a href="OnPlayerEnterVehicle.html" title="OnPlayerEnterVehicle">OnPlayerEnterVehicle</a> </h3>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(playerid, vehicleid, ispassenger)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID des Spielers der Fahrzeug betreten hat</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">vehicleid</td><td style="vertical-align:top;">Vehicle ID welches der Spieler betreten hat.</td></tr></table></div>
+<p>{{Param|ispassenger|true oder 1 fuer Beifahrer,false oder 0 fuer Fahrer
+</p><p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Callbacks_DE.html" title="Edit section: OnPlayerExitVehicle">edit</a>]</div><a name="OnPlayerExitVehicle"></a><h3> <a href="OnPlayerExitVehicle.html" title="OnPlayerExitVehicle">OnPlayerExitVehicle</a> </h3>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(playerid, vehicleid)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID des Spielers der Fahrzeug verlassen hat</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">vehicleid</td><td style="vertical-align:top;">Vehicle ID des Fahrzeuges welches verlassen wurde durch den Spieler</td></tr></table></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Callbacks_DE.html" title="Edit section: OnPlayerStateChange">edit</a>]</div><a name="OnPlayerStateChange"></a><h3> <a href="OnPlayerStateChange.html" title="OnPlayerStateChange">OnPlayerStateChange</a> </h3>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(playerid, newstate, oldstate)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID des Spielers dessen Status sich geaendert hat</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">newstate</td><td style="vertical-align:top;">Neue Status ID</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">oldstate</td><td style="vertical-align:top;">Alte Status ID</td></tr></table></div>
+<p><br />
+<i>States</i> - <a href="Playerstates.html" title="Playerstates">Playerstates</a>
+</p><p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Callbacks_DE.html" title="Edit section: OnPlayerEnterCheckpoint">edit</a>]</div><a name="OnPlayerEnterCheckpoint"></a><h3> <a href="OnPlayerEnterCheckpoint.html" title="OnPlayerEnterCheckpoint">OnPlayerEnterCheckpoint</a> </h3>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(playerid)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID des Spielers der Checkpoint betreten hat</td></tr></table></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Callbacks_DE.html" title="Edit section: OnPlayerLeaveCheckpoint">edit</a>]</div><a name="OnPlayerLeaveCheckpoint"></a><h3> <a href="OnPlayerLeaveCheckpoint.html" title="OnPlayerLeaveCheckpoint">OnPlayerLeaveCheckpoint</a> </h3>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(playerid)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID des Spielers der Checkpoint verlassen hat</td></tr></table></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Callbacks_DE.html" title="Edit section: OnPlayerEnterRaceCheckpoint">edit</a>]</div><a name="OnPlayerEnterRaceCheckpoint"></a><h3> <a href="OnPlayerEnterRaceCheckpoint.html" title="OnPlayerEnterRaceCheckpoint">OnPlayerEnterRaceCheckpoint</a> </h3>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(playerid)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID des Spielers der Race Checkpoint betreten hat</td></tr></table></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Callbacks_DE.html" title="Edit section: OnPlayerLeaveRaceCheckpoint">edit</a>]</div><a name="OnPlayerLeaveRaceCheckpoint"></a><h3> <a href="OnPlayerLeaveRaceCheckpoint.html" title="OnPlayerLeaveRaceCheckpoint">OnPlayerLeaveRaceCheckpoint</a> </h3>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(playerid)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID des Spielers der Race Checkpoint verlassen hat</td></tr></table></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Callbacks_DE.html" title="Edit section: OnRconCommand">edit</a>]</div><a name="OnRconCommand"></a><h3> <a href="OnRconCommand.html" title="OnRconCommand">OnRconCommand</a> </h3>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(cmd[])<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">cmd - Der Command der via Rcon gesendet wurde (bsp changemode sftdm)</td><td style="vertical-align:top;">{{{2}}}</td></tr></table></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Callbacks_DE.html" title="Edit section: OnPlayerPrivmsg">edit</a>]</div><a name="OnPlayerPrivmsg"></a><h3> <a href="OnPlayerPrivmsg.html" title="OnPlayerPrivmsg">OnPlayerPrivmsg</a> </h3>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(playerid, recieverid, text[])<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID des Spielers der Private Nachricht versendet hat</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">recieverid</td><td style="vertical-align:top;">ID des Spielers der Private Nachricht empfangen hat</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">text</td><td style="vertical-align:top;">Die Nachricht die versendet wird.</td></tr></table></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Callbacks_DE.html" title="Edit section: OnPlayerRequestSpawn">edit</a>]</div><a name="OnPlayerRequestSpawn"></a><h3> <a href="OnPlayerRequestSpawn.html" title="OnPlayerRequestSpawn">OnPlayerRequestSpawn</a> </h3>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(playerid)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">The ID of the player requesting to spawn.</td></tr></table></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Callbacks_DE.html" title="Edit section: OnObjectMoved">edit</a>]</div><a name="OnObjectMoved"></a><h3> <a href="OnObjectMoved.html" title="OnObjectMoved">OnObjectMoved</a> </h3>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(objectid)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">objectid</td><td style="vertical-align:top;">ID des Objekts welches die Position erreicht die mit MoveObject angegeben wurde <a href="MoveObject.html" title="MoveObject">MoveObject</a>.</td></tr></table></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Callbacks_DE.html" title="Edit section: OnPlayerObjectMoved">edit</a>]</div><a name="OnPlayerObjectMoved"></a><h3> <a href="OnPlayerObjectMoved.html" title="OnPlayerObjectMoved">OnPlayerObjectMoved</a> </h3>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(playerid, objectid)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID des Spielers zu dem das Object gehoert</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">objectid</td><td style="vertical-align:top;">ID des Objekts welches die Position erreicht die mit MoveObject angegeben wurde <a href="MoveObject.html" title="MoveObject">MoveObject</a>.</td></tr></table></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Callbacks_DE.html" title="Edit section: OnPlayerPickUpPickup">edit</a>]</div><a name="OnPlayerPickUpPickup"></a><h3> <a href="OnPlayerPickUpPickup.html" title="OnPlayerPickUpPickup">OnPlayerPickUpPickup</a> </h3>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(playerid, pickupid)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID des Spielers der Pickup aufgehoben hat</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">pickupid</td><td style="vertical-align:top;">ID des Pickups</td></tr></table></div>
+<p><br />
+</p><p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Callbacks_DE.html" title="Edit section: OnVehiclePaintjob">edit</a>]</div><a name="OnVehiclePaintjob"></a><h3> <a href="OnVehiclePaintjob.html" title="OnVehiclePaintjob">OnVehiclePaintjob</a> </h3>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(vehicleid, paintjobid)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">vehicleid</td><td style="vertical-align:top;">ID des Fahrzeuges welches neuen Paintjob erhalten hat</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">paintjobid</td><td style="vertical-align:top;">ID des Paintshops. (0-5)</td></tr></table></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Callbacks_DE.html" title="Edit section: OnVehicleRespray">edit</a>]</div><a name="OnVehicleRespray"></a><h3> <a href="OnVehicleRespray.html" title="OnVehicleRespray">OnVehicleRespray</a> </h3>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(vehicleid, color1, color2)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">vehicleid</td><td style="vertical-align:top;">ID des Fahrzeuges welches neu eingefaerbt wurde</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">color1</td><td style="vertical-align:top;">Primaere Farbe</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">color2</td><td style="vertical-align:top;">Sekundaere Farbe</td></tr></table></div>
+<p>Siehe <a href="http://wiki.sa-mp.com/index.php/Image:Carcolors.jpg#file" class='external text' title="http://wiki.sa-mp.com/index.php/Image:Carcolors.jpg#file" rel="nofollow">Farbtabelle</a>.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Callbacks_DE.html" title="Edit section: OnPlayerSelectedMenuRow">edit</a>]</div><a name="OnPlayerSelectedMenuRow"></a><h3> <a href="OnPlayerSelectedMenuRow.html" title="OnPlayerSelectedMenuRow">OnPlayerSelectedMenuRow</a> </h3>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(playerid, row)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID des Spielers der im Menu etwas ausgewaehlt hat</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">row</td><td style="vertical-align:top;">Die Reihe die der Spieler ausgewaehlt hat.Die erste Row(Reihe) ist 0</td></tr></table></div>
+<p><b>Notes:</b> Vorher unbedingt das Menu checken welches der Spieler zur Zeit geoeffnet hat <a href="GetPlayerMenu.html" title="GetPlayerMenu">GetPlayerMenu</a>.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Callbacks_DE.html" title="Edit section: OnPlayerExitedMenu">edit</a>]</div><a name="OnPlayerExitedMenu"></a><h3> <a href="OnPlayerExitedMenu.html" title="OnPlayerExitedMenu">OnPlayerExitedMenu</a> </h3>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(playerid)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID des Spielers der keine Reihe im Menu ausgewaehlt hat in dem er abgebrochen hat</td></tr></table></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Callbacks_DE.html" title="Edit section: OnPlayerInteriorChange">edit</a>]</div><a name="OnPlayerInteriorChange"></a><h3> <a href="OnPlayerInteriorChange.html" title="OnPlayerInteriorChange">OnPlayerInteriorChange</a> </h3>
+- <b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(playerid, newinteriorid, oldinteriorid)<br /></div>
+- <div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID des Spielers der Interior gewechselt hat [InteriorIDs</td></tr></table></div>
+- <div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">newinteriorid</td><td style="vertical-align:top;">Die ID des Interiors in der der Spieler sich jetzt befindet.</td></tr></table></div>
+- <div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">oldinteriorid</td><td style="vertical-align:top;">Die ID des Interiors in der der Spieler sich jetzt befand.</td></tr></table></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Callbacks_DE.html" title="Edit section: OnPlayerKeyStateChange">edit</a>]</div><a name="OnPlayerKeyStateChange"></a><h3> <a href="OnPlayerKeyStateChange.html" title="OnPlayerKeyStateChange">OnPlayerKeyStateChange</a> </h3>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(playerid, newkeys, oldkeys)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID des Spielers der Taste gedrueckt hat</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">newkeys</td><td style="vertical-align:top;">Die Summe der neu gedrueckten Tasten - siehe <a href="GetPlayerKeys.html#Key_List" title="GetPlayerKeys">here</a>.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">oldkeys</td><td style="vertical-align:top;">Die Summe der zuletzt gedrueckten Tasten -  siehe <a href="GetPlayerKeys.html#Key_List" title="GetPlayerKeys">here</a>.</td></tr></table></div>
+<div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/Scripting_Callbacks_DE.html">http://localhost../wiki/Scripting_Callbacks_DE.html</a>"</div>
+						<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="Scripting_Callbacks_DE.html">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="Talk_Scripting_Callbacks_DE.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="Scripting_Callbacks_DE.html">Edit</a></li>
+				 <li id="ca-history"><a href="Scripting_Callbacks_DE.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-nl"><a href="Scripting_Callbacks_NL.html">Nederlands</a></li>
+				<li class="interwiki-ru"><a href="Scripting_Callbacks_RU.html">Русский</a></li>
+				<li class="interwiki-en"><a href="Scripting_Callbacks.html">English</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 22,064 times.</li>
+				<li id="credits">This page was last modified 22:17, 17 February 2013 by SA-MP Wiki user User:. Based on work by SA-MP Wiki user(s) <a href="User_Mikep.html" title="User:Mikep">Mikep</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 34.15 secs. -->
+</body></html>

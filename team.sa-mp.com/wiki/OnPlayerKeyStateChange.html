@@ -1,0 +1,354 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="OnPlayerKeyStateChange,GetPlayerKeys,Keys,Main Page,NPC,OnPlayerUpdate,Scripting Basics,Server Plugins,Scripting Callbacks,Scripting Functions,Tutorials" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>OnPlayerKeyStateChange - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">OnPlayerKeyStateChange</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<div class="scripting" style="color: #4378A4; background-color: #FFFFFF; margin: 2px; margin-bottom: 10px;"><div align="center" style="border: 1px solid #AAAAAA; padding: 3px; padding-left: 5px;"><a href="../wiki-archive.html" title="Main Page">Main Page</a> | <a href="Category_Scripting_Functions.html" title="Category:Scripting Functions">Scripting Functions</a> | <a href="Category_Scripting_Callbacks.html" title="Category:Scripting Callbacks">Scripting Callbacks</a> | <a href="Scripting_Basics.html" title="Scripting Basics">Scripting Basics</a> | <a href="Server_Plugins.html" title="Server Plugins">Server Plugins</a> | <a href="Category_Tutorials.html" title="Category:Tutorials">Tutorials</a></div></div><br />
+<p><br />
+<b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">This callback is called when the state of any <a href="Keys.html" title="Keys">supported key</a> is changed (pressed/released). Directional keys do not trigger OnPlayerKeyStateChange (up/down/left/right).<br /></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+<p><strong>Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">This callback can also be called by <a href="NPC.html" title="NPC">NPC</a>.</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(playerid, newkeys, oldkeys)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">The ID of the player that pressed or released a key.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">newkeys</td><td style="vertical-align:top;">A map (bitmask) of the keys currently held - see <a href="Keys.html" title="Keys">here</a>.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">oldkeys</td><td style="vertical-align:top;">A map (bitmask) of the keys held prior to the current change - see <a href="Keys.html" title="Keys">here</a>.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">This callback does not handle returns.
+<ul><li> It is always called first in gamemode.<br /></div>
+</li></ul>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #E6F3FF; border-left: 10px solid #007BFF;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #007BFF;"><strong>Tip</strong><br />
+<p><a href="Image_Light_bulb_icon.png.html" class="image" title="Image:Light_bulb_icon.png"><img src="../upload/b/b0/Light_bulb_icon.png" alt="Image:Light_bulb_icon.png" width="22" height="32" longdesc="Image_Light_bulb_icon.png.html" /></a>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">Directional keys do not trigger OnPlayerKeyStateChange (up/down/left/right). They can only be detected with <a href="GetPlayerKeys.html" title="GetPlayerKeys">GetPlayerKeys</a> (in <a href="OnPlayerUpdate.html" title="OnPlayerUpdate">OnPlayerUpdate</a> or a timer).</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class='toclevel-1'><a href="#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class='toclevel-1'><a href="#Parameters"><span class="tocnumber">2</span> <span class="toctext">Parameters</span></a></li>
+<li class='toclevel-1'><a href="#How_NOT_to_check_for_a_key"><span class="tocnumber">3</span> <span class="toctext">How NOT to check for a key</span></a></li>
+<li class='toclevel-1'><a href="#How_to_check_for_a_key"><span class="tocnumber">4</span> <span class="toctext">How to check for a key</span></a></li>
+<li class='toclevel-1'><a href="#How_to_check_for_a_key_that_has_been_pressed"><span class="tocnumber">5</span> <span class="toctext">How to check for a key that has been pressed</span></a></li>
+<li class='toclevel-1'><a href="#How_to_check_for_a_key_being_released"><span class="tocnumber">6</span> <span class="toctext">How to check for a key being released</span></a></li>
+<li class='toclevel-1'><a href="#How_to_check_for_multiple_keys"><span class="tocnumber">7</span> <span class="toctext">How to check for multiple keys</span></a></li>
+<li class='toclevel-1'><a href="#Simplification"><span class="tocnumber">8</span> <span class="toctext">Simplification</span></a>
+<ul>
+<li class='toclevel-2'><a href="#Detecting_holding_a_key"><span class="tocnumber">8.1</span> <span class="toctext">Detecting holding a key</span></a></li>
+<li class='toclevel-2'><a href="#Detecting_first_pressing_a_key"><span class="tocnumber">8.2</span> <span class="toctext">Detecting first pressing a key</span></a></li>
+<li class='toclevel-2'><a href="#Detecting_if_a_player_is_pressing_a_key_currently"><span class="tocnumber">8.3</span> <span class="toctext">Detecting if a player is pressing a key currently</span></a></li>
+<li class='toclevel-2'><a href="#Detecting_releasing_a_key"><span class="tocnumber">8.4</span> <span class="toctext">Detecting releasing a key</span></a></li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#Examples"><span class="tocnumber">9</span> <span class="toctext">Examples</span></a>
+<ul>
+<li class='toclevel-2'><a href="#Attach_NOS_when_the_player_presses_fire"><span class="tocnumber">9.1</span> <span class="toctext">Attach NOS when the player presses fire</span></a></li>
+<li class='toclevel-2'><a href="#Super_jump"><span class="tocnumber">9.2</span> <span class="toctext">Super jump</span></a></li>
+<li class='toclevel-2'><a href="#God_mode_while_holding_use"><span class="tocnumber">9.3</span> <span class="toctext">God mode while holding use</span></a></li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#Explanation"><span class="tocnumber">10</span> <span class="toctext">Explanation</span></a>
+<ul>
+<li class='toclevel-2'><a href="#Related_Functions"><span class="tocnumber">10.1</span> <span class="toctext">Related Functions</span></a></li>
+</ul>
+</li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="OnPlayerKeyStateChange.html" title="Edit section: Introduction">edit</a>]</div><a name="Introduction"></a><h2> Introduction </h2>
+<p>This callback is called whenever a player presses or releases one of the supported keys (see <a href="Keys.html" title="Keys">Keys</a>). The keys which are supported are not actual keyboard keys, but San Andreas mapped function keys, this means that, for example, you can't detect when someone presses the <b>spacebar</b>, but can detect when they press their <b>sprint</b> key (which may, or may not, be assigned to the spacebar (it is by default)).
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="OnPlayerKeyStateChange.html" title="Edit section: Parameters">edit</a>]</div><a name="Parameters"></a><h2> Parameters </h2>
+<p>The parameters to this function are a list of all keys currently being held down and all the keys held down a moment ago.  The callback is called when a key state changes (that is, when a key is either pressed or released) and passes the states or all keys before and after this change.  This information can be used to see exactly what happened but the variables can not be used directly in the same way as parameters to other functions.  To reduce the number of variables only a single BIT is used to represent a key, this means that one variable may contain multiple keys at once and simply comparing values will not always work.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="OnPlayerKeyStateChange.html" title="Edit section: How NOT to check for a key">edit</a>]</div><a name="How_NOT_to_check_for_a_key"></a><h2> How NOT to check for a key </h2>
+<p>Let's presume that you want to detect when a player presses their FIRE button, the obvious code would be:
+</p>
+<pre class="pawn"><span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span>newkeys == <span style="color: #E9967A; font-weight: bold;">KEY_FIRE</span><span style="color: #66cc66;">&#41;</span></pre>
+<p>This code may even work in your testing, but it is wrong and your testing is insufficient.  Try crouching and pressing fire - your code will instantly stop working.  Why?  Because "newkeys" is no longer the same as "KEY_FIRE", it is the same as "KEY_FIRE" COMBINED WITH "KEY_CROUCH".
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="OnPlayerKeyStateChange.html" title="Edit section: How to check for a key">edit</a>]</div><a name="How_to_check_for_a_key"></a><h2> How to check for a key </h2>
+<p>So, if the variable can contain multiple keys at once, how do you check for just a single one?  The answer is bit masking.  Each key has its own bit in the variable (some keys have the same bit, but they are onfoot/incar keys, so can never be pressed at the same time anyway) and you need to check for just that single bit:
+</p>
+<pre class="pawn"><span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span>newkeys &amp; <span style="color: #E9967A; font-weight: bold;">KEY_FIRE</span><span style="color: #66cc66;">&#41;</span></pre>
+<p>Note that the single "&amp;" is correct - this is a bitwise AND, not a logical AND, which is what the two ampersands are called.
+</p><p>Now if you test this code it will work whether you are crouching or standing when you press the fire key.  However there is still one slight problem - it will fire as long as you are holding the key.  OnPlayerKeyStateChange is called every time a key changes and that code is true whenever the the fire key is held down.  If you press fire the code will fire, if that key is held and you press crouch - that code will fire again because a key (crouch) has changed and fire is still held down  How do you detect when a key is first pressed, but not trigger again when it's still held and another key changes?
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="OnPlayerKeyStateChange.html" title="Edit section: How to check for a key that has been pressed">edit</a>]</div><a name="How_to_check_for_a_key_that_has_been_pressed"></a><h2> How to check for a key that has been pressed </h2>
+<p>This is where "oldkeys" comes in.  To check if a key has just been pressed you need to first check whether it is set in "newkeys" - meaning it's held down, and then check that it's NOT in "oldkeys" - meaning it's only just been held down.  The following code does this:
+</p>
+<pre class="pawn"><span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#40;</span>newkeys &amp; <span style="color: #E9967A; font-weight: bold;">KEY_FIRE</span><span style="color: #66cc66;">&#41;</span> &amp;&amp;&nbsp;!<span style="color: #66cc66;">&#40;</span>oldkeys &amp; <span style="color: #E9967A; font-weight: bold;">KEY_FIRE</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span></pre>
+<p>That will ONLY be true when the FIRE key is first pressed, not when it's held and another key changes.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="OnPlayerKeyStateChange.html" title="Edit section: How to check for a key being released">edit</a>]</div><a name="How_to_check_for_a_key_being_released"></a><h2> How to check for a key being released </h2>
+<p>Exactly the same principle as above, but reversed:
+</p>
+<pre class="pawn"><span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#40;</span>oldkeys &amp; <span style="color: #E9967A; font-weight: bold;">KEY_FIRE</span><span style="color: #66cc66;">&#41;</span> &amp;&amp;&nbsp;!<span style="color: #66cc66;">&#40;</span>newkeys &amp; <span style="color: #E9967A; font-weight: bold;">KEY_FIRE</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="OnPlayerKeyStateChange.html" title="Edit section: How to check for multiple keys">edit</a>]</div><a name="How_to_check_for_multiple_keys"></a><h2> How to check for multiple keys </h2>
+<p>If you want to check for players HOLDING crouch and fire then the following code will work fine:
+</p>
+<pre class="pawn"><span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#40;</span>newkeys &amp; <span style="color: #E9967A; font-weight: bold;">KEY_FIRE</span><span style="color: #66cc66;">&#41;</span> &amp;&amp; <span style="color: #66cc66;">&#40;</span>newkeys &amp; <span style="color: #E9967A; font-weight: bold;">KEY_CROUCH</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span></pre>
+<p>However if you want to detect when they FIRST press fire and crouch the following code WILL NOT work.  It will work if they manage to press the two keys at exactly the same time, but if they're fractionally out (far less than half a second) it won't:
+</p>
+<pre class="pawn"><span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#40;</span>newkeys &amp; <span style="color: #E9967A; font-weight: bold;">KEY_FIRE</span><span style="color: #66cc66;">&#41;</span> &amp;&amp;&nbsp;!<span style="color: #66cc66;">&#40;</span>oldkeys &amp; <span style="color: #E9967A; font-weight: bold;">KEY_FIRE</span><span style="color: #66cc66;">&#41;</span> &amp;&amp; <span style="color: #66cc66;">&#40;</span>newkeys &amp; <span style="color: #E9967A; font-weight: bold;">KEY_CROUCH</span><span style="color: #66cc66;">&#41;</span> &amp;&amp;&nbsp;!<span style="color: #66cc66;">&#40;</span>oldkeys &amp; <span style="color: #E9967A; font-weight: bold;">KEY_CROUCH</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span></pre>
+<p>Why not?  Because OnPlayerKeyStateChange is called every time a single key changes.  So they press "KEY_FIRE" - OnPlayerKeyStateChange is called with "KEY_FIRE" in "newkeys" and not in "oldkeys", then they press "KEY_CROUCH" - OnPlayerKeyStateChange is called with "KEY_CROUCH" and "KEY_FIRE" in "newkeys", but "KEY_FIRE" is now also in "oldkeys" as it's already been pressed, so "!(oldkeys &amp; KEY_FIRE)" will fail.  Fortunately the solution is very simple (in fact simpler than the original code):
+</p>
+<pre class="pawn"><span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#40;</span>newkeys &amp; <span style="color: #66cc66;">&#40;</span><span style="color: #E9967A; font-weight: bold;">KEY_FIRE</span> | <span style="color: #E9967A; font-weight: bold;">KEY_CROUCH</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span> == <span style="color: #66cc66;">&#40;</span><span style="color: #E9967A; font-weight: bold;">KEY_FIRE</span> | <span style="color: #E9967A; font-weight: bold;">KEY_CROUCH</span><span style="color: #66cc66;">&#41;</span> &amp;&amp; <span style="color: #66cc66;">&#40;</span>oldkeys &amp; <span style="color: #66cc66;">&#40;</span><span style="color: #E9967A; font-weight: bold;">KEY_FIRE</span> | <span style="color: #E9967A; font-weight: bold;">KEY_CROUCH</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>&nbsp;!= <span style="color: #66cc66;">&#40;</span><span style="color: #E9967A; font-weight: bold;">KEY_FIRE</span> | <span style="color: #E9967A; font-weight: bold;">KEY_CROUCH</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span></pre>
+<p>This may look complicated, but it checks that both keys are set in "newkeys" and that both the keys were not set in "oldkeys", if one of them was set in "oldkeys" that doesn't matter as not both of them were.  All these things can be simplified greatly with defines.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="OnPlayerKeyStateChange.html" title="Edit section: Simplification">edit</a>]</div><a name="Simplification"></a><h2> Simplification </h2>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="OnPlayerKeyStateChange.html" title="Edit section: Detecting holding a key">edit</a>]</div><a name="Detecting_holding_a_key"></a><h3> Detecting holding a key </h3>
+<p>The define:
+</p>
+<pre class="pawn"><span style="color: #808080; font-style: italic;">// HOLDING(keys)</span>
+<span style="color: #6b8e23;">#define HOLDING(%0) \</span>
+	<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#40;</span>newkeys &amp; <span style="color: #66cc66;">&#40;</span>%<span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span> == <span style="color: #66cc66;">&#40;</span>%<span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span></pre>
+<p>Holding one key:
+</p>
+<pre class="pawn"><span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span>HOLDING<span style="color: #66cc66;">&#40;</span> <span style="color: #E9967A; font-weight: bold;">KEY_FIRE</span> <span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span></pre>
+<p>Holding multiple keys:
+</p>
+<pre class="pawn"><span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span>HOLDING<span style="color: #66cc66;">&#40;</span> <span style="color: #E9967A; font-weight: bold;">KEY_FIRE</span> | <span style="color: #E9967A; font-weight: bold;">KEY_CROUCH</span> <span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="OnPlayerKeyStateChange.html" title="Edit section: Detecting first pressing a key">edit</a>]</div><a name="Detecting_first_pressing_a_key"></a><h3> Detecting first pressing a key </h3>
+<p>The define:
+</p>
+<pre class="pawn"><span style="color: #808080; font-style: italic;">// PRESSED(keys)</span>
+<span style="color: #6b8e23;">#define PRESSED(%0) \</span>
+	<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#40;</span>newkeys &amp; <span style="color: #66cc66;">&#40;</span>%<span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span> == <span style="color: #66cc66;">&#40;</span>%<span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span> &amp;&amp; <span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#40;</span>oldkeys &amp; <span style="color: #66cc66;">&#40;</span>%<span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>&nbsp;!= <span style="color: #66cc66;">&#40;</span>%<span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span></pre>
+<p>Pressed one key:
+</p>
+<pre class="pawn"><span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span>PRESSED<span style="color: #66cc66;">&#40;</span> <span style="color: #E9967A; font-weight: bold;">KEY_FIRE</span> <span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span></pre>
+<p>Pressed multiple keys:
+</p>
+<pre class="pawn"><span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span>PRESSED<span style="color: #66cc66;">&#40;</span> <span style="color: #E9967A; font-weight: bold;">KEY_FIRE</span> | <span style="color: #E9967A; font-weight: bold;">KEY_CROUCH</span> <span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="OnPlayerKeyStateChange.html" title="Edit section: Detecting if a player is pressing a key currently">edit</a>]</div><a name="Detecting_if_a_player_is_pressing_a_key_currently"></a><h3> Detecting if a player is pressing a key currently </h3>
+<p>The define:
+</p>
+<pre class="pawn"><span style="color: #808080; font-style: italic;">// PRESSING(keyVariable, keys)</span>
+<span style="color: #6b8e23;">#define PRESSING(%0,%1) \</span>
+	<span style="color: #66cc66;">&#40;</span>%<span style="color: #4169e1;">0</span> &amp; <span style="color: #66cc66;">&#40;</span>%<span style="color: #4169e1;">1</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span></pre>
+<p>Pressing one key:
+</p>
+<pre class="pawn"><span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span>PRESSING<span style="color: #66cc66;">&#40;</span> newkeys, <span style="color: #E9967A; font-weight: bold;">KEY_FIRE</span> <span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span></pre>
+<p>Pressing multiple keys:
+</p>
+<pre class="pawn"><span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span>PRESSING<span style="color: #66cc66;">&#40;</span> newkeys, <span style="color: #E9967A; font-weight: bold;">KEY_FIRE</span> | <span style="color: #E9967A; font-weight: bold;">KEY_CROUCH</span> <span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="OnPlayerKeyStateChange.html" title="Edit section: Detecting releasing a key">edit</a>]</div><a name="Detecting_releasing_a_key"></a><h3> Detecting releasing a key </h3>
+<p>The define:
+</p>
+<pre class="pawn"><span style="color: #808080; font-style: italic;">// RELEASED(keys)</span>
+<span style="color: #6b8e23;">#define RELEASED(%0) \</span>
+	<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#40;</span>newkeys &amp; <span style="color: #66cc66;">&#40;</span>%<span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>&nbsp;!= <span style="color: #66cc66;">&#40;</span>%<span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span> &amp;&amp; <span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#40;</span>oldkeys &amp; <span style="color: #66cc66;">&#40;</span>%<span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span> == <span style="color: #66cc66;">&#40;</span>%<span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span></pre>
+<p>Released one key:
+</p>
+<pre class="pawn"><span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span>RELEASED<span style="color: #66cc66;">&#40;</span> <span style="color: #E9967A; font-weight: bold;">KEY_FIRE</span> <span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span></pre>
+<p>Released multiple keys:
+</p>
+<pre class="pawn"><span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span>RELEASED<span style="color: #66cc66;">&#40;</span> <span style="color: #E9967A; font-weight: bold;">KEY_FIRE</span> | <span style="color: #E9967A; font-weight: bold;">KEY_CROUCH</span> <span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="OnPlayerKeyStateChange.html" title="Edit section: Examples">edit</a>]</div><a name="Examples"></a><h2> Examples </h2>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="OnPlayerKeyStateChange.html" title="Edit section: Attach NOS when the player presses fire">edit</a>]</div><a name="Attach_NOS_when_the_player_presses_fire"></a><h3> Attach NOS when the player presses fire </h3>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnPlayerKeyStateChange"><span style="color: #dc143c">OnPlayerKeyStateChange</span></a><span style="color: #66cc66;">&#40;</span>playerid, newkeys, oldkeys<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span>PRESSED<span style="color: #66cc66;">&#40;</span><span style="color: #E9967A; font-weight: bold;">KEY_FIRE</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>
+	<span style="color: #66cc66;">&#123;</span>
+		<span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span><a href="http://wiki.sa-mp.com/wiki/IsPlayerInAnyVehicle"><span style="color: #006400;">IsPlayerInAnyVehicle</span></a><span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>
+		<span style="color: #66cc66;">&#123;</span>
+			AddVehicleComponent<span style="color: #66cc66;">&#40;</span><a href="http://wiki.sa-mp.com/wiki/GetPlayerVehicleID"><span style="color: #006400;">GetPlayerVehicleID</span></a><span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span>, <span style="color: #4169e1;">1010</span><span style="color: #66cc66;">&#41;</span>;
+		<span style="color: #66cc66;">&#125;</span>
+	<span style="color: #66cc66;">&#125;</span>
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="OnPlayerKeyStateChange.html" title="Edit section: Super jump">edit</a>]</div><a name="Super_jump"></a><h3> Super jump </h3>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnPlayerKeyStateChange"><span style="color: #dc143c">OnPlayerKeyStateChange</span></a><span style="color: #66cc66;">&#40;</span>playerid, newkeys, oldkeys<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span>PRESSED<span style="color: #66cc66;">&#40;</span><span style="color: #E9967A; font-weight: bold;">KEY_JUMP</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>
+	<span style="color: #66cc66;">&#123;</span>
+		<span style="color: #228b22; font-weight: bold;">new</span>
+			<span style="color: orange;">Float</span>:x,
+			<span style="color: orange;">Float</span>:y,
+			<span style="color: orange;">Float</span>:z;
+		<a href="http://wiki.sa-mp.com/wiki/GetPlayerPos"><span style="color: #006400;">GetPlayerPos</span></a><span style="color: #66cc66;">&#40;</span>playerid, x, y, z<span style="color: #66cc66;">&#41;</span>;
+		<a href="http://wiki.sa-mp.com/wiki/SetPlayerPos"><span style="color: #006400;">SetPlayerPos</span></a><span style="color: #66cc66;">&#40;</span>playerid, x, y, z + <span style="color: #4169e1;">10.0</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #66cc66;">&#125;</span>
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="OnPlayerKeyStateChange.html" title="Edit section: God mode while holding use">edit</a>]</div><a name="God_mode_while_holding_use"></a><h3> God mode while holding use </h3>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span>
+	<span style="color: orange;">Float</span>:gPlayerHealth<span style="color: #66cc66;">&#91;</span><span style="color: #E9967A; font-weight: bold;">MAX_PLAYERS</span><span style="color: #66cc66;">&#93;</span>;
+&nbsp;
+<span style="color: #6b8e23;">#if&nbsp;!defined INFINITY</span>
+	<span style="color: #6b8e23;">#define INFINITY (Float:0x7F800000)</span>
+<span style="color: #6b8e23;">#endif</span>
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnPlayerKeyStateChange"><span style="color: #dc143c">OnPlayerKeyStateChange</span></a><span style="color: #66cc66;">&#40;</span>playerid, newkeys, oldkeys<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span>PRESSED<span style="color: #66cc66;">&#40;</span><span style="color: #E9967A; font-weight: bold;">KEY_ACTION</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>
+	<span style="color: #66cc66;">&#123;</span>
+		<span style="color: #808080; font-style: italic;">// They just pressed the action key, save their</span>
+		<span style="color: #808080; font-style: italic;">// old health for restoration.</span>
+		<a href="http://wiki.sa-mp.com/wiki/GetPlayerHealth"><span style="color: #006400;">GetPlayerHealth</span></a><span style="color: #66cc66;">&#40;</span>playerid, gPlayerHealth<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>;
+		<a href="http://wiki.sa-mp.com/wiki/SetPlayerHealth"><span style="color: #006400;">SetPlayerHealth</span></a><span style="color: #66cc66;">&#40;</span>playerid, INFINITY<span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #66cc66;">&#125;</span>
+	<span style="color: #4169e1;">else</span> <span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span>RELEASED<span style="color: #66cc66;">&#40;</span><span style="color: #E9967A; font-weight: bold;">KEY_ACTION</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>
+	<span style="color: #66cc66;">&#123;</span>
+		<span style="color: #808080; font-style: italic;">// They just let go of action - restore</span>
+		<span style="color: #808080; font-style: italic;">// their old health again.</span>
+		<a href="http://wiki.sa-mp.com/wiki/SetPlayerHealth"><span style="color: #006400;">SetPlayerHealth</span></a><span style="color: #66cc66;">&#40;</span>playerid, gPlayerHealth<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #66cc66;">&#125;</span>
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="OnPlayerKeyStateChange.html" title="Edit section: Explanation">edit</a>]</div><a name="Explanation"></a><h2> Explanation </h2>
+<p>You don't need to worry about HOW it's done, just that it is.  HOLDING detects if they're pressing a key (or keys), regardless of wether they were pressing it before, PRESSED detects if they only just pressed the key(s) and RELEASED detects if they just released a key(s).  However if you want to know more - read on.
+</p><p>The reason why you need to do it this way, not just using &amp; or ==, is to detect exactly the keys you want while ignoring others which may or may not be pressed.  In binary KEY_SPRINT is:
+</p>
+<pre>0b00001000
+</pre>
+<p>and KEY_JUMP is:
+</p>
+<pre>0b00100000
+</pre>
+<p>thus ORing them into the wanted keys (we could also add them in this example but that's not always the case) gives:
+</p>
+<pre>0b00101000
+</pre>
+<p>If we were only using &amp; and OnPlayerKeyStateChange was called for a player pressing jump we would get the following code:
+</p>
+<pre>newkeys = 0b00100000
+wanted  = 0b00101000
+ANDed   = 0b00100000
+</pre>
+<p>The AND of the two numbers is not 0, thus the result of the check is true, which isn't what we want.
+</p><p>If we only used == the two numbers are clearly not the same thus the check would fail, which is what we want.
+</p><p>If the player was pressing jump, sprint and crouch we would get the following code:
+</p>
+<pre>newkeys = 0b00101010
+wanted  = 0b00101000
+ANDed   = 0b00101000
+</pre>
+<p>The ANDed version is the same as the required keys and also not 0, thus will give the correct answer, however the two original numbers are not the same so == will fail.  In both the examples one of the two has given the right answer and one has given the wrong answer.  If we compare the first one using &amp; and == we get:
+</p>
+<pre>newkeys = 0b00100000
+wanted  = 0b00101000
+ANDed   = 0b00100000
+</pre>
+<p>Obviously wanted and ANDed are not the same so the check fails, which is correct.  For the second example:
+</p>
+<pre>newkeys = 0b00101010
+wanted  = 0b00101000
+ANDed   = 0b00101000
+</pre>
+<p>Wanted and ANDed are the same so comparing them as equal will result in a true result, which again is correct.
+</p><p>So using this method we can accurately check if certain keys are pressed ignoring all other keys which may or may not be pressed.  the oldkeys check just uses&nbsp;!= instead of == to ensure that the required keys were not previously pressed, so we know one of them was just pressed.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Template_RelatedFunctionsCallback.html" title="Template:RelatedFunctionsCallback">edit</a>]</div><a name="Related_Functions"></a><h3> <b>Related Functions</b> </h3>
+<p>The following functions might be useful, as they're related to this callback in one way or another.
+</p>
+<ul><li> <a href="GetPlayerKeys.html" title="GetPlayerKeys">GetPlayerKeys</a>: Check what keys a player is holding.
+</li></ul>
+<div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/OnPlayerKeyStateChange.html">http://localhost../wiki/OnPlayerKeyStateChange.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="Category_Scripting_Callbacks.html" title="Category:Scripting Callbacks">Scripting Callbacks</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="OnPlayerKeyStateChange.html">Article</a></li>
+				 <li id="ca-talk"><a href="Talk_OnPlayerKeyStateChange.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="OnPlayerKeyStateChange.html">Edit</a></li>
+				 <li id="ca-history"><a href="OnPlayerKeyStateChange.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-es"><a href="OnPlayerKeyStateChange_ES.html">Español</a></li>
+				<li class="interwiki-fr"><a href="OnPlayerKeyStateChange_FR.html">Français</a></li>
+				<li class="interwiki-ru"><a href="OnPlayerKeyStateChange_RU.html">Русский</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 210,563 times.</li>
+				<li id="credits">This page was last modified 14:13, 30 December 2017 by SA-MP Wiki user <a href="User_OstGot.html" title="User:OstGot">OstGot</a>. Based on work by <a href="User_Kar.html" title="User:Kar">Kar</a> and SA-MP Wiki user(s) <a href="User_MP2.html" title="User:MP2">MP2</a>, <a href="User_Connor_Mead.html" title="User:Connor Mead">Connor Mead</a>, <a href="User_Xcasio.html" class="new" title="User:Xcasio">Xcasio</a>, <a href="User_Smithy.html" title="User:Smithy">Smithy</a>, <a href="User_LaZ.html" title="User:LaZ">LaZ</a>, <a href="User_Meta.html" title="User:Meta">Meta</a> and <a href="User_Badgerboy.html" title="User:Badgerboy">Badgerboy</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 32.16 secs. -->
+</body></html>

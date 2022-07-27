@@ -1,0 +1,1184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Scripting Functions (a samp.inc) RU,AddMenuItem,AddPlayerClass,AddPlayerClassEx,AddStaticPickup,AddStaticVehicle,AddStaticVehicleEx,AllowAdminTeleport,AllowInteriorWeapons,Ban,BanEx" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>Scripting Functions (a samp.inc) RU - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Scripting Functions (a samp.inc) RU</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class='toclevel-1'><a href="#.D0.9E.D1.81.D0.BD.D0.BE.D0.B2.D0.BD.D1.8B.D0.B5_.D1.84.D1.83.D0.BD.D0.BA.D1.86.D0.B8.D0.B8"><span class="tocnumber">1</span> <span class="toctext">Основные функции</span></a>
+<ul>
+<li class='toclevel-2'><a href="#AllowAdminTeleport"><span class="tocnumber">1.1</span> <span class="toctext">AllowAdminTeleport</span></a></li>
+<li class='toclevel-2'><a href="#AllowInteriorWeapons"><span class="tocnumber">1.2</span> <span class="toctext">AllowInteriorWeapons</span></a></li>
+<li class='toclevel-2'><a href="#AddPlayerClass"><span class="tocnumber">1.3</span> <span class="toctext">AddPlayerClass</span></a></li>
+<li class='toclevel-2'><a href="#AddPlayerClassEx"><span class="tocnumber">1.4</span> <span class="toctext">AddPlayerClassEx</span></a></li>
+<li class='toclevel-2'><a href="#AddStaticVehicle"><span class="tocnumber">1.5</span> <span class="toctext">AddStaticVehicle</span></a></li>
+<li class='toclevel-2'><a href="#AddStaticVehicleEx"><span class="tocnumber">1.6</span> <span class="toctext">AddStaticVehicleEx</span></a></li>
+<li class='toclevel-2'><a href="#AddStaticPickup"><span class="tocnumber">1.7</span> <span class="toctext">AddStaticPickup</span></a></li>
+<li class='toclevel-2'><a href="#Ban"><span class="tocnumber">1.8</span> <span class="toctext">Ban</span></a></li>
+<li class='toclevel-2'><a href="#BanEx"><span class="tocnumber">1.9</span> <span class="toctext">BanEx</span></a></li>
+<li class='toclevel-2'><a href="#CallLocalFunction"><span class="tocnumber">1.10</span> <span class="toctext">CallLocalFunction</span></a></li>
+<li class='toclevel-2'><a href="#CallRemoteFunction"><span class="tocnumber">1.11</span> <span class="toctext">CallRemoteFunction</span></a></li>
+<li class='toclevel-2'><a href="#CreateExplosion"><span class="tocnumber">1.12</span> <span class="toctext">CreateExplosion</span></a></li>
+<li class='toclevel-2'><a href="#CreatePickup"><span class="tocnumber">1.13</span> <span class="toctext">CreatePickup</span></a></li>
+<li class='toclevel-2'><a href="#DestroyPickup"><span class="tocnumber">1.14</span> <span class="toctext">DestroyPickup</span></a></li>
+<li class='toclevel-2'><a href="#DisableInteriorEnterExits"><span class="tocnumber">1.15</span> <span class="toctext">DisableInteriorEnterExits</span></a></li>
+<li class='toclevel-2'><a href="#DisablePlayerCheckpoint"><span class="tocnumber">1.16</span> <span class="toctext">DisablePlayerCheckpoint</span></a></li>
+<li class='toclevel-2'><a href="#EnableTirePopping"><span class="tocnumber">1.17</span> <span class="toctext">EnableTirePopping</span></a></li>
+<li class='toclevel-2'><a href="#EnableZoneNames"><span class="tocnumber">1.18</span> <span class="toctext">EnableZoneNames</span></a></li>
+<li class='toclevel-2'><a href="#GameModeExit"><span class="tocnumber">1.19</span> <span class="toctext">GameModeExit</span></a></li>
+<li class='toclevel-2'><a href="#GameTextForAll"><span class="tocnumber">1.20</span> <span class="toctext">GameTextForAll</span></a></li>
+<li class='toclevel-2'><a href="#GameTextForPlayer"><span class="tocnumber">1.21</span> <span class="toctext">GameTextForPlayer</span></a></li>
+<li class='toclevel-2'><a href="#GetMaxPlayers"><span class="tocnumber">1.22</span> <span class="toctext">GetMaxPlayers</span></a></li>
+<li class='toclevel-2'><a href="#GetServerVarAsBool"><span class="tocnumber">1.23</span> <span class="toctext">GetServerVarAsBool</span></a></li>
+<li class='toclevel-2'><a href="#GetServerVarAsInt"><span class="tocnumber">1.24</span> <span class="toctext">GetServerVarAsInt</span></a></li>
+<li class='toclevel-2'><a href="#GetServerVarAsString"><span class="tocnumber">1.25</span> <span class="toctext">GetServerVarAsString</span></a></li>
+<li class='toclevel-2'><a href="#GetTickCount"><span class="tocnumber">1.26</span> <span class="toctext">GetTickCount</span></a></li>
+<li class='toclevel-2'><a href="#GetWeaponName"><span class="tocnumber">1.27</span> <span class="toctext">GetWeaponName</span></a></li>
+<li class='toclevel-2'><a href="#GivePlayerMoney"><span class="tocnumber">1.28</span> <span class="toctext">GivePlayerMoney</span></a></li>
+<li class='toclevel-2'><a href="#GivePlayerWeapon"><span class="tocnumber">1.29</span> <span class="toctext">GivePlayerWeapon</span></a></li>
+<li class='toclevel-2'><a href="#Kick"><span class="tocnumber">1.30</span> <span class="toctext">Kick</span></a></li>
+<li class='toclevel-2'><a href="#KillTimer"><span class="tocnumber">1.31</span> <span class="toctext">KillTimer</span></a></li>
+<li class='toclevel-2'><a href="#LimitGlobalChatRadius"><span class="tocnumber">1.32</span> <span class="toctext">LimitGlobalChatRadius</span></a></li>
+<li class='toclevel-2'><a href="#PlayerPlaySound"><span class="tocnumber">1.33</span> <span class="toctext">PlayerPlaySound</span></a></li>
+<li class='toclevel-2'><a href="#SendClientMessage"><span class="tocnumber">1.34</span> <span class="toctext">SendClientMessage</span></a></li>
+<li class='toclevel-2'><a href="#SendClientMessageToAll"><span class="tocnumber">1.35</span> <span class="toctext">SendClientMessageToAll</span></a></li>
+<li class='toclevel-2'><a href="#SendRconCommand"><span class="tocnumber">1.36</span> <span class="toctext">SendRconCommand</span></a></li>
+<li class='toclevel-2'><a href="#SetDeathDropAmount"><span class="tocnumber">1.37</span> <span class="toctext">SetDeathDropAmount</span></a></li>
+<li class='toclevel-2'><a href="#SendDeathMessage"><span class="tocnumber">1.38</span> <span class="toctext">SendDeathMessage</span></a></li>
+<li class='toclevel-2'><a href="#SetDisabledWeapons"><span class="tocnumber">1.39</span> <span class="toctext">SetDisabledWeapons</span></a></li>
+<li class='toclevel-2'><a href="#SendPlayerMessageToAll"><span class="tocnumber">1.40</span> <span class="toctext">SendPlayerMessageToAll</span></a></li>
+<li class='toclevel-2'><a href="#SendPlayerMessageToPlayer"><span class="tocnumber">1.41</span> <span class="toctext">SendPlayerMessageToPlayer</span></a></li>
+<li class='toclevel-2'><a href="#SetGameModeText"><span class="tocnumber">1.42</span> <span class="toctext">SetGameModeText</span></a></li>
+<li class='toclevel-2'><a href="#SetNameTagDrawDistance"><span class="tocnumber">1.43</span> <span class="toctext">SetNameTagDrawDistance</span></a></li>
+<li class='toclevel-2'><a href="#SetSpawnInfo"><span class="tocnumber">1.44</span> <span class="toctext">SetSpawnInfo</span></a></li>
+<li class='toclevel-2'><a href="#SetTeamCount"><span class="tocnumber">1.45</span> <span class="toctext">SetTeamCount</span></a></li>
+<li class='toclevel-2'><a href="#SetTimer"><span class="tocnumber">1.46</span> <span class="toctext">SetTimer</span></a></li>
+<li class='toclevel-2'><a href="#SetTimerEx"><span class="tocnumber">1.47</span> <span class="toctext">SetTimerEx</span></a></li>
+<li class='toclevel-2'><a href="#SetWorldTime"><span class="tocnumber">1.48</span> <span class="toctext">SetWorldTime</span></a></li>
+<li class='toclevel-2'><a href="#SetWeather"><span class="tocnumber">1.49</span> <span class="toctext">SetWeather</span></a></li>
+<li class='toclevel-2'><a href="#SetGravity"><span class="tocnumber">1.50</span> <span class="toctext">SetGravity</span></a></li>
+<li class='toclevel-2'><a href="#ShowNameTags"><span class="tocnumber">1.51</span> <span class="toctext">ShowNameTags</span></a></li>
+<li class='toclevel-2'><a href="#ShowPlayerMarkers"><span class="tocnumber">1.52</span> <span class="toctext">ShowPlayerMarkers</span></a></li>
+<li class='toclevel-2'><a href="#UsePlayerPedAnims"><span class="tocnumber">1.53</span> <span class="toctext">UsePlayerPedAnims</span></a></li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#.D0.A4.D1.83.D0.BD.D0.BA.D1.86.D0.B8.D0.B8_.D0.B4.D0.BB.D1.8F_.D1.80.D0.B0.D0.B1.D0.BE.D1.82.D1.8B_.D1.81_.D0.BC.D0.B5.D0.BD.D1.8E"><span class="tocnumber">2</span> <span class="toctext">Функции для работы с меню</span></a>
+<ul>
+<li class='toclevel-2'><a href="#CreateMenu"><span class="tocnumber">2.1</span> <span class="toctext">CreateMenu</span></a></li>
+<li class='toclevel-2'><a href="#DestroyMenu"><span class="tocnumber">2.2</span> <span class="toctext">DestroyMenu</span></a></li>
+<li class='toclevel-2'><a href="#AddMenuItem"><span class="tocnumber">2.3</span> <span class="toctext">AddMenuItem</span></a></li>
+<li class='toclevel-2'><a href="#SetMenuColumnHeader"><span class="tocnumber">2.4</span> <span class="toctext">SetMenuColumnHeader</span></a></li>
+<li class='toclevel-2'><a href="#ShowMenuForPlayer"><span class="tocnumber">2.5</span> <span class="toctext">ShowMenuForPlayer</span></a></li>
+<li class='toclevel-2'><a href="#HideMenuForPlayer"><span class="tocnumber">2.6</span> <span class="toctext">HideMenuForPlayer</span></a></li>
+<li class='toclevel-2'><a href="#IsValidMenu"><span class="tocnumber">2.7</span> <span class="toctext">IsValidMenu</span></a></li>
+<li class='toclevel-2'><a href="#DisableMenu"><span class="tocnumber">2.8</span> <span class="toctext">DisableMenu</span></a></li>
+<li class='toclevel-2'><a href="#DisableMenuRow"><span class="tocnumber">2.9</span> <span class="toctext">DisableMenuRow</span></a></li>
+<li class='toclevel-2'><a href="#GetPlayerMenu"><span class="tocnumber">2.10</span> <span class="toctext">GetPlayerMenu</span></a></li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#.D0.A4.D1.83.D0.BD.D0.BA.D1.86.D0.B8.D0.B8_.D0.B4.D0.BB.D1.8F_.D1.80.D0.B0.D0.B1.D0.BE.D1.82.D1.8B_.D1.81_Text_Draw"><span class="tocnumber">3</span> <span class="toctext">Функции для работы с Text Draw</span></a>
+<ul>
+<li class='toclevel-2'><a href="#TextDrawCreate"><span class="tocnumber">3.1</span> <span class="toctext">TextDrawCreate</span></a></li>
+<li class='toclevel-2'><a href="#TextDrawDestroy"><span class="tocnumber">3.2</span> <span class="toctext">TextDrawDestroy</span></a></li>
+<li class='toclevel-2'><a href="#TextDrawLetterSize"><span class="tocnumber">3.3</span> <span class="toctext">TextDrawLetterSize</span></a></li>
+<li class='toclevel-2'><a href="#TextDrawTextSize"><span class="tocnumber">3.4</span> <span class="toctext">TextDrawTextSize</span></a></li>
+<li class='toclevel-2'><a href="#TextDrawAlignment"><span class="tocnumber">3.5</span> <span class="toctext">TextDrawAlignment</span></a></li>
+<li class='toclevel-2'><a href="#TextDrawColor"><span class="tocnumber">3.6</span> <span class="toctext">TextDrawColor</span></a></li>
+<li class='toclevel-2'><a href="#TextDrawUseBox"><span class="tocnumber">3.7</span> <span class="toctext">TextDrawUseBox</span></a></li>
+<li class='toclevel-2'><a href="#TextDrawBoxColor"><span class="tocnumber">3.8</span> <span class="toctext">TextDrawBoxColor</span></a></li>
+<li class='toclevel-2'><a href="#TextDrawSetShadow"><span class="tocnumber">3.9</span> <span class="toctext">TextDrawSetShadow</span></a></li>
+<li class='toclevel-2'><a href="#TextDrawSetOutline"><span class="tocnumber">3.10</span> <span class="toctext">TextDrawSetOutline</span></a></li>
+<li class='toclevel-2'><a href="#TextDrawBackgroundColor"><span class="tocnumber">3.11</span> <span class="toctext">TextDrawBackgroundColor</span></a></li>
+<li class='toclevel-2'><a href="#TextDrawFont"><span class="tocnumber">3.12</span> <span class="toctext">TextDrawFont</span></a></li>
+<li class='toclevel-2'><a href="#TextDrawSetProportional"><span class="tocnumber">3.13</span> <span class="toctext">TextDrawSetProportional</span></a></li>
+<li class='toclevel-2'><a href="#TextDrawShowForPlayer"><span class="tocnumber">3.14</span> <span class="toctext">TextDrawShowForPlayer</span></a></li>
+<li class='toclevel-2'><a href="#TextDrawHideForPlayer"><span class="tocnumber">3.15</span> <span class="toctext">TextDrawHideForPlayer</span></a></li>
+<li class='toclevel-2'><a href="#TextDrawShowForAll"><span class="tocnumber">3.16</span> <span class="toctext">TextDrawShowForAll</span></a></li>
+<li class='toclevel-2'><a href="#TextDrawHideForAll"><span class="tocnumber">3.17</span> <span class="toctext">TextDrawHideForAll</span></a></li>
+<li class='toclevel-2'><a href="#TextDrawSetString"><span class="tocnumber">3.18</span> <span class="toctext">TextDrawSetString</span></a></li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#.D0.A4.D1.83.D0.BD.D0.BA.D1.86.D0.B8.D0.B8_.D0.B4.D0.BB.D1.8F_.D1.80.D0.B0.D0.B1.D0.BE.D1.82.D1.8B_.D1.81_.D0.B7.D0.BE.D0.BD.D0.B0.D0.BC.D0.B8_.D0.B1.D0.B0.D0.BD.D0.B4"><span class="tocnumber">4</span> <span class="toctext">Функции для работы с зонами банд</span></a>
+<ul>
+<li class='toclevel-2'><a href="#GangZoneCreate"><span class="tocnumber">4.1</span> <span class="toctext">GangZoneCreate</span></a></li>
+<li class='toclevel-2'><a href="#GangZoneDestroy"><span class="tocnumber">4.2</span> <span class="toctext">GangZoneDestroy</span></a></li>
+<li class='toclevel-2'><a href="#GangZoneShowForPlayer"><span class="tocnumber">4.3</span> <span class="toctext">GangZoneShowForPlayer</span></a></li>
+<li class='toclevel-2'><a href="#GangZoneShowForAll"><span class="tocnumber">4.4</span> <span class="toctext">GangZoneShowForAll</span></a></li>
+<li class='toclevel-2'><a href="#GangZoneHideForPlayer"><span class="tocnumber">4.5</span> <span class="toctext">GangZoneHideForPlayer</span></a></li>
+<li class='toclevel-2'><a href="#GangZoneHideForAll"><span class="tocnumber">4.6</span> <span class="toctext">GangZoneHideForAll</span></a></li>
+<li class='toclevel-2'><a href="#GangZoneFlashForPlayer"><span class="tocnumber">4.7</span> <span class="toctext">GangZoneFlashForPlayer</span></a></li>
+<li class='toclevel-2'><a href="#GangZoneFlashForAll"><span class="tocnumber">4.8</span> <span class="toctext">GangZoneFlashForAll</span></a></li>
+<li class='toclevel-2'><a href="#GangZoneStopFlashForPlayer"><span class="tocnumber">4.9</span> <span class="toctext">GangZoneStopFlashForPlayer</span></a></li>
+<li class='toclevel-2'><a href="#GangZoneStopFlashForAll"><span class="tocnumber">4.10</span> <span class="toctext">GangZoneStopFlashForAll</span></a></li>
+</ul>
+</li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: Основные функции">edit</a>]</div><a name=".D0.9E.D1.81.D0.BD.D0.BE.D0.B2.D0.BD.D1.8B.D0.B5_.D1.84.D1.83.D0.BD.D0.BA.D1.86.D0.B8.D0.B8"></a><h1> Основные функции </h1>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: AllowAdminTeleport">edit</a>]</div><a name="AllowAdminTeleport"></a><h2><a href="AllowAdminTeleport.html" title="AllowAdminTeleport">AllowAdminTeleport</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Включения/выключения возможность админам телепортироваться в любую точку мира отметкой на карте. По умолчанию возможность отключена.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">allow</td><td style="vertical-align:top;"><b>1</b> - включить, <b>0</b> - выключить.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">AllowAdminTeleport(1);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: AllowInteriorWeapons">edit</a>]</div><a name="AllowInteriorWeapons"></a><h2> <a href="AllowInteriorWeapons.html" title="AllowInteriorWeapons">AllowInteriorWeapons</a> </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Включения/выключения возможности использовать оружие в интериорах. По умолчанию возможность отключена.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">allow</td><td style="vertical-align:top;"><b>1</b> - включить, <b>0</b> - выключить.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">AllowInteriorWeapons(1);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: AddPlayerClass">edit</a>]</div><a name="AddPlayerClass"></a><h2><a href="AddPlayerClass.html" title="AddPlayerClass">AddPlayerClass</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;"> Эта функция добавляет новый класс в режим игры. Эта функция должна вызываться толкьо из вызываемой функции OnGameModeInit, в другом месте она не будет работать.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">modelid</td><td style="vertical-align:top;"><a href="Peds.html" class="new" title="Peds">ID модели</a> для скина игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:spawn_x</td><td style="vertical-align:top;">X-координата для стартовой позиции игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:spawn_y</td><td style="vertical-align:top;">Y-координата для стартовой позиции игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:spawn_z</td><td style="vertical-align:top;">Z-координата для стартовой позиции игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:z_angle</td><td style="vertical-align:top;">Угол поворота игрока после размещения в стартовой позиции.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">weapon1</td><td style="vertical-align:top;"><a href="Weapons.html" title="Weapons">ID оружия</a> для первого оружия игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">weapon1_ammo</td><td style="vertical-align:top;">Размер аммуниции для первого оружия игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">weapon2</td><td style="vertical-align:top;"><a href="Weapons.html" title="Weapons">ID оружия</a> для второго оружия игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">weapon2_ammo</td><td style="vertical-align:top;">Размер аммуниции для второго оружия игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">weapon3</td><td style="vertical-align:top;"><a href="Weapons.html" title="Weapons">ID оружия</a> для третьего оружия игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">weapon3_ammo</td><td style="vertical-align:top;">Размер аммуниции для третьего оружия игрока.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">AddPlayerClass(121, 2016.5950, 1545.0306, 10.8308, 90.5, 26, 250, 28, 250, 0, 0);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: AddPlayerClassEx">edit</a>]</div><a name="AddPlayerClassEx"></a><h2><a href="AddPlayerClassEx.html" title="AddPlayerClassEx">AddPlayerClassEx</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Эта функция добавляет новый класс, так же как и AddPlayerClass, но еще предоставляет возможность выбрать игроку команду перед его размещением в стартовой позиции.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">teamid</td><td style="vertical-align:top;">ID команды, в которую войдет игрок.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">modelid</td><td style="vertical-align:top;"><a href="Peds.html" class="new" title="Peds">ID модели</a> для скина игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:spawn_x</td><td style="vertical-align:top;">X-координата для стартовой позиции игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:spawn_y</td><td style="vertical-align:top;">Y-координата для стартовой позиции игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:spawn_z</td><td style="vertical-align:top;">Z-координата для стартовой позиции игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:z_angle</td><td style="vertical-align:top;">Угол поворота игрока после размещения в стартовой позиции.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">weapon1</td><td style="vertical-align:top;"><a href="Weapons.html" title="Weapons">ID оружия</a> для первого оружия игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">weapon1_ammo</td><td style="vertical-align:top;">Размер аммуниции для первого оружия игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">weapon2</td><td style="vertical-align:top;"><a href="Weapons.html" title="Weapons">ID оружия</a> для второго оружия игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">weapon2_ammo</td><td style="vertical-align:top;">Размер аммуниции для второго оружия игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">weapon3</td><td style="vertical-align:top;"><a href="Weapons.html" title="Weapons">ID оружия</a> для третьего оружия игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">weapon3_ammo</td><td style="vertical-align:top;">Размер аммуниции для третьего оружия игрока.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">AddPlayerClass(1, 121, 2016.5950, 1545.0306, 10.8308, 90.5, 26, 250, 28, 250, 0, 0);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: AddStaticVehicle">edit</a>]</div><a name="AddStaticVehicle"></a><h2><a href="AddStaticVehicle.html" title="AddStaticVehicle">AddStaticVehicle</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">AddStaticVehicle размещает транспорт в Вашем режиме игры. Функция должна вызываться из вызываемой функции OnGameModeInit для правильной работы, пока не будет готова новая транспортная система в SA-MP 0.2.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">modelid</td><td style="vertical-align:top;"><a href="Vehicle_Model_ID_List.html" title="Vehicle Model ID List">ID модели</a> траспорта для добавления.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:spawn_x</td><td style="vertical-align:top;">X-координата для добавляемого транспорта.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:spawn_y</td><td style="vertical-align:top;">Y-координата для добавляемого транспорта.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:spawn_z</td><td style="vertical-align:top;">Z-координата для добавляемого транспорта.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:z_angle</td><td style="vertical-align:top;">Угол поворота для создаваемного транспорта.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">color1</td><td style="vertical-align:top;">Первичный (primary) цвет транспорта.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">color2</td><td style="vertical-align:top;">Вторичный (secondary) цвет транспорта.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">AddStaticVehicle(520, 2503.34, 2345.34, -322.43, 311.43, 0, 0);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: AddStaticVehicleEx">edit</a>]</div><a name="AddStaticVehicleEx"></a><h2><a href="AddStaticVehicleEx.html" title="AddStaticVehicleEx">AddStaticVehicleEx</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">AddStaticVehicle размещает транспорт в Вашем режиме игры. Эта функция в точности такая же как и AddStaticVehicle, за исключением того, что она принимает параметр respawn_delay.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">modelid</td><td style="vertical-align:top;"><a href="Vehicle_Model_ID_List.html" title="Vehicle Model ID List">ID модели</a> траспорта для добавления.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:spawn_x</td><td style="vertical-align:top;">X-координата для добавляемого транспорта.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:spawn_y</td><td style="vertical-align:top;">Y-координата для добавляемого транспорта.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:spawn_z</td><td style="vertical-align:top;">Z-координата для добавляемого транспорта.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:z_angle</td><td style="vertical-align:top;">Угол поворота для создаваемного транспорта.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">color1</td><td style="vertical-align:top;">Первичный (primary) цвет транспорта.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">color2</td><td style="vertical-align:top;">Вторичный (secondary) цвет транспорта.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">respawn_delay</td><td style="vertical-align:top;">Задержка перед переразмещением транспорта в стартовой позиции.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">AddStaticVehicleEx(520, 2503.34, 2345.34, -322.43, 311.43, 0, 0, 600);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: AddStaticPickup">edit</a>]</div><a name="AddStaticPickup"></a><h2><a href="AddStaticPickup.html" title="AddStaticPickup">AddStaticPickup</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Эта функция добавляет вещь, которую можно подобрать: здоровье, броня, оружие (Используйте ID МОДЕЛИ оружия, а НЕ ID оружия!) и объекты.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">model</td><td style="vertical-align:top;"><a href="Game_Object_ID_List.html" title="Game Object ID List">ID модели</a> для подбираемой вещи.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">type</td><td style="vertical-align:top;"><a href="Function_AddStaticPickup.html#Pickup_Type" title="Function:AddStaticPickup">Тип</a> размещаемой вещи.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:X</td><td style="vertical-align:top;">X-координата для позиции вещи.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:Y</td><td style="vertical-align:top;">Y-координата для позиции вещи.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:Z</td><td style="vertical-align:top;">Z-координата для позиции вещи.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">AddStaticPickup(371, 15, 1710.3359, 1614.3585, 10.1191);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: Ban">edit</a>]</div><a name="Ban"></a><h2><a href="Ban.html" title="Ban">Ban</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Банит игрока на Вашем сервере. Игрок будет забанен на основе IP-адреса, та же поступает rcon-команда "ban".<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока, которого Вы хотите забанить.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">Ban(0);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: BanEx">edit</a>]</div><a name="BanEx"></a><h2><a href="BanEx.html" title="BanEx">BanEx</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Банит игрока на Вашем сервере и записывает причину бана в файл samp.ban. Игрок будет забанен на основе IP-адреса.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока, которого Вы хотите забанить.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">reason</td><td style="vertical-align:top;">Причина бана.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">Ban(0,"читы");</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: CallLocalFunction">edit</a>]</div><a name="CallLocalFunction"></a><h2> <a href="CallLocalFunction.html" title="CallLocalFunction">CallLocalFunction</a> </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Позволяет вызвать любую функцию из данного гейммода/фильтрскрипта.)<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const function[]</td><td style="vertical-align:top;">Имя функции.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const format[]</td><td style="vertical-align:top;">Строка для форматирования параметров.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">{Float,_}:...</td><td style="vertical-align:top;">Параметры.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">CallLocalFunction("IsPlayerOnBike", "i", playerid);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: CallRemoteFunction">edit</a>]</div><a name="CallRemoteFunction"></a><h2> <a href="CallRemoteFunction.html" title="CallRemoteFunction">CallRemoteFunction</a> </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Позволяет вызвать любую функцию из любого запущенного гейммода/фильтрскрипта.)<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const function[]</td><td style="vertical-align:top;">Имя функции.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const format[]</td><td style="vertical-align:top;">Строка для форматирования параметров.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">{Float,_}:...</td><td style="vertical-align:top;">Параметры.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">CallRemoteFunction("IsPlayerOnBike", "i", playerid);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: CreateExplosion">edit</a>]</div><a name="CreateExplosion"></a><h2> <a href="CreateExplosion.html" title="CreateExplosion">CreateExplosion</a> </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Создает взрыв.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:X</td><td style="vertical-align:top;">Координата места взрыва X.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:Y</td><td style="vertical-align:top;">Координата места взрыва Y.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:Z</td><td style="vertical-align:top;">Координата места взрыва Z.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">type</td><td style="vertical-align:top;">Тип взрыва.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:Radius</td><td style="vertical-align:top;">Радиус действия.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">CreateExplosion(1270.0, 1458.7, 211.0, 1, 3.0);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: CreatePickup">edit</a>]</div><a name="CreatePickup"></a><h2> <a href="CreatePickup.html" title="CreatePickup">CreatePickup</a> </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Добавляет динамичексий пик-ап (вещь, которую можно подобрать: здоровье, броня, оружие (Используйте ID МОДЕЛИ оружия, а НЕ ID оружия!) и объекты.)<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">model</td><td style="vertical-align:top;"><a href="Game_Object_ID_List.html" title="Game Object ID List">ID модели</a> пик-апа.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">type</td><td style="vertical-align:top;"><a href="Function_AddStaticPickup.html#Pickup_Type" title="Function:AddStaticPickup">Тип</a> пик-апа.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:X</td><td style="vertical-align:top;">X-координата для позиции пик-апа.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:Y</td><td style="vertical-align:top;">Y-координата для позиции пик-апа.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:Z</td><td style="vertical-align:top;">Z-координата для позиции пик-апа.</td></tr></table></div>
+<p><b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">ID данного пик-апа<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new pickupid = CreatePickup(371, 15, 1710.3359, 1614.3585, 10.1191);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: DestroyPickup">edit</a>]</div><a name="DestroyPickup"></a><h2> <a href="DestroyPickup.html" title="DestroyPickup">DestroyPickup</a> </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Убирает с карты (уничтожает) пик-ап с заданным ID.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">pickup</td><td style="vertical-align:top;">ID пик-апа, который нужно убрать.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">DestroyPickup(pickupid);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: DisableInteriorEnterExits">edit</a>]</div><a name="DisableInteriorEnterExits"></a><h2><a href="DisableInteriorEnterExits.html" title="DisableInteriorEnterExits">DisableInteriorEnterExits</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Отключает все входы/выходы в/из интериоров (желтые маркеры).)<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">DisableInteriorEnterExits();</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: DisablePlayerCheckpoint">edit</a>]</div><a name="DisablePlayerCheckpoint"></a><h2><a href="DisablePlayerCheckpoint.html" title="DisablePlayerCheckpoint">DisablePlayerCheckpoint</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Отключить инициализированнные контрольные точки для игрока, в одно и тоже время игор может иметь тольку одну контрольную точку.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока, для которого отключить текущую конотрольную точку.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">DisablePlayerCheckpoint(playerid);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: EnableTirePopping">edit</a>]</div><a name="EnableTirePopping"></a><h2> <a href="EnableTirePopping.html" title="EnableTirePopping">EnableTirePopping</a> </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Включение/выключение возможности пробивания шин колес автомобилей. По умолчанию возможность включена.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">enable</td><td style="vertical-align:top;"><b>1</b> - включить, <b>0</b> - выключить.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">EnableTirePopping(1);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: EnableZoneNames">edit</a>]</div><a name="EnableZoneNames"></a><h2> <a href="EnableZoneNames.html" title="EnableZoneNames">EnableZoneNames</a> </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Включения/выключения отображения названий зон карты. По умолчанию отключено.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">enable</td><td style="vertical-align:top;"><b>1</b> - включить, <b>0</b> - выключить.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">EnableZoneNames(1);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: GameModeExit">edit</a>]</div><a name="GameModeExit"></a><h2><a href="GameModeExit.html" title="GameModeExit">GameModeExit</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Эта функция завершает текущий режим игры, и либо перезапускает его, либо запускает следующий режим, согласно Вашей конфигурации в server.cfg.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">GameModeExit();</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: GameTextForAll">edit</a>]</div><a name="GameTextForAll"></a><h2><a href="GameTextForAll.html" title="GameTextForAll">GameTextForAll</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Эта функция отображает большой текст поврех экрана у каждого игрока. Она может использоваться для разных целей.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const string[]</td><td style="vertical-align:top;">Текст для отображения.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">time</td><td style="vertical-align:top;">Время, в течение которого будет показан текст, в миллисекундах.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">style</td><td style="vertical-align:top;"><a href="GameTextStyle.html" title="GameTextStyle">Стиль</a> отображаемого текста.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">GameTextForAll("This is an example gametext!", 5000, 3);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: GameTextForPlayer">edit</a>]</div><a name="GameTextForPlayer"></a><h2><a href="GameTextForPlayer.html" title="GameTextForPlayer">GameTextForPlayer</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Эта функция делает то же самое, что и GameTextForAll(), но с тем различием, что она отображает текст только для одного игрока.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока, у которого отобразится текст.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const string[]</td><td style="vertical-align:top;">Текст для отображения.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">time</td><td style="vertical-align:top;">Время, в течение которого будет показан текст, в миллисекундах.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">style</td><td style="vertical-align:top;"><a href="GameTextStyle.html" title="GameTextStyle">Стиль</a> отображаемого текста.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">GameTextForPlayer(playerid, "Hi, welcome on my server!", 5000, 3);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: GetMaxPlayers">edit</a>]</div><a name="GetMaxPlayers"></a><h2><a href="GetMaxPlayers.html" title="GetMaxPlayers">GetMaxPlayers</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Получает максимальное число игроков, которое может играть на Вашем сервере. Вы <b>не можете</b> использовать предопределенное MAX_PLAYERS вместо этой функции, так как оно всегда по умолчанию уставновлено в 200.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<p><b>Возвращаемые значения:</b><br />
+</p>
+<div style="padding-left:35px;">Максимальное число игроков.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new maxplayers &#61; GetMaxPlayers();</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: GetServerVarAsBool">edit</a>]</div><a name="GetServerVarAsBool"></a><h2> <a href="GetServerVarAsBool.html" title="GetServerVarAsBool">GetServerVarAsBool</a> </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Узнает содержание серверной переменной в булевом формате.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const varname[]</td><td style="vertical-align:top;">Имя серверной перменной, которую нужно узнать.</td></tr></table></div>
+<p><b>Возвращаемые значения:</b><br />
+</p>
+<div style="padding-left:35px;"><b>1</b> - если пременная включена, <b>0</b> - если выключена.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new anticheatenabled = GetServerVarAsBool("anticheat");</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: GetServerVarAsInt">edit</a>]</div><a name="GetServerVarAsInt"></a><h2> <a href="GetServerVarAsInt.html" title="GetServerVarAsInt">GetServerVarAsInt</a> </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Узнает содержание серверной переменной в числовом формате.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const varname[]</td><td style="vertical-align:top;">Имя серверной перменной, которую нужно узнать.</td></tr></table></div>
+<p><b>Возвращаемые значения:</b><br />
+</p>
+<div style="padding-left:35px;">Значение данной серверной перменной.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new port = GetServerVarAsInt("port");</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: GetServerVarAsString">edit</a>]</div><a name="GetServerVarAsString"></a><h2> <a href="GetServerVarAsString.html" title="GetServerVarAsString">GetServerVarAsString</a> </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Узнает содержание серверной переменной в формате строки.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const varname[]</td><td style="vertical-align:top;">Имя серверной перменной, которую нужно узнать.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">buffer[]</td><td style="vertical-align:top;">Переменная, в которую будет записано значение.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">len</td><td style="vertical-align:top;">Длина этой переменной.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">GetServerVarAsString("plugins", buffer, sizeof(buffer));</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: GetTickCount">edit</a>]</div><a name="GetTickCount"></a><h2><a href="GetTickCount.html" title="GetTickCount">GetTickCount</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Получает число процессорных тиков со времени последнего перезапуска сервера. Эта функция работает только в Windows!<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<p><b>Возвращаемые значения:</b><br />
+</p>
+<div style="padding-left:35px;">Число процессорных тиков со времени последнего перезапуска сервера.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new Ticks &#61; GetTickCount();</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: GetWeaponName">edit</a>]</div><a name="GetWeaponName"></a><h2><a href="GetWeaponName.html" title="GetWeaponName">GetWeaponName</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Эта функция может использоваться для получения имени оружия.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">weaponid</td><td style="vertical-align:top;"><a href="Weapons.html" title="Weapons">ID оружия</a>, имя которого вы хотите знать.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const weapon[]</td><td style="vertical-align:top;">Переданная по ссылке переменная, в которую записывается имя оружия</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">len</td><td style="vertical-align:top;">Число ячеек/длина переменной.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">GetWeaponName(26, weaponName, 64);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: GivePlayerMoney">edit</a>]</div><a name="GivePlayerMoney"></a><h2><a href="GivePlayerMoney.html" title="GivePlayerMoney">GivePlayerMoney</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Эта функция позволяет Вам либо дать, либо отнять у игрока деньги. Если игроку дать отрицательное число денег, то количество его денег уменьшиться.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">money</td><td style="vertical-align:top;">Число денег, которые вы хотите дать/отнять.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">GivePlayerMoney(playerid, 10000);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: GivePlayerWeapon">edit</a>]</div><a name="GivePlayerWeapon"></a><h2><a href="GivePlayerWeapon.html" title="GivePlayerWeapon">GivePlayerWeapon</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Дает игроку указанное оружие, вы можете указать, какое оружие и сколько аммуниции должен получить игрок.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">weaponid</td><td style="vertical-align:top;"><a href="Weapons.html" title="Weapons">ID оружия</a>, даваемого игроку.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">ammo</td><td style="vertical-align:top;">Количестов аммуниции, даваемое игроку вместе с оружием.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">GivePlayerWeapon(playerid, 26, 250);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: Kick">edit</a>]</div><a name="Kick"></a><h2><a href="Kick.html" title="Kick">Kick</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Используйте эту команду, чтобы кикнуть игрока с Вашего сервера. Аналог rcon-команды kick.<br /></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #FFEAEA; border-left: 10px solid #FCA9A9;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #FCA9A9;"><a href="Image_32px-Circle-style-warning.png.html" class="image" title="Image:32px-Circle-style-warning.png"><img src="../upload/5/57/32px-Circle-style-warning.png" alt="Image:32px-Circle-style-warning.png" width="32" height="32" longdesc="Image_32px-Circle-style-warning.png.html" /></a><br />
+<p><strong>Важное<br />Примечание</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">Известны случаи, когда игрок оставался подключенным к серверу после выполнения этой функции, рекомендуется использовать rcon-команду kick.</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">Kick(playerid);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: KillTimer">edit</a>]</div><a name="KillTimer"></a><h2> <a href="KillTimer.html" title="KillTimer">KillTimer</a> </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Останавливает (деактивирует) таймер с заданным ID.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">timerid</td><td style="vertical-align:top;">ID таймера, который нужно остановить.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">KillTimer(timerid);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: LimitGlobalChatRadius">edit</a>]</div><a name="LimitGlobalChatRadius"></a><h2> <a href="LimitGlobalChatRadius.html" title="LimitGlobalChatRadius">LimitGlobalChatRadius</a> </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Включить ограничение радиуса чата. Только игроки на определенном расстоянии от игрока будут видеть его сообщения в чате.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:chat_radius</td><td style="vertical-align:top;">Величина радиуса чата.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">LimitGlobalChatRadius(1000.0);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: PlayerPlaySound">edit</a>]</div><a name="PlayerPlaySound"></a><h2><a href="PlayerPlaySound.html" title="PlayerPlaySound">PlayerPlaySound</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Эта функция воспроизводит звук для игрока. Звуки могут быть добавлены для некоторых замечательных эффектов, но доступно лишь несколько звуков, потому тчо вы не можете загрузить никакие экстра-звуки.<br /></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #FFEAEA; border-left: 10px solid #FCA9A9;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #FCA9A9;"><a href="Image_32px-Circle-style-warning.png.html" class="image" title="Image:32px-Circle-style-warning.png"><img src="../upload/5/57/32px-Circle-style-warning.png" alt="Image:32px-Circle-style-warning.png" width="32" height="32" longdesc="Image_32px-Circle-style-warning.png.html" /></a><br />
+<p><strong>Важное<br />Примечание</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">x/y/z-координаты, видимо, не оказывают большого влияния на звук.</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">soundid</td><td style="vertical-align:top;"><a href="SoundID.html" title="SoundID">ID звука</a>.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:x</td><td style="vertical-align:top;">X-координата места, где надо проиграть звук.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:y</td><td style="vertical-align:top;">Y-координата места, где надо проиграть звук.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:z</td><td style="vertical-align:top;">Z-координата места, где надо проиграть звук.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">PlayerPlaySound(playerid, 1025, 0.0, 0.0, 0.0);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: SendClientMessage">edit</a>]</div><a name="SendClientMessage"></a><h2><a href="SendClientMessage.html" title="SendClientMessage">SendClientMessage</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">SendClientMessage может быть использована для отправки сообщения прямо игроку в окно чата. Чтобы отправить сообщение всем подключенным пользователям, смотрите <a href="#SendClientMessageToAll" title="">SendClientMessageToAll</a><br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">color</td><td style="vertical-align:top;">Значение цвета, которым будет написано сообщение у игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const message[]</td><td style="vertical-align:top;">Сообщение, которое Вы хотите отправить.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">SendClientMessage(playerid, 0xFFFF00AA, "This is a yellow example text!");</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: SendClientMessageToAll">edit</a>]</div><a name="SendClientMessageToAll"></a><h2><a href="SendClientMessageToAll.html" title="SendClientMessageToAll">SendClientMessageToAll</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Эта функция делает то же самое, что и SendClientMessage, но с той лишь разницей, что сообщение отправляется всем подключенным к серверу пользователям.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">color</td><td style="vertical-align:top;">Значение цвета, которым будет написано сообщение у игроков.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const message[]</td><td style="vertical-align:top;">Сообщение, которое Вы хотите отправить.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">SendClientMessageToAll(0xFFFF00AA, "This is a yellow example text to everyone!");</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: SendRconCommand">edit</a>]</div><a name="SendRconCommand"></a><h2> <a href="SendRconCommand.html" title="SendRconCommand">SendRconCommand</a> </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Посылает rcon команду серверу.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">command[]</td><td style="vertical-align:top;">Команда,которую надо послать.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">SendRconCommand("unbanip 127.0.0.1");</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: SetDeathDropAmount">edit</a>]</div><a name="SetDeathDropAmount"></a><h2> <a href="SetDeathDropAmount.html" title="SetDeathDropAmount">SetDeathDropAmount</a> </h2>
+<p>Включает функцию выбрасывания оружия после смерти игрока
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #FFAAA4; border-left: 10px solid #cd5c5c;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #cd5c5c;"><a href="Image_32px-Circle-style-warning.png.html" class="image" title="Image:32px-Circle-style-warning.png"><img src="../upload/5/57/32px-Circle-style-warning.png" alt="Image:32px-Circle-style-warning.png" width="32" height="32" longdesc="Image_32px-Circle-style-warning.png.html" /></a><br />
+<p><strong>Предупреждение!</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">Эта функция не работает в текущей версии SA:MP!</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: SendDeathMessage">edit</a>]</div><a name="SendDeathMessage"></a><h2><a href="SendDeathMessage.html" title="SendDeathMessage">SendDeathMessage</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Отправляет сообщение о смерти на сервер, которое отобразится в правой части экрана у игрока, под HUD'ом.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">killer</td><td style="vertical-align:top;">ID игрока, который убил кого-либо.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">killed</td><td style="vertical-align:top;">ID игрока, которого убили.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">weapon</td><td style="vertical-align:top;"><a href="DeathReasons.html" title="DeathReasons">Причина</a> смерти игрока.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">SendDeathMessage(killerid, playerid, reason);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: SetDisabledWeapons">edit</a>]</div><a name="SetDisabledWeapons"></a><h2> <a href="SetDisabledWeapons.html" title="SetDisabledWeapons">SetDisabledWeapons</a> </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Десинхронизирует определенное оружие в игре (им можно пользоваться, но нельзя повредить других игроков.)<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">...</td><td style="vertical-align:top;">Любое число параметров - ID оружий, которые нужно десинхронизировать.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">SetDisabledWeapons(32,36,37);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: SendPlayerMessageToAll">edit</a>]</div><a name="SendPlayerMessageToAll"></a><h2><a href="SendPlayerMessageToAll.html" title="SendPlayerMessageToAll">SendPlayerMessageToAll</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Посылает в чат сообщение от имени какого-либо игрока.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">senderid</td><td style="vertical-align:top;">ID игрока, от имени которого будет отправлено сообщение.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const message[]</td><td style="vertical-align:top;">Сообщение.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">SendPlayerMessageToAll(senderid, " То, что вы читаете я не писал!"));</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: SendPlayerMessageToPlayer">edit</a>]</div><a name="SendPlayerMessageToPlayer"></a><h2><a href="SendPlayerMessageToPlayer.html" title="SendPlayerMessageToPlayer">SendPlayerMessageToPlayer</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Посылает в чат игроку сообщение от имени какого-либо игрока.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">senderid</td><td style="vertical-align:top;">ID игрока, которому будет отправлено сообщение.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">senderid</td><td style="vertical-align:top;">ID игрока, от имени которого будет отправлено сообщение.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const message[]</td><td style="vertical-align:top;">Сообщение.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">SendPlayerMessageToPlayer(playerid, senderid, " То, что ты читаешь я не писал!"));</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: SetGameModeText">edit</a>]</div><a name="SetGameModeText"></a><h2><a href="SetGameModeText.html" title="SetGameModeText">SetGameModeText</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Устанавилвает имя режима игры, который отображается в списке серверов.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const string[]</td><td style="vertical-align:top;">Имя режима игры.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">SetGameModeText("Las Venturas Team Death Match");</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: SetNameTagDrawDistance">edit</a>]</div><a name="SetNameTagDrawDistance"></a><h2><a href="SetNameTagDrawDistance.html" title="SetNameTagDrawDistance">SetNameTagDrawDistance</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Устанавливает расстояния отображения имен игроков.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:distance</td><td style="vertical-align:top;">Расстояние.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">SetNameTagDrawDistance(20.0);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: SetSpawnInfo">edit</a>]</div><a name="SetSpawnInfo"></a><h2><a href="SetSpawnInfo.html" title="SetSpawnInfo">SetSpawnInfo</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Изменяет информацию по размещению указанного игрока, вместо всего класса.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">teamid</td><td style="vertical-align:top;">ID команды, членом которой станет игрок.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">modelid</td><td style="vertical-align:top;"><a href="Peds.html" class="new" title="Peds">ID модели</a> для скина игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:spawn_x</td><td style="vertical-align:top;">X-координата стартовой позиции игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:spawn_y</td><td style="vertical-align:top;">Y-координата стартовой позиции игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:spawn_z</td><td style="vertical-align:top;">Z-координата стартовой позиции игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:z_angle</td><td style="vertical-align:top;">Угол поворота игрока после его размещения в стартовой позиции.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">weapon1</td><td style="vertical-align:top;"><a href="Weapons.html" title="Weapons">ID оружия</a> для первого оружия игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">weapon1_ammo</td><td style="vertical-align:top;">Размер аммуниции для первого оружия игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">weapon2</td><td style="vertical-align:top;"><a href="Weapons.html" title="Weapons">ID оружия</a> для второго оружия игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">weapon2_ammo</td><td style="vertical-align:top;">Размер аммуниции для второго оружия игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">weapon3</td><td style="vertical-align:top;"><a href="Weapons.html" title="Weapons">ID оружия</a> для третьего оружия игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">weapon3_ammo</td><td style="vertical-align:top;">Размер аммуниции для третьего оружия игрока.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">SetSpawnInfo(playerid, 1, 121, 2016.5950, 1545.0306, 10.8308, 90.5, 26, 250, 28, 250, 0, 0);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: SetTeamCount">edit</a>]</div><a name="SetTeamCount"></a><h2><a href="SetTeamCount.html" title="SetTeamCount">SetTeamCount</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Устанавливает максимальное число команд в игре.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">count</td><td style="vertical-align:top;">Максимальное число команд.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">SetTeamCount(5);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: SetTimer">edit</a>]</div><a name="SetTimer"></a><h2> <a href="SetTimer.html" title="SetTimer">SetTimer</a> </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Устанавливает таймер на выполнение какой-либо функции.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">funcname[]</td><td style="vertical-align:top;">Название public-функции, которая будет вызываться таймером.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">interval</td><td style="vertical-align:top;">Время (в миллисекундах.)</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">repeating</td><td style="vertical-align:top;">Определяет, будет ли функция повторяться или нет, <b>1</b> - да, <b>0</b> - нет</td></tr></table></div>
+<p><b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">ID данного таймера.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new counttimer = SetTimer("CountDown",1000,1);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: SetTimerEx">edit</a>]</div><a name="SetTimerEx"></a><h2> <a href="SetTimerEx.html" title="SetTimerEx">SetTimerEx</a> </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Устанавливает таймер на выполнение какой-либо функции с параметрами.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">funcname[]</td><td style="vertical-align:top;">Название public-функции, которая будет вызываться таймером.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">interval</td><td style="vertical-align:top;">Время (в миллисекундах)</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">repeating</td><td style="vertical-align:top;">Определяет, будет ли функция повторяться или нет, <b>1</b> - да, <b>0</b> - нет</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const format[]</td><td style="vertical-align:top;">Строка для формата параметров</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">{Float,_}:...</td><td style="vertical-align:top;">Параметры (любого типа)</td></tr></table></div>
+<p><b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">ID данного таймера.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new timer = SetTimer("PutPlayer",1000,0,"df",playerid,500.0);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: SetWorldTime">edit</a>]</div><a name="SetWorldTime"></a><h2><a href="SetWorldTime.html" title="SetWorldTime">SetWorldTime</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Изменяет текущее время в игровом мире. Параметр hour - это текущий час в 24-часовом формате.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">hour</td><td style="vertical-align:top;">Устанавливаемый час в игре.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">SetWorldTime(12);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: SetWeather">edit</a>]</div><a name="SetWeather"></a><h2> <a href="SetWeather.html" title="SetWeather">SetWeather</a> </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Установить погоду в мире<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">weatherid</td><td style="vertical-align:top;">ID погоды, которую нужно установить.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">SetWeather(14);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: SetGravity">edit</a>]</div><a name="SetGravity"></a><h2> <a href="SetGravity.html" title="SetGravity">SetGravity</a> </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Установить гравитацию в мире<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:gravity</td><td style="vertical-align:top;">Величина гравитации (нормальная гравитация - 0.008).</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">SetGravity(0.006);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: ShowNameTags">edit</a>]</div><a name="ShowNameTags"></a><h2><a href="ShowNameTags.html" title="ShowNameTags">ShowNameTags</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Используйте эту функцию для включения/выключения подсвечивания над игроками их имен. Полезна, если вы хотите создать скрытный режим игры. По умолчанию стоит именно такой режим.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">show</td><td style="vertical-align:top;"><b>1</b> - показывать, <b>0</b> - скрывать подсвечивание имен.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">ShowNameTags(0);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: ShowPlayerMarkers">edit</a>]</div><a name="ShowPlayerMarkers"></a><h2><a href="ShowPlayerMarkers.html" title="ShowPlayerMarkers">ShowPlayerMarkers</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Эта функция может быть использована для включения/выключения на карте маркеров для игроков.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">show</td><td style="vertical-align:top;"><b>1</b> - показывать маркеры, <b>0</b> - скрывать маркеры.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">ShowPlayerMarkers(0);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: UsePlayerPedAnims">edit</a>]</div><a name="UsePlayerPedAnims"></a><h2><a href="UsePlayerPedAnims.html" title="UsePlayerPedAnims">UsePlayerPedAnims</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Включает использование стандартной анимации игрока (анимация СиДжея).)<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">UsePlayerPedAnims();</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: Функции для работы с меню">edit</a>]</div><a name=".D0.A4.D1.83.D0.BD.D0.BA.D1.86.D0.B8.D0.B8_.D0.B4.D0.BB.D1.8F_.D1.80.D0.B0.D0.B1.D0.BE.D1.82.D1.8B_.D1.81_.D0.BC.D0.B5.D0.BD.D1.8E"></a><h1> Функции для работы с меню </h1>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: CreateMenu">edit</a>]</div><a name="CreateMenu"></a><h2> <a href="CreateMenu.html" title="CreateMenu">CreateMenu</a> </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Создает меню в памяти сервера.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: DestroyMenu">edit</a>]</div><a name="DestroyMenu"></a><h2><a href="DestroyMenu.html" title="DestroyMenu">DestroyMenu</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Стирает созданное меню из памяти сервера.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Menu:menuid</td><td style="vertical-align:top;">ID меню, которое нужно стереть.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">DestroyMenu(menuid);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: AddMenuItem">edit</a>]</div><a name="AddMenuItem"></a><h2> <a href="AddMenuItem.html" title="AddMenuItem">AddMenuItem</a> </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Добавляет новый пункт в меню.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Menu:menuid</td><td style="vertical-align:top;">ID меню, в которое нужно добавить пункт.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">column</td><td style="vertical-align:top;">Номер колонки меню, в который нужно добавить пункт.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const menutext[]</td><td style="vertical-align:top;">Содержание пункта меню.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">AddMenuItem(adminmenuid, 1, "Weapon");</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: SetMenuColumnHeader">edit</a>]</div><a name="SetMenuColumnHeader"></a><h2> SetMenuColumnHeader </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Устанавливает заголовок колонки меню.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Menu:menuid</td><td style="vertical-align:top;">ID меню.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">column</td><td style="vertical-align:top;">Номер колонки меню (колонки нумеруются с 0, возможно создать только две колонки).</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const menutext[]</td><td style="vertical-align:top;">Заголовок колонки.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">SetMenuColumnHeader(adminmenuid, 0, "Weapons:");</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: ShowMenuForPlayer">edit</a>]</div><a name="ShowMenuForPlayer"></a><h2> ShowMenuForPlayer </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Показывет созданное меню игроку.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Menu:menuid</td><td style="vertical-align:top;">ID меню, которое нужно показать игроку.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока, которому нужно показать меню.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">ShowMenuForPlayer(adminmenuid, playerid);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: HideMenuForPlayer">edit</a>]</div><a name="HideMenuForPlayer"></a><h2> HideMenuForPlayer </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Скрывает показанное игроку меню.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Menu:menuid</td><td style="vertical-align:top;">ID меню, которое нужно скрыть.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока, от которого нужно скрыть меню.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">HideMenuForPlayer(adminmenuid, playerid);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: IsValidMenu">edit</a>]</div><a name="IsValidMenu"></a><h2> IsValidMenu </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Порверяет, создано ли меню с данным ID.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Menu:menuid</td><td style="vertical-align:top;">ID меню, которое нужно проверить.</td></tr></table></div>
+<p><b>Возвращаемые значения:</b><br />
+</p>
+<div style="padding-left:35px;"><b>1</b>, если меню существует, <b>0</b> - если нет.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">IsValidMenu(adminmenu);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: DisableMenu">edit</a>]</div><a name="DisableMenu"></a><h2> DisableMenu </h2>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: DisableMenuRow">edit</a>]</div><a name="DisableMenuRow"></a><h2> DisableMenuRow </h2>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: GetPlayerMenu">edit</a>]</div><a name="GetPlayerMenu"></a><h2> GetPlayerMenu </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Узнает, какое меню сейчас показано игроку данным ID.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока, меню которого нужно узнать.</td></tr></table></div>
+<p><b>Возвращаемые значения:</b><br />
+</p>
+<div style="padding-left:35px;">ID меню, которое сейчас показано игроку, переменная типа Menu.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new Menu:adminmenu &#61; GetPlayerMenu(playerid);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: Функции для работы с Text Draw">edit</a>]</div><a name=".D0.A4.D1.83.D0.BD.D0.BA.D1.86.D0.B8.D0.B8_.D0.B4.D0.BB.D1.8F_.D1.80.D0.B0.D0.B1.D0.BE.D1.82.D1.8B_.D1.81_Text_Draw"></a><h1> Функции для работы с Text Draw </h1>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: TextDrawCreate">edit</a>]</div><a name="TextDrawCreate"></a><h2> <a href="TextDrawCreate.html" title="TextDrawCreate">TextDrawCreate</a> </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Создать новый Text Draw в памяти сервера.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:x</td><td style="vertical-align:top;">Координата x позиции на экране, где будет показан Text Draw. По умолчанию считается, что разрешение экрана 640x480, для другого разрешения текст растягивается пропорционально.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:y</td><td style="vertical-align:top;">Координата y позиции на экране, где будет показан Text Draw.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">text[]</td><td style="vertical-align:top;">Текст сообщения.</td></tr></table></div>
+<p><b>Возвращаемые значения:</b><br />
+</p>
+<div style="padding-left:35px;">ID Text Draw, которое идентифицирует этот текст, переменная типа Text.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new Text:Welcome &#61; TextDrawCreate(320.0, 260.0, "Welcome to my server!");</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: TextDrawDestroy">edit</a>]</div><a name="TextDrawDestroy"></a><h2> <a href="TextDrawDestroy.html" title="TextDrawDestroy">TextDrawDestroy</a> </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Стирает (уничтожает) из памяти сервера Text Draw с данным ID.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Text:text</td><td style="vertical-align:top;">ID Text Draw, который нужно стереть.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">TextDrawDestroy(Welcome);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: TextDrawLetterSize">edit</a>]</div><a name="TextDrawLetterSize"></a><h2> <a href="TextDrawLetterSize.html" title="TextDrawLetterSize">TextDrawLetterSize</a> </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Устанавливает ширину и высоту букв.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Text:text</td><td style="vertical-align:top;">ID Text Draw.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:x</td><td style="vertical-align:top;">Ширина букв в пикселях.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:y</td><td style="vertical-align:top;">Высота букв в пикселях.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">TextDrawLetterSize(Welcome, 20.0, 30.0);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: TextDrawTextSize">edit</a>]</div><a name="TextDrawTextSize"></a><h2> <a href="TextDrawTextSize.html" title="TextDrawTextSize">TextDrawTextSize</a> </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Устанавливает ширину и высоту рамки (при использовании рамки).<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Text:text</td><td style="vertical-align:top;">ID Text Draw.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:x</td><td style="vertical-align:top;">Ширина рамки в пикселях.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:y</td><td style="vertical-align:top;">Высота рамки в пикселях.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">TextDrawTextSize(Welcome, 20.0, 30.0);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: TextDrawAlignment">edit</a>]</div><a name="TextDrawAlignment"></a><h2> <a href="TextDrawAlignment.html" title="TextDrawAlignment">TextDrawAlignment</a> </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Устанавливает смещение текста в Text Draw.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Text:text</td><td style="vertical-align:top;">ID Text Draw.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">alignment</td><td style="vertical-align:top;">ID смещения: <b>0</b> или <b>1</b> - влево, <b>2</b> - центр, <b>3</b> - вправо.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">TextDrawAlignment(Welcome, 2);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: TextDrawColor">edit</a>]</div><a name="TextDrawColor"></a><h2> <a href="TextDrawColor.html" title="TextDrawColor">TextDrawColor</a> </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Устанавливает цвет текста.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Text:text</td><td style="vertical-align:top;">ID Text Draw.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">color</td><td style="vertical-align:top;">Цвет текста.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">TextDrawColor(Welcome, COLOR_GREEN);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: TextDrawUseBox">edit</a>]</div><a name="TextDrawUseBox"></a><h2> <a href="TextDrawUseBox.html" title="TextDrawUseBox">TextDrawUseBox</a> </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Определяет использование рамки.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Text:text</td><td style="vertical-align:top;">ID Text Draw.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">use</td><td style="vertical-align:top;"><b>1</b> - использовать, <b>0</b> - не использовать.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">TextDrawUseBox(Welcome, 1);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: TextDrawBoxColor">edit</a>]</div><a name="TextDrawBoxColor"></a><h2> <a href="TextDrawBoxColor.html" title="TextDrawBoxColor">TextDrawBoxColor</a> </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Устанавливает цвет рамки.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Text:text</td><td style="vertical-align:top;">ID Text Draw.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">color</td><td style="vertical-align:top;">Цвет рамки.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">TextDrawBoxColor(Welcome, COLOR_YELLOW);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: TextDrawSetShadow">edit</a>]</div><a name="TextDrawSetShadow"></a><h2> <a href="TextDrawSetShadow.html" title="TextDrawSetShadow">TextDrawSetShadow</a> </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Устанавливает размер тени текста.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Text:text</td><td style="vertical-align:top;">ID Text Draw.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">size</td><td style="vertical-align:top;">Размер тени.</td></tr></table></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: TextDrawSetOutline">edit</a>]</div><a name="TextDrawSetOutline"></a><h2> <a href="TextDrawSetOutline.html" title="TextDrawSetOutline">TextDrawSetOutline</a> </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Устанавливает размер обводки текста.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Text:text</td><td style="vertical-align:top;">ID Text Draw.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">size</td><td style="vertical-align:top;">Толщина обводки.</td></tr></table></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: TextDrawBackgroundColor">edit</a>]</div><a name="TextDrawBackgroundColor"></a><h2> <a href="TextDrawBackgroundColor.html" title="TextDrawBackgroundColor">TextDrawBackgroundColor</a> </h2>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Text:text</td><td style="vertical-align:top;">ID Text Draw.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">color</td><td style="vertical-align:top;">Цвет.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">TextDrawBackgroundColor(Welcome, COLOR_BLUE);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: TextDrawFont">edit</a>]</div><a name="TextDrawFont"></a><h2> <a href="TextDrawFont.html" title="TextDrawFont">TextDrawFont</a> </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Изменяет шрифт текста.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Text:text</td><td style="vertical-align:top;">ID Text Draw.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">font</td><td style="vertical-align:top;">ID <a href="http://img115.imageshack.us/img115/5092/clipboard01vu9.png" class='external text' title="http://img115.imageshack.us/img115/5092/clipboard01vu9.png" rel="nofollow">шрифта</a>.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">TextDrawFont(Welcome, 1);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: TextDrawSetProportional">edit</a>]</div><a name="TextDrawSetProportional"></a><h2> <a href="TextDrawSetProportional.html" title="TextDrawSetProportional">TextDrawSetProportional</a> </h2>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: TextDrawShowForPlayer">edit</a>]</div><a name="TextDrawShowForPlayer"></a><h2> <a href="TextDrawShowForPlayer.html" title="TextDrawShowForPlayer">TextDrawShowForPlayer</a> </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Показывает Text Draw с данным ID игроку с данным ID.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Text:text</td><td style="vertical-align:top;">ID Text Draw, который нужно показать.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока, которому нужно показать Text Draw.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">TextDrawShowForPlayer(playerid, Welcome);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: TextDrawHideForPlayer">edit</a>]</div><a name="TextDrawHideForPlayer"></a><h2> <a href="TextDrawHideForPlayer.html" title="TextDrawHideForPlayer">TextDrawHideForPlayer</a> </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Скрывает Text Draw с данным ID от игрока с данным ID.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Text:text</td><td style="vertical-align:top;">ID Text Draw, который нужно скрыть.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока, от которого нужно скрыть Text Draw.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">TextDrawHideForPlayer(playerid, Welcome);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: TextDrawShowForAll">edit</a>]</div><a name="TextDrawShowForAll"></a><h2> <a href="TextDrawShowForAll.html" title="TextDrawShowForAll">TextDrawShowForAll</a> </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Показывает Text Draw с данным ID всем игрокам на сервере.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Text:text</td><td style="vertical-align:top;">ID Text Draw, который нужно показать.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">TextDrawShowForAll(Welcome);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: TextDrawHideForAll">edit</a>]</div><a name="TextDrawHideForAll"></a><h2> <a href="TextDrawHideForAll.html" title="TextDrawHideForAll">TextDrawHideForAll</a> </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Скрывает Text Draw с данным ID от всех игроков на сервере.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Text:text</td><td style="vertical-align:top;">ID Text Draw, который нужно скрыть.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">TextDrawHideForAll(Welcome);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: TextDrawSetString">edit</a>]</div><a name="TextDrawSetString"></a><h2> <a href="TextDrawSetString.html" title="TextDrawSetString">TextDrawSetString</a> </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Изменяет содержимое текста.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Text:text</td><td style="vertical-align:top;">ID Text Draw.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">string[]</td><td style="vertical-align:top;">Новый текст.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">TextDrawSetString(Welcome, "Goodbye!");</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: Функции для работы с зонами банд">edit</a>]</div><a name=".D0.A4.D1.83.D0.BD.D0.BA.D1.86.D0.B8.D0.B8_.D0.B4.D0.BB.D1.8F_.D1.80.D0.B0.D0.B1.D0.BE.D1.82.D1.8B_.D1.81_.D0.B7.D0.BE.D0.BD.D0.B0.D0.BC.D0.B8_.D0.B1.D0.B0.D0.BD.D0.B4"></a><h1> Функции для работы с зонами банд </h1>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: GangZoneCreate">edit</a>]</div><a name="GangZoneCreate"></a><h2> GangZoneCreate </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Создать новую зону в памяти сервера.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:minx</td><td style="vertical-align:top;">Координата нижней границы зоны по оси x.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:miny</td><td style="vertical-align:top;">Координата нижней границы зоны по оси y.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:maxx</td><td style="vertical-align:top;">Координата верхней границы зоны по оси x.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:maxy</td><td style="vertical-align:top;">Координата верхней границы зоны по оси y.</td></tr></table></div>
+<p><b>Возвращаемые значения:</b><br />
+</p>
+<div style="padding-left:35px;">ID данной зоны.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new grovestreet &#61; GangZoneCreate(1980.0, 280.0, 2110.0, 480.0);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: GangZoneDestroy">edit</a>]</div><a name="GangZoneDestroy"></a><h2> GangZoneDestroy </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Стереть созданную зону из памяти сервера.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">zone</td><td style="vertical-align:top;">ID зоны, которую нужно стереть.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">GangZoneDestroy(grovestreet);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: GangZoneShowForPlayer">edit</a>]</div><a name="GangZoneShowForPlayer"></a><h2> GangZoneShowForPlayer </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Показать зону для игрока.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">zone</td><td style="vertical-align:top;">ID зоны.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">color</td><td style="vertical-align:top;">Цвет.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">GangZoneShowForPlayer(playerid, grovestreet, 0xAAFFDDAA);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: GangZoneShowForAll">edit</a>]</div><a name="GangZoneShowForAll"></a><h2> GangZoneShowForAll </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Показать зону для всех игроков.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">zone</td><td style="vertical-align:top;">ID зоны.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">color</td><td style="vertical-align:top;">Цвет.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">GangZoneShowForAll(grovestreet, 0xAAFFDDAA);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: GangZoneHideForPlayer">edit</a>]</div><a name="GangZoneHideForPlayer"></a><h2> GangZoneHideForPlayer </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Убрать отображение зоны для игрока.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">zone</td><td style="vertical-align:top;">ID зоны.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">GangZoneHideForPlayer(playerid, grovestreet);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: GangZoneHideForAll">edit</a>]</div><a name="GangZoneHideForAll"></a><h2> GangZoneHideForAll </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Убрать отображение зоны для всех игроков.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">zone</td><td style="vertical-align:top;">ID зоны.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">color</td><td style="vertical-align:top;">Цвет.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">GangZoneHideForAll(grovestreet);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: GangZoneFlashForPlayer">edit</a>]</div><a name="GangZoneFlashForPlayer"></a><h2> GangZoneFlashForPlayer </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Показать зону мигающей для игрока.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">zone</td><td style="vertical-align:top;">ID зоны.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">flashcolor</td><td style="vertical-align:top;">Цвет мигания.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">GangZoneFlashForPlayer(playerid, grovestreet, 0xAAFFDDAA);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: GangZoneFlashForAll">edit</a>]</div><a name="GangZoneFlashForAll"></a><h2> GangZoneFlashForAll </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Показать зону мигающей для всех игроков.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">zone</td><td style="vertical-align:top;">ID зоны.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">flashcolor</td><td style="vertical-align:top;">Цвет мигания.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">GangZoneFlashForAll(grovestreet, 0xAAFFDDAA);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: GangZoneStopFlashForPlayer">edit</a>]</div><a name="GangZoneStopFlashForPlayer"></a><h2> GangZoneStopFlashForPlayer </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Остановить мигание зоны для игрока.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID игрока.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">zone</td><td style="vertical-align:top;">ID зоны.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">GangZoneStopFlashForPlayer(playerid, grovestreet);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html" title="Edit section: GangZoneStopFlashForAll">edit</a>]</div><a name="GangZoneStopFlashForAll"></a><h2> GangZoneStopFlashForAll </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Остановить мигание зоны для всех игроков.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">zone</td><td style="vertical-align:top;">ID зоны.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">GangZoneStopFlashForAll(grovestreet);</span><br /></div>
+<div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/Scripting_Functions_%2528a_samp.inc%2529_RU.html">http://localhost../wiki/Scripting_Functions_%2528a_samp.inc%2529_RU.html</a>"</div>
+						<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="Talk_Scripting_Functions_%2528a_samp.inc%2529_RU.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html">Edit</a></li>
+				 <li id="ca-history"><a href="Scripting_Functions_%2528a_samp.inc%2529_RU.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 25,425 times.</li>
+				<li id="credits">This page was last modified 17:12, 19 August 2015 by SA-MP Wiki user <a href="User_OstGot.html" title="User:OstGot">OstGot</a>. Based on work by SA-MP Wiki user(s) <a href="User_MP2.html" title="User:MP2">MP2</a> and <a href="User_Dugi.html" title="User:Dugi">Dugi</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 6.08 secs. -->
+</body></html>

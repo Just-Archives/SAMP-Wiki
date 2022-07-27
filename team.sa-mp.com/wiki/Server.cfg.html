@@ -1,0 +1,684 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Server.cfg,Remote Console,SetGameModeText,SetGravity,SetWeather,SetWorldTime" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>Server.cfg - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Server.cfg</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<div class="thumb tright"><div style="width:182px;"><a href="Image_SA-MP_Wiki_Windows_3.png.html" class="internal" title="A Working Server!"><img src="../upload/thumb/0/02/SA-MP_Wiki_Windows_3.png/180px-SA-MP_Wiki_Windows_3.png" alt="A Working Server!" width="180" height="96" longdesc="Image_SA-MP_Wiki_Windows_3.png.html" /></a>  <div class="thumbcaption" ><div class="magnify" style="float:right"><a href="Image_SA-MP_Wiki_Windows_3.png.html" class="internal" title="Enlarge"><img src="../skins/common/images/magnify-clip.png" width="15" height="11" alt="Enlarge" /></a></div>A Working Server!</div></div></div>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;"><i>server.cfg</i> is a server configuration file which allows you to change all kinds of settings of your sa-mp server.<br />This file is necessary for every server and has to be located in the server directory next to the server application (<i>samp-server.exe</i>).<br /></div>
+<p><br />
+</p>
+<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class='toclevel-1'><a href="#Console"><span class="tocnumber">1</span> <span class="toctext">Console</span></a></li>
+<li class='toclevel-1'><a href="#Scripts"><span class="tocnumber">2</span> <span class="toctext">Scripts</span></a></li>
+<li class='toclevel-1'><a href="#Server_browser"><span class="tocnumber">3</span> <span class="toctext">Server browser</span></a></li>
+<li class='toclevel-1'><a href="#Networking"><span class="tocnumber">4</span> <span class="toctext">Networking</span></a></li>
+<li class='toclevel-1'><a href="#Logging"><span class="tocnumber">5</span> <span class="toctext">Logging</span></a></li>
+<li class='toclevel-1'><a href="#Client"><span class="tocnumber">6</span> <span class="toctext">Client</span></a></li>
+<li class='toclevel-1'><a href="#NPCs"><span class="tocnumber">7</span> <span class="toctext">NPCs</span></a></li>
+<li class='toclevel-1'><a href="#Lag_compensation"><span class="tocnumber">8</span> <span class="toctext">Lag compensation</span></a></li>
+<li class='toclevel-1'><a href="#Custom_models"><span class="tocnumber">9</span> <span class="toctext">Custom models</span></a></li>
+<li class='toclevel-1'><a href="#Others"><span class="tocnumber">10</span> <span class="toctext">Others</span></a></li>
+<li class='toclevel-1'><a href="#Notes"><span class="tocnumber">11</span> <span class="toctext">Notes</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Server.cfg.html" title="Edit section: Console">edit</a>]</div><a name="Console"></a><h2>Console</h2>
+<table class="wikitable" style="width:100%;">
+
+<tr>
+<th style="white-space: nowrap;"> Setting
+</th><th style="white-space: nowrap;"> Type
+</th><th style="white-space: nowrap;"> Default value
+</th><th style="white-space: nowrap;"> Read-only
+</th><th style="white-space: nowrap;"> Rule
+</th><th> Effect
+</th></tr>
+<tr>
+<td style="white-space: nowrap;"> echo
+</td><td style="white-space: nowrap;"> string
+</td><td style="white-space: nowrap;"> Executing Server Config...
+</td><td style="white-space: nowrap; background-color: #2eb82e;"> Yes
+</td><td style="white-space: nowrap; background-color: #b82e2e;"> No
+</td><td> What <i>samp-server.exe</i> prints in the server console when executing <i>server.cfg</i>. There is no need to change this at all as you'll be the only one who sees the console.
+</td></tr>
+<tr>
+<td> rcon_password
+</td><td> string
+</td><td> changeme
+</td><td style="background-color: #b82e2e;"> No
+</td><td style="background-color: #b82e2e;"> No
+</td><td> The password used to administrate the server and use the remote console (rcon). You must make sure to change this to something hard to crack so that others cannot take control of your server. Your server will NOT start if <b>changeme</b> is the RCON password!
+</td></tr>
+<tr>
+<td> rcon
+</td><td> bool
+</td><td> 1
+</td><td style="background-color: #b82e2e;"> No
+</td><td style="background-color: #b82e2e;"> No
+</td><td> Toggles if the <a href="Remote_Console.html" title="Remote Console">Remote Console</a> feature should be used. Set to <b>1</b> to enable or <b>0</b> to disable.
+</td></tr></table>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Server.cfg.html" title="Edit section: Scripts">edit</a>]</div><a name="Scripts"></a><h2>Scripts</h2>
+<table class="wikitable" style="width:100%;">
+
+<tr>
+<th style="white-space: nowrap;"> Setting
+</th><th style="white-space: nowrap;"> Type
+</th><th style="white-space: nowrap;"> Default value
+</th><th style="white-space: nowrap;"> Read-only
+</th><th style="white-space: nowrap;"> Rule
+</th><th> Effect
+</th></tr>
+<tr>
+<td style="white-space: nowrap;"> gamemode(n) (N) (t)
+</td><td style="white-space: nowrap;"> string
+</td><td style="white-space: nowrap;"> gamemode0 grandlarc 1
+</td><td style="white-space: nowrap; background-color: #b82e2e;"> No
+</td><td style="white-space: nowrap; background-color: #b82e2e;"> No
+</td><td> The <i>.amx</i> file in the <i>gamemodes</i> folder, the server should use to run as a gamemode. <b>(n)</b> is the gamemode number, <b>(N)</b> is the gamemode name without the <i>.amx</i> extension, and <b>(t)</b> is the amount of times the gamemode should be played before switching to the next gamemode.
+</td></tr>
+<tr>
+<td> filterscripts (N)
+</td><td> string
+</td><td>
+</td><td style="background-color: #2eb82e;"> Yes
+</td><td style="background-color: #b82e2e;"> No
+</td><td> The <i>.amx</i> file in the <i>filterscripts</i> folder, the server should use to run as a filterscript. <b>(N)</b> is the filterscript name without the <i>.amx</i> extension. Filterscripts are scripts that run in the background of your gamemode. They are there to add extras to the server without editing the gamemode. It is very useful if you want to carry a specific property to more than one gamemode. If you have multiple filterscripts you want to load, put them all in a row separated by "space", e.g. <i>filterscripts script1 script2</i>.
+</td></tr>
+<tr>
+<td> plugins (N)
+</td><td> string
+</td><td>
+</td><td style="background-color: #2eb82e;"> Yes
+</td><td style="background-color: #b82e2e;"> No
+</td><td> The <i>.dll</i> or <i>.so</i> file in the <i>plugins</i> folder, the server should use to run as a plugin. On Windows <b>(N)</b> is the plugin name without the <i>.dll</i> extension. However, on Linux the <i>.so</i> extension is needed! Plugins are scripts which are designed to enhance gamemodes and filterscripts. If you have multiple plugins you want to load, put them all in a row separated by "space", e.g. <i>plugins plugin1 plugin2</i>.
+<ul><li> For more information on plugin development, see <a href="http://forum.sa-mp.com/showthread.php?t=295798" class='external text' title="http://forum.sa-mp.com/showthread.php?t=295798" rel="nofollow">this topic</a>.
+</li></ul>
+</td></tr></table>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Server.cfg.html" title="Edit section: Server browser">edit</a>]</div><a name="Server_browser"></a><h2>Server browser</h2>
+<table class="wikitable" style="width:100%;">
+
+<tr>
+<th style="white-space: nowrap;"> Setting
+</th><th style="white-space: nowrap;"> Type
+</th><th style="white-space: nowrap;"> Default value
+</th><th style="white-space: nowrap;"> Read-only
+</th><th style="white-space: nowrap;"> Rule
+</th><th> Effect
+</th></tr>
+<tr>
+<td style="white-space: nowrap;"> announce
+</td><td style="white-space: nowrap;"> bool
+</td><td style="white-space: nowrap;"> 1
+</td><td style="white-space: nowrap; background-color: #b82e2e;"> No
+</td><td style="white-space: nowrap; background-color: #b82e2e;"> No
+</td><td> Toggles if the server should be announced to SA-MP masterlist. Set to <b>1</b> to enable or <b>0</b> to disable.
+</td></tr>
+<tr>
+<td> query
+</td><td> bool
+</td><td> 1
+</td><td style="background-color: #b82e2e;"> No
+</td><td style="background-color: #b82e2e;"> No
+</td><td> Toggles if the server information should be displayed in the server browser. Set to <b>1</b> to enable or <b>0</b> to disable. Players can still join a server that has disabled querying, but the server browser will not display any information.
+</td></tr>
+<tr>
+<td> hostname
+</td><td> string
+</td><td> SA-MP Server
+</td><td style="background-color: #b82e2e;"> No
+</td><td style="background-color: #b82e2e;"> No
+</td><td> The name that will be shown in the server browser and when the player connects to the server.
+</td></tr>
+<tr>
+<td> language
+</td><td> string
+</td><td>
+</td><td style="background-color: #b82e2e;"> No
+</td><td style="background-color: #b82e2e;"> No
+</td><td> The language that appears in the server browser. Players can use this to filter servers by language in the server browser.
+<ul><li> <b>NOTE:</b> This server var was added in 0.3.7 and will have no effect in previous versions.
+</li></ul>
+</td></tr>
+<tr>
+<td> mapname
+</td><td> string
+</td><td> San Andreas
+</td><td style="background-color: #b82e2e;"> No
+</td><td style="background-color: #2eb82e;"> Yes
+</td><td> The mapname that appears in the server browser. This can be anything, e.g. <b>My Stunt Map</b>.
+</td></tr>
+<tr>
+<td> gamemodetext
+</td><td> string
+</td><td> Unknown
+</td><td style="background-color: #b82e2e;"> No
+</td><td style="background-color: #b82e2e;"> No
+</td><td> The mode that will be shown in the server browser. Using <a href="SetGameModeText.html" title="SetGameModeText">SetGameModeText</a> has the same effect and overrides the value used in <i>server.cfg</i>. If you have multiple gamemodes that require different gamemode texts, use that function.
+</td></tr>
+<tr>
+<td> weather
+</td><td> string<b>*</b>
+</td><td> 10
+</td><td style="background-color: #b82e2e;"> No
+</td><td style="background-color: #2eb82e;"> Yes
+</td><td> The global weather that the server uses and will be shown in the server browser. Using this setting in the <i>server.cfg</i> file will crash the server application on startup. Use <a href="SetWeather.html" title="SetWeather">SetWeather</a> instead to change this setting.
+</td></tr>
+<tr>
+<td> worldtime
+</td><td> string<b>*</b>
+</td><td> 12:00
+</td><td style="background-color: #b82e2e;"> No
+</td><td style="background-color: #2eb82e;"> Yes
+</td><td> The global time that the server uses and will be shown in the server browser. Using this setting in the <i>server.cfg</i> file has no effect. Use <a href="SetWorldTime.html" title="SetWorldTime">SetWorldTime</a> instead to change this setting.
+</td></tr>
+<tr>
+<td> gravity
+</td><td> string<b>*</b>
+</td><td> 0.008
+</td><td style="background-color: #b82e2e;"> No
+</td><td style="background-color: #b82e2e;"> No
+</td><td> The global gravity that the server uses. Using this setting in the <i>server.cfg</i> file will crash the server application on startup. Use <a href="SetGravity.html" title="SetGravity">SetGravity</a> instead to change this setting.
+</td></tr>
+<tr>
+<td> weburl
+</td><td> string
+</td><td> www.sa-mp.com
+</td><td style="background-color: #b82e2e;"> No
+</td><td style="background-color: #2eb82e;"> Yes
+</td><td> The website people can visit to gain more information about the server.
+</td></tr>
+<tr>
+<td> version
+</td><td> string
+</td><td>
+</td><td style="background-color: #2eb82e;"> Yes
+</td><td style="background-color: #2eb82e;"> Yes
+</td><td> The SA-MP version that the server uses and will be shown in the server browser. Using this setting in the <i>server.cfg</i> file has no effect.
+</td></tr>
+<tr>
+<td> maxplayers
+</td><td> int
+</td><td> 50
+</td><td style="background-color: #2eb82e;"> Yes
+</td><td style="background-color: #b82e2e;"> No
+</td><td> The maximum amount of players your server can hold. By changing this number you can alter how many players can enter the server. The maximum is <b>1000</b> and the minimum is <b>1</b>.
+</td></tr>
+<tr>
+<td> password
+</td><td> string
+</td><td>
+</td><td style="background-color: #b82e2e;"> No
+</td><td style="background-color: #b82e2e;"> No
+</td><td> The password used to lock the server. When using this, only players that know this password will be able to join the server.
+</td></tr></table>
+<p>[<b>*</b>] Some settings are a different type than you might think.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Server.cfg.html" title="Edit section: Networking">edit</a>]</div><a name="Networking"></a><h2>Networking</h2>
+<table class="wikitable" style="width:100%;">
+
+<tr>
+<th style="white-space: nowrap;"> Setting
+</th><th style="white-space: nowrap;"> Type
+</th><th style="white-space: nowrap;"> Default value
+</th><th style="white-space: nowrap;"> Read-only
+</th><th style="white-space: nowrap;"> Rule
+</th><th> Effect
+</th></tr>
+<tr>
+<td style="white-space: nowrap;"> sleep
+</td><td style="white-space: nowrap;"> int
+</td><td style="white-space: nowrap;"> 5
+</td><td style="white-space: nowrap; background-color: #b82e2e;"> No
+</td><td style="white-space: nowrap; background-color: #b82e2e;"> No
+</td><td> The time in milliseconds the main sa-mp and raknet networking thread will "sleep" idly during each sync cycle. Higher values decreases server processing, but reduces sync quality. Lower values increases server processing, but improves sync quality. It is not advisable to change this value unless your player count is very high and you have server fps stability issues.
+</td></tr>
+<tr>
+<td> lanmode
+</td><td> bool
+</td><td> 0
+</td><td style="background-color: #b82e2e;"> No
+</td><td style="background-color: #b82e2e;"> No
+</td><td> Deprecated variable, has no effect.
+</td></tr>
+<tr>
+<td> bind
+</td><td> string
+</td><td>
+</td><td style="background-color: #2eb82e;"> Yes
+</td><td style="background-color: #b82e2e;"> No
+</td><td> The IP address the server should use. The server will be forced to use this IP address instead of automatically choosing a free IP address. This IP address must match one assigned to a network card on the server. This is useful for running multiple servers on the same port on the same box.
+</td></tr>
+<tr>
+<td> port
+</td><td> int
+</td><td> 8192 (7777 is also commonly used)
+</td><td style="background-color: #2eb82e;"> Yes
+</td><td style="background-color: #b82e2e;"> No
+</td><td> The port the server should use. You will need to <a href="http://www.portforward.com/" class='external text' title="http://www.portforward.com" rel="nofollow">Port Forward</a> in order for players to join your server from outside your LAN.
+</td></tr>
+<tr>
+<td> conncookies
+</td><td> int<b>*</b>
+</td><td> 1
+</td><td style="background-color: #b82e2e;"> No
+</td><td style="background-color: #b82e2e;"> No
+</td><td> Toggles the 0.3.7 connection cookie system. Set to <b>1</b> to enable or <b>0</b> to disable.
+<ul><li> <b>NOTE:</b> This server var was added in 0.3.7 R2 and will have no effect in previous versions.
+</li></ul>
+</td></tr>
+<tr>
+<td> cookielogging
+</td><td> int<b>*</b>
+</td><td> 0
+</td><td style="background-color: #b82e2e;"> No
+</td><td style="background-color: #b82e2e;"> No
+</td><td> Toggles logging of connection cookies requested by newly connecting players. Set to <b>1</b> to enable or <b>0</b> to disable.
+<ul><li> <b>NOTE:</b> This server var was added in 0.3.7 R2 and will have no effect in previous versions.
+</li></ul>
+</td></tr>
+<tr>
+<td> connseedtime
+</td><td> int
+</td><td> 300000
+</td><td style="background-color: #b82e2e;"> No
+</td><td style="background-color: #b82e2e;"> No
+</td><td> The time in milliseconds the connection cookie seed value updates.
+<ul><li> <b>NOTE:</b> This server var was added in 0.3.7 and will have no effect in previous versions.
+</li></ul>
+</td></tr>
+<tr>
+<td> minconnectiontime
+</td><td> int
+</td><td> 0
+</td><td style="background-color: #b82e2e;"> No
+</td><td style="background-color: #b82e2e;"> No
+</td><td> The time in milliseconds the server will wait before accepting another incoming connection. It is not recommended that you use this variable unless your server is under a connection flood attack.
+<ul><li> <b>NOTE:</b> This server var was added in 0.3z and will have no effect in previous versions.
+</li></ul>
+</td></tr>
+<tr>
+<td> messageslimit
+</td><td> int
+</td><td> 500
+</td><td style="background-color: #b82e2e;"> No
+</td><td style="background-color: #b82e2e;"> No
+</td><td> The maximum number of messages a user can send per second.
+</td></tr>
+<tr>
+<td> messageholelimit
+</td><td> int
+</td><td> 3000
+</td><td style="background-color: #b82e2e;"> No
+</td><td style="background-color: #b82e2e;"> No
+</td><td> See <a href="http://forum.sa-mp.com/showpost.php?p=2868955&amp;postcount=14" class='external text' title="http://forum.sa-mp.com/showpost.php?p=2868955&amp;postcount=14" rel="nofollow">here</a>.
+</td></tr>
+<tr>
+<td> ackslimit
+</td><td> int
+</td><td> 3000
+</td><td style="background-color: #b82e2e;"> No
+</td><td style="background-color: #b82e2e;"> No
+</td><td> See <a href="http://forum.sa-mp.com/showpost.php?p=2989045&amp;postcount=1" class='external text' title="http://forum.sa-mp.com/showpost.php?p=2989045&amp;postcount=1" rel="nofollow">here</a>.
+</td></tr>
+<tr>
+<td> playertimeout
+</td><td> int
+</td><td> 10000
+</td><td style="background-color: #b82e2e;"> No
+</td><td style="background-color: #b82e2e;"> No
+</td><td> The time in miliseconds after which a player will timeout when not sending any data to the server.
+</td></tr>
+<tr>
+<td> mtu
+</td><td> int
+</td><td> 576
+</td><td style="background-color: #2eb82e;"> Yes
+</td><td style="background-color: #b82e2e;"> No
+</td><td> See <a href="https://en.wikipedia.org/wiki/Maximum_transmission_unit" class='external text' title="https://en.wikipedia.org/wiki/Maximum_transmission_unit" rel="nofollow">here</a>.
+<ul><li> <b>NOTE:</b> This server var was added in 0.3.DL and will have no effect in previous versions.
+</li></ul>
+</td></tr></table>
+<p>[<b>*</b>] Some settings are a different type than you might think.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Server.cfg.html" title="Edit section: Logging">edit</a>]</div><a name="Logging"></a><h2>Logging</h2>
+<table class="wikitable" style="width:100%;">
+
+<tr>
+<th style="white-space: nowrap;"> Setting
+</th><th style="white-space: nowrap;"> Type
+</th><th style="white-space: nowrap;"> Default value
+</th><th style="white-space: nowrap;"> Read-only
+</th><th style="white-space: nowrap;"> Rule
+</th><th> Effect
+</th></tr>
+<tr>
+<td style="white-space: nowrap;"> output
+</td><td style="white-space: nowrap;"> bool
+</td><td style="white-space: nowrap;"> 0
+</td><td style="white-space: nowrap; background-color: #b82e2e;"> No
+</td><td style="white-space: nowrap; background-color: #b82e2e;"> No
+</td><td> Toggles if log messages (e.g. print/printf from scripts or logprintf from plugins) should be duplicated in the server console. Set to <b>1</b> to enable or <b>0</b> to disable. This option has effect only on Linux servers.
+</td></tr>
+<tr>
+<td> timestamp
+</td><td> bool
+</td><td> 1
+</td><td style="background-color: #b82e2e;"> No
+</td><td style="background-color: #b82e2e;"> No
+</td><td> Toggles if a timestamp should be printed with every console message. Set to <b>1</b> to enable or <b>0</b> to disable.
+</td></tr>
+<tr>
+<td> logtimeformat
+</td><td> string
+</td><td> [%H:%M:%S]
+</td><td style="background-color: #2eb82e;"> Yes
+</td><td style="background-color: #b82e2e;"> No
+</td><td> The timestamp format that should be used. The format is based on the <a href="http://cplusplus.com/reference/clibrary/ctime/strftime/" class='external text' title="http://cplusplus.com/reference/clibrary/ctime/strftime/" rel="nofollow">strftime</a> format from C/C++. Here are some examples:
+<ul><li> <b>[%H:%M:%S]</b> This displays only the time, and is the default format for all previous SA-MP server versions.
+</li><li> <b>[%d/%m/%Y %H:%M:%S]</b> This would display the date in <i>dd/mm/yyyy</i> format followed by the time in <i>hour:minute:second</i> format.
+</li></ul>
+</td></tr>
+<tr>
+<td> logqueries
+</td><td> bool
+</td><td> 0
+</td><td style="background-color: #b82e2e;"> No
+</td><td style="background-color: #b82e2e;"> No
+</td><td> Toggles if all queries sent to the server by players should be logged. Set to <b>1</b> to enable or <b>0</b> to disable. It is considerably useful during a DDoS attack.
+</td></tr>
+<tr>
+<td> chatlogging
+</td><td> int<b>*</b>
+</td><td> 1
+</td><td style="background-color: #b82e2e;"> No
+</td><td style="background-color: #b82e2e;"> No
+</td><td> Toggles if player chat should be shown in the server console. Useful to stop the log from becoming bloated, or if you have another scripted chat logging solution. Set to <b>1</b> to enable or <b>0</b> to disable.
+<ul><li> <b>NOTE:</b> This server var was added in 0.3e R2 and will have no effect in previous versions.
+</li></ul>
+</td></tr>
+<tr>
+<td> db_logging
+</td><td> int<b>*</b>
+</td><td> 0
+</td><td style="background-color: #b82e2e;"> No
+</td><td style="background-color: #b82e2e;"> No
+</td><td> Logs <i>sqlite db_*</i> function errors in the server console.
+<ul><li> <b>NOTE:</b> This server var was added in 0.3.7 R2 and will have no effect in previous versions.
+</li></ul>
+</td></tr>
+<tr>
+<td> db_log_queries
+</td><td> int<b>*</b>
+</td><td> 0
+</td><td style="background-color: #b82e2e;"> No
+</td><td style="background-color: #b82e2e;"> No
+</td><td> Logs all sqlite <i>db_query</i> calls, including the query string.
+<ul><li> <b>NOTE:</b> This server var was added in 0.3.7 R2 and will have no effect in previous versions.
+</li></ul>
+</td></tr></table>
+<p>[<b>*</b>] Some settings are a different type than you might think.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Server.cfg.html" title="Edit section: Client">edit</a>]</div><a name="Client"></a><h2>Client</h2>
+<table class="wikitable" style="width:100%;">
+
+<tr>
+<th style="white-space: nowrap;"> Setting
+</th><th style="white-space: nowrap;"> Type
+</th><th style="white-space: nowrap;"> Default value
+</th><th style="white-space: nowrap;"> Read-only
+</th><th style="white-space: nowrap;"> Rule
+</th><th> Effect
+</th></tr>
+<tr>
+<td style="white-space: nowrap;"> onfoot_rate<b>*</b>
+</td><td style="white-space: nowrap;"> int
+</td><td style="white-space: nowrap;"> 40
+</td><td style="white-space: nowrap; background-color: #2eb82e;"> Yes
+</td><td style="white-space: nowrap; background-color: #b82e2e;"> No
+</td><td> The time in milliseconds a client should update the server with new data while on foot.
+</td></tr>
+<tr>
+<td> incar_rate
+</td><td> int
+</td><td> 40
+</td><td style="background-color: #2eb82e;"> Yes
+</td><td style="background-color: #b82e2e;"> No
+</td><td> The time in milliseconds a client should update the server with new data while in a vehicle.
+</td></tr>
+<tr>
+<td> weapon_rate
+</td><td> int
+</td><td> 40
+</td><td style="background-color: #2eb82e;"> Yes
+</td><td style="background-color: #b82e2e;"> No
+</td><td> The time in milliseconds a client should update the server with new data while firing a weapon.
+</td></tr>
+<tr>
+<td> stream_distance<b>*</b>
+</td><td> float
+</td><td> 300.0
+</td><td style="background-color: #b82e2e;"> No
+</td><td style="background-color: #b82e2e;"> No
+</td><td> The distance on the X,Y plane players will stream in server entities. The maximum is <b>400.0</b> and the minimum is <b>50.0</b>. Higher values makes players see server entities at a greater distance, but requires more client processing and potentially more bandwidth.
+</td></tr>
+<tr>
+<td> stream_rate<b>*</b>
+</td><td> int
+</td><td> 1000
+</td><td style="background-color: #b82e2e;"> No
+</td><td style="background-color: #b82e2e;"> No
+</td><td> The time in milliseconds before the streaming in of server entities is retested for each player. The maximum is <b>5000</b> and the minimum is <b>500</b>. Lower values increases server processing as it has to recheck streaming conditions more frequently for each player.
+</td></tr></table>
+<p>[<b>*</b>] Lower values of onfoot_rate, incar_rate and weapon_rate increases sync performance, but uses more bandwidth.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Server.cfg.html" title="Edit section: NPCs">edit</a>]</div><a name="NPCs"></a><h2>NPCs</h2>
+<table class="wikitable" style="width:100%;">
+
+<tr>
+<th style="white-space: nowrap;"> Setting
+</th><th style="white-space: nowrap;"> Type
+</th><th style="white-space: nowrap;"> Default value
+</th><th style="white-space: nowrap;"> Read-only
+</th><th style="white-space: nowrap;"> Rule
+</th><th> Effect
+</th></tr>
+<tr>
+<td style="white-space: nowrap;"> maxnpc
+</td><td style="white-space: nowrap;"> int
+</td><td style="white-space: nowrap;"> 0
+</td><td style="white-space: nowrap; background-color: #b82e2e;"> No
+</td><td style="white-space: nowrap; background-color: #b82e2e;"> No
+</td><td> The maximum amount of NPCs your server can hold. By changing this number you can alter how many of the player slots can be used by NPCs.
+</td></tr></table>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Server.cfg.html" title="Edit section: Lag compensation">edit</a>]</div><a name="Lag_compensation"></a><h2>Lag compensation</h2>
+<table class="wikitable" style="width:100%;">
+
+<tr>
+<th style="white-space: nowrap;"> Setting
+</th><th style="white-space: nowrap;"> Type
+</th><th style="white-space: nowrap;"> Default value
+</th><th style="white-space: nowrap;"> Read-only
+</th><th style="white-space: nowrap;"> Rule
+</th><th> Effect
+</th></tr>
+<tr>
+<td style="white-space: nowrap;"> lagcompmode
+</td><td style="white-space: nowrap;"> int
+</td><td style="white-space: nowrap;"> 1
+</td><td style="white-space: nowrap; background-color: #2eb82e;"> Yes
+</td><td style="white-space: nowrap; background-color: #b82e2e;"> No
+</td><td>
+<ul><li> 0: Fully disable lag compensation.
+</li><li> 1: Fully enable lag compensation.
+</li><li> 2: Enable position-only lag compensation. This means player rotation won't be lag compensated for.
+</li><li> <b>NOTE:</b> This server var was added in 0.3z and will have no effect in previous versions.
+</li></ul>
+</td></tr>
+<tr>
+<td> lagcomp
+</td><td> string
+</td><td> On
+</td><td style="background-color: #2eb82e;"> Yes
+</td><td style="background-color: #2eb82e;"> Yes
+</td><td> Probably set automatically to <b>On</b> or <b>Off</b> depending on the <b>lagcompmode</b> setting.
+</td></tr></table>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Server.cfg.html" title="Edit section: Custom models">edit</a>]</div><a name="Custom_models"></a><h2>Custom models</h2>
+<table class="wikitable" style="width:100%;">
+
+<tr>
+<th style="white-space: nowrap;"> Setting
+</th><th style="white-space: nowrap;"> Type
+</th><th style="white-space: nowrap;"> Default value
+</th><th style="white-space: nowrap;"> Read-only
+</th><th style="white-space: nowrap;"> Rule
+</th><th> Effect
+</th></tr>
+<tr>
+<td style="white-space: nowrap;"> useartwork
+</td><td style="white-space: nowrap;"> bool
+</td><td style="white-space: nowrap;"> 0
+</td><td style="white-space: nowrap; background-color: #2eb82e;"> Yes
+</td><td style="white-space: nowrap; background-color: #b82e2e;"> No
+</td><td> Toggles if the server uses custom models from the <i>models</i> folder. Set to <b>1</b> to enable or <b>0</b> to disable.
+<ul><li> <b>NOTE:</b> This server var was added in 0.3.DL and will have no effect in previous versions.
+</li></ul>
+</td></tr>
+<tr>
+<td> artwork
+</td><td> string
+</td><td> No
+</td><td style="background-color: #2eb82e;"> Yes
+</td><td style="background-color: #2eb82e;"> Yes
+</td><td> Probably set automatically to <b>No</b> or <b>Yes</b> depending on the <b>useartwork</b> setting.
+<ul><li> <b>NOTE:</b> This server var was added in 0.3.DL and will have no effect in previous versions.
+</li></ul>
+</td></tr>
+<tr>
+<td> artpath
+</td><td> string
+</td><td> models
+</td><td style="background-color: #2eb82e;"> Yes
+</td><td style="background-color: #b82e2e;"> No
+</td><td> The path where the custom models are located.
+<ul><li> <b>NOTE:</b> This server var was added in 0.3.DL and will have no effect in previous versions.
+</li></ul>
+</td></tr></table>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Server.cfg.html" title="Edit section: Others">edit</a>]</div><a name="Others"></a><h2>Others</h2>
+<table class="wikitable" style="width:100%;">
+
+<tr>
+<th style="white-space: nowrap;"> Setting
+</th><th style="white-space: nowrap;"> Type
+</th><th style="white-space: nowrap;"> Default value
+</th><th style="white-space: nowrap;"> Read-only
+</th><th style="white-space: nowrap;"> Rule
+</th><th> Effect
+</th></tr>
+<tr>
+<td style="white-space: nowrap;"> myriad
+</td><td style="white-space: nowrap;"> bool
+</td><td style="white-space: nowrap;"> 0
+</td><td style="white-space: nowrap; background-color: #b82e2e;"> No
+</td><td style="white-space: nowrap; background-color: #b82e2e;"> No
+</td><td> Unused. It probably enabled some compatibility with an old GTA San Andreas mod called "Myriad Islands" years ago, probably earlier than year 2008.
+</td></tr>
+<tr>
+<td> nosign
+</td><td> string
+</td><td>
+</td><td style="background-color: #2eb82e;"> Yes
+</td><td style="background-color: #b82e2e;"> No
+</td><td> Unused.
+</td></tr></table>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Server.cfg.html" title="Edit section: Notes">edit</a>]</div><a name="Notes"></a><h2>Notes</h2>
+<ul><li> Values marked as "Read-only" (as shown by <i>/rcon varlist</i>) can not be changed during runtime. All other values can be (temporarily) changed by passing them to SendRconCommand.
+</li><li> Values marked as "Rule" (as shown by <i>/rcon varlist</i>) are displayed in the server browser in the Rules section.
+</li><li> Scripts do not have to be in the <i>gamemodes</i> or <i>filterscripts</i> folders. The information in server.cfg is a path, and can therefore use "..". Quote by <a href="http://forum.sa-mp.com/member.php?u=29176" class='external text' title="http://forum.sa-mp.com/member.php?u=29176" rel="nofollow">Y_Less</a>.
+</li></ul>
+<pre class="pawn">filterscripts ../scriptfiles/first ../minimodes/second</pre>
+<div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/Server.cfg.html">http://localhost../wiki/Server.cfg.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="Category_Server_Documentation.html" title="Category:Server Documentation">Server Documentation</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="Server.cfg.html">Article</a></li>
+				 <li id="ca-talk"><a href="Talk_Server.cfg.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="Server.cfg.html">Edit</a></li>
+				 <li id="ca-history"><a href="Server.cfg.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-nl"><a href="Server.cfg_NL.html">Nederlands</a></li>
+				<li class="interwiki-ru"><a href="Server.cfg_RU.html">Русский</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 398,079 times.</li>
+				<li id="credits">This page was last modified 12:41, 23 February 2020 by SA-MP Wiki user <a href="User_OstGot.html" title="User:OstGot">OstGot</a>. Based on work by <a href="User_Kar.html" title="User:Kar">Kar</a> and SA-MP Wiki user(s) <a href="User_Crayder.html" class="new" title="User:Crayder">Crayder</a>, <a href="User_Freaksken.html" title="User:Freaksken">Freaksken</a>, <a href="User_RoboN1X.html" title="User:RoboN1X">RoboN1X</a>, <a href="User_Meller.html" title="User:Meller">Meller</a>, <a href="User_IstuntmanI.html" class="new" title="User:IstuntmanI">IstuntmanI</a>, <a href="User_Romz.html" title="User:Romz">Romz</a>, <a href="User_Dugi.html" title="User:Dugi">Dugi</a>, <a href="User_Ikkentim.html" title="User:Ikkentim">Ikkentim</a>, <a href="User_Vince.html" title="User:Vince">Vince</a>, <a href="User_JernejL.html" title="User:JernejL">JernejL</a>, <a href="User_Tamer.html" class="new" title="User:Tamer">Tamer</a>, <a href="User_Ralfie.html" title="User:Ralfie">Ralfie</a>, <a href="User_MP2.html" title="User:MP2">MP2</a>, <a href="User_Jimmy0wns.html" class="new" title="User:Jimmy0wns">Jimmy0wns</a>, <a href="User_Onfroi.html" title="User:Onfroi">Onfroi</a>, <a href="User_Djole1337.html" title="User:Djole1337">Djole1337</a>, <a href="User_Smithy.html" title="User:Smithy">Smithy</a>, <a href="User_Vince.html" title="User:Vince">Vince</a>, <a href="User_Meta.html" title="User:Meta">Meta</a>, <a href="User_Dchidell.html" title="User:Dchidell">Dchidell</a>, <a href="User_Calgon.html" title="User:Calgon">Calgon</a>, <a href="User_ZeeX.html" class="new" title="User:ZeeX">ZeeX</a>, <a href="User_Kurta999.html" class="new" title="User:Kurta999">Kurta999</a>, <a href="User_JernejL.html" title="User:JernejL">JernejL</a>, <a href="User_WackoX.html" class="new" title="User:WackoX">WackoX</a>, <a href="User_Kwarde.html" class="new" title="User:Kwarde">Kwarde</a> and <a href="User_Mikep.html" title="User:Mikep">Mikep</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 2.01 secs. -->
+</body></html>

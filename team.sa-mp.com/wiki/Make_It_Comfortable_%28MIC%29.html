@@ -1,0 +1,702 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Make It Comfortable (MIC)" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>Make It Comfortable (MIC) - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Make It Comfortable (MIC)</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class='toclevel-1'><a href="#mic_admin"><span class="tocnumber">1</span> <span class="toctext">mic_admin</span></a></li>
+<li class='toclevel-1'><a href="#mic_ammu"><span class="tocnumber">2</span> <span class="toctext">mic_ammu</span></a></li>
+<li class='toclevel-1'><a href="#mic_biz"><span class="tocnumber">3</span> <span class="toctext">mic_biz</span></a></li>
+<li class='toclevel-1'><a href="#mic_chat"><span class="tocnumber">4</span> <span class="toctext">mic_chat</span></a></li>
+<li class='toclevel-1'><a href="#mic_data"><span class="tocnumber">5</span> <span class="toctext">mic_data</span></a></li>
+<li class='toclevel-1'><a href="#mic_gang"><span class="tocnumber">6</span> <span class="toctext">mic_gang</span></a></li>
+<li class='toclevel-1'><a href="#mic_house"><span class="tocnumber">7</span> <span class="toctext">mic_house</span></a></li>
+<li class='toclevel-1'><a href="#mic_more"><span class="tocnumber">8</span> <span class="toctext">mic_more</span></a></li>
+<li class='toclevel-1'><a href="#mic_stream"><span class="tocnumber">9</span> <span class="toctext">mic_stream</span></a></li>
+<li class='toclevel-1'><a href="#mic_piks"><span class="tocnumber">10</span> <span class="toctext">mic_piks</span></a></li>
+<li class='toclevel-1'><a href="#mic_vehicle"><span class="tocnumber">11</span> <span class="toctext">mic_vehicle</span></a></li>
+<li class='toclevel-1'><a href="#mic_zone"><span class="tocnumber">12</span> <span class="toctext">mic_zone</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Make_It_Comfortable_%2528MIC%2529.html" title="Edit section: mic_admin">edit</a>]</div><a name="mic_admin"></a><h2> mic_admin </h2>
+<p><strong>BanLT(playerid,time);</strong><br />
+<u>Description</u>: <br />
+Bans a player for a limited time and automatically<br />
+unbans him after the given time.<br />
+<u>Parameters</u>:<br />
+playerid- players id whom u want to ban.<br />
+time    - time after which player will be unban in hours.<br />
+<br />
+<strong>UnBan(IP[]);</strong><br />
+<u>Description</u>:<br />
+UnBans a player whom u have banned with BanLT before<br />
+the time specified.<br />
+<u>Parameters</u>:<br />
+IP - ip address of the player whom you want to unban.<br />
+<strong><br />
+Pause(time);</strong><br />
+<u>Description</u>:<br />
+Pauses the server for a certain amount of time, so that<br />
+players cant move and functions wont run.<br />
+<u>Parameters</u>:<br />
+time - time to pause the server in miliseconds.<br />
+<br />
+<strong>Silence(playerid);</strong><br />
+<u>Description</u>:<br />
+Mutes the player so that he wont be able to chat with<br />
+other players.<br />
+<u>Parameters</u>:<br />
+playerid - players id whom you want to mute.<br />
+<br />
+<strong>UnSilence(playerid);</strong><br />
+<u>Description</u>:<br />
+UnMutes the player who was previousely muted so<br />
+that he could chat with others.<br />
+<u>Parameters</u>:<br />
+playerid - players id whom you want to unmute.<br />
+<br />
+<strong>Scan(playerid);</strong><br />
+<u>Description</u>:<br />
+Prints all the players information in the command <br />
+prompt whcih helps you to detect hackers and <br />
+cheaters.<br />
+<u>Parameters</u>:<br />
+playerid - players id whom you want to scan.<br />
+<br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Make_It_Comfortable_%2528MIC%2529.html" title="Edit section: mic_ammu">edit</a>]</div><a name="mic_ammu"></a><h2> mic_ammu </h2>
+<p><strong>EnableBlockAmmu(toggle);</strong><br />
+<u>Descripttion:</u><br />
+Prevents players from entering ammu-nations by<br />
+killing them if they enter ammu-nations.<br />
+<u>Parameters</u>:<br />
+toggle - 1 if yes, 0 if no.<br />
+<br />
+<strong>AddStaticAmmu(slot1,slot2,slot3,slot4,slot5,slot6,slot7);</strong><br />
+<u>Descripttion</u>:<br />
+Creates a new ammu-nations in whcih you can modify<br />
+the weapons lists and set weapons costs.<br />
+<u>Parameters</u>:<br />
+slot1 - 1 if enable, 0 if disable.<br />
+slot2 - 1 if enable, 0 if disable.<br />
+slot3 - 1 if enable, 0 if disable.<br />
+slot4 - 1 if enable, 0 if disable.<br />
+slot5 - 1 if enable, 0 if disable.<br />
+slot6 - 1 if enable, 0 if disable.<br />
+slot7 - 1 if enable, 0 if disable.<br />
+<br />
+<strong>SetWeaponCost(ammuid,weaponid,cost);</strong><br />
+<u>Descripttion</u>:<br />
+Sets the weapons cost in the ammu lists, which<br />
+has been created using AddStaticAmmu.<br />
+<u>Parameters</u>:<br />
+ammuid - ammunation id of which u want to mod.<br />
+weapon sets<a href="http://wiki.sa-mp.com/index.php/M.I.C" class='external autonumber' title="http://wiki.sa-mp.com/index.php/M.I.C" rel="nofollow">[1]</a> - weaponid of which you want to set cost.<br />
+<br />
+<strong>ShowAmmu(playerid,ammuid);</strong><br />
+<u>Description</u>:<br />
+Show player the weapon list which you have<br />
+created using AddStaticAmmu.<br />
+<u>Parameters</u>:<br />
+playerid - players id whom u want to show.<br />
+ammuid -ammunation id which you want to show.<br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Make_It_Comfortable_%2528MIC%2529.html" title="Edit section: mic_biz">edit</a>]</div><a name="mic_biz"></a><h2> mic_biz </h2>
+<p><strong>AddStaticBiz(Float:x,Float:y,Float:z,Float:ix,Float:iy,Float:iz,ii);</strong><br />
+<u>Descripttion</u>:<br />
+Creates a biz in the specified location, is more essential<br />
+for rpg gamemodes and filterscripts.<br />
+<u>Parameters</u>:<br />
+Float:x - x cordinates of the biz.<br />
+Float:y - y cordinates of the biz.<br />
+Float:z - z cordinates of the biz.<br />
+Float:ix - x cordinates of the interior of the biz.<br />
+Float:iy - y cordiantes of the interior of the biz.<br />
+Float:iz - z cordinates of the interior of the biz.<br />
+ii - interior id of the interior of the biz.<br />
+<br />
+<strong>SetBizCost(bizid,cost);</strong><br />
+<u>Descripttion</u>:<br />
+Changes the biz selling amount, so that when a player<br />
+buys it the cost is taken from him.<br />
+<u>Parameters</u>:<br />
+bizid - id of the biz you want to change the cost.<br />
+cost - the amount of money you want to change.<br />
+<br />
+<strong>GetBizInfo(bizid,info[],value[]);</strong><br />
+<u>Descripttion</u>:<br />
+Gets biz info (like, rent, cost, tenent ) to the<br />
+specifed value.<br />
+<u>Parameters</u>:<br />
+bizid - the id of the biz.<br />
+info - the information you want.<br />
+value - the value of the info to be returned.<br />
+<br />
+<strong>SetBizInfo(bizid,info[],value[]);</strong><br />
+<u>Descripttion</u>:<br />
+Sets the biz info, for a certain biz, which you<br />
+want to change.<br />
+<u>Parameters</u>:<br />
+bizid - id of the biz.<br />
+info - information you want to change.<br />
+value - value for the information.<br />
+<br />
+<strong>SetPlayerInBiz(playerid,bizid);</strong><br />
+<u>Descripttion</u>:<br />
+Sets the specified player inside a specified biz.<br />
+<u>Parameters</u>:<br />
+playerid - id of the player whom you want to set inside<br />
+bizid - id of the biz.<br />
+<br />
+<strong>SetPlayerOutBiz(playerid,bizid);</strong><br />
+<u>Descripttion</u>:<br />
+Sets a specified player outside a certain biz.<br />
+<u>Parameters</u>:<br />
+playerid - id of the player whom you want ot set outside.<br />
+bizid - id of the biz.<br />
+<br />
+<strong>IsPlayerAllowedInBiz(playerid,bizid);</strong><br />
+<u>Descripttion</u>:<br />
+Checks if the player is allowed inside the<br />
+biz checking if he has enough money and<br />
+whether he is the owner.<br />
+<u>Parameters</u>:<br />
+playerid - id of the player you want to check.<br />
+bizid - id of the biz.<br />
+<br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Make_It_Comfortable_%2528MIC%2529.html" title="Edit section: mic_chat">edit</a>]</div><a name="mic_chat"></a><h2> mic_chat </h2>
+<p><strong>EnableChatSystem(toggle);</strong><br />
+<u>Descripttion</u>:<br />
+Enables the chat system, which will prevent all<br />
+the message to the samp chat box, and direct<br />
+them to a new chat box.<br />
+<u>Parameters</u>:<br />
+toggle - 1 if yes, 0 if no.<br />
+<br />
+<strong>SendMessage(text[]);</strong><br />
+<u>Descripttion</u>:<br />
+Sends a message to the chat box, enabled with<br />
+EnableChatSystem.<br />
+<u>Parameters</u>:<br />
+text - the text to be sent.<br />
+<br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Make_It_Comfortable_%2528MIC%2529.html" title="Edit section: mic_data">edit</a>]</div><a name="mic_data"></a><h2> mic_data </h2>
+<p><strong>LoadPlayer(playerid,info[],key[]);</strong><br />
+<u>Descripttion</u>:<br />
+Loads the players info into the specified<br />
+key string.<br />
+<u>Parameters</u>:<br />
+playerid - id of the player.<br />
+info - the info you want to load.<br />
+key - the string in which the value returns.<br />
+<br />
+<strong>SavePlayer(playerid,info[],key[]);</strong><br />
+<u>Descripttion</u>:<br />
+Saves the playes info to the value as the<br />
+key string.<br />
+<u>Parameters</u>:<br />
+playerid - id of the player.<br />
+info -  the info you want to save,<br />
+key - the value for the info.<br />
+<br />
+<strong>LoadProperty(name[],info[],key[]);</strong><br />
+<u>Descripttion</u>:<br />
+Loads the value of the info of the specified<br />
+name of the property.<br />
+<u>Parameters</u>:<br />
+name - name of the property.<br />
+info - the info of the property you want to load.<br />
+key -  the string in which you want the value of the info.<br />
+<br />
+<strong>SaveProperty(name[],info[],key[]);</strong><br />
+<u>Descripttion</u>:<br />
+Saves the value of the info of the specified<br />
+name of the property.<br />
+<u>Parameters</u>:<br />
+name - name of the property.<br />
+info - the info of the property you want to load.<br />
+key - the string in which you want the value of the info.<br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Make_It_Comfortable_%2528MIC%2529.html" title="Edit section: mic_gang">edit</a>]</div><a name="mic_gang"></a><h2> mic_gang </h2>
+<p><br />
+<strong>CreateGang(name[],color);</strong><br />
+<u>Description</u>:<br />
+Creates a gang with the specified name and<br />
+color.<br />
+<u>Parameters</u>:<br />
+name - name of the gang.<br />
+color - color of the gang.<br />
+<strong><br />
+DestroyGang(gangid);</strong><br />
+<u>Description</u>:<br />
+Destroys the specified gang.<br />
+<u>Parameters</u>:<br />
+gangid - the id of the gang.<br />
+<strong><br />
+SetPlayerInGang(playerid,gangid);</strong><br />
+<u>Description</u>:<br />
+Set the specified player in the specified<br />
+gang.<br />
+<u>Parameters</u>:<br />
+playerid - id of the player.<br />
+gangid - id of the gang.<br />
+<strong><br />
+GetPlayerGangId(playerid);</strong><br />
+<u>Description</u>:<br />
+Gets the specified players gang.<br />
+<u>Parameters</u>:<br />
+playerid - the id of the player.<br />
+<br />
+<strong>SendMessageToGang(gangid,color,const message[]);</strong><br />
+<u>Description</u>:<br />
+Sends a client message to all the members<br />
+of the specified gang.<br />
+<u>Parameters</u>:<br />
+gangid - id of the gang.<br />
+message - the message to send.<br />
+<br />
+<strong>IsPlayerInGang(playerid,gangid);</strong><br />
+<u>Description</u>:<br />
+Checks whether the specified player is the<br />
+specified gang.<br />
+<u>Parameters</u>:<br />
+playerid - the id of the player.<br />
+gangid - the id of the gang.<br />
+<br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Make_It_Comfortable_%2528MIC%2529.html" title="Edit section: mic_house">edit</a>]</div><a name="mic_house"></a><h2> mic_house </h2>
+<p><strong><br />
+AddStaticHouse(Float:x,Float:y,Float:z,Float:ix,Float:iy,Float:iz,ii);</strong><br />
+<u>Descripttion</u>:<br />
+Creates a house in the specified location, is more essential<br />
+for rpg gamemodes and filterscripts.<br />
+<u>Parameters</u>:<br />
+Float:x - x cordinates of the house.<br />
+Float:y - y cordinates of the house.<br />
+Float:z - z cordinates of the house.<br />
+Float:ix - x cordinates of the interior of the house.<br />
+Float:iy - y cordiantes of the interior of the house.<br />
+Float:iz - z cordinates of the interior of the house.<br />
+ii - interior id of the interior of the house<br />
+<br />
+<strong>SetHouseCost(houseid,cost);</strong><br />
+<u>Descripttion</u>:<br />
+Changes the house selling amount, so that when a player<br />
+buys it the cost is taken from him.<br />
+<u>Parameters</u>:<br />
+houseid - id of the house you want to change the cost.<br />
+cost - the amount of money you want to change.<br />
+<strong><br />
+GetHouseInfo(houseid,info[],value[]);</strong><br />
+<u>Descripttion</u>:<br />
+Gets house  info (like, rent, cost, tenent ) to the<br />
+specifed value.<br />
+<u>Parameters</u>:<br />
+houseid - the id of the house.<br />
+info - the information you want.<br />
+value - the value of the info to be returned.<br />
+<br />
+<strong>SetHouseInfo(houseid,info[],value[]);</strong><br />
+<u>Descripttion</u>:<br />
+Sets the house info, for a certain biz, which you<br />
+want to change.<br />
+<u>Parameters</u>:<br />
+houseid - id of the house.<br />
+info - information you want to change.<br />
+value - value for the information.<br />
+<br />
+<strong>SetPlayerInHouse(playerid,houseid);</strong><br />
+<u>Descripttion</u>:<br />
+Sets the specified player inside a specified house.<br />
+<u>Parameters</u>:<br />
+playerid - id of the player whom you want to set inside<br />
+houseid - id of the house.<br />
+<br />
+<strong>SetPlayerOutHouse(playerid,houseid);</strong><br />
+<u>Descripttion</u>:<br />
+Sets a specified player outside a certain house<br />
+<u>Parameters</u>:<br />
+playerid - id of the player whom you want ot set outside.<br />
+houseid - id of the house.<br />
+<br />
+<strong>IsPlayerAllowedInHouse(playerid,houseid);</strong><br />
+<u>Descripttion</u>:<br />
+Checks if the player is allowed inside the<br />
+house  checking if he has enough money and<br />
+whether he is the owner.<br />
+<u>Parameters</u>:<br />
+playerid - id of the player you want to check.<br />
+houseid  - id of the house.<br />
+<br />
+<strong>MakeTenent(playerid,houseid);</strong><br />
+<u>Descripttion</u>:<br />
+Checks if a specified player is suitable to<br />
+be the tenent of the house, and makes <br />
+him a tenent.<br />
+<u>Parameters</u>:<br />
+playerid - id of the player you want to check.<br />
+houseid  - id of the house.<br />
+<br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Make_It_Comfortable_%2528MIC%2529.html" title="Edit section: mic_more">edit</a>]</div><a name="mic_more"></a><h2> mic_more </h2>
+<p><br />
+<strong>ToggleRealClock(toggle);</strong><br />
+<u>Description</u>:<br />
+Shows a clock to all the players, whcih has<br />
+1min = 60seconds as untis.<br />
+<u>Parameters</u>:<br />
+toggle - 1 if yes, 0 is no.<br />
+<strong><br />
+EnableGantonGym(toggle);</strong><br />
+<u>Description</u>:<br />
+Enables a system which has features<br />
+like in single player mode of ganton gym.<br />
+<u>Parameters</u>:<br />
+toggle - 1 if yes, 0 if no.<br />
+<br />
+<strong>strcut(string[],substring[]);</strong><br />
+<u>Description</u>:<br />
+Finds and deletes a part of a specified string.<br />
+<u>Parameters</u>:<br />
+string - the string in which you want to delete.<br />
+susbstring - the string what you want to delete.<br />
+<br />
+<strong>fline(File:handle,line);</strong><br />
+<u>Description</u>:<br />
+Moves the pointer to the specified line in<br />
+the pre-opened file handle. <br />
+<u>Parameters</u>:<br />
+handle - the file handle which you want to scrol<br />
+line - the line which you want to move to.<br />
+<br />
+<strong>fnew(const string[]);</strong><br />
+<u>Description</u>:<br />
+Creates a instant file with the specified name.<br />
+<u>Parameters</u>:<br />
+string - the name of the file.<br />
+<br />
+<strong>TakePlayerMoney(playerid,money);</strong><br />
+<u>Description</u>:<br />
+Checks if player has the money, and takes<br />
+it if he has, else stops the function from<br />
+continueing.<br />
+<u>Parameters</u>:<br />
+playerid - the id of the player.<br />
+money - the money you want to take.<br />
+<br />
+== mic_checkpoint == <br />
+<br />
+CreateCheckpoint(Float:x,Float:y,Float:z,Float:size);<br />
+<u>Descripttion</u>:<br />
+Creates a checkpoint at the specified location and<br />
+specified size.<br />
+<u>Parameters</u>:<br />
+Float:x - x cordinates of the checkpoint position.<br />
+Float:y - y cordinates of the checkpoint position.<br />
+Float:z - z cordinates of the checkpoint postion.<br />
+<br />
+<strong>DestroyCheckpoint(checkpointid);</strong><br />
+<u>Descripttion</u>:<br />
+Destroy a checkpoint which was previously<br />
+created using CreateCheckpoint.<br />
+<u>Parameters</u>:<br />
+checkpointid - id of the specified checkpoint.<br />
+<br />
+<strong>ShowCheckpoint(playerid,checkpointid);</strong><br />
+<u>Descripttion</u>:<br />
+Shows the specified checkpoint to the specified <br />
+player.<br />
+<u>Parameters</u>:<br />
+playerid - id of the player.<br />
+checkpointid - id of the checkpoint.<br />
+<br />
+<strong>HideCheckpoint(playerid,checkpointid);</strong><br />
+<u>Descripttion</u>:<br />
+Hides the specified checkpoint to the specified<br />
+player.<br />
+<u>Parameters</u>:<br />
+playerid - id of the player.<br />
+checkpointid - id of the checkpoint.<br />
+<br />
+<strong>ShowCheckpointForAll(checkpointid);</strong><br />
+<u>Descripttion</u>:<br />
+Show the specified checkpoint to all the players<br />
+on the server.<br />
+<u>Parameters</u>:<br />
+checkpointid - id of the checkpoint.<br />
+<br />
+<strong>HideCheckpointForAll(checkpointid);</strong><br />
+<u>Descripttion</u>:<br />
+Hide the specified checkpoint to all the players<br />
+on the server.<br />
+<u>Parameters</u>:<br />
+checkpointid - id of the checkpoint.<br />
+<br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Make_It_Comfortable_%2528MIC%2529.html" title="Edit section: mic_stream">edit</a>]</div><a name="mic_stream"></a><h2> mic_stream </h2>
+<p><strong>CreateObject(model,Float:x,Float:y,Float:z,Float:rx,Float:ry,Float:rz);</strong><br />
+<u>Descripttion</u>:<br />
+Creates a certain object in the specified location<br />
+with the specified model id.<br />
+<u>Parameters</u>:<br />
+model - model id of the object.<br />
+Float:x - the x cordinates of the object.<br />
+Float:y - the y cordinates of the object.<br />
+Float:z - the z cordinates of the obejct.<br />
+Float:rx - the x rotation of the object.<br />
+Float:ry - the y rotation of the object.<br />
+Float:rz - the z rotation of the object.<br />
+<br />
+<strong>DestroyObject(Objectid);</strong><br />
+<u>Descripttion</u>:<br />
+Destroys a the specified object.<br />
+<u>Parameters</u>:<br />
+objectid - the objectid which should be destroyed.<br />
+<br />
+<strong>SetObjectStreaming(Distance);</strong><br />
+<u>Descripttion</u>:<br />
+Sets Objects to streaming, so that more no.<br />
+of objects are allowed in the server from the <br />
+limit.<br />
+<u>Parameters</u>:<br />
+distance -  the distance from which player should<br />
+be able to see the object.<br />
+<br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Make_It_Comfortable_%2528MIC%2529.html" title="Edit section: mic_piks">edit</a>]</div><a name="mic_piks"></a><h2> mic_piks </h2>
+<p><strong>CreatePik(model,Float:x,Float:y,Float:z);</strong><br />
+<u>Description</u>:<br />
+Creates a pik in the specified location.<br />
+<u>Parameters</u>:<br />
+model -  model id of the pik.<br />
+Float:x - x cordinates of the pik.<br />
+Float:y - y cordinates of the pik.<br />
+Float:z - z cordinates of the pik.<br />
+<br />
+<strong>DestroyPik(pikid);</strong><br />
+<u>Description</u>:<br />
+Destroys the specified pik.<br />
+<u>Parameters</u>:<br />
+pikid - id of the pik.<br />
+<br />
+<strong>GetClosestPlayerToPik(pikid)</strong><br />
+<u>Description</u>:<br />
+Gets the closest player to the specified<br />
+pik.<br />
+<u>Parameters</u>:<br />
+pikid - id of the pik.<br />
+<br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Make_It_Comfortable_%2528MIC%2529.html" title="Edit section: mic_vehicle">edit</a>]</div><a name="mic_vehicle"></a><h2> mic_vehicle </h2>
+<p><strong>GivePlayerVehicleKeys(playerid,vehicleid);</strong><br />
+<u>Description</u>:<br />
+Gives the specified player vehicle keys.<br />
+<u>Parameters</u>:<br />
+playerid - id of the player.<br />
+vehiclid - id of the vehicle.<br />
+<br />
+<strong>TakePlayerVehicleKeys(playerid,vehicleid);</strong><br />
+<u>Description</u>:<br />
+Takes the specified players vehicle keys.<br />
+<u>Parameters</u>:<br />
+playerid - id of the player.<br />
+vehicleid - id of the vehicle.<br />
+<br />
+<strong>IsPlayerHavingKeys(playerid,vehicleid);</strong><br />
+<u>Description</u>:<br />
+Checks if the specified player has vehicle keys.<br />
+<u>Parameters</u>:<br />
+playerid - id of the player.<br />
+vehicleid - id of the vehicle.<br />
+<strong><br />
+LockVehicle(vehicleid);</strong><br />
+<u>Description</u>:<br />
+Locks the specified vehicle so that only,<br />
+players with the keys can enter the vehicle.<br />
+<u>Parameters</u>:<br />
+vehicleid - id of the vehicle.<br />
+<br />
+<strong>UnLockVehicle(vehicleid);</strong><br />
+<u>Description</u>:<br />
+Unlocks the specified vehicle so that everyone<br />
+can enter the vehicle.<br />
+<u>Parameters</u>:<br />
+vehicleid - id of the vehicle.<br />
+<br />
+<strong>IsVehicleLocked(vehicleid);</strong><br />
+<u>Description</u>:<br />
+Checks if the specified vehicle is locked.<br />
+<u>Parameters:</u><br />
+vehicleid - id of the vehicle.<br />
+<br />
+<strong>StopVehicle(vehicleid);</strong><br />
+<u>Description</u>:<br />
+Stops the specified vehicle from moving.<br />
+<u>Parameters</u>:<br />
+vehicleid - id of the vehicle.<br />
+<br />
+<strong>UnStopVehicle(vehicleid);</strong><br />
+<u>Description</u>:<br />
+Unstops the specified vehicle which was<br />
+stoped previously.<br />
+<u>Parameters</u>:<br />
+vehicleid - id of the vehicle.<br />
+<br />
+<strong>GetVehicleDriverId(vehicleid);</strong><br />
+<u>Description</u>:<br />
+Gets the specifieds vehicles driver id.<br />
+<u>Parameters</u>:<br />
+vehicleid - id of the vehicle.<br />
+<strong><br />
+GetVehicleFuel(vehicleid);</strong><br />
+<u>Description</u>:<br />
+Gets the specified vehicles fuel.<br />
+<u>Parameters</u>:<br />
+vehiclid - id of the vehicle.<br />
+<br />
+<strong>EnableFuelSystem(toggle);</strong><br />
+<u>Description</u>:<br />
+Turns on the fuel system to all<br />
+the cars.<br />
+<u>Parameters</u>:<br />
+toggle - 1 if yes, 0 if no.<br />
+<br />
+<strong>UseFuel(playerid,vehicleid);</strong><br />
+<u>Description</u>:<br />
+Uses the fuel of the specified vehicle.<br />
+<u>Parameters</u>:<br />
+playerid - id of the player.<br />
+vehicleid - id of the vehicle.<br />
+<br />
+<strong>GiveFuel(playerid,vehicleid);</strong><br />
+<u>Description</u>:<br />
+Gives the specified vehicle fuel<br />
+and takes the required amount of<br />
+money from the player.<br />
+<u>Parameters</u>:<br />
+playerid - id of the player.<br />
+vehicleid - id of the vehicle.<br />
+<br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Make_It_Comfortable_%2528MIC%2529.html" title="Edit section: mic_zone">edit</a>]</div><a name="mic_zone"></a><h2> mic_zone </h2>
+<p><strong>CreateZone(color,Float:x1,Float:y1,Float:x2,Float:y2,Float:x3,Float:y3,Float:x4,Float:y4)</strong><br />
+<u>Descripttion</u>:<br />
+Creates a zone in the specified location, with the specified<br />
+color.<br />
+<u>Parameters</u>:<br />
+color - color of the gang zone.<br />
+Float:x1 - the x cordinates of the first place.<br />
+Float:y1 - the y cordinates of the first place.<br />
+Float:x2 - the x cordinates of the second place.<br />
+Float:y2 - the y cordinates of the second place.<br />
+Float:x3 - the x cordinates of the third place.<br />
+Float:y3 - the y cordinates of the third place.<br />
+Float:x4 - the x cordinates of the fourth place.<br />
+Float:y4 - the y cordinates of the fourth place.<br />
+<br />
+<strong>SetZoneColor(zoneid,color);</strong><br />
+<u>Descripttion</u>:<br />
+Changes the color of the specified zone.<br />
+<u>Parameters</u>:<br />
+zoneid - the id of the zone.<br />
+color - the color of the zone.<br />
+<strong><br />
+DestroyZone(zoneid);</strong><br />
+<u>Descripttion</u>:<br />
+Destroys the specified zone.<br />
+<u>Parameters</u>:<br />
+zoneid - the id of the zone.<br />
+<br />
+<strong>IsPlayerInZone(playerid,zoneid);</strong><br />
+<u>Descripttion</u>:<br />
+Checks if the specified player is in a specified<br />
+zone.<br />
+<u>Parameters</u>:<br />
+playerid - id of the player.<br />
+zoneid - id of the zone.<br />
+<br />
+<strong>IsPlayerInZone(playerid,zoneid);</strong><br />
+<u>Descripttion</u>:<br />
+Checks if the specified player is in a specified<br />
+zone.<br />
+<u>Parameters</u>:<br />
+playerid - id of the player.<br />
+zoneid - id of the zone.<br />
+</p><div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/Make_It_Comfortable_%2528MIC%2529.html">http://localhost../wiki/Make_It_Comfortable_%2528MIC%2529.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="Category_Useful_includes.html" class="new" title="Category:Useful includes">Useful includes</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="Make_It_Comfortable_%2528MIC%2529.html">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="Talk_Make_It_Comfortable_%2528MIC%2529.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="Make_It_Comfortable_%2528MIC%2529.html">Edit</a></li>
+				 <li id="ca-history"><a href="Make_It_Comfortable_%2528MIC%2529.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 11,327 times.</li>
+				<li id="credits">This page was last modified 14:05, 3 August 2017 by SA-MP Wiki user <a href="User_OstGot.html" title="User:OstGot">OstGot</a>. Based on work by SA-MP Wiki user(s) <a href="User_Remcconen.html" class="new" title="User:Remcconen">Remcconen</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 20.14 secs. -->
+</body></html>

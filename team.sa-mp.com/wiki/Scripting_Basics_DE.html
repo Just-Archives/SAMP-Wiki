@@ -1,0 +1,318 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Scripting Basics DE" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>Scripting Basics DE - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Scripting Basics DE</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class='toclevel-1'><a href="#Variablentypen"><span class="tocnumber">1</span> <span class="toctext">Variablentypen</span></a>
+<ul>
+<li class='toclevel-2'><a href="#Integer"><span class="tocnumber">1.1</span> <span class="toctext">Integer</span></a>
+<ul>
+<li class='toclevel-3'><a href="#Beispiel"><span class="tocnumber">1.1.1</span> <span class="toctext">Beispiel</span></a></li>
+<li class='toclevel-3'><a href="#Moegliche_Verwendung"><span class="tocnumber">1.1.2</span> <span class="toctext">Moegliche Verwendung</span></a></li>
+</ul>
+</li>
+<li class='toclevel-2'><a href="#Float"><span class="tocnumber">1.2</span> <span class="toctext">Float</span></a>
+<ul>
+<li class='toclevel-3'><a href="#Beispiel_2"><span class="tocnumber">1.2.1</span> <span class="toctext">Beispiel</span></a></li>
+<li class='toclevel-3'><a href="#Moegliche_Verwendung_2"><span class="tocnumber">1.2.2</span> <span class="toctext">Moegliche Verwendung</span></a></li>
+</ul>
+</li>
+<li class='toclevel-2'><a href="#String"><span class="tocnumber">1.3</span> <span class="toctext">String</span></a>
+<ul>
+<li class='toclevel-3'><a href="#Beispiel_3"><span class="tocnumber">1.3.1</span> <span class="toctext">Beispiel</span></a></li>
+<li class='toclevel-3'><a href="#Gewoehnliche_Verwendung"><span class="tocnumber">1.3.2</span> <span class="toctext">Gewoehnliche Verwendung</span></a></li>
+<li class='toclevel-3'><a href="#Moegliche_Verwendung_3"><span class="tocnumber">1.3.3</span> <span class="toctext">Moegliche Verwendung</span></a></li>
+</ul>
+</li>
+<li class='toclevel-2'><a href="#Boolean"><span class="tocnumber">1.4</span> <span class="toctext">Boolean</span></a>
+<ul>
+<li class='toclevel-3'><a href="#Beispiel_4"><span class="tocnumber">1.4.1</span> <span class="toctext">Beispiel</span></a></li>
+<li class='toclevel-3'><a href="#Moegliche_Verwendung_4"><span class="tocnumber">1.4.2</span> <span class="toctext">Moegliche Verwendung</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#Array"><span class="tocnumber">2</span> <span class="toctext">Array</span></a>
+<ul>
+<li class='toclevel-2'><a href="#Eindimensionales_Array"><span class="tocnumber">2.1</span> <span class="toctext">Eindimensionales Array</span></a>
+<ul>
+<li class='toclevel-3'><a href="#Beispiel_5"><span class="tocnumber">2.1.1</span> <span class="toctext">Beispiel</span></a></li>
+<li class='toclevel-3'><a href="#Moegliche_Verwendung_5"><span class="tocnumber">2.1.2</span> <span class="toctext">Moegliche Verwendung</span></a></li>
+<li class='toclevel-3'><a href="#Moegliche_Verwendung_6"><span class="tocnumber">2.1.3</span> <span class="toctext">Moegliche Verwendung</span></a></li>
+</ul>
+</li>
+<li class='toclevel-2'><a href="#Dreidimensionales_Array_.2F_Zweidimensionales_String-Array"><span class="tocnumber">2.2</span> <span class="toctext">Dreidimensionales Array / Zweidimensionales String-Array</span></a>
+<ul>
+<li class='toclevel-3'><a href="#Zweidimensionales_String-Array"><span class="tocnumber">2.2.1</span> <span class="toctext">Zweidimensionales String-Array</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#Bedingungen"><span class="tocnumber">3</span> <span class="toctext">Bedingungen</span></a>
+<ul>
+<li class='toclevel-2'><a href="#If.2FElse"><span class="tocnumber">3.1</span> <span class="toctext">If/Else</span></a>
+<ul>
+<li class='toclevel-3'><a href="#Vergleichsoperatoren"><span class="tocnumber">3.1.1</span> <span class="toctext">Vergleichsoperatoren</span></a></li>
+<li class='toclevel-3'><a href="#Beispiel_6"><span class="tocnumber">3.1.2</span> <span class="toctext">Beispiel</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_DE.html" title="Edit section: Variablentypen">edit</a>]</div><a name="Variablentypen"></a><h1> Variablentypen </h1>
+<p>In Variablen koennen Werte gespeichert werden. Variablen in PAWN sind Case-Sensitive (= zwischen GroÃer- und Kleinschreibung wird unterschieden), d.h. eine Variable mit dem Namen 'lolhax' ist z.B. nicht dieselbe wie 'LOLHAX' oder 'LoLhAx'Â oder. Variablennamen muessen mit einem Buchstaben beginnen (a-z, A-Z).
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_DE.html" title="Edit section: Integer">edit</a>]</div><a name="Integer"></a><h2> Integer </h2>
+<p>Integer ist der Standardvariablentyp. Ein Integer ist eine Ganzzahl. Es duerfen keine Dezimalpunkte in Integern vorkommen, auch wenn alle Ziffern hinter dem Dezimalpunkt '0'Â sind. 
+5.00 z.B. ist technisch gesehen kein Integer.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_DE.html" title="Edit section: Beispiel">edit</a>]</div><a name="Beispiel"></a><h3> Beispiel </h3>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> integer = <span style="color: #4169e1;">1337</span>; <span style="color: #808080; font-style: italic;">// Definiert eine neue Integervariable namens 'integer' und setzt ihren Wert auf '1337'.</span></pre>
+<p>new integer; // Definiert eine neue Integervariable namens 'integer' und setzt ihren Wert auf '0' da kein spezieller Wert angegeben wird.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_DE.html" title="Edit section: Moegliche Verwendung">edit</a>]</div><a name="Moegliche_Verwendung"></a><h3> Moegliche Verwendung </h3>
+<pre class="pawn"><span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>integer == <span style="color: #4169e1;">1337</span><span style="color: #66cc66;">&#41;</span> <span style="color: #66cc66;">&#123;</span> <span style="color: #808080; font-style: italic;">/* Weitere Anweisungen */</span> <span style="color: #66cc66;">&#125;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_DE.html" title="Edit section: Float">edit</a>]</div><a name="Float"></a><h2> Float </h2>
+<p>Floatvariablen koennen Kommazahlen abspeichern. Das Komma ist dabei nicht wie im Deutschen '<b>,'</b> sondern muss durch '<b>.'</b> ersetzt werden.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_DE.html" title="Edit section: Beispiel">edit</a>]</div><a name="Beispiel_2"></a><h3> Beispiel </h3>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> <span style="color: orange;">Float</span>:<a href="http://wiki.sa-mp.com/wiki/float"><span style="color: #006400;">float</span></a>; <span style="color: #808080; font-style: italic;">// Definiert eine neue leere Floatvariable namens 'Float'.</span>
+<span style="color: #228b22; font-weight: bold;">new</span> <span style="color: orange;">Float</span>:<a href="http://wiki.sa-mp.com/wiki/float"><span style="color: #006400;">float</span></a> = <span style="color: #4169e1;">2.0</span>; <span style="color: #808080; font-style: italic;">// Definiert eine neue Floatvariable namens 'Float' und setzt ihren Wert auf '2.0'.</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_DE.html" title="Edit section: Moegliche Verwendung">edit</a>]</div><a name="Moegliche_Verwendung_2"></a><h3> Moegliche Verwendung </h3>
+<pre class="pawn"><a href="http://wiki.sa-mp.com/wiki/SetPlayerPos"><span style="color: #006400;">SetPlayerPos</span></a><span style="color: #66cc66;">&#40;</span>playerid, <a href="http://wiki.sa-mp.com/wiki/float"><span style="color: #006400;">float</span></a>, <span style="color: #4169e1;">2.0</span>, <span style="color: #4169e1;">1400.0</span><span style="color: #66cc66;">&#41;</span>;</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_DE.html" title="Edit section: String">edit</a>]</div><a name="String"></a><h2> String </h2>
+<p>Strings koennen einzelne Zeichen oder Zeichenketten abspeichern. Strings sind Ueblicherweise Arrays. Ein Array ist eine spezielle Variable, die mehrere Werte beinhalten kann. Jeder Wert eines Arrays hat einen Index, der bei 0 anfaengt und sich dann pro Wert um 1 erhoeht. Da jedes Zeichen auch als Integer dargestellt werden kann, kann man in einen Integer auch ein Zeichen abspeichern. Einzelne Zeichen werden in <i> zugewiesen (Bsp.: 'a'), Strings in "" (Bsp.: "Hallo").</i>
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_DE.html" title="Edit section: Beispiel">edit</a>]</div><a name="Beispiel_3"></a><h3> Beispiel </h3>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> string<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">7</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #b22222;">&quot;String&quot;</span>; <span style="color: #808080; font-style: italic;">// 7 ist die Laenge des Strings plus 1 fuehr den String Identifier, der festlegt, dass das Array ein String ist. Das Ganze Script ueber koennte ein solches Array 'String' also maximal 6 Zeichen beinhalten.</span>
+<span style="color: #228b22; font-weight: bold;">new</span> string<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">7</span><span style="color: #66cc66;">&#93;</span>;
+string<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #b22222;">'S'</span>;
+string<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">1</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #b22222;">'t'</span>;
+string<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">2</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #b22222;">'r'</span>;
+string<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">3</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #b22222;">'i'</span>;
+string<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">4</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #b22222;">'n'</span>;
+string<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">5</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #b22222;">'g'</span>;
+string<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">6</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #4169e1;">0</span>; <span style="color: #808080; font-style: italic;">// 0 ist der String Identifier.</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_DE.html" title="Edit section: Gewoehnliche Verwendung">edit</a>]</div><a name="Gewoehnliche_Verwendung"></a><h3> Gewoehnliche Verwendung </h3>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> string<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">256</span><span style="color: #66cc66;">&#93;</span>;</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_DE.html" title="Edit section: Moegliche Verwendung">edit</a>]</div><a name="Moegliche_Verwendung_3"></a><h3> Moegliche Verwendung </h3>
+<pre class="pawn"><a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, 0xFFFFFFAA, string<span style="color: #66cc66;">&#41;</span>;</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_DE.html" title="Edit section: Boolean">edit</a>]</div><a name="Boolean"></a><h2> Boolean </h2>
+<p>Ein Boolean kann zwei Werte abspeichern. Entweder true oder false. True entspricht dem Integerwert 1, false dem Integerwert 0. In PAWN wird alles, was nicht 0 ist, als true angesehen. Beim Definieren ist der Standardwert eines Booleans 0, also false.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_DE.html" title="Edit section: Beispiel">edit</a>]</div><a name="Beispiel_4"></a><h3> Beispiel </h3>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> <span style="color: orange;">bool</span>:boolname;</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_DE.html" title="Edit section: Moegliche Verwendung">edit</a>]</div><a name="Moegliche_Verwendung_4"></a><h3> Moegliche Verwendung </h3>
+<pre class="pawn"><span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>boolname == true<span style="color: #66cc66;">&#41;</span> <span style="color: #66cc66;">&#123;</span> <span style="color: #808080; font-style: italic;">/* Weitere Anweisungen */</span> <span style="color: #66cc66;">&#125;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_DE.html" title="Edit section: Array">edit</a>]</div><a name="Array"></a><h1> Array </h1>
+<p>Arrays koennen groÃee Datenmengen abspeichern. Sie sind vergleichbar mit Tabellen. Es gibt ein- und mehrdimensionale Arrays. Float- oder Boolean-Arrays werden genauso definiert wie Float- oder Boolean-Variablen (mit den Praefixen Float: und bool:).
+</p><p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_DE.html" title="Edit section: Eindimensionales Array">edit</a>]</div><a name="Eindimensionales_Array"></a><h2> Eindimensionales Array </h2>
+<p>Ein eindimensionales Array ist eine Reihe von Werten, die alle einen Index zugewiesen bekommen.
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> onedimensionalarray<span style="color: #66cc66;">&#91;</span>FELDER<span style="color: #66cc66;">&#93;</span>;</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_DE.html" title="Edit section: Beispiel">edit</a>]</div><a name="Beispiel_5"></a><h3> Beispiel </h3>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> onedimensionarray<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">5</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">4</span>, <span style="color: #4169e1;">6</span>, <span style="color: #4169e1;">7</span>, <span style="color: #4169e1;">9</span>, <span style="color: #4169e1;">2</span><span style="color: #66cc66;">&#125;</span>; <span style="color: #808080; font-style: italic;">// Die '5' zwischen [ und ] legt fest, wie viele Felder das Array hat.</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_DE.html" title="Edit section: Moegliche Verwendung">edit</a>]</div><a name="Moegliche_Verwendung_5"></a><h3> Moegliche Verwendung </h3>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> randomnumber = <a href="http://wiki.sa-mp.com/wiki/random"><span style="color: #006400;">random</span></a><span style="color: #66cc66;">&#40;</span><span style="color: orange; font-weight: bold;">sizeof</span><span style="color: #66cc66;">&#40;</span>onedimensionalarray<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// Zufaellige Nummer eines Feldes.</span>
+<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;Zufallszahl: %d&quot;</span>, onedimensionalarray<span style="color: #66cc66;">&#91;</span><a href="http://wiki.sa-mp.com/wiki/random"><span style="color: #006400;">random</span></a><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// Die zzufaellige Nummer wird als Index fuer ein Feld verwendet.</span>
+&lt;pawn&gt;
+&nbsp;
+== Zweidimensionales Array ==
+Zweidimensionale Arrays sind wie Tabellen und haben Zeilen und Spalten.
+&lt;pawn&gt;
+<span style="color: #228b22; font-weight: bold;">new</span> twodimensionalarray<span style="color: #66cc66;">&#91;</span>ZEILEN<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>SPALTEN<span style="color: #66cc66;">&#93;</span>;
+&lt;pawn&gt;
+&nbsp;
+=== Beispiel ===
+&lt;pawn&gt;
+<span style="color: #228b22; font-weight: bold;">new</span> <span style="color: orange;">Float</span>:twodimensionarray<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">4</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">3</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #66cc66;">&#123;</span>
+<span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">3.0</span>, <span style="color: #4169e1;">4.5</span>, <span style="color: #4169e1;">5.76</span><span style="color: #66cc66;">&#125;</span>, <span style="color: #808080; font-style: italic;">// Zeile 0</span>
+<span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">10.85</span>, <span style="color: #4169e1;">76.34</span>, <span style="color: #4169e1;">23.54</span><span style="color: #66cc66;">&#125;</span>, <span style="color: #808080; font-style: italic;">// Zeile 1</span>
+<span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">2.32</span>, <span style="color: #4169e1;">10.23</span>, <span style="color: #4169e1;">80.2</span><span style="color: #66cc66;">&#125;</span>, <span style="color: #808080; font-style: italic;">// Zeile 2</span>
+<span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">6.6666</span>, <span style="color: #4169e1;">45.3</span>, <span style="color: #4169e1;">32.64</span><span style="color: #66cc66;">&#125;</span> <span style="color: #808080; font-style: italic;">// Zeile 3</span>
+<span style="color: #66cc66;">&#125;</span>;</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_DE.html" title="Edit section: Moegliche Verwendung">edit</a>]</div><a name="Moegliche_Verwendung_6"></a><h3> Moegliche Verwendung </h3>
+<pre class="pawn"><a href="http://wiki.sa-mp.com/wiki/SetPlayerPos"><span style="color: #006400;">SetPlayerPos</span></a><span style="color: #66cc66;">&#40;</span>playerid, twodimensionalarray<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">2</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">2</span><span style="color: #66cc66;">&#93;</span>, twodimensionalarray<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">3</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">1</span><span style="color: #66cc66;">&#93;</span>, twodimensionalarray<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">2</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>;</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_DE.html" title="Edit section: Dreidimensionales Array / Zweidimensionales String-Array">edit</a>]</div><a name="Dreidimensionales_Array_.2F_Zweidimensionales_String-Array"></a><h2> Dreidimensionales Array / Zweidimensionales String-Array </h2>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> treedimensionalarray<span style="color: #66cc66;">&#91;</span>ZEILEN<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>SPALTEN<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>Z<span style="color: #66cc66;">&#93;</span>;</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_DE.html" title="Edit section: Zweidimensionales String-Array">edit</a>]</div><a name="Zweidimensionales_String-Array"></a><h3> Zweidimensionales String-Array </h3>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> twodimensionalarraystring<span style="color: #66cc66;">&#91;</span>ROWS<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>COLLUMNS<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">256</span><span style="color: #66cc66;">&#93;</span>; <span style="color: #808080; font-style: italic;">//fuer einen 255 Bytes langen String</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_DE.html" title="Edit section: Bedingungen">edit</a>]</div><a name="Bedingungen"></a><h1> Bedingungen </h1>
+<p>Bedingungen ermoeglichen es, Daten zu pruefen oder zu vergleichen und dann bestimmte Scripts auszufuehren, je nach dem, ob die Bedingung wahr oder falsch ist. Die gebraeuchlichste Bedingung ist wohl if/else, aber es gibt auch einige andere: case, for- und while-Schleifen.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_DE.html" title="Edit section: If/Else">edit</a>]</div><a name="If.2FElse"></a><h2> If/Else </h2>
+<p>Die if/else-Bedingung vergleicht zwei Werte miteinander und fuehrt dann je nach Ergebnis ein Script aus oder nicht. Optional kann man auch ein Script angeben, was aausgefuehrt wird, wenn die Bedingung falsch ist.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_DE.html" title="Edit section: Vergleichsoperatoren">edit</a>]</div><a name="Vergleichsoperatoren"></a><h3> Vergleichsoperatoren </h3>
+<table class="wikitable">
+
+<tr>
+<th>Operator
+</th><th>Bedeutung
+</th><th>Benutzung
+</th></tr>
+<tr>
+<td> ==
+</td><td> Links gleicht Rechts
+</td><td> if(Links == Rechts)
+</td></tr>
+<tr>
+<td>!=
+</td><td> Links gleicht Rechts nicht
+</td><td> if(Links&nbsp;!= Rechts)
+</td></tr>
+<tr>
+<td> >
+</td><td> Links ist groeÃer als Rechts
+</td><td> if(Links > Rechts)
+</td></tr>
+<tr>
+<td> >=
+</td><td> Links ist groeÃer oder gleich Rechts
+</td><td> if(Links >= Rechts)
+</td></tr>
+<tr>
+<td> &lt;
+</td><td> Links ist kleiner als Rechts
+</td><td> if(Links &lt; Rechts)
+</td></tr>
+<tr>
+<td> &lt;=
+</td><td> Links ist kleiner oder gleich Rechts
+</td><td> if(Links &lt;= Rechts)
+</td></tr></table>
+<table class="wikitable">
+
+<tr>
+<th>Operator
+</th><th>Bedeutung
+</th><th>Benutzung
+</th></tr>
+<tr>
+<td> &amp;&amp;
+</td><td> AND (Und)
+</td><td> if(Links &amp;&amp; Rechts)
+</td></tr>
+<tr>
+<td></td><td>
+</td><td> OR
+</td><td> if(Links </td><td> Rechts)
+</td></tr>
+<tr>
+<td>&nbsp;!
+</td><td> NO
+</td><td> if(!Variable)
+</td></tr>
+<tr>
+<td>
+</td><td> NOR
+</td><td> if(!(Links </td><td> Rechts))
+</td></tr>
+<tr>
+<td>
+</td><td> NAND
+</td><td> if(!(Links &amp;&amp; Rechts))
+</td></tr>
+<tr>
+<td>
+</td><td> XOR
+</td><td> if((Links &amp;&amp;&nbsp;!Rechts)</td><td>(!Links &amp;&amp; Rechts))
+</td></tr>
+<tr>
+<td>
+</td><td> NXOR
+</td><td> if(!((Links &amp;&amp;&nbsp;!Rechts)</td><td>(!Links &amp;&amp; Rechts)))
+</td></tr></table>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_DE.html" title="Edit section: Beispiel">edit</a>]</div><a name="Beispiel_6"></a><h3> Beispiel </h3>
+<pre class="pawn"><span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>lvalue &gt; rvalue<span style="color: #66cc66;">&#41;</span> <span style="color: #66cc66;">&#123;</span> <span style="color: #808080; font-style: italic;">/* Weitere Anweisungen */</span> <span style="color: #66cc66;">&#125;</span></pre>
+<p>Im Beispiel werden die weiteren Anweisungen ausgefuehrt, <b>wenn</b> die Bedingung zwischen <i>lvalue</i> und <i>rvalue</i>wahr ist. Die Bedingung lautet: <b>Wenn</b> <i>lvalue</i> groeÃer als <i>rvalue</i> ist, dann fuehre die Weiteren Anweisungen aus.
+</p><div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/Scripting_Basics_DE.html">http://localhost../wiki/Scripting_Basics_DE.html</a>"</div>
+						<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="Scripting_Basics_DE.html">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="Talk_Scripting_Basics_DE.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="Scripting_Basics_DE.html">Edit</a></li>
+				 <li id="ca-history"><a href="Scripting_Basics_DE.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-en"><a href="Scripting_Basics.html">English</a></li>
+				<li class="interwiki-nl"><a href="Scripting_Basics_NL.html">Nederlands</a></li>
+				<li class="interwiki-ru"><a href="Scripting_Basics_RU.html">Русский</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 40,735 times.</li>
+				<li id="credits">This page was last modified 15:17, 21 April 2014 by SA-MP Wiki user <a href="User_MP2.html" title="User:MP2">MP2</a>. Based on work by SA-MP Wiki user(s) <a href="User_XXganzereuroXx.html" title="User:XXganzereuroXx">XXganzereuroXx</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 18.46 secs. -->
+</body></html>

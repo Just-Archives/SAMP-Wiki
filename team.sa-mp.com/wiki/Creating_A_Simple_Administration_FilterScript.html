@@ -1,0 +1,966 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Creating A Simple Administration FilterScript,Creating A Simple Administration FilterScript,Advanced Server Controls,Control Structures,Controlling Your Server,Format,GetPlayerIp,GetPlayerName,Main Page,OnFilterScriptInit,OnPlayerCommandText" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>Creating A Simple Administration FilterScript - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Creating A Simple Administration FilterScript</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<div class="scripting" style="color: #4378A4; background-color: #FFFFFF; margin: 2px; margin-bottom: 10px;"><div align="center" style="border: 1px solid #AAAAAA; padding: 3px; padding-left: 5px;"><a href="../wiki-archive.html" title="Main Page">Main Page</a> | <a href="Category_Scripting_Functions.html" title="Category:Scripting Functions">Scripting Functions</a> | <a href="Category_Scripting_Callbacks.html" title="Category:Scripting Callbacks">Scripting Callbacks</a> | <a href="Scripting_Basics.html" title="Scripting Basics">Scripting Basics</a> | <a href="Server_Plugins.html" title="Server Plugins">Server Plugins</a> | <a href="Category_Tutorials.html" title="Category:Tutorials">Tutorials</a></div></div><br />
+<div style="max-width:750px; width:auto; margin:0 auto 10px auto;">
+<table style="padding: 5px; background-color:#ffeecc; border-left: 10px solid #ffcc99;">
+
+<tr>
+<td align="left"><a href="Image_50px-Ambox_outdated_serious.png.html" class="image" title="Image:50px-Ambox_outdated_serious.png"><img src="../upload/b/b4/50px-Ambox_outdated_serious.png" alt="Image:50px-Ambox_outdated_serious.png" width="50" height="50" longdesc="Image_50px-Ambox_outdated_serious.png.html" /></a>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">This article is outdated. It may use methods or functions which no longer exist or which are deemed obsolete by the community. Caution is advised.  </span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class='toclevel-1'><a href="#General_Knowledge"><span class="tocnumber">1</span> <span class="toctext">General Knowledge</span></a></li>
+<li class='toclevel-1'><a href="#Getting_Pawned"><span class="tocnumber">2</span> <span class="toctext">Getting Pawned</span></a></li>
+<li class='toclevel-1'><a href="#Beginning_The_Script"><span class="tocnumber">3</span> <span class="toctext">Beginning The Script</span></a></li>
+<li class='toclevel-1'><a href="#Enumeration"><span class="tocnumber">4</span> <span class="toctext">Enumeration</span></a></li>
+<li class='toclevel-1'><a href="#Accessing_Our_Array"><span class="tocnumber">5</span> <span class="toctext">Accessing Our Array</span></a></li>
+<li class='toclevel-1'><a href="#The_Would-Be_Problem"><span class="tocnumber">6</span> <span class="toctext">The Would-Be Problem</span></a></li>
+<li class='toclevel-1'><a href="#Beginning_The_Commands"><span class="tocnumber">7</span> <span class="toctext">Beginning The Commands</span></a>
+<ul>
+<li class='toclevel-2'><a href="#Account_Management"><span class="tocnumber">7.1</span> <span class="toctext">Account Management</span></a>
+<ul>
+<li class='toclevel-3'><a href="#Register"><span class="tocnumber">7.1.1</span> <span class="toctext">Register</span></a></li>
+<li class='toclevel-3'><a href="#Login"><span class="tocnumber">7.1.2</span> <span class="toctext">Login</span></a></li>
+<li class='toclevel-3'><a href="#Logout"><span class="tocnumber">7.1.3</span> <span class="toctext">Logout</span></a></li>
+<li class='toclevel-3'><a href="#Password"><span class="tocnumber">7.1.4</span> <span class="toctext">Password</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#Creating_And_Storing_Our_Settings"><span class="tocnumber">8</span> <span class="toctext">Creating And Storing Our Settings</span></a></li>
+<li class='toclevel-1'><a href="#Modifying_Our_Commands"><span class="tocnumber">9</span> <span class="toctext">Modifying Our Commands</span></a>
+<ul>
+<li class='toclevel-2'><a href="#Registration_Modification"><span class="tocnumber">9.1</span> <span class="toctext">Registration Modification</span></a></li>
+<li class='toclevel-2'><a href="#Password_Modification"><span class="tocnumber">9.2</span> <span class="toctext">Password Modification</span></a></li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#Setting_Up_For_Commands"><span class="tocnumber">10</span> <span class="toctext">Setting Up For Commands</span></a></li>
+<li class='toclevel-1'><a href="#Setting_Command_Levels"><span class="tocnumber">11</span> <span class="toctext">Setting Command Levels</span></a></li>
+<li class='toclevel-1'><a href="#Further_Commands"><span class="tocnumber">12</span> <span class="toctext">Further Commands</span></a>
+<ul>
+<li class='toclevel-2'><a href="#Moderation_Commands"><span class="tocnumber">12.1</span> <span class="toctext">Moderation Commands</span></a>
+<ul>
+<li class='toclevel-3'><a href="#Akill"><span class="tocnumber">12.1.1</span> <span class="toctext">Akill</span></a></li>
+<li class='toclevel-3'><a href="#Announce"><span class="tocnumber">12.1.2</span> <span class="toctext">Announce</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Creating_A_Simple_Administration_FilterScript.html" title="Edit section: General Knowledge">edit</a>]</div><a name="General_Knowledge"></a><h2> General Knowledge </h2>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hello. I am <a href="http://forum.sa-mp.com/index.php?action=profile;u=13112" class='external text' title="http://forum.sa-mp.com/index.php?action=profile;u=13112" rel="nofollow">Cueball</a> (often aliased on <a href="irc://irc.gamesurge.net#sa-mp" class='external text' title="irc://irc.gamesurge.net#sa-mp" rel="nofollow">IRC</a> as 'PokeBall[NOT_AFK]', or something similar (anything with '[NOT_AFK]' in it is me&nbsp;:) )) and this guide will teach you how to make a simple administration filterscript that will work with all versions of SA:MP V0.2 (IE: 0.2.*). I will preface this tutorial by stating that you will need to have some knowledge and past experience with SAMP pawn scripting. This guide will be very in-depth, with the aim to have you understand every function used, and how to mirror this administration filterscript yourself with only a casual gaze over my work. I reccomend reading the following, as without these, you will most likely lose sight of our goal, and become very confused:
+<br />
+</p>
+<ul><li> <a href="Advanced_Server_Controls.html" title="Advanced Server Controls">Advanced Server Controls</a>
+</li><li> <a href="Scripting_Basics.html" title="Scripting Basics">Scripting Basics</a>
+</li><li> <a href="Scripting_Functions_Old.html" title="Scripting Functions Old">Scripting Functions</a>
+</li><li> <a href="Scripting_Callbacks.html" title="Scripting Callbacks">Scripting Callbacks</a>
+</li></ul>
+<p><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>These are an absolute neccessity if you are to have any hope of understanding this guide.</b> I will be reffering to them often, so if you have not previously read them, do so now!
+<br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Creating_A_Simple_Administration_FilterScript.html" title="Edit section: Getting Pawned">edit</a>]</div><a name="Getting_Pawned"></a><h2> Getting Pawned </h2>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ok, let us begin this script by opening a new document in Pawno. The standard location for this is:
+</p>
+<pre class="pawn"><span style="color: orange;">C</span>:\Program Files\Rockstar Games\GTA San Andreas\SAMP\</pre>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This will be what I refer to when I say the 'server location', so if this is not correct in your
+case, just substitute my server location for yours.
+</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Look inside the folder named 'pawno' and open up "pawno.exe". The program called 'pawno' will appear,
+and you will have a blank page with some functions in a scrollbar to the right. This is not yet a script,
+as no active documents are open. To open one, simply click the 'File' button, and then 'New  Ctrl+N' option.
+(Or, just click the 'new page' button that looks like a blank bit of paper).
+</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Your blank page will now have alot of writing on it, and may be a little confusing. After reading the
+pages listed above, you will know that those such as 'public <a href="OnFilterScriptInit.html" title="OnFilterScriptInit">OnFilterScriptInit()</a>' are callbacks, and
+also that those like '<a href="SetGameModeText.html" title="SetGameModeText">SetGameModeText("Blank Script");</a>' are functions. You can start by deleting everything
+on the page by doing 'Right Click &gt; Select All' and then pressing the 'backspace' key.
+</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ok, we have now started the script, so lets continue.
+</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Firstly add the following lines to the top of your script:
+</p>
+<pre class="pawn"><span style="color: #6b8e23;">#include &lt;a_samp&gt;</span>
+<span style="color: #6b8e23;">#include &lt;dini&gt;</span>
+<span style="color: #6b8e23;">#include &lt;dutils&gt;</span></pre>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;These tell the script to include "a_samp.inc" and "dini.inc" which are located inside your
+server location's 'pawno' folder, and then inside 'include' folder.
+Clicking the 'compile' button (Method 1: Build &gt; Compile. Method 2: pressing the 'F5' key.) will
+now prompt you to save your new admin script. I recommend calling it something under approximately 7
+characters, to avoid errors, and annoying rename problems that may occur later. I have called my new script
+"admin", and saved it in your server location's 'filterscripts' folder.
+</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ok, with the script saved, a box will appear. This is the compiler, and it checks the script for errors
+and nasty warnings that will prevent our script from working. You should recieve the following error inside the compiler:
+</p>
+<pre class="pawn"><span style="color: orange;">C</span>:\Program Files\Rockstar Games\GTA San Andreas\SAMP\filterscripts\admin.pwn<span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">2</span><span style="color: #66cc66;">&#41;</span>&nbsp;: fatal error <span style="color: #4169e1;">100</span>: cannot read from file: <span style="color: #b22222;">&quot;dini&quot;</span>
+&nbsp;
+	Compilation aborted.Pawn compiler <span style="color: #4169e1;">3.2</span><span style="color: #4169e1;">.3664</span>	 Copyright <span style="color: #66cc66;">&#40;</span>c<span style="color: #66cc66;">&#41;</span> <span style="color: #4169e1;">1997</span><span style="color: #4169e1;">-2006</span>, ITB CompuPhase
+&nbsp;
+&nbsp;
+	<span style="color: #4169e1;">1</span> Error.</pre>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This means we have a problem already, and that the compiler could not read from the file "dini.inc" which is
+inside the 'pawno\include' folder. This is most likely due to the fact that you do not have the file.
+To fix this, simply download these files from here and place them inside your server location's 'pawno\include' folder:
+</p>
+<ul><li> <a href="http://dracoblue.net/download/dini/35/" class='external text' title="http://dracoblue.net/download/dini/35/" rel="nofollow">Dini</a>
+</li><li> <a href="http://dracoblue.net/download/dutils/30/" class='external text' title="http://dracoblue.net/download/dutils/30/" rel="nofollow">Dutils</a>
+</li></ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Now that they are there, compile once again, and you should get this inside your compiler:
+</p>
+<pre class="pawn">Pawn compiler <span style="color: #4169e1;">3.2</span><span style="color: #4169e1;">.3664</span>	 	 	Copyright <span style="color: #66cc66;">&#40;</span>c<span style="color: #66cc66;">&#41;</span> <span style="color: #4169e1;">1997</span><span style="color: #4169e1;">-2006</span>, ITB CompuPhase</pre>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Congratulations, your script has just compiled correctly, and you have completed the first step towards
+our great, but very simple, administration filterscript.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Creating_A_Simple_Administration_FilterScript.html" title="Edit section: Beginning The Script">edit</a>]</div><a name="Beginning_The_Script"></a><h2> Beginning The Script </h2>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Now, we will set a few things up that will make our script a lot easier to use, and understand. We will start by defining a few things.
+</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Add the following defines underneath your "#include" lines:
+</p>
+<pre class="pawn"><span style="color: #6b8e23;">#define FILTERSCRIPT</span>
+<span style="color: #6b8e23;">#if defined FILTERSCRIPT</span>
+<span style="color: #6b8e23;">#define dcmd(%1,%2,%3) if ((strcmp((%3)[1], #%1, true, (%2)) == 0) &amp;&amp; ((((%3)[(%2) + 1] == 0) &amp;&amp; (dcmd_%1(playerid, &quot;&quot;)))||(((%3)[(%2) + 1] == 32) &amp;&amp; (dcmd_%1(playerid, (%3)[(%2) + 2]))))) return 1</span>
+<span style="color: #6b8e23;">#define COLOUR_GREEN           0x33AA33AA</span>
+<span style="color: #6b8e23;">#define COLOUR_RED             0xAA3333AA</span>
+<span style="color: #6b8e23;">#define COLOUR_YELLOW          0xFFFF00AA</span>
+<span style="color: #6b8e23;">#define COLOUR_LIGHTBLUE       0x33CCFFAA</span>
+<span style="color: #6b8e23;">#define COLOUR_ORANGE          0xFF9900AA</span>
+&nbsp;
+<span style="color: #6b8e23;">#define PlayerFile 	       &quot;AdminScript/Users/%s.ini&quot;</span>
+<span style="color: #6b8e23;">#define SettingFile            &quot;AdminScript/Settings/MainSettings.ini&quot;</span>
+<span style="color: #6b8e23;">#define CommandFile            &quot;AdminScript/Settings/Commands.ini&quot;</span></pre>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;These basically define our new administration script to be a filterscript, which affects the way things work.
+The "#if defined FILTERSCRIPT" line checks whether the script is a filterscript and if so, does all code until it finds an "#endif".
+They also define possibly the most important part of our script, 'dcmd', which will help us with our commands that are still to be written.
+</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Explaining the concept of 'dcmd' to a new scripter with little knowledge of SAMP pawn scripting is pointless, so just take my word on it,
+that that one line is very useful and very necessary to our administration script.
+</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The other lines after it just define 5 colours in hexadecimal format, which will make displaying messages to players in different
+colours much easier.
+</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The final 3 lines define our file locations. Change these to suit your server, but you will need to have these folders
+inside your server location's 'scriptfiles' folder:
+</p>
+<pre class="pawn"><span style="color: #b22222;">&quot;AdminScript/Users&quot;</span>
+<span style="color: #b22222;">&quot;AdminScript/Settings&quot;</span></pre>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If you don't do that, your server will crash, and that would be bad, so I recommend leaving them as they are, and creating the folders now.
+</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Compile your script now and you should get this in your compiler:
+</p>
+<pre class="pawn"><span style="color: orange;">C</span>:\Program Files\Rockstar Games\GTA San Andreas\SAMP\filterscripts\admin.pwn<span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">19</span><span style="color: #66cc66;">&#41;</span>&nbsp;: error <span style="color: #4169e1;">001</span>: expected token: <span style="color: #b22222;">&quot;#endif&quot;</span>, but found <span style="color: #b22222;">&quot;-end of file-&quot;</span>
+	Pawn compiler <span style="color: #4169e1;">3.2</span><span style="color: #4169e1;">.3664</span>	    Copyright <span style="color: #66cc66;">&#40;</span>c<span style="color: #66cc66;">&#41;</span> <span style="color: #4169e1;">1997</span><span style="color: #4169e1;">-2006</span>, ITB CompuPhase
+&nbsp;
+&nbsp;
+	<span style="color: #4169e1;">1</span> Error.</pre>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As mentioned before, using "#if" requires an "#endif" statement, but we can not add that to our script at the moment.
+</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Instead, using our knowledge of callbacks, we can use this: "public OnFilterScriptInit()". This means that when the admin filterscript
+is run in our server, this piece of code will be executed. Add the following lines to your script:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnFilterScriptInit"><span style="color: #dc143c">OnFilterScriptInit</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+    <span style="color: #66cc66;">&#123;</span>
+ 	<a href="http://wiki.sa-mp.com/wiki/print"><span style="color: #006400;">print</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;<span style="color: #000099; font-weight: bold;">\n</span>****************************************&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	<a href="http://wiki.sa-mp.com/wiki/print"><span style="color: #006400;">print</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;* Admin Filterscript by your name here *&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	<a href="http://wiki.sa-mp.com/wiki/print"><span style="color: #006400;">print</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;****************************************<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span><span style="color: #66cc66;">&#41;</span>;
+ 	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+    <span style="color: #66cc66;">&#125;</span>
+&nbsp;
+    <span style="color: #6b8e23;">#endif</span></pre>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Obviously, replace "your name here" with your actual/SAMP name, and click compile. You should get this in your compiler once again.
+</p>
+<pre class="pawn">Pawn compiler <span style="color: #4169e1;">3.2</span><span style="color: #4169e1;">.3664</span>	 Copyright <span style="color: #66cc66;">&#40;</span>c<span style="color: #66cc66;">&#41;</span> <span style="color: #4169e1;">1997</span><span style="color: #4169e1;">-2006</span>, ITB CompuPhase</pre>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NOTE: THE "#endif" statement was used, and this removed the previous error about not finding the "#endif".
+</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Also, your administration script will print in the server console (using the print() function we learnt about before) a friendly little message
+saying "Admin Filterscript by ~Cueball~" surrounded by asteriks (substitute "~Cueball~" with your name). We now have a working administration script,
+that both compiles without errors, AND works with the server console itself. However, the script is useless, as we have not done anything that
+will affect the user.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Creating_A_Simple_Administration_FilterScript.html" title="Edit section: Enumeration">edit</a>]</div><a name="Enumeration"></a><h2> Enumeration </h2>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Let's begin the coding progress. Many of the tutorials on making an administration script work with level's
+as the primary objective of their script, but our's will be much better, and have far more options, and not just show you 
+how to set a player's level.
+</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;We will now use the enumeration feature that is hardcoded into pawn itself. From reading about it in <a href="Scripting_Basics.html" title="Scripting Basics">Scripting Basics</a>, we know that using enumeration
+lets us store lots of data inside a cell of an array, rather than many separate array's. Start by adding this underneath the "#endif" line:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">enum</span> PLAYER_MAIN <span style="color: #66cc66;">&#123;</span>
+	PLAYER_NAME<span style="color: #66cc66;">&#91;</span><span style="color: #E9967A; font-weight: bold;">MAX_PLAYER_NAME</span><span style="color: #66cc66;">&#93;</span>,
+	PLAYER_IP<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">16</span><span style="color: #66cc66;">&#93;</span>,
+	PLAYER_REGGED,
+	PLAYER_PASS,
+	PLAYER_LOGGED,
+	PLAYER_LEVEL,
+	PLAYER_WIRED,
+	PLAYER_JAILED
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The enumeration we have just done stores 8 different bits of data inside one piece, called 'PLAYER_MAIN'. You can
+see that we now have a cell to store the player's name (which is much easier than constantly creating variable's and using <a href="GetPlayerName.html" title="GetPlayerName">GetPlayerName()</a>
+after every callback/command). We also have a place to store the player's IP address, whether they are registered, logged in, their password, their level,
+and whether they are wired (muted) and jailed. This way we can keep track of everyone's progress by simply checking it inside their piece of code.
+</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;But hold on one second, as that was just an enumeration, no new variable has been created yet to include it. We can fix that by adding
+this line underneath our last line:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> gPlayerInfo<span style="color: #66cc66;">&#91;</span><span style="color: #E9967A; font-weight: bold;">MAX_PLAYERS</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>PLAYER_MAIN<span style="color: #66cc66;">&#93;</span>;</pre>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ok, we have just made an array, with 500 (the size of 'MAX_PLAYERS') different cells and each cell storing the enumeration we made.
+This means for every player in your server, we can tell their level, name, IP, etc. by checking it with the variable 'gPlayerInfo'.
+</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Compile the script and you should have no errors, but a warning saying this:
+</p>
+<pre class="pawn"><span style="color: orange;">C</span>:\PROGRA~<span style="color: #4169e1;">1</span>\ROCKST~<span style="color: #4169e1;">1</span>\GTASAN~<span style="color: #4169e1;">1</span>\Samp\FILTER~<span style="color: #4169e1;">1</span>\admin.pwn<span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">42</span><span style="color: #66cc66;">&#41;</span>&nbsp;: warning <span style="color: #4169e1;">203</span>: symbol is never used: <span style="color: #b22222;">&quot;gPlayerInfo&quot;</span>
+	Pawn compiler <span style="color: #4169e1;">3.2</span><span style="color: #4169e1;">.3664</span>	     Copyright <span style="color: #66cc66;">&#40;</span>c<span style="color: #66cc66;">&#41;</span> <span style="color: #4169e1;">1997</span><span style="color: #4169e1;">-2006</span>, ITB CompuPhase
+&nbsp;
+&nbsp;
+	<span style="color: #4169e1;">1</span> Warning.</pre>	
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ignore this for now, as it is just telling us that our array has not been used yet. This will change as soon as we begin
+accessing and storing data inside it.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Creating_A_Simple_Administration_FilterScript.html" title="Edit section: Accessing Our Array">edit</a>]</div><a name="Accessing_Our_Array"></a><h2> Accessing Our Array </h2>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;With the above completed, we are ready to begin storing data inside our new array. Add the following lines underneath our enumerated variable:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnPlayerConnect"><span style="color: #dc143c">OnPlayerConnect</span></a><span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+ 	<span style="color: #228b22; font-weight: bold;">new</span> file<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">100</span><span style="color: #66cc66;">&#93;</span>,Name<span style="color: #66cc66;">&#91;</span><span style="color: #E9967A; font-weight: bold;">MAX_PLAYER_NAME</span><span style="color: #66cc66;">&#93;</span>,Ip<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">16</span><span style="color: #66cc66;">&#93;</span>; 
+        <a href="http://wiki.sa-mp.com/wiki/GetPlayerName"><span style="color: #006400;">GetPlayerName</span></a><span style="color: #66cc66;">&#40;</span>playerid,Name,<span style="color: orange; font-weight: bold;">sizeof</span><span style="color: #66cc66;">&#40;</span>Name<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>; 
+        <a href="http://wiki.sa-mp.com/wiki/GetPlayerIp"><span style="color: #006400;">GetPlayerIp</span></a><span style="color: #66cc66;">&#40;</span>playerid,Ip,<span style="color: orange; font-weight: bold;">sizeof</span><span style="color: #66cc66;">&#40;</span>Ip<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>; 
+        <a href="http://wiki.sa-mp.com/wiki/format"><span style="color: #006400;">format</span></a><span style="color: #66cc66;">&#40;</span>file,<span style="color: orange; font-weight: bold;">sizeof</span><span style="color: #66cc66;">&#40;</span>file<span style="color: #66cc66;">&#41;</span>,PlayerFile,Name<span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+	<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>!dini_Exists<span style="color: #66cc66;">&#40;</span>file<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span> 
+        <span style="color: #66cc66;">&#123;</span>
+	     dini_Create<span style="color: #66cc66;">&#40;</span>file<span style="color: #66cc66;">&#41;</span>;
+	     dini_Set<span style="color: #66cc66;">&#40;</span>file,<span style="color: #b22222;">&quot;Name&quot;</span>,Name<span style="color: #66cc66;">&#41;</span>;
+	     dini_Set<span style="color: #66cc66;">&#40;</span>file,<span style="color: #b22222;">&quot;Ip&quot;</span>,Ip<span style="color: #66cc66;">&#41;</span>;
+	     dini_IntSet<span style="color: #66cc66;">&#40;</span>file,<span style="color: #b22222;">&quot;Registered&quot;</span>,<span style="color: #4169e1;">-1</span><span style="color: #66cc66;">&#41;</span>;
+	     dini_IntSet<span style="color: #66cc66;">&#40;</span>file,<span style="color: #b22222;">&quot;Password&quot;</span>,<span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span>;
+	     dini_IntSet<span style="color: #66cc66;">&#40;</span>file,<span style="color: #b22222;">&quot;Level&quot;</span>,<span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span>;
+	     dini_IntSet<span style="color: #66cc66;">&#40;</span>file,<span style="color: #b22222;">&quot;Wired&quot;</span>,<span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span>;
+	     dini_IntSet<span style="color: #66cc66;">&#40;</span>file,<span style="color: #b22222;">&quot;Jailed&quot;</span>,<span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span>;
+	     <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid,COLOUR_ORANGE,<span style="color: #b22222;">&quot;Your username is not recognized on this server. Please /register to continue.&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #66cc66;">&#125;</span>
+	<a href="http://wiki.sa-mp.com/wiki/strcat"><span style="color: #006400;">strcat</span></a><span style="color: #66cc66;">&#40;</span>gPlayerInfo<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>PLAYER_NAME<span style="color: #66cc66;">&#93;</span>,			dini_Get<span style="color: #66cc66;">&#40;</span>file,<span style="color: #b22222;">&quot;Name&quot;</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>;
+	<a href="http://wiki.sa-mp.com/wiki/strcat"><span style="color: #006400;">strcat</span></a><span style="color: #66cc66;">&#40;</span>gPlayerInfo<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>PLAYER_IP<span style="color: #66cc66;">&#93;</span>,			dini_Get<span style="color: #66cc66;">&#40;</span>file,<span style="color: #b22222;">&quot;Ip&quot;</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>;
+	gPlayerInfo<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>PLAYER_REGGED<span style="color: #66cc66;">&#93;</span> 			      = dini_Int<span style="color: #66cc66;">&#40;</span>file,<span style="color: #b22222;">&quot;Registered&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	gPlayerInfo<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>PLAYER_PASS<span style="color: #66cc66;">&#93;</span>                            = dini_Int<span style="color: #66cc66;">&#40;</span>file,<span style="color: #b22222;">&quot;Password&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	gPlayerInfo<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>PLAYER_LEVEL<span style="color: #66cc66;">&#93;</span> 			      = dini_Int<span style="color: #66cc66;">&#40;</span>file,<span style="color: #b22222;">&quot;Level&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	gPlayerInfo<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>PLAYER_WIRED<span style="color: #66cc66;">&#93;</span>                           = dini_Int<span style="color: #66cc66;">&#40;</span>file,<span style="color: #b22222;">&quot;Wired&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	gPlayerInfo<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>PLAYER_JAILED<span style="color: #66cc66;">&#93;</span> 			      = dini_Int<span style="color: #66cc66;">&#40;</span>file,<span style="color: #b22222;">&quot;Jailed&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>gPlayerInfo<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>PLAYER_REGGED<span style="color: #66cc66;">&#93;</span> == <span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span> 	                <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid,COLOUR_ORANGE,<span style="color: #b22222;">&quot;You're username is recognised on this server, but you have not registered. Please /register to continue.&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #4169e1;">else</span> <span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>gPlayerInfo<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>PLAYER_REGGED<span style="color: #66cc66;">&#93;</span> == <span style="color: #4169e1;">1</span><span style="color: #66cc66;">&#41;</span>              <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid,COLOUR_ORANGE,<span style="color: #b22222;">&quot;You're username is recognised on this server. Please /login to continue.&quot;</span><span style="color: #66cc66;">&#41;</span>;
+        gPlayerInfo<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>PLAYER_REGGED<span style="color: #66cc66;">&#93;</span>                          = <span style="color: #4169e1;">0</span>;
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;That is one big piece of code to digest, so I will try to explain it as best as I can:
+</p>
+<ul><li> When a player connects, the server retreives his name and ip address, and stores his name into a string called 'file'.
+</li><li> Then, if the file does not exist, ie: he has never been on your server (remember that the file is inside the 'Users' folder of the 'AdminScript' folder inside your server location's 'scriptfiles' folder), the server creates it using our dini_* functions, and writes the neccessary info
+</li></ul>
+<p>into it. He also recieves a message in orange (thanks to the COLOUR_ORANGE define we did earlier) telling him to '/register'.
+</p><p>	<b>You will notice that the "Registered" line is set to write it as '-1'. This is so that he does not see two messages when he connects.</b>
+This will be explained in a few moments.
+</p>
+<ul><li> Next, we use the strcat() function to store his name into our 'gPlayerInfo' array, and we get his name from the player's file.
+</li><li> We do the same with his IP address, once again, getting it from his file. The next lines are just numbers, not strings, so we can just
+</li></ul>
+<p>use an equal sign (=) to store the data from the file into the various cells (Is he registered? His password, etc.). Using this method, if
+the player WAS jailed last time he was on your server, he will continue to be so when he spawns (this will be scripted soon).
+</p>
+<ul><li> The next 3 lines before the last curly brace check whether he has connected before (by comparing with our 'gPlayerInfo'
+</li></ul>
+<p>variable) or whether he has registered his account (will be scripted later) and sends the corresponding message to him.
+</p>
+<ul><li> Then, we make sure that when he connects next (and he has not registered yet), he will trigger this if line:
+</li></ul>
+<pre class="pawn"><span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>gPlayerInfo<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>PLAYER_REGGED<span style="color: #66cc66;">&#93;</span> == <span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span> 	                <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid,COLOUR_ORANGE,<span style="color: #b22222;">&quot;You're username is recognised on this server, but you have not registered. Please /register to continue.&quot;</span><span style="color: #66cc66;">&#41;</span>;</pre>
+<ul><li> Finally, we 'return 1;' to tell the script and the server that that bit of code is over.
+</li></ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Compile your script and you should recieve no errors OR warnings. Congratulations, we are one step closer towards our very great, but simple
+administration script.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Creating_A_Simple_Administration_FilterScript.html" title="Edit section: The Would-Be Problem">edit</a>]</div><a name="The_Would-Be_Problem"></a><h2> The Would-Be Problem </h2>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Now, we already have an unseen problem. If a player logs in with the same id as, say, an administrator who just left,
+their level's would be the same, as with their password, etc. The way we have set up our script to read and store into our array removes this problem,
+BUT, it is a good practise to get into, as it prevents other problems from occuring. Add the following lines underneath the last curly brace:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnPlayerDisconnect"><span style="color: #dc143c">OnPlayerDisconnect</span></a><span style="color: #66cc66;">&#40;</span>playerid, reason<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #228b22; font-weight: bold;">new</span> file<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">100</span><span style="color: #66cc66;">&#93;</span>; 
+        <a href="http://wiki.sa-mp.com/wiki/format"><span style="color: #006400;">format</span></a><span style="color: #66cc66;">&#40;</span>file,<span style="color: orange; font-weight: bold;">sizeof</span><span style="color: #66cc66;">&#40;</span>file<span style="color: #66cc66;">&#41;</span>,PlayerFile,gPlayerInfo<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>PLAYER_NAME<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>;
+	dini_Set<span style="color: #66cc66;">&#40;</span>file,<span style="color: #b22222;">&quot;Name&quot;</span>,gPlayerInfo<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>PLAYER_NAME<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>;
+	dini_Set<span style="color: #66cc66;">&#40;</span>file,<span style="color: #b22222;">&quot;Ip&quot;</span>,gPlayerInfo<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>PLAYER_IP<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>;
+	dini_IntSet<span style="color: #66cc66;">&#40;</span>file,<span style="color: #b22222;">&quot;Registered&quot;</span>,gPlayerInfo<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>PLAYER_REGGED<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>;
+	dini_IntSet<span style="color: #66cc66;">&#40;</span>file,<span style="color: #b22222;">&quot;Password&quot;</span>,gPlayerInfo<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>PLAYER_PASS<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>;
+	dini_IntSet<span style="color: #66cc66;">&#40;</span>file,<span style="color: #b22222;">&quot;Level&quot;</span>,gPlayerInfo<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>PLAYER_LEVEL<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>;
+	dini_IntSet<span style="color: #66cc66;">&#40;</span>file,<span style="color: #b22222;">&quot;Wired&quot;</span>,gPlayerInfo<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>PLAYER_WIRED<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>;
+	dini_IntSet<span style="color: #66cc66;">&#40;</span>file,<span style="color: #b22222;">&quot;Jailed&quot;</span>,gPlayerInfo<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>PLAYER_JAILED<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>;
+	gPlayerInfo<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>PLAYER_NAME<span style="color: #66cc66;">&#93;</span>   = <span style="color: #4169e1;">0</span>;
+	gPlayerInfo<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>PLAYER_IP<span style="color: #66cc66;">&#93;</span>     = <span style="color: #4169e1;">0</span>;
+	gPlayerInfo<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>PLAYER_REGGED<span style="color: #66cc66;">&#93;</span> = <span style="color: #4169e1;">0</span>;
+	gPlayerInfo<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>PLAYER_LOGGED<span style="color: #66cc66;">&#93;</span> = <span style="color: #4169e1;">0</span>;
+	gPlayerInfo<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>PLAYER_PASS<span style="color: #66cc66;">&#93;</span>   = <span style="color: #4169e1;">0</span>;
+	gPlayerInfo<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>PLAYER_LEVEL<span style="color: #66cc66;">&#93;</span>  = <span style="color: #4169e1;">0</span>;
+	gPlayerInfo<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>PLAYER_WIRED<span style="color: #66cc66;">&#93;</span>  = <span style="color: #4169e1;">0</span>;
+	gPlayerInfo<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>PLAYER_JAILED<span style="color: #66cc66;">&#93;</span> = <span style="color: #4169e1;">0</span>;
+    	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The first line does the same as in <a href="OnPlayerConnect.html" title="OnPlayerConnect">OnPlayerConnect()</a>, but without the need to use <a href="GetPlayerName.html" title="GetPlayerName">GetPlayerName()</a>, as we have already gotten this, and
+stored it inside our array (making things easier, and alot more efficient). The next 7 lines store the information from our array into a file.
+</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The next 9 lines set our array's cells back to 0, which as stated before, is good practise to get into, as it prevents errors from occuring,
+and is also very useful. We then 'return 1;' to tell the script that that piece of code is over.
+</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Compile the script, and you should recieve no errors OR warnings. We now have the requirements for our administration script, and have a working
+system to check, access, remove, and rely on, that will take care of itself.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Creating_A_Simple_Administration_FilterScript.html" title="Edit section: Beginning The Commands">edit</a>]</div><a name="Beginning_The_Commands"></a><h2> Beginning The Commands </h2>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ok, now the part of the script that I'm sure you have been waiting for, so if you <b>have</b> read <b>all</b> the previous sections, congratulations on making it this far. If not, <a href="Creating_A_Simple_Administration_FilterScript.html#General_Knowledge" title="Creating A Simple Administration FilterScript"><b>do so now!</b></a>
+</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Add the following lines underneath your script:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnPlayerCommandText"><span style="color: #dc143c">OnPlayerCommandText</span></a><span style="color: #66cc66;">&#40;</span>playerid, cmdtext<span style="color: #66cc66;">&#91;</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    dcmd<span style="color: #66cc66;">&#40;</span>register, <span style="color: #4169e1;">8</span>, cmdtext<span style="color: #66cc66;">&#41;</span>;
+    dcmd<span style="color: #66cc66;">&#40;</span>login, <span style="color: #4169e1;">5</span>, cmdtext<span style="color: #66cc66;">&#41;</span>;
+    dcmd<span style="color: #66cc66;">&#40;</span>logout, <span style="color: #4169e1;">6</span>, cmdtext<span style="color: #66cc66;">&#41;</span>;
+    dcmd<span style="color: #66cc66;">&#40;</span>password, <span style="color: #4169e1;">8</span>, cmdtext<span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+    <span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">0</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Basically, this callback is called whenever a player types a message, and the first character is '/' (ie: a command). I will not be explaining how dcmd() works, but these are the basics of it:
+</p>
+<ul><li> The first parameter is the command name.
+</li><li> The second parameter is the length of the command (number of characters exclusing the '/').
+</li><li> The final parameter is the string to compare with.
+</li></ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;As stated, I will not be explaining in great detail how dcmd() works, but <b><u>you should</u></b> read about it on <a href="http://forum.sa-mp.com/" class='external text' title="http://forum.sa-mp.com" rel="nofollow">SA-MP's forums</a>.
+</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The 'return 0;' sends the 'SERVER: Unknown command' message for any unscripted commands. You should always return 0 in <b>every</b> <a href="OnPlayerCommandText.html" title="OnPlayerCommandText">OnPlayerCommandText</a> callback you write, or else you can often cause broken commands.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Creating_A_Simple_Administration_FilterScript.html" title="Edit section: Account Management">edit</a>]</div><a name="Account_Management"></a><h3> Account Management </h3>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Here we have our four commands for registration, and account management:
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Creating_A_Simple_Administration_FilterScript.html" title="Edit section: Register">edit</a>]</div><a name="Register"></a><h4> Register </h4>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Copy the following into our script, underneath our last line:
+</p>
+<pre class="pawn">dcmd_register<span style="color: #66cc66;">&#40;</span>playerid, params<span style="color: #66cc66;">&#91;</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>gPlayerInfo<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>PLAYER_REGGED<span style="color: #66cc66;">&#93;</span> == <span style="color: #4169e1;">1</span><span style="color: #66cc66;">&#41;</span>
+	<span style="color: orange; font-weight: bold;">return</span> <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, COLOUR_ORANGE, <span style="color: #b22222;">&quot;ERROR: You have already registered!&quot;</span><span style="color: #66cc66;">&#41;</span>;
+    <span style="color: #4169e1;">else</span> <span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>!params<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>
+	<span style="color: orange; font-weight: bold;">return</span> <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, COLOUR_ORANGE, <span style="color: #b22222;">&quot;USAGE: /register [password]&quot;</span><span style="color: #66cc66;">&#41;</span>;
+    <span style="color: #808080; font-style: italic;">/*else if(strlen(params) &lt; gSettings[PASS_MIN] || strlen(params) &gt; gSettings[PASS_MAX])
+    {
+	new string[128];
+        format(string, sizeof(string), &quot;ERROR: Password must be between %d and %d characters long!&quot;, gSettings[PASS_MIN], gSettings[PASS_MAX]);
+	return SendClientMessage(playerid, COLOUR_ORANGE, string);
+    }*/</span>
+    <span style="color: #4169e1;">else</span>
+    <span style="color: #66cc66;">&#123;</span>
+	<span style="color: #228b22; font-weight: bold;">new</span> password = num_hash<span style="color: #66cc66;">&#40;</span>params<span style="color: #66cc66;">&#41;</span>;
+	gPlayerInfo<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>PLAYER_PASS<span style="color: #66cc66;">&#93;</span> = password;
+	gPlayerInfo<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>PLAYER_REGGED<span style="color: #66cc66;">&#93;</span> = <span style="color: #4169e1;">1</span>;
+        gPlayerInfo<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>PLAYER_LOGGED<span style="color: #66cc66;">&#93;</span> = <span style="color: #4169e1;">1</span>;
+	<a href="http://wiki.sa-mp.com/wiki/GetPlayerIp"><span style="color: #006400;">GetPlayerIp</span></a><span style="color: #66cc66;">&#40;</span>playerid, gPlayerInfo<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>PLAYER_IP<span style="color: #66cc66;">&#93;</span>, <span style="color: #4169e1;">16</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #228b22; font-weight: bold;">new</span> string<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">128</span><span style="color: #66cc66;">&#93;</span>; <a href="http://wiki.sa-mp.com/wiki/format"><span style="color: #006400;">format</span></a><span style="color: #66cc66;">&#40;</span>string, <span style="color: orange; font-weight: bold;">sizeof</span><span style="color: #66cc66;">&#40;</span>string<span style="color: #66cc66;">&#41;</span>, <span style="color: #b22222;">&quot;You have successfully registered your account with the password <span style="color: #000099; font-weight: bold;">\'</span>%s<span style="color: #000099; font-weight: bold;">\'</span>. You have been automatically logged in.&quot;</span>, params<span style="color: #66cc66;">&#41;</span>;
+	<span style="color: orange; font-weight: bold;">return</span> <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, COLOUR_LIGHTBLUE, string<span style="color: #66cc66;">&#41;</span>;
+    <span style="color: #66cc66;">&#125;</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Now, lets go through that command:
+</p>
+<ul><li> We first check if the player has already registered, by comparing with our 'gPlayerInfo' array. If he has, we send him an error message, and because we used 'return SendClientMessage', two things happen:
+<ul><li> The command finishes at that point.
+</li><li> He doesn't recieve the 'SERVER: Unknown command' message.
+</li></ul>
+</li></ul>
+<ul><li> We then check if he did not supply a password, using '!params[0]'. params[0] is the first character of the password, so if he has not (hence the '!') given the first character of the password, we send him a message telling him how to use the command correctly. Once again, we 'return SendClientMessage' so he does not recieve the 'SERVER: Unknown command' message.
+</li><li> You will notice the '/*' and '*/' before and after the next 'else if'. This means that we have commented that section. The script/server ignores all commented lines, so we can write code that will cause problems without having to worry. I have commented this section because we have not made our 'gSettings' array yet. When we do create it, I will instruct you to uncomment this section. If you do not understand this yet, don't worry, because all will be explained as soon as we make our 'gSettings' array.
+</li><li> As this next section is the last and final piece for this command to use, we use the 'else' statement here, as opposed to 'else if'. For this section to be triggered, the player must not be registered, as well as having supplied a password. Lets check what we do next:
+<ul><li> We create a new variable (integer) called 'password' and assign it to the 'num_hash()' function we can find in our <a href="http://www.dracoblue.net/download.php?ID=30&amp;URL=http://www.dracoblue.net/Downloads/DUtils_1_10.zip" class='external text' title="http://www.dracoblue.net/download.php?ID=30&amp;URL=http://www.dracoblue.net/Downloads/DUtils_1_10.zip" rel="nofollow">dutils.inc</a> file.
+</li><li> We set the 'PLAYER_PASS' cell of our 'gPlayerInfo[playerid]' array to 'password'. The 'num_hash()' function simply converts the given string (in this case, our password), to a numerival value, with which we then place in to our array cell.
+</li><li> We set the 'PLAYER_REGGED' cell of our 'gPlayerInfo[playerid]' array to 1. This is so that if he types '/register [password]' again, he will trigger this line:
+</li></ul>
+</li></ul>
+<pre class="pawn"><span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>gPlayerInfo<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>PLAYER_REGGED<span style="color: #66cc66;">&#93;</span> == <span style="color: #4169e1;">1</span><span style="color: #66cc66;">&#41;</span>
+	<span style="color: orange; font-weight: bold;">return</span> <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, COLOUR_ORANGE, <span style="color: #b22222;">&quot;ERROR: You have already registered!&quot;</span><span style="color: #66cc66;">&#41;</span>;</pre>
+<ul><li><ul><li> We set the 'PLAYER_LOGGED' cell of our 'gPlayerInfo[playerid]' array to 1, thus logging them in, and allowing them to use our commands that are yet to be scripted. We will also check this variable when we script our '/login' and '/logout' commands, using a similar check as with this command.
+</li><li> We then get the player's ip address using the <a href="GetPlayerIp.html" title="GetPlayerIp">GetPlayerIp()</a> function, and store it inside our 'PLAYER_IP' cell of 'gPlayerInfo[playerid]' array. We will check this later, so it is necessary to store this information now.
+</li><li> Now we do 3 new things:
+<ul><li> We create a new string called 'string', and declare it to have a maximum size (max characters we can use in it) of 128.
+</li><li> We then format our string using the <a href="Format.html" title="Format">format()</a> function. Note that we have used an <a href="Scripting_Basics.html#Escape_character" title="Scripting Basics">escape character</a> for our single quote characters, and we have also used a format string specifier ('%s') meaning that we are going to replace that piece with a string that will be the next parameter of the <a href="Format.html" title="Format">format()</a> function. Read about them at the <a href="Format.html" title="Format">format()</a> page. What we are inserting is the characters that the player typed after '/register '.
+</li><li> Finally we 'return SendClientMessage' signifying that this is the final piece of code, and  also send him the newly-formatted string in lightblue (thanks to our 'COLOUR_LIGHTBLUE' define).
+</li></ul>
+</li></ul>
+</li></ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;That was alot of code to digest, so if you did not understand it, please <b>read through it again now!</b>
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Creating_A_Simple_Administration_FilterScript.html" title="Edit section: Login">edit</a>]</div><a name="Login"></a><h4> Login </h4>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Copy this next command underneath our newly-scripted register command:
+</p>
+<pre class="pawn">dcmd_login<span style="color: #66cc66;">&#40;</span>playerid, params<span style="color: #66cc66;">&#91;</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>gPlayerInfo<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>PLAYER_REGGED<span style="color: #66cc66;">&#93;</span>&nbsp;!= <span style="color: #4169e1;">1</span><span style="color: #66cc66;">&#41;</span>
+	<span style="color: orange; font-weight: bold;">return</span> <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, COLOUR_ORANGE, <span style="color: #b22222;">&quot;ERROR: You must register first to do that! Use /register [password] to register and login.&quot;</span><span style="color: #66cc66;">&#41;</span>;
+    <span style="color: #4169e1;">else</span> <span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>gPlayerInfo<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>PLAYER_LOGGED<span style="color: #66cc66;">&#93;</span> == <span style="color: #4169e1;">1</span><span style="color: #66cc66;">&#41;</span>
+	<span style="color: orange; font-weight: bold;">return</span> <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, COLOUR_ORANGE, <span style="color: #b22222;">&quot;ERROR: You are already logged-in.&quot;</span><span style="color: #66cc66;">&#41;</span>;
+    <span style="color: #4169e1;">else</span> <span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>!params<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>
+	<span style="color: orange; font-weight: bold;">return</span> <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, COLOUR_ORANGE, <span style="color: #b22222;">&quot;USAGE: /login [password]&quot;</span><span style="color: #66cc66;">&#41;</span>;
+    <span style="color: #4169e1;">else</span>
+    <span style="color: #66cc66;">&#123;</span>
+	<span style="color: #228b22; font-weight: bold;">new</span> password = num_hash<span style="color: #66cc66;">&#40;</span>params<span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>gPlayerInfo<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>PLAYER_PASS<span style="color: #66cc66;">&#93;</span> == password<span style="color: #66cc66;">&#41;</span>
+	<span style="color: #66cc66;">&#123;</span>
+	    gPlayerInfo<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>PLAYER_LOGGED<span style="color: #66cc66;">&#93;</span> = <span style="color: #4169e1;">1</span>;
+            <a href="http://wiki.sa-mp.com/wiki/GetPlayerIp"><span style="color: #006400;">GetPlayerIp</span></a><span style="color: #66cc66;">&#40;</span>playerid, gPlayerInfo<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>PLAYER_IP<span style="color: #66cc66;">&#93;</span>, <span style="color: #4169e1;">16</span><span style="color: #66cc66;">&#41;</span>;
+	    <span style="color: orange; font-weight: bold;">return</span> <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, COLOUR_LIGHTBLUE, <span style="color: #b22222;">&quot;You have successfully logged in to your account.&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #66cc66;">&#125;</span>
+	<span style="color: #4169e1;">else</span>
+	    <span style="color: orange; font-weight: bold;">return</span> <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, COLOUR_ORANGE, <span style="color: #b22222;">&quot;ERROR: Incorrect password.&quot;</span><span style="color: #66cc66;">&#41;</span>;
+    <span style="color: #66cc66;">&#125;</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>Now once again, I shall guide you through the coding process, to explain what we have just done:
+</p>
+<ul><li> Using the same method as above (in our register command), we check if the player <b>has not</b> registered. If this is true, we once again 'return SendClientMessage', and let him know that he must register first.
+</li><li> We then check if the player <b>has already</b> logged in. If this is true, we once again 'return SendClientMessage', and let him know that he has already logged in.
+</li><li> Next, we check if he supplied a password using the same check we did for the register command. If he did not type anything after '/register ', it will trigger this message, and will stop the command and tell him how to correctly use the command.
+</li><li> If none of the above sections were triggered, we move to the final section of code using our 'else' statement. Inside it, the following happens:
+<ul><li> We get the encrypt the password that the player typed, using our 'num_hash()' function (just like we did in our register command) and assign it to the newly-created variable 'password'.
+</li><li> We check the variable 'password' against our 'PLAYER_PASS' cell of our 'gPlayerInfo[playerid]', and if they are the same, we do the following:
+<ul><li> We set the 'PLAYER_LOGGED' cell of our 'gPlayerInfo[playerid]' array to 1, thus logging them in.
+</li><li> We then get the player's ip address using the <a href="GetPlayerIp.html" title="GetPlayerIp">GetPlayerIp()</a> function, and store it inside our 'PLAYER_IP' cell of 'gPlayerInfo[playerid]' array. We will check this later, so it is necessary to store this information now.
+</li><li> We finally tell the player that they have logged in using our 'return SendClientMessage' method (thus ending the command).
+</li></ul>
+</li><li> Using the 'else' statement, this section of code is triggered if the above 'if' statement was not valid. To trigger this section, the password must not be correct, so we use the good-old 'return SendClientMessage' method to end the command, and tell the player that his specified password was incorrect.
+</li></ul>
+</li></ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Once again, a big explanation for something relatively simple. Hopefully you have understood everything so far, so <b>if you have, go get something to eat, and have a little break</b> because chances are, you will need it. Also, if you have not understood this command, <a href="Creating_A_Simple_Administration_FilterScript.html#Login" title="Creating A Simple Administration FilterScript">read it again!</a>
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Creating_A_Simple_Administration_FilterScript.html" title="Edit section: Logout">edit</a>]</div><a name="Logout"></a><h4> Logout </h4>
+<pre class="pawn">dcmd_logout<span style="color: #66cc66;">&#40;</span>playerid, params<span style="color: #66cc66;">&#91;</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+<span style="color: #6b8e23;">#pragma unused params</span>
+    <span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>gPlayerInfo<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>PLAYER_REGGED<span style="color: #66cc66;">&#93;</span>&nbsp;!= <span style="color: #4169e1;">1</span><span style="color: #66cc66;">&#41;</span>
+	<span style="color: orange; font-weight: bold;">return</span> <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, COLOUR_ORANGE, <span style="color: #b22222;">&quot;ERROR: You must register first to do that! Use /register [password] to register.&quot;</span><span style="color: #66cc66;">&#41;</span>;
+    <span style="color: #4169e1;">else</span> <span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>gPlayerInfo<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>PLAYER_LOGGED<span style="color: #66cc66;">&#93;</span> == <span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span>
+	<span style="color: orange; font-weight: bold;">return</span> <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, COLOUR_ORANGE, <span style="color: #b22222;">&quot;ERROR: You are already logged-out.&quot;</span><span style="color: #66cc66;">&#41;</span>;
+    <span style="color: #4169e1;">else</span>
+    <span style="color: #66cc66;">&#123;</span>
+	gPlayerInfo<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>PLAYER_LOGGED<span style="color: #66cc66;">&#93;</span> = <span style="color: #4169e1;">0</span>;
+	<span style="color: orange; font-weight: bold;">return</span> <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, COLOUR_LIGHTBLUE, <span style="color: #b22222;">&quot;You have successfully logged out of your account.&quot;</span><span style="color: #66cc66;">&#41;</span>;
+    <span style="color: #66cc66;">&#125;</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This command is much shorter and easier to understand, so this explanantion won't be as big.
+</p>
+<ul><li> We will not be using the 'params' variable in this command, so to stop a 'warning 203: symbol is never used: "params"' warning, we use '#pragma unused' on the params variable.
+</li><li> We next check if the player <b>has not</b> registered. If so, we 'return SendClientMessage' once again, and let him know that he must register first.
+</li><li> We next check if the player <b>has not</b> logged in. If true, we use the 'return SendClientMessage' method and tell him he has already logged out.
+</li><li> The final section of this command means that we can use the 'else' statement. To get to this point, the player must have:
+<ul><li> Registered.
+</li><li> Logged in.
+</li></ul>
+</li></ul>
+<ul><li> We set the 'PLAYER_LOGGED' cell of our 'gPlayerInfo[playerid]' array to 0, thus logging them out.
+</li><li> We 'return SendClientMessage' the player, letting him know that he has been logged out successfully.
+</li></ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Relatively easy to understand, but if you didn't, <a href="Creating_A_Simple_Administration_FilterScript.html#Logout" title="Creating A Simple Administration FilterScript">read it again!</a>
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Creating_A_Simple_Administration_FilterScript.html" title="Edit section: Password">edit</a>]</div><a name="Password"></a><h4> Password </h4>
+<pre class="pawn">dcmd_password<span style="color: #66cc66;">&#40;</span>playerid, params<span style="color: #66cc66;">&#91;</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>gPlayerInfo<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>PLAYER_REGGED<span style="color: #66cc66;">&#93;</span>&nbsp;!= <span style="color: #4169e1;">1</span><span style="color: #66cc66;">&#41;</span>
+        <span style="color: orange; font-weight: bold;">return</span> <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, COLOUR_ORANGE, <span style="color: #b22222;">&quot;ERROR: You must register first to do that! Use /register [password] to register and login.&quot;</span><span style="color: #66cc66;">&#41;</span>;
+    <span style="color: #4169e1;">else</span> <span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>gPlayerInfo<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>PLAYER_LOGGED<span style="color: #66cc66;">&#93;</span> == <span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span>
+	<span style="color: orange; font-weight: bold;">return</span> <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, COLOUR_ORANGE, <span style="color: #b22222;">&quot;ERROR: You must be logged-in to do that! Use /login [password] to login.&quot;</span><span style="color: #66cc66;">&#41;</span>;
+    <span style="color: #4169e1;">else</span>
+    <span style="color: #66cc66;">&#123;</span>
+	<span style="color: #228b22; font-weight: bold;">new</span> tmp<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">30</span><span style="color: #66cc66;">&#93;</span>,
+	    tmp2<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">30</span><span style="color: #66cc66;">&#93;</span>,
+	    index;
+	tmp = strtok<span style="color: #66cc66;">&#40;</span>params, index<span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>!<a href="http://wiki.sa-mp.com/wiki/strlen"><span style="color: #006400;">strlen</span></a><span style="color: #66cc66;">&#40;</span>tmp<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>
+            <span style="color: orange; font-weight: bold;">return</span> <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, COLOUR_ORANGE, <span style="color: #b22222;">&quot;USAGE: /password [password] [new password]&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	tmp2 = strtok<span style="color: #66cc66;">&#40;</span>params, index<span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>!<a href="http://wiki.sa-mp.com/wiki/strlen"><span style="color: #006400;">strlen</span></a><span style="color: #66cc66;">&#40;</span>tmp2<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>
+	    <span style="color: orange; font-weight: bold;">return</span> <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, COLOUR_ORANGE, <span style="color: #b22222;">&quot;USAGE: /password [password] [new password]&quot;</span><span style="color: #66cc66;">&#41;</span>;
+        <span style="color: #228b22; font-weight: bold;">new</span> oldpassword = num_hash<span style="color: #66cc66;">&#40;</span>tmp<span style="color: #66cc66;">&#41;</span>, newpassword = num_hash<span style="color: #66cc66;">&#40;</span>tmp2<span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>gPlayerInfo<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>PLAYER_PASS<span style="color: #66cc66;">&#93;</span> == oldpassword<span style="color: #66cc66;">&#41;</span>
+	<span style="color: #66cc66;">&#123;</span>
+	    <span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>oldpassword == newpassword<span style="color: #66cc66;">&#41;</span>
+	        <span style="color: orange; font-weight: bold;">return</span> <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, COLOUR_ORANGE, <span style="color: #b22222;">&quot;ERROR: Your old password can not be the same as your new password.&quot;</span><span style="color: #66cc66;">&#41;</span>;
+            <span style="color: #808080; font-style: italic;">/*else if(strlen(tmp2) &lt; gSettings[PASS_MIN] || strlen(tmp2) &gt; gSettings[PASS_MAX])
+            {
+                new string[100]; format(string, sizeof(string), &quot;ERROR: Your new password must be between %d and %d characters long!&quot;, gSettings[PASS_MIN], gSettings[PASS_MAX]);
+                return SendClientMessage(playerid, COLOUR_ORANGE, string);
+            }*/</span>
+	    gPlayerInfo<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>PLAYER_PASS<span style="color: #66cc66;">&#93;</span> = newpassword;
+	    <span style="color: #228b22; font-weight: bold;">new</span> string<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">128</span><span style="color: #66cc66;">&#93;</span>; <a href="http://wiki.sa-mp.com/wiki/format"><span style="color: #006400;">format</span></a><span style="color: #66cc66;">&#40;</span>string, <span style="color: orange; font-weight: bold;">sizeof</span><span style="color: #66cc66;">&#40;</span>string<span style="color: #66cc66;">&#41;</span>, <span style="color: #b22222;">&quot;You have successfully changed your password from <span style="color: #000099; font-weight: bold;">\'</span>%s<span style="color: #000099; font-weight: bold;">\'</span> to <span style="color: #000099; font-weight: bold;">\'</span>%s<span style="color: #000099; font-weight: bold;">\'</span>.&quot;</span>, tmp, tmp2<span style="color: #66cc66;">&#41;</span>;
+	    <span style="color: orange; font-weight: bold;">return</span> <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, COLOUR_LIGHTBLUE, string<span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #66cc66;">&#125;</span>
+	<span style="color: #4169e1;">else</span>
+	    <span style="color: orange; font-weight: bold;">return</span> <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, COLOUR_ORANGE, <span style="color: #b22222;">&quot;ERROR: Incorrect password.&quot;</span><span style="color: #66cc66;">&#41;</span>;
+    <span style="color: #66cc66;">&#125;</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;By far the hardest command yet, so this explanation will be <b>big.</b>
+</p>
+<ul><li> We first check if the player <b>has not registered.</b> Using the <a href="Control_Structures.html#Operators" title="Control Structures">'not' control structure</a>, we can send the message with our trusty 'return SendClientMessage' method, letting him know that he must first register.
+</li><li> Then, we check if the player has logged in or not, and if it is the latter, we send him a message telling him to do so.
+</li><li> As this is the final path for the command to take, we use the 'else' statement:
+<ul><li> We create three new variables, two of which are <a href="Scripting_Basics.html#String" title="Scripting Basics">strings</a>, and the third is an <a href="Scripting_Basics.html#Integer" title="Scripting Basics">integer</a>. The strings have a maximum size of 30 characters, and these will be used to hold what the player types after '/password'. As our command is set up with two pieces of information to grab ('/password [password] [new password]'), we will be using <a href="Strtok.html" title="Strtok">strtok()</a>.
+</li><li> We use the <a href="Strtok.html" title="Strtok">strtok()</a> function to assign the [password] piece of the command to our string 'tmp'. We then check if the <a href="Scripting_Functions_Old.html#strlen" title="Scripting Functions Old">string length</a> is 0 (using the <a href="Control_Structures.html#Operators" title="Control Structures">'not' control structure</a>), and if it is 0 (ie: he did not supply his current password), we tell him the correct usage of the command.
+</li><li> We then do the same thing with the [new password] piece of the command. After assigning it to our 'tmp2' string, we check the length, and like before, if it is 0, we once again tell him the correct usage of the command.
+</li><li> Now we make two new variables, both integers, and make each one the hashed number of our command information ([password] &amp; [new password]) using the num_hash() command that was included with our <a href="http://www.dracoblue.net/download.php?ID=30&amp;URL=http://www.dracoblue.net/Downloads/DUtils_1_10.zip" class='external text' title="http://www.dracoblue.net/download.php?ID=30&amp;URL=http://www.dracoblue.net/Downloads/DUtils_1_10.zip" rel="nofollow">dutils.inc</a> include.
+</li><li> Now we check if the players current password (using our 'gPlayerInfo' array) is the same as what he typed in the game. If it is, we execute the following:
+<ul><li> We check if the new password he typed is exactly the same (because they are both integers now, we don't need to use <a href="Scripting_Functions_Old.html#strcmp" title="Scripting Functions Old">strcmp()</a> to compare them). If they are the same (ie: he typed this for example: '/password Cueball Cueball'), we tell him that he <b>can not</b> change his password to the same as it was before.
+</li><li> The next piece is commented out, and this will stay like that until we create our 'gSettings' array. This commented piece ensures that his new password is not too short or too long, but leave it uncommented for now. I will instruct you to do so when we create the array.
+</li><li> We set the players 'PLAYER_PASS' cell of the 'gPlayerInfo' array to the new password.
+</li><li> We now create a new string, and <a href="Scripting_Functions_Old.html#format" title="Scripting Functions Old">format</a> it. This is a very useful function which will help make our string show the player his old password as well as his new password. This tutorial will not explain how to use <a href="Scripting_Functions_Old.html#format" title="Scripting Functions Old">format()</a>, but I will give you these links:
+<ul><li> <a href="Scripting_Functions_Old.html#format" title="Scripting Functions Old">format()</a>
+</li><li> <a href="http://y-less.pastebin.ca/751062" class='external text' title="http://y-less.pastebin.ca/751062" rel="nofollow">Y_Less's pastebin</a>
+</li></ul>
+</li><li> We finally 'return SendClientMessage' and send the string (after formatting it with both his old and new passwords) in lightblue (thanks to the 'COLOUR_LIGHTBLUE' define).
+</li></ul>
+</li><li> If the password he typed in the [password] piece of the command <b>is not</b> the same as his current password (ie: his current password is 'Cueball' and he types 'Violin'), we tell him to use his correct password.
+</li></ul>
+</li></ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Another command done (arguably the toughest so far, and possibly throughout the whole tutorial), I suggest you <a href="Creating_A_Simple_Administration_FilterScript.html#Password" title="Creating A Simple Administration FilterScript">read it again</a> if it did not make any sense. You will definately need to read about <a href="Scripting_Functions_Old.html#format" title="Scripting Functions Old">format()</a>, as it is an essential function, and will be used in almost every script you make/use. <u>Well done on coming this far.</u>
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Creating_A_Simple_Administration_FilterScript.html" title="Edit section: Creating And Storing Our Settings">edit</a>]</div><a name="Creating_And_Storing_Our_Settings"></a><h2> Creating And Storing Our Settings </h2>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;It is now time to create storage room for our settings. This will be done using both files and arrays, in exactly the same way we created our player files and enumerations.
+</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u><b>Place the following lines underneath our player enumeration code:</b></u>
+</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;We begin by enumerating to 'SETTINGS_MAIN':
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">enum</span> SETTINGS_MAIN <span style="color: #66cc66;">&#123;</span>
+    POCKET_MONEY,
+    JAIL_COMMANDS,
+    ANNOUNCE_SECONDS,
+    PASS_MIN,
+    PASS_MAX
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">new</span> gSettings<span style="color: #66cc66;">&#91;</span>SETTINGS_MAIN<span style="color: #66cc66;">&#93;</span>;</pre>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;We now have a storage area (ie: an array) to hold all the needed data in terms of settings. The default value for PAWN to use in variables is 0, so each one of those cells are now set to 0. We will now write the code needed to read from our settings files (the location of this file was written in our 'SettingFile' define):
+</p><p><u><b>WE WILL BE EDITING OUR PREVIOUS WORK IN THIS SECTION!</b></u>
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnFilterScriptInit"><span style="color: #dc143c">OnFilterScriptInit</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+    <span style="color: #66cc66;">&#123;</span>
+ 	<a href="http://wiki.sa-mp.com/wiki/print"><span style="color: #006400;">print</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;<span style="color: #000099; font-weight: bold;">\n</span>****************************************&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	<a href="http://wiki.sa-mp.com/wiki/print"><span style="color: #006400;">print</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;* Admin Filterscript by your name here *&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	<a href="http://wiki.sa-mp.com/wiki/print"><span style="color: #006400;">print</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;****************************************<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span><span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+        <span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>!<a href="http://wiki.sa-mp.com/wiki/fexist"><span style="color: #006400;">fexist</span></a><span style="color: #66cc66;">&#40;</span>SettingFile<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>
+	<span style="color: #66cc66;">&#123;</span>
+		dini_Create<span style="color: #66cc66;">&#40;</span>SettingFile<span style="color: #66cc66;">&#41;</span>;
+		dini_IntSet<span style="color: #66cc66;">&#40;</span>SettingFile, <span style="color: #b22222;">&quot;PocketMoney&quot;</span>, <span style="color: #4169e1;">3000</span><span style="color: #66cc66;">&#41;</span>;
+		dini_IntSet<span style="color: #66cc66;">&#40;</span>SettingFile, <span style="color: #b22222;">&quot;JailCommands&quot;</span>, <span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span>;
+		dini_IntSet<span style="color: #66cc66;">&#40;</span>SettingFile, <span style="color: #b22222;">&quot;AnnounceSeconds&quot;</span>, <span style="color: #4169e1;">3</span><span style="color: #66cc66;">&#41;</span>;
+		dini_IntSet<span style="color: #66cc66;">&#40;</span>SettingFile, <span style="color: #b22222;">&quot;PassMin&quot;</span>, <span style="color: #4169e1;">3</span><span style="color: #66cc66;">&#41;</span>;
+		dini_IntSet<span style="color: #66cc66;">&#40;</span>SettingFile, <span style="color: #b22222;">&quot;PassMax&quot;</span>, <span style="color: #4169e1;">15</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+	gSettings<span style="color: #66cc66;">&#91;</span>POCKET_MONEY<span style="color: #66cc66;">&#93;</span> 		= dini_Int<span style="color: #66cc66;">&#40;</span>SettingFile, <span style="color: #b22222;">&quot;PocketMoney&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	gSettings<span style="color: #66cc66;">&#91;</span>JAIL_COMMANDS<span style="color: #66cc66;">&#93;</span> 		= dini_Int<span style="color: #66cc66;">&#40;</span>SettingFile, <span style="color: #b22222;">&quot;JailCommands&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	gSettings<span style="color: #66cc66;">&#91;</span>ANNOUNCE_SECONDS<span style="color: #66cc66;">&#93;</span> 	        = dini_Int<span style="color: #66cc66;">&#40;</span>SettingFile, <span style="color: #b22222;">&quot;AnnounceSeconds&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	gSettings<span style="color: #66cc66;">&#91;</span>PASS_MIN<span style="color: #66cc66;">&#93;</span> 			= dini_Int<span style="color: #66cc66;">&#40;</span>SettingFile, <span style="color: #b22222;">&quot;PassMin&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	gSettings<span style="color: #66cc66;">&#91;</span>PASS_MAX<span style="color: #66cc66;">&#93;</span> 			= dini_Int<span style="color: #66cc66;">&#40;</span>SettingFile, <span style="color: #b22222;">&quot;PassMax&quot;</span><span style="color: #66cc66;">&#41;</span>;
+ 	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+    <span style="color: #66cc66;">&#125;</span>
+&nbsp;
+    <span style="color: #6b8e23;">#endif</span></pre>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You can now replace your previous <a href="OnFilterScriptInit.html" title="OnFilterScriptInit">OnFilterScriptInit</a> callback with that one.
+</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Let me now guide you through what we have done:
+</p>
+<ul><li> We store 5 different bits of information inside one piece (our enumeration 'SETTINGS_MAIN').
+</li><li> We then create a new global array called 'gSettings', and set it to hold our enumeration.
+</li><li> We then modify our <a href="OnFilterScriptInit.html" title="OnFilterScriptInit">OnFilterScriptInit</a> callback:
+<ul><li> We first print three lines to the console, which as you should know, are now changed to suit your liking.
+</li><li> We then use the <a href="Scripting_Functions_Old.html#fexist" title="Scripting Functions Old">fexist()</a> function to check if our 'SettingFile' (remember our define) file exists. If it does not (hence the '!'), we execute the following code:
+<ul><li> We create the file using dini_Create().
+</li><li> We then write 5 different lines and their values to the file. It will look like this inside the file when opened with an external program (such as notepad):<br /><br /><u>PocketMoney=3000<br />JailCommands=0<br />AnnounceSeconds=3<br />PassMin=3<br />PassMax=15<br /></u><br />
+</li></ul>
+</li><li> We now know that the file <b>must</b> exist, so we can safely retrieve information from it:
+<ul><li> We store our information from the file into each cell of our 'gSettings' array, using the dini_Int() function.
+</li></ul>
+</li><li> We finally 'return 1;' to let the server and script know that that segment of code is over.
+</li></ul>
+</li></ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Compile your script now and you should recieve no errors nor warnings. Congratulations, we can now continue on to make our existing commands much better.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Creating_A_Simple_Administration_FilterScript.html" title="Edit section: Modifying Our Commands">edit</a>]</div><a name="Modifying_Our_Commands"></a><h2> Modifying Our Commands </h2>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;With our newly created '<a href="Creating_A_Simple_Administration_FilterScript.html#Creating_And_Storing_Our_Settings" title="Creating A Simple Administration FilterScript">gSettings</a>' array, we can now alter our <a href="Creating_A_Simple_Administration_FilterScript.html#Account_Management" title="Creating A Simple Administration FilterScript">account management</a> commands.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Creating_A_Simple_Administration_FilterScript.html" title="Edit section: Registration Modification">edit</a>]</div><a name="Registration_Modification"></a><h3> Registration Modification </h3>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;We shall begin with our <a href="Creating_A_Simple_Administration_FilterScript.html#Registration" title="Creating A Simple Administration FilterScript">register</a> command.
+</p>
+<pre class="pawn">dcmd_register<span style="color: #66cc66;">&#40;</span>playerid, params<span style="color: #66cc66;">&#91;</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>gPlayerInfo<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>PLAYER_REGGED<span style="color: #66cc66;">&#93;</span> == <span style="color: #4169e1;">1</span><span style="color: #66cc66;">&#41;</span>
+	<span style="color: orange; font-weight: bold;">return</span> <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, COLOUR_ORANGE, <span style="color: #b22222;">&quot;ERROR: You have already registered!&quot;</span><span style="color: #66cc66;">&#41;</span>;
+    <span style="color: #4169e1;">else</span> <span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>!params<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>
+	<span style="color: orange; font-weight: bold;">return</span> <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, COLOUR_ORANGE, <span style="color: #b22222;">&quot;USAGE: /register [password]&quot;</span><span style="color: #66cc66;">&#41;</span>;
+    <span style="color: #4169e1;">else</span> <span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span><a href="http://wiki.sa-mp.com/wiki/strlen"><span style="color: #006400;">strlen</span></a><span style="color: #66cc66;">&#40;</span>params<span style="color: #66cc66;">&#41;</span> &lt; gSettings<span style="color: #66cc66;">&#91;</span>PASS_MIN<span style="color: #66cc66;">&#93;</span> || <a href="http://wiki.sa-mp.com/wiki/strlen"><span style="color: #006400;">strlen</span></a><span style="color: #66cc66;">&#40;</span>params<span style="color: #66cc66;">&#41;</span> &gt; gSettings<span style="color: #66cc66;">&#91;</span>PASS_MAX<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>
+    <span style="color: #66cc66;">&#123;</span>
+	<span style="color: #228b22; font-weight: bold;">new</span> string<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">128</span><span style="color: #66cc66;">&#93;</span>;
+        <a href="http://wiki.sa-mp.com/wiki/format"><span style="color: #006400;">format</span></a><span style="color: #66cc66;">&#40;</span>string, <span style="color: orange; font-weight: bold;">sizeof</span><span style="color: #66cc66;">&#40;</span>string<span style="color: #66cc66;">&#41;</span>, <span style="color: #b22222;">&quot;ERROR: Password must be between %d and $d characters long!&quot;</span>, gSettings<span style="color: #66cc66;">&#91;</span>PASS_MIN<span style="color: #66cc66;">&#93;</span>, gSettings<span style="color: #66cc66;">&#91;</span>PASS_MAX<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: orange; font-weight: bold;">return</span> <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, COLOUR_ORANGE, string<span style="color: #66cc66;">&#41;</span>;
+    <span style="color: #66cc66;">&#125;</span>
+    <span style="color: #4169e1;">else</span>
+    <span style="color: #66cc66;">&#123;</span>
+	<span style="color: #228b22; font-weight: bold;">new</span> password = num_hash<span style="color: #66cc66;">&#40;</span>params<span style="color: #66cc66;">&#41;</span>;
+	gPlayerInfo<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>PLAYER_PASS<span style="color: #66cc66;">&#93;</span> = password;
+	gPlayerInfo<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>PLAYER_REGGED<span style="color: #66cc66;">&#93;</span> = <span style="color: #4169e1;">1</span>;
+        gPlayerInfo<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>PLAYER_LOGGED<span style="color: #66cc66;">&#93;</span> = <span style="color: #4169e1;">1</span>;
+	<a href="http://wiki.sa-mp.com/wiki/GetPlayerIp"><span style="color: #006400;">GetPlayerIp</span></a><span style="color: #66cc66;">&#40;</span>playerid, gPlayerInfo<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>PLAYER_IP<span style="color: #66cc66;">&#93;</span>, <span style="color: #4169e1;">16</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #228b22; font-weight: bold;">new</span> string<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">128</span><span style="color: #66cc66;">&#93;</span>; <a href="http://wiki.sa-mp.com/wiki/format"><span style="color: #006400;">format</span></a><span style="color: #66cc66;">&#40;</span>string, <span style="color: orange; font-weight: bold;">sizeof</span><span style="color: #66cc66;">&#40;</span>string<span style="color: #66cc66;">&#41;</span>, <span style="color: #b22222;">&quot;You have successfully registered your account with the password <span style="color: #000099; font-weight: bold;">\'</span>%s<span style="color: #000099; font-weight: bold;">\'</span>. You have been automatically logged in.&quot;</span>, params<span style="color: #66cc66;">&#41;</span>;
+	<span style="color: orange; font-weight: bold;">return</span> <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, COLOUR_LIGHTBLUE, string<span style="color: #66cc66;">&#41;</span>;
+    <span style="color: #66cc66;">&#125;</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If you did not pick up on what code was changed, allow me to tell you:
+</p>
+<ul><li> The only piece of this command that was altered was the previously commented section cantaining this code:<br />
+</li></ul>
+<pre class="pawn"><span style="color: #4169e1;">else</span> <span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span><a href="http://wiki.sa-mp.com/wiki/strlen"><span style="color: #006400;">strlen</span></a><span style="color: #66cc66;">&#40;</span>params<span style="color: #66cc66;">&#41;</span> &lt; gSettings<span style="color: #66cc66;">&#91;</span>PASS_MIN<span style="color: #66cc66;">&#93;</span> || <a href="http://wiki.sa-mp.com/wiki/strlen"><span style="color: #006400;">strlen</span></a><span style="color: #66cc66;">&#40;</span>params<span style="color: #66cc66;">&#41;</span> &gt; gSettings<span style="color: #66cc66;">&#91;</span>PASS_MAX<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>
+    <span style="color: #66cc66;">&#123;</span>
+	<span style="color: #228b22; font-weight: bold;">new</span> string<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">128</span><span style="color: #66cc66;">&#93;</span>;
+        <a href="http://wiki.sa-mp.com/wiki/format"><span style="color: #006400;">format</span></a><span style="color: #66cc66;">&#40;</span>string, <span style="color: orange; font-weight: bold;">sizeof</span><span style="color: #66cc66;">&#40;</span>string<span style="color: #66cc66;">&#41;</span>, <span style="color: #b22222;">&quot;ERROR: Password must be between %d and $d characters long!&quot;</span>, gSettings<span style="color: #66cc66;">&#91;</span>PASS_MIN<span style="color: #66cc66;">&#93;</span>, gSettings<span style="color: #66cc66;">&#91;</span>PASS_MAX<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: orange; font-weight: bold;">return</span> <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, COLOUR_ORANGE, string<span style="color: #66cc66;">&#41;</span>;
+    <span style="color: #66cc66;">&#125;</span></pre>
+<ul><li> The code works like this:
+<ul><li> If the password supplied's length is less than the minimum length specified in our file, <b>or</b> if it is longer than the maximum length specified in our file, we do the following:
+<ul><li> We create a new variable (string), with a maximum length of 128 characters.
+</li><li> We use the <a href="Scripting_Functions_Old.html#format" title="Scripting Functions Old">format()</a> function on our 'string' variable, and insert inside it both the 'PASS_MIN' and 'PASS_MAX' values from our 'gSettings' array.
+</li><li> Finally, we 'return SendClientMessage' once again, and let the player know that they must use a valid password length.
+</li></ul>
+</li><li> If the password's length was valid, the code just moves on, and you can read about it here:<br /><a href="Creating_A_Simple_Administration_FilterScript.html#Registration" title="Creating A Simple Administration FilterScript">Registration</a><br />
+</li></ul>
+</li></ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u><b>Replace our existing 'dcmd_register' function/command with the above code! Do not just copy and paste it at the bottom of our script, or you will recieve errors!</b></u>
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Creating_A_Simple_Administration_FilterScript.html" title="Edit section: Password Modification">edit</a>]</div><a name="Password_Modification"></a><h3> Password Modification </h3>
+<pre class="pawn">dcmd_password<span style="color: #66cc66;">&#40;</span>playerid, params<span style="color: #66cc66;">&#91;</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>gPlayerInfo<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>PLAYER_REGGED<span style="color: #66cc66;">&#93;</span>&nbsp;!= <span style="color: #4169e1;">1</span><span style="color: #66cc66;">&#41;</span>
+        <span style="color: orange; font-weight: bold;">return</span> <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, COLOUR_ORANGE, <span style="color: #b22222;">&quot;ERROR: You must register first to do that! Use /register [password] to register and login.&quot;</span><span style="color: #66cc66;">&#41;</span>;
+    <span style="color: #4169e1;">else</span> <span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>gPlayerInfo<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>PLAYER_LOGGED<span style="color: #66cc66;">&#93;</span> == <span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span>
+	<span style="color: orange; font-weight: bold;">return</span> <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, COLOUR_ORANGE, <span style="color: #b22222;">&quot;ERROR: You must be logged-in to do that! Use /login [password] to login.&quot;</span><span style="color: #66cc66;">&#41;</span>;
+    <span style="color: #4169e1;">else</span>
+    <span style="color: #66cc66;">&#123;</span>
+	<span style="color: #228b22; font-weight: bold;">new</span> tmp<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">30</span><span style="color: #66cc66;">&#93;</span>,
+	    tmp2<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">30</span><span style="color: #66cc66;">&#93;</span>,
+	    index;
+	tmp = strtok<span style="color: #66cc66;">&#40;</span>params, index<span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>!<a href="http://wiki.sa-mp.com/wiki/strlen"><span style="color: #006400;">strlen</span></a><span style="color: #66cc66;">&#40;</span>tmp<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>
+            <span style="color: orange; font-weight: bold;">return</span> <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, COLOUR_ORANGE, <span style="color: #b22222;">&quot;USAGE: /password [password] [new password]&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	tmp2 = strtok<span style="color: #66cc66;">&#40;</span>params, index<span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>!<a href="http://wiki.sa-mp.com/wiki/strlen"><span style="color: #006400;">strlen</span></a><span style="color: #66cc66;">&#40;</span>tmp2<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>
+	    <span style="color: orange; font-weight: bold;">return</span> <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, COLOUR_ORANGE, <span style="color: #b22222;">&quot;USAGE: /password [password] [new password]&quot;</span><span style="color: #66cc66;">&#41;</span>;
+        <span style="color: #228b22; font-weight: bold;">new</span> oldpassword = num_hash<span style="color: #66cc66;">&#40;</span>tmp<span style="color: #66cc66;">&#41;</span>, newpassword = num_hash<span style="color: #66cc66;">&#40;</span>tmp2<span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>gPlayerInfo<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>PLAYER_PASS<span style="color: #66cc66;">&#93;</span> == oldpassword<span style="color: #66cc66;">&#41;</span>
+	<span style="color: #66cc66;">&#123;</span>
+	    <span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>oldpassword == newpassword<span style="color: #66cc66;">&#41;</span>
+	        <span style="color: orange; font-weight: bold;">return</span> <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, COLOUR_ORANGE, <span style="color: #b22222;">&quot;ERROR: Your old password can not be the same as your new password.&quot;</span><span style="color: #66cc66;">&#41;</span>;
+            <span style="color: #4169e1;">else</span> <span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span><a href="http://wiki.sa-mp.com/wiki/strlen"><span style="color: #006400;">strlen</span></a><span style="color: #66cc66;">&#40;</span>tmp2<span style="color: #66cc66;">&#41;</span> &lt; gSettings<span style="color: #66cc66;">&#91;</span>PASS_MIN<span style="color: #66cc66;">&#93;</span> || <a href="http://wiki.sa-mp.com/wiki/strlen"><span style="color: #006400;">strlen</span></a><span style="color: #66cc66;">&#40;</span>tmp2<span style="color: #66cc66;">&#41;</span> &gt; gSettings<span style="color: #66cc66;">&#91;</span>PASS_MAX<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>
+            <span style="color: #66cc66;">&#123;</span>
+                <span style="color: #228b22; font-weight: bold;">new</span> string<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">100</span><span style="color: #66cc66;">&#93;</span>; <a href="http://wiki.sa-mp.com/wiki/format"><span style="color: #006400;">format</span></a><span style="color: #66cc66;">&#40;</span>string, <span style="color: orange; font-weight: bold;">sizeof</span><span style="color: #66cc66;">&#40;</span>string<span style="color: #66cc66;">&#41;</span>, <span style="color: #b22222;">&quot;ERROR: Your new password must be between %d and %d characters long!&quot;</span>, gSettings<span style="color: #66cc66;">&#91;</span>PASS_MIN<span style="color: #66cc66;">&#93;</span>, gSettings<span style="color: #66cc66;">&#91;</span>PASS_MAX<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>;
+                <span style="color: orange; font-weight: bold;">return</span> <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, COLOUR_ORANGE, string<span style="color: #66cc66;">&#41;</span>;
+            <span style="color: #66cc66;">&#125;</span>
+	    gPlayerInfo<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>PLAYER_PASS<span style="color: #66cc66;">&#93;</span> = newpassword;
+	    <span style="color: #228b22; font-weight: bold;">new</span> string<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">128</span><span style="color: #66cc66;">&#93;</span>; <a href="http://wiki.sa-mp.com/wiki/format"><span style="color: #006400;">format</span></a><span style="color: #66cc66;">&#40;</span>string, <span style="color: orange; font-weight: bold;">sizeof</span><span style="color: #66cc66;">&#40;</span>string<span style="color: #66cc66;">&#41;</span>, <span style="color: #b22222;">&quot;You have successfully changed your password from <span style="color: #000099; font-weight: bold;">\'</span>%s<span style="color: #000099; font-weight: bold;">\'</span> to <span style="color: #000099; font-weight: bold;">\'</span>%s<span style="color: #000099; font-weight: bold;">\'</span>.&quot;</span>, tmp, tmp2<span style="color: #66cc66;">&#41;</span>;
+	    <span style="color: orange; font-weight: bold;">return</span> <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, COLOUR_LIGHTBLUE, string<span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #66cc66;">&#125;</span>
+	<span style="color: #4169e1;">else</span>
+	    <span style="color: orange; font-weight: bold;">return</span> <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, COLOUR_ORANGE, <span style="color: #b22222;">&quot;ERROR: Incorrect password.&quot;</span><span style="color: #66cc66;">&#41;</span>;
+    <span style="color: #66cc66;">&#125;</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Once again, we are modifying a previously-existing command, and I shall once again explain how it works (though it is extroadinarily similar to our <a href="Creating_A_Simple_Administration_FilterScript.html#Registration_Modification" title="Creating A Simple Administration FilterScript">registration modification</a> done previously).
+</p>
+<ul><li> We modify this section of code:
+</li></ul>
+<pre class="pawn"><span style="color: #4169e1;">else</span> <span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span><a href="http://wiki.sa-mp.com/wiki/strlen"><span style="color: #006400;">strlen</span></a><span style="color: #66cc66;">&#40;</span>tmp2<span style="color: #66cc66;">&#41;</span> &lt; gSettings<span style="color: #66cc66;">&#91;</span>PASS_MIN<span style="color: #66cc66;">&#93;</span> || <a href="http://wiki.sa-mp.com/wiki/strlen"><span style="color: #006400;">strlen</span></a><span style="color: #66cc66;">&#40;</span>tmp2<span style="color: #66cc66;">&#41;</span> &gt; gSettings<span style="color: #66cc66;">&#91;</span>PASS_MAX<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>
+            <span style="color: #66cc66;">&#123;</span>
+                <span style="color: #228b22; font-weight: bold;">new</span> string<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">100</span><span style="color: #66cc66;">&#93;</span>; <a href="http://wiki.sa-mp.com/wiki/format"><span style="color: #006400;">format</span></a><span style="color: #66cc66;">&#40;</span>string, <span style="color: orange; font-weight: bold;">sizeof</span><span style="color: #66cc66;">&#40;</span>string<span style="color: #66cc66;">&#41;</span>, <span style="color: #b22222;">&quot;ERROR: Your new password must be between %d and %d characters long!&quot;</span>, gSettings<span style="color: #66cc66;">&#91;</span>PASS_MIN<span style="color: #66cc66;">&#93;</span>, gSettings<span style="color: #66cc66;">&#91;</span>PASS_MAX<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>;
+                <span style="color: orange; font-weight: bold;">return</span> <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, COLOUR_ORANGE, string<span style="color: #66cc66;">&#41;</span>;
+            <span style="color: #66cc66;">&#125;</span></pre>
+<ul><li> We have simply un-commented it, so that the server will now use this piece of code, rather than ignoring it (as it would have done previously):
+<ul><li> If the length of our [new password] section of the command is either smaller than the minimum password length, or larger than the maximum password length (both set inside our settings file (and 'gSettings' array)), we execute the following piece of code:
+<ul><li> We create a new variable (string) with a maximum length of 100 characters.
+</li><li> We then <a href="Scripting_Functions_Old.html#format" title="Scripting Functions Old">format()</a> the variable, and insert our two password minimum/maximum lengths inside it.
+</li><li> Finally, we 'return SendClientMessage' the string to the player, thus ending the command.
+</li></ul>
+</li><li> If the players new password length is valid, we ignore this piece of code and continue on with the command. Read about it here:<br /><a href="Creating_A_Simple_Administration_FilterScript.html#Password" title="Creating A Simple Administration FilterScript">Password</a><br />
+</li></ul>
+</li></ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Very easy to understand, just a simple uncommenting, but, like always, if you did not understand it, please <a href="Creating_A_Simple_Administration_FilterScript.html#Modifying_Our_Commands" title="Creating A Simple Administration FilterScript">read it again!</a>
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Creating_A_Simple_Administration_FilterScript.html" title="Edit section: Setting Up For Commands">edit</a>]</div><a name="Setting_Up_For_Commands"></a><h2> Setting Up For Commands </h2>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;With our <a href="Creating_A_Simple_Administration_FilterScript.html#Account_Management" title="Creating A Simple Administration FilterScript">account management</a> commands done, we can begin setting up the arrays which will hold the levels needed to make our administration commands work. Let us begin once again with the <a href="Scripting_Basics.html#Enumerations" title="Scripting Basics">enumeration</a> stage:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">enum</span> COMMANDS_MAIN <span style="color: #66cc66;">&#123;</span>
+    AKILL,
+    ANNOUNCE,
+    ARMOURALL,
+    BAN,
+    CARHP,
+    EXPLODE,
+    FLIP,
+    GOTO,
+    GETHERE,
+    GIVEARMOUR,
+    GIVEHEALTH,
+    GIVEWEAPON,
+    GOD,
+    HEALALL,
+    IMITATE,
+    IP,
+    KICK,
+    MAXAMMO,
+    PING,
+    SETLEVEL,
+    SETWANTED,
+    TBAN,
+    TIME,
+    WEATHER
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">new</span> gCommands<span style="color: #66cc66;">&#91;</span>COMMANDS_MAIN<span style="color: #66cc66;">&#93;</span>;</pre>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You should know what this does by now. <b>Place it under our '<a href="Creating_A_Simple_Administration_FilterScript.html#Creating_And_Storing_Our_Settings" title="Creating A Simple Administration FilterScript">gSettings</a>' array</b>, and let us once again modify our <a href="OnFilterScriptInit.html" title="OnFilterScriptInit">OnFilterScriptInit</a> callback to make this array useful.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Creating_A_Simple_Administration_FilterScript.html" title="Edit section: Setting Command Levels">edit</a>]</div><a name="Setting_Command_Levels"></a><h2> Setting Command Levels </h2>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnFilterScriptInit"><span style="color: #dc143c">OnFilterScriptInit</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+ 	<a href="http://wiki.sa-mp.com/wiki/print"><span style="color: #006400;">print</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;<span style="color: #000099; font-weight: bold;">\n</span>****************************************&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	<a href="http://wiki.sa-mp.com/wiki/print"><span style="color: #006400;">print</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;* Admin Filterscript by your name here *&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	<a href="http://wiki.sa-mp.com/wiki/print"><span style="color: #006400;">print</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;****************************************<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span><span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+        <span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>!<a href="http://wiki.sa-mp.com/wiki/fexist"><span style="color: #006400;">fexist</span></a><span style="color: #66cc66;">&#40;</span>SettingFile<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>
+	<span style="color: #66cc66;">&#123;</span>
+		dini_Create<span style="color: #66cc66;">&#40;</span>SettingFile<span style="color: #66cc66;">&#41;</span>;
+		dini_IntSet<span style="color: #66cc66;">&#40;</span>SettingFile, <span style="color: #b22222;">&quot;PocketMoney&quot;</span>, <span style="color: #4169e1;">3000</span><span style="color: #66cc66;">&#41;</span>;
+		dini_IntSet<span style="color: #66cc66;">&#40;</span>SettingFile, <span style="color: #b22222;">&quot;JailCommands&quot;</span>, <span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span>;
+		dini_IntSet<span style="color: #66cc66;">&#40;</span>SettingFile, <span style="color: #b22222;">&quot;AnnounceSeconds&quot;</span>, <span style="color: #4169e1;">3</span><span style="color: #66cc66;">&#41;</span>;
+		dini_IntSet<span style="color: #66cc66;">&#40;</span>SettingFile, <span style="color: #b22222;">&quot;PassMin&quot;</span>, <span style="color: #4169e1;">3</span><span style="color: #66cc66;">&#41;</span>;
+		dini_IntSet<span style="color: #66cc66;">&#40;</span>SettingFile, <span style="color: #b22222;">&quot;PassMax&quot;</span>, <span style="color: #4169e1;">15</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+	gSettings<span style="color: #66cc66;">&#91;</span>POCKET_MONEY<span style="color: #66cc66;">&#93;</span> 		= dini_Int<span style="color: #66cc66;">&#40;</span>SettingFile, <span style="color: #b22222;">&quot;PocketMoney&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	gSettings<span style="color: #66cc66;">&#91;</span>JAIL_COMMANDS<span style="color: #66cc66;">&#93;</span> 		= dini_Int<span style="color: #66cc66;">&#40;</span>SettingFile, <span style="color: #b22222;">&quot;JailCommands&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	gSettings<span style="color: #66cc66;">&#91;</span>ANNOUNCE_SECONDS<span style="color: #66cc66;">&#93;</span> 	        = dini_Int<span style="color: #66cc66;">&#40;</span>SettingFile, <span style="color: #b22222;">&quot;AnnounceSeconds&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	gSettings<span style="color: #66cc66;">&#91;</span>PASS_MIN<span style="color: #66cc66;">&#93;</span> 			= dini_Int<span style="color: #66cc66;">&#40;</span>SettingFile, <span style="color: #b22222;">&quot;PassMin&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	gSettings<span style="color: #66cc66;">&#91;</span>PASS_MAX<span style="color: #66cc66;">&#93;</span> 			= dini_Int<span style="color: #66cc66;">&#40;</span>SettingFile, <span style="color: #b22222;">&quot;PassMax&quot;</span><span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+	<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>!<a href="http://wiki.sa-mp.com/wiki/fexist"><span style="color: #006400;">fexist</span></a><span style="color: #66cc66;">&#40;</span>CommandFile<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>
+	<span style="color: #66cc66;">&#123;</span>
+		dini_Create<span style="color: #66cc66;">&#40;</span>CommandFile<span style="color: #66cc66;">&#41;</span>;
+		dini_IntSet<span style="color: #66cc66;">&#40;</span>CommandFile, <span style="color: #b22222;">&quot;Akill&quot;</span>, <span style="color: #4169e1;">6</span><span style="color: #66cc66;">&#41;</span>;
+		dini_IntSet<span style="color: #66cc66;">&#40;</span>CommandFile, <span style="color: #b22222;">&quot;Announce&quot;</span>, <span style="color: #4169e1;">5</span><span style="color: #66cc66;">&#41;</span>;
+		dini_IntSet<span style="color: #66cc66;">&#40;</span>CommandFile, <span style="color: #b22222;">&quot;Armourall&quot;</span>, <span style="color: #4169e1;">3</span><span style="color: #66cc66;">&#41;</span>;
+		dini_IntSet<span style="color: #66cc66;">&#40;</span>CommandFile, <span style="color: #b22222;">&quot;Ban&quot;</span>, <span style="color: #4169e1;">9</span><span style="color: #66cc66;">&#41;</span>;
+		dini_IntSet<span style="color: #66cc66;">&#40;</span>CommandFile, <span style="color: #b22222;">&quot;Carhp&quot;</span>, <span style="color: #4169e1;">4</span><span style="color: #66cc66;">&#41;</span>;
+		dini_IntSet<span style="color: #66cc66;">&#40;</span>CommandFile, <span style="color: #b22222;">&quot;Explode&quot;</span>, <span style="color: #4169e1;">5</span><span style="color: #66cc66;">&#41;</span>;
+		dini_IntSet<span style="color: #66cc66;">&#40;</span>CommandFile, <span style="color: #b22222;">&quot;Goto&quot;</span>, <span style="color: #4169e1;">4</span><span style="color: #66cc66;">&#41;</span>;
+		dini_IntSet<span style="color: #66cc66;">&#40;</span>CommandFile, <span style="color: #b22222;">&quot;Gethere&quot;</span>, <span style="color: #4169e1;">5</span><span style="color: #66cc66;">&#41;</span>;
+		dini_IntSet<span style="color: #66cc66;">&#40;</span>CommandFile, <span style="color: #b22222;">&quot;Givearmour&quot;</span>, <span style="color: #4169e1;">6</span><span style="color: #66cc66;">&#41;</span>;
+		dini_IntSet<span style="color: #66cc66;">&#40;</span>CommandFile, <span style="color: #b22222;">&quot;Givehealth&quot;</span>, <span style="color: #4169e1;">6</span><span style="color: #66cc66;">&#41;</span>;
+		dini_IntSet<span style="color: #66cc66;">&#40;</span>CommandFile, <span style="color: #b22222;">&quot;Giveweapon&quot;</span>, <span style="color: #4169e1;">7</span><span style="color: #66cc66;">&#41;</span>;
+		dini_IntSet<span style="color: #66cc66;">&#40;</span>CommandFile, <span style="color: #b22222;">&quot;God&quot;</span>, <span style="color: #4169e1;">10</span><span style="color: #66cc66;">&#41;</span>;
+		dini_IntSet<span style="color: #66cc66;">&#40;</span>CommandFile, <span style="color: #b22222;">&quot;Healall&quot;</span>, <span style="color: #4169e1;">7</span><span style="color: #66cc66;">&#41;</span>;
+		dini_IntSet<span style="color: #66cc66;">&#40;</span>CommandFile, <span style="color: #b22222;">&quot;Imitate&quot;</span>, <span style="color: #4169e1;">8</span><span style="color: #66cc66;">&#41;</span>;
+		dini_IntSet<span style="color: #66cc66;">&#40;</span>CommandFile, <span style="color: #b22222;">&quot;Ip&quot;</span>, <span style="color: #4169e1;">2</span><span style="color: #66cc66;">&#41;</span>;
+		dini_IntSet<span style="color: #66cc66;">&#40;</span>CommandFile, <span style="color: #b22222;">&quot;Kick&quot;</span>, <span style="color: #4169e1;">7</span><span style="color: #66cc66;">&#41;</span>;
+		dini_IntSet<span style="color: #66cc66;">&#40;</span>CommandFile, <span style="color: #b22222;">&quot;Maxammo&quot;</span>, <span style="color: #4169e1;">8</span><span style="color: #66cc66;">&#41;</span>;
+		dini_IntSet<span style="color: #66cc66;">&#40;</span>CommandFile, <span style="color: #b22222;">&quot;Ping&quot;</span>, <span style="color: #4169e1;">1</span><span style="color: #66cc66;">&#41;</span>;
+		dini_IntSet<span style="color: #66cc66;">&#40;</span>CommandFile, <span style="color: #b22222;">&quot;Setlevel&quot;</span>, <span style="color: #4169e1;">10</span><span style="color: #66cc66;">&#41;</span>;
+		dini_IntSet<span style="color: #66cc66;">&#40;</span>CommandFile, <span style="color: #b22222;">&quot;Setwanted&quot;</span>, <span style="color: #4169e1;">6</span><span style="color: #66cc66;">&#41;</span>;
+		dini_IntSet<span style="color: #66cc66;">&#40;</span>CommandFile, <span style="color: #b22222;">&quot;Tban&quot;</span>, <span style="color: #4169e1;">9</span><span style="color: #66cc66;">&#41;</span>;
+		dini_IntSet<span style="color: #66cc66;">&#40;</span>CommandFile, <span style="color: #b22222;">&quot;Time&quot;</span>, <span style="color: #4169e1;">3</span><span style="color: #66cc66;">&#41;</span>;
+		dini_IntSet<span style="color: #66cc66;">&#40;</span>CommandFile, <span style="color: #b22222;">&quot;Weather&quot;</span>, <span style="color: #4169e1;">3</span><span style="color: #66cc66;">&#41;</span>;
+        <span style="color: #66cc66;">&#125;</span>
+&nbsp;
+	gCommands<span style="color: #66cc66;">&#91;</span>AKILL<span style="color: #66cc66;">&#93;</span> 			= dini_Int<span style="color: #66cc66;">&#40;</span>CommandFile, <span style="color: #b22222;">&quot;Akill&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	gCommands<span style="color: #66cc66;">&#91;</span>ANNOUNCE<span style="color: #66cc66;">&#93;</span> 		        = dini_Int<span style="color: #66cc66;">&#40;</span>CommandFile, <span style="color: #b22222;">&quot;Announce&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	gCommands<span style="color: #66cc66;">&#91;</span>ARMOURALL<span style="color: #66cc66;">&#93;</span> 			= dini_Int<span style="color: #66cc66;">&#40;</span>CommandFile, <span style="color: #b22222;">&quot;Armourall&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	gCommands<span style="color: #66cc66;">&#91;</span>BAN<span style="color: #66cc66;">&#93;</span> 				= dini_Int<span style="color: #66cc66;">&#40;</span>CommandFile, <span style="color: #b22222;">&quot;Ban&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	gCommands<span style="color: #66cc66;">&#91;</span>CARHP<span style="color: #66cc66;">&#93;</span> 			= dini_Int<span style="color: #66cc66;">&#40;</span>CommandFile, <span style="color: #b22222;">&quot;Carhp&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	gCommands<span style="color: #66cc66;">&#91;</span>EXPLODE<span style="color: #66cc66;">&#93;</span> 			= dini_Int<span style="color: #66cc66;">&#40;</span>CommandFile, <span style="color: #b22222;">&quot;Explode&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	gCommands<span style="color: #66cc66;">&#91;</span>GOTO<span style="color: #66cc66;">&#93;</span> 			= dini_Int<span style="color: #66cc66;">&#40;</span>CommandFile, <span style="color: #b22222;">&quot;Goto&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	gCommands<span style="color: #66cc66;">&#91;</span>GETHERE<span style="color: #66cc66;">&#93;</span> 			= dini_Int<span style="color: #66cc66;">&#40;</span>CommandFile, <span style="color: #b22222;">&quot;Gethere&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	gCommands<span style="color: #66cc66;">&#91;</span>GIVEARMOUR<span style="color: #66cc66;">&#93;</span> 			= dini_Int<span style="color: #66cc66;">&#40;</span>CommandFile, <span style="color: #b22222;">&quot;Givearmour&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	gCommands<span style="color: #66cc66;">&#91;</span>GIVEHEALTH<span style="color: #66cc66;">&#93;</span> 			= dini_Int<span style="color: #66cc66;">&#40;</span>CommandFile, <span style="color: #b22222;">&quot;Givehealth&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	gCommands<span style="color: #66cc66;">&#91;</span>GIVEWEAPON<span style="color: #66cc66;">&#93;</span> 			= dini_Int<span style="color: #66cc66;">&#40;</span>CommandFile, <span style="color: #b22222;">&quot;Giveweapon&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	gCommands<span style="color: #66cc66;">&#91;</span>GOD<span style="color: #66cc66;">&#93;</span> 				= dini_Int<span style="color: #66cc66;">&#40;</span>CommandFile, <span style="color: #b22222;">&quot;God&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	gCommands<span style="color: #66cc66;">&#91;</span>HEALALL<span style="color: #66cc66;">&#93;</span> 			= dini_Int<span style="color: #66cc66;">&#40;</span>CommandFile, <span style="color: #b22222;">&quot;Healall&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	gCommands<span style="color: #66cc66;">&#91;</span>IMITATE<span style="color: #66cc66;">&#93;</span> 			= dini_Int<span style="color: #66cc66;">&#40;</span>CommandFile, <span style="color: #b22222;">&quot;Imitate&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	gCommands<span style="color: #66cc66;">&#91;</span>IP<span style="color: #66cc66;">&#93;</span> 				= dini_Int<span style="color: #66cc66;">&#40;</span>CommandFile, <span style="color: #b22222;">&quot;Ip&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	gCommands<span style="color: #66cc66;">&#91;</span>KICK<span style="color: #66cc66;">&#93;</span> 			= dini_Int<span style="color: #66cc66;">&#40;</span>CommandFile, <span style="color: #b22222;">&quot;Kick&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	gCommands<span style="color: #66cc66;">&#91;</span>MAXAMMO<span style="color: #66cc66;">&#93;</span> 			= dini_Int<span style="color: #66cc66;">&#40;</span>CommandFile, <span style="color: #b22222;">&quot;Maxammo&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	gCommands<span style="color: #66cc66;">&#91;</span>SETLEVEL<span style="color: #66cc66;">&#93;</span> 			= dini_Int<span style="color: #66cc66;">&#40;</span>CommandFile, <span style="color: #b22222;">&quot;Setlevel&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	gCommands<span style="color: #66cc66;">&#91;</span>SETWANTED<span style="color: #66cc66;">&#93;</span> 			= dini_Int<span style="color: #66cc66;">&#40;</span>CommandFile, <span style="color: #b22222;">&quot;Setwanted&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	gCommands<span style="color: #66cc66;">&#91;</span>TBAN<span style="color: #66cc66;">&#93;</span> 			= dini_Int<span style="color: #66cc66;">&#40;</span>CommandFile, <span style="color: #b22222;">&quot;Tban&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	gCommands<span style="color: #66cc66;">&#91;</span>TIME<span style="color: #66cc66;">&#93;</span> 			= dini_Int<span style="color: #66cc66;">&#40;</span>CommandFile, <span style="color: #b22222;">&quot;Time&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	gCommands<span style="color: #66cc66;">&#91;</span>WEATHER<span style="color: #66cc66;">&#93;</span> 			= dini_Int<span style="color: #66cc66;">&#40;</span>CommandFile, <span style="color: #b22222;">&quot;Weather&quot;</span><span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+ 	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;We have simply added in an if statement, and then stored values from a file inside our 'gSettings' array. This was done in exactly the same method as when <a href="Creating_A_Simple_Administration_FilterScript.html#Creating_And_Storing_Our_Settings" title="Creating A Simple Administration FilterScript">we stored our settings information</a>. Read about it here:
+</p>
+<ul><li> <a href="Creating_A_Simple_Administration_FilterScript.html#Creating_And_Storing_Our_Settings" title="Creating A Simple Administration FilterScript">Creating And Storing Our Settings</a>
+</li></ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Why have we done this you ask? This was so that we can set access levels for our commands. This means you can have lead-admins, and then moderating admins, and so on. It provides a better way to manage your server than <a href="Controlling_Your_Server.html#Using_RCON" title="Controlling Your Server">RCON</a>. We will be checking these variables at each respective command.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Creating_A_Simple_Administration_FilterScript.html" title="Edit section: Further Commands">edit</a>]</div><a name="Further_Commands"></a><h2> Further Commands </h2>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;We will now make use of our '<a href="Creating_A_Simple_Administration_FilterScript.html#Setting_Command_Levels" title="Creating A Simple Administration FilterScript">gCommands</a>' array, and begin our commands. They will be split into the following:
+</p>
+<ul><li> <a href="Creating_A_Simple_Administration_FilterScript.html#Moderation_Commands" title="Creating A Simple Administration FilterScript">Moderation commands</a> 
+</li><li> <a href="Creating_A_Simple_Administration_FilterScript.html#Administration_Commands" title="Creating A Simple Administration FilterScript">Administration commands</a>
+</li></ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The difference is that <a href="Creating_A_Simple_Administration_FilterScript.html#Moderation_Commands" title="Creating A Simple Administration FilterScript">moderation commands</a> are those that you would allow other users to use (such as <a href="Creating_A_Simple_Administration_FilterScript.html#Akill" title="Creating A Simple Administration FilterScript">/akill</a> and <a href="Creating_A_Simple_Administration_FilterScript.html#Goto" title="Creating A Simple Administration FilterScript">/goto</a>), whereas <a href="Creating_A_Simple_Administration_FilterScript.html#Administration_Commands" title="Creating A Simple Administration FilterScript">administration commands</a> are those that manage the server, and not just the players using it.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Creating_A_Simple_Administration_FilterScript.html" title="Edit section: Moderation Commands">edit</a>]</div><a name="Moderation_Commands"></a><h3> Moderation Commands </h3>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Here are our moderation commands, which work with our <a href="Creating_A_Simple_Administration_FilterScript.html#Setting_Command_Levels" title="Creating A Simple Administration FilterScript">level system</a>. 
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Creating_A_Simple_Administration_FilterScript.html" title="Edit section: Akill">edit</a>]</div><a name="Akill"></a><h4> Akill </h4>
+<pre class="pawn">dcmd_akill<span style="color: #66cc66;">&#40;</span>playerid, params<span style="color: #66cc66;">&#91;</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>gPlayerInfo<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>PLAYER_LEVEL<span style="color: #66cc66;">&#93;</span> &lt; gCommands<span style="color: #66cc66;">&#91;</span>AKILL<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>
+    <span style="color: #66cc66;">&#123;</span>
+        <span style="color: #228b22; font-weight: bold;">new</span> string<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">100</span><span style="color: #66cc66;">&#93;</span>; 
+        <a href="http://wiki.sa-mp.com/wiki/format"><span style="color: #006400;">format</span></a><span style="color: #66cc66;">&#40;</span>string, <span style="color: orange; font-weight: bold;">sizeof</span><span style="color: #66cc66;">&#40;</span>string<span style="color: #66cc66;">&#41;</span>, <span style="color: #b22222;">&quot;You must be administrator level %d to use that command!&quot;</span>, gCommands<span style="color: #66cc66;">&#91;</span>AKILL<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>;
+        <span style="color: orange; font-weight: bold;">return</span> <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, COLOUR_ORANGE, string<span style="color: #66cc66;">&#41;</span>;
+    <span style="color: #66cc66;">&#125;</span>
+    <span style="color: #4169e1;">else</span> <span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>!<a href="http://wiki.sa-mp.com/wiki/strlen"><span style="color: #006400;">strlen</span></a><span style="color: #66cc66;">&#40;</span>params<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>
+        <span style="color: orange; font-weight: bold;">return</span> <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, COLOUR_ORANGE, <span style="color: #b22222;">&quot;USAGE: /akill [id | name]&quot;</span><span style="color: #66cc66;">&#41;</span>;
+    <span style="color: #4169e1;">else</span>
+    <span style="color: #66cc66;">&#123;</span>
+	<span style="color: #228b22; font-weight: bold;">new</span> id = <span style="color: #66cc66;">&#40;</span>isNumeric<span style="color: #66cc66;">&#40;</span>params<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>&nbsp;? <a href="http://wiki.sa-mp.com/wiki/strval"><span style="color: #006400;">strval</span></a><span style="color: #66cc66;">&#40;</span>params<span style="color: #66cc66;">&#41;</span>&nbsp;: GetPlayerId<span style="color: #66cc66;">&#40;</span>params<span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span><a href="http://wiki.sa-mp.com/wiki/IsPlayerConnected"><span style="color: #006400;">IsPlayerConnected</span></a><span style="color: #66cc66;">&#40;</span>id<span style="color: #66cc66;">&#41;</span> &amp;&amp; id&nbsp;!= playerid<span style="color: #66cc66;">&#41;</span>
+	<span style="color: #66cc66;">&#123;</span>
+	    <a href="http://wiki.sa-mp.com/wiki/SetPlayerHealth"><span style="color: #006400;">SetPlayerHealth</span></a><span style="color: #66cc66;">&#40;</span>id, <span style="color: #4169e1;">0.0</span><span style="color: #66cc66;">&#41;</span>;
+	    <span style="color: #228b22; font-weight: bold;">new</span> string<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">128</span><span style="color: #66cc66;">&#93;</span>; 
+	    <a href="http://wiki.sa-mp.com/wiki/format"><span style="color: #006400;">format</span></a><span style="color: #66cc66;">&#40;</span>string, <span style="color: orange; font-weight: bold;">sizeof</span><span style="color: #66cc66;">&#40;</span>string<span style="color: #66cc66;">&#41;</span>, <span style="color: #b22222;">&quot;You have been admin-killed by administrator <span style="color: #000099; font-weight: bold;">\'</span>%s<span style="color: #000099; font-weight: bold;">\'</span>.&quot;</span>, gPlayerInfo<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>PLAYER_NAME<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>;
+	    <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>id, COLOUR_ORANGE, string<span style="color: #66cc66;">&#41;</span>;
+	    <a href="http://wiki.sa-mp.com/wiki/format"><span style="color: #006400;">format</span></a><span style="color: #66cc66;">&#40;</span>string, <span style="color: orange; font-weight: bold;">sizeof</span><span style="color: #66cc66;">&#40;</span>string<span style="color: #66cc66;">&#41;</span>, <span style="color: #b22222;">&quot;You have successfully admin-killed player <span style="color: #000099; font-weight: bold;">\'</span>%s<span style="color: #000099; font-weight: bold;">\'</span>.&quot;</span>, gPlayerInfo<span style="color: #66cc66;">&#91;</span>id<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>PLAYER_NAME<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>;
+	    <span style="color: orange; font-weight: bold;">return</span> <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, COLOUR_LIGHTBLUE, string<span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #66cc66;">&#125;</span>
+	<span style="color: #4169e1;">else</span>
+	    <span style="color: orange; font-weight: bold;">return</span> <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, COLOUR_ORANGE, <span style="color: #b22222;">&quot;ERROR: You can not admin-kill yourself or a disconnected player.&quot;</span><span style="color: #66cc66;">&#41;</span>;
+    <span style="color: #66cc66;">&#125;</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Here is how this command works:
+</p>
+<ul><li> We first check if the players current level (using their 'PLAYER_LEVEL' cell of our 'gPlayerInfo[playerid]' array) is less than the commands set level (its cell in our 'gCommands' array). If this is true, we do the following:
+<ul><li> We first create a new string with a maximum of 100 characters.
+</li><li> We then <a href="Format.html" title="Format">format</a> it to include the current level of the command.
+</li><li> Finally, we 'return SendClientMessage' to send the string to the player, thus ending the command.
+</li></ul>
+</li><li> We now check if the player supplied an id or name to use the command on, by checking the length of 'params' ('params' was passed to the function by dcmd()), and if its length is 0 (hence the '!'), we tell the player the correct usage of the command.
+</li><li> We can finally use the 'else' statement. The following happens now:
+<ul><li> We create a new integer, and set its value to be either:
+<ul><li> The value that the player typed <b>if it was a number (not a name).</b>
+</li><li> The id that the name belongs to <b>if it was a name (not an id).</b>
+</li></ul>
+</li><li> If the id typed is connected and it is not the same as the id who typed the command, we do the following:
+<ul><li> We set the id's health to 0 (0.0 is used because the function calls for a <a href="Scripting_Basics.html#Float" title="Scripting Basics">float</a>).
+</li><li> We create a new string with a maximum length of 128 characters.
+</li><li> We <a href="Format.html" title="Format">format</a> the string to hold the administrators name.
+</li><li> We send the newly-formatted string to the id.
+</li><li> We <a href="Format.html" title="Format">format</a> the string to hold the ids name.
+</li><li> We 'return SendClientMessage' the string to the administrator.
+</li></ul>
+</li><li> If the id was not connected <b>or</b> it was the same as the players id, we 'return SendClientMessage' the player, telling them that they must use a valid id (also ending the command).
+</li></ul>
+</li></ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You should know the drill by now, if you didn't understand it, <a href="Creating_A_Simple_Administration_FilterScript.html#Akill" title="Creating A Simple Administration FilterScript">read it again</a>! Or, if you did, congratulations. We have now completed our first real 'moderation' command.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Creating_A_Simple_Administration_FilterScript.html" title="Edit section: Announce">edit</a>]</div><a name="Announce"></a><h4> Announce </h4>
+<pre class="pawn">dcmd_announce<span style="color: #66cc66;">&#40;</span>playerid, params<span style="color: #66cc66;">&#91;</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>gPlayerInfo<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>PLAYER_LEVEL<span style="color: #66cc66;">&#93;</span> &lt; gCommands<span style="color: #66cc66;">&#91;</span>ANNOUNCE<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>
+    <span style="color: #66cc66;">&#123;</span>
+        <span style="color: #228b22; font-weight: bold;">new</span> string<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">100</span><span style="color: #66cc66;">&#93;</span>; 
+        <a href="http://wiki.sa-mp.com/wiki/format"><span style="color: #006400;">format</span></a><span style="color: #66cc66;">&#40;</span>string, <span style="color: orange; font-weight: bold;">sizeof</span><span style="color: #66cc66;">&#40;</span>string<span style="color: #66cc66;">&#41;</span>, <span style="color: #b22222;">&quot;You must be administrator level %d to use that command!&quot;</span>, gCommands<span style="color: #66cc66;">&#91;</span>ANNOUNCE<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>;
+        <span style="color: orange; font-weight: bold;">return</span> <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, COLOUR_ORANGE, string<span style="color: #66cc66;">&#41;</span>;
+    <span style="color: #66cc66;">&#125;</span>
+    <span style="color: #4169e1;">else</span> <span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>!<a href="http://wiki.sa-mp.com/wiki/strlen"><span style="color: #006400;">strlen</span></a><span style="color: #66cc66;">&#40;</span>params<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>
+        <span style="color: orange; font-weight: bold;">return</span> <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, COLOUR_ORANGE, <span style="color: #b22222;">&quot;USAGE: /announce [message]&quot;</span><span style="color: #66cc66;">&#41;</span>;
+    <span style="color: #4169e1;">else</span>
+        <span style="color: orange; font-weight: bold;">return</span> <a href="http://wiki.sa-mp.com/wiki/GameTextForAll"><span style="color: #006400;">GameTextForAll</span></a><span style="color: #66cc66;">&#40;</span>params, gSettings<span style="color: #66cc66;">&#91;</span>ANNOUNCE_SECONDS<span style="color: #66cc66;">&#93;</span> * <span style="color: #4169e1;">1000</span>, <span style="color: #4169e1;">3</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This is a tiny command, and here is how it works:
+</p>
+<ul><li> We first check the players level against the one we have in our file (and array). If it is lower, we:
+<ul><li> Create a string with a maximum length of 100 characters. 
+</li><li> We then <a href="Scripting_Functions_Old.html#format" title="Scripting Functions Old">format</a> it to include the correct level. 
+</li><li> Finally we send the player the message.
+</li></ul>
+</li><li> We now check if the player typed a message to announce. If not, we tell him the correct usage.
+</li><li> Finally, we send the announcement using the <a href="Scripting_Functions_Old.html#GameTextForAll" title="Scripting Functions Old">GameTextForAll()</a> function. The second parameter is the amount of milliseconds to show it for. We used our '<a href="Creating_A_Simple_Administration_FilterScript.html#Creating_And_Storing_Our_Settings" title="Creating A Simple Administration FilterScript">gSettings</a>' array, because it holds the amount of seconds that you want the message shown for. As that was in seconds, and the function calls for milliseconds, we simply <a href="http://www.compuphase.com/pawn/pawn-lang.pdf" class='external text' title="http://www.compuphase.com/pawn/pawn-lang.pdf" rel="nofollow">multiply</a> the time by 1000 (there are 1000 milliseconds in 1 second). We then use a style on the message which shows it in the centre of the screen.
+</li></ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Another one down, and that could not have been easier.
+</p><p><br />
+</p>
+<hr />
+<p><b>WORK IN PROGRESS!!</b>
+</p><div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/Creating_A_Simple_Administration_FilterScript.html">http://localhost../wiki/Creating_A_Simple_Administration_FilterScript.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="Category_Tutorials.html" title="Category:Tutorials">Tutorials</a></span> | <span dir='ltr'><a href="Category_Outdated.html" title="Category:Outdated">Outdated</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="Creating_A_Simple_Administration_FilterScript.html">Article</a></li>
+				 <li id="ca-talk"><a href="Talk_Creating_A_Simple_Administration_FilterScript.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="Creating_A_Simple_Administration_FilterScript.html">Edit</a></li>
+				 <li id="ca-history"><a href="Creating_A_Simple_Administration_FilterScript.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 97,186 times.</li>
+				<li id="credits">This page was last modified 12:52, 24 March 2017 by SA-MP Wiki user <a href="User_OstGot.html" title="User:OstGot">OstGot</a>. Based on work by SA-MP Wiki user(s) <a href="User_Vince.html" title="User:Vince">Vince</a> and <a href="User_LaZ.html" title="User:LaZ">LaZ</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 35.96 secs. -->
+</body></html>

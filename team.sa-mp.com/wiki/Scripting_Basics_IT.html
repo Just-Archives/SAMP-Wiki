@@ -1,0 +1,308 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Scripting Basics IT,Scripting Basics IT,Control Structures,Main Page,Scripting Basics,Server Plugins,Scripting Callbacks,Scripting Functions,Tutorials" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>Scripting Basics IT - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Scripting Basics IT</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<div class="scripting" style="color: #4378A4; background-color: #FFFFFF; margin: 2px; margin-bottom: 10px;"><div align="center" style="border: 1px solid #AAAAAA; padding: 3px; padding-left: 5px;"><a href="../wiki-archive.html" title="Main Page">Main Page</a> | <a href="Category_Scripting_Functions.html" title="Category:Scripting Functions">Scripting Functions</a> | <a href="Category_Scripting_Callbacks.html" title="Category:Scripting Callbacks">Scripting Callbacks</a> | <a href="Scripting_Basics.html" title="Scripting Basics">Scripting Basics</a> | <a href="Server_Plugins.html" title="Server Plugins">Server Plugins</a> | <a href="Category_Tutorials.html" title="Category:Tutorials">Tutorials</a></div></div><br />
+<p><br />
+</p>
+<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class='toclevel-1'><a href="#Introduzione"><span class="tocnumber">1</span> <span class="toctext">Introduzione</span></a></li>
+<li class='toclevel-1'><a href="#Funzioni"><span class="tocnumber">2</span> <span class="toctext">Funzioni</span></a>
+<ul>
+<li class='toclevel-2'><a href="#Definizione"><span class="tocnumber">2.1</span> <span class="toctext">Definizione</span></a></li>
+<li class='toclevel-2'><a href="#Parametri"><span class="tocnumber">2.2</span> <span class="toctext">Parametri</span></a></li>
+<li class='toclevel-2'><a href="#Return"><span class="tocnumber">2.3</span> <span class="toctext">Return</span></a></li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#Variabili"><span class="tocnumber">3</span> <span class="toctext">Variabili</span></a>
+<ul>
+<li class='toclevel-2'><a href="#Array"><span class="tocnumber">3.1</span> <span class="toctext">Array</span></a>
+<ul>
+<li class='toclevel-3'><a href="#Dichiarazione"><span class="tocnumber">3.1.1</span> <span class="toctext">Dichiarazione</span></a></li>
+<li class='toclevel-3'><a href="#Inizializzazione"><span class="tocnumber">3.1.2</span> <span class="toctext">Inizializzazione</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#Strutture_di_controllo"><span class="tocnumber">4</span> <span class="toctext">Strutture di controllo</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_IT.html" title="Edit section: Introduzione">edit</a>]</div><a name="Introduzione"></a><h1> Introduzione </h1>
+<p>Un concetto fondamentale dello scripting (e della programmazione in generale) è la <a href="Scripting_Basics_IT.html#Variabili" title="Scripting Basics IT">variabile</a>. Le variabili sono porzioni di memoria e fungono da contenitori di dati per lavorare con le istruzioni del programma. Le istruzioni, dette statement, non fanno altro che accedere e modificare le informazioni contenute nelle variabili a seconda delle esigenze, nel modo più veloce ed efficiente possibile. Un esempio di utilizzo di variabili è l'esigenza di visualizzare un messaggio contenente un'informazione sul gioco:
+</p>
+<font size="2"><pre class="pawn">Ci sono degli utenti online</pre></font>
+<p>Senza una variabile non sarebbe possibile scrivere il numero degli utenti effettivamente online, come:
+</p>
+<font size="2"><pre class="pawn">Ci sono x utenti online</pre></font>
+<p>Il valore della variabile "x" dipende dalle istruzioni usate. In quest'esempio, un'istruzione controlla quanti giocatori sono attualmente connessi al gioco e salva tale numero nella variabile. Le istruzioni sono moltissime e svolgono ognuna una funzione specifica.
+Nello script le istruzioni sono organizzate in <a href="Scripting_Basics_IT.html#Funzioni" title="Scripting Basics IT">funzioni</a>. Ogni funzione esegue la sua routine di istruzioni in un momento determinato del gioco. Un esempio pratico è:
+</p>
+<pre class="pawn"><span style="color: #6b8e23;">#include &lt;a_samp&gt;</span>
+&nbsp;
+main<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnPlayerConnect"><span style="color: #dc143c">OnPlayerConnect</span></a><span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, 0x00FF0000, <span style="color: #b22222;">&quot;Benvenuto nel server&quot;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>La funzione OnPlayerConnect() esegue la routine di istruzioni quando un giocatore si connette al server. L'unica istruzione usata in questo caso è SendClientMessage(), che visualizza al giocatore un messaggio di benvenuto. La funzione main() non ha un'utilità concreta nello script, ma è necessaria perché funge da entry point dello script.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_IT.html" title="Edit section: Funzioni">edit</a>]</div><a name="Funzioni"></a><h1> Funzioni </h1>
+<p>Una funzione necessita di essere chiamata e definita. La funzione viene chiamata per iniziare l'esecuzione della sua routine di istruzioni, che altrimenti rimarrebbero inutilizzate nello script. La funzione, infine, viene definita per specificare le istruzioni da eseguire, che vengono raggruppate in un costrutto chiamato corpo della funzione. Lo script:
+</p>
+<pre class="pawn"><span style="color: #6b8e23;">#include &lt;a_samp&gt;</span>
+&nbsp;
+main<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnPlayerConnect"><span style="color: #dc143c">OnPlayerConnect</span></a><span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    MyFunction<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+MyFunction<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, 0x00FF0000, <span style="color: #b22222;">&quot;Benvenuto nel server&quot;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>fa esattamente la stessa cosa dell'esempio precedente, ma in questo caso compare la funzione MyFunction().
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_IT.html" title="Edit section: Definizione">edit</a>]</div><a name="Definizione"></a><h2> Definizione </h2>
+<p>L'istruzione
+</p>
+<pre class="pawn">MyFunction<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>;</pre>
+<p>chiama la funzione MyFunction(), che è definita nel codice
+</p>
+<pre class="pawn">MyFunction<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, 0x00FF0000, <span style="color: #b22222;">&quot;Benvenuto nel server&quot;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span></pre><br />
+<p>OnPlayerConnect() è eseguita automaticamente dal server quindi non necessita di essere chiamata. Le funzioni di questo tipo sono chiamate callback e presentano la dicitura <b>public</b> prima del nome. Questa scritta rende la funzione visibile al server, perché non dipende da un'istruzione di richiamo interna allo script. L'istruzione
+</p>
+<pre class="pawn"><a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, 0x00FF0000, <span style="color: #b22222;">&quot;Benvenuto nel server&quot;</span><span style="color: #66cc66;">&#41;</span>;</pre>
+<p>chiama la funzione SendClientMessage(), la cui definizione non si trova nello script, ma in un file esterno (pawno/include/a_samp.inc). In questo file sono presenti tutte le funzioni predefinite di SA:MP, in questo modo potremo usarle senza doverle definire nello script. Il codice
+</p>
+<pre class="pawn"><span style="color: #6b8e23;">#include &lt;a_samp&gt;</span></pre>
+<p>è una direttiva e fa in modo che lo script legga il contenuto di tale file.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_IT.html" title="Edit section: Parametri">edit</a>]</div><a name="Parametri"></a><h2> Parametri </h2>
+<p>I parametri sono <a href="Scripting_Basics_IT.html#Variabili" title="Scripting Basics IT">variabili</a> usate per dare informazioni aggiuntive a una funzione. Compaiono fra le parentesi dopo il nome della funzione.
+</p>
+<pre class="pawn"><span style="color: #6b8e23;">#include &lt;a_samp&gt;</span>
+&nbsp;
+main<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnPlayerConnect"><span style="color: #dc143c">OnPlayerConnect</span></a><span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    MyFunction<span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;Benvenuto nel server&quot;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnPlayerDeath"><span style="color: #dc143c">OnPlayerDeath</span></a><span style="color: #66cc66;">&#40;</span>playerid, killerid, reason<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    MyFunction<span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;Sei morto&quot;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+MyFunction<span style="color: #66cc66;">&#40;</span>string<span style="color: #66cc66;">&#91;</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, 0x00FF0000, string<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>Ora MyFunction() presenta il parametro <b>string</b>. Se viene chiamato OnPlayerConnect(), viene chiamata MyFunction(), e il parametro <b>string</b> assume il valore "Benvenuto nel server". Il valore di tale parametro è così usato da SendClientMessage(), che visualizza così il solito messaggio di benvenuto. Se viene chiamata OnPlayerDeath(), invece, <b>string</b> diventa "Sei morto". Le parentesi quadre [] dopo <b>string</b> sono necessarie se il parametro è una stringa (o un qualunque <a href="Scripting_Basics_IT.html#Array" title="Scripting Basics IT">array</a>).
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_IT.html" title="Edit section: Return">edit</a>]</div><a name="Return"></a><h2> Return </h2>
+<p>È possibile interrompere l'esecuzione di una funzione e restituire il controllo alla funzione chiamante (subito dopo l'istruzione che chiama la funzione interrotta). Questo si fa tramite un'istruzione, che è in grado anche di restituire un valore alla funzione chiamante (magari elaborato nella funzione interrotta).
+</p>
+<pre class="pawn"><span style="color: #6b8e23;">#include &lt;a_samp&gt;</span>
+&nbsp;
+main<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnPlayerConnect"><span style="color: #dc143c">OnPlayerConnect</span></a><span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    MyFunction<span style="color: #66cc66;">&#40;</span>string<span style="color: #66cc66;">&#41;</span>;
+    <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, 0x00FF0000, string<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+MyFunction<span style="color: #66cc66;">&#40;</span>string<span style="color: #66cc66;">&#91;</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <a href="http://wiki.sa-mp.com/wiki/format"><span style="color: #006400;">format</span></a><span style="color: #66cc66;">&#40;</span>string, <span style="color: orange; font-weight: bold;">sizeof</span><span style="color: #66cc66;">&#40;</span>string<span style="color: #66cc66;">&#41;</span>, <span style="color: #b22222;">&quot;Benvenuto nel server&quot;</span><span style="color: #66cc66;">&#41;</span>;
+    <span style="color: orange; font-weight: bold;">return</span> string;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>Quando OnPlayerConnect() chiama MyFunction(), la funzione
+</p>
+<pre class="pawn"><a href="http://wiki.sa-mp.com/wiki/format"><span style="color: #006400;">format</span></a><span style="color: #66cc66;">&#40;</span>string, <span style="color: orange; font-weight: bold;">sizeof</span><span style="color: #66cc66;">&#40;</span>string<span style="color: #66cc66;">&#41;</span>, <span style="color: #b22222;">&quot;Benvenuto nel server&quot;</span><span style="color: #66cc66;">&#41;</span>;</pre>
+<p>formatta il parametro <b>string</b> (in questo modo sarà "Benvenuto nel server"), poi l'istruzione
+</p>
+<pre class="pawn"><span style="color: orange; font-weight: bold;">return</span> string;</pre>
+<p>interrompe MyFunction() e restituisce il controllo a OnPlayerConnect() (la funzione che ha chiamato MyFunction()). Si passa quindi a SendClientMessage(), che visualizzerà come scritta il valore di <b>string</b>, ossia "Benvenuto nel server", che conosce per mezzo di <b>return</b>. Anziché
+</p>
+<pre class="pawn">MyFunction<span style="color: #66cc66;">&#40;</span>string<span style="color: #66cc66;">&#41;</span>
+<a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, 0x00FF0000, string<span style="color: #66cc66;">&#41;</span>;</pre>
+<p>è possibile scrivere direttamente
+</p>
+<pre class="pawn"><a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, 0x00FF0000, MyFunction<span style="color: #66cc66;">&#40;</span>string<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>;</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_IT.html" title="Edit section: Variabili">edit</a>]</div><a name="Variabili"></a><h1> Variabili </h1>
+<p>Le variabili contengono dati e sono rappresentate solitamente da nomi o lettere. Esistono vari tipi di variabili, ognuna delle quali può contenere un tipo diverso di dati:
+</p>
+<ul><li><b>char</b>: variabile che contiene un carattere, come "a" o "&amp;"
+</li><li><b>int</b>: variabile che contiene un numero intero, come -1 o 200
+</li><li><b>float</b>: variabile che contiene un numero con la virgola, come 3.5 o 0.0009
+</li><li><b>string</b>: variabile che contiene una stringa (variabile testuale), come "hello world"
+</li></ul>
+<p>Le variabili sono fondamentali per lo sviluppo di qualunque tipo di codice. Ad esempio:<br />
+<font size="2"><code>ci sono degli utenti online</code></font><br /><br />
+Senza una variabile non sarebbe possibile scrivere il numero degli utenti effettivamente online, come:<br />
+<font size="2"><code>ci sono x utenti online</code></font><br /><br />
+In questo caso, la variabile da usare è di tipo <i>int</i> (un numero).<br />
+Nel caso in cui volessimo scrivere un messaggio di benvenuto:<br />
+<font size="2"><code>un utente è entrato nel server</code></font><br /><br />
+Senza una variabile non sarebbe possibile scrivere il nome dell'utente che è entrato, come:<br />
+<font size="2"><code>x è entrato nel server</code></font><br /><br />
+La variabile da usare in questo caso è una stringa. Una stringa non è altro che un insieme di variabili di tipo <i>char</i> messe insieme. In termini più tecnici, è un <a href="Scripting_Basics_IT.html#Array" title="Scripting Basics IT">array</a> di char.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_IT.html" title="Edit section: Array">edit</a>]</div><a name="Array"></a><h2> Array </h2>
+<p>Un array è una variabile formata da più celle di memoria, accessibili in modo dinamico. Il numero di slot (celle) di un array deve essere espressamente definito durante la dichiarazione e non può cambiare successivamente. Questo perché la memoria da dedicare alle variabili è assegnata durante la compilazione dello script. Come le variabili, anche gli array presentano un tipo. Questo significa che un array di int può contenere solo dati di tipo int, o un array di char solo dati di tipo char (in questo caso si parla di <a href="Scripting_Basics_IT.html#Stringa" title="Scripting Basics IT">stringa</a>).
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_IT.html" title="Edit section: Dichiarazione">edit</a>]</div><a name="Dichiarazione"></a><h3> Dichiarazione </h3>
+<p>Il codice
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> MyArray<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">5</span><span style="color: #66cc66;">&#93;</span>;</pre>
+<p>crea un array formato da 5 slot. Di default, il valore di uno slot è 0, quindi il contenuto dell'array sarebbe:
+</p>
+<table class="wikitable">
+
+<tr>
+<td> 0 </td><td> 0 </td><td> 0 </td><td> 0 </td><td> 0
+</td></tr></table><br />
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> MyArray<span style="color: #66cc66;">&#91;</span><span style="color: #E9967A; font-weight: bold;">MAX_PLAYERS</span><span style="color: #66cc66;">&#93;</span></pre>
+<p>Questo crea un array di dimensione MAX_PLAYERS. Di default, questa costante vale 500 e rappresenta il numero massimo di giocatori che un server può ospitare. Ogni slot dell'array può essere così assegnato a un giocatore specifico (identificato da un ID) e i suoi dati non interferiranno con quelli di un altro.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_IT.html" title="Edit section: Inizializzazione">edit</a>]</div><a name="Inizializzazione"></a><h3> Inizializzazione </h3>
+<p>Assegnare un valore a uno slot è del tutto analogo alle variabili normali:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> MyArray<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">5</span><span style="color: #66cc66;">&#93;</span>;
+MyArray<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">2</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #4169e1;">5</span>;</pre>
+<p>Questo assegnerà al secondo slot il valore 5. Avremo quindi:
+</p>
+<table class="wikitable">
+
+<tr>
+<td> 0 </td><td> 0 </td><td> 5 </td><td> 0 </td><td> 0
+</td></tr></table>
+<p>tenendo presente che il primo slot è MyArray[0] e non MyArray[1]. L'ordine degli slot sarà pertanto:
+</p>
+<table class="wikitable">
+<tr>
+<th> 0 </th><th> 1 </th><th> 2 </th><th> 3 </th><th> 4
+</th></tr>
+<tr>
+<td> 0 </td><td> 0 </td><td> 5 </td><td> 0 </td><td> 0
+</td></tr></table>
+<p>Accedere a MyArray[5] causerà un errore perché stai tentando di accedere a uno slot che eccede la dimensione dell'array (l'ultimo slot è, infatti, MyArray[4]).<br />
+Un modo più veloce di inizializzare un array è:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> MyArray<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">5</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">0</span>, <span style="color: #4169e1;">0</span>, <span style="color: #4169e1;">5</span>, <span style="color: #4169e1;">0</span>, <span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#125;</span></pre>
+<p>In questo modo avremo sempre:
+</p>
+<table class="wikitable">
+
+<tr>
+<td> 0 </td><td> 0 </td><td> 5 </td><td> 0 </td><td> 0
+</td></tr></table>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_IT.html" title="Edit section: Strutture di controllo">edit</a>]</div><a name="Strutture_di_controllo"></a><h1> Strutture di controllo </h1>
+<dl><dd><div class="noprint relarticle mainarticle"><i>Main article: <a href="Control_Structures.html" title="Control Structures">Control Structures</a></div></i>
+</dd></dl>
+<p>Le strutture di controllo sono costrutti particolari che cambiano il normale flusso di esecuzione delle istruzioni di una funzione.
+</p><div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/Scripting_Basics_IT.html">http://localhost../wiki/Scripting_Basics_IT.html</a>"</div>
+						<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="Scripting_Basics_IT.html">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="Talk_Scripting_Basics_IT.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="Scripting_Basics_IT.html">Edit</a></li>
+				 <li id="ca-history"><a href="Scripting_Basics_IT.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-de"><a href="Scripting_Basics_DE.html">Deutsch</a></li>
+				<li class="interwiki-it"><a href="Scripting_Basics_IT.html">Italiano</a></li>
+				<li class="interwiki-nl"><a href="Scripting_Basics_NL.html">Nederlands</a></li>
+				<li class="interwiki-ru"><a href="Scripting_Basics_RU.html">Русский</a></li>
+				<li class="interwiki-pt"><a href="Scripting_Basics_PT.html">Português</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 37,506 times.</li>
+				<li id="credits">This page was last modified 21:49, 19 December 2013 by SA-MP Wiki user User:. Based on work by SA-MP Wiki user(s) <a href="User_Dugi.html" title="User:Dugi">Dugi</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 64.29 secs. -->
+</body></html>

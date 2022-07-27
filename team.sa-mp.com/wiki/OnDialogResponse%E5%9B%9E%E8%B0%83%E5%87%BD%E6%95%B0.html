@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="OnDialogResponse回调函数,ShowPlayerDialog函数,语言参考,首页,服务器插件,教程,脚本函数,脚本回调" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>OnDialogResponse回调函数 - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">OnDialogResponse回调函数</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<div class="scripting" style="color: #4378A4; background-color: #FFFFFF; margin: 2px; margin-bottom: 10px;"><div align="center" style="width: 53%; border: 1px solid #AAAAAA; padding: 3px; padding-left: 5px;"><a href="%25E9%25A6%2596%25E9%25A1%25B5.html" title="首页">首页</a> | <a href="Category_%25E8%2584%259A%25E6%259C%25AC%25E5%2587%25BD%25E6%2595%25B0.html" title="Category:脚本函数">脚本函数</a> | <a href="Category_%25E8%2584%259A%25E6%259C%25AC%25E5%259B%259E%25E8%25B0%2583.html" title="Category:脚本回调">脚本回调</a> | <a href="%25E8%25AF%25AD%25E8%25A8%2580%25E5%258F%2582%25E8%2580%2583.html" title="语言参考">语言参考</a> | <a href="%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8%25E6%258F%2592%25E4%25BB%25B6.html" class="new" title="服务器插件">服务器插件</a> | <a href="Category_%25E6%2595%2599%25E7%25A8%258B.html" title="Category:教程">教程</a></div></div>
+<p><br />
+</p><p><br />
+</p>
+<div style="padding-left:35px;">当一个玩家按下由 <a href="ShowPlayerDialog%25E5%2587%25BD%25E6%2595%25B0.html" title="ShowPlayerDialog函数">ShowPlayerDialog</a> 产生的对话框上的任何按钮的时候，这个回调将会被调用。<br /></div>
+<p><br />
+</p>
+<b>参数表:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(playerid, dialogid, response, listitem, inputtext[])<br /></div>
+<div style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">点击对话框按钮的 玩家ID 。</td></tr></table></div>
+<div style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">dialogid</td><td style="vertical-align:top;">由 <a href="ShowPlayerDialog%25E5%2587%25BD%25E6%2595%25B0.html" title="ShowPlayerDialog函数">ShowPlayerDialog</a> 指定的 对话框ID 。</td></tr></table></div>
+<div style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">response</td><td style="vertical-align:top;"><b>1</b> 为第一个按钮， <b>0</b> 为第二个按钮。</td></tr></table></div>
+<div style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">listitem</td><td style="vertical-align:top;">玩家选择的 列表项ID 。</td></tr></table></div>
+<div style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">inputtext[]</td><td style="vertical-align:top;">玩家在输入对话框里输入的文本 。</td></tr></table></div>
+<p><br />
+</p>
+<div style="padding-left:40px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New';font-weight:bold;">返回</td><td style="vertical-align:top;">如果检查 对话框ID 以后发现不是你的脚本弹出的对话框，请返回 <b>0</b> 让其他脚本处理。</td></tr></table></div>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">public</span> OnDialogResponse<span style="color: #66cc66;">&#40;</span>playerid, dialogid, response, listitem, inputtext<span style="color: #66cc66;">&#91;</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>!<a href="http://wiki.sa-mp.com/wiki/IsPlayerAdmin"><span style="color: #006400;">IsPlayerAdmin</span></a><span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span> <span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">0</span>; <span style="color: #808080; font-style: italic;">// 这段脚本只允许管理员使用</span>
+    <span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>dialogid == <span style="color: #4169e1;">1</span><span style="color: #66cc66;">&#41;</span>
+    <span style="color: #66cc66;">&#123;</span>
+        <span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>!response<span style="color: #66cc66;">&#41;</span> <span style="color: orange; font-weight: bold;">return</span> <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, 0xFFFFFFFF, <span style="color: #b22222;">&quot;你取消了!&quot;</span><span style="color: #66cc66;">&#41;</span>;
+        <span style="color: #228b22; font-weight: bold;">new</span> message<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">128</span><span style="color: #66cc66;">&#93;</span>;
+        <a href="http://wiki.sa-mp.com/wiki/format"><span style="color: #006400;">format</span></a><span style="color: #66cc66;">&#40;</span>message, <span style="color: orange; font-weight: bold;">sizeof</span><span style="color: #66cc66;">&#40;</span>message<span style="color: #66cc66;">&#41;</span>, <span style="color: #b22222;">&quot;你回答了: %s&quot;</span>, inputtext<span style="color: #66cc66;">&#41;</span>;
+        <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, 0xFFFFFFFF, message<span style="color: #66cc66;">&#41;</span>;
+        <span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+    <span style="color: #66cc66;">&#125;</span>
+    <span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">0</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<a name=".E8.8C.83.E4.BE.8B.E7.94.A8.E6.B3.95"></a><h2> 范例用法 </h2>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">public</span> OnDialogResponse<span style="color: #66cc66;">&#40;</span>playerid, dialogid, response, listitem, inputtext<span style="color: #66cc66;">&#91;</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <span style="color: #4169e1;">switch</span><span style="color: #66cc66;">&#40;</span>dialogid<span style="color: #66cc66;">&#41;</span> <span style="color: #808080; font-style: italic;">// 检查 对话框ID</span>
+    <span style="color: #66cc66;">&#123;</span>
+        <span style="color: orange; font-weight: bold;">case</span> <span style="color: #4169e1;">1</span>:
+        <span style="color: #66cc66;">&#123;</span>
+            <span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>!response<span style="color: #66cc66;">&#41;</span>
+            <span style="color: #66cc66;">&#123;</span>
+                <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, 0xFF0000FF, <span style="color: #b22222;">&quot;你取消了。&quot;</span><span style="color: #66cc66;">&#41;</span>;
+                <span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>; <span style="color: #808080; font-style: italic;">// 我们已处理了此对话框</span>
+            <span style="color: #66cc66;">&#125;</span>
+&nbsp;
+            <span style="color: #4169e1;">switch</span><span style="color: #66cc66;">&#40;</span>listitem<span style="color: #66cc66;">&#41;</span> <span style="color: #808080; font-style: italic;">// 使用switch远快于使用if-elseif-else结构</span>
+            <span style="color: #66cc66;">&#123;</span>
+                <span style="color: orange; font-weight: bold;">case</span> <span style="color: #4169e1;">0</span>: <span style="color: #808080; font-style: italic;">// listitem 的值始于 0 ，而非 1</span>
+                <span style="color: #66cc66;">&#123;</span>
+                    <span style="color: #808080; font-style: italic;">// 玩家点击第一个列表项的时候将发生什么？</span>
+                <span style="color: #66cc66;">&#125;</span>
+                <span style="color: orange; font-weight: bold;">case</span> <span style="color: #4169e1;">1</span>:
+                <span style="color: #66cc66;">&#123;</span>
+                    <span style="color: #808080; font-style: italic;">// 然后第二个选项做什么？</span>
+                <span style="color: #66cc66;">&#125;</span>
+                <span style="color: orange; font-weight: bold;">case</span> <span style="color: #4169e1;">2</span>:
+                <span style="color: #66cc66;">&#123;</span>
+                    <span style="color: #808080; font-style: italic;">// 在这儿继续&nbsp;;)</span>
+                <span style="color: #66cc66;">&#125;</span>
+                <span style="color: #808080; font-style: italic;">// 在此添加你的对话框1的更多 列表项 (listitems) 处理</span>
+&nbsp;
+            <span style="color: #66cc66;">&#125;</span>
+&nbsp;
+        <span style="color: #66cc66;">&#125;</span>
+        <span style="color: #808080; font-style: italic;">// 在此添加你更多的对话框</span>
+&nbsp;
+    <span style="color: #66cc66;">&#125;</span>
+    <span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">0</span>; <span style="color: #808080; font-style: italic;">// 如果你返回 '''1''' 将不会再调用其他 附加脚本(Fliterscripts) 的这个函数。</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<a name=".E6.9C.89.E5.85.B3.E8.81.94.E7.9A.84.E5.87.BD.E6.95.B0.E5.9B.9E.E8.B0.83"></a><h3> <b>有关联的函数回调</b> </h3>
+<p>以下回调函数可能会对你有所帮助，他们可能跟这个函数有直接关系或间接关系。
+</p>
+<ul><li> <a href="ShowPlayerDialog%25E5%2587%25BD%25E6%2595%25B0.html" title="ShowPlayerDialog函数">ShowPlayerDialog</a>: 给玩家显示一个对话框。
+</li></ul>
+<div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/OnDialogResponse%25E5%259B%259E%25E8%25B0%2583%25E5%2587%25BD%25E6%2595%25B0.html">http://localhost../wiki/OnDialogResponse%25E5%259B%259E%25E8%25B0%2583%25E5%2587%25BD%25E6%2595%25B0.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="Category_%25E6%25B7%25BB%25E5%258A%25A0%25E4%25BA%258E0.3.html" class="new" title="Category:添加于0.3">添加于0.3</a></span> | <span dir='ltr'><a href="Category_%25E8%2584%259A%25E6%259C%25AC%25E5%259B%259E%25E8%25B0%2583.html" title="Category:脚本回调">脚本回调</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="OnDialogResponse%25E5%259B%259E%25E8%25B0%2583%25E5%2587%25BD%25E6%2595%25B0.html">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="Talk_OnDialogResponse%25E5%259B%259E%25E8%25B0%2583%25E5%2587%25BD%25E6%2595%25B0.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="OnDialogResponse%25E5%259B%259E%25E8%25B0%2583%25E5%2587%25BD%25E6%2595%25B0.html">Edit</a></li>
+				 <li id="ca-history"><a href="OnDialogResponse%25E5%259B%259E%25E8%25B0%2583%25E5%2587%25BD%25E6%2595%25B0.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-en"><a href="OnDialogResponse.html">English</a></li>
+				<li class="interwiki-ru"><a href="OnDialogResponse_RU.html">Русский</a></li>
+				<li class="interwiki-nl"><a href="OnDialogResponse_NL.html">Nederlands</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 11,420 times.</li>
+				<li id="credits">This page was last modified 07:11, 31 March 2011 by SA-MP Wiki user User:. </li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 64.56 secs. -->
+</body></html>

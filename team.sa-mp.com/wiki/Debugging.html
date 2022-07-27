@@ -1,0 +1,316 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Debugging,Format,GameTextForPlayer,Main Page,Print,Printf,Scripting Basics,SendClientMessage,Server Plugins,TextDrawCreate,Scripting Callbacks" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>Debugging - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Debugging</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<div class="scripting" style="color: #4378A4; background-color: #FFFFFF; margin: 2px; margin-bottom: 10px;"><div align="center" style="border: 1px solid #AAAAAA; padding: 3px; padding-left: 5px;"><a href="../wiki-archive.html" title="Main Page">Main Page</a> | <a href="Category_Scripting_Functions.html" title="Category:Scripting Functions">Scripting Functions</a> | <a href="Category_Scripting_Callbacks.html" title="Category:Scripting Callbacks">Scripting Callbacks</a> | <a href="Scripting_Basics.html" title="Scripting Basics">Scripting Basics</a> | <a href="Server_Plugins.html" title="Server Plugins">Server Plugins</a> | <a href="Category_Tutorials.html" title="Category:Tutorials">Tutorials</a></div></div><br />
+<p><br />
+This is a quick guide to what debugging is and how to do it.
+</p>
+<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class='toclevel-1'><a href="#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a>
+<ul>
+<li class='toclevel-2'><a href="#What_is_debugging.3F"><span class="tocnumber">1.1</span> <span class="toctext">What is debugging?</span></a></li>
+<li class='toclevel-2'><a href="#When_can_debugging_be_useful.3F"><span class="tocnumber">1.2</span> <span class="toctext">When can debugging be useful?</span></a></li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#Example"><span class="tocnumber">2</span> <span class="toctext">Example</span></a>
+<ul>
+<li class='toclevel-2'><a href="#Adding_the_debug_messages"><span class="tocnumber">2.1</span> <span class="toctext">Adding the debug messages</span></a></li>
+<li class='toclevel-2'><a href="#What.27s_next.3F"><span class="tocnumber">2.2</span> <span class="toctext">What's next?</span></a></li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#.27Major_Debugging.27"><span class="tocnumber">3</span> <span class="toctext">'Major Debugging'</span></a>
+<ul>
+<li class='toclevel-2'><a href="#Infinite_Loops"><span class="tocnumber">3.1</span> <span class="toctext">Infinite Loops</span></a></li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#Client_Messages"><span class="tocnumber">4</span> <span class="toctext">Client Messages</span></a>
+<ul>
+<li class='toclevel-2'><a href="#Conclusion"><span class="tocnumber">4.1</span> <span class="toctext">Conclusion</span></a></li>
+</ul>
+</li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Debugging.html" title="Edit section: Introduction">edit</a>]</div><a name="Introduction"></a><h2>Introduction</h2>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Debugging.html" title="Edit section: What is debugging?">edit</a>]</div><a name="What_is_debugging.3F"></a><h3>What is debugging?</h3>
+<p>Debugging is the process of adding temporary (or sometimes permanent) messages into code to give a visual representation of the script's process.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Debugging.html" title="Edit section: When can debugging be useful?">edit</a>]</div><a name="When_can_debugging_be_useful.3F"></a><h3>When can debugging be useful?</h3>
+<p>Errors in code can cause the code to stop at the error and skip the rest of the code, or even crash or freeze the server. These errors aren't picked up by the compiler, as they aren't errors when the script is compiled. An example of an error can be found below.
+</p><p>It can be hard to identify and locate an error in big scripts, possibly taking months. This is where debugging becomes extremely useful.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Debugging.html" title="Edit section: Example">edit</a>]</div><a name="Example"></a><h2>Example</h2>
+<p>In this example, the code won't cause the server to freeze/crash, but will cause the code to stop at the error, leaving the rest of the code un-processed.
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> pKillStreak<span style="color: #66cc66;">&#91;</span><span style="color: #E9967A; font-weight: bold;">MAX_PLAYERS</span><span style="color: #66cc66;">&#93;</span>; <span style="color: #808080; font-style: italic;">// The player's current killstreak</span>
+<span style="color: #228b22; font-weight: bold;">new</span> pKillStreakReward<span style="color: #66cc66;">&#91;</span><span style="color: #E9967A; font-weight: bold;">MAX_PLAYERS</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">5</span><span style="color: #66cc66;">&#93;</span>; <span style="color: #808080; font-style: italic;">// 5 killstreaks can be stored per player</span>
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnPlayerDeath"><span style="color: #dc143c">OnPlayerDeath</span></a><span style="color: #66cc66;">&#40;</span>playerid, killerid, reason<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>killerid&nbsp;!= <span style="color: #E9967A; font-weight: bold;">INVALID_PLAYER_ID</span><span style="color: #66cc66;">&#41;</span> <span style="color: #808080; font-style: italic;">// If it wasn't suicide, handle the kill</span>
+    <span style="color: #66cc66;">&#123;</span>
+        <span style="color: #228b22; font-weight: bold;">new</span> string<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">128</span><span style="color: #66cc66;">&#93;</span>, pName<span style="color: #66cc66;">&#91;</span><span style="color: #E9967A; font-weight: bold;">MAX_PLAYER_NAME</span><span style="color: #66cc66;">&#93;</span>, kName<span style="color: #66cc66;">&#91;</span><span style="color: #E9967A; font-weight: bold;">MAX_PLAYER_NAME</span><span style="color: #66cc66;">&#93;</span>;
+        <a href="http://wiki.sa-mp.com/wiki/GetPlayerName"><span style="color: #006400;">GetPlayerName</span></a><span style="color: #66cc66;">&#40;</span>playerid, pName, <span style="color: #E9967A; font-weight: bold;">MAX_PLAYER_NAME</span><span style="color: #66cc66;">&#41;</span>;
+        <a href="http://wiki.sa-mp.com/wiki/GetPlayerName"><span style="color: #006400;">GetPlayerName</span></a><span style="color: #66cc66;">&#40;</span>killerid, kName, <span style="color: #E9967A; font-weight: bold;">MAX_PLAYER_NAME</span><span style="color: #66cc66;">&#41;</span>;
+        <a href="http://wiki.sa-mp.com/wiki/format"><span style="color: #006400;">format</span></a><span style="color: #66cc66;">&#40;</span>string, <span style="color: orange; font-weight: bold;">sizeof</span><span style="color: #66cc66;">&#40;</span>string<span style="color: #66cc66;">&#41;</span>, <span style="color: #b22222;">&quot;%s (%i) was killed by %s (%i). Reason: %i.&quot;</span>, pName, playerid, kName, killerid, reason<span style="color: #66cc66;">&#41;</span>;
+        <a href="http://wiki.sa-mp.com/wiki/SendClientMessageToAll"><span style="color: #006400;">SendClientMessageToAll</span></a><span style="color: #66cc66;">&#40;</span>COLOR_DARKRED, string<span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+        pKillStreak<span style="color: #66cc66;">&#91;</span>killerid<span style="color: #66cc66;">&#93;</span>++; <span style="color: #808080; font-style: italic;">// Add one to the killstreak</span>
+&nbsp;
+        <span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>pKillStreak<span style="color: #66cc66;">&#91;</span>killerid<span style="color: #66cc66;">&#93;</span> == <span style="color: #4169e1;">7</span><span style="color: #66cc66;">&#41;</span> <span style="color: #808080; font-style: italic;">// 7 streak - Give attack helicopter</span>
+        <span style="color: #66cc66;">&#123;</span>
+            pKillStreakReward<span style="color: #66cc66;">&#91;</span>killerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>pKillStreak<span style="color: #66cc66;">&#91;</span>killerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#93;</span>++; <span style="color: #808080; font-style: italic;">// Add one to &quot;attack helicopter&quot; count (slot 7)</span>
+            <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>killerid, COLOR_GREEN, <span style="color: #b22222;">&quot;[7 KILLSTREAK] - Attack helicopter ready for deployment.&quot;</span><span style="color: #66cc66;">&#41;</span>;
+        <span style="color: #66cc66;">&#125;</span>
+        <a href="http://wiki.sa-mp.com/wiki/SetPlayerScore"><span style="color: #006400;">SetPlayerScore</span></a><span style="color: #66cc66;">&#40;</span>killerid, <a href="http://wiki.sa-mp.com/wiki/GetPlayerScore"><span style="color: #006400;">GetPlayerScore</span></a><span style="color: #66cc66;">&#40;</span>killerid<span style="color: #66cc66;">&#41;</span>+pKillStreak<span style="color: #66cc66;">&#91;</span>killerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// If they had a 5 killstreak, they'd get 5 score.</span>
+        <a href="http://wiki.sa-mp.com/wiki/GivePlayerMoney"><span style="color: #006400;">GivePlayerMoney</span></a><span style="color: #66cc66;">&#40;</span>killerid, <span style="color: #4169e1;">1000</span>*pKillStreak<span style="color: #66cc66;">&#91;</span>killerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// If they had a 5 killstreak they'd get $5000</span>
+    <span style="color: #66cc66;">&#125;</span>
+    <span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>Now this isn't the longest piece of code ever written, it's kept short to avoid confusion. Running that code, and allowing a player to get a 7 killstreak will stop the code at the error (which will be told below). Due to that, the code at the bottom that gives the score and cash won't be executed.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Debugging.html" title="Edit section: Adding the debug messages">edit</a>]</div><a name="Adding_the_debug_messages"></a><h3>Adding the debug messages</h3>
+<p>Debug messages are most commonly either added using print() (or printf()) or client messages. For simplicity, we will use print().
+To add debugging messages, you need to place print() messages every few lines between your code, and then run the code. The last print() to appear in the server_log will help you to locate the code which is causing the problem by looking at the code between said print and the next one.
+</p><p>This is the code with debugging added:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> pKillStreak<span style="color: #66cc66;">&#91;</span><span style="color: #E9967A; font-weight: bold;">MAX_PLAYERS</span><span style="color: #66cc66;">&#93;</span>;
+<span style="color: #228b22; font-weight: bold;">new</span> pKillStreakReward<span style="color: #66cc66;">&#91;</span><span style="color: #E9967A; font-weight: bold;">MAX_PLAYERS</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">5</span><span style="color: #66cc66;">&#93;</span>;
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnPlayerDeath"><span style="color: #dc143c">OnPlayerDeath</span></a><span style="color: #66cc66;">&#40;</span>playerid, killerid, reason<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;OnPlayerDeath(%i, %i, %i)&quot;</span>, playerid, killerid, reason<span style="color: #66cc66;">&#41;</span>;
+    <span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>killerid&nbsp;!= <span style="color: #E9967A; font-weight: bold;">INVALID_PLAYER_ID</span><span style="color: #66cc66;">&#41;</span>
+    <span style="color: #66cc66;">&#123;</span>
+        <a href="http://wiki.sa-mp.com/wiki/print"><span style="color: #006400;">print</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;OnPlayerDeath: killerid valid&quot;</span><span style="color: #66cc66;">&#41;</span>;
+        <span style="color: #228b22; font-weight: bold;">new</span> string<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">128</span><span style="color: #66cc66;">&#93;</span>, pName<span style="color: #66cc66;">&#91;</span><span style="color: #E9967A; font-weight: bold;">MAX_PLAYER_NAME</span><span style="color: #66cc66;">&#93;</span>, kName<span style="color: #66cc66;">&#91;</span><span style="color: #E9967A; font-weight: bold;">MAX_PLAYER_NAME</span><span style="color: #66cc66;">&#93;</span>;
+        <a href="http://wiki.sa-mp.com/wiki/GetPlayerName"><span style="color: #006400;">GetPlayerName</span></a><span style="color: #66cc66;">&#40;</span>playerid, pName, <span style="color: #E9967A; font-weight: bold;">MAX_PLAYER_NAME</span><span style="color: #66cc66;">&#41;</span>;
+        <a href="http://wiki.sa-mp.com/wiki/GetPlayerName"><span style="color: #006400;">GetPlayerName</span></a><span style="color: #66cc66;">&#40;</span>killerid, kName, <span style="color: #E9967A; font-weight: bold;">MAX_PLAYER_NAME</span><span style="color: #66cc66;">&#41;</span>;
+        <a href="http://wiki.sa-mp.com/wiki/print"><span style="color: #006400;">print</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;OnPlayerDeath: names stored&quot;</span><span style="color: #66cc66;">&#41;</span>;
+        <a href="http://wiki.sa-mp.com/wiki/format"><span style="color: #006400;">format</span></a><span style="color: #66cc66;">&#40;</span>string, <span style="color: orange; font-weight: bold;">sizeof</span><span style="color: #66cc66;">&#40;</span>string<span style="color: #66cc66;">&#41;</span>, <span style="color: #b22222;">&quot;%s (%i) was killed by %s (%i). Reason: %i.&quot;</span>, pName, playerid, kName, killerid, reason<span style="color: #66cc66;">&#41;</span>;
+        <a href="http://wiki.sa-mp.com/wiki/SendClientMessageToAll"><span style="color: #006400;">SendClientMessageToAll</span></a><span style="color: #66cc66;">&#40;</span>COLOR_DARKRED, string<span style="color: #66cc66;">&#41;</span>;
+        <a href="http://wiki.sa-mp.com/wiki/print"><span style="color: #006400;">print</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;OnPlayerDeath: message sent&quot;</span><span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+        pKillStreak<span style="color: #66cc66;">&#91;</span>killerid<span style="color: #66cc66;">&#93;</span>++;
+&nbsp;
+        <a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;OnPlayerDeath: pKillStreak is now %i&quot;</span>, pKillStreak<span style="color: #66cc66;">&#91;</span>killerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+        <span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>pKillStreak<span style="color: #66cc66;">&#91;</span>killerid<span style="color: #66cc66;">&#93;</span> == <span style="color: #4169e1;">7</span><span style="color: #66cc66;">&#41;</span> <span style="color: #808080; font-style: italic;">// Attack helicopter</span>
+        <span style="color: #66cc66;">&#123;</span>
+            <a href="http://wiki.sa-mp.com/wiki/print"><span style="color: #006400;">print</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;OnPlayerDeath: 7 killstreak - give attack heli&quot;</span><span style="color: #66cc66;">&#41;</span>;
+            pKillStreakReward<span style="color: #66cc66;">&#91;</span>killerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>pKillStreak<span style="color: #66cc66;">&#91;</span>killerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#93;</span>++; <span style="color: #808080; font-style: italic;">// Add one to the count for the current killstreak (for multiple attack helicopters stored)</span>
+            <a href="http://wiki.sa-mp.com/wiki/print"><span style="color: #006400;">print</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;OnPlayerDeath: 7 killstreak - added one to pKillStreakReward for attack heli&quot;</span><span style="color: #66cc66;">&#41;</span>;
+            <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>killerid, COLOR_GREEN, <span style="color: #b22222;">&quot;[7 KILLSTREAK] - Attack helicopter ready for deployment.&quot;</span><span style="color: #66cc66;">&#41;</span>;
+            <a href="http://wiki.sa-mp.com/wiki/print"><span style="color: #006400;">print</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;OnPlayerDeath: end of attack heli&quot;</span><span style="color: #66cc66;">&#41;</span>;
+        <span style="color: #66cc66;">&#125;</span>
+        <a href="http://wiki.sa-mp.com/wiki/print"><span style="color: #006400;">print</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;OnPlayerDeath: Giving score...&quot;</span><span style="color: #66cc66;">&#41;</span>;
+        GivePlayerScore<span style="color: #66cc66;">&#40;</span>killerid, pKillStreak<span style="color: #66cc66;">&#91;</span>killerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// If they have a 5 killstreak, give them 5 score.</span>
+        <a href="http://wiki.sa-mp.com/wiki/print"><span style="color: #006400;">print</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;OnPlayerDeath: Score given. Giving cash...&quot;</span><span style="color: #66cc66;">&#41;</span>;
+        <a href="http://wiki.sa-mp.com/wiki/GivePlayerMoney"><span style="color: #006400;">GivePlayerMoney</span></a><span style="color: #66cc66;">&#40;</span>killerid, <span style="color: #4169e1;">1000</span>*pKillStreak<span style="color: #66cc66;">&#91;</span>killerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// If they have a 5 killstreak give them $5000</span>
+        <a href="http://wiki.sa-mp.com/wiki/print"><span style="color: #006400;">print</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;OnPlayerDeath: Cash given.&quot;</span><span style="color: #66cc66;">&#41;</span>;
+    <span style="color: #66cc66;">&#125;</span>
+    <a href="http://wiki.sa-mp.com/wiki/print"><span style="color: #006400;">print</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;OnPlayerDeath: FINISHED&quot;</span><span style="color: #66cc66;">&#41;</span>;
+    <span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>As you can see, there are print functions used throughout the code. When the code is executed, it will print the debugging messages to the server console (and server_log.txt). You can then locate the problem.
+</p><p>server_log.txt would display this when a player gets a 7 kill-streak:
+</p>
+<pre>
+[timestamp] OnPlayerDeath(1, 2, 3)
+[timestamp] OnPlayerDeath: killerid valid
+[timestamp] OnPlayerDeath: names stored
+[timestamp] OnPlayerDeath: message sent
+[timestamp] OnPlayerDeath: pKillStreak is now 7
+[timestamp] OnPlayerDeath: 7 killstreak - give attack heli
+</pre>
+<p>But there's nothing after that?! What happened? The script stopped. Lets take a look at the code that is after the final print ('OnPlayerDeath: 7 killstreak - give attack heli'):
+</p>
+<pre class="pawn"><span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>pKillStreak<span style="color: #66cc66;">&#91;</span>killerid<span style="color: #66cc66;">&#93;</span> == <span style="color: #4169e1;">7</span><span style="color: #66cc66;">&#41;</span> <span style="color: #808080; font-style: italic;">// Attack helicopter</span>
+        <span style="color: #66cc66;">&#123;</span>
+            <a href="http://wiki.sa-mp.com/wiki/print"><span style="color: #006400;">print</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;OnPlayerDeath: 7 killstreak - give attack heli&quot;</span><span style="color: #66cc66;">&#41;</span>;
+            pKillStreakReward<span style="color: #66cc66;">&#91;</span>killerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>pKillStreak<span style="color: #66cc66;">&#91;</span>killerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#93;</span>++; <span style="color: #808080; font-style: italic;">// &lt;&lt;&lt;&lt;&lt;&lt; THIS IS THE PROBLEM</span>
+            <a href="http://wiki.sa-mp.com/wiki/print"><span style="color: #006400;">print</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;OnPlayerDeath: 7 killstreak - added one to pKillStreakReward for attack heli&quot;</span><span style="color: #66cc66;">&#41;</span>;
+            <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>killerid, COLOR_GREEN, <span style="color: #b22222;">&quot;[7 KILLSTREAK] - Attack helicopter ready for deployment.&quot;</span><span style="color: #66cc66;">&#41;</span>;
+            <a href="http://wiki.sa-mp.com/wiki/print"><span style="color: #006400;">print</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;OnPlayerDeath: end of attack heli&quot;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>There is only one line of code between the final print that was found in server_log.txt and the next, which is
+</p>
+<pre class="pawn">pKillStreakReward<span style="color: #66cc66;">&#91;</span>killerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>pKillStreak<span style="color: #66cc66;">&#91;</span>killerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#93;</span>++;</pre>
+<p>This is the problem. The pKillStreakReward only has 5 cells, but we're trying to set the 8th, as pKillStreak[killerid] is 7 (arrays start at 0, so 7 is the 8th).
+This is what is happening:
+</p>
+<pre class="pawn">pKillStreakReward<span style="color: #66cc66;">&#91;</span>killerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">7</span><span style="color: #66cc66;">&#93;</span>++; <span style="color: #808080; font-style: italic;">// Add one to &quot;attack helicopter&quot; count</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Debugging.html" title="Edit section: What's next?">edit</a>]</div><a name="What.27s_next.3F"></a><h3>What's next?</h3>
+<p>After you have located the problem, you must use your own knowledge to fix it (or ask for assistance on the SA:MP forums).
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Debugging.html" title="Edit section: 'Major Debugging'">edit</a>]</div><a name=".27Major_Debugging.27"></a><h1>'Major Debugging'</h1>
+<p>If your server is crashing at random times, you will need to debug your entire script. While this may seem daunting at first, once you know what to do it's really not.
+It's either caused by a callback or a timer. What you need to do is place ONE print() on the first line of each callback, like so:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnPlayerDeath"><span style="color: #dc143c">OnPlayerDeath</span></a><span style="color: #66cc66;">&#40;</span>playerid, killerid, reason<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <a href="http://wiki.sa-mp.com/wiki/print"><span style="color: #006400;">print</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;DEBUG: OnPlayerDeath&quot;</span><span style="color: #66cc66;">&#41;</span>;
+    <span style="color: #808080; font-style: italic;">// code</span>
+    <span style="color: #808080; font-style: italic;">// code</span>
+    <span style="color: #808080; font-style: italic;">// code</span>
+    <span style="color: #808080; font-style: italic;">// code</span>
+    <span style="color: #808080; font-style: italic;">// code</span>
+    <span style="color: #808080; font-style: italic;">// code</span>
+    <span style="color: #808080; font-style: italic;">// code</span>
+    <span style="color: #808080; font-style: italic;">// code</span>
+    <span style="color: #808080; font-style: italic;">// code</span>
+    <span style="color: #808080; font-style: italic;">// code</span>
+    <span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>Then, when the server crashes simply look at the logs and see which callback was called last. Which ever is the last print printed, is the callback which contains the error. You can then debug that callback further, as in the first example.
+</p><p>This is similar to what you can expect to see in server_log.txt:
+</p>
+<pre>
+[16:49:54] OnPlayerStreamIn
+[16:49:54] OnPlayerStateChange
+[16:49:54] OnPlayerRequestClass
+[16:49:54] OnPlayerRequestClass
+[16:49:54] OnPlayerStateChange
+[16:49:54] OnPlayerSpawn
+[16:49:54] OnPlayerDeath
+</pre>
+<p>That indicated that some code in OnPlayerDeath caused the server to crash.
+</p><p>In some instances, you may want to print the callback's parameters, for this, <a href="Printf.html" title="Printf">printf</a> can be used like so:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnPlayerDeath"><span style="color: #dc143c">OnPlayerDeath</span></a><span style="color: #66cc66;">&#40;</span>playerid, killerid, reason<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;DEBUG: OnPlayerDeath(%i, %i, %i)&quot;</span>, playerid, killerid, reason<span style="color: #66cc66;">&#41;</span>;
+    <span style="color: #808080; font-style: italic;">// code</span>
+    <span style="color: #808080; font-style: italic;">// code</span>
+    <span style="color: #808080; font-style: italic;">// code</span>
+    <span style="color: #808080; font-style: italic;">// code</span>
+    <span style="color: #808080; font-style: italic;">// code</span>
+    <span style="color: #808080; font-style: italic;">// code</span>
+    <span style="color: #808080; font-style: italic;">// code</span>
+    <span style="color: #808080; font-style: italic;">// code</span>
+    <span style="color: #808080; font-style: italic;">// code</span>
+    <span style="color: #808080; font-style: italic;">// code</span>
+    <span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Debugging.html" title="Edit section: Infinite Loops">edit</a>]</div><a name="Infinite_Loops"></a><h3>Infinite Loops</h3>
+<p>Another common source of server freezes is infinite loops. while() can cause a never-ending, infinite loop of code that will stop the server from processing any more instructions.
+Here is an example of an infinite while() loop:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> var = <span style="color: #4169e1;">5</span>; <span style="color: #808080; font-style: italic;">// Create a variable and set it to 5</span>
+<span style="color: #4169e1;">while</span><span style="color: #66cc66;">&#40;</span>var&nbsp;!= <span style="color: #4169e1;">3</span><span style="color: #66cc66;">&#41;</span> <span style="color: #808080; font-style: italic;">// If it's not 3</span>
+<span style="color: #66cc66;">&#123;</span>
+    var++; <span style="color: #808080; font-style: italic;">// Add one to it</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>This will cause an infinite loop, because the variable will never get set to 3!
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Debugging.html" title="Edit section: Client Messages">edit</a>]</div><a name="Client_Messages"></a><h1>Client Messages</h1>
+<p>Throughout this tutorial the <a href="Print.html" title="Print">print</a> and <a href="Printf.html" title="Printf">printf</a> functions have been used, which prints text to the server console/logs. This isn't always the most useful function to use, as you would have to go in-game, test the code, then minimize to check the console/logs.<br />
+This is where <a href="SendClientMessage.html" title="SendClientMessage">SendClientMessage</a> could be more useful, or perhaps even <a href="TextDrawCreate.html" title="TextDrawCreate">textdraws</a> or <a href="GameTextForPlayer.html" title="GameTextForPlayer">game-text</a>. You will need to use <a href="Format.html" title="Format">format</a>, unlike <a href="Printf.html" title="Printf">printf</a> where you can specify the variables after the string.
+</p><p>For example, this code will constantly display a variable for the player in OnPlayerUpdate, so you can see if it gets changed accidentally:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> pVariable<span style="color: #66cc66;">&#91;</span><span style="color: #E9967A; font-weight: bold;">MAX_PLAYERS</span><span style="color: #66cc66;">&#93;</span>; <span style="color: #808080; font-style: italic;">// Just used for this example</span>
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">public</span> OnPlayerUpdate<span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <span style="color: #228b22; font-weight: bold;">new</span> debugStr<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">32</span><span style="color: #66cc66;">&#93;</span>;
+    <a href="http://wiki.sa-mp.com/wiki/format"><span style="color: #006400;">format</span></a><span style="color: #66cc66;">&#40;</span>debugStr, <span style="color: orange; font-weight: bold;">sizeof</span><span style="color: #66cc66;">&#40;</span>debugStr<span style="color: #66cc66;">&#41;</span>, <span style="color: #b22222;">&quot;~W~pVariable: ~Y~%i&quot;</span>, pVariable<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>;
+    <a href="http://wiki.sa-mp.com/wiki/GameTextForPlayer"><span style="color: #006400;">GameTextForPlayer</span></a><span style="color: #66cc66;">&#40;</span>playreid, debugStr, <span style="color: #4169e1;">3000</span>, <span style="color: #4169e1;">3</span><span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// Use style 3 always, the rest aren't great for this. Style 5 will refuse to show after a few seconds</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>Or if you wanted to know what a player's variable was when they passed through a race checkpoint:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> pCP<span style="color: #66cc66;">&#91;</span><span style="color: #E9967A; font-weight: bold;">MAX_PLAYERS</span><span style="color: #66cc66;">&#93;</span>; <span style="color: #808080; font-style: italic;">// The current checkpoint the player can see in the race</span>
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnPlayerEnterRaceCheckpoint"><span style="color: #dc143c">OnPlayerEnterRaceCheckpoint</span></a><span style="color: #66cc66;">&#40;</span>playerid, checkpointid<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    pCP<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span>++;
+    <span style="color: #228b22; font-weight: bold;">new</span> debugStr<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">18</span><span style="color: #66cc66;">&#93;</span>;
+    <a href="http://wiki.sa-mp.com/wiki/format"><span style="color: #006400;">format</span></a><span style="color: #66cc66;">&#40;</span>debugStr, <span style="color: orange; font-weight: bold;">sizeof</span><span style="color: #66cc66;">&#40;</span>debugStr<span style="color: #66cc66;">&#41;</span>, <span style="color: #b22222;">&quot;Checkpoint: %i&quot;</span>, pCP<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+    <span style="color: #808080; font-style: italic;">// Show next checkpoint, handle finishline etc.</span>
+    <span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Debugging.html" title="Edit section: Conclusion">edit</a>]</div><a name="Conclusion"></a><h2>Conclusion</h2>
+<p>This tutorial was made in a short period of time, without any sort of planning. While not essentially rushed, future improvements may be made if people find this tutorial useful.
+</p><p>Thank you for reading, I hope you learned something. If there are any problems with this tutorial or if any improvements could be made, don't hesitate to edit it!
+Written by Mike, 16/11/2011.
+<strong>Last updated:</strong> 5th December 2011 by Mike
+</p><p>Share this in the scripting discussions section of the SA:MP forums when scripters ask 'why does my script crash'!
+</p><div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/Debugging.html">http://localhost../wiki/Debugging.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="Category_Tutorials.html" title="Category:Tutorials">Tutorials</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="Debugging.html">Article</a></li>
+				 <li id="ca-talk"><a href="Talk_Debugging.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="Debugging.html">Edit</a></li>
+				 <li id="ca-history"><a href="Debugging.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 35,199 times.</li>
+				<li id="credits">This page was last modified 22:01, 18 April 2020 by SA-MP Wiki user <a href="User_Topshooter2.html" class="new" title="User:Topshooter2">Topshooter2</a>. Based on work by SA-MP Wiki user(s) <a href="User_OstGot.html" title="User:OstGot">OstGot</a>, <a href="User_Vince.html" title="User:Vince">Vince</a>, <a href="User_Smithy.html" title="User:Smithy">Smithy</a> and <a href="User_Funky1234.html" class="new" title="User:Funky1234">Funky1234</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 70.74 secs. -->
+</body></html>

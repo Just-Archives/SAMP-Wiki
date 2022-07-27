@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="SetActorFacingAngle ES,CreateActor ES,DestroyActor ES,GetActorPos ES,Main Page ES,Scripting Basics,Server Plugins,SetActorPos ES,GetPlayerCameraTargetActor ES,IsActorStreamedIn ES,ClearActorAnimations ES" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>SetActorFacingAngle ES - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">SetActorFacingAngle ES</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<div class="scripting" style="color: #4378A4; background-color: #FFFFFF; margin: 2px; margin-bottom: 10px;"><div align="center" style="border: 1px solid #AAAAAA; padding: 3px; padding-left: 5px;"><a href="Main_Page_ES.html" title="Main Page ES">Inicio</a> | <a href="Category_Scripting_Functions_ES.html" title="Category:Scripting Functions ES">Funciones</a> | <a href="Category_Scripting_Callbacks_ES.html" title="Category:Scripting Callbacks ES">Callbacks</a> | <a href="Scripting_Basics.html" title="Scripting Basics">Scripting Basics</a> | <a href="Server_Plugins.html" title="Server Plugins">Server Plugins</a> | <a href="Category_Tutorials.html" title="Category:Tutorials">Tutoriales</a></div></div>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="SetActorFacingAngle_ES.html" title="Edit section: SetActorFacingAngle">edit</a>]</div><a name="SetActorFacingAngle"></a><h1 class="firstheading" style="position:absolute; top:0px; background:#FFF; width:95%;">SetActorFacingAngle</h1>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background: #E2FFE5; border-left: 10px solid #81C687;">
+
+<tr>
+<td><a href="Image_Add.png.html" class="image" title="SetActorFacingAngle ES was added in SA-MP 0.3.7"><img src="../upload/a/a7/Add.png" alt="SetActorFacingAngle ES was added in SA-MP 0.3.7" width="16" height="16" longdesc="Image_Add.png.html" /></a>
+</td><td align="left" style="padding-left:7px; padding-right:7px;"><span style="font-size:14px;">¡Esta función fue añadida en <strong>SA-MP 0.3.7</strong> y no funcionará en versiones anteriores!</span>
+</td></tr></table>
+</div>
+<p><br />
+</p><p><b>Descripción:</b><br />
+</p>
+<div style="padding-left:35px;">Ajusta el ángulo de orientación de un actor.<br /></div>
+<p><br />
+</p>
+<b>Parámetros:</b><div style="margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb; padding: 2px 3px;">(actorid, Float:ang)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">actorid</td><td style="vertical-align:top;">El ID de actor que se va a ajustar el ángulo de orientación. Devuelto por <a href="CreateActor_ES.html" title="CreateActor ES">CreateActor</a>.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">ang</td><td style="vertical-align:top;">El ángulo de orientación que se aplica al actor.</td></tr></table></div>
+<p><br />
+<b>Retornos/Devoluciones:</b><br />
+</p>
+<div style="padding-left:35px;">
+<ul><li> <b>1:</b> Función ejecutada con éxito. 
+</li><li> <b>0:</b> Función no se pudo ejecutar. El actor especificado no existe.<br /></div>
+</li></ul>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+<p><strong>Nota</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">Al crear un actor con <a href="CreateActor_ES.html" title="CreateActor ES">CreateActor</a>, se especifica el ángulo de orientación. No es necesario utilizar esta función a menos que desee cambiar su ángulo de orientación luego.</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> MiActor;
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnGameModeInit"><span style="color: #dc143c">OnGameModeInit</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    MiActor = CreateActor<span style="color: #66cc66;">&#40;</span>...<span style="color: #66cc66;">&#41;</span>;
+    <span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+<span style="color: #808080; font-style: italic;">// En algún otro lugar del script</span>
+SetActorFacingAngle<span style="color: #66cc66;">&#40;</span>MiActor, <span style="color: #4169e1;">180.0</span><span style="color: #66cc66;">&#41;</span>;</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Template_RelatedFunctions_ES.html" title="Template:RelatedFunctions ES">edit</a>]</div><a name="Funciones_relacionadas"></a><h3> <b>Funciones relacionadas</b> </h3>
+<p>Las siguientes funciones pueden ser útiles, ya que éstas están relacionadas con esta función de alguna u otra manera.
+</p>
+<ul><li> <a href="CreateActor_ES.html" title="CreateActor ES">CreateActor ES</a>: Crea un actor (NPC estático).
+</li></ul>
+<ul><li> <a href="DestroyActor_ES.html" title="DestroyActor ES">DestroyActor ES</a>: Destruye un actor.
+</li></ul>
+<ul><li> <a href="SetActorPos_ES.html" title="SetActorPos ES">SetActorPos ES</a>: Establece la posición de un actor.
+</li></ul>
+<ul><li> <a href="GetActorPos_ES.html" title="GetActorPos ES">GetActorPos ES</a>: Obtiene la posición de un actor.
+</li></ul>
+<ul><li> <a href="GetActorFacingAngle_ES.html" class="new" title="GetActorFacingAngle ES">GetActorFacingAngle ES</a>: Obtiene el ángulo de orientación de un actor.
+</li></ul>
+<ul><li> <a href="SetActorVirtualWorld_ES.html" class="new" title="SetActorVirtualWorld ES">SetActorVirtualWorld ES</a>: Ajusta el mundo virtual de un actor.
+</li></ul>
+<ul><li> <a href="GetActorVirtualWorld_ES.html" class="new" title="GetActorVirtualWorld ES">GetActorVirtualWorld ES</a>: Obtiene el mundo virtual de un actor.
+</li></ul>
+<ul><li> <a href="ApplyActorAnimation_ES.html" class="new" title="ApplyActorAnimation ES">ApplyActorAnimation ES</a>: Aplica una animación a un actor.
+</li></ul>
+<ul><li> <a href="ClearActorAnimations_ES.html" class="new" title="ClearActorAnimations ES">ClearActorAnimations ES</a>: Quita cualquier animación que se esté aplicando a un actor.
+</li></ul>
+<ul><li> <a href="GetPlayerCameraTargetActor_ES.html" class="new" title="GetPlayerCameraTargetActor ES">GetPlayerCameraTargetActor ES</a>: Obtiene el ID del actor (si lo hay) que un jugador esté mirando.
+</li></ul>
+<ul><li> <a href="IsActorStreamedIn_ES.html" class="new" title="IsActorStreamedIn ES">IsActorStreamedIn ES</a>: Comprueba si un actor es 'streamed' para un jugador.
+</li></ul>
+<ul><li> <a href="SetActorHealth_ES.html" class="new" title="SetActorHealth ES">SetActorHealth ES</a>: Establece la salud de un actor.
+</li></ul>
+<ul><li> <a href="GetActorHealth_ES.html" class="new" title="GetActorHealth ES">GetActorHealth ES</a>: Obtiene la salud de un actor.
+</li></ul>
+<ul><li> <a href="SetActorInvulnerable_ES.html" class="new" title="SetActorInvulnerable ES">SetActorInvulnerable ES</a>: Establece la invulnerabilidad de un actor.
+</li></ul>
+<ul><li> <a href="IsActorInvulnerable_ES.html" class="new" title="IsActorInvulnerable ES">IsActorInvulnerable ES</a>: Comprueba si el actor es invulnerable.
+</li></ul>
+<ul><li> <a href="IsValidActor_ES.html" class="new" title="IsValidActor ES">IsValidActor ES</a>: Comprueba si el ID del actor es válido.
+</li></ul>
+<ul><li> <a href="GetActorPoolSize_ES.html" class="new" title="GetActorPoolSize ES">GetActorPoolSize ES</a>: Obtiene el ID del actor más alto creado en el servidor.
+</li></ul>
+<ul><li> <a href="GetPlayerTargetActor_ES.html" class="new" title="GetPlayerTargetActor ES">GetPlayerTargetActor ES</a>: Obtiene el ID del actor al cual determinado jugador está apuntando.
+</li></ul>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Template_RelatedCallbacksFunction_ES.html" title="Template:RelatedCallbacksFunction ES">edit</a>]</div><a name="Callbacks_relacionadas"></a><h3> <b>Callbacks relacionadas</b> </h3>
+<p>Las siguientes callbacks pueden ser útiles, ya que éstas están relacionadas con esta función de alguna u otra manera.
+<a href="Template_OnActorStreamIn_ES.html" class="new" title="Template:OnActorStreamIn ES">Template:OnActorStreamIn ES</a>
+<a href="Template_OnActorStreamOut_ES.html" class="new" title="Template:OnActorStreamOut ES">Template:OnActorStreamOut ES</a>
+<a href="Template_OnPlayerGiveDamageActor_ES.html" class="new" title="Template:OnPlayerGiveDamageActor ES">Template:OnPlayerGiveDamageActor ES</a>
+</p><div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/SetActorFacingAngle_ES.html">http://localhost../wiki/SetActorFacingAngle_ES.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="Category_Added_in_0.3.7_ES.html" title="Category:Added in 0.3.7 ES">Added in 0.3.7 ES</a></span> | <span dir='ltr'><a href="Category_Scripting_Functions_ES.html" title="Category:Scripting Functions ES">Scripting Functions ES</a></span> | <span dir='ltr'><a href="Category_Actor_ES.html" title="Category:Actor ES">Actor ES</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="SetActorFacingAngle_ES.html">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="Talk_SetActorFacingAngle_ES.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="SetActorFacingAngle_ES.html">Edit</a></li>
+				 <li id="ca-history"><a href="SetActorFacingAngle_ES.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-en"><a href="CreateActor.html">English</a></li>
+				<li class="interwiki-fr"><a href="SetActorFacingAngle_FR.html">Français</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 1,577 times.</li>
+				<li id="credits">This page was last modified 16:24, 10 December 2016 by SA-MP Wiki user <a href="User_OstGot.html" title="User:OstGot">OstGot</a>. Based on work by SA-MP Wiki user(s) <a href="User_AoEXE.html" class="new" title="User:AoEXE">AoEXE</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 109.13 secs. -->
+</body></html>

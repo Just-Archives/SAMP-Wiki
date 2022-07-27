@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Floatadd,Floatdiv,Floatmul,Floatsub,Main Page,Scripting Basics,Server Plugins,Scripting Callbacks,Scripting Functions,Tutorials" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>Floatadd - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Floatadd</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<div class="scripting" style="color: #4378A4; background-color: #FFFFFF; margin: 2px; margin-bottom: 10px;"><div align="center" style="border: 1px solid #AAAAAA; padding: 3px; padding-left: 5px;"><a href="../wiki-archive.html" title="Main Page">Main Page</a> | <a href="Category_Scripting_Functions.html" title="Category:Scripting Functions">Scripting Functions</a> | <a href="Category_Scripting_Callbacks.html" title="Category:Scripting Callbacks">Scripting Callbacks</a> | <a href="Scripting_Basics.html" title="Scripting Basics">Scripting Basics</a> | <a href="Server_Plugins.html" title="Server Plugins">Server Plugins</a> | <a href="Category_Tutorials.html" title="Category:Tutorials">Tutorials</a></div></div><br />
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Floatadd.html" title="Edit section: floatadd">edit</a>]</div><a name="floatadd"></a><h1 class="firstheading" style="position:absolute; top:0px; background:#FFF; width:95%;">floatadd</h1>
+<table style="padding:5px; background-color: #e5f4ff; border-left: 10px solid #3083cc;">
+
+<tr>
+<td align="left"><a href="Image_Farm-Fresh_text_lowercase.png.html" class="image" title="Image:Farm-Fresh text lowercase.png"><img src="../upload/a/a9/Farm-Fresh_text_lowercase.png" alt="Image:Farm-Fresh text lowercase.png" width="32" height="32" longdesc="Image_Farm-Fresh_text_lowercase.png.html" /></a>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;"><strong>Note:</strong> This function name starts with a lowercase letter.</span>
+</td></tr></table>
+<p><br />
+<b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Adds two floats together.<br /></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+<p><strong>Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">This function is rather redundant, for it is no different than the conventional addition operator (+).</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(Float:oper1, Float:oper2)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:oper1</td><td style="vertical-align:top;">First float.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:oper2</td><td style="vertical-align:top;">Second float.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">The sum of the two given floats.<br /></div>
+<p><br />
+<b>Example Usage:</b> 
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnGameModeInit"><span style="color: #dc143c">OnGameModeInit</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <span style="color: #228b22; font-weight: bold;">new</span> <span style="color: orange;">Float</span>:Number1 = <span style="color: #4169e1;">2</span>, <span style="color: orange;">Float</span>:Number2 = <span style="color: #4169e1;">3</span>; <span style="color: #808080; font-style: italic;">//Declares two floats, Number1 (2) and Number2 (3)</span>
+    <span style="color: #228b22; font-weight: bold;">new</span> <span style="color: orange;">Float</span>:Sum;
+    Sum = <a href="http://wiki.sa-mp.com/wiki/floatadd"><span style="color: #006400;">floatadd</span></a><span style="color: #66cc66;">&#40;</span>Number1, Number2<span style="color: #66cc66;">&#41;</span>;       <span style="color: #808080; font-style: italic;">//Saves the Sum(=2+3 = 5) of Number1 and Number2 in the float &quot;Sum&quot;</span>
+    <span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Template_RelatedFunctions.html" title="Template:RelatedFunctions">edit</a>]</div><a name="Related_Functions"></a><h3> <b>Related Functions</b> </h3>
+<p>The following functions may be helpful as they relate to this function in one way or another.
+</p>
+<ul><li> <a href="Floatsub.html" title="Floatsub">Floatsub</a>: Subtracts two floats.
+</li></ul>
+<ul><li> <a href="Floatmul.html" title="Floatmul">Floatmul</a>: Multiplies two floats.
+</li></ul>
+<ul><li> <a href="Floatdiv.html" title="Floatdiv">Floatdiv</a>: Divides a float by another.
+</li></ul>
+<div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/Floatadd.html">http://localhost../wiki/Floatadd.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="Category_Scripting_Functions.html" title="Category:Scripting Functions">Scripting Functions</a></span> | <span dir='ltr'><a href="Category_Mathematical_Functions.html" title="Category:Mathematical Functions">Mathematical Functions</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="Floatadd.html">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="Talk_Floatadd.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="Floatadd.html">Edit</a></li>
+				 <li id="ca-history"><a href="Floatadd.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-fr"><a href="Floatadd_FR.html">Français</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 18,769 times.</li>
+				<li id="credits">This page was last modified 19:59, 1 September 2019 by SA-MP Wiki user <a href="User_Freaksken.html" title="User:Freaksken">Freaksken</a>. Based on work by SA-MP Wiki user(s) <a href="User_MP2.html" title="User:MP2">MP2</a>, <a href="User_Vince.html" title="User:Vince">Vince</a>, <a href="User_RoboN1X.html" title="User:RoboN1X">RoboN1X</a>, <a href="User_Cypog.html" class="new" title="User:Cypog">Cypog</a>, <a href="User_LaZ.html" title="User:LaZ">LaZ</a> and <a href="User_Mikep.html" title="User:Mikep">Mikep</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 52.38 secs. -->
+</body></html>

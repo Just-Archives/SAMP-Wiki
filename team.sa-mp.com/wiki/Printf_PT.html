@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Printf PT,Main Page PT,Print PT,Scripting Basics PT,Strpack PT,Scripting Callbacks PT,Scripting Functions PT" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>Printf PT - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Printf PT</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<div class="scripting" style="color: #4378A4; background-color: #FFFFFF; margin: 2px; margin-bottom: 10px;"><div align="center" style="border: 1px solid #AAAAAA; padding: 3px; padding-left: 5px;"><a href="Main_Page_PT.html" title="Main Page PT">Pagina Inicial</a> | <a href="Scripting_Basics_PT.html" title="Scripting Basics PT">Basico</a> | <a href="Category_Scripting_Functions_PT.html" title="Category:Scripting Functions PT">Funções</a> | <a href="Category_Scripting_Callbacks_PT.html" title="Category:Scripting Callbacks PT">Callbacks</a></div></div>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Printf_PT.html" title="Edit section: printf">edit</a>]</div><a name="printf"></a><h1 class="firstheading" style="position:absolute; top:0px; background:#FFF; width:95%;">printf</h1>
+<table style="padding:5px; background-color: #e5f4ff; border-left: 10px solid #3083cc;">
+
+<tr>
+<td align="left"><a href="Image_Farm-Fresh_text_lowercase.png.html" class="image" title="Image:Farm-Fresh text lowercase.png"><img src="../upload/a/a9/Farm-Fresh_text_lowercase.png" alt="Image:Farm-Fresh text lowercase.png" width="32" height="32" longdesc="Image_Farm-Fresh_text_lowercase.png.html" /></a>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;"><strong>Nota:</strong> O nome desta função começa com uma letra minúscula.</span>
+</td></tr></table>
+<p><br />
+<b>Descrição:</b><br />
+</p>
+<div style="padding-left:35px;">Formata uma mensagem e escreve no console e no log do servidor (não escreve no chat dos jogadores).<br /></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #FFEAEA; border-left: 10px solid #FCA9A9;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #FCA9A9;"><a href="Image_32px-Circle-style-warning.png.html" class="image" title="Image:32px-Circle-style-warning.png"><img src="../upload/5/57/32px-Circle-style-warning.png" alt="Image:32px-Circle-style-warning.png" width="32" height="32" longdesc="Image_32px-Circle-style-warning.png.html" /></a><br />
+<p><strong>Nota<br />Importante</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">Esta função não suporta strings <a href="Strpack_PT.html" title="Strpack PT">compactadas.</a></span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<b>Parâmetros:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(const format[], {Float,_}:...)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">format[]</td><td style="vertical-align:top;">O formato da mensagem</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">{Float,_}:...</td><td style="vertical-align:top;">Os argumentos indefinidos com qualquer tag que serão passados para formatação</td></tr></table></div>
+<p><br />
+</p>
+<div style="padding-left:40px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New';font-weight:bold;">Retorno</td><td style="vertical-align:top;">Esta função não retorna um valor especifico.</td></tr></table></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #FFAAA4; border-left: 10px solid #cd5c5c;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #cd5c5c;"><a href="Image_32px-Circle-style-warning.png.html" class="image" title="Image:32px-Circle-style-warning.png"><img src="../upload/5/57/32px-Circle-style-warning.png" alt="Image:32px-Circle-style-warning.png" width="32" height="32" longdesc="Image_32px-Circle-style-warning.png.html" /></a><br />
+<p><strong>Aviso</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">O formato ou a saída da string não pode exceder 1024 caracteres se não poderá crashar o servidor.</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Template_FormatSpecifiers_PT.html" title="Template:FormatSpecifiers PT">edit</a>]</div><a name="Especificadores_de_formato"></a><h4>Especificadores de formato</h4>
+<table class="wikitable">
+<tr>
+<th>Especificador
+</th><th>Significado
+</th></tr>
+<tr>
+<td>%i
+</td><td>Números inteiros
+</td></tr>
+<tr>
+<td>%d
+</td><td>Números inteiros
+</td></tr>
+<tr>
+<td>%s
+</td><td>String
+</td></tr>
+<tr>
+<td>%f
+</td><td>Número com ponto flutuante (Float: tag), ex: 1.5
+</td></tr>
+<tr>
+<td>%c
+</td><td>Caractere ASCII
+</td></tr>
+<tr>
+<td>%x
+</td><td>Número hexadecimal
+</td></tr>
+<tr>
+<td>%b
+</td><td>Número binário
+</td></tr>
+<tr>
+<td>%%
+</td><td>Exatamente '%'
+</td></tr>
+<tr>
+<td>%q
+</td><td>Escape de texto para SQLite. (Adicionado na versão <b>0.3.7 R2</b>)
+</td></tr></table>
+<p>Os valores dos espaços reservados seguem exatamente a mesma ordem dos parâmetros na chamada. Por exemplo, "Eu tenho anos de idade": o% vou ser substituído por uma variável do tipo inteiro, que é a idade da pessoa.
+</p><p>Você pode opcionalmente colocar um número entre o '%' e a letra do código do marcador de posição. Este número indica a largura do campo; se o tamanho do parâmetro para imprimir na posição do espaço reservado for menor que a largura do campo, o campo é expandido com espaços. Para cortar o número de casas decimais sendo mostrado de um flutuador, você pode adicionar '. &lt;Max number&gt;' entre '%' e 'f'. (exemplo:%.2f)
+</p><p><b>Exemplo de uso:</b>
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> numero = <span style="color: #4169e1;">42</span>;
+<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;O número é %d.&quot;</span>,numero<span style="color: #66cc66;">&#41;</span>;  <span style="color: #808080; font-style: italic;">//-&gt; O número é 42.</span>
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">new</span> string<span style="color: #66cc66;">&#91;</span><span style="color: #66cc66;">&#93;</span>= <span style="color: #b22222;">&quot;uma simples mensagem&quot;</span>;
+<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;Essa é %s contendo o número %d.&quot;</span>, string, number<span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">//-&gt; Essa é uma simples mensagem contendo o número 42.</span>
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">new</span> caractere = <span style="color: #b22222;">'á'</span>;
+<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;Ol%c Mundo!&quot;</span>,caractere<span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">//-&gt; Olá Mundo!</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Template_RelatedFunctions_PT.html" title="Template:RelatedFunctions PT">edit</a>]</div><a name="Fun.C3.A7.C3.B5es_Relacionadas"></a><h3> <b>Funções Relacionadas</b> </h3>
+<p>As seguintes funções podem ser úteis, pois estão de alguma forma, relacionadas a esta função.
+</p>
+<ul><li> <a href="Print_PT.html" title="Print PT">print</a>: Escreve uma mensagem simples no console e no log do servidor.
+</li></ul>
+<ul><li> <strong>printf</strong>: Escreve uma mensagem formatada no console e no log do servidor.
+</li></ul>
+<div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/Printf_PT.html">http://localhost../wiki/Printf_PT.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="Category_Scripting_Functions_PT.html" title="Category:Scripting Functions PT">Scripting Functions PT</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="Printf_PT.html">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="Talk_Printf_PT.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="Printf_PT.html">Edit</a></li>
+				 <li id="ca-history"><a href="Printf_PT.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 581 times.</li>
+				<li id="credits">This page was last modified 00:12, 7 February 2018 by SA-MP Wiki user <a href="User_MultiKill.html" title="User:MultiKill">MultiKill</a>. </li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 115.81 secs. -->
+</body></html>

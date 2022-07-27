@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="AddPlayerClassEx ES,AddPlayerClass ES,Main Page ES,OnPlayerRequestClass,Scripting Basics,Server Plugins,Skins,Weapons,SetSpawnInfo ES,SetPlayerSkin ES,Scripting Callbacks ES" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>AddPlayerClassEx ES - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">AddPlayerClassEx ES</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<div class="scripting" style="color: #4378A4; background-color: #FFFFFF; margin: 2px; margin-bottom: 10px;"><div align="center" style="border: 1px solid #AAAAAA; padding: 3px; padding-left: 5px;"><a href="Main_Page_ES.html" title="Main Page ES">Inicio</a> | <a href="Category_Scripting_Functions_ES.html" title="Category:Scripting Functions ES">Funciones</a> | <a href="Category_Scripting_Callbacks_ES.html" title="Category:Scripting Callbacks ES">Callbacks</a> | <a href="Scripting_Basics.html" title="Scripting Basics">Scripting Basics</a> | <a href="Server_Plugins.html" title="Server Plugins">Server Plugins</a> | <a href="Category_Tutorials.html" title="Category:Tutorials">Tutoriales</a></div></div>
+<p><br />
+</p><p><br />
+<b>Descripción:</b><br />
+</p>
+<div style="padding-left:35px;">Esta función es similar a <a href="AddPlayerClass_ES.html" title="AddPlayerClass ES">AddPlayerClass</a>, sólo que esta agrega un parámetro de equipo (team).<br /></div>
+<p><br />
+</p>
+<b>Parámetros:</b><div style="margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb; padding: 2px 3px;">(modelid, Float:spawn_x, Float:spawn_y, Float:spawn_z, Float:z_angle, weapon1, weapon1_ammo, weapon2, weapon2_ammo, weapon3, weapon3_ammo)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">teamid</td><td style="vertical-align:top;">La ID del equipo que se le asignará al jugador al usar esta clase.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">modelid</td><td style="vertical-align:top;">ID del <a href="Skins.html" title="Skins">skin</a> con el cual el jugador spawneará.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:spawn_x</td><td style="vertical-align:top;">La coordenada X en la cual spawneará esta clase.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:spawn_y</td><td style="vertical-align:top;">La coordenada Y en la cual spawneará esta clase.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:spawn_z</td><td style="vertical-align:top;">La coordenada Z en la cual spawneará esta clase.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">Float:z_angle</td><td style="vertical-align:top;">El angulo en el que mirara el jugador.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">weapon1</td><td style="vertical-align:top;">La primera <a href="Weapons.html" title="Weapons">arma</a> de la clase.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">weapon1_ammo</td><td style="vertical-align:top;">El número de balas de la primer arma.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">weapon2</td><td style="vertical-align:top;">La segunda <a href="Weapons.html" title="Weapons">arma</a> de la clase.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">weapon2_ammo</td><td style="vertical-align:top;">El número de balas de la segunda arma.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">weapon3</td><td style="vertical-align:top;">La tercera <a href="Weapons.html" title="Weapons">arma</a> de la clase.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">weapon3_ammo</td><td style="vertical-align:top;">El número de balas de la tercera arma.</td></tr></table></div>
+<p><br />
+</p><p><b>Retornos/Devoluciones:</b><br />
+</p>
+<div style="padding-left:35px;">
+<ul><li> La <b>ID de la clase</b> que fue agregada.
+</li><li> <b>319</b> si el límite de clases (320) fue alcanzado. La ID más alta posible es 319.<br /></div>
+</li></ul>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+<p><strong>Nota</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">La ID más alta posible es <b>319</b> (Empezando desde 0, o sea, un total de 320). Cuando se sobrepasa este límite, cualquier otra clase agregada reemplazará la clase ID 319.</span>
+</td></tr></table>
+</div>
+<p><br />
+<b>Ejemplo:</b>
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnGameModeInit"><span style="color: #dc143c">OnGameModeInit</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <span style="color: #808080; font-style: italic;">//Los jugadores podrán spawnear como:</span>
+    <span style="color: #808080; font-style: italic;">//CJ (ID 0) en el equipo 1.</span>
+    <span style="color: #808080; font-style: italic;">//The Truth (ID 1) en el equipo 2.</span>
+    <a href="http://wiki.sa-mp.com/wiki/AddPlayerClassEx"><span style="color: #006400;">AddPlayerClassEx</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">1</span>, <span style="color: #4169e1;">0</span>, <span style="color: #4169e1;">1958.33</span>, <span style="color: #4169e1;">1343.12</span>, <span style="color: #4169e1;">15.36</span>, <span style="color: #4169e1;">269.15</span>, <span style="color: #4169e1;">26</span>, <span style="color: #4169e1;">36</span>, <span style="color: #4169e1;">28</span>, <span style="color: #4169e1;">150</span>, <span style="color: #4169e1;">0</span>, <span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">//CJ</span>
+    <a href="http://wiki.sa-mp.com/wiki/AddPlayerClassEx"><span style="color: #006400;">AddPlayerClassEx</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">2</span>, <span style="color: #4169e1;">1</span>, <span style="color: #4169e1;">1958.33</span>, <span style="color: #4169e1;">1343.12</span>, <span style="color: #4169e1;">15.36</span>, <span style="color: #4169e1;">269.15</span>, <span style="color: #4169e1;">26</span>, <span style="color: #4169e1;">36</span>, <span style="color: #4169e1;">28</span>, <span style="color: #4169e1;">150</span>, <span style="color: #4169e1;">0</span>, <span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">//The Truth</span>
+    <span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<a name="Funciones_relacionadas"></a><h3> <b>Funciones relacionadas</b> </h3>
+<p>Las siguientes funciones pueden ser útiles, ya que éstas están relacionadas con esta función de alguna u otra manera.
+</p>
+<ul><li> <a href="AddPlayerClass_ES.html" title="AddPlayerClass ES">AddPlayerClass</a> Es igual que <strong>AddPlayerClassEx</strong>, solo que sin el parametro teamid.
+</li></ul>
+<ul><li> <a href="SetSpawnInfo_ES.html" class="new" title="SetSpawnInfo ES">SetSpawnInfo</a> Permite editar la informacion de spawn de un jugador en particular.
+</li></ul>
+<ul><li> <a href="SetPlayerSkin_ES.html" class="new" title="SetPlayerSkin ES">SetPlayerSkin</a> Cambia el skin de un jugador.
+</li></ul>
+<p><br />
+</p>
+<a name="Callbacks_relacionadas"></a><h3> <b>Callbacks relacionadas</b> </h3>
+<p>Las siguientes callbacks pueden ser útiles, ya que éstas están relacionadas con esta función de alguna u otra manera.
+</p>
+<ul><li> <a href="OnPlayerRequestClass.html" title="OnPlayerRequestClass">OnPlayerRequestClass</a> Llamado cuando un jugador cambia su skin dentro de la seleccion de skin.
+</li></ul>
+<div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/AddPlayerClassEx_ES.html">http://localhost../wiki/AddPlayerClassEx_ES.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="Category_Scripting_Functions_ES.html" title="Category:Scripting Functions ES">Scripting Functions ES</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="AddPlayerClassEx_ES.html">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="Talk_AddPlayerClassEx_ES.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="AddPlayerClassEx_ES.html">Edit</a></li>
+				 <li id="ca-history"><a href="AddPlayerClassEx_ES.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 6,879 times.</li>
+				<li id="credits">This page was last modified 11:54, 19 July 2018 by SA-MP Wiki user <a href="User_Edugta.html" class="new" title="User:Edugta">Edugta</a>. Based on work by SA-MP Wiki user(s) <a href="User_OstGot.html" title="User:OstGot">OstGot</a>, <a href="User_TheChaoz.html" class="new" title="User:TheChaoz">TheChaoz</a> and <a href="User_The_Chaoz.html" class="new" title="User:The Chaoz">The Chaoz</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 69.10 secs. -->
+</body></html>

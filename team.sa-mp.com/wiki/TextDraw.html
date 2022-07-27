@@ -1,0 +1,296 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="TextDraw,CreatePlayerTextDraw,GameTextForPlayer,Limits,Main Page,OnGameModeInit,PlayerTextDrawAlignment,PlayerTextDrawBackgroundColor,PlayerTextDrawBoxColor,PlayerTextDrawColor,PlayerTextDrawDestroy" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>TextDraw - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">TextDraw</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<div class="scripting" style="color: #4378A4; background-color: #FFFFFF; margin: 2px; margin-bottom: 10px;"><div align="center" style="border: 1px solid #AAAAAA; padding: 3px; padding-left: 5px;"><a href="../wiki-archive.html" title="Main Page">Main Page</a> | <a href="Category_Scripting_Functions.html" title="Category:Scripting Functions">Scripting Functions</a> | <a href="Category_Scripting_Callbacks.html" title="Category:Scripting Callbacks">Scripting Callbacks</a> | <a href="Scripting_Basics.html" title="Scripting Basics">Scripting Basics</a> | <a href="Server_Plugins.html" title="Server Plugins">Server Plugins</a> | <a href="Category_Tutorials.html" title="Category:Tutorials">Tutorials</a></div></div><br />
+<div style="width:70%; margin:0 auto 15px auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffcc99;">
+
+<tr>
+<td align="left"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+</td><td align="center"><span style="font-size:14px;">This article is currently a Work In Progress. It is therefore possible that the content of this article is currently incomplete or incorrect.</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class='toclevel-1'><a href="#What_is_a_Textdraw.3F"><span class="tocnumber">1</span> <span class="toctext">What is a Textdraw?</span></a></li>
+<li class='toclevel-1'><a href="#Global_Textdraws"><span class="tocnumber">2</span> <span class="toctext">Global Textdraws</span></a></li>
+<li class='toclevel-1'><a href="#Player-textdraws"><span class="tocnumber">3</span> <span class="toctext">Player-textdraws</span></a></li>
+<li class='toclevel-1'><a href="#Variable_Declaration"><span class="tocnumber">4</span> <span class="toctext">Variable Declaration</span></a>
+<ul>
+<li class='toclevel-2'><a href="#Global_Textdraw"><span class="tocnumber">4.1</span> <span class="toctext">Global Textdraw</span></a></li>
+<li class='toclevel-2'><a href="#Per-Player_Textdraw"><span class="tocnumber">4.2</span> <span class="toctext">Per-Player Textdraw</span></a></li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#Creating_the_Textdraw"><span class="tocnumber">5</span> <span class="toctext">Creating the Textdraw</span></a></li>
+<li class='toclevel-1'><a href="#Setting_the_font"><span class="tocnumber">6</span> <span class="toctext">Setting the font</span></a></li>
+<li class='toclevel-1'><a href="#Showing_the_textdraw"><span class="tocnumber">7</span> <span class="toctext">Showing the textdraw</span></a></li>
+<li class='toclevel-1'><a href="#Assorted_Tips"><span class="tocnumber">8</span> <span class="toctext">Assorted Tips</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="TextDraw.html" title="Edit section: What is a Textdraw?">edit</a>]</div><a name="What_is_a_Textdraw.3F"></a><h2> What is a Textdraw? </h2>
+<p>As the name implies, a textdraw is text that is drawn on a player's screen. Unlike <a href="SendClientMessage.html" title="SendClientMessage">client messages</a> or <a href="GameTextForPlayer.html" title="GameTextForPlayer">gametext</a> however, textdraws can be shown on a player's screen for an indefinite period of time. Textdraws can be simple text on the screen such as a website address, or complex scripted dynamic textdraws such as progress bars.
+</p><p>This 'textdraw editor' tool can make designing textdraws much easier: <a href="http://forum.sa-mp.com/showthread.php?t=290640" class='external free' title="http://forum.sa-mp.com/showthread.php?t=290640" rel="nofollow">http://forum.sa-mp.com/showthread.php?t=290640</a>
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="TextDraw.html" title="Edit section: Global Textdraws">edit</a>]</div><a name="Global_Textdraws"></a><h2>Global Textdraws</h2>
+<p>Global textdraws can be created, then shown to all players. There is a <a href="Limits.html" title="Limits">limit</a> as to how many can be created, though. This means if you have a server with 500 players, creating more than 4 textdraws per-player is not possible. That's where <b>player</b>-textdraws come in. See further down. Here is a list of all the functions related to <b>global</b> textdraws:
+</p>
+<ul><li> <a href="TextDrawCreate.html" title="TextDrawCreate">TextDrawCreate</a>: Create a textdraw.
+</li></ul>
+<ul><li> <a href="TextDrawDestroy.html" title="TextDrawDestroy">TextDrawDestroy</a>: Destroy a textdraw.
+</li></ul>
+<ul><li> <a href="TextDrawColor.html" title="TextDrawColor">TextDrawColor</a>: Set the color of the text in a textdraw.
+</li></ul>
+<ul><li> <a href="TextDrawBoxColor.html" title="TextDrawBoxColor">TextDrawBoxColor</a>: Set the color of the box in a textdraw.
+</li></ul>
+<ul><li> <a href="TextDrawBackgroundColor.html" title="TextDrawBackgroundColor">TextDrawBackgroundColor</a>: Set the background color of a textdraw.
+</li></ul>
+<ul><li> <a href="TextDrawAlignment.html" title="TextDrawAlignment">TextDrawAlignment</a>: Set the alignment of a textdraw.
+</li></ul>
+<ul><li> <a href="TextDrawFont.html" title="TextDrawFont">TextDrawFont</a>: Set the font of a textdraw.
+</li></ul>
+<ul><li> <a href="TextDrawLetterSize.html" title="TextDrawLetterSize">TextDrawLetterSize</a>: Set the letter size of the text in a textdraw.
+</li></ul>
+<ul><li> <a href="TextDrawTextSize.html" title="TextDrawTextSize">TextDrawTextSize</a>: Set the size of a textdraw box.
+</li></ul>
+<ul><li> <a href="TextDrawSetOutline.html" title="TextDrawSetOutline">TextDrawSetOutline</a>: Choose whether the text has an outline.
+</li></ul>
+<ul><li> <a href="TextDrawSetShadow.html" title="TextDrawSetShadow">TextDrawSetShadow</a>: Toggle shadows on a textdraw.
+</li></ul>
+<ul><li> <a href="TextDrawSetProportional.html" title="TextDrawSetProportional">TextDrawSetProportional</a>: Scale the text spacing in a textdraw to a proportional ratio.
+</li></ul>
+<ul><li> <a href="TextDrawUseBox.html" title="TextDrawUseBox">TextDrawUseBox</a>: Toggle if the textdraw has a box or not.
+</li></ul>
+<ul><li> <a href="TextDrawSetString.html" title="TextDrawSetString">TextDrawSetString</a>: Set the text in an existing textdraw.
+</li></ul>
+<p><br />
+</p>
+<ul><li> <a href="TextDrawShowForPlayer.html" title="TextDrawShowForPlayer">TextDrawShowForPlayer</a>: Show a textdraw for a certain player.
+</li></ul>
+<ul><li> <a href="TextDrawHideForPlayer.html" title="TextDrawHideForPlayer">TextDrawHideForPlayer</a>: Hide a textdraw for a certain player.
+</li></ul>
+<ul><li> <a href="TextDrawShowForAll.html" title="TextDrawShowForAll">TextDrawShowForAll</a>: Show a textdraw for all players.
+</li></ul>
+<ul><li> <a href="TextDrawHideForAll.html" title="TextDrawHideForAll">TextDrawHideForAll</a>: Hide a textdraw for all players.
+</li></ul>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="TextDraw.html" title="Edit section: Player-textdraws">edit</a>]</div><a name="Player-textdraws"></a><h2>Player-textdraws</h2>
+<p>Player-textdraws are only created for one specific player. Up to 256 textdraws can be created PER-PLAYER. That's 128,000 on a server with 500 players. A little more than 2048.
+Player-textdraws should be used for things that are not 'static'. Do not use them to display a website address for example, but for a vehicle health indicator.
+</p>
+<ul><li> <a href="CreatePlayerTextDraw.html" title="CreatePlayerTextDraw">CreatePlayerTextDraw</a>: Create a player-textdraw.
+</li></ul>
+<ul><li> <a href="PlayerTextDrawDestroy.html" title="PlayerTextDrawDestroy">PlayerTextDrawDestroy</a>: Destroy a player-textdraw.
+</li></ul>
+<ul><li> <a href="PlayerTextDrawColor.html" title="PlayerTextDrawColor">PlayerTextDrawColor</a>: Set the color of the text in a player-textdraw.
+</li></ul>
+<ul><li> <a href="PlayerTextDrawBoxColor.html" title="PlayerTextDrawBoxColor">PlayerTextDrawBoxColor</a>: Set the color of a player-textdraw's box.
+</li></ul>
+<ul><li> <a href="PlayerTextDrawBackgroundColor.html" title="PlayerTextDrawBackgroundColor">PlayerTextDrawBackgroundColor</a>: Set the background color of a player-textdraw.
+</li></ul>
+<ul><li> <a href="PlayerTextDrawAlignment.html" title="PlayerTextDrawAlignment">PlayerTextDrawAlignment</a>: Set the alignment of a player-textdraw.
+</li></ul>
+<ul><li> <a href="PlayerTextDrawFont.html" title="PlayerTextDrawFont">PlayerTextDrawFont</a>: Set the font of a player-textdraw.
+</li></ul>
+<ul><li> <a href="PlayerTextDrawLetterSize.html" title="PlayerTextDrawLetterSize">PlayerTextDrawLetterSize</a>: Set the letter size of the text in a player-textdraw.
+</li></ul>
+<ul><li> <a href="PlayerTextDrawTextSize.html" title="PlayerTextDrawTextSize">PlayerTextDrawTextSize</a>: Set the size of a player-textdraw box (or clickable area for <a href="PlayerTextDrawSetSelectable.html" title="PlayerTextDrawSetSelectable">PlayerTextDrawSetSelectable</a>).
+</li></ul>
+<ul><li> <a href="PlayerTextDrawSetOutline.html" title="PlayerTextDrawSetOutline">PlayerTextDrawSetOutline</a>: Toggle the outline on a player-textdraw.
+</li></ul>
+<ul><li> <a href="PlayerTextDrawSetShadow.html" title="PlayerTextDrawSetShadow">PlayerTextDrawSetShadow</a>: Set the shadow on a player-textdraw.
+</li></ul>
+<ul><li> <a href="PlayerTextDrawSetProportional.html" title="PlayerTextDrawSetProportional">PlayerTextDrawSetProportional</a>: Scale the text spacing in a player-textdraw to a proportional ratio.
+</li></ul>
+<ul><li> <a href="PlayerTextDrawUseBox.html" title="PlayerTextDrawUseBox">PlayerTextDrawUseBox</a>: Toggle the box on a player-textdraw.
+</li></ul>
+<ul><li> <a href="PlayerTextDrawSetString.html" title="PlayerTextDrawSetString">PlayerTextDrawSetString</a>: Set the text of a player-textdraw.
+</li></ul>
+<p><br />
+</p>
+<ul><li> <a href="PlayerTextDrawShow.html" title="PlayerTextDrawShow">PlayerTextDrawShow</a>: Show a player-textdraw.
+</li></ul>
+<ul><li> <a href="PlayerTextDrawHide.html" title="PlayerTextDrawHide">PlayerTextDrawHide</a>: Hide a player-textdraw.
+</li></ul>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="TextDraw.html" title="Edit section: Variable Declaration">edit</a>]</div><a name="Variable_Declaration"></a><h2> Variable Declaration </h2>
+<p>When creating a textdraw, you should always decide if the textdraw you're going to create has to be global (eg. your website address, global annoucement) or if it's going to differ per player (eg. kills, deaths, score).
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="TextDraw.html" title="Edit section: Global Textdraw">edit</a>]</div><a name="Global_Textdraw"></a><h3> Global Textdraw </h3>
+<p>A global textdraw is the easiest to create and requires only one variable. This variable is needed to modify the textdraw and to show it to the players later on. The declaration for such a textdraw needs to be a global variable in most cases. The textdraw variable also needs to be prefixed with the <i>Text:</i> tag and should be initialized with the value <i>Text:INVALID_TEXT_DRAW</i>. If you omit the initialization, the textdraw may conflict with others as you add more textdraws.
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> <span style="color: orange;">Text</span>:gMyText = <span style="color: orange;">Text</span>:<span style="color: #E9967A; font-weight: bold;">INVALID_TEXT_DRAW</span>;</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="TextDraw.html" title="Edit section: Per-Player Textdraw">edit</a>]</div><a name="Per-Player_Textdraw"></a><h3> Per-Player Textdraw </h3>
+<p>A per-player textdraw is exactly the same as a regular 'global' textdraw, but only creates the textdraw for a single player. This is useful for textdraws that are unique to each player, such as a 'stats' bar showing their kills or score. This can be used to avoid going over the global-textdraw limit, as you can create 256 (as of 0.3e R2) textdraws per player. They are also easier to manage, as they automatically destroy themselves when the player disconnects.
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> <span style="color: orange;">PlayerText</span>:gMyPlayerText = <span style="color: orange;">PlayerText</span>:<span style="color: #E9967A; font-weight: bold;">INVALID_TEXT_DRAW</span>;</pre>
+<p>IMPORTANT NOTE: An array is still needed for the variable, as the ID of the textdraws may differ from player to player, as other players may have more or less textdraws created than the other.
+</p><p>The function names only differ slightly, with 'TextDraw' becoming 'PlayerTextDraw', with one exception: <a href="CreatePlayerTextDraw.html" title="CreatePlayerTextDraw">CreatePlayerTextDraw</a> ('TextDrawSetString' becomes 'PlayerTextDrawSetString').
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="TextDraw.html" title="Edit section: Creating the Textdraw">edit</a>]</div><a name="Creating_the_Textdraw"></a><h2> Creating the Textdraw </h2>
+<div class="thumb tright"><div style="width:322px;"><a href="Image_Textdraw_map.png.html" class="internal" title="Dimension map."><img src="../upload/thumb/b/b6/Textdraw_map.png/320px-Textdraw_map.png" alt="Dimension map." width="320" height="247" longdesc="Image_Textdraw_map.png.html" /></a>  <div class="thumbcaption" ><div class="magnify" style="float:right"><a href="Image_Textdraw_map.png.html" class="internal" title="Enlarge"><img src="../skins/common/images/magnify-clip.png" width="15" height="11" alt="Enlarge" /></a></div>Dimension map.</div></div></div>
+<p>Once you've declared a variable/array to store the ID of your textdraw(s) in, you can proceed to create the textdraw itself. For global textdraws that are always created, the code should be placed under <a href="OnGameModeInit.html" title="OnGameModeInit">OnGameModeInit</a>. To create the textdraw, the function <a href="TextDrawCreate.html" title="TextDrawCreate">TextDrawCreate</a> must be used.
+</p><p>Note that this function merely creates the textdraw, other functions are used to modify it and to show it to the player(s).
+</p><p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(TextDrawCreate(Float:x, Float:y, text[]))<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">x</td><td style="vertical-align:top;">X coordinate at which to create the textdraw</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">y</td><td style="vertical-align:top;">Y coordinate at which to create the textdraw</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">text[]</td><td style="vertical-align:top;">The text in the textdraw.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">The ID of the created textdraw<br /></div>
+<p><br />
+Let's proceed to create the textdraw:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnGameModeInit"><span style="color: #dc143c">OnGameModeInit</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    gMyText = <a href="http://wiki.sa-mp.com/wiki/TextDrawCreate"><span style="color: #006400;">TextDrawCreate</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">320.0</span>, <span style="color: #4169e1;">240.0</span>, <span style="color: #b22222;">&quot;Hello World!&quot;</span><span style="color: #66cc66;">&#41;</span>;
+    <span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>We have created a textdraw in the center of the screen that says "Hello World!".
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="TextDraw.html" title="Edit section: Setting the font">edit</a>]</div><a name="Setting_the_font"></a><h2>Setting the font</h2>
+<p>There are 4 fonts available for textdraw text:
+</p><p><span style="display:block; float:left; padding:28px 0.5em 0 0;"><a href="Image_Textdraw_font_styles.png.html" class="image" title="Image:Textdraw_font_styles.png"><img src="../upload/d/d3/Textdraw_font_styles.png" alt="Image:Textdraw_font_styles.png" width="132" height="107" longdesc="Image_Textdraw_font_styles.png.html" /></a></span>
+</p>
+<table class="wikitable" style="height:135px; margin-top:0px;">
+<tr>
+<th>ID
+</th><th>Info
+</th><th>Tips
+</th></tr>
+<tr>
+<td>0
+</td><td>The <i>San Andreas</i> Font.
+</td><td>Use for header or titles, not a whole page.
+</td></tr>
+<tr>
+<td>1
+</td><td>Clear font that includes both upper and lower case characters.
+</td><td>Can be used for a lot of text.
+</td></tr>
+<tr>
+<td>2
+</td><td>Clear font, but includes only capital letters.
+</td><td>Can be used in various instances.
+</td></tr>
+<tr>
+<td>3
+</td><td><i>GTA font</i>
+</td><td>Retains quality when enlarged. Useful for large texts.
+</td></tr>
+</table>
+<p>As of SA-MP 0.3d, a new font (id 4) can be set. This is used in combination with the <a href="TextDrawCreate.html" title="TextDrawCreate">TextDrawCreate</a> and <a href="TextDrawTextSize.html" title="TextDrawTextSize">TextDrawTextSize</a> functions to show a texture 'sprite' on the player's screen. We'll cover this later.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="TextDraw.html" title="Edit section: Showing the textdraw">edit</a>]</div><a name="Showing_the_textdraw"></a><h2>Showing the textdraw</h2>
+<p>For this example, the textdraw has been created globally under OnGameModeInit and will be shown to player when they join the server.
+</p><p>To show a textdraw for a single player, the function <a href="TextDrawShowForPlayer.html" title="TextDrawShowForPlayer">TextDrawShowForPlayer</a> is used.
+</p><p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(TextDrawShowForPlayer(playerid, Text:text))<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">The ID of the player to show the textdraw for</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">text</td><td style="vertical-align:top;">The ID of the textdraw to show</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">This function does not return any specific values.<br /></div>
+<p><br />
+</p><p>The playerid is passed through OnPlayerConnect, and the text-draw ID is stored in the 'gMyText' variable.
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnGameModeInit"><span style="color: #dc143c">OnGameModeInit</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    gMyText = <a href="http://wiki.sa-mp.com/wiki/TextDrawCreate"><span style="color: #006400;">TextDrawCreate</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">320.0</span>, <span style="color: #4169e1;">320.0</span>, <span style="color: #b22222;">&quot;Hello World!&quot;</span><span style="color: #66cc66;">&#41;</span>;
+    <span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnPlayerConnect"><span style="color: #dc143c">OnPlayerConnect</span></a><span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <a href="http://wiki.sa-mp.com/wiki/TextDrawShowForPlayer"><span style="color: #006400;">TextDrawShowForPlayer</span></a><span style="color: #66cc66;">&#40;</span>playerid, gMyText<span style="color: #66cc66;">&#41;</span>;
+    <span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="TextDraw.html" title="Edit section: Assorted Tips">edit</a>]</div><a name="Assorted_Tips"></a><h2>Assorted Tips</h2>
+<ul><li>Try to use whole number when specifying positions, this ensures the best compatibility on different resolutions.
+</li><li>Fonts appear to look the best with an X to Y ratio of 1 to 4 (e.g. if x = 0.5 then y should be 2).
+</li></ul>
+<div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/TextDraw.html">http://localhost../wiki/TextDraw.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="Category_Pages_under_construction.html" class="new" title="Category:Pages under construction">Pages under construction</a></span> | <span dir='ltr'><a href="Category_Scripting_Documentation.html" title="Category:Scripting Documentation">Scripting Documentation</a></span> | <span dir='ltr'><a href="Category_Textdraw.html" title="Category:Textdraw">Textdraw</a></span> | <span dir='ltr'><a href="Category_Tutorials.html" title="Category:Tutorials">Tutorials</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="TextDraw.html">Article</a></li>
+				 <li id="ca-talk"><a href="Talk_TextDraw.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="TextDraw.html">Edit</a></li>
+				 <li id="ca-history"><a href="TextDraw.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 123,759 times.</li>
+				<li id="credits">This page was last modified 13:08, 24 March 2017 by SA-MP Wiki user <a href="User_OstGot.html" title="User:OstGot">OstGot</a>. Based on work by SA-MP Wiki user(s) <a href="User_ArosekhanNiazi.html" class="new" title="User:ArosekhanNiazi">ArosekhanNiazi</a>, <a href="User_Vince.html" title="User:Vince">Vince</a>, <a href="User_MP2.html" title="User:MP2">MP2</a>, <a href="User_Vince.html" title="User:Vince">Vince</a>, <a href="User_Smithy.html" title="User:Smithy">Smithy</a> and <a href="User_Southclaw.html" title="User:Southclaw">Southclaw</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 70.81 secs. -->
+</body></html>

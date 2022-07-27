@@ -1,0 +1,1153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="MySQL/R6,MySQL,MySQL/R33,Public functions" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>MySQL/R6 - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">MySQL/R6</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<div style="max-width:750px; width:auto; margin:0 auto 10px auto;">
+<table style="padding: 5px; background-color:#ffeecc; border-left: 10px solid #ffcc99;">
+
+<tr>
+<td align="left"><a href="Image_50px-Ambox_outdated_serious.png.html" class="image" title="Image:50px-Ambox_outdated_serious.png"><img src="../upload/b/b4/50px-Ambox_outdated_serious.png" alt="Image:50px-Ambox_outdated_serious.png" width="50" height="50" longdesc="Image_50px-Ambox_outdated_serious.png.html" /></a>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">This article is outdated. It may use methods or functions which no longer exist or which are deemed obsolete by the community. Caution is advised. There is a <a href="MySQL_R33.html" title="MySQL/R33">new wiki page for newer versions of this plugin</a>.</span>
+</td></tr></table>
+</div>
+<p><br />
+</p><p>Documentation for G-sTyLeZzZ's MySQL plugin version R6-2 (R7 will be supported soon). Forum topic and download links can be found <a href="http://forum.sa-mp.com/showthread.php?t=56564" class='external text' title="http://forum.sa-mp.com/showthread.php?t=56564" rel="nofollow">here</a>.
+</p><p><b>Lastest release:</b> R7 (6/02/2012)
+</p>
+<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class='toclevel-1'><a href="#Plugin_functions"><span class="tocnumber">1</span> <span class="toctext">Plugin functions</span></a>
+<ul>
+<li class='toclevel-2'><a href="#mysql_debug"><span class="tocnumber">1.1</span> <span class="toctext">mysql_debug</span></a></li>
+<li class='toclevel-2'><a href="#mysql_connect"><span class="tocnumber">1.2</span> <span class="toctext">mysql_connect</span></a></li>
+<li class='toclevel-2'><a href="#mysql_close"><span class="tocnumber">1.3</span> <span class="toctext">mysql_close</span></a></li>
+<li class='toclevel-2'><a href="#mysql_ping"><span class="tocnumber">1.4</span> <span class="toctext">mysql_ping</span></a></li>
+<li class='toclevel-2'><a href="#mysql_stat"><span class="tocnumber">1.5</span> <span class="toctext">mysql_stat</span></a></li>
+<li class='toclevel-2'><a href="#mysql_set_charset"><span class="tocnumber">1.6</span> <span class="toctext">mysql_set_charset</span></a></li>
+<li class='toclevel-2'><a href="#mysql_get_charset"><span class="tocnumber">1.7</span> <span class="toctext">mysql_get_charset</span></a></li>
+<li class='toclevel-2'><a href="#mysql_reconnect"><span class="tocnumber">1.8</span> <span class="toctext">mysql_reconnect</span></a></li>
+<li class='toclevel-2'><a href="#mysql_reload"><span class="tocnumber">1.9</span> <span class="toctext">mysql_reload</span></a></li>
+<li class='toclevel-2'><a href="#mysql_format"><span class="tocnumber">1.10</span> <span class="toctext">mysql_format</span></a>
+<ul>
+<li class='toclevel-3'><a href="#Format_strings"><span class="tocnumber">1.10.1</span> <span class="toctext">Format strings</span></a></li>
+</ul>
+</li>
+<li class='toclevel-2'><a href="#mysql_query"><span class="tocnumber">1.11</span> <span class="toctext">mysql_query</span></a></li>
+<li class='toclevel-2'><a href="#mysql_query_callback"><span class="tocnumber">1.12</span> <span class="toctext">mysql_query_callback</span></a></li>
+<li class='toclevel-2'><a href="#mysql_store_result"><span class="tocnumber">1.13</span> <span class="toctext">mysql_store_result</span></a></li>
+<li class='toclevel-2'><a href="#mysql_free_result"><span class="tocnumber">1.14</span> <span class="toctext">mysql_free_result</span></a></li>
+<li class='toclevel-2'><a href="#mysql_real_escape_string"><span class="tocnumber">1.15</span> <span class="toctext">mysql_real_escape_string</span></a></li>
+<li class='toclevel-2'><a href="#mysql_errno"><span class="tocnumber">1.16</span> <span class="toctext">mysql_errno</span></a></li>
+<li class='toclevel-2'><a href="#mysql_warning_count"><span class="tocnumber">1.17</span> <span class="toctext">mysql_warning_count</span></a></li>
+<li class='toclevel-2'><a href="#mysql_affected_rows"><span class="tocnumber">1.18</span> <span class="toctext">mysql_affected_rows</span></a></li>
+<li class='toclevel-2'><a href="#mysql_num_rows"><span class="tocnumber">1.19</span> <span class="toctext">mysql_num_rows</span></a></li>
+<li class='toclevel-2'><a href="#mysql_num_fields"><span class="tocnumber">1.20</span> <span class="toctext">mysql_num_fields</span></a></li>
+<li class='toclevel-2'><a href="#mysql_insert_id"><span class="tocnumber">1.21</span> <span class="toctext">mysql_insert_id</span></a></li>
+<li class='toclevel-2'><a href="#mysql_field_count"><span class="tocnumber">1.22</span> <span class="toctext">mysql_field_count</span></a></li>
+<li class='toclevel-2'><a href="#mysql_fetch_int"><span class="tocnumber">1.23</span> <span class="toctext">mysql_fetch_int</span></a></li>
+<li class='toclevel-2'><a href="#mysql_fetch_float"><span class="tocnumber">1.24</span> <span class="toctext">mysql_fetch_float</span></a></li>
+<li class='toclevel-2'><a href="#mysql_fetch_row_format"><span class="tocnumber">1.25</span> <span class="toctext">mysql_fetch_row_format</span></a></li>
+<li class='toclevel-2'><a href="#mysql_retrieve_row"><span class="tocnumber">1.26</span> <span class="toctext">mysql_retrieve_row</span></a></li>
+<li class='toclevel-2'><a href="#mysql_fetch_field"><span class="tocnumber">1.27</span> <span class="toctext">mysql_fetch_field</span></a></li>
+<li class='toclevel-2'><a href="#mysql_fetch_field_row"><span class="tocnumber">1.28</span> <span class="toctext">mysql_fetch_field_row</span></a></li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#Plugin_callbacks"><span class="tocnumber">2</span> <span class="toctext">Plugin callbacks</span></a>
+<ul>
+<li class='toclevel-2'><a href="#OnQueryFinish"><span class="tocnumber">2.1</span> <span class="toctext">OnQueryFinish</span></a></li>
+<li class='toclevel-2'><a href="#OnQueryError"><span class="tocnumber">2.2</span> <span class="toctext">OnQueryError</span></a></li>
+</ul>
+</li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R6.html" title="Edit section: Plugin functions">edit</a>]</div><a name="Plugin_functions"></a><h1> Plugin functions </h1>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+<p><strong>Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">Every function except mysql_connect(...) and mysql_debug() has connectionHandle parameter. If you use only one database connection you don't need to mind it. Connection handle is 1 by default.</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R6.html" title="Edit section: mysql_debug">edit</a>]</div><a name="mysql_debug"></a><h2> mysql_debug </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">You can enable plugin debug (mysql_log.txt) with this function.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(enable)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">enable</td><td style="vertical-align:top;">1 to enable, 0 to disable (defaults to 1).</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">This function does not return any specific values.<br /></div>
+<p><br />
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnGameModeInit"><span style="color: #dc143c">OnGameModeInit</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	mysql_debug<span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">1</span><span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">//enable debug</span>
+	<span style="color: #808080; font-style: italic;">//...</span>
+	mysql_debug<span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">//disable debug</span>
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R6.html" title="Edit section: mysql_connect">edit</a>]</div><a name="mysql_connect"></a><h2> mysql_connect </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Use this function to connect to MySQL server and database.<br /></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #FFEAEA; border-left: 10px solid #FCA9A9;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #FCA9A9;"><a href="Image_32px-Circle-style-warning.png.html" class="image" title="Image:32px-Circle-style-warning.png"><img src="../upload/5/57/32px-Circle-style-warning.png" alt="Image:32px-Circle-style-warning.png" width="32" height="32" longdesc="Image_32px-Circle-style-warning.png.html" /></a><br />
+<p><strong>Important<br />Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">Do not use this function to reconnect to the database. Use <a href="MySQL.html#mysql_reconnect" title="MySQL">mysql_reconnect()</a> instead.</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(const host[], const user[], const database[], const password[])<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const host[]</td><td style="vertical-align:top;">IP or hostname of the MySQL server.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const user[]</td><td style="vertical-align:top;">Username of the account you want to connect to.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const database[]</td><td style="vertical-align:top;">Name of the database you want to connect to.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const password[]</td><td style="vertical-align:top;">Password of the account you want to connect to.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">Connection handle.<br /></div>
+<p><br />
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnGameModeInit"><span style="color: #dc143c">OnGameModeInit</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #228b22; font-weight: bold;">new</span> mysql = mysql_connect<span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;127.0.0.1&quot;</span>,<span style="color: #b22222;">&quot;root&quot;</span>,<span style="color: #b22222;">&quot;mydatabase&quot;</span>,<span style="color: #b22222;">&quot;mypass&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #808080; font-style: italic;">// ...</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R6.html" title="Edit section: mysql_close">edit</a>]</div><a name="mysql_close"></a><h2> mysql_close </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Use this function to close database connection.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(connectionHandle)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">connectionHandle</td><td style="vertical-align:top;">The connection handle this will be processed on.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">
+<ul><li> <b>1:</b> The function was executed successfully. 
+</li><li> <b>0:</b> The function failed to execute. <br /></div>
+</li></ul>
+<p><br />
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnGameModeExit"><span style="color: #dc143c">OnGameModeExit</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	mysql_close<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R6.html" title="Edit section: mysql_ping">edit</a>]</div><a name="mysql_ping"></a><h2> mysql_ping </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Checks whether or not the connection to the server is working. This function can be used by scripts that remain idle for a long while, to check whether or not the server has closed the connection.<br /></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #FFEAEA; border-left: 10px solid #FCA9A9;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #FCA9A9;"><a href="Image_32px-Circle-style-warning.png.html" class="image" title="Image:32px-Circle-style-warning.png"><img src="../upload/5/57/32px-Circle-style-warning.png" alt="Image:32px-Circle-style-warning.png" width="32" height="32" longdesc="Image_32px-Circle-style-warning.png.html" /></a><br />
+<p><strong>Important<br />Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">Connection state check (and reconnect if needed) happens automatically incase you are using threaded callback, so you don't need to perform any manual checks.</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(connectionHandle)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">connectionHandle</td><td style="vertical-align:top;">The connection handle this will be processed on.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">1 if alive, 0 if invalid handle, -1 if dead.<br /></div>
+<p><br />
+</p>
+<pre class="pawn"><span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>mysql_ping<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span> == <span style="color: #4169e1;">1</span><span style="color: #66cc66;">&#41;</span> <a href="http://wiki.sa-mp.com/wiki/print"><span style="color: #006400;">print</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;MySQL connection is still alive!&quot;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #808080; font-style: italic;">// ...</span>
+<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>mysql_ping<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>&nbsp;!= <span style="color: #4169e1;">1</span><span style="color: #66cc66;">&#41;</span> <a href="http://wiki.sa-mp.com/wiki/print"><span style="color: #006400;">print</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;MySQL connection is dead!&quot;</span><span style="color: #66cc66;">&#41;</span>;</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R6.html" title="Edit section: mysql_stat">edit</a>]</div><a name="mysql_stat"></a><h2> mysql_stat </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Use this function to get current statistics of the MySQL server.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(const destination[], connectionHandle)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const destination[]</td><td style="vertical-align:top;">The string to store extracted data in.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">connectionHandle</td><td style="vertical-align:top;">The connection handle this will be processed on.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">
+<ul><li> <b>1:</b> The function was executed successfully. 
+</li><li> <b>0:</b> The function failed to execute. <br /></div>
+</li></ul>
+<p><br />
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> stats<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">150</span><span style="color: #66cc66;">&#93;</span>; mysql_stat<span style="color: #66cc66;">&#40;</span>stats<span style="color: #66cc66;">&#41;</span>; <a href="http://wiki.sa-mp.com/wiki/print"><span style="color: #006400;">print</span></a><span style="color: #66cc66;">&#40;</span>stats<span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+<span style="color: #808080; font-style: italic;">//Output would be something like:</span>
+<span style="color: orange;">Uptime</span>: <span style="color: #4169e1;">380</span>  <span style="color: orange;">Threads</span>: <span style="color: #4169e1;">1</span>  <span style="color: orange;">Questions</span>: <span style="color: #4169e1;">3</span>  Slow <span style="color: orange;">queries</span>: <span style="color: #4169e1;">0</span>  <span style="color: orange;">Opens</span>: <span style="color: #4169e1;">12</span>  Flush <span style="color: orange;">tables</span>: <span style="color: #4169e1;">1</span>  
+Open <span style="color: orange;">tables</span>: <span style="color: #4169e1;">6</span>  Queries per second <span style="color: orange;">avg</span>: <span style="color: #4169e1;">0.008</span></pre>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R6.html" title="Edit section: mysql_set_charset">edit</a>]</div><a name="mysql_set_charset"></a><h2> mysql_set_charset </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Use this function to change character set that connection will use. Very useful for servers which often process data with foreign characters.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(charset[],connectionHandle)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">charset[]</td><td style="vertical-align:top;">Code of the character set you want to use.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">connectionHandle</td><td style="vertical-align:top;">The connection handle this will be processed on.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">Always 0<br /></div>
+<p><br />
+</p>
+<pre class="pawn">mysql_set_charset<span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;utf8_unicode_ci&quot;</span><span style="color: #66cc66;">&#41;</span>;</pre>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R6.html" title="Edit section: mysql_get_charset">edit</a>]</div><a name="mysql_get_charset"></a><h2> mysql_get_charset </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Use this function to get the current character in use.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(destination[], connectionHandle)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">destination[]</td><td style="vertical-align:top;">The string to store extracted data in.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">connectionHandle</td><td style="vertical-align:top;">The connection handle this will be processed on.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">Always 0<br /></div>
+<p><br />
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> charset<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">20</span><span style="color: #66cc66;">&#93;</span>; mysql_get_charset<span style="color: #66cc66;">&#40;</span>charset<span style="color: #66cc66;">&#41;</span>;</pre>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R6.html" title="Edit section: mysql_reconnect">edit</a>]</div><a name="mysql_reconnect"></a><h2> mysql_reconnect </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Use this function to reconnect to selected connection handle.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(connectionHandle)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">connectionHandle</td><td style="vertical-align:top;">The connection handle this will be processed on.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">
+<ul><li> <b>1:</b> The function was executed successfully. 
+</li><li> <b>0:</b> The function failed to execute. <br /></div>
+</li></ul>
+<p><br />
+</p>
+<pre class="pawn"><span style="color: #808080; font-style: italic;">//connection was lost for some reason</span>
+mysql_reconnect<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>;</pre>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R6.html" title="Edit section: mysql_reload">edit</a>]</div><a name="mysql_reload"></a><h2> mysql_reload </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;"> Asks the MySQL server to reload the grant tables. The connected user must have the RELOAD privilege.<br /></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #FFEAEA; border-left: 10px solid #FCA9A9;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #FCA9A9;"><a href="Image_32px-Circle-style-warning.png.html" class="image" title="Image:32px-Circle-style-warning.png"><img src="../upload/5/57/32px-Circle-style-warning.png" alt="Image:32px-Circle-style-warning.png" width="32" height="32" longdesc="Image_32px-Circle-style-warning.png.html" /></a><br />
+<p><strong>Important<br />Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">This function was fixed in version R5 and will not work in earlier versions!</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(connectionHandle)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">connectionHandle</td><td style="vertical-align:top;">The connection handle this will be processed on.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">Error code, or 0 if invalid handle or success<br /></div>
+<p><br />
+</p>
+<pre class="pawn">mysql_reload<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+<span style="color: #808080; font-style: italic;">//this query has the same functionality as mysql_reload function</span>
+mysql_query<span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;FLUSH PRIVILEGES&quot;</span><span style="color: #66cc66;">&#41;</span>;</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R6.html" title="Edit section: mysql_format">edit</a>]</div><a name="mysql_format"></a><h2> mysql_format </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;"> Allows you to format a string which you can safely use in a query.<br /></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #FFEAEA; border-left: 10px solid #FCA9A9;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #FCA9A9;"><a href="Image_32px-Circle-style-warning.png.html" class="image" title="Image:32px-Circle-style-warning.png"><img src="../upload/5/57/32px-Circle-style-warning.png" alt="Image:32px-Circle-style-warning.png" width="32" height="32" longdesc="Image_32px-Circle-style-warning.png.html" /></a><br />
+<p><strong>Important<br />Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">This function was added in version R6-2 and will not work in earlier versions!</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+<p><strong>Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">Precisions such as %2.f/%10.s are not supported yet.</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(connectionHandle, output[], format[], {Float,_}:...)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">connectionHandle</td><td style="vertical-align:top;">The connection handle this will be processed on.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">output[]</td><td style="vertical-align:top;">The string to output the result to.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">format[]</td><td style="vertical-align:top;">	The format string.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">{Float,_}:...</td><td style="vertical-align:top;">Indefinite number of arguments of any tag.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">This function does not return any specific values.<br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R6.html" title="Edit section: Format strings">edit</a>]</div><a name="Format_strings"></a><h4> Format strings </h4>
+<table>
+<tr>
+<th> Placeholder </th><th>  Meaning
+</th></tr>
+<tr>
+<td> %e </td><td> Escapes data directly without the need to call mysql_escape_string() before
+</td></tr>
+<tr>
+<td> %s </td><td> Inserts a string.
+</td></tr>
+<tr>
+<td> %d or %i </td><td> Inserts an integer (whole) number
+</td></tr>
+<tr>
+<td> %f </td><td> Inserts a floating point number.
+</td></tr></table>
+<p>The values for the placeholders follow in the exact same order as parameters in the call.
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> szDestination<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">100</span><span style="color: #66cc66;">&#93;</span>;
+mysql_format<span style="color: #66cc66;">&#40;</span>connectionHandle, szDestination, <span style="color: #b22222;">&quot;SELECT * FROM `%s` WHERE `bar` = '%e' AND `foobar` = '%f' LIMIT %d&quot;</span>, <span style="color: #b22222;">&quot;foobar&quot;</span>, <span style="color: #b22222;">&quot;escape'me<span style="color: #000099; font-weight: bold;">\&quot;</span>please&quot;</span>, <span style="color: #4169e1;">1.2345</span>, <span style="color: #4169e1;">1337</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #808080; font-style: italic;">// the variable 'szDestination' contains now the formatted query (including the escaped string)</span>
+mysql_query<span style="color: #66cc66;">&#40;</span>szDestination<span style="color: #66cc66;">&#41;</span>;</pre>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R6.html" title="Edit section: mysql_query">edit</a>]</div><a name="mysql_query"></a><h2> mysql_query </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">This is basically the main function of this plugin. You can send unique query (multiple queries are not supported) to the currently active database on the server. You can learn how to write a proper query <a href="http://www.w3schools.com/sql/default.asp" class='external text' title="http://www.w3schools.com/sql/default.asp" rel="nofollow">here</a>.<br /></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #FFEAEA; border-left: 10px solid #FCA9A9;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #FCA9A9;"><a href="Image_32px-Circle-style-warning.png.html" class="image" title="Image:32px-Circle-style-warning.png"><img src="../upload/5/57/32px-Circle-style-warning.png" alt="Image:32px-Circle-style-warning.png" width="32" height="32" longdesc="Image_32px-Circle-style-warning.png.html" /></a><br />
+<p><strong>Important<br />Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">It's highly recommended to thread all your queries (even INSERT &amp; UPDATE). You can find a simple usage explained <a href="http://bit.ly/a4lfWa" class='external text' title="http://bit.ly/a4lfWa" rel="nofollow">here</a> and fresh example <a href="http://wiki.sa-mp.com/wiki/MySQL#OnQueryFinish" class='external text' title="http://wiki.sa-mp.com/wiki/MySQL#OnQueryFinish" rel="nofollow">here</a>.</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(query[], resultid, extraid, connectionHandle)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">query[]</td><td style="vertical-align:top;">The query you want to process.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">resultid</td><td style="vertical-align:top;">Optional (if you specify this query will be processed in a separate thread).</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">extraid</td><td style="vertical-align:top;">Optional (extra variable that would be processed to the callback.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">connectionHandle</td><td style="vertical-align:top;">The connection handle this will be processed on.</td></tr></table></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+<p><strong>Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">Use <a href="MySQL.html#mysql_num_rows" title="MySQL">mysql_num_rows()</a> to find out how many rows were returned for a SELECT statement or <a href="MySQL.html#mysql_affected_rows" title="MySQL">mysql_affected_rows()</a> to find out how many rows were affected by a DELETE, INSERT, REPLACE, or UPDATE statement.</span>
+</td></tr></table>
+</div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">
+<ul><li> <b>1:</b> The function was executed successfully. 
+</li><li> <b>0:</b> The function failed to execute. <br /></div>
+</li></ul>
+<p><br />
+</p>
+<pre class="pawn"><span style="color: #808080; font-style: italic;">//If you do not plan on using threads, simply do not mind optional parameters</span>
+mysql_query<span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;SELECT * FROM `mytable` WHERE condition=true&quot;</span><span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+<span style="color: #808080; font-style: italic;">//But if you do plan on using threads, check this example</span>
+<span style="color: #6b8e23;">#define THREAD_MYSELECT  (1)</span>
+mysql_query<span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;SELECT * FROM `mytable` WHERE condition=true&quot;</span>,THREAD_MYSELECT,playerid<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #808080; font-style: italic;">//This query would be processed in a separate thread.</span>
+<span style="color: #808080; font-style: italic;">//After processing is done, OnQueryFinish would be called with these parameters:</span>
+<span style="color: #808080; font-style: italic;">//OnQueryFinish(&quot;SELECT * FROM `mytable` WHERE condition=true&quot;, 1, 0, 1);</span></pre>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R6.html" title="Edit section: mysql_query_callback">edit</a>]</div><a name="mysql_query_callback"></a><h2> mysql_query_callback </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Very similar to the <a href="MySQL.html#mysql_query" title="MySQL">mysql_query()</a>, but here you can specify custom callback for your threaded query.<br /></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #FFEAEA; border-left: 10px solid #FCA9A9;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #FCA9A9;"><a href="Image_32px-Circle-style-warning.png.html" class="image" title="Image:32px-Circle-style-warning.png"><img src="../upload/5/57/32px-Circle-style-warning.png" alt="Image:32px-Circle-style-warning.png" width="32" height="32" longdesc="Image_32px-Circle-style-warning.png.html" /></a><br />
+<p><strong>Important<br />Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">This function was added in version R5 and will not work in earlier versions!</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(index, query[], callback[], extraid, connectionHandle)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">index</td><td style="vertical-align:top;">Extra variable which is processed to the callback.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">query[]</td><td style="vertical-align:top;">The query you want to process.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">callback[]</td><td style="vertical-align:top;">Name of the function to call.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">extraid</td><td style="vertical-align:top;">Optional (extra variable that would be processed to the callback.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">connectionHandle</td><td style="vertical-align:top;">The connection handle this will be processed on.</td></tr></table></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+<p><strong>Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">The callback must be <a href="Public_functions.html" title="Public functions">public</a> function. That means it has to be <a href="Public_functions.html#Forwarding" title="Public functions">forwarded</a>.</span>
+</td></tr></table>
+</div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">Thread index or 0 on fail.<br /></div>
+<p><br />
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">forward</span> MySqlCallback<span style="color: #66cc66;">&#40;</span>query<span style="color: #66cc66;">&#91;</span><span style="color: #66cc66;">&#93;</span>, index, extraid, connectionHandle<span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnPlayerConnect"><span style="color: #dc143c">OnPlayerConnect</span></a><span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	mysql_query_callback<span style="color: #66cc66;">&#40;</span>playerid,<span style="color: #b22222;">&quot;SELECT * FROM `mybuildings`&quot;</span>,<span style="color: #b22222;">&quot;MySqlCallback&quot;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">public</span> MySqlCallback<span style="color: #66cc66;">&#40;</span>query<span style="color: #66cc66;">&#91;</span><span style="color: #66cc66;">&#93;</span>, index, extraid, connectionHandle<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #808080; font-style: italic;">//Query processed, you can execute your code now</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R6.html" title="Edit section: mysql_store_result">edit</a>]</div><a name="mysql_store_result"></a><h2> mysql_store_result </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Use this function to store result after using SELECT, SHOW, DESCRIBE, EXPLAIN or CHECK TABLE query.<br /></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+<p><strong>Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">You have to use this function before fetching the result. Also don't forget to free result when you don't need it anymore with <a href="MySQL.html#mysql_free_result" title="MySQL">mysql_free_result()</a> or you will get "commands out of sync" errors.</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(connectionHandle)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">connectionHandle</td><td style="vertical-align:top;">The connection handle this will be processed on.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">
+<ul><li> <b>1:</b> The function was executed successfully. 
+</li><li> <b>0:</b> The function failed to execute. <br /></div>
+</li></ul>
+<p><br />
+</p>
+<pre class="pawn">mysql_query<span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;SELECT * FROM `players` WHERE name='iamcool'&quot;</span><span style="color: #66cc66;">&#41;</span>;
+mysql_store_result<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #808080; font-style: italic;">//do what you have to do</span>
+mysql_free_result<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>;</pre>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R6.html" title="Edit section: mysql_free_result">edit</a>]</div><a name="mysql_free_result"></a><h2> mysql_free_result </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Use this function to free result after using <a href="MySQL.html#mysql_store_result" title="MySQL">mysql_store_result()</a>.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(connectionHandle)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">connectionHandle</td><td style="vertical-align:top;">The connection handle this will be processed on.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">
+<ul><li> <b>1:</b> The function was executed successfully. 
+</li><li> <b>0:</b> The function failed to execute. <br /></div>
+</li></ul>
+<p><br />
+</p>
+<pre class="pawn">mysql_query<span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;SELECT * FROM `players` WHERE name='iamcool'&quot;</span><span style="color: #66cc66;">&#41;</span>;
+mysql_store_result<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #808080; font-style: italic;">//do what you have to do</span>
+mysql_free_result<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>;</pre>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R6.html" title="Edit section: mysql_real_escape_string">edit</a>]</div><a name="mysql_real_escape_string"></a><h2> mysql_real_escape_string </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Use this function to escape special characters in a string for use in a SQL statement. It prepends backslashes to the following characters: \x00, \n, \r, \, ', " and \x1a.<br /></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #FFEAEA; border-left: 10px solid #FCA9A9;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #FCA9A9;"><a href="Image_32px-Circle-style-warning.png.html" class="image" title="Image:32px-Circle-style-warning.png"><img src="../upload/5/57/32px-Circle-style-warning.png" alt="Image:32px-Circle-style-warning.png" width="32" height="32" longdesc="Image_32px-Circle-style-warning.png.html" /></a><br />
+<p><strong>Important<br />Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">Always use this function (if you don't use <a href="MySQL.html#mysql_format" title="MySQL">mysql_format()</a>) before inserting user inputs in a query. You can be victim of a <a href="http://en.wikipedia.org/wiki/SQL_injection" class='external text' title="http://en.wikipedia.org/wiki/SQL_injection" rel="nofollow">SQL injection</a> if you do not do so.</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(const source[], destination[], connectionHandle)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const source[]</td><td style="vertical-align:top;">The string you want to be escaped.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">destination[]</td><td style="vertical-align:top;">The string to store escaped data in.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">connectionHandle</td><td style="vertical-align:top;">The connection handle this will be processed on.</td></tr></table></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a><br />
+<p><strong>Notes</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">
+<ul><li> Database connection is required before using this function.
+</li><li> It does not escape % and _. These are wildcards in MySQL if combined with LIKE, GRANT, or REVOKE.</span>
+</li></ul>
+</td></tr></table>
+</div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">Number of escaped characters.<br /></div>
+<p><br />
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnPlayerText"><span style="color: #dc143c">OnPlayerText</span></a><span style="color: #66cc66;">&#40;</span>playerd, text<span style="color: #66cc66;">&#91;</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #228b22; font-weight: bold;">new</span> escape<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">140</span><span style="color: #66cc66;">&#93;</span>;
+	mysql_real_escape_string<span style="color: #66cc66;">&#40;</span>text,escape<span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">//string is now safe to be put in a query</span>
+	<span style="color: #808080; font-style: italic;">// ...</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R6.html" title="Edit section: mysql_errno">edit</a>]</div><a name="mysql_errno"></a><h2> mysql_errno </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Use this function to get the error code of the error message from the previous MySQL operation.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(connectionHandle)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">connectionHandle</td><td style="vertical-align:top;">The connection handle this will be processed on.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">Error code, 0 if no error occurred.<br /></div>
+<p><br />
+</p>
+<pre class="pawn">mysql_query<span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;SELECT * FROM `mytable`&quot;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>mysql_errno<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span> == <span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span> <a href="http://wiki.sa-mp.com/wiki/print"><span style="color: #006400;">print</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;Query processed!&quot;</span><span style="color: #66cc66;">&#41;</span>;</pre>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R6.html" title="Edit section: mysql_warning_count">edit</a>]</div><a name="mysql_warning_count"></a><h2> mysql_warning_count </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Use this function to get number of warnings from the previous query.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(connectionHandle)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">connectionHandle</td><td style="vertical-align:top;">The connection handle this will be processed on.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">Number of warnings, 0 if none.<br /></div>
+<p><br />
+</p>
+<pre class="pawn">mysql_query<span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;UPDATE `notable` SET something=2 WHERE nofield=0&quot;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>mysql_warning_count<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span> <a href="http://wiki.sa-mp.com/wiki/print"><span style="color: #006400;">print</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;Warnings occurred!&quot;</span><span style="color: #66cc66;">&#41;</span>;</pre>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R6.html" title="Edit section: mysql_affected_rows">edit</a>]</div><a name="mysql_affected_rows"></a><h2> mysql_affected_rows </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Use this function get the number of affected rows by the last INSERT, UPDATE, REPLACE or DELETE query.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(connectionHandle)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">connectionHandle</td><td style="vertical-align:top;">The connection handle this will be processed on.</td></tr></table></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+<p><strong>Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">If the last query was a DELETE query with no WHERE clause, all of the records will have been deleted from the table but this function will return zero.</span>
+</td></tr></table>
+</div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">Number of affected rows.<br /></div>
+<p><br />
+</p>
+<pre class="pawn">mysql_query<span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;DELETE FROM mylogs WHERE log_id &gt; 10&quot;</span><span style="color: #66cc66;">&#41;</span>;
+<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;%d logs deleted!&quot;</span>,mysql_affected_rows<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>;</pre>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R6.html" title="Edit section: mysql_num_rows">edit</a>]</div><a name="mysql_num_rows"></a><h2> mysql_num_rows </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Retrieves the number of rows from a result set. This command is only valid for statements like SELECT or SHOW that return an actual result set. To retrieve the number of rows affected by a INSERT, UPDATE, REPLACE or DELETE query, use <a href="MySQL.html#mysql_affected_rows" title="MySQL">mysql_affected_rows()</a>.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(connectionHandle)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">connectionHandle</td><td style="vertical-align:top;">The connection handle this will be processed on.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">Number of rows.<br /></div>
+<p><br />
+</p>
+<pre class="pawn">mysql_query<span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;SELECT NULL FROM table1&quot;</span><span style="color: #66cc66;">&#41;</span>;
+mysql_store_result<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>; 
+<span style="color: #228b22; font-weight: bold;">new</span> rows = mysql_num_rows<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>; 
+mysql_free_result<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;There are %d rows in table1&quot;</span>,rows<span style="color: #66cc66;">&#41;</span>;</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R6.html" title="Edit section: mysql_num_fields">edit</a>]</div><a name="mysql_num_fields"></a><h2> mysql_num_fields </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Returns the number of columns in a result set.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(connectionHandle)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">connectionHandle</td><td style="vertical-align:top;">The connection handle this will be processed on.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">Number of fields.<br /></div>
+<p><br />
+</p>
+<pre class="pawn">mysql_query<span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;SELECT field1,field2,field3 FROM table2&quot;</span><span style="color: #66cc66;">&#41;</span>;
+mysql_store_result<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;%d fields were selected.&quot;</span>,mysql_num_fields<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+mysql_free_result<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>;</pre>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R6.html" title="Edit section: mysql_insert_id">edit</a>]</div><a name="mysql_insert_id"></a><h2> mysql_insert_id </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Retrieves the ID generated for an AUTO_INCREMENT column by the previous query (usually INSERT).<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(connectionHandle)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">connectionHandle</td><td style="vertical-align:top;">The connection handle this will be processed on.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">ID generated for an AUTO_INCREMENT column.<br /></div>
+<p><br />
+</p>
+<pre class="pawn">mysql_query<span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;INSERT INTO `players` (name,password) VALUES ('Ownage',MD5('mypass')&quot;</span><span style="color: #66cc66;">&#41;</span>;
+<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;New player registered with ID %d&quot;</span>,mysql_insert_id<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>;</pre>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R6.html" title="Edit section: mysql_field_count">edit</a>]</div><a name="mysql_field_count"></a><h2> mysql_field_count </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Use this function to get the number of columns for the most recent query on the connection.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(connectionHandle)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">connectionHandle</td><td style="vertical-align:top;">The connection handle this will be processed on.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">Number of columns.<br /></div>
+<p><br />
+</p>
+<pre class="pawn">mysql_query<span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;SELECT * FROM mytable&quot;</span><span style="color: #66cc66;">&#41;</span>;
+mysql_store_result<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;There are %d columns in the result set.&quot;</span>,mysql_field_count<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+mysql_free_Result<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>;</pre>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R6.html" title="Edit section: mysql_fetch_int">edit</a>]</div><a name="mysql_fetch_int"></a><h2> mysql_fetch_int </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Use this function to retrieve single integer (positive number) from the result set.<br /></div>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+<p><strong>Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">This function only works with numerical digits (0-9) and may not work with negative value from result.</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(connectionHandle)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">connectionHandle</td><td style="vertical-align:top;">The connection handle this will be processed on.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">Integer from the result set. -1 if not numeric.<br /></div>
+<p><br />
+</p>
+<pre class="pawn">mysql_query<span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;SELECT myid FROM players LIMIT 1&quot;</span><span style="color: #66cc66;">&#41;</span>;
+mysql_store_result<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">new</span> myid = mysql_fetch_int<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+mysql_free_result<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>;</pre>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R6.html" title="Edit section: mysql_fetch_float">edit</a>]</div><a name="mysql_fetch_float"></a><h2> mysql_fetch_float </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Use this function to retrieve single float value from the result set.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(&amp;Float:result, connectionHandle)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">&amp;Float:result</td><td style="vertical-align:top;">A float to store the result, passed by reference.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">connectionHandle</td><td style="vertical-align:top;">The connection handle this will be processed on.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">
+<ul><li> <b>1:</b> The function was executed successfully. 
+</li><li> <b>0:</b> The function failed to execute. <br /></div>
+</li></ul>
+<p><br />
+</p>
+<pre class="pawn">mysql_query<span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;SELECT health FROM players LIMIT 1&quot;</span><span style="color: #66cc66;">&#41;</span>;
+mysql_store_result<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">new</span> <span style="color: orange;">Float</span>:health;
+mysql_fetch_float<span style="color: #66cc66;">&#40;</span>health<span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+mysql_free_result<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>;</pre>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R6.html" title="Edit section: mysql_fetch_row_format">edit</a>]</div><a name="mysql_fetch_row_format"></a><h2> mysql_fetch_row_format </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Use this function to fetch whole row from the result set.<br /></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a><br />
+<p><strong>Notes</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">
+<ul><li> This function also moves the internal row pointer to the next row.
+</li><li> This function has a macro: mysql_fetch_row(string[]); default delimeter is used for macro.</span>
+</li></ul>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(string[], const delimiter[], connectionHandle)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">string[]</td><td style="vertical-align:top;">The string to store extracted data in.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const delimiter[]</td><td style="vertical-align:top;">Optional (custom delimeter character, defaults to I (vertical bar, pipe)).</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">connectionHandle</td><td style="vertical-align:top;">The connection handle this will be processed on.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">1 if fetched, 0 if there are no more rows to be fetched.<br /></div>
+<p><br />
+</p>
+<pre class="pawn">mysql_query<span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;SELECT * FROM players WHERE name='Myname'&quot;</span><span style="color: #66cc66;">&#41;</span>;
+mysql_store_result<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>; <span style="color: #228b22; font-weight: bold;">new</span> resultline<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">200</span><span style="color: #66cc66;">&#93;</span>;
+&nbsp;
+<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>mysql_fetch_row_format<span style="color: #66cc66;">&#40;</span>resultline<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #808080; font-style: italic;">//you can now use sscanf, explode, split or strtok to split result</span>
+	sscanf<span style="color: #66cc66;">&#40;</span>resultline,<span style="color: #b22222;">&quot;p&lt;|&gt;dds&quot;</span>,PlayerInfo<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>pLevel<span style="color: #66cc66;">&#93;</span>,PlayerInfo<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>pAdmin<span style="color: #66cc66;">&#93;</span>,PlayerInfo<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>pRandomString<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span>
+<span style="color: #4169e1;">else</span> <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid,0xFFFFFF,<span style="color: #b22222;">&quot;Not in database!&quot;</span><span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+mysql_free_result<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>;</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R6.html" title="Edit section: mysql_retrieve_row">edit</a>]</div><a name="mysql_retrieve_row"></a><h2> mysql_retrieve_row </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Use this function to move internal row pointer to the next row. We could basically call this function mysql_next_row(). This function is very useful when we plan on using <a href="MySQL.html#mysql_fetch_field" title="MySQL">mysql_fetch_field()</a> or <a href="MySQL.html#mysql_fetch_field_row" title="MySQL">mysql_fetch_field_row()</a> later on, so we don't need to extract whole result in pawn.<br /></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a><br />
+<p><strong>Notes</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">
+<ul><li> This function also moves the internal row pointer to the next row.
+</li><li> This function has a macro: mysql_next_row().</span>
+</li></ul>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(connectionHandle)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">connectionHandle</td><td style="vertical-align:top;">The connection handle this will be processed on.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">1 row changed, 0 if there are no more rows.<br /></div>
+<p><br />
+</p>
+<pre class="pawn">mysql_query<span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;SELECT * FROM houses&quot;</span><span style="color: #66cc66;">&#41;</span>;
+mysql_ store_result<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+<span style="color: #4169e1;">while</span><span style="color: #66cc66;">&#40;</span>mysql_retrieve_row<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span> <span style="color: #808080; font-style: italic;">//this will be running until all rows are processed</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #808080; font-style: italic;">//you can use mysql_fetch_field and mysql_fetch_field_row here</span>
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+mysql_free_result<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>;</pre>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R6.html" title="Edit section: mysql_fetch_field">edit</a>]</div><a name="mysql_fetch_field"></a><h2> mysql_fetch_field </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Use this function to get name of specific field.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(number, dest[], connectionHandle)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">number</td><td style="vertical-align:top;">Index of the field.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">dest[]</td><td style="vertical-align:top;">The string where fetched data will be stored in.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">connectionHandle</td><td style="vertical-align:top;">The connection handle this will be processed on.</td></tr></table></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #FFEAEA; border-left: 10px solid #FCA9A9;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #FCA9A9;"><a href="Image_32px-Circle-style-warning.png.html" class="image" title="Image:32px-Circle-style-warning.png"><img src="../upload/5/57/32px-Circle-style-warning.png" alt="Image:32px-Circle-style-warning.png" width="32" height="32" longdesc="Image_32px-Circle-style-warning.png.html" /></a><br />
+<p><strong>Important<br />Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">If invalid field number is used plugin will crash.</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+<p><strong>Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">First field has number (index) zero (0).</span>
+</td></tr></table>
+</div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">
+<ul><li> <b>1:</b> The function was executed successfully. 
+</li><li> <b>0:</b> The function failed to execute. <br /></div>
+</li></ul>
+<p><br />
+</p>
+<pre class="pawn"><span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>mysql_retrieve_row<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #228b22; font-weight: bold;">new</span> field<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">20</span><span style="color: #66cc66;">&#93;</span>;
+	<span style="color: #4169e1;">for</span><span style="color: #66cc66;">&#40;</span><span style="color: #228b22; font-weight: bold;">new</span> i, num = mysql_num_fields<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>; i &lt; num; i++<span style="color: #66cc66;">&#41;</span>
+	<span style="color: #66cc66;">&#123;</span>
+		mysql_fetch_field<span style="color: #66cc66;">&#40;</span>i,field<span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">//get name of all fields</span>
+	<span style="color: #66cc66;">&#125;</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R6.html" title="Edit section: mysql_fetch_field_row">edit</a>]</div><a name="mysql_fetch_field_row"></a><h2> mysql_fetch_field_row </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Use this function to fetch data in field addressed by its name.<br /></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+<p><strong>Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">This function has a macro: mysql_get_field(const fieldname[], string[]).</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(string[], const fieldname[], connectionHandle)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">string[]</td><td style="vertical-align:top;">The string where fetched data will be stored in.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const fieldname[]</td><td style="vertical-align:top;">Name of the field to be fetched.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">connectionHandle</td><td style="vertical-align:top;">The connection handle this will be processed on.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">
+<ul><li> <b>1:</b> The function was executed successfully. 
+</li><li> <b>0:</b> The function failed to execute. <br /></div>
+</li></ul>
+<p><br />
+</p>
+<pre class="pawn"><span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>mysql_retrieve_row<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #228b22; font-weight: bold;">new</span> result<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">50</span><span style="color: #66cc66;">&#93;</span>;
+	mysql_fetch_field_row<span style="color: #66cc66;">&#40;</span>result,<span style="color: #b22222;">&quot;username&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #808080; font-style: italic;">//or if you use macro</span>
+	mysql_get_field<span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;username&quot;</span>,result<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R6.html" title="Edit section: Plugin callbacks">edit</a>]</div><a name="Plugin_callbacks"></a><h1> Plugin callbacks </h1>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+<p><strong>Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">This is only for advanced users aka those who use threaded queries.</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R6.html" title="Edit section: OnQueryFinish">edit</a>]</div><a name="OnQueryFinish"></a><h2> OnQueryFinish </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">This callback is called if integer different than (-1) is inserted in 'resultid' parameter of the <a href="MySQL.html#mysql_query" title="MySQL">mysql_query()</a>.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(query[], resultid, extraid, connectionHandle)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">query[]</td><td style="vertical-align:top;">Query which was processed.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">resultid</td><td style="vertical-align:top;">Thread ID you specified.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">extraid</td><td style="vertical-align:top;">Extra variable passed from mysql_query function.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">connectionHandle</td><td style="vertical-align:top;">The connection handle this was processed on.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">This callback does not handle returns. <br /></div>
+<p><br />
+</p>
+<pre class="pawn"><span style="color: #6b8e23;">#define THREAD_LOADPLAYER (5)</span>
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnPlayerConnect"><span style="color: #dc143c">OnPlayerConnect</span></a><span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	mysql_query<span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;SELECT * FROM players WHERE name='Myname'&quot;</span>,THREAD_LOADPLAYER,playerid<span style="color: #66cc66;">&#41;</span>;
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">public</span> OnQueryFinish<span style="color: #66cc66;">&#40;</span>query<span style="color: #66cc66;">&#91;</span><span style="color: #66cc66;">&#93;</span>, resultid, extraid, connectionHandle<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #4169e1;">switch</span><span style="color: #66cc66;">&#40;</span>resultid<span style="color: #66cc66;">&#41;</span>
+	<span style="color: #66cc66;">&#123;</span>
+		<span style="color: orange; font-weight: bold;">case</span> THREAD_LOADPLAYER:
+		<span style="color: #66cc66;">&#123;</span>
+			mysql_store_result<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>;
+			<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span><a href="http://wiki.sa-mp.com/wiki/IsPlayerConnected"><span style="color: #006400;">IsPlayerConnected</span></a><span style="color: #66cc66;">&#40;</span>extraid<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>
+			<span style="color: #66cc66;">&#123;</span>
+				<span style="color: #808080; font-style: italic;">//Execute your code</span>
+			<span style="color: #66cc66;">&#125;</span>
+			mysql_free_result<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>;
+		<span style="color: #66cc66;">&#125;</span>
+	<span style="color: #66cc66;">&#125;</span>
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="MySQL_R6.html" title="Edit section: OnQueryError">edit</a>]</div><a name="OnQueryError"></a><h2> OnQueryError </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">This callback is called when error occurs when processing a query.<br /></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #FFEAEA; border-left: 10px solid #FCA9A9;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #FCA9A9;"><a href="Image_32px-Circle-style-warning.png.html" class="image" title="Image:32px-Circle-style-warning.png"><img src="../upload/5/57/32px-Circle-style-warning.png" alt="Image:32px-Circle-style-warning.png" width="32" height="32" longdesc="Image_32px-Circle-style-warning.png.html" /></a><br />
+<p><strong>Important<br />Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">This callback was added in version R5 and will not work in earlier versions!</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+<p><strong>Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">Common error codes for <a href="http://dev.mysql.com/doc/refman/5.0/en/error-messages-client.html" class='external text' title="http://dev.mysql.com/doc/refman/5.0/en/error-messages-client.html" rel="nofollow">client</a> and <a href="http://dev.mysql.com/doc/refman/5.0/en/error-messages-server.html" class='external text' title="http://dev.mysql.com/doc/refman/5.0/en/error-messages-server.html" rel="nofollow">server</a>.</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(errorid, error[], resultid, extraid, callback[], query[], connectionHandle)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">errorid</td><td style="vertical-align:top;">ID of the error.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">error[]</td><td style="vertical-align:top;">Name of the error.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">resultid</td><td style="vertical-align:top;">Thread ID you specified.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">extraid</td><td style="vertical-align:top;">Extra variable passed from mysql_query function.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">callback[]</td><td style="vertical-align:top;">Name of the callback from mysql_query_callback function. It equals to "NULL" if it's not used.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">query[]</td><td style="vertical-align:top;">Query which was processed.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">connectionHandle</td><td style="vertical-align:top;">The connection handle this was processed on.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">This callback does not handle returns. <br /></div>
+<p><br />
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">public</span> OnQueryError<span style="color: #66cc66;">&#40;</span>errorid, error<span style="color: #66cc66;">&#91;</span><span style="color: #66cc66;">&#93;</span>, resultid, extraid, callback<span style="color: #66cc66;">&#91;</span><span style="color: #66cc66;">&#93;</span>, query<span style="color: #66cc66;">&#91;</span><span style="color: #66cc66;">&#93;</span>, connectionHandle<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #4169e1;">switch</span><span style="color: #66cc66;">&#40;</span>errorid<span style="color: #66cc66;">&#41;</span>
+	<span style="color: #66cc66;">&#123;</span>
+		<span style="color: orange; font-weight: bold;">case</span> CR_COMMAND_OUT_OF_SYNC:
+		<span style="color: #66cc66;">&#123;</span>
+			<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;Commands out of sync for thread ID: %d&quot;</span>,resultid<span style="color: #66cc66;">&#41;</span>;
+		<span style="color: #66cc66;">&#125;</span>
+		<span style="color: orange; font-weight: bold;">case</span> ER_SYNTAX_ERROR:
+		<span style="color: #66cc66;">&#123;</span>
+			<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;Something is wrong in your syntax, query: %s&quot;</span>,query<span style="color: #66cc66;">&#41;</span>;
+		<span style="color: #66cc66;">&#125;</span>
+	<span style="color: #66cc66;">&#125;</span>
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/MySQL_R6.html">http://localhost../wiki/MySQL_R6.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="Category_Outdated.html" title="Category:Outdated">Outdated</a></span> | <span dir='ltr'><a href="Category_Plugin_Documentation.html" title="Category:Plugin Documentation">Plugin Documentation</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="MySQL_R6.html">Article</a></li>
+				 <li id="ca-talk"><a href="Talk_MySQL_R6.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="MySQL_R6.html">Edit</a></li>
+				 <li id="ca-history"><a href="MySQL_R6.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 151,715 times.</li>
+				<li id="credits">This page was last modified 17:11, 15 February 2020 by SA-MP Wiki user <a href="User_RoboN1X.html" title="User:RoboN1X">RoboN1X</a>. Based on work by SA-MP Wiki user(s) <a href="User_OstGot.html" title="User:OstGot">OstGot</a>, <a href="User_Vince.html" title="User:Vince">Vince</a>, <a href="User_Maddinat0r.html" title="User:Maddinat0r">Maddinat0r</a>, <a href="User_LaZ.html" title="User:LaZ">LaZ</a>, <a href="User_Meta.html" title="User:Meta">Meta</a>, <a href="User_Vince.html" title="User:Vince">Vince</a>, <a href="User_Sergiy.html" title="User:Sergiy">Sergiy</a>, <a href="User_Lenny.html" title="User:Lenny">Lenny</a>, <a href="User_Calgon.html" title="User:Calgon">Calgon</a> and <a href="User_SAWC.html" class="new" title="User:SAWC">SAWC</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 60.06 secs. -->
+</body></html>

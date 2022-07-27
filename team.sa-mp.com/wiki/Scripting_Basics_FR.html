@@ -1,0 +1,622 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Scripting Basics FR,Control Structures,Keywords,Main Page FR,Scripting Basics,Server Plugins,Scripting Callbacks FR,Scripting Functions FR,Tutorials FR" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>Scripting Basics FR - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Scripting Basics FR</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<div class="scripting" style="color: #4378A4; background-color: #FFFFFF; margin: 2px; margin-bottom: 10px;"><div align="center" style="border: 1px solid #AAAAAA; padding: 3px; padding-left: 5px;"><a href="Main_Page_FR.html" title="Main Page FR">Page d'Accueil</a> | <a href="Category_Scripting_Functions_FR.html" title="Category:Scripting Functions FR">Les Fonctions</a> | <a href="Category_Scripting_Callbacks_FR.html" title="Category:Scripting Callbacks FR">Les Callbacks</a> | <strong>Les bases du Scripting</strong> | <a href="Server_Plugins.html" title="Server Plugins">Plugins de Serveur</a> | <a href="Category_Tutorials_FR.html" title="Category:Tutorials FR">Tutoriaux</a><br /><div style="font-size:10px;padding:0px;margin:-6px;">Ne prenez pas en compte les <b>FR</b> dans les noms</div></div></div><br />
+<p><br />
+</p>
+<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class='toclevel-1'><a href="#Commen.C3.A7ons.21"><span class="tocnumber">1</span> <span class="toctext">Commençons!</span></a>
+<ul>
+<li class='toclevel-2'><a href="#Les_.22Includes.22"><span class="tocnumber">1.1</span> <span class="toctext">Les "Includes"</span></a></li>
+<li class='toclevel-2'><a href="#Calls"><span class="tocnumber">1.2</span> <span class="toctext">Calls</span></a></li>
+<li class='toclevel-2'><a href="#Statements"><span class="tocnumber">1.3</span> <span class="toctext">Statements</span></a></li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#Fonctions"><span class="tocnumber">2</span> <span class="toctext">Fonctions</span></a>
+<ul>
+<li class='toclevel-2'><a href="#Calling"><span class="tocnumber">2.1</span> <span class="toctext">Calling</span></a></li>
+<li class='toclevel-2'><a href="#Defining"><span class="tocnumber">2.2</span> <span class="toctext">Defining</span></a></li>
+<li class='toclevel-2'><a href="#Parameters"><span class="tocnumber">2.3</span> <span class="toctext">Parameters</span></a></li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#Variables"><span class="tocnumber">3</span> <span class="toctext">Variables</span></a>
+<ul>
+<li class='toclevel-2'><a href="#Declaration"><span class="tocnumber">3.1</span> <span class="toctext">Declaration</span></a></li>
+<li class='toclevel-2'><a href="#Setting"><span class="tocnumber">3.2</span> <span class="toctext">Setting</span></a></li>
+<li class='toclevel-2'><a href="#Arrays"><span class="tocnumber">3.3</span> <span class="toctext">Arrays</span></a>
+<ul>
+<li class='toclevel-3'><a href="#Declaration_2"><span class="tocnumber">3.3.1</span> <span class="toctext">Declaration</span></a></li>
+<li class='toclevel-3'><a href="#Accessing"><span class="tocnumber">3.3.2</span> <span class="toctext">Accessing</span></a></li>
+<li class='toclevel-3'><a href="#Example"><span class="tocnumber">3.3.3</span> <span class="toctext">Example</span></a></li>
+</ul>
+</li>
+<li class='toclevel-2'><a href="#Strings"><span class="tocnumber">3.4</span> <span class="toctext">Strings</span></a>
+<ul>
+<li class='toclevel-3'><a href="#Basic_use"><span class="tocnumber">3.4.1</span> <span class="toctext">Basic use</span></a></li>
+<li class='toclevel-3'><a href="#Escape_character"><span class="tocnumber">3.4.2</span> <span class="toctext">Escape character</span></a></li>
+</ul>
+</li>
+<li class='toclevel-2'><a href="#Tags"><span class="tocnumber">3.5</span> <span class="toctext">Tags</span></a></li>
+<li class='toclevel-2'><a href="#Scope"><span class="tocnumber">3.6</span> <span class="toctext">Scope</span></a>
+<ul>
+<li class='toclevel-3'><a href="#local"><span class="tocnumber">3.6.1</span> <span class="toctext">local</span></a></li>
+<li class='toclevel-3'><a href="#static_local"><span class="tocnumber">3.6.2</span> <span class="toctext">static local</span></a></li>
+<li class='toclevel-3'><a href="#global"><span class="tocnumber">3.6.3</span> <span class="toctext">global</span></a></li>
+<li class='toclevel-3'><a href="#global_static"><span class="tocnumber">3.6.4</span> <span class="toctext">global static</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#Control_Structures"><span class="tocnumber">4</span> <span class="toctext">Control Structures</span></a></li>
+<li class='toclevel-1'><a href="#Keywords"><span class="tocnumber">5</span> <span class="toctext">Keywords</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_FR.html" title="Edit section: Commençons!">edit</a>]</div><a name="Commen.C3.A7ons.21"></a><h1> Commençons! </h1>
+<p>Voici un exemple du plus basique script que vous pouvez écrire:
+</p>
+<pre class="pawn"><span style="color: #6b8e23;">#include &lt;a_samp&gt;</span>
+&nbsp;
+main<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<a href="http://wiki.sa-mp.com/wiki/print"><span style="color: #006400;">print</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;Salut tous le monde!&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>Les différents aspects seront abordés à tour de rôle, mais nous allons commencer par regarder la première ligne.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_FR.html" title="Edit section: Les &quot;Includes&quot;">edit</a>]</div><a name="Les_.22Includes.22"></a><h2> Les "Includes" </h2>
+<pre class="pawn"><span style="color: #6b8e23;">#include &lt;a_samp&gt;</span></pre>
+<p>Dans les languages de programmations, on appelle ça une "directive de préprocesseur". Son rôle est de "charger" des fonctionnalités du PAWN pour que nous puissions effectuer certaines actions. En bref, les includes permettent l'utilisation de nouvelles fonctions. 
+Voici la liste des includes de SA:MP (crée par la team SA:MP):
+</p>
+<pre class="pawn"><span style="color: #6b8e23;">#include &lt;core&gt;</span>
+<span style="color: #6b8e23;">#include &lt;float&gt;</span>
+<span style="color: #6b8e23;">#include &lt;string&gt;</span>
+<span style="color: #6b8e23;">#include &lt;file&gt;</span>
+<span style="color: #6b8e23;">#include &lt;time&gt;</span>
+<span style="color: #6b8e23;">#include &lt;datagram&gt;</span>
+<span style="color: #6b8e23;">#include &lt;a_players&gt;</span>
+<span style="color: #6b8e23;">#include &lt;a_vehicles&gt;</span>
+<span style="color: #6b8e23;">#include &lt;a_objects&gt;</span>
+<span style="color: #6b8e23;">#include &lt;a_sampdb&gt;</span></pre>
+<p>Si vous copiez-collez ce code dans votre script, vous pourrez utiliser toute les fonctions et callbacks de SA:MP, mais sachant que vous n'allez pas utiliser autant de chose, cela ne sert à rien de faire un copier-coller.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_FR.html" title="Edit section: Calls">edit</a>]</div><a name="Calls"></a><h2> Calls </h2>
+<p>The next part has two sides of a function call.  main() is a function which you write the code for and is called from elsewhere, print(string[]) is a function with the code elsewhere which you call.  Currently all this will do is load, print a string (i.e. print "Hello World!" (without the ""s) (a tradition in all scripting languages)) to the server console and end.  The:
+</p>
+<pre class="pawn"><span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;</pre>
+<p>Passes a value (1) back to the place which called main to tell it what happened (the exact value passed here doesn't matter but in other places it does).  You now have your first (very basic) script.  If you select file->new in pawno it will give you a much bigger start point will all the callbacks in (see below), including main (which isn't technically a callback but acts like one).
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_FR.html" title="Edit section: Statements">edit</a>]</div><a name="Statements"></a><h2> Statements </h2>
+<p>The print and return lines have ';' (a semi colon) on them, this just denotes the end of a statement (a statement is a group of one or more functions and operators which together do something, similar to a sentence in common language).  Most people put separate statements on separate lines but this is not required, it just makes things clearer, the following is equally valid:
+</p>
+<pre class="pawn">main<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span> <span style="color: #66cc66;">&#123;</span> <a href="http://wiki.sa-mp.com/wiki/print"><span style="color: #006400;">print</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;Hello World!&quot;</span><span style="color: #66cc66;">&#41;</span>; <span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>; <span style="color: #66cc66;">&#125;</span></pre>
+<p>The {}s (braces (curly brackets), not parenthesis (brackets)) enclose a group of statements which should be executed together (like a paragraph in common language).  If you did:
+</p>
+<pre class="pawn">main<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span> <a href="http://wiki.sa-mp.com/wiki/print"><span style="color: #006400;">print</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;Hello World!&quot;</span><span style="color: #66cc66;">&#41;</span>; <span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;</pre>
+<p>You would get an error because now the "return 1;" statement is not grouped so is not part of main.  Braces group a set of statements into a single statement (called a compound statement) and functions have a single statement with them.  Without the braces print and return are entirely separate statements, so there's two or them so, as a function can only have a single statement, the second is not in a function, which code can't be.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_FR.html" title="Edit section: Fonctions">edit</a>]</div><a name="Fonctions"></a><h1> Fonctions </h1>
+<p>Une fonction est basiquement un bout de code qui permet d'effectuer une action différente selon la fonction.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_FR.html" title="Edit section: Calling">edit</a>]</div><a name="Calling"></a><h2> Calling </h2>
+<pre class="pawn"><a href="http://wiki.sa-mp.com/wiki/print"><span style="color: #006400;">print</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;Hello World!&quot;</span><span style="color: #66cc66;">&#41;</span>;</pre>
+<p>As described in <a href="Scripting_Basics.html#Starting_out" title="Scripting Basics">Starting out</a>, this calls the function called "print" (defined in a_samp.inc, which is why you need to include it) and tells it to display something in the server console (the word hello).
+</p><p>A function consists of the function name (e.g. print), which tells the system which chunk of code you want to call, and a parameter list, enclosed in ()s after the function name, which pass additional data to the function to help it run.  If you didn't have parameters you would need millions of functions:
+</p>
+<pre class="pawn">printa<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>;
+printaa<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>;
+printab<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>;
+printac<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>;
+etc...</pre>
+<p>Functions can have as many parameters as you like, from 0 up (there may be an upper limit but it's at least 128):
+</p>
+<pre class="pawn"><a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;Hello World!&quot;</span>, <span style="color: #4169e1;">1</span>, <span style="color: #4169e1;">2</span>, <span style="color: #4169e1;">3</span>, <span style="color: #4169e1;">4</span>, <span style="color: #4169e1;">5</span>, <span style="color: #4169e1;">6</span><span style="color: #66cc66;">&#41;</span>;</pre>
+<p>Don't worry about what that function does for now, just that it has 7 parameters, each separated by a comma.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_FR.html" title="Edit section: Defining">edit</a>]</div><a name="Defining"></a><h2> Defining </h2>
+<p>As well as being able to call existing functions you can also write and call your own:
+</p>
+<pre class="pawn"><span style="color: #6b8e23;">#include &lt;a_samp&gt;</span>
+&nbsp;
+main<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: orange; font-weight: bold;">return</span> MyFunction<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+MyFunction<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<a href="http://wiki.sa-mp.com/wiki/print"><span style="color: #006400;">print</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;Hello World!&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>This just does exactly the same as the original code but is arranged differently.  When main() is called when the mode is started (it's called automatically) it calls the new custom function called MyFunction().  This function prints the message in the server console then returns the number 1 to main().  main() takes the returned value (1) and then returns it to the server itself (i.e. the place which called main in the first place).  As "return MyFunction();" is a single statement you could do:
+</p>
+<pre class="pawn"><span style="color: #6b8e23;">#include &lt;a_samp&gt;</span>
+&nbsp;
+main<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span> <span style="color: orange; font-weight: bold;">return</span> MyFunction<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+MyFunction<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<a href="http://wiki.sa-mp.com/wiki/print"><span style="color: #006400;">print</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;Hello World!&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>But most people don't for clarity.  You can also not use the MyFunction return value at all and do:
+</p>
+<pre class="pawn"><span style="color: #6b8e23;">#include &lt;a_samp&gt;</span>
+&nbsp;
+main<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	MyFunction<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+MyFunction<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<a href="http://wiki.sa-mp.com/wiki/print"><span style="color: #006400;">print</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;Hello World!&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_FR.html" title="Edit section: Parameters">edit</a>]</div><a name="Parameters"></a><h2> Parameters </h2>
+<p>Parameters are a type of <a href="Scripting_Basics.html#Variables" title="Scripting Basics">variable</a> which you don't need to declare as they come from the place which called the function:
+</p>
+<pre class="pawn"><span style="color: #6b8e23;">#include &lt;a_samp&gt;</span>
+&nbsp;
+main<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: orange; font-weight: bold;">return</span> MyFunction<span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;Hello World!&quot;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+MyFunction<span style="color: #66cc66;">&#40;</span>string<span style="color: #66cc66;">&#91;</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<a href="http://wiki.sa-mp.com/wiki/print"><span style="color: #006400;">print</span></a><span style="color: #66cc66;">&#40;</span>string<span style="color: #66cc66;">&#41;</span>;
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>This code still does the same thing but we're now telling MyFunction() what to display.  The call passes the string "Hello World!" to the function where it is stored in a variable called string (the [] means it's an <a href="Scripting_Basics.html#Arrays" title="Scripting Basics">array</a> as explained later).  The print function is the called, passing the contents of the string variable, we know it's a variable because it doesn't have the "" any more.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_FR.html" title="Edit section: Variables">edit</a>]</div><a name="Variables"></a><h1> Variables </h1>
+<p>A variable is basically a bit of memory, it's where data is stored and can be changed and read as required.  Variables are one or more cells, a cell is 32 bits (4 bytes) big and by default signed so they can store from -2147483648 to 2147483647 (although -2147483648 is poorly defined in PAWN and gives odd results if displayed).  A variable made from more than one cell is called an array, strings are a special type of array where each cell holds a character of the string (or 4 characters in packed strings, but they're not covered here).
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_FR.html" title="Edit section: Declaration">edit</a>]</div><a name="Declaration"></a><h2> Declaration </h2>
+<p>To create a new variable you have to declare it:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span>
+	myVariable;</pre>
+<p>This tells the system to create a new variable called myVariable, the initial value of this variable will be 0.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_FR.html" title="Edit section: Setting">edit</a>]</div><a name="Setting"></a><h2> Setting </h2>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span>
+	myVariable = <span style="color: #4169e1;">7</span>;</pre>
+<p>This declares a new variable and sets it's initial value to 7, so printing the variable now will give 7.  To display a variable which isn't a string we need to go back to the printf() function mentioned earlier and do:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span>
+	myVariable = <span style="color: #4169e1;">7</span>;
+<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;%d&quot;</span>, myVariable<span style="color: #66cc66;">&#41;</span>;</pre>
+<p>Again, for now all you need to know is that this will print the value of myVariable (i.e. 7 at this point) to the server.
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span>
+	myVariable = <span style="color: #4169e1;">7</span>;
+<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;%d&quot;</span>, myVariable<span style="color: #66cc66;">&#41;</span>;
+myVariable = <span style="color: #4169e1;">8</span>;
+<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;%d&quot;</span>, myVariable<span style="color: #66cc66;">&#41;</span>;</pre>
+<p>That code will print 7, change the value of the variable to 8 and display the new value in the server window too.  There are many other things you can do to variables, some are listed below, most are listed elsewhere:
+</p>
+<pre class="pawn">myVariable = myVariable + <span style="color: #4169e1;">4</span>;</pre>
+<p>Sets the value of myVariable to the old value of myVariable plus 4, i.e. increase it's value by 4.  This can also be written as:
+</p>
+<pre class="pawn">myVariable += <span style="color: #4169e1;">4</span>;</pre>
+<p>Which just means "increase myVariable by 4".
+</p>
+<pre class="pawn">myVariable -= <span style="color: #4169e1;">4</span>;</pre>
+<p>That will decrease the value by 4.
+</p>
+<pre class="pawn">myVariable *= <span style="color: #4169e1;">4</span>;</pre>
+<p>That will multiply the value by 4.
+</p>
+<pre class="pawn">myVariable /= <span style="color: #4169e1;">4</span>;</pre>
+<p>That will divide the value by 4.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_FR.html" title="Edit section: Arrays">edit</a>]</div><a name="Arrays"></a><h2> Arrays </h2>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_FR.html" title="Edit section: Declaration">edit</a>]</div><a name="Declaration_2"></a><h3> Declaration </h3>
+<p>An array is a variable in which you can store multiple pieces of data at once and access them dynamically.  An array is declared to a set size at compile time so you need to know how many pieces of data you need to store in advance, a good example of this is the very common MAX_PLAYERS array, this will have one slot for every possibly connected player, so you know data for one player will not interfere with data for another player (more on defines later).
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span>
+	myArray<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">5</span><span style="color: #66cc66;">&#93;</span>;</pre>
+<p>That code will declare an array 5 slots big, so you can store 5 pieces of normal data at once in that single what you can't do is something like the following:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span>
+	myVariable = <span style="color: #4169e1;">5</span>,
+	myArray<span style="color: #66cc66;">&#91;</span>myVariable<span style="color: #66cc66;">&#93;</span>;</pre>
+<p>That code looks like it would create an array the size of whatever number is stored in myVariable (here 5 but it could be anything), but you can't do this.  In PAWN the memory for variables is assigned when you compile your code, this means arrays are always one size, you can't set the size to anything you like whenever you like.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_FR.html" title="Edit section: Accessing">edit</a>]</div><a name="Accessing"></a><h3> Accessing </h3>
+<p>To set a value in an array you need to say which part of the array you want to store the data in, this CAN be done with another variable:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span>
+	myArray<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">5</span><span style="color: #66cc66;">&#93;</span>;
+myArray<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">2</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #4169e1;">7</span>;</pre>
+<p>This will declare an array with 5 slots and give the THIRD slot a value of 7, given that variables always start as 0 this will make the values in the array:
+</p>
+<pre>0, 0, 7, 0, 0
+</pre>
+<p>Why is it not:
+</p>
+<pre>0, 7, 0, 0, 0
+</pre>
+<p>you're wondering?  It's because counting actually starts from the number 0, not 1.  Consider the following:
+</p>
+<pre>2, 4, 6, 8
+</pre>
+<p>If you go through the list then after the number 2 you have already had one number (the 2), this means that if you are counting the numbers by the time you reach the number 4 you are already at one, you're not at one when you reach the 2, you're at zero.  Thus the 2 is at position zero and the 4 is at position one, and thus it follows that the 6 is at position two, which is where the 7 in the first example above is.  If we label the slots for the first example we get:
+</p>
+<pre>0 1 2 3 4
+0 0 7 0 0
+</pre>
+<p>There are five slots but as you can see, and this is very important, THERE IS NO SLOT FIVE, doing the following could crash your server:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span>
+	myArray<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">5</span><span style="color: #66cc66;">&#93;</span>;
+myArray<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">5</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #4169e1;">7</span>;</pre>
+<p>As mentioned above the array index (the index is the slot to which you're writing) can be anything, a number, a variable, or even a function which returns a value.
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span>
+	myArray<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">5</span><span style="color: #66cc66;">&#93;</span>,
+	myIndex = <span style="color: #4169e1;">2</span>;
+myArray<span style="color: #66cc66;">&#91;</span>myIndex<span style="color: #66cc66;">&#93;</span> = <span style="color: #4169e1;">7</span>;</pre>
+<p>Once you have an array and an index you can use that block exactly as if it were any other variable:
+</p>
+<pre class="pawn">myArray<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">2</span><span style="color: #66cc66;">&#93;</span> = myArray<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">2</span><span style="color: #66cc66;">&#93;</span> + <span style="color: #4169e1;">1</span>;
+myArray<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">2</span><span style="color: #66cc66;">&#93;</span> += <span style="color: #4169e1;">1</span>;
+myArray<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">2</span><span style="color: #66cc66;">&#93;</span>++;</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_FR.html" title="Edit section: Example">edit</a>]</div><a name="Example"></a><h3> Example </h3>
+<p>As mentioned above a common type of array is the MAX_PLAYERS array.  MAX_PLAYERS is not a variable, it's a define which is explained later, but for now accept that it is a constant number equal to the max number of players a server can hold (this by default is 500, even if you change the number in your server.cfg file).  The following code uses normal variables to hold data for 4 players and do something with those players in a function (for simplicity's sake assume MAX_PLAYERS is 4 for now):
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span>
+	gPlayer0,
+	gPlayer1,
+	gPlayer2,
+	gPlayer3;
+&nbsp;
+SetPlayerValue<span style="color: #66cc66;">&#40;</span>playerid, value<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #4169e1;">switch</span><span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span>
+	<span style="color: #66cc66;">&#123;</span>
+	    <span style="color: orange; font-weight: bold;">case</span> <span style="color: #4169e1;">0</span>: gPlayer0 = value; <span style="color: #808080; font-style: italic;">// is the same as doing if(playerid == 0)</span>
+	    <span style="color: orange; font-weight: bold;">case</span> <span style="color: #4169e1;">1</span>: gPlayer1 = value; <span style="color: #808080; font-style: italic;">// is the same as doing if(playerid == 1)</span>
+	    <span style="color: orange; font-weight: bold;">case</span> <span style="color: #4169e1;">2</span>: gPlayer2 = value; <span style="color: #808080; font-style: italic;">// is the same as doing if(playerid == 2)</span>
+	    <span style="color: orange; font-weight: bold;">case</span> <span style="color: #4169e1;">3</span>: gPlayer3 = value; <span style="color: #808080; font-style: italic;">// is the same as doing if(playerid == 3)</span>
+	<span style="color: #66cc66;">&#125;</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>See the section on control structures for more information on what's going on there, also note this could be done as a switch but that's less clear for the example and effectively the same code anyway.
+</p><p>Now compare that to using an array with one slot per player, bearing in mind an array index can be any value:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span>
+	gPlayers<span style="color: #66cc66;">&#91;</span><span style="color: #E9967A; font-weight: bold;">MAX_PLAYERS</span><span style="color: #66cc66;">&#93;</span>;
+&nbsp;
+SetPlayerValue<span style="color: #66cc66;">&#40;</span>playerid, value<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	gPlayers<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span> = value;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>That will create a global array (see section on scope) with one slot for every player, then the function will assign whatever is in the variable "value" to the slot for the player specified.  The first example was large with only four players, using 4 lines per player, that's 2000 lines for 500 players (if can be less but it's still a lot), the second version is a single line no matter how many players you have.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_FR.html" title="Edit section: Strings">edit</a>]</div><a name="Strings"></a><h2> Strings </h2>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_FR.html" title="Edit section: Basic use">edit</a>]</div><a name="Basic_use"></a><h3> Basic use </h3>
+<p>A string is a special type of array, one which is used to hold multiple characters to create a word or sentence or other human readable text.  A character is one byte big (although there are extended sets where a character is multiple bytes but these are not well defined in SA:MP) and by default a character takes up one cell (one normal variable or one array slot).  Characters are encoded in a system called <a href="http://www.asciitable.com/" class='external text' title="http://www.asciitable.com/" rel="nofollow">ASCII</a>, the character "A" is represented by the number 65, telling the system to display a number will give 65, telling the system to display a character will give a capital a.  Obviously is a single character takes up a single cell multiple characters (i.e. text) will take up multiple cells, collections of cells, as just explained, are called arrays.
+</p><p>Strings in PAWN (and other languages) are what's called "NULL terminated", this means that when 0 is reached, the string ends.  This is not the same as the character "0", represented by the number 48, this is the NULL character, represented by the number 0.  This means that you can have a string array 20 cells large but only have a string 3 characters long if the fourth character is the NULL character, signalling the end of the string.  You can not however have a string 20 characters long as the NULL character MUST be in the string, so in a 20 cell array you can have a 19 character string and a NULL termination character.
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span>
+	myString<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">16</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #b22222;">&quot;Hello World!&quot;</span>;</pre>
+<p>That code declares a new string with enough space for a 15 character string and sets it initially to the 5 character string "Hello World!", the double quotes around the text indicate that it's a string.  Internally the array will look like:
+</p>
+<pre>104 101 108 108 111 0 x x x x x x x x x x
+</pre>
+<p>The "x"s mean anything, in this example they will all be 0 but as they're after the null character is doesn't matter what they are, they won't affect the string.
+</p><p>Strings can be manipulated like normal arrays, for example:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span>
+	myString<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">16</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #b22222;">&quot;Hello World!&quot;</span>;
+myString<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">1</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #4169e1;">97</span>;</pre>
+<p>Will change the character in slot 1 to the character represented by the number 97 (a lower case "a"), resulting in the string reading "hallo".  This can be written much more readably and easy to edit as:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span>
+	myString<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">16</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #b22222;">&quot;Hello World!&quot;</span>;
+myString<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">1</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #b22222;">'a'</span>;</pre>
+<p>The single quotes around the "a" mean it's a character, not a string, characters don't need to be NULL terminated as they're only ever one cell long, they can also be used interchangeably with numbers if you know what they represent.
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span>
+	myString<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">16</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #b22222;">&quot;Hello World!&quot;</span>;
+myString<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">1</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #b22222;">'<span style="color: #000099; font-weight: bold;">\0</span>'</span>;</pre>
+<p>'\0' is two characters, however the \ is a special character which modifies the next character, \0 means NULL, that code is the same as doing:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span>
+	myString<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">16</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #b22222;">&quot;Hello World!&quot;</span>;
+myString<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">1</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #4169e1;">0</span>;</pre>
+<p>But is NOT the same as doing:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span>
+	myString<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">16</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #b22222;">&quot;Hello World!&quot;</span>;
+myString<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">1</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #b22222;">'0'</span>;</pre>
+<p>The first and second versions will result in the string being simply:
+</p>
+<pre>h
+</pre>
+<p>The third version will result in the string being:
+</p>
+<pre>h0llo
+</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_FR.html" title="Edit section: Escape character">edit</a>]</div><a name="Escape_character"></a><h3> Escape character </h3>
+<p>As briefly mentioned a backslash is a special character, doing:
+</p>
+<pre>'\'
+</pre>
+<p>or:
+</p>
+<pre>"\"
+</pre>
+<p>Will give a compiler error because the \ modifies the next character so those constants will not be ended correctly, this can be used to create characters which can't normally be created, for example:
+</p><p><br />
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span>
+	myString<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">4</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #b22222;">&quot;<span style="color: #000099; font-weight: bold;">\&quot;</span>&quot;</span>;</pre>
+<p>That code will create a string consisting of only a double quote, normally a double quote signals the end of a written string but the backslash makes the double quote immediately after it a part of the string, and the double quote after that ends the string instead.  Other special characters are:
+</p>
+<table class="wikitable">
+
+
+<tr>
+<td> \0
+</td><td> NULL character
+</td><td> Ends a string.
+</td></tr>
+<tr>
+<td> \n
+</td><td> Line feed
+</td><td> use \n for a new line in Linux (also works in Windows)
+</td></tr>
+<tr>
+<td> \r
+</td><td> Carriage return
+</td><td> Use \r\n for a new line in Windows
+</td></tr>
+<tr>
+<td> \\
+</td><td> Backslash
+</td><td> Used to put an actual backslash in a string
+</td></tr>
+<tr>
+<td> \'
+</td><td> Single quote
+</td><td> Used to use an actual single quote as a character in single quotes (use: '\'')
+</td></tr>
+<tr>
+<td> \"
+</td><td> Double quotes
+</td><td> Used to put an actual double quote in a string
+</td></tr>
+<tr>
+<td> \xNNN;
+</td><td> Hex number
+</td><td> Used to set the character to the character represented by the hex number specified in place on NNN
+</td></tr>
+<tr>
+<td> \NNN;
+</td><td> Number
+</td><td> Used to set the character to the character represented by the number specified in place of NNN (see \0)
+</td></tr></table>
+<p>There are others but those are the main ones.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_FR.html" title="Edit section: Tags">edit</a>]</div><a name="Tags"></a><h2> Tags </h2>
+<p>A tag is an additional piece of information on a variable which defines where it can be used.  For example:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span>
+    <span style="color: orange;">Float</span>:a = <span style="color: #4169e1;">6.0</span>;</pre>
+<p>The "Float" part is the tag, this defines this variable as a float (non-whole number) and determines where it can be used.
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">native</span> <a href="http://wiki.sa-mp.com/wiki/SetGravity"><span style="color: #006400;">SetGravity</span></a><span style="color: #66cc66;">&#40;</span><span style="color: orange;">Float</span>:gravity<span style="color: #66cc66;">&#41;</span>;</pre>
+<p>This means the SetGravity function takes a single parameter which has to be a float, for example:
+</p>
+<pre class="pawn"><a href="http://wiki.sa-mp.com/wiki/SetGravity"><span style="color: #006400;">SetGravity</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">6.0</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #228b22; font-weight: bold;">new</span>
+   <span style="color: orange;">Float</span>:fGrav = <span style="color: #4169e1;">5.0</span>;
+<a href="http://wiki.sa-mp.com/wiki/SetGravity"><span style="color: #006400;">SetGravity</span></a><span style="color: #66cc66;">&#40;</span>fGrav<span style="color: #66cc66;">&#41;</span>;</pre>
+<p>That will set the gravity to 6 (6.0 as a float) then 5 (5.0 as a float).  Using the wrong tag in the wrong place will often give a tag mismatch:
+</p>
+<pre class="pawn"><a href="http://wiki.sa-mp.com/wiki/SetGravity"><span style="color: #006400;">SetGravity</span></a><span style="color: #66cc66;">&#40;</span><span style="color: orange;">MyTag</span>:<span style="color: #4169e1;">7</span><span style="color: #66cc66;">&#41;</span>;</pre>
+<p>That will try set the gravity to 7 with the tag "MyTag", that is clearly not a "Float" so is wrong.  Also note that tags are case sensitive.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_FR.html" title="Edit section: Scope">edit</a>]</div><a name="Scope"></a><h2> Scope </h2>
+<p>Scope is where a variable can be used.  There are four main scopes: local, local static, global and global static.  All variables can only be used after they are declared so this is right:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span>
+    var = <span style="color: #4169e1;">4</span>;
+<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;%d&quot;</span>, var<span style="color: #66cc66;">&#41;</span>;</pre>
+<p>This is wrong:
+</p>
+<pre class="pawn"><a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;%d&quot;</span>, var<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #228b22; font-weight: bold;">new</span>
+    var = <span style="color: #4169e1;">4</span>;</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_FR.html" title="Edit section: local">edit</a>]</div><a name="local"></a><h3> local </h3>
+<p>A local variable is one declared "new" inside a function or part of a function:
+</p>
+<pre class="pawn">MyFunc<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <span style="color: #228b22; font-weight: bold;">new</span>
+        var1 = <span style="color: #4169e1;">4</span>;
+    <a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;%d&quot;</span>, var1<span style="color: #66cc66;">&#41;</span>;
+    <span style="color: #66cc66;">&#123;</span>
+        <span style="color: #808080; font-style: italic;">// var1 still exists as this is a lower level</span>
+        <span style="color: #228b22; font-weight: bold;">new</span>
+            var2 = <span style="color: #4169e1;">8</span>;
+        <a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;%d %d&quot;</span>, var1, var2<span style="color: #66cc66;">&#41;</span>;
+    <span style="color: #66cc66;">&#125;</span>
+    <span style="color: #808080; font-style: italic;">// var2 no longer exists as this is a higher level</span>
+<span style="color: #66cc66;">&#125;</span>
+<span style="color: #808080; font-style: italic;">// var1 no longer exists</span></pre>
+<p>Local variables are reset every time, for example:
+</p>
+<pre class="pawn"><span style="color: #4169e1;">for</span> <span style="color: #66cc66;">&#40;</span><span style="color: #228b22; font-weight: bold;">new</span> i = <span style="color: #4169e1;">0</span>; i &lt; <span style="color: #4169e1;">3</span>; i++<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <span style="color: #228b22; font-weight: bold;">new</span>
+        j = <span style="color: #4169e1;">1</span>;
+    <a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;%d&quot;</span>, j<span style="color: #66cc66;">&#41;</span>;
+    j++;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>Will print:
+</p>
+<pre>1
+1
+1
+</pre>
+<p>Because j is created, printed, incremented then destroyed, then the code loops.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_FR.html" title="Edit section: static local">edit</a>]</div><a name="static_local"></a><h3> static local </h3>
+<p>A static local can be used in the same place as a local but doesn't forget it's old value, for example:
+</p>
+<pre class="pawn">MyFunc<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <span style="color: #228b22; font-weight: bold;">static</span>
+        var1 = <span style="color: #4169e1;">4</span>;
+    <a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;%d&quot;</span>, var1<span style="color: #66cc66;">&#41;</span>;
+    <span style="color: #66cc66;">&#123;</span>
+        <span style="color: #808080; font-style: italic;">// var1 still exists as this is a lower level</span>
+        <span style="color: #228b22; font-weight: bold;">static</span>
+            var2 = <span style="color: #4169e1;">8</span>;
+        <a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;%d %d&quot;</span>, var1, var2<span style="color: #66cc66;">&#41;</span>;
+    <span style="color: #66cc66;">&#125;</span>
+    <span style="color: #808080; font-style: italic;">// var2 no longer exists as this is a higher level</span>
+<span style="color: #66cc66;">&#125;</span>
+<span style="color: #808080; font-style: italic;">// var1 no longer exists</span></pre>
+<p>That code will behave exactly the same as the new example, however this:
+</p>
+<pre class="pawn"><span style="color: #4169e1;">for</span> <span style="color: #66cc66;">&#40;</span><span style="color: #228b22; font-weight: bold;">new</span> i = <span style="color: #4169e1;">0</span>; i &lt; <span style="color: #4169e1;">3</span>; i++<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <span style="color: #228b22; font-weight: bold;">static</span>
+        j = <span style="color: #4169e1;">1</span>;
+    <a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;%d&quot;</span>, j<span style="color: #66cc66;">&#41;</span>;
+    j++;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>Will print:
+</p>
+<pre>1
+2
+3
+</pre>
+<p>Because j is static so remembers its old value.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_FR.html" title="Edit section: global">edit</a>]</div><a name="global"></a><h3> global </h3>
+<p>Global variables are declared outside a function and can be used in any functions:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span>
+    gMyVar = <span style="color: #4169e1;">4</span>;
+&nbsp;
+MyFunc<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;%d&quot;</span>, gMyVar<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>They are never reset or lost.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_FR.html" title="Edit section: global static">edit</a>]</div><a name="global_static"></a><h3> global static </h3>
+<p>Global static variables are like normal globals but can only be used in the file in which they are declared:
+</p><p>File1:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">static</span>
+    gsMyVar = <span style="color: #4169e1;">4</span>;
+&nbsp;
+MyFunc<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;%d&quot;</span>, gsMyVar<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+<span style="color: #6b8e23;">#include &quot;File2&quot;</span></pre>
+<p>File2:
+</p>
+<pre class="pawn">MyFunc2<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <span style="color: #808080; font-style: italic;">// This is wrong as gsMyVar doesn't exist here</span>
+    <a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;%d&quot;</span>, gsMyVar<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>static can also be applied to functions in the same way.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_FR.html" title="Edit section: Control Structures">edit</a>]</div><a name="Control_Structures"></a><h1>Control Structures</h1>
+<dl><dd><div class="noprint relarticle mainarticle"><i>Main article: <a href="Control_Structures.html" title="Control Structures">Control Structures</a></div></i>
+</dd></dl>
+<p>Control structures determine program flow.  They can execute code or not based on the contents of variables, the returns of functions and other things.  They can also do things repeatedly if need be.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Scripting_Basics_FR.html" title="Edit section: Keywords">edit</a>]</div><a name="Keywords"></a><h1>Keywords</h1>
+<dl><dd><div class="noprint relarticle mainarticle"><i>Main article: <a href="Keywords.html" title="Keywords">Keywords</a></div></i>
+</dd></dl>
+<div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/Scripting_Basics_FR.html">http://localhost../wiki/Scripting_Basics_FR.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="Category_Scripting_Documentation_FR.html" title="Category:Scripting Documentation FR">Scripting Documentation FR</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="Scripting_Basics_FR.html">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="Talk_Scripting_Basics_FR.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="Scripting_Basics_FR.html">Edit</a></li>
+				 <li id="ca-history"><a href="Scripting_Basics_FR.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 12,902 times.</li>
+				<li id="credits">This page was last modified 18:01, 4 February 2014 by SA-MP Wiki user User:. Based on work by SA-MP Wiki user(s) <a href="User_Dugi.html" title="User:Dugi">Dugi</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 79.60 secs. -->
+</body></html>

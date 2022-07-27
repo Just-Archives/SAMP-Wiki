@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Maak een Admin Script NL" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>Maak een Admin Script NL - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Maak een Admin Script NL</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<div class="editsection" style="float:right;margin-left:5px;">[<a href="Maak_een_Admin_Script_NL.html" title="Edit section: Voordat we het script starten">edit</a>]</div><a name="Voordat_we_het_script_starten"></a><h2>Voordat we het script starten</h2>
+<p>Een Admin Script of stukken van het (zoals het login script) is wat mensen vaak aanvragen in #sa-mp.scripting, dus ik post sommige ideeën hier. Deze tutorial heeft vereist hopelijk wat ervaring dat u heeft gekregen door met PAWN te klooien en het lezen van andere PAWN tutorials! 
+</p><p>Das, als eerste starten we pawno en verwijderen alles wat in het schript staat en voegen we deze simpele regels toe:
+</p>
+<pre class="pawn"><span style="color: #6b8e23;">#include &lt;a_samp&gt;</span>
+<span style="color: #6b8e23;">#include &lt;dini&gt;</span></pre>
+<p>Dit voegt de SA:MP bibliotheek toe, met zijn vele functies, en het voegt ook dini toe, wat makkelijker is te gebruiken om gebruikers instellingen te onderhouden. Om in de toekomst te werken met floats, ga naar je <b>samp/pawno/includes/</b> map en verander float.inc. Zoek voor <i>native Float:floatstr(const string[]);</i> - (niet nodig voor de laatste versie van SA:MP) - als dit is fout gespeld in de 0.1's float.inc dan krijg je veel runtime error/function not found in pawno. Maar als je het script deelt met mensen die het niet hebben veranderd, dan is er een weg om het alsnog werkend te krijgen:
+</p>
+<pre class="pawn"><span style="color: #6b8e23;">#if&nbsp;!defined floatstr</span>
+<span style="color: #228b22; font-weight: bold;">native</span> <span style="color: orange;">Float</span>:<a href="http://wiki.sa-mp.com/wiki/floatstr"><span style="color: #006400;">floatstr</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #228b22; font-weight: bold;">const</span> string<span style="color: #66cc66;">&#91;</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>;
+Als de gebruiker is ingelogd</pre>
+<p>Als je een geen-100-spelers server runt, dan is er geen aanlijding om MAX_PLAYERS als 100 in te stellen - Het zal op een 8 spelers server loops 92 keer worden gebruikt (is veel te veel) en zouden lange variabelen worden. Dus als het een 8 speler server word, dan kunnen we makkenlijk de sloten (SLOTS) op 8 zetten. <i>(Dit gebeurd als je comprimeert, dus als iemand het script comprimeert, zal hij dit moeten veranderen)</i>
+</p>
+<pre class="pawn"><span style="color: #6b8e23;">#define SLOTS 8</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Maak_een_Admin_Script_NL.html" title="Edit section: Meer komt later!">edit</a>]</div><a name="Meer_komt_later.21"></a><h2>Meer komt later!</h2>
+<p>Sorry, maar ik ga vandaag niet meer verdertypen,
+</p><p>Cya! Diamondo25
+</p><p>owjah, hieronder staan nog downloads
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Maak_een_Admin_Script_NL.html" title="Edit section: Downloads">edit</a>]</div><a name="Downloads"></a><h2>Downloads</h2>
+<ul><li> <a href="http://dracoblue.net/index.php?id=4&amp;WHICH=35&amp;Language=en" class='external text' title="http://dracoblue.net/index.php?id=4&amp;WHICH=35&amp;Language=en" rel="nofollow">dini</a>
+</li><li> <a href="http://dracoblue.net/index.php?id=4&amp;WHICH=30&amp;Language=en" class='external text' title="http://dracoblue.net/index.php?id=4&amp;WHICH=30&amp;Language=en" rel="nofollow">dutils</a> (required by bOzO)
+</li></ul>
+<div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/Maak_een_Admin_Script_NL.html">http://localhost../wiki/Maak_een_Admin_Script_NL.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="Category_Tutorials_NL.html" title="Category:Tutorials NL">Tutorials NL</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="Maak_een_Admin_Script_NL.html">Article</a></li>
+				 <li id="ca-talk"><a href="Talk_Maak_een_Admin_Script_NL.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="Maak_een_Admin_Script_NL.html">Edit</a></li>
+				 <li id="ca-history"><a href="Maak_een_Admin_Script_NL.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 9,886 times.</li>
+				<li id="credits">This page was last modified 21:54, 23 January 2009 by SA-MP Wiki user User:. </li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 35.76 secs. -->
+</body></html>

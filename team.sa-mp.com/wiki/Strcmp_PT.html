@@ -1,0 +1,182 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Strcmp PT,Format PT,Fread PT,Ispacked PT,Main Page,Memcpy PT,Scripting Basics,Server Plugins,Strcat PT,Strdel PT,Strfind PT" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>Strcmp PT - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Strcmp PT</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<div class="scripting" style="color: #4378A4; background-color: #FFFFFF; margin: 2px; margin-bottom: 10px;"><div align="center" style="border: 1px solid #AAAAAA; padding: 3px; padding-left: 5px;"><a href="../wiki-archive.html" title="Main Page">Main Page</a> | <a href="Category_Scripting_Functions.html" title="Category:Scripting Functions">Scripting Functions</a> | <a href="Category_Scripting_Callbacks.html" title="Category:Scripting Callbacks">Scripting Callbacks</a> | <a href="Scripting_Basics.html" title="Scripting Basics">Scripting Basics</a> | <a href="Server_Plugins.html" title="Server Plugins">Server Plugins</a> | <a href="Category_Tutorials.html" title="Category:Tutorials">Tutorials</a></div></div><br />
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Strcmp_PT.html" title="Edit section: strcmp">edit</a>]</div><a name="strcmp"></a><h1 class="firstheading" style="position:absolute; top:0px; background:#FFF; width:95%;">strcmp</h1>
+<table style="padding:5px; background-color: #e5f4ff; border-left: 10px solid #3083cc;">
+
+<tr>
+<td align="left"><a href="Image_Farm-Fresh_text_lowercase.png.html" class="image" title="Image:Farm-Fresh text lowercase.png"><img src="../upload/a/a9/Farm-Fresh_text_lowercase.png" alt="Image:Farm-Fresh text lowercase.png" width="32" height="32" longdesc="Image_Farm-Fresh_text_lowercase.png.html" /></a>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;"><strong>Nota:</strong> O nome desta função começa com uma letra minúscula.</span>
+</td></tr></table>
+<p><br />
+<b>Descrição:</b><br />
+</p>
+<div style="padding-left:35px;">Compara duas strings para ver se são iguais.<br /></div>
+<p><br />
+</p>
+<b>Parâmetros:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(const string1[], const string2[], bool:ignorecase=false, length=cellmax)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">string1</td><td style="vertical-align:top;">A primeira string para ser comparada.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">string2</td><td style="vertical-align:top;">A segunda string para ser comparada.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">ignorecase (opcional)</td><td style="vertical-align:top;">Se true ignora diferença entre letras maiúsculas e minúsculas, se for false não faz esta diferença.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">length (opcional)</td><td style="vertical-align:top;">O número máximo de caracteres que serão comparadas. Comparando as strings 'Hello' e 'Hell No' limitando a 4 caracteres dirá que é a mesma palavra.</td></tr></table></div>
+<p><br />
+<b>Valores de retorno:</b><br />
+</p>
+<div style="padding-left:35px;"><b>0</b> se as strings forem do mesmo tamanho;<br /><b>1</b> ou <b>-1</b> se um caractere não for igual ao da outra string: string1[i] - string2[i] ('i' representa o índice do caractere a partir do 0);<br /><b>diferença no número de caracteres</b> se uma string é igual apenas em uma parte de outra string.<br /></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #FFEAEA; border-left: 10px solid #FCA9A9;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #FCA9A9;"><a href="Image_32px-Circle-style-warning.png.html" class="image" title="Image:32px-Circle-style-warning.png"><img src="../upload/5/57/32px-Circle-style-warning.png" alt="Image:32px-Circle-style-warning.png" width="32" height="32" longdesc="Image_32px-Circle-style-warning.png.html" /></a><br />
+<p><strong>Notas<br />Importantes</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">
+<ul><li> A função retorna 0 se uma das strings estiverem vazias, verifique se as strings estão vazias verificando se o primeiro caractere é igual a 0 ou obtendo o tamanho da string com a função <a href="Strlen_PT.html" title="Strlen PT">strlen</a>.
+</li><li> Se você comparar strings de um arquivo de texto, você deve levar em conta os caracteres especiais do arquivo (\r\n - quebra de linha) ao usar <a href="Fread_PT.html" title="Fread PT">fread</a>.
+</li></ul>
+<p></span>
+</p>
+</td></tr></table>
+</div>
+<p><br />
+<b>Exemplo de uso:</b>
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> string1<span style="color: #66cc66;">&#91;</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #b22222;">&quot;Hello World&quot;</span>;
+<span style="color: #228b22; font-weight: bold;">new</span> string2<span style="color: #66cc66;">&#91;</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #b22222;">&quot;Hello World&quot;</span>;
+&nbsp;
+<span style="color: #808080; font-style: italic;">// Verifica se as strings são iguais</span>
+<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>!<a href="http://wiki.sa-mp.com/wiki/strcmp"><span style="color: #006400;">strcmp</span></a><span style="color: #66cc66;">&#40;</span>string1, string2<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">new</span> string3<span style="color: #66cc66;">&#91;</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #b22222;">&quot;Hell&quot;</span>;
+&nbsp;
+<span style="color: #808080; font-style: italic;">// Verifica se os primeiros 4 caracteres são iguais</span>
+<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>!<a href="http://wiki.sa-mp.com/wiki/strcmp"><span style="color: #006400;">strcmp</span></a><span style="color: #66cc66;">&#40;</span>string2, string3, false, <span style="color: #4169e1;">4</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>
+&nbsp;
+<span style="color: #808080; font-style: italic;">// Verifica se as duas strings são iguais e se não estão vazias com isnull.</span>
+<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>!<a href="http://wiki.sa-mp.com/wiki/strcmp"><span style="color: #006400;">strcmp</span></a><span style="color: #66cc66;">&#40;</span>string1, string2<span style="color: #66cc66;">&#41;</span> &amp;&amp;&nbsp;!isnull<span style="color: #66cc66;">&#40;</span>string1<span style="color: #66cc66;">&#41;</span> &amp;&amp;&nbsp;!isnull<span style="color: #66cc66;">&#40;</span>string2<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>
+&nbsp;
+<span style="color: #808080; font-style: italic;">// Definição de isnull():</span>
+<span style="color: #6b8e23;">#if&nbsp;!defined isnull</span>
+    <span style="color: #6b8e23;">#define isnull(%1) ((!(%1[0])) || (((%1[0]) == '\1') &amp;&amp; (!(%1[1]))))</span>
+<span style="color: #6b8e23;">#endif</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Template_RelatedFunctions.html" title="Template:RelatedFunctions">edit</a>]</div><a name="Related_Functions"></a><h3> <b>Related Functions</b> </h3>
+<p>The following functions may be helpful as they relate to this function in one way or another.
+</p><p><br />
+</p>
+<ul><li> <a href="Format_PT.html" title="Format PT">format</a>: Formata uma string.
+</li></ul>
+<ul><li> <a href="Strlen_PT.html" title="Strlen PT">strlen</a>: Pega o tamanho de uma string.
+</li></ul>
+<ul><li> <a href="Strpack_PT.html" title="Strpack PT">strpack</a>: Compacta uma string e armazena em uma string de destino.
+</li></ul>
+<ul><li> <a href="Strunpack_PT.html" title="Strunpack PT">strunpack</a>: Descompacta uma string. 
+</li></ul>
+<ul><li> <a href="Strcat_PT.html" title="Strcat PT">strcat</a>: Concatena duas strings. 
+</li></ul>
+<ul><li> <a href="Strmid_PT.html" title="Strmid PT">strmid</a>: Extrai uma sequência de caracteres de uma string. 
+</li></ul>
+<ul><li> <a href="Strins_PT.html" title="Strins PT">strins</a>: Insere uma sequência de caracteres em uma determinada posição de uma string.
+</li></ul>
+<ul><li> <a href="Strdel_PT.html" title="Strdel PT">strdel</a>: Delete uma parte da string a partir de uma posição inicial e final.
+</li></ul>
+<ul><li> <strong>strcmp</strong>: Compara duas strings para ver se são iguais.
+</li></ul>
+<ul><li> <a href="Strfind_PT.html" title="Strfind PT">strfind</a>: Procura uma sequência de caracteres dentro de uma string. 
+</li></ul>
+<ul><li> <a href="Strval_PT.html" title="Strval PT">strval</a>: Converte uma string para números inteiros
+</li></ul>
+<ul><li> <a href="Valstr_PT.html" title="Valstr PT">valstr</a>: Converte um número para uma string.
+</li></ul>
+<ul><li> <a href="Ispacked_PT.html" title="Ispacked PT">ispacked</a>: Verifica se uma string esta compactada.
+</li></ul>
+<ul><li> <a href="Uudecode_PT.html" title="Uudecode PT">uudecode</a>: Decodifica um string codificada com a função <a href="Uuencode_PT.html" title="Uuencode PT">uuencode</a>.
+</li></ul>
+<ul><li> <a href="Uuencode_PT.html" title="Uuencode PT">uuencode</a>: Codifica uma string para ser decodificada com a função <a href="Uudecode_PT.html" title="Uudecode PT">uudecode</a>. 
+</li></ul>
+<ul><li> <a href="Memcpy_PT.html" title="Memcpy PT">memcpy</a>: Copia bytes de uma array para outra array.
+</li></ul>
+<p><br />
+Link externo sobre manipulação de strings da empresa desenvolvedora da linguagem pawn:
+</p>
+<ul><li> <a href="http://www.compuphase.com/pawn/String_Manipulation.pdf" class='external free' title="http://www.compuphase.com/pawn/String_Manipulation.pdf" rel="nofollow">http://www.compuphase.com/pawn/String_Manipulation.pdf</a>
+</li></ul>
+<div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/Strcmp_PT.html">http://localhost../wiki/Strcmp_PT.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="Category_Scripting_Functions_PT.html" title="Category:Scripting Functions PT">Scripting Functions PT</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="Strcmp_PT.html">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="Talk_Strcmp_PT.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="Strcmp_PT.html">Edit</a></li>
+				 <li id="ca-history"><a href="Strcmp_PT.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 1,464 times.</li>
+				<li id="credits">This page was last modified 02:19, 30 April 2017 by SA-MP Wiki user <a href="User_MultiKill.html" title="User:MultiKill">MultiKill</a>. </li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 114.09 secs. -->
+</body></html>

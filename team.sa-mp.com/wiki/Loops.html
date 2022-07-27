@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Loops,Keywords:Statements,SendClientMessageToAll,Stubs,Loops" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>Loops - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Loops</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<div style="width:70%;margin:0 auto 15px auto;">
+<table style="padding: 5px;; background-color: #ffeecc; width:100%; border-left: 10px solid #ffcc99;">
+
+<tr>
+<td align="left"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+</td><td align="center"><span style="font-size:14px;">It has been suggested that this page or section be merged into [[<a href="Keywords_Statements.html#for" title="Keywords:Statements">Keywords:Statements#for</a>]]. <a href="Talk_Loops.html" class="new" title="Talk:Loops">Discuss</a>.</span>
+</td></tr></table>
+</div>
+<p><br />
+for() loops.
+</p>
+<pre class="pawn"><span style="color: #4169e1;">for</span><span style="color: #66cc66;">&#40;</span><span style="color: #228b22; font-weight: bold;">new</span> i = <span style="color: #4169e1;">0</span>; i &lt; <span style="color: #E9967A; font-weight: bold;">MAX_PLAYERS</span>; i++<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <span style="color: #808080; font-style: italic;">// Do stuff here</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Loops.html" title="Edit section: Explained">edit</a>]</div><a name="Explained"></a><h2>Explained</h2>
+<p><b>new i = 0;</b><br />
+Creates the variable 'i' and sets it to 0
+</p><p><b>i &lt; MAX_PLAYERS;</b><br />
+If the loop is less than MAX_PLAYERS (X amount of slots on a server) it will continue
+</p><p><b>i++</b><br />
+Adds one to i each time
+</p><p><br />
+<b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Loops are usually used to loop through all vehicles or players, and do something to them<br /></div>
+<p><br />
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnPlayerSpawn"><span style="color: #dc143c">OnPlayerSpawn</span></a><span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <span style="color: #4169e1;">for</span><span style="color: #66cc66;">&#40;</span><span style="color: #228b22; font-weight: bold;">new</span> i = <span style="color: #4169e1;">0</span>; i &lt; <span style="color: #E9967A; font-weight: bold;">MAX_PLAYERS</span>; i++<span style="color: #66cc66;">&#41;</span>
+    <span style="color: #66cc66;">&#123;</span>
+        <span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>!<a href="http://wiki.sa-mp.com/wiki/IsPlayerConnected"><span style="color: #006400;">IsPlayerConnected</span></a><span style="color: #66cc66;">&#40;</span>i<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span> <span style="color: orange; font-weight: bold;">continue</span>;
+        <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>i, 0x33AA33AA, <span style="color: #b22222;">&quot;Someone spawned!&quot;</span><span style="color: #66cc66;">&#41;</span>;
+    <span style="color: #66cc66;">&#125;</span>
+    <span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>That could be an alternative to <a href="SendClientMessageToAll.html" title="SendClientMessageToAll">SendClientMessageToAll</a>.
+</p><p>Also, the variable does not have to be called 'i', it can be assigned any name.
+</p><p>for(new blah = 0; blah &lt; MAX_VEHICLES; blah++)
+</p><p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Loops.html" title="Edit section: Example with loop">edit</a>]</div><a name="Example_with_loop"></a><h2> Example with loop </h2>
+<p>If you want to send a message to all RCON admins when a player connects, then you can do it like this.
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnPlayerConnect"><span style="color: #dc143c">OnPlayerConnect</span></a><span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <span style="color: #4169e1;">for</span><span style="color: #66cc66;">&#40;</span><span style="color: #228b22; font-weight: bold;">new</span> all = <span style="color: #4169e1;">0</span>; all &lt; <span style="color: #E9967A; font-weight: bold;">MAX_PLAYERS</span>; all++<span style="color: #66cc66;">&#41;</span>
+    <span style="color: #66cc66;">&#123;</span>
+        <span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span><a href="http://wiki.sa-mp.com/wiki/IsPlayerAdmin"><span style="color: #006400;">IsPlayerAdmin</span></a><span style="color: #66cc66;">&#40;</span>all<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>
+        <span style="color: #66cc66;">&#123;</span>
+            <span style="color: #228b22; font-weight: bold;">new</span> playername<span style="color: #66cc66;">&#91;</span><span style="color: #E9967A; font-weight: bold;">MAX_PLAYER_NAME</span><span style="color: #66cc66;">&#93;</span>, string<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">84</span><span style="color: #66cc66;">&#93;</span>;
+            <a href="http://wiki.sa-mp.com/wiki/GetPlayerName"><span style="color: #006400;">GetPlayerName</span></a><span style="color: #66cc66;">&#40;</span>playerid, playername, <span style="color: orange; font-weight: bold;">sizeof</span><span style="color: #66cc66;">&#40;</span>playername<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>;
+            <a href="http://wiki.sa-mp.com/wiki/format"><span style="color: #006400;">format</span></a><span style="color: #66cc66;">&#40;</span>string, <span style="color: orange; font-weight: bold;">sizeof</span><span style="color: #66cc66;">&#40;</span>string<span style="color: #66cc66;">&#41;</span>, <span style="color: #b22222;">&quot;*Player [%i] %s has connected to the server!&quot;</span>, playerid, playername<span style="color: #66cc66;">&#41;</span>;
+            <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>all, 0xFF0000FF, string<span style="color: #66cc66;">&#41;</span>;
+        <span style="color: #66cc66;">&#125;</span>
+    <span style="color: #66cc66;">&#125;</span>
+    <span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<table style="padding: 8px; background-color: #cee0f2; width: 100%;-moz-border-radius:0px; border-left: 10px solid rgb(204, 204, 204);">
+
+<tr>
+<td align="left"><a href="Image_Stub.png.html" class="image" title="Image:Stub.png"><img src="../upload/f/fe/Stub.png" alt="Image:Stub.png" width="64" height="64" longdesc="Image_Stub.png.html" /></a>
+</td><td align="center"><span style="font-size:16px;">This article/section is a <a href="Category_Stubs.html" title="Category:Stubs">stub</a></span><br /> <i>You can help SA-MP by <span class="plainlinks"><a href="http://localhost../wiki/Loops.html" class='external text' title="http://localhost../wiki/Loops.html" rel="nofollow">expanding it</a></span></i>
+</td><td align="right"><a href="Image_Stub.png.html" class="image" title="Image:Stub.png"><img src="../upload/f/fe/Stub.png" alt="Image:Stub.png" width="64" height="64" longdesc="Image_Stub.png.html" /></a>
+</td></tr></table>
+<div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/Loops.html">http://localhost../wiki/Loops.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="Category_SuggestedDeletion.html" title="Category:SuggestedDeletion">SuggestedDeletion</a></span> | <span dir='ltr'><a href="Category_Stubs.html" title="Category:Stubs">Stubs</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="Loops.html">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="Talk_Loops.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="Loops.html">Edit</a></li>
+				 <li id="ca-history"><a href="Loops.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 30,184 times.</li>
+				<li id="credits">This page was last modified 19:30, 28 July 2017 by SA-MP Wiki user <a href="User_OstGot.html" title="User:OstGot">OstGot</a>. Based on work by SA-MP Wiki user(s) <a href="User_Vince.html" title="User:Vince">Vince</a>, <a href="User_LaZ.html" title="User:LaZ">LaZ</a>, <a href="User_Niixie.html" class="new" title="User:Niixie">Niixie</a> and <a href="User_Garsino.html" title="User:Garsino">Garsino</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 40.30 secs. -->
+</body></html>

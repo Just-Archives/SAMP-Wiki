@@ -1,0 +1,347 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="File Functions,Fcreate code,Fdelete code,Main Page,Scripting Basics,Server Plugins,Scripting Callbacks,Scripting Functions,Tutorials" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>File Functions - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">File Functions</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<div class="scripting" style="color: #4378A4; background-color: #FFFFFF; margin: 2px; margin-bottom: 10px;"><div align="center" style="border: 1px solid #AAAAAA; padding: 3px; padding-left: 5px;"><a href="../wiki-archive.html" title="Main Page">Main Page</a> | <a href="Category_Scripting_Functions.html" title="Category:Scripting Functions">Scripting Functions</a> | <a href="Category_Scripting_Callbacks.html" title="Category:Scripting Callbacks">Scripting Callbacks</a> | <a href="Scripting_Basics.html" title="Scripting Basics">Scripting Basics</a> | <a href="Server_Plugins.html" title="Server Plugins">Server Plugins</a> | <a href="Category_Tutorials.html" title="Category:Tutorials">Tutorials</a></div></div><br />
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="File_Functions.html" title="Edit section: File Functions in PAWN">edit</a>]</div><a name="File_Functions_in_PAWN"></a><h2>File Functions in PAWN</h2>
+<p>Using the file functions seems quite hard to do correctly for the most people, although this isn't. I have made this tutorial to introduce people to these functions to get a nice file writing script (or anything else) together by theirselves, without something like Dini (Although Dini is a good solution )
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="File_Functions.html" title="Edit section: The File Functions: How to start writing">edit</a>]</div><a name="The_File_Functions:_How_to_start_writing"></a><h2> The File Functions: How to start writing </h2>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+<p><strong>Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">There are faster alternatives than writing / reading files, such as DJSON, SII and Y-ini</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #FFEAEA; border-left: 10px solid #FCA9A9;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #FCA9A9;"><a href="Image_32px-Circle-style-warning.png.html" class="image" title="Image:32px-Circle-style-warning.png"><img src="../upload/5/57/32px-Circle-style-warning.png" alt="Image:32px-Circle-style-warning.png" width="32" height="32" longdesc="Image_32px-Circle-style-warning.png.html" /></a><br />
+<p><strong>Important<br />Notes</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">
+<ul><li> Invalid file handles used without checking may produce <b>run-time errors or crashes</b>.
+</li><li> If a file is NOT found (That's used for opening) it'll result in a crash of the server, ensure all files used are properly there.</span>
+</li></ul>
+</td></tr></table>
+</div>
+<p><br />
+First off I'll show you a piece of tiny code and will later on explain -and improve- it.
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnPlayerConnect"><span style="color: #dc143c">OnPlayerConnect</span></a><span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <span style="color: #228b22; font-weight: bold;">new</span> pname<span style="color: #66cc66;">&#91;</span><span style="color: #E9967A; font-weight: bold;">MAX_PLAYER_NAME</span><span style="color: #66cc66;">&#93;</span>, <span style="color: orange;">File</span>:ftw=<a href="http://wiki.sa-mp.com/wiki/fopen"><span style="color: #006400;">fopen</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;names.txt&quot;</span>, io_write<span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+    <span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>ftw<span style="color: #66cc66;">&#41;</span>
+    <span style="color: #66cc66;">&#123;</span>
+        <a href="http://wiki.sa-mp.com/wiki/GetPlayerName"><span style="color: #006400;">GetPlayerName</span></a><span style="color: #66cc66;">&#40;</span>playerid, pname, <span style="color: #4169e1;">24</span><span style="color: #66cc66;">&#41;</span>;
+        <a href="http://wiki.sa-mp.com/wiki/fwrite"><span style="color: #006400;">fwrite</span></a><span style="color: #66cc66;">&#40;</span>ftw, pname<span style="color: #66cc66;">&#41;</span>;
+        <a href="http://wiki.sa-mp.com/wiki/fclose"><span style="color: #006400;">fclose</span></a><span style="color: #66cc66;">&#40;</span>ftw<span style="color: #66cc66;">&#41;</span>;
+    <span style="color: #66cc66;">&#125;</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>This tiny code will write the name of the player which joins into a file in your scriptfiles folder named names.txt . This isn't the best code though, because when we write it like this, with more people joined it will end up like:
+</p>
+<pre>Name1name2name3
+</pre>
+<p>Instead of
+</p>
+<pre>Name1
+Name2
+Etc..
+</pre>
+<p>To fix this we need to format the name into a string combined with some escape codes, it will end up like this:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> string<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">30</span><span style="color: #66cc66;">&#93;</span>;
+<a href="http://wiki.sa-mp.com/wiki/format"><span style="color: #006400;">format</span></a><span style="color: #66cc66;">&#40;</span>string, <span style="color: #4169e1;">30</span>, <span style="color: #b22222;">&quot;%s<span style="color: #000099; font-weight: bold;">\r</span><span style="color: #000099; font-weight: bold;">\n</span>&quot;</span>, pname<span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// formatting the string with the escape codes</span>
+<a href="http://wiki.sa-mp.com/wiki/fwrite"><span style="color: #006400;">fwrite</span></a><span style="color: #66cc66;">&#40;</span>ftw, string<span style="color: #66cc66;">&#41;</span>;</pre>
+<p>A little explanation about the escape codes; the "\n" will begin a new line, and the \r makes sure it starts at the beginning, not somewhere in the middle of a line, so it wont end up like
+</p>
+<pre>Name1
+           Name2
+</pre>
+<p>Second, we now use the write io, which is not really good for this point of use, seeing it overwrites everything already written, which is not what we want. There are 4 io's we can use for file reading/writing:
+</p>
+<table class="wikitable" style="font-size: smaller; text-align: center; width: 100%; talbe-layout: fixed;">
+
+<tr>
+<th style="width:12em">
+</th><th> Description
+</th></tr>
+<tr>
+<th> io_write
+</th><td style="background: #ddffdd"> Writes in a file, clears all earlier written text
+</td></tr>
+<tr>
+<th> io_read
+</th><td style="background: #ddffdd"> Reads the file, the file must exist, otherwise a crash will occur
+</td></tr>
+<tr>
+<th> io_append
+</th><td style="background: #ddffdd"> Appending to a file, writing only
+</td></tr>
+<tr>
+<th> io_readwrite
+</th><td style="background: #ddffdd"> Reads the file or makes a new one
+</td></tr></table>
+<p>So instead of the io_read we can better use the append io, so change 
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> pname<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">24</span><span style="color: #66cc66;">&#93;</span>, <span style="color: orange;">File</span>:ftw=<a href="http://wiki.sa-mp.com/wiki/fopen"><span style="color: #006400;">fopen</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;names.txt&quot;</span>, io_write<span style="color: #66cc66;">&#41;</span>;</pre>
+<p>to
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> pname<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">24</span><span style="color: #66cc66;">&#93;</span>, <span style="color: orange;">File</span>:ftw=<a href="http://wiki.sa-mp.com/wiki/fopen"><span style="color: #006400;">fopen</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;names.txt&quot;</span>, io_append<span style="color: #66cc66;">&#41;</span>;</pre>
+<p>So now you made a tiny script which saves the names of players who joined your server into a file named names.txt , well done!
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="File_Functions.html" title="Edit section: The File Functions: Saving a players position into an AddPlayerClass format">edit</a>]</div><a name="The_File_Functions:_Saving_a_players_position_into_an_AddPlayerClass_format"></a><h2> The File Functions: Saving a players position into an AddPlayerClass format </h2>
+<p>Now we are going to make a script like the debug tool provided within the SAMP (server) client. In the end our script will produce an AddPlayerClass line written into a file called positions.txt.
+</p><p>First we declare our variables inside the OnPlayerCommandText callback:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> string<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">128</span><span style="color: #66cc66;">&#93;</span>;
+<span style="color: #228b22; font-weight: bold;">new</span> <span style="color: orange;">Float</span>:X, <span style="color: orange;">Float</span>:Z, <span style="color: orange;">Float</span>:Y, <span style="color: orange;">Float</span>:Rotation; <span style="color: #808080; font-style: italic;">// Floats to save the pos in</span></pre>
+<p>Then we start our command:
+</p>
+<pre class="pawn"><span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span><a href="http://wiki.sa-mp.com/wiki/strcmp"><span style="color: #006400;">strcmp</span></a><span style="color: #66cc66;">&#40;</span>cmdtext, <span style="color: #b22222;">&quot;/save&quot;</span>, true<span style="color: #66cc66;">&#41;</span>==<span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span> 
+<span style="color: #66cc66;">&#123;</span></pre>
+<p>Now we need to get the players position and their rotation. GetPlayerPos /Angle are exactly made for this.
+</p>
+<pre class="pawn"><span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span><a href="http://wiki.sa-mp.com/wiki/strcmp"><span style="color: #006400;">strcmp</span></a><span style="color: #66cc66;">&#40;</span>cmdtext, <span style="color: #b22222;">&quot;/save&quot;</span>, true<span style="color: #66cc66;">&#41;</span>==<span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span>
+    <span style="color: #66cc66;">&#123;</span>
+        <a href="http://wiki.sa-mp.com/wiki/GetPlayerPos"><span style="color: #006400;">GetPlayerPos</span></a><span style="color: #66cc66;">&#40;</span>playerid, X, Y, Z<span style="color: #66cc66;">&#41;</span>;
+        <a href="http://wiki.sa-mp.com/wiki/GetPlayerFacingAngle"><span style="color: #006400;">GetPlayerFacingAngle</span></a><span style="color: #66cc66;">&#40;</span>playerid,Rotation<span style="color: #66cc66;">&#41;</span>;
+    <span style="color: #66cc66;">&#125;</span>
+    <span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>Now we will endly format our string to an good AddPlayerClass format, Ill paste our whole command we have at the moment
+</p>
+<pre class="pawn"><span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span><a href="http://wiki.sa-mp.com/wiki/strcmp"><span style="color: #006400;">strcmp</span></a><span style="color: #66cc66;">&#40;</span>cmdtext, <span style="color: #b22222;">&quot;/save&quot;</span>, true<span style="color: #66cc66;">&#41;</span>==<span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span>
+    <span style="color: #66cc66;">&#123;</span>
+        <a href="http://wiki.sa-mp.com/wiki/GetPlayerPos"><span style="color: #006400;">GetPlayerPos</span></a><span style="color: #66cc66;">&#40;</span>playerid, X, Y, Z<span style="color: #66cc66;">&#41;</span>;
+        <a href="http://wiki.sa-mp.com/wiki/GetPlayerFacingAngle"><span style="color: #006400;">GetPlayerFacingAngle</span></a><span style="color: #66cc66;">&#40;</span>playerid, Rotation<span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+        <span style="color: #228b22; font-weight: bold;">new</span> <span style="color: orange;">File</span>:pos=<a href="http://wiki.sa-mp.com/wiki/fopen"><span style="color: #006400;">fopen</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;positions.txt&quot;</span>, io_append<span style="color: #66cc66;">&#41;</span>;
+        <a href="http://wiki.sa-mp.com/wiki/format"><span style="color: #006400;">format</span></a><span style="color: #66cc66;">&#40;</span>string, <span style="color: #4169e1;">256</span>, <span style="color: #b22222;">&quot;AddPlayerClass(0, %f, %f, %f, %f, 0,0,0,0,0,0);&quot;</span>, X, Y, Z,Rotation<span style="color: #66cc66;">&#41;</span>;
+        <a href="http://wiki.sa-mp.com/wiki/fwrite"><span style="color: #006400;">fwrite</span></a><span style="color: #66cc66;">&#40;</span>pos, string<span style="color: #66cc66;">&#41;</span>;
+        <a href="http://wiki.sa-mp.com/wiki/fclose"><span style="color: #006400;">fclose</span></a><span style="color: #66cc66;">&#40;</span>pos<span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+        <span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+    <span style="color: #66cc66;">&#125;</span></pre>
+<p>Not hard at all eh? Now will discuss reading files&nbsp;;)
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="File_Functions.html" title="Edit section: File Functions: Reading Files">edit</a>]</div><a name="File_Functions:_Reading_Files"></a><h2> File Functions: Reading Files </h2>
+<p>Now I hope you understand writing, we can start with reading, seeing as this is quite useful when it comes to Admin scripts, par example. A user configurable script without digging into the source always comes in handy, and thus we are going to practise it.
+</p><p>We are going to make a script which will read and print some numbers written in a file, first off well use this function I often use for getting values out of files:
+</p>
+<pre class="pawn">GetVal<span style="color: #66cc66;">&#40;</span>numb, str<span style="color: #66cc66;">&#91;</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span> <span style="color: #66cc66;">&#123;</span>
+    <span style="color: #228b22; font-weight: bold;">new</span> tmp<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">256</span><span style="color: #66cc66;">&#93;</span>, idx;
+    <span style="color: #4169e1;">for</span><span style="color: #66cc66;">&#40;</span><span style="color: #228b22; font-weight: bold;">new</span> i=<span style="color: #4169e1;">0</span>; i&lt;numb; i++<span style="color: #66cc66;">&#41;</span> <span style="color: #66cc66;">&#123;</span>
+        tmp=strtok<span style="color: #66cc66;">&#40;</span>str, idx<span style="color: #66cc66;">&#41;</span>;
+    <span style="color: #66cc66;">&#125;</span>
+    <span style="color: orange; font-weight: bold;">return</span> <a href="http://wiki.sa-mp.com/wiki/strval"><span style="color: #006400;">strval</span></a><span style="color: #66cc66;">&#40;</span>tmp<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>This one is requiring the function strtok to function correctly! Get it at the SA-MP Forums if you already haven't got it.
+</p><p>Now we make our function; <i>ReadConf()</i>. To read from a file we need to read io + the fread() function. Using fread one time will read the first line of the line, no further. If you want to read more lines/the whole file you need a for/while loop, well use a while loop here
+</p>
+<pre class="pawn">ReadConf<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <span style="color: #228b22; font-weight: bold;">new</span> <span style="color: orange;">File</span>:cfg=<a href="http://wiki.sa-mp.com/wiki/fopen"><span style="color: #006400;">fopen</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;conf.cfg&quot;</span>, io_read<span style="color: #66cc66;">&#41;</span>;
+    <span style="color: #228b22; font-weight: bold;">new</span> string<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">256</span><span style="color: #66cc66;">&#93;</span>, MyVal<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">256</span><span style="color: #66cc66;">&#93;</span>;
+    <span style="color: #4169e1;">while</span><span style="color: #66cc66;">&#40;</span><a href="http://wiki.sa-mp.com/wiki/fread"><span style="color: #006400;">fread</span></a><span style="color: #66cc66;">&#40;</span>cfg, string<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span> 
+    <span style="color: #66cc66;">&#123;</span>
+        <span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span><a href="http://wiki.sa-mp.com/wiki/strcmp"><span style="color: #006400;">strcmp</span></a><span style="color: #66cc66;">&#40;</span>string, <span style="color: #b22222;">&quot;mynumb &quot;</span>, true, <span style="color: #4169e1;">7</span><span style="color: #66cc66;">&#41;</span>==<span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span> 
+        <span style="color: #66cc66;">&#123;</span>
+            MyVal=GetVal<span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">2</span>, string<span style="color: #66cc66;">&#41;</span>; 
+        <span style="color: #66cc66;">&#125;</span>
+    <span style="color: #66cc66;">&#125;</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>This is our tiny function, don't forget to declare the MyVal integer at the top of your script! What the code does is reading the whole file, and comparing each line with the word "mynumb", if this is true (eg, he will find it), the script will set the value of MyVal to the value given in the file.
+</p>
+<pre class="pawn">Main<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span> 
+<span style="color: #66cc66;">&#123;</span>
+<div style="color: #cc0; background-color: #ffc;">    ReadConf<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>;</div>    <a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;%d&quot;</span>, MyVal<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>This will print the value of MyVal in the console&nbsp;:)&nbsp;!
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="File_Functions.html" title="Edit section: File Functions: Making Read/Save Stats functions for a (primitive) statistics script">edit</a>]</div><a name="File_Functions:_Making_Read.2FSave_Stats_functions_for_a_.28primitive.29_statistics_script"></a><h2> File Functions: Making Read/Save Stats functions for a (primitive) statistics script </h2>
+<p>In this part of the tutorial we will use our knowledge to make functions like: SaveStats(playerid, k, d) and ReadStats(playerid, k, d) . With this we can make our own statistics script with saveable kills, deaths and a kd ratio!
+</p><p>First of all, you will need dutils and functions called 'fdeleteline' and 'fcreate' (by Sacky) . For these to work you will need the <a href="Fdelete_code.html" title="Fdelete code">fdelete code</a> and the <a href="Fcreate_code.html" title="Fcreate code">fcreate code</a>. Got them? Lets get on then.
+</p><p>First of all we go declare all the stuff we need, strings, the file itself, arrays, etc. At the top of your script you need to put some global vars;
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> PKills<span style="color: #66cc66;">&#91;</span><span style="color: #E9967A; font-weight: bold;">MAX_PLAYERS</span><span style="color: #66cc66;">&#93;</span>; <span style="color: #808080; font-style: italic;">// Kill Tracker</span>
+<span style="color: #228b22; font-weight: bold;">new</span> PDeaths<span style="color: #66cc66;">&#91;</span><span style="color: #E9967A; font-weight: bold;">MAX_PLAYERS</span><span style="color: #66cc66;">&#93;</span>; <span style="color: #808080; font-style: italic;">// Death tracker</span>
+<span style="color: #6b8e23;">#define FILE_NAME &quot;stats.txt&quot; // The name of the file</span>
+<span style="color: #228b22; font-weight: bold;">new</span> <span style="color: orange;">File</span>:gstats; <span style="color: #808080; font-style: italic;">// The file</span>
+<span style="color: #228b22; font-weight: bold;">new</span> string<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">256</span><span style="color: #66cc66;">&#93;</span>;
+<span style="color: #228b22; font-weight: bold;">new</span> pname<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">24</span><span style="color: #66cc66;">&#93;</span>;
+<span style="color: #228b22; font-weight: bold;">new</span> str<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">256</span><span style="color: #66cc66;">&#93;</span>;</pre>
+<p>In OnPlayerDeath just higher them as you want. Now we will start with making our SaveStats function. First lets list the things we need in this file
+</p>
+<ul><li> It needs to write the stats to the file
+</li><li> It needs to check if the players name already exist in the file, thus not getting it twice in the file
+</li><li> It needs to check if the file exists, so the script wont crash.
+</li></ul>
+<p>Not really hard things, for the second thing we will just use strcmp, for the other one, look below.
+</p>
+<pre class="pawn"><span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>!gstats<span style="color: #66cc66;">&#41;</span> 
+<span style="color: #66cc66;">&#123;</span> 
+<div style="color: #cc0; background-color: #ffc;">    fcreate<span style="color: #66cc66;">&#40;</span>FILE_NAME<span style="color: #66cc66;">&#41;</span>;</div><span style="color: #66cc66;">&#125;</span></pre>
+<p>Will fix all our problems&nbsp;:)
+</p><p><br />
+</p>
+<pre class="pawn"><span style="color: #808080; font-style: italic;">// The function itself</span>
+SaveStats<span style="color: #66cc66;">&#40;</span>playerid, d, k<span style="color: #66cc66;">&#41;</span> 
+<span style="color: #66cc66;">&#123;</span>
+    gstats=<a href="http://wiki.sa-mp.com/wiki/fopen"><span style="color: #006400;">fopen</span></a><span style="color: #66cc66;">&#40;</span>FILE_NAME, io_append<span style="color: #66cc66;">&#41;</span>;
+    <a href="http://wiki.sa-mp.com/wiki/GetPlayerName"><span style="color: #006400;">GetPlayerName</span></a><span style="color: #66cc66;">&#40;</span>playerid, pname, <span style="color: #4169e1;">24</span><span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// The name of the player</span>
+&nbsp;
+    <span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>!gstats<span style="color: #66cc66;">&#41;</span><span style="color: #808080; font-style: italic;">// Our check</span>
+    <span style="color: #66cc66;">&#123;</span>
+        fcreate<span style="color: #66cc66;">&#40;</span>FILE_NAME<span style="color: #66cc66;">&#41;</span>; 
+    <span style="color: #66cc66;">&#125;</span> 
+&nbsp;
+    <a href="http://wiki.sa-mp.com/wiki/format"><span style="color: #006400;">format</span></a><span style="color: #66cc66;">&#40;</span>str, <span style="color: orange; font-weight: bold;">sizeof</span><span style="color: #66cc66;">&#40;</span>str<span style="color: #66cc66;">&#41;</span>, <span style="color: #b22222;">&quot;%s %d %d<span style="color: #000099; font-weight: bold;">\n</span><span style="color: #000099; font-weight: bold;">\r</span>&quot;</span>,pname, k, d<span style="color: #66cc66;">&#41;</span>;
+    <a href="http://wiki.sa-mp.com/wiki/fwrite"><span style="color: #006400;">fwrite</span></a><span style="color: #66cc66;">&#40;</span>gstats, string<span style="color: #66cc66;">&#41;</span>;
+    <a href="http://wiki.sa-mp.com/wiki/fclose"><span style="color: #006400;">fclose</span></a><span style="color: #66cc66;">&#40;</span>gstats<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>This is, in fact, our body, but as you see, it doesn't meet the requirements we set earlier, thus we will now expand it with an strcmp check and a while loop
+</p>
+<pre class="pawn"><span style="color: #808080; font-style: italic;">// The function itself</span>
+SaveStats<span style="color: #66cc66;">&#40;</span>playerid, d, k<span style="color: #66cc66;">&#41;</span> 
+<span style="color: #66cc66;">&#123;</span>
+    gstats=<a href="http://wiki.sa-mp.com/wiki/fopen"><span style="color: #006400;">fopen</span></a><span style="color: #66cc66;">&#40;</span>FILE_NAME, io_append<span style="color: #66cc66;">&#41;</span>;
+    <a href="http://wiki.sa-mp.com/wiki/GetPlayerName"><span style="color: #006400;">GetPlayerName</span></a><span style="color: #66cc66;">&#40;</span>playerid, pname, <span style="color: #4169e1;">24</span><span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// The name of the player</span>
+    <a href="http://wiki.sa-mp.com/wiki/format"><span style="color: #006400;">format</span></a><span style="color: #66cc66;">&#40;</span>str, <span style="color: orange; font-weight: bold;">sizeof</span><span style="color: #66cc66;">&#40;</span>str<span style="color: #66cc66;">&#41;</span>, <span style="color: #b22222;">&quot;%s %d %d<span style="color: #000099; font-weight: bold;">\n</span><span style="color: #000099; font-weight: bold;">\r</span>&quot;</span>,pname, k, d<span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// format</span>
+&nbsp;
+    <span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>!gstats<span style="color: #66cc66;">&#41;</span><span style="color: #808080; font-style: italic;">// Our check</span>
+    <span style="color: #66cc66;">&#123;</span>
+        fcreate<span style="color: #66cc66;">&#40;</span>FILE_NAME<span style="color: #66cc66;">&#41;</span>;
+    <span style="color: #66cc66;">&#125;</span> 
+&nbsp;
+    <span style="color: #4169e1;">while</span><span style="color: #66cc66;">&#40;</span><a href="http://wiki.sa-mp.com/wiki/fread"><span style="color: #006400;">fread</span></a><span style="color: #66cc66;">&#40;</span>gstats, string<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span> 
+    <span style="color: #66cc66;">&#123;</span>
+        <span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span><a href="http://wiki.sa-mp.com/wiki/strcmp"><span style="color: #006400;">strcmp</span></a><span style="color: #66cc66;">&#40;</span>string, pname, false, <a href="http://wiki.sa-mp.com/wiki/strlen"><span style="color: #006400;">strlen</span></a><span style="color: #66cc66;">&#40;</span>pname<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>==<span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span> 
+        <span style="color: #66cc66;">&#123;</span> <span style="color: #808080; font-style: italic;">// To check if the players name is in the file</span>
+            fdeleteline<span style="color: #66cc66;">&#40;</span>FILE_NAME, string<span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// delete the line</span>
+            <a href="http://wiki.sa-mp.com/wiki/fwrite"><span style="color: #006400;">fwrite</span></a><span style="color: #66cc66;">&#40;</span>gstats, str<span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// write the string</span>
+        <span style="color: #66cc66;">&#125;</span>
+    <span style="color: #66cc66;">&#125;</span>
+    <a href="http://wiki.sa-mp.com/wiki/fclose"><span style="color: #006400;">fclose</span></a><span style="color: #66cc66;">&#40;</span>gstats<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>Were getting there, now well just need to add the part in which when the name is NOT in the file, it will just normally append it to the file.
+</p>
+<pre class="pawn"><span style="color: #808080; font-style: italic;">// The function itself</span>
+SaveStats<span style="color: #66cc66;">&#40;</span>playerid, d, k<span style="color: #66cc66;">&#41;</span> <span style="color: #66cc66;">&#123;</span>
+ gstats=<a href="http://wiki.sa-mp.com/wiki/fopen"><span style="color: #006400;">fopen</span></a><span style="color: #66cc66;">&#40;</span>FILE_NAME, io_append<span style="color: #66cc66;">&#41;</span>;
+ <a href="http://wiki.sa-mp.com/wiki/GetPlayerName"><span style="color: #006400;">GetPlayerName</span></a><span style="color: #66cc66;">&#40;</span>playerid, pname, <span style="color: #4169e1;">24</span><span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// The name of the player</span>
+ <a href="http://wiki.sa-mp.com/wiki/format"><span style="color: #006400;">format</span></a><span style="color: #66cc66;">&#40;</span>str, <span style="color: #4169e1;">256</span>, <span style="color: #b22222;">&quot;%s %d %d<span style="color: #000099; font-weight: bold;">\n</span><span style="color: #000099; font-weight: bold;">\r</span>&quot;</span>,pname, k, d<span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// format</span>
+ <span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>!gstats<span style="color: #66cc66;">&#41;</span> <span style="color: #66cc66;">&#123;</span> fcreate<span style="color: #66cc66;">&#40;</span>FILE_NAME<span style="color: #66cc66;">&#41;</span>; <span style="color: #66cc66;">&#125;</span> <span style="color: #808080; font-style: italic;">// Our check</span>
+  <span style="color: #4169e1;">while</span><span style="color: #66cc66;">&#40;</span><a href="http://wiki.sa-mp.com/wiki/fread"><span style="color: #006400;">fread</span></a><span style="color: #66cc66;">&#40;</span>gstats, string<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span> <span style="color: #66cc66;">&#123;</span>
+   <span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span><a href="http://wiki.sa-mp.com/wiki/strcmp"><span style="color: #006400;">strcmp</span></a><span style="color: #66cc66;">&#40;</span>string, pname, false, <a href="http://wiki.sa-mp.com/wiki/strlen"><span style="color: #006400;">strlen</span></a><span style="color: #66cc66;">&#40;</span>pname<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>==<span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span> <span style="color: #66cc66;">&#123;</span> <span style="color: #808080; font-style: italic;">// To check if the players name is in the file</span>
+    fdeleteline<span style="color: #66cc66;">&#40;</span>FILE_NAME, string<span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// delete the line</span>
+     <a href="http://wiki.sa-mp.com/wiki/fwrite"><span style="color: #006400;">fwrite</span></a><span style="color: #66cc66;">&#40;</span>gstats, str<span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// write the string</span>
+   <span style="color: #66cc66;">&#125;</span>
+   <span style="color: #4169e1;">else</span> <span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span><a href="http://wiki.sa-mp.com/wiki/strcmp"><span style="color: #006400;">strcmp</span></a><span style="color: #66cc66;">&#40;</span>string, pname, false, <a href="http://wiki.sa-mp.com/wiki/strlen"><span style="color: #006400;">strlen</span></a><span style="color: #66cc66;">&#40;</span>pname<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>!=<span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span> <span style="color: #66cc66;">&#123;</span> <span style="color: #808080; font-style: italic;">// Its NOT true</span>
+    <a href="http://wiki.sa-mp.com/wiki/fwrite"><span style="color: #006400;">fwrite</span></a><span style="color: #66cc66;">&#40;</span>gstats, str<span style="color: #66cc66;">&#41;</span>;
+  <span style="color: #66cc66;">&#125;</span>
+ <span style="color: #66cc66;">&#125;</span>
+ <a href="http://wiki.sa-mp.com/wiki/fclose"><span style="color: #006400;">fclose</span></a><span style="color: #66cc66;">&#40;</span>gstats<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>And tada! We made our savestats function. The reading part is much easier, so ill just post it at once
+</p>
+<pre class="pawn">ReadStats<span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span> <span style="color: #66cc66;">&#123;</span>
+ gstats=<a href="http://wiki.sa-mp.com/wiki/fopen"><span style="color: #006400;">fopen</span></a><span style="color: #66cc66;">&#40;</span>FILE_NAME, io_read<span style="color: #66cc66;">&#41;</span>;
+ <a href="http://wiki.sa-mp.com/wiki/GetPlayerName"><span style="color: #006400;">GetPlayerName</span></a><span style="color: #66cc66;">&#40;</span>playerid, pname, <span style="color: #4169e1;">24</span><span style="color: #66cc66;">&#41;</span>;
+ <span style="color: #4169e1;">while</span><span style="color: #66cc66;">&#40;</span><a href="http://wiki.sa-mp.com/wiki/fread"><span style="color: #006400;">fread</span></a><span style="color: #66cc66;">&#40;</span>gstats, string<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span> <span style="color: #66cc66;">&#123;</span>
+  <span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span><a href="http://wiki.sa-mp.com/wiki/strcmp"><span style="color: #006400;">strcmp</span></a><span style="color: #66cc66;">&#40;</span>str, pname, false, <a href="http://wiki.sa-mp.com/wiki/strlen"><span style="color: #006400;">strlen</span></a><span style="color: #66cc66;">&#40;</span>pname<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>==<span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span> <span style="color: #66cc66;">&#123;</span>
+   PKills<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span>=GetVal<span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">1</span>, str<span style="color: #66cc66;">&#41;</span>;
+   PDeaths<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span>=GetVal<span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">2</span>, str<span style="color: #66cc66;">&#41;</span>;
+  <span style="color: #66cc66;">&#125;</span>
+ <span style="color: #66cc66;">&#125;</span>
+ <a href="http://wiki.sa-mp.com/wiki/fclose"><span style="color: #006400;">fclose</span></a><span style="color: #66cc66;">&#40;</span>gstats<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>Now, we got our functions, you'll just need to place them in the OnPlayerConnect and Disconnect events, if you cant even do that, stop scripting already&nbsp;;)&nbsp;!
+</p><p><b>NOTE</b>: Earlier I mentioned a kd ratio is possible, this doesn't need to be saved in the file, when you display the stats (eg with a "/stats" cmd) declare this;
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> <span style="color: orange;">Float</span>:ratio=<a href="http://wiki.sa-mp.com/wiki/floatdiv"><span style="color: #006400;">floatdiv</span></a><span style="color: #66cc66;">&#40;</span>PKills<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span>, PDeaths<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>;
+<a href="http://wiki.sa-mp.com/wiki/format"><span style="color: #006400;">format</span></a><span style="color: #66cc66;">&#40;</span>str, <span style="color: #4169e1;">256</span>, <span style="color: #b22222;">&quot;%d %d %.2f&quot;</span>, PKills<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span>, PDeaths<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span>, ratio<span style="color: #66cc66;">&#41;</span>;</pre>
+<div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/File_Functions.html">http://localhost../wiki/File_Functions.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="Category_Tutorials.html" title="Category:Tutorials">Tutorials</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="File_Functions.html">Article</a></li>
+				 <li id="ca-talk"><a href="Talk_File_Functions.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="File_Functions.html">Edit</a></li>
+				 <li id="ca-history"><a href="File_Functions.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 99,056 times.</li>
+				<li id="credits">This page was last modified 13:47, 26 March 2017 by SA-MP Wiki user <a href="User_OstGot.html" title="User:OstGot">OstGot</a>. Based on work by <a href="User_Wolfe.html" class="new" title="User:Wolfe">chris</a> and <a href="User_Zume.html" title="User:Zume">_Zume</a> and SA-MP Wiki user(s) <a href="User_RajatPawar.html" title="User:RajatPawar">RajatPawar</a>, <a href="User_H02.html" title="User:H02">H02</a>, <a href="User_Grim.html" class="new" title="User:Grim">Grim</a> and <a href="User_Calgon.html" title="User:Calgon">Calgon</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 3.53 secs. -->
+</body></html>

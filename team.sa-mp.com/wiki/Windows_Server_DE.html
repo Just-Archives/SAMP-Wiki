@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Windows Server DE,Server.cfg" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>Windows Server DE - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Windows Server DE</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class='toclevel-1'><a href="#Voraussetzungen"><span class="tocnumber">1</span> <span class="toctext">Voraussetzungen</span></a></li>
+<li class='toclevel-1'><a href="#Aufsetzen_eines_Servers"><span class="tocnumber">2</span> <span class="toctext">Aufsetzen eines Servers</span></a>
+<ul>
+<li class='toclevel-2'><a href="#Herunterladen_der_ben.C3.B6tigten_Dateien"><span class="tocnumber">2.1</span> <span class="toctext">Herunterladen der benötigten Dateien</span></a></li>
+<li class='toclevel-2'><a href="#Serverkonfiguration"><span class="tocnumber">2.2</span> <span class="toctext">Serverkonfiguration</span></a>
+<ul>
+<li class='toclevel-3'><a href="#server.cfg"><span class="tocnumber">2.2.1</span> <span class="toctext">server.cfg</span></a></li>
+</ul>
+</li>
+<li class='toclevel-2'><a href="#Starten_des_Servers"><span class="tocnumber">2.3</span> <span class="toctext">Starten des Servers</span></a></li>
+</ul>
+</li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Windows_Server_DE.html" title="Edit section: Voraussetzungen">edit</a>]</div><a name="Voraussetzungen"></a><h2> Voraussetzungen </h2>
+<ul><li> 32\64-bit Microsoft® Windows® Betriebssystem
+</li><li> Breitbandinternetzugang (mit hohem Upload, ein Server mit 100 Spielern benötigt nahezu 4 Mbit/s in beide Richtungen)
+</li><li> Routerfreigabe auf den Port 7777 (Standard) | <a href="http://www.portforward.com/" class='external text' title="http://www.portforward.com" rel="nofollow">Guide</a>
+</li><li> <a href="http://www.7-zip.org/" class='external text' title="http://www.7-zip.org/" rel="nofollow">7-Zip®</a> | <i>Dieses Programm wird nur dann benötigt, wenn Sie eine ältere Version vom Microsoft® Windows® Betriebssystem benutzen, welches die Dateierweiterung *.zip nicht unterstützt.</i>
+</li></ul>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Windows_Server_DE.html" title="Edit section: Aufsetzen eines Servers">edit</a>]</div><a name="Aufsetzen_eines_Servers"></a><h2> Aufsetzen eines Servers </h2>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Windows_Server_DE.html" title="Edit section: Herunterladen der benötigten Dateien">edit</a>]</div><a name="Herunterladen_der_ben.C3.B6tigten_Dateien"></a><h3> Herunterladen der benötigten Dateien </h3>
+<p>Der erste Schritt für den eigenen <b>SAMP-Server</b> ist dass Herunterladen des <b>Windows Servers</b> von der <a href="http://www.sa-mp.com/download.php" class='external text' title="http://www.sa-mp.com/download.php" rel="nofollow">SA-MP Download Seite</a>. Die aktuelle Version des <b>Windows Servers</b> finden Sie unter der Überschrift <b>Windows Server</b>. Klicken Sie auf einen der Download-Links um den Download zu starten.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Windows_Server_DE.html" title="Edit section: Serverkonfiguration">edit</a>]</div><a name="Serverkonfiguration"></a><h3> Serverkonfiguration </h3>
+Wenn der Download abgeschlossen ist, extrahieren Sie die Dateien in das Installationsverzeichnis (<b>Standardpfad:</b> <i>C:\Program Files\Rockstar Games\GTA San Andreas\SAMP-Server</i>). Überprüfen Sie, ob alle Dateien im angegebenen Verzeichnis enthalten sind. Hierfür können Sie die Animation verwenden.<div class="thumb tleft"><div style="width:182px;"><a href="Image_SA-MP_Wiki_Windows.gif.html" class="internal" title="Verzeichnis"><img src="../upload/thumb/b/b0/SA-MP_Wiki_Windows.gif/180px-SA-MP_Wiki_Windows.gif" alt="Verzeichnis" width="180" height="106" longdesc="Image_SA-MP_Wiki_Windows.gif.html" /></a>  <div class="thumbcaption" ><div class="magnify" style="float:right"><a href="Image_SA-MP_Wiki_Windows.gif.html" class="internal" title="Enlarge"><img src="../skins/common/images/magnify-clip.png" width="15" height="11" alt="Enlarge" /></a></div>Verzeichnis</div></div></div> ( <i>Verzeichnis</i>). Wenn Sie sichergestellt haben, dass alle Dateien vorhanden sind, können Sie mit der Serverkonfiguration beginnen.
+<p>Suchen Sie die Datei server.cfg im Installationsverzeichnis und öffnen Sie diese mit eun dem Notepad oder dem Editor. Diese Datei ist grundsätzlich in einfachem Englisch. Innerhalb dieser Datei finden Sie Grundkonfigurationen für Ihren Server. Sie können festlegen ob der Server im Lanmodus <b>(lanmode)</b> läuft, <i>on</i> für aktiviert und <i>off</i> für deaktiviert, die maximale Anzahl von Spielern <b>max players</b>, den Serverport <b>server port</b>, den Namen des Servers <b>host name</b>, die voreingestellten Spielmodi <b>game modes</b>, die Filterscripte<i><b>filterscripts*</b></i>, die URL Ihrer Homepage<b>weburl</b> sowie ihr Hauptadministratiospasswort <b>rcon password.</b>
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Windows_Server_DE.html" title="Edit section: server.cfg">edit</a>]</div><a name="server.cfg"></a><h4> server.cfg </h4>
+<p>In der <b>server.cfg</b> können Sie die Einstellungen Ihrer Wahl vornehmen. Für mehr Informationen siehe auch <a href="Server.cfg.html" title="Server.cfg">server.cfg</a>.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Windows_Server_DE.html" title="Edit section: Starten des Servers">edit</a>]</div><a name="Starten_des_Servers"></a><h3> Starten des Servers </h3>
+<p>Sobald Sie die Konfiguration abgeschlossen haben, können Sie Ihren Server starten. Machen Sie einen Doppelklick auf die Datei <b>samp-server.exe</b> und Ihr Server wird gestartet. Sollten bei dieser Methode Probleme auftauchen, starten Sie die Datei über die Komandozeile.
+</p><p>Gehen Sie über <i>Start -> Ausführen und geben Sie "cmd" ein.</i>
+In der erscheinenden Konsole geben Sie folgendes Kommando ein:
+</p>
+<pre>cd pfad\zum\server
+start samp-server.exe
+</pre><div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/Windows_Server_DE.html">http://localhost../wiki/Windows_Server_DE.html</a>"</div>
+						<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="Windows_Server_DE.html">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="Talk_Windows_Server_DE.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="Windows_Server_DE.html">Edit</a></li>
+				 <li id="ca-history"><a href="Windows_Server_DE.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-ru"><a href="Windows_Server_RU.html">Русский</a></li>
+				<li class="interwiki-en"><a href="Windows_Server.html">English</a></li>
+				<li class="interwiki-nl"><a href="Windows_Server_NL.html">Nederlands</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 21,006 times.</li>
+				<li id="credits">This page was last modified 15:06, 14 February 2009 by SA-MP Wiki user User:. </li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 18.52 secs. -->
+</body></html>

@@ -1,0 +1,527 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Функции других заголовочных файлов Pawn,Function:clreol,Function:clrscr,Function:deleteproperty,Function:existproperty,Function:getarg,Function:getchar,Function:getproperty,Function:getstring,Function:getvalue,Function:heapspace" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>Функции других заголовочных файлов Pawn - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Функции других заголовочных файлов Pawn</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class='toclevel-1'><a href="#.D0.A4.D1.83.D0.BD.D0.BA.D1.86.D0.B8.D0.B8_.D1.8F.D0.B4.D1.80.D0.B0_.28core.inc.29"><span class="tocnumber">1</span> <span class="toctext">Функции ядра (core.inc)</span></a>
+<ul>
+<li class='toclevel-2'><a href="#random"><span class="tocnumber">1.1</span> <span class="toctext">random</span></a></li>
+<li class='toclevel-2'><a href="#sizeof"><span class="tocnumber">1.2</span> <span class="toctext">sizeof</span></a></li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#.D0.A4.D1.83.D0.BD.D0.BA.D1.86.D0.B8.D0.B8_.D1.81.D0.B5.D1.80.D0.B2.D0.B5.D1.80.D0.BD.D0.BE.D0.B3.D0.BE_.D0.BE.D0.BA.D0.BD.D0.B0"><span class="tocnumber">2</span> <span class="toctext">Функции серверного окна</span></a>
+<ul>
+<li class='toclevel-2'><a href="#clreol"><span class="tocnumber">2.1</span> <span class="toctext">clreol</span></a></li>
+<li class='toclevel-2'><a href="#clrscr"><span class="tocnumber">2.2</span> <span class="toctext">clrscr</span></a></li>
+<li class='toclevel-2'><a href="#getarg"><span class="tocnumber">2.3</span> <span class="toctext">getarg</span></a></li>
+<li class='toclevel-2'><a href="#getchar"><span class="tocnumber">2.4</span> <span class="toctext">getchar</span></a></li>
+<li class='toclevel-2'><a href="#getstring"><span class="tocnumber">2.5</span> <span class="toctext">getstring</span></a></li>
+<li class='toclevel-2'><a href="#getvalue"><span class="tocnumber">2.6</span> <span class="toctext">getvalue</span></a></li>
+<li class='toclevel-2'><a href="#gotoxy"><span class="tocnumber">2.7</span> <span class="toctext">gotoxy</span></a></li>
+<li class='toclevel-2'><a href="#heapspace"><span class="tocnumber">2.8</span> <span class="toctext">heapspace</span></a></li>
+<li class='toclevel-2'><a href="#numargs"><span class="tocnumber">2.9</span> <span class="toctext">numargs</span></a></li>
+<li class='toclevel-2'><a href="#print"><span class="tocnumber">2.10</span> <span class="toctext">print</span></a></li>
+<li class='toclevel-2'><a href="#printf"><span class="tocnumber">2.11</span> <span class="toctext">printf</span></a></li>
+<li class='toclevel-2'><a href="#setarg"><span class="tocnumber">2.12</span> <span class="toctext">setarg</span></a></li>
+<li class='toclevel-2'><a href="#wherexy"><span class="tocnumber">2.13</span> <span class="toctext">wherexy</span></a></li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#.D0.A1.D0.B2.D0.BE.D0.B9.D1.81.D1.82.D0.B2.D0.B0"><span class="tocnumber">3</span> <span class="toctext">Свойства</span></a>
+<ul>
+<li class='toclevel-2'><a href="#deleteproperty"><span class="tocnumber">3.1</span> <span class="toctext">deleteproperty</span></a></li>
+<li class='toclevel-2'><a href="#existproperty"><span class="tocnumber">3.2</span> <span class="toctext">existproperty</span></a></li>
+<li class='toclevel-2'><a href="#getproperty"><span class="tocnumber">3.3</span> <span class="toctext">getproperty</span></a></li>
+<li class='toclevel-2'><a href="#setproperty"><span class="tocnumber">3.4</span> <span class="toctext">setproperty</span></a></li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#.D0.A4.D1.83.D0.BD.D0.BA.D1.86.D0.B8.D0.B8_UDP-.D1.88.D0.B8.D1.80.D0.BE.D0.BA.D0.BE.D0.B2.D0.B5.D1.89.D0.B0.D0.BD.D0.B8.D1.8F"><span class="tocnumber">4</span> <span class="toctext">Функции UDP-широковещания</span></a>
+<ul>
+<li class='toclevel-2'><a href="#listenport"><span class="tocnumber">4.1</span> <span class="toctext">listenport</span></a></li>
+<li class='toclevel-2'><a href="#sendpacket"><span class="tocnumber">4.2</span> <span class="toctext">sendpacket</span></a></li>
+<li class='toclevel-2'><a href="#sendstring"><span class="tocnumber">4.3</span> <span class="toctext">sendstring</span></a></li>
+</ul>
+</li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%25A4%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D0%25B4%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D1%2585_%25D0%25B7%25D0%25B0%25D0%25B3%25D0%25BE%25D0%25BB%25D0%25BE%25D0%25B2%25D0%25BE%25D1%2587%25D0%25BD%25D1%258B%25D1%2585_%25D1%2584%25D0%25B0%25D0%25B9%25D0%25BB%25D0%25BE%25D0%25B2_Pawn.html" title="Edit section: Функции ядра (core.inc)">edit</a>]</div><a name=".D0.A4.D1.83.D0.BD.D0.BA.D1.86.D0.B8.D0.B8_.D1.8F.D0.B4.D1.80.D0.B0_.28core.inc.29"></a><h1> Функции ядра (core.inc) </h1>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%25A4%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D0%25B4%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D1%2585_%25D0%25B7%25D0%25B0%25D0%25B3%25D0%25BE%25D0%25BB%25D0%25BE%25D0%25B2%25D0%25BE%25D1%2587%25D0%25BD%25D1%258B%25D1%2585_%25D1%2584%25D0%25B0%25D0%25B9%25D0%25BB%25D0%25BE%25D0%25B2_Pawn.html" title="Edit section: random">edit</a>]</div><a name="random"></a><h2><a href="Function_random.html" title="Function:random">random</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Получает псевдослучайное число, которое будет <i>числом</i> различных комбинаций, начиная с 0 и кончая числом, меньшим <i>числа</i>.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">max</td><td style="vertical-align:top;">Максимальное число для случайной последовательности.</td></tr></table></div>
+<p><b>Возвращаемые значения:</b><br />
+</p>
+<div style="padding-left:35px;">Случайное число между 0 и <i>max</i>.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new iRandomNumber &#61; random(25); // случайное число между 0 и 24</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%25A4%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D0%25B4%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D1%2585_%25D0%25B7%25D0%25B0%25D0%25B3%25D0%25BE%25D0%25BB%25D0%25BE%25D0%25B2%25D0%25BE%25D1%2587%25D0%25BD%25D1%258B%25D1%2585_%25D1%2584%25D0%25B0%25D0%25B9%25D0%25BB%25D0%25BE%25D0%25B2_Pawn.html" title="Edit section: sizeof">edit</a>]</div><a name="sizeof"></a><h2><a href="Function_sizeof.html" class="new" title="Function:sizeof">sizeof</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Возвращает предопределенный размер переменной.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">variable[]</td><td style="vertical-align:top;">Переменная, размер которой вы хотите знать.</td></tr></table></div>
+<p><b>Возвращаемые значения:</b><br />
+</p>
+<div style="padding-left:35px;">Размер перменной в виде числа ячеек.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new string[256]; new length &#61; sizeof(string); // length &#61; 256 </span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%25A4%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D0%25B4%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D1%2585_%25D0%25B7%25D0%25B0%25D0%25B3%25D0%25BE%25D0%25BB%25D0%25BE%25D0%25B2%25D0%25BE%25D1%2587%25D0%25BD%25D1%258B%25D1%2585_%25D1%2584%25D0%25B0%25D0%25B9%25D0%25BB%25D0%25BE%25D0%25B2_Pawn.html" title="Edit section: Функции серверного окна">edit</a>]</div><a name=".D0.A4.D1.83.D0.BD.D0.BA.D1.86.D0.B8.D0.B8_.D1.81.D0.B5.D1.80.D0.B2.D0.B5.D1.80.D0.BD.D0.BE.D0.B3.D0.BE_.D0.BE.D0.BA.D0.BD.D0.B0"></a><h1> Функции серверного окна </h1>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%25A4%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D0%25B4%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D1%2585_%25D0%25B7%25D0%25B0%25D0%25B3%25D0%25BE%25D0%25BB%25D0%25BE%25D0%25B2%25D0%25BE%25D1%2587%25D0%25BD%25D1%258B%25D1%2585_%25D1%2584%25D0%25B0%25D0%25B9%25D0%25BB%25D0%25BE%25D0%25B2_Pawn.html" title="Edit section: clreol">edit</a>]</div><a name="clreol"></a><h2><a href="Function_clreol.html" title="Function:clreol">clreol</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Эта функция очищает текущую строку вывода вплоть до ее конца, может быть полезна в Windows-сервере.<br /></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #FFAAA4; border-left: 10px solid #cd5c5c;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #cd5c5c;"><a href="Image_32px-Circle-style-warning.png.html" class="image" title="Image:32px-Circle-style-warning.png"><img src="../upload/5/57/32px-Circle-style-warning.png" alt="Image:32px-Circle-style-warning.png" width="32" height="32" longdesc="Image_32px-Circle-style-warning.png.html" /></a><br />
+<p><strong>Предупреждение!</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">Эта функция не работает в текущей версии SA:MP!</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<p><b>Возвращаемые значения:</b><br />
+</p>
+<div style="padding-left:35px;">Всегда 0.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">clreol();</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%25A4%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D0%25B4%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D1%2585_%25D0%25B7%25D0%25B0%25D0%25B3%25D0%25BE%25D0%25BB%25D0%25BE%25D0%25B2%25D0%25BE%25D1%2587%25D0%25BD%25D1%258B%25D1%2585_%25D1%2584%25D0%25B0%25D0%25B9%25D0%25BB%25D0%25BE%25D0%25B2_Pawn.html" title="Edit section: clrscr">edit</a>]</div><a name="clrscr"></a><h2><a href="Function_clrscr.html" title="Function:clrscr">clrscr</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Эта функция очищает весь вывод, который виден на экране.<br /></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #FFAAA4; border-left: 10px solid #cd5c5c;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #cd5c5c;"><a href="Image_32px-Circle-style-warning.png.html" class="image" title="Image:32px-Circle-style-warning.png"><img src="../upload/5/57/32px-Circle-style-warning.png" alt="Image:32px-Circle-style-warning.png" width="32" height="32" longdesc="Image_32px-Circle-style-warning.png.html" /></a><br />
+<p><strong>Предупреждение!</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">Эта функция не работает в текущей версии SA:MP!</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<p><b>Возвращаемые значения:</b><br />
+</p>
+<div style="padding-left:35px;">Всегда 0.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">clrscr();</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%25A4%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D0%25B4%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D1%2585_%25D0%25B7%25D0%25B0%25D0%25B3%25D0%25BE%25D0%25BB%25D0%25BE%25D0%25B2%25D0%25BE%25D1%2587%25D0%25BD%25D1%258B%25D1%2585_%25D1%2584%25D0%25B0%25D0%25B9%25D0%25BB%25D0%25BE%25D0%25B2_Pawn.html" title="Edit section: getarg">edit</a>]</div><a name="getarg"></a><h2><a href="Function_getarg.html" title="Function:getarg">getarg</a></h2>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #FFEAEA; border-left: 10px solid #FCA9A9;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #FCA9A9;"><a href="Image_32px-Circle-style-warning.png.html" class="image" title="Image:32px-Circle-style-warning.png"><img src="../upload/5/57/32px-Circle-style-warning.png" alt="Image:32px-Circle-style-warning.png" width="32" height="32" longdesc="Image_32px-Circle-style-warning.png.html" /></a><br />
+<p><strong>Важное<br />Примечание</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">НЕ работает с массивами в качестве параметра&nbsp;!</span>
+</td></tr></table>
+</div>
+<p><br />
+<b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Получает указанный аргумент из функции, очень удобно использовать с функциями, которые имеют динамическое число аргументов.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">arg</td><td style="vertical-align:top;">ID агргумента, значение которого вы хотите получить.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">index&#61;0</td><td style="vertical-align:top;">Ячейка, с которой надо читать, если аргумент - строка.</td></tr></table></div>
+<p><b>Возвращаемые значения:</b><br />
+</p>
+<div style="padding-left:35px;">Одна ячейка.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">getarg(0);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%25A4%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D0%25B4%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D1%2585_%25D0%25B7%25D0%25B0%25D0%25B3%25D0%25BE%25D0%25BB%25D0%25BE%25D0%25B2%25D0%25BE%25D1%2587%25D0%25BD%25D1%258B%25D1%2585_%25D1%2584%25D0%25B0%25D0%25B9%25D0%25BB%25D0%25BE%25D0%25B2_Pawn.html" title="Edit section: getchar">edit</a>]</div><a name="getchar"></a><h2><a href="Function_getchar.html" title="Function:getchar">getchar</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Эта функция позволяет Вам прочитать один символ, введенный в консольном окне.<br /></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #FFAAA4; border-left: 10px solid #cd5c5c;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #cd5c5c;"><a href="Image_32px-Circle-style-warning.png.html" class="image" title="Image:32px-Circle-style-warning.png"><img src="../upload/5/57/32px-Circle-style-warning.png" alt="Image:32px-Circle-style-warning.png" width="32" height="32" longdesc="Image_32px-Circle-style-warning.png.html" /></a><br />
+<p><strong>Предупреждение!</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">Эта функция не работает в текущей версии SA:MP!</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">echo&#61;0</td><td style="vertical-align:top;">Хотите ли Вы вывести введенный символ в консольном окне&nbsp;?</td></tr></table></div>
+<p><b>Возвращаемые значения:</b><br />
+</p>
+<div style="padding-left:35px;">Одна ячейка с введенным символом.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new char[1] &#61; getchar(1);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%25A4%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D0%25B4%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D1%2585_%25D0%25B7%25D0%25B0%25D0%25B3%25D0%25BE%25D0%25BB%25D0%25BE%25D0%25B2%25D0%25BE%25D1%2587%25D0%25BD%25D1%258B%25D1%2585_%25D1%2584%25D0%25B0%25D0%25B9%25D0%25BB%25D0%25BE%25D0%25B2_Pawn.html" title="Edit section: getstring">edit</a>]</div><a name="getstring"></a><h2><a href="Function_getstring.html" title="Function:getstring">getstring</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Эта функция считывает строку с клавиатуры. Вы можете определить число ячеек, которое необходимо прочитать (не символов!), вторым параметром.<br /></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #FFAAA4; border-left: 10px solid #cd5c5c;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #cd5c5c;"><a href="Image_32px-Circle-style-warning.png.html" class="image" title="Image:32px-Circle-style-warning.png"><img src="../upload/5/57/32px-Circle-style-warning.png" alt="Image:32px-Circle-style-warning.png" width="32" height="32" longdesc="Image_32px-Circle-style-warning.png.html" /></a><br />
+<p><strong>Предупреждение!</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">Эта функция не работает в текущей версии SA:MP!</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">string[]</td><td style="vertical-align:top;">СТрока, в которую запишется ввод.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">size&#61;sizeof(string)</td><td style="vertical-align:top;">Число ячеек, которое необходимо прочитать с клавиатуры.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">pack&#61;false</td><td style="vertical-align:top;">Хотите ли вы запаковать строку&nbsp;?</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">getstring(string, 256, false);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%25A4%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D0%25B4%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D1%2585_%25D0%25B7%25D0%25B0%25D0%25B3%25D0%25BE%25D0%25BB%25D0%25BE%25D0%25B2%25D0%25BE%25D1%2587%25D0%25BD%25D1%258B%25D1%2585_%25D1%2584%25D0%25B0%25D0%25B9%25D0%25BB%25D0%25BE%25D0%25B2_Pawn.html" title="Edit section: getvalue">edit</a>]</div><a name="getvalue"></a><h2><a href="Function_getvalue.html" title="Function:getvalue">getvalue</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Эта функция позволяет вам считать знаковое значение с клавиатуры и числовой корень степени от 2 до 36.<br /></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #FFAAA4; border-left: 10px solid #cd5c5c;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #cd5c5c;"><a href="Image_32px-Circle-style-warning.png.html" class="image" title="Image:32px-Circle-style-warning.png"><img src="../upload/5/57/32px-Circle-style-warning.png" alt="Image:32px-Circle-style-warning.png" width="32" height="32" longdesc="Image_32px-Circle-style-warning.png.html" /></a><br />
+<p><strong>Предупреждение!</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">Эта функция не работает в текущей версии SA:MP!</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">base&#61;10</td><td style="vertical-align:top;">Степень корня по умолчанию.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">end&#61;'\r'</td><td style="vertical-align:top;">Параметр для остановки считывания значения.</td></tr></table></div>
+<p><b>Возвращаемые значения:</b><br />
+</p>
+<div style="padding-left:35px;">Запрошенное значение.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new value &#61; getvalue(10, '\r');</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%25A4%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D0%25B4%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D1%2585_%25D0%25B7%25D0%25B0%25D0%25B3%25D0%25BE%25D0%25BB%25D0%25BE%25D0%25B2%25D0%25BE%25D1%2587%25D0%25BD%25D1%258B%25D1%2585_%25D1%2584%25D0%25B0%25D0%25B9%25D0%25BB%25D0%25BE%25D0%25B2_Pawn.html" title="Edit section: gotoxy">edit</a>]</div><a name="gotoxy"></a><h2><a href="Function_gotoxy.html" class="new" title="Function:gotoxy">gotoxy</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">ВЫ можете использовать gotoxy() для уставноки текущего положения курсора в консольном окне. Верхний левый угол имеет координаты 1,1.<br /></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #FFAAA4; border-left: 10px solid #cd5c5c;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #cd5c5c;"><a href="Image_32px-Circle-style-warning.png.html" class="image" title="Image:32px-Circle-style-warning.png"><img src="../upload/5/57/32px-Circle-style-warning.png" alt="Image:32px-Circle-style-warning.png" width="32" height="32" longdesc="Image_32px-Circle-style-warning.png.html" /></a><br />
+<p><strong>Предупреждение!</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">Эта функция не работает в текущей версии SA:MP!</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">x&#61;1</td><td style="vertical-align:top;">X-позиция курсора в консольном окне.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">y&#61;1</td><td style="vertical-align:top;">Y-позиция курсора в консольном окне.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">gotoxy(20,43);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%25A4%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D0%25B4%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D1%2585_%25D0%25B7%25D0%25B0%25D0%25B3%25D0%25BE%25D0%25BB%25D0%25BE%25D0%25B2%25D0%25BE%25D1%2587%25D0%25BD%25D1%258B%25D1%2585_%25D1%2584%25D0%25B0%25D0%25B9%25D0%25BB%25D0%25BE%25D0%25B2_Pawn.html" title="Edit section: heapspace">edit</a>]</div><a name="heapspace"></a><h2><a href="Function_heapspace.html" title="Function:heapspace">heapspace</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Heapspace позволяет Вам освободить место в куче, общей области памяти.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<p><b>Возвращаемые значения:</b><br />
+</p>
+<div style="padding-left:35px;">Количество байтов для сохранения.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new sparedBytes &#61; heapspace();</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%25A4%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D0%25B4%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D1%2585_%25D0%25B7%25D0%25B0%25D0%25B3%25D0%25BE%25D0%25BB%25D0%25BE%25D0%25B2%25D0%25BE%25D1%2587%25D0%25BD%25D1%258B%25D1%2585_%25D1%2584%25D0%25B0%25D0%25B9%25D0%25BB%25D0%25BE%25D0%25B2_Pawn.html" title="Edit section: numargs">edit</a>]</div><a name="numargs"></a><h2><a href="Function_numargs.html" title="Function:numargs">numargs</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Эта функция возвращает число аргументов, переданных в функцию с динамическим числом аргументов.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<p><b>Возвращаемые значения:</b><br />
+</p>
+<div style="padding-left:35px;">Число переданных аргументов.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">new argumentCount &#61; numargs();</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%25A4%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D0%25B4%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D1%2585_%25D0%25B7%25D0%25B0%25D0%25B3%25D0%25BE%25D0%25BB%25D0%25BE%25D0%25B2%25D0%25BE%25D1%2587%25D0%25BD%25D1%258B%25D1%2585_%25D1%2584%25D0%25B0%25D0%25B9%25D0%25BB%25D0%25BE%25D0%25B2_Pawn.html" title="Edit section: print">edit</a>]</div><a name="print"></a><h2><a href="Function_print.html" title="Function:print">print</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Выводит неформатированнную строку в консоли.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const string[]</td><td style="vertical-align:top;">Строку, которую вы хотите отобразить.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">print("This is an example output.");</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%25A4%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D0%25B4%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D1%2585_%25D0%25B7%25D0%25B0%25D0%25B3%25D0%25BE%25D0%25BB%25D0%25BE%25D0%25B2%25D0%25BE%25D1%2587%25D0%25BD%25D1%258B%25D1%2585_%25D1%2584%25D0%25B0%25D0%25B9%25D0%25BB%25D0%25BE%25D0%25B2_Pawn.html" title="Edit section: printf">edit</a>]</div><a name="printf"></a><h2><a href="Function_printf.html" title="Function:printf">printf</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Printf выводит форматированную строку в консоль с указанными опциями форматирования.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const format[]</td><td style="vertical-align:top;">Формат, в котором Вы хотите вывести предложение.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"></td><td style="vertical-align:top;">%b представлет число в двоичном корне.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"></td><td style="vertical-align:top;">%c представлет символ.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"></td><td style="vertical-align:top;">%d представлет двойное (или нормальное) целое число.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"></td><td style="vertical-align:top;">%f представлет вещественно число.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"></td><td style="vertical-align:top;">%i представлет целое число.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"></td><td style="vertical-align:top;">%s представлет строку.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"></td><td style="vertical-align:top;">%x представлет число в шестнадцатиричном формате.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">printf("This %s has %d words.", "string", 4);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%25A4%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D0%25B4%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D1%2585_%25D0%25B7%25D0%25B0%25D0%25B3%25D0%25BE%25D0%25BB%25D0%25BE%25D0%25B2%25D0%25BE%25D1%2587%25D0%25BD%25D1%258B%25D1%2585_%25D1%2584%25D0%25B0%25D0%25B9%25D0%25BB%25D0%25BE%25D0%25B2_Pawn.html" title="Edit section: setarg">edit</a>]</div><a name="setarg"></a><h2><a href="Function_setarg.html" class="new" title="Function:setarg">setarg</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Изменяет значение данного аргумента.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">arg</td><td style="vertical-align:top;">ID аргумента, значение которого вы хотите изменить.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">index&#61;0</td><td style="vertical-align:top;">Ячейка аргумента.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">value</td><td style="vertical-align:top;">Новое значение</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">setarg(0, 3, "e");</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%25A4%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D0%25B4%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D1%2585_%25D0%25B7%25D0%25B0%25D0%25B3%25D0%25BE%25D0%25BB%25D0%25BE%25D0%25B2%25D0%25BE%25D1%2587%25D0%25BD%25D1%258B%25D1%2585_%25D1%2584%25D0%25B0%25D0%25B9%25D0%25BB%25D0%25BE%25D0%25B2_Pawn.html" title="Edit section: wherexy">edit</a>]</div><a name="wherexy"></a><h2><a href="Function_wherexy.html" class="new" title="Function:wherexy">wherexy</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">WhereXY позволяет Вам получить текущую позицию курсора в консольном окне.<br /></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #FFAAA4; border-left: 10px solid #cd5c5c;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #cd5c5c;"><a href="Image_32px-Circle-style-warning.png.html" class="image" title="Image:32px-Circle-style-warning.png"><img src="../upload/5/57/32px-Circle-style-warning.png" alt="Image:32px-Circle-style-warning.png" width="32" height="32" longdesc="Image_32px-Circle-style-warning.png.html" /></a><br />
+<p><strong>Предупреждение!</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">Эта функция не работает в текущей версии SA:MP!</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">&amp;x</td><td style="vertical-align:top;">Переданная по ссылке переменная, в которую запишется x-позиция.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">&amp;y</td><td style="vertical-align:top;">Переданная по ссылке переменная, в которую запишется y-позиция.</td></tr></table></div>
+<p><b>Возвращаемые значения:</b><br />
+</p>
+<div style="padding-left:35px;">Всегда <b>0</b>.<br /></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">wherexy(x,y);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%25A4%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D0%25B4%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D1%2585_%25D0%25B7%25D0%25B0%25D0%25B3%25D0%25BE%25D0%25BB%25D0%25BE%25D0%25B2%25D0%25BE%25D1%2587%25D0%25BD%25D1%258B%25D1%2585_%25D1%2584%25D0%25B0%25D0%25B9%25D0%25BB%25D0%25BE%25D0%25B2_Pawn.html" title="Edit section: Свойства">edit</a>]</div><a name=".D0.A1.D0.B2.D0.BE.D0.B9.D1.81.D1.82.D0.B2.D0.B0"></a><h1> Свойства </h1>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%25A4%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D0%25B4%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D1%2585_%25D0%25B7%25D0%25B0%25D0%25B3%25D0%25BE%25D0%25BB%25D0%25BE%25D0%25B2%25D0%25BE%25D1%2587%25D0%25BD%25D1%258B%25D1%2585_%25D1%2584%25D0%25B0%25D0%25B9%25D0%25BB%25D0%25BE%25D0%25B2_Pawn.html" title="Edit section: deleteproperty">edit</a>]</div><a name="deleteproperty"></a><h2><a href="Function_deleteproperty.html" title="Function:deleteproperty">deleteproperty</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Эта функция позволяет Вам удалить ранее установленное свойство.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">id&#61;0</td><td style="vertical-align:top;">Определяет, какую виртуальную машину использовать.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const name[]&#61;""</td><td style="vertical-align:top;">Определяет, использовать ли вызов по имени, Вам следует указать здесь "".</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">value&#61;cellmin</td><td style="vertical-align:top;">Это идентифицирует переменную. Используйте хэш-функцию для вычисления ее из строки.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">deleteproperty(0, "", 123984334);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%25A4%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D0%25B4%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D1%2585_%25D0%25B7%25D0%25B0%25D0%25B3%25D0%25BE%25D0%25BB%25D0%25BE%25D0%25B2%25D0%25BE%25D1%2587%25D0%25BD%25D1%258B%25D1%2585_%25D1%2584%25D0%25B0%25D0%25B9%25D0%25BB%25D0%25BE%25D0%25B2_Pawn.html" title="Edit section: existproperty">edit</a>]</div><a name="existproperty"></a><h2><a href="Function_existproperty.html" title="Function:existproperty">existproperty</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Вы можете использовать эту функцию для проверки, существует ли указанное свойство. Вы можете использовать функцию <a href="Adler32.html" class="new" title="Adler32">Adler 32</a> для генерации хеша.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">id&#61;0</td><td style="vertical-align:top;">Используемая виртуальная машина, Вам следует указать здесь ноль.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const name[]&#61;""</td><td style="vertical-align:top;">Использовать свойство через его имя, Вам следует указать здесь "".</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">value&#61;cellmin</td><td style="vertical-align:top;">Хэш свойства, возможно сгенерированный функцией <a href="Adler32.html" class="new" title="Adler32">Adler 32</a>.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">if(existproperty(0, "", 9384932)){</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%25A4%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D0%25B4%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D1%2585_%25D0%25B7%25D0%25B0%25D0%25B3%25D0%25BE%25D0%25BB%25D0%25BE%25D0%25B2%25D0%25BE%25D1%2587%25D0%25BD%25D1%258B%25D1%2585_%25D1%2584%25D0%25B0%25D0%25B9%25D0%25BB%25D0%25BE%25D0%25B2_Pawn.html" title="Edit section: getproperty">edit</a>]</div><a name="getproperty"></a><h2><a href="Function_getproperty.html" title="Function:getproperty">getproperty</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Получает указанное свойство из памяти, возвращаемоая строка вернется как пакованная&nbsp;!<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">id&#61;0</td><td style="vertical-align:top;">Используемая виртуальная машина, Вам следует указать здесь ноль.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const name[]&#61;""</td><td style="vertical-align:top;">Имя свойства, Вам следует указать здесь "".</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">value&#61;cellmin</td><td style="vertical-align:top;">Хэш свойства, может быть сгенерирован через <a href="Adler32.html" class="new" title="Adler32">Adler 32</a>.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">&amp;string[]&#61;""</td><td style="vertical-align:top;">Переданная по ссылке переменная, в которую запишется результат.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">getproperty(0, "", 93473413, value);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%25A4%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D0%25B4%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D1%2585_%25D0%25B7%25D0%25B0%25D0%25B3%25D0%25BE%25D0%25BB%25D0%25BE%25D0%25B2%25D0%25BE%25D1%2587%25D0%25BD%25D1%258B%25D1%2585_%25D1%2584%25D0%25B0%25D0%25B9%25D0%25BB%25D0%25BE%25D0%25B2_Pawn.html" title="Edit section: setproperty">edit</a>]</div><a name="setproperty"></a><h2><a href="Function_setproperty.html" title="Function:setproperty">setproperty</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Используйте эту функцию для сохранения значение в свойство.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">id&#61;0</td><td style="vertical-align:top;">Используемая виртуальная машина, Вам следует указать здесь ноль.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const name[]&#61;""</td><td style="vertical-align:top;">Имя свойства, Вам следует указать здесь "".</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">value&#61;cellmin</td><td style="vertical-align:top;">Хэш свойства, может быть сгенерирован через <a href="Adler32.html" class="new" title="Adler32">Adler 32</a>.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const string[]&#61;""</td><td style="vertical-align:top;">Действительно значение свойства, будет запаковываться, когда используется.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">setproperty(0, "", 9723423, value);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%25A4%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D0%25B4%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D1%2585_%25D0%25B7%25D0%25B0%25D0%25B3%25D0%25BE%25D0%25BB%25D0%25BE%25D0%25B2%25D0%25BE%25D1%2587%25D0%25BD%25D1%258B%25D1%2585_%25D1%2584%25D0%25B0%25D0%25B9%25D0%25BB%25D0%25BE%25D0%25B2_Pawn.html" title="Edit section: Функции UDP-широковещания">edit</a>]</div><a name=".D0.A4.D1.83.D0.BD.D0.BA.D1.86.D0.B8.D0.B8_UDP-.D1.88.D0.B8.D1.80.D0.BE.D0.BA.D0.BE.D0.B2.D0.B5.D1.89.D0.B0.D0.BD.D0.B8.D1.8F"></a><h1> Функции UDP-широковещания </h1>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%25A4%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D0%25B4%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D1%2585_%25D0%25B7%25D0%25B0%25D0%25B3%25D0%25BE%25D0%25BB%25D0%25BE%25D0%25B2%25D0%25BE%25D1%2587%25D0%25BD%25D1%258B%25D1%2585_%25D1%2584%25D0%25B0%25D0%25B9%25D0%25BB%25D0%25BE%25D0%25B2_Pawn.html" title="Edit section: listenport">edit</a>]</div><a name="listenport"></a><h2><a href="Function_listenport.html" title="Function:listenport">listenport</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Эта функция позволяет Вам выбрать порт, который будет слушать ваш pawn-скрипт.<br /></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #FFAAA4; border-left: 10px solid #cd5c5c;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #cd5c5c;"><a href="Image_32px-Circle-style-warning.png.html" class="image" title="Image:32px-Circle-style-warning.png"><img src="../upload/5/57/32px-Circle-style-warning.png" alt="Image:32px-Circle-style-warning.png" width="32" height="32" longdesc="Image_32px-Circle-style-warning.png.html" /></a><br />
+<p><strong>Предупреждение!</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">Эта функция не работает в текущей версии SA:MP!</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">port</td><td style="vertical-align:top;">Порт.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">listenport(7778);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%25A4%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D0%25B4%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D1%2585_%25D0%25B7%25D0%25B0%25D0%25B3%25D0%25BE%25D0%25BB%25D0%25BE%25D0%25B2%25D0%25BE%25D1%2587%25D0%25BD%25D1%258B%25D1%2585_%25D1%2584%25D0%25B0%25D0%25B9%25D0%25BB%25D0%25BE%25D0%25B2_Pawn.html" title="Edit section: sendpacket">edit</a>]</div><a name="sendpacket"></a><h2><a href="Function_sendpacket.html" title="Function:sendpacket">sendpacket</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Эта функция позволяет Вам псолать пакет через интернет или на вашу локальную машину.<br /></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #FFAAA4; border-left: 10px solid #cd5c5c;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #cd5c5c;"><a href="Image_32px-Circle-style-warning.png.html" class="image" title="Image:32px-Circle-style-warning.png"><img src="../upload/5/57/32px-Circle-style-warning.png" alt="Image:32px-Circle-style-warning.png" width="32" height="32" longdesc="Image_32px-Circle-style-warning.png.html" /></a><br />
+<p><strong>Предупреждение!</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">Эта функция не работает в текущей версии SA:MP!</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const packet[]</td><td style="vertical-align:top;">Отправляемый пакет, строка.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">size</td><td style="vertical-align:top;">Размер запакованного пакета, например, sizeof(packet).</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const destination[]&#61;""</td><td style="vertical-align:top;">Адрес назначения, в формате 0.0.0.0:0000. Пакет вещается на всю сеть, если слева пусто.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">sendpacket("Hello world!", 12);</span><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25D0%25A4%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D0%25B4%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D1%2585_%25D0%25B7%25D0%25B0%25D0%25B3%25D0%25BE%25D0%25BB%25D0%25BE%25D0%25B2%25D0%25BE%25D1%2587%25D0%25BD%25D1%258B%25D1%2585_%25D1%2584%25D0%25B0%25D0%25B9%25D0%25BB%25D0%25BE%25D0%25B2_Pawn.html" title="Edit section: sendstring">edit</a>]</div><a name="sendstring"></a><h2><a href="Function_sendstring.html" title="Function:sendstring">sendstring</a></h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Посылает строку в определенное место, или вещает ее по всей сети.<br /></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #FFAAA4; border-left: 10px solid #cd5c5c;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #cd5c5c;"><a href="Image_32px-Circle-style-warning.png.html" class="image" title="Image:32px-Circle-style-warning.png"><img src="../upload/5/57/32px-Circle-style-warning.png" alt="Image:32px-Circle-style-warning.png" width="32" height="32" longdesc="Image_32px-Circle-style-warning.png.html" /></a><br />
+<p><strong>Предупреждение!</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">Эта функция не работает в текущей версии SA:MP!</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const message[]</td><td style="vertical-align:top;">Строка, которую вы хотите отправить.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">const destination[]&#61;""</td><td style="vertical-align:top;">Адрес назначения, в формате 0.0.0.0:0000. Пакет вещается на всю сеть, если слева пусто.</td></tr></table></div>
+<div style="padding-left:35px;padding-top:10px;"><span style="padding:2px;padding-left:25px;vertical-align:top;border:1px solid #c0c0c0;background-color: #FAFAFA;width:80%;display:block; font-family: Courier New;">sendstring("Hello world!", "127.0.0.1:7779");</span><br /></div>
+<div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/%25D0%25A4%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D0%25B4%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D1%2585_%25D0%25B7%25D0%25B0%25D0%25B3%25D0%25BE%25D0%25BB%25D0%25BE%25D0%25B2%25D0%25BE%25D1%2587%25D0%25BD%25D1%258B%25D1%2585_%25D1%2584%25D0%25B0%25D0%25B9%25D0%25BB%25D0%25BE%25D0%25B2_Pawn.html">http://localhost../wiki/%25D0%25A4%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D0%25B4%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D1%2585_%25D0%25B7%25D0%25B0%25D0%25B3%25D0%25BE%25D0%25BB%25D0%25BE%25D0%25B2%25D0%25BE%25D1%2587%25D0%25BD%25D1%258B%25D1%2585_%25D1%2584%25D0%25B0%25D0%25B9%25D0%25BB%25D0%25BE%25D0%25B2_Pawn.html</a>"</div>
+						<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="%25D0%25A4%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D0%25B4%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D1%2585_%25D0%25B7%25D0%25B0%25D0%25B3%25D0%25BE%25D0%25BB%25D0%25BE%25D0%25B2%25D0%25BE%25D1%2587%25D0%25BD%25D1%258B%25D1%2585_%25D1%2584%25D0%25B0%25D0%25B9%25D0%25BB%25D0%25BE%25D0%25B2_Pawn.html">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="Talk_%25D0%25A4%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D0%25B4%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D1%2585_%25D0%25B7%25D0%25B0%25D0%25B3%25D0%25BE%25D0%25BB%25D0%25BE%25D0%25B2%25D0%25BE%25D1%2587%25D0%25BD%25D1%258B%25D1%2585_%25D1%2584%25D0%25B0%25D0%25B9%25D0%25BB%25D0%25BE%25D0%25B2_Pawn.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="%25D0%25A4%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D0%25B4%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D1%2585_%25D0%25B7%25D0%25B0%25D0%25B3%25D0%25BE%25D0%25BB%25D0%25BE%25D0%25B2%25D0%25BE%25D1%2587%25D0%25BD%25D1%258B%25D1%2585_%25D1%2584%25D0%25B0%25D0%25B9%25D0%25BB%25D0%25BE%25D0%25B2_Pawn.html">Edit</a></li>
+				 <li id="ca-history"><a href="%25D0%25A4%25D1%2583%25D0%25BD%25D0%25BA%25D1%2586%25D0%25B8%25D0%25B8_%25D0%25B4%25D1%2580%25D1%2583%25D0%25B3%25D0%25B8%25D1%2585_%25D0%25B7%25D0%25B0%25D0%25B3%25D0%25BE%25D0%25BB%25D0%25BE%25D0%25B2%25D0%25BE%25D1%2587%25D0%25BD%25D1%258B%25D1%2585_%25D1%2584%25D0%25B0%25D0%25B9%25D0%25BB%25D0%25BE%25D0%25B2_Pawn.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 16,655 times.</li>
+				<li id="credits">This page was last modified 17:31, 19 August 2015 by SA-MP Wiki user <a href="User_OstGot.html" title="User:OstGot">OstGot</a>. Based on work by SA-MP Wiki user(s) <a href="User_MP2.html" title="User:MP2">MP2</a> and <a href="User_Vetle.html" title="User:Vetle">Vetle</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 33.16 secs. -->
+</body></html>

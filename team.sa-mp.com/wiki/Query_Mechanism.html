@@ -1,0 +1,576 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Query Mechanism,Query Mechanism,Query Mechanism/Csharp" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>Query Mechanism - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Query Mechanism</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class='toclevel-1'><a href="#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class='toclevel-1'><a href="#SA-MP_Packets_in_the_real_world"><span class="tocnumber">2</span> <span class="toctext">SA-MP Packets in the real world</span></a></li>
+<li class='toclevel-1'><a href="#Opcodes"><span class="tocnumber">3</span> <span class="toctext">Opcodes</span></a>
+<ul>
+<li class='toclevel-2'><a href="#Limitations"><span class="tocnumber">3.1</span> <span class="toctext">Limitations</span></a></li>
+<li class='toclevel-2'><a href="#The_packet_table"><span class="tocnumber">3.2</span> <span class="toctext">The packet table</span></a></li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#The_backbone_of_packets"><span class="tocnumber">4</span> <span class="toctext">The backbone of packets</span></a>
+<ul>
+<li class='toclevel-2'><a href="#Real_world_usage"><span class="tocnumber">4.1</span> <span class="toctext">Real world usage</span></a></li>
+<li class='toclevel-2'><a href="#RCON_Packets"><span class="tocnumber">4.2</span> <span class="toctext">RCON Packets</span></a></li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#Recieving_the_packets"><span class="tocnumber">5</span> <span class="toctext">Recieving the packets</span></a>
+<ul>
+<li class='toclevel-2'><a href="#Response_from_i"><span class="tocnumber">5.1</span> <span class="toctext">Response from i</span></a></li>
+<li class='toclevel-2'><a href="#Response_from_r"><span class="tocnumber">5.2</span> <span class="toctext">Response from r</span></a></li>
+<li class='toclevel-2'><a href="#Response_from_c"><span class="tocnumber">5.3</span> <span class="toctext">Response from c</span></a></li>
+<li class='toclevel-2'><a href="#Response_from_d"><span class="tocnumber">5.4</span> <span class="toctext">Response from d</span></a></li>
+<li class='toclevel-2'><a href="#Response_from_p"><span class="tocnumber">5.5</span> <span class="toctext">Response from p</span></a></li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#Example_Implementations"><span class="tocnumber">6</span> <span class="toctext">Example Implementations</span></a>
+<ul>
+<li class='toclevel-2'><a href="#C.23"><span class="tocnumber">6.1</span> <span class="toctext">C#</span></a></li>
+<li class='toclevel-2'><a href="#C.2B.2B"><span class="tocnumber">6.2</span> <span class="toctext">C++</span></a></li>
+<li class='toclevel-2'><a href="#PHP"><span class="tocnumber">6.3</span> <span class="toctext">PHP</span></a></li>
+</ul>
+</li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Query_Mechanism.html" title="Edit section: Introduction">edit</a>]</div><a name="Introduction"></a><h2> Introduction </h2>
+<p><b>This is still a work in progress, sorry. Also, this article is useful for people who want to know how the query works, it isn't going to make one for you. For example implementations, see <a href="Query_Mechanism.html#Example_Implementations" title="Query Mechanism">example implementations</a>.</b>
+</p><p>I was once confused with the SA-MP query mechanism, but now I'm not. What the SA-MP query mechnanism is, is a UDP based packet system where you can get information about servers - their players, the server's ping, and also the rules. The best thing about this is that the RCON packet can be used for what ever you want, it can even return messages, which is great. RCON can be the worst one to get working though, due to what is needed. But if your server/PC/phone/whatever has any method of communicating with a server. This guide works with all versions of SA-MP currently, from 0.1 through 0.3.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Query_Mechanism.html" title="Edit section: SA-MP Packets in the real world">edit</a>]</div><a name="SA-MP_Packets_in_the_real_world"></a><h2> SA-MP Packets in the real world </h2>
+<p><a href="Image_Sa-mp-packet-description.png.html" class="image" title="Image:Sa-mp-packet-description.png"><img src="../upload/b/b6/Sa-mp-packet-description.png" alt="Image:Sa-mp-packet-description.png" width="808" height="626" longdesc="Image_Sa-mp-packet-description.png.html" /></a>
+</p><p>The packets were (in versions 0.2.X and below) also used ingame, just press 'TAB' when playing ingame - that notification is powered by the 'd' packet.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Query_Mechanism.html" title="Edit section: Opcodes">edit</a>]</div><a name="Opcodes"></a><h2> Opcodes </h2>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Query_Mechanism.html" title="Edit section: Limitations">edit</a>]</div><a name="Limitations"></a><h3> Limitations </h3>
+<p>There are quite a few limitations that are in the query protocol. There is a limit of thirty queries per second (this applies overall), but the most intrusive limit is the anti-flood measure that disables the player listings.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Query_Mechanism.html" title="Edit section: The packet table">edit</a>]</div><a name="The_packet_table"></a><h3> The packet table </h3>
+<table class="wikitable">
+
+<tr>
+<th> Packet 'opcode'
+</th><th> Description
+</th><th> Compatibility with 0.3 releases
+</th></tr>
+<tr>
+<td> i
+</td><td> This stands for information. This gets the amount of players in the server, the map name, and all the stuff like that. It's really useful for describing your server without changing anything.
+</td><td> Although this opcode has supported two-byte player counts, there not has been any need for it before.
+</td></tr>
+<tr>
+<td> r
+</td><td> This stands for rules. 'Rules' when it comes to SA:MP includes the instagib, the gravity, weather, the website URL, and so on.
+</td><td> No changes needed.
+</td></tr>
+<tr>
+<td> c
+</td><td> It stands for client list, this sends back to the server the players' name, and then the players' score. Just imagine it as a basic overview of all the players.
+</td><td> Throttled to 100, but can theoretically support 65536 different IDs.
+</td></tr>
+<tr>
+<td> d
+</td><td> This stands for detailed player information. With this, you can get everything from the ping to the player, the player ID (useful for admin scripts), the score again, and also the username.
+</td><td> Throttled to 100 This does not support two-byte player IDs, thus will reset to zero if more than 256 players are reached. (This happened when 'd' was not throttled.)
+</td></tr>
+<tr>
+<td> x
+</td><td> This is an RCON command, and it's completely different from all of the other packets.
+</td><td> No changes needed.
+</td></tr>
+<tr>
+<td> p
+</td><td> Four psuedo-random characters are sent to the server, and the same characters are returned. You can use the time between sending and receiving to work out the servers' ping/latency.
+</td><td> No changes needed.
+</td></tr></table>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Query_Mechanism.html" title="Edit section: The backbone of packets">edit</a>]</div><a name="The_backbone_of_packets"></a><h2> The backbone of packets </h2>
+<table class="wikitable">
+
+<tr>
+<th> Byte
+</th><th> ASCII
+</th><th> Using PHP
+</th><th> Hexadecimal
+</th><th> Description
+</th></tr>
+<tr>
+<th> 0-3
+</th><td style="text-align: center; font-size: 8pt; font-family: 'Monaco', 'Courier New'; background: #333; color: #FFF"> SAMP
+</td><td style="text-align: center; font-size: 8pt; font-family: 'Monaco', 'Courier New'; background: #444; color: #FFF"> "SAMP"
+</td><td style="text-align: center; font-size: 8pt; font-family: 'Monaco', 'Courier New'; background: #555; color: #EDD400"> 53 41 4D 50
+</td><td> This denotes that this packet is indeed a SA-MP packet.
+</td></tr>
+<tr>
+<td>
+</td></tr>
+<tr>
+<th> 4
+</th><td style="text-align: center; font-size: 8pt; font-family: 'Monaco', 'Courier New'; background: #333; color: #FFF"> À
+</td><td style="text-align: center; font-size: 8pt; font-family: 'Monaco', 'Courier New'; background: #444; color: #FFF"> chr('192');
+</td><td style="text-align: center; font-size: 8pt; font-family: 'Monaco', 'Courier New'; background: #555; color: #EDD400"> C0
+</td><td> This is the first byte in the server's IP address - for instance, 'À' is the ASCII character of 192 - from <b>192</b>.168.200.103.
+</td></tr>
+<tr>
+<th> 5
+</th><td style="text-align: center; font-size: 8pt; font-family: 'Monaco', 'Courier New'; background: #333; color: #FFF"> ¨
+</td><td style="text-align: center; font-size: 8pt; font-family: 'Monaco', 'Courier New'; background: #444; color: #FFF"> chr('168');
+</td><td style="text-align: center; font-size: 8pt; font-family: 'Monaco', 'Courier New'; background: #555; color: #EDD400"> A8
+</td><td> This is the second byte in the server's IP address - for instance, '¨' (umlaut) is the ASCII character of 168 - from 192.<b>168</b>.200.103.
+</td></tr>
+<tr>
+<th> 6
+</th><td style="text-align: center; font-size: 8pt; font-family: 'Monaco', 'Courier New'; background: #333; color: #FFF"> È
+</td><td style="text-align: center; font-size: 8pt; font-family: 'Monaco', 'Courier New'; background: #444; color: #FFF"> chr('200');
+</td><td style="text-align: center; font-size: 8pt; font-family: 'Monaco', 'Courier New'; background: #555; color: #EDD400"> C8
+</td><td> This is the third byte in the server's IP address - for instance, 'È' is the ASCII character of 200 - from 192.168.<b>200</b>.103.
+</td></tr>
+<tr>
+<th> 7
+</th><td style="text-align: center; font-size: 8pt; font-family: 'Monaco', 'Courier New'; background: #333; color: #FFF"> g
+</td><td style="text-align: center; font-size: 8pt; font-family: 'Monaco', 'Courier New'; background: #444; color: #FFF"> chr('103');
+</td><td style="text-align: center; font-size: 8pt; font-family: 'Monaco', 'Courier New'; background: #555; color: #EDD400"> 67
+</td><td> This is the third byte in the server's IP address - for instance, 'g' is the ASCII character of 103 - from 192.168.200.<b>103</b>.
+</td></tr>
+<tr>
+<td>
+</td></tr>
+<tr>
+<th> 8
+</th><td style="text-align: center; font-size: 8pt; font-family: 'Monaco', 'Courier New'; background: #333; color: #FFF"> a
+</td><td style="text-align: center; font-size: 8pt; font-family: 'Monaco', 'Courier New'; background: #444; color: #FFF"> chr('7777' &amp; 0xFF);
+</td><td style="text-align: center; font-size: 8pt; font-family: 'Monaco', 'Courier New'; background: #555; color: #EDD400"> 61
+</td><td> First byte of the port.
+</td></tr>
+<tr>
+<th> 9
+</th><td style="text-align: center; font-size: 8pt; font-family: 'Monaco', 'Courier New'; background: #333; color: #FFF">
+</td><td style="text-align: center; font-size: 8pt; font-family: 'Monaco', 'Courier New'; background: #444; color: #FFF"> chr('7777' >> 8 &amp; 0xFF);
+</td><td style="text-align: center; font-size: 8pt; font-family: 'Monaco', 'Courier New'; background: #555; color: #EDD400"> 1E
+</td><td> Second byte of the port.
+</td></tr>
+<tr>
+<td>
+</td></tr>
+<tr>
+<th> 10
+</th><td style="text-align: center; font-size: 8pt; font-family: 'Monaco', 'Courier New'; background: #333; color: #FFF"> i
+</td><td style="text-align: center; font-size: 8pt; font-family: 'Monaco', 'Courier New'; background: #444; color: #FFF"> "i"
+</td><td style="text-align: center; font-size: 8pt; font-family: 'Monaco', 'Courier New'; background: #555; color: #EDD400"> 69
+</td><td> The opcode that you would like to query. Look above for the opcodes.
+</td></tr></table>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Query_Mechanism.html" title="Edit section: Real world usage">edit</a>]</div><a name="Real_world_usage"></a><h3> Real world usage </h3>
+<p>If this is confusing you, then no more dispair. If you understand a programming language such as PHP, then the packet that you will need to send would end up something like this.
+</p>
+<pre class="php"><span style="color: #808080; font-style: italic;">/**
+ *    Let's generate the string needed for the packet.
+ */</span>
+<span style="color: #0000ff;">$sIPAddr</span> = <span style="color: #ff0000;">&quot;127.0.0.1&quot;</span>;                                                         <span style="color: #808080; font-style: italic;">// IP address of the server</span>
+<span style="color: #0000ff;">$iPort</span> = <span style="color: #cc66cc;">7777</span>;                                                                  <span style="color: #808080; font-style: italic;">// Server port.</span>
+<span style="color: #0000ff;">$sPacket</span> = <span style="color: #ff0000;">&quot;&quot;</span>;                                                                  <span style="color: #808080; font-style: italic;">// Blank string for packet.</span>
+&nbsp;
+<span style="color: #0000ff;">$aIPAddr</span> = <a href="http://www.php.net/explode"><span style="color: #000066;">explode</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #ff0000;">'.'</span>, <span style="color: #0000ff;">$sIPAddr</span><span style="color: #66cc66;">&#41;</span>;                                              <span style="color: #808080; font-style: italic;">// Exploding the IP addr.</span>
+&nbsp;
+<span style="color: #0000ff;">$sPacket</span> .= <span style="color: #ff0000;">&quot;SAMP&quot;</span>;                                                             <span style="color: #808080; font-style: italic;">// Telling the server it is a SA-MP packet.</span>
+&nbsp;
+<span style="color: #0000ff;">$sPacket</span> .= <a href="http://www.php.net/chr"><span style="color: #000066;">chr</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #0000ff;">$aIPAddr</span><span style="color: #66cc66;">&#91;</span><span style="color: #cc66cc;">0</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>;                                                   <span style="color: #808080; font-style: italic;">//</span>
+<span style="color: #0000ff;">$sPacket</span> .= <a href="http://www.php.net/chr"><span style="color: #000066;">chr</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #0000ff;">$aIPAddr</span><span style="color: #66cc66;">&#91;</span><span style="color: #cc66cc;">1</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>;                                                   <span style="color: #808080; font-style: italic;">//</span>
+<span style="color: #0000ff;">$sPacket</span> .= <a href="http://www.php.net/chr"><span style="color: #000066;">chr</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #0000ff;">$aIPAddr</span><span style="color: #66cc66;">&#91;</span><span style="color: #cc66cc;">2</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>;                                                   <span style="color: #808080; font-style: italic;">//</span>
+<span style="color: #0000ff;">$sPacket</span> .= <a href="http://www.php.net/chr"><span style="color: #000066;">chr</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #0000ff;">$aIPAddr</span><span style="color: #66cc66;">&#91;</span><span style="color: #cc66cc;">3</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>;                                                   <span style="color: #808080; font-style: italic;">// Sending off the server IP, </span>
+&nbsp;
+<span style="color: #0000ff;">$sPacket</span> .= <a href="http://www.php.net/chr"><span style="color: #000066;">chr</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #0000ff;">$iPort</span> &amp; 0xFF<span style="color: #66cc66;">&#41;</span>;                                                 <span style="color: #808080; font-style: italic;">//</span>
+<span style="color: #0000ff;">$sPacket</span> .= <a href="http://www.php.net/chr"><span style="color: #000066;">chr</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #0000ff;">$iPort</span> &gt;&gt; <span style="color: #cc66cc;">8</span> &amp; 0xFF<span style="color: #66cc66;">&#41;</span>;                                            <span style="color: #808080; font-style: italic;">// Sending off the server port.</span>
+&nbsp;
+<span style="color: #0000ff;">$sPacket</span> .= <span style="color: #ff0000;">'i'</span>;                                                                <span style="color: #808080; font-style: italic;">// The opcode that you want to send.</span>
+                                                                                <span style="color: #808080; font-style: italic;">// You can now send this to the server.</span>
+&nbsp;
+<span style="color: #808080; font-style: italic;">/**
+ *    Let's connect now to the server.
+ */</span>
+<span style="color: #0000ff;">$rSocket</span> = <a href="http://www.php.net/fsockopen"><span style="color: #000066;">fsockopen</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #ff0000;">'udp://'</span>.<span style="color: #0000ff;">$sIPAddr</span>, <span style="color: #0000ff;">$iPort</span>, <span style="color: #0000ff;">$iError</span>, <span style="color: #0000ff;">$sError</span>, <span style="color: #cc66cc;">2</span><span style="color: #66cc66;">&#41;</span>;           <span style="color: #808080; font-style: italic;">// Create an active socket.</span>
+<a href="http://www.php.net/fwrite"><span style="color: #000066;">fwrite</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #0000ff;">$rSocket</span>, <span style="color: #0000ff;">$sPacket</span><span style="color: #66cc66;">&#41;</span>;                                                     <span style="color: #808080; font-style: italic;">// Send the packet to the server.</span>
+&nbsp;
+<a href="http://www.php.net/echo"><span style="color: #000066;">echo</span></a> <a href="http://www.php.net/fread"><span style="color: #000066;">fread</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #0000ff;">$rSocket</span>, <span style="color: #cc66cc;">2048</span><span style="color: #66cc66;">&#41;</span>;							<span style="color: #808080; font-style: italic;">// Get the output from the server</span>
+&nbsp;
+<a href="http://www.php.net/fclose"><span style="color: #000066;">fclose</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #0000ff;">$rSocket</span><span style="color: #66cc66;">&#41;</span>;                                                               <span style="color: #808080; font-style: italic;">// Close the connection</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Query_Mechanism.html" title="Edit section: RCON Packets">edit</a>]</div><a name="RCON_Packets"></a><h3> RCON Packets </h3>
+<p>This table is using as the example RCON password <b>changeme</b>, and using <b>varlist</b> as a command, thus meaning that the packet offset will be porportional to that of those strings. Please note that due to the changes in the length of the RCON password and the RCON command, the bytes will be different from 13 onwards. The opcode used is 'x'.
+</p>
+<table class="wikitable">
+
+<tr>
+<th> Byte
+</th><th> ASCII
+</th><th> Using PHP
+</th><th> Hexadecimal
+</th><th> Description
+</th></tr>
+<tr>
+<th> 11
+</th><td style="text-align: center; font-size: 8pt; font-family: 'Monaco', 'Courier New'; background: #333; color: #FFF">
+</td><td style="text-align: center; font-size: 8pt; font-family: 'Monaco', 'Courier New'; background: #444; color: #FFF"> chr(strlen("changeme") &amp; 0xFF);
+</td><td style="text-align: center; font-size: 8pt; font-family: 'Monaco', 'Courier New'; background: #555; color: #EDD400"> 38
+</td><td> First byte of the length of the RCON password.
+</td></tr>
+<tr>
+<th> 12
+</th><td style="text-align: center; font-size: 8pt; font-family: 'Monaco', 'Courier New'; background: #333; color: #FFF">
+</td><td style="text-align: center; font-size: 8pt; font-family: 'Monaco', 'Courier New'; background: #444; color: #FFF"> chr(strlen("changeme") >> 8 &amp; 0xFF);
+</td><td style="text-align: center; font-size: 8pt; font-family: 'Monaco', 'Courier New'; background: #555; color: #EDD400"> 30
+</td><td> Second byte of the length of the RCON password.
+</td></tr>
+<tr>
+<th> 13-20
+</th><td style="text-align: center; font-size: 8pt; font-family: 'Monaco', 'Courier New'; background: #333; color: #FFF"> changeme
+</td><td style="text-align: center; font-size: 8pt; font-family: 'Monaco', 'Courier New'; background: #444; color: #FFF"> "changeme"
+</td><td style="text-align: center; font-size: 8pt; font-family: 'Monaco', 'Courier New'; background: #555; color: #EDD400"> 63 68 61 6e 67 65 6d 65
+</td><td> The RCON password.
+</td></tr>
+<tr>
+<th> 21
+</th><td style="text-align: center; font-size: 8pt; font-family: 'Monaco', 'Courier New'; background: #333; color: #FFF">
+</td><td style="text-align: center; font-size: 8pt; font-family: 'Monaco', 'Courier New'; background: #444; color: #FFF"> chr(strlen("varlist") &amp; 0xFF);
+</td><td style="text-align: center; font-size: 8pt; font-family: 'Monaco', 'Courier New'; background: #555; color: #EDD400"> 37
+</td><td> First byte of the length of the RCON command.
+</td></tr>
+<tr>
+<th> 22
+</th><td style="text-align: center; font-size: 8pt; font-family: 'Monaco', 'Courier New'; background: #333; color: #FFF">
+</td><td style="text-align: center; font-size: 8pt; font-family: 'Monaco', 'Courier New'; background: #444; color: #FFF"> chr(strlen("varlist") >> 8 &amp; 0xFF);
+</td><td style="text-align: center; font-size: 8pt; font-family: 'Monaco', 'Courier New'; background: #555; color: #EDD400"> 30
+</td><td> Second byte of the length of the RCON command.
+</td></tr>
+<tr>
+<th> 23+
+</th><td style="text-align: center; font-size: 8pt; font-family: 'Monaco', 'Courier New'; background: #333; color: #FFF"> varlist
+</td><td style="text-align: center; font-size: 8pt; font-family: 'Monaco', 'Courier New'; background: #444; color: #FFF"> "varlist"
+</td><td style="text-align: center; font-size: 8pt; font-family: 'Monaco', 'Courier New'; background: #555; color: #EDD400"> 76 61 72 6c 69 73 74
+</td><td> The actual RCON command.
+</td></tr>
+</table>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Query_Mechanism.html" title="Edit section: Recieving the packets">edit</a>]</div><a name="Recieving_the_packets"></a><h2> Recieving the packets </h2>
+<p>When you recieve a packet, there are 11 bytes of a packet you can remove right away. These eleven bytes are what we call the header. These eleven bytes equals your query that you have sent.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Query_Mechanism.html" title="Edit section: Response from i">edit</a>]</div><a name="Response_from_i"></a><h3> Response from <i>i</i> </h3>
+<table class="wikitable">
+
+<tr>
+<th> Byte
+</th><th> Key
+</th><th> Byte width
+</th><th> Description
+</th></tr>
+<tr>
+<th> 11
+</th><td> Password
+</td><td> 1
+</td><td> Either 0 or 1, depending whether if the password has been set.
+</td></tr>
+<tr>
+<th> 12-13
+</th><td> Players
+</td><td> 2
+</td><td> Current amount of players online on the server.
+</td></tr>
+<tr>
+<th> 14-15
+</th><td> MaxPlayers
+</td><td> 2
+</td><td> Maximum amount of players that can join the server.
+</td></tr>
+<tr>
+<th> 15-18
+</th><td> (strlen)
+</td><td> 4
+</td><td> Length of the server hostname.
+</td></tr>
+<tr>
+<th> 19 + strlen
+</th><td> Hostname
+</td><td> (strlen)
+</td><td> Hostname of the server.
+</td></tr>
+<tr>
+<th> 20-23
+</th><td> (strlen)
+</td><td> 4
+</td><td> Length of the server's gamemode.
+</td></tr>
+
+<tr>
+<th> 24 + strlen
+</th><td> Gamemode
+</td><td> (strlen)
+</td><td> Gamemode of the server.
+</td></tr>
+<tr>
+<th> 25-28
+</th><td> (strlen)
+</td><td> 4
+</td><td> Length of the server's language.
+</td></tr>
+<tr>
+<th> 29 + strlen
+</th><td> Language
+</td><td> (strlen)
+</td><td> Language of the server.
+</td></tr>
+</table>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Query_Mechanism.html" title="Edit section: Response from r">edit</a>]</div><a name="Response_from_r"></a><h3> Response from <i>r</i> </h3>
+<table class="wikitable">
+
+<tr>
+<th> Byte
+</th><th> Key
+</th><th> Byte width
+</th><th> Description
+</th></tr>
+<tr>
+<th> 11-12
+</th><td> RuleCount
+</td><td> 2
+</td><td> Amount of rules that the server provides.
+</td></tr>
+<tr>
+<th>
+</th><th>
+</th><th>
+</th><th> Repeat below the amount of <i>RuleCount</i>, to get all the rules and values.
+</th></tr>
+<tr>
+<th> 13
+</th><td> (strlen)
+</td><td> 1
+</td><td> Length of the rulename.
+</td></tr>
+<tr>
+<th> 14 + strlen
+</th><td> Rulename
+</td><td> (strlen)
+</td><td> The rulename.
+</td></tr>
+<tr>
+<th> 15
+</th><td> (strlen)
+</td><td> 1
+</td><td> Length of the value.
+</td></tr>
+<tr>
+<th> 16 + strlen
+</th><td> RuleCount
+</td><td> (strlen)
+</td><td> That rulename's value.
+</td></tr>
+</table>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Query_Mechanism.html" title="Edit section: Response from c">edit</a>]</div><a name="Response_from_c"></a><h3> Response from <i>c</i> </h3>
+<table class="wikitable">
+
+<tr>
+<th> Byte
+</th><th> Key
+</th><th> Byte width
+</th><th> Description
+</th></tr>
+<tr>
+<th> 11-12
+</th><td> PlayerCount
+</td><td> 2
+</td><td> Amount of rules that the server provides.
+</td></tr>
+<tr>
+<th>
+</th><th>
+</th><th>
+</th><th> Repeat below the amount of <i>PlayerCount</i>, to get all the rules and values.
+</th></tr>
+<tr>
+<th> 13
+</th><td> (strlen)
+</td><td> 1
+</td><td> Length of the player's moniker.
+</td></tr>
+<tr>
+<th> 14 + strlen
+</th><td> PlayerNick
+</td><td> (strlen)
+</td><td> Player's nickname
+</td></tr>
+<tr>
+<th> 15
+</th><td> Score
+</td><td> 4
+</td><td> Player's score
+</td></tr></table>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Query_Mechanism.html" title="Edit section: Response from d">edit</a>]</div><a name="Response_from_d"></a><h3> Response from <i>d</i> </h3>
+<table class="wikitable">
+
+<tr>
+<th> Byte
+</th><th> Key
+</th><th> Byte width
+</th><th> Description
+</th></tr>
+<tr>
+<th> 11-12
+</th><td> PlayerCount
+</td><td> 2
+</td><td> Amount of rules that the server provides.
+</td></tr>
+<tr>
+<th>
+</th><th>
+</th><th>
+</th><th> Repeat below the amount of <i>PlayerCount</i>, to get all the rules and values.
+</th></tr>
+<tr>
+<th> 13
+</th><td> PlayerID
+</td><td> 1
+</td><td> Player's ID (only 0-255 possible)
+</td></tr>
+<tr>
+<th> 14
+</th><td> (strlen)
+</td><td> 1
+</td><td> Length of the player's moniker.
+</td></tr>
+<tr>
+<th> 15 + strlen
+</th><td> PlayerNick
+</td><td> (strlen)
+</td><td> Player's nickname
+</td></tr>
+<tr>
+<th> 16-19
+</th><td> Score
+</td><td> 4
+</td><td> Player's score
+</td></tr>
+<tr>
+<th> 20-23
+</th><td> Ping
+</td><td> 4
+</td><td> Player's ping to the server
+</td></tr></table>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Query_Mechanism.html" title="Edit section: Response from p">edit</a>]</div><a name="Response_from_p"></a><h3> Response from <i>p</i> </h3>
+<table class="wikitable">
+
+<tr>
+<th> Byte
+</th><th> Key
+</th><th> Byte width
+</th><th> Description
+</th></tr>
+<tr>
+<th> 11
+</th><td> number 1
+</td><td> 1
+</td><td> The first number of the pseudo-random numbers the client sends
+</td></tr>
+<tr>
+<th> 12
+</th><td> number 2
+</td><td> 1
+</td><td> The second number of the pseudo-random numbers the client sends
+</td></tr>
+<tr>
+<th> 13
+</th><td> number 3
+</td><td> 1
+</td><td> The third number of the pseudo-random numbers the client sends
+</td></tr>
+<tr>
+<th> 14
+</th><td> number 4
+</td><td> 1
+</td><td> The fourth number of the pseudo-randoms number the client sends
+</td></tr></table>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Query_Mechanism.html" title="Edit section: Example Implementations">edit</a>]</div><a name="Example_Implementations"></a><h2> Example Implementations </h2>
+<p>Here are a few implementations of how to send and recieve packets to and from SA-MP servers (v 0.3):
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Query_Mechanism.html" title="Edit section: C#">edit</a>]</div><a name="C.23"></a><h3> C# </h3>
+<p><a href="Query_Mechanism_Csharp.html" title="Query Mechanism/Csharp">Example class</a>
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Query_Mechanism.html" title="Edit section: C++">edit</a>]</div><a name="C.2B.2B"></a><h3> C++ </h3>
+<p>See <a href="http://forum.sa-mp.com/showthread.php?t=129013" class='external text' title="http://forum.sa-mp.com/showthread.php?t=129013" rel="nofollow">here</a>.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Query_Mechanism.html" title="Edit section: PHP">edit</a>]</div><a name="PHP"></a><h3> PHP </h3>
+<p>See <a href="http://forum.sa-mp.com/showthread.php?t=104299" class='external text' title="http://forum.sa-mp.com/showthread.php?t=104299" rel="nofollow">here</a>.
+</p><div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/Query_Mechanism.html">http://localhost../wiki/Query_Mechanism.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="Category_Server_Documentation.html" title="Category:Server Documentation">Server Documentation</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="Query_Mechanism.html">Article</a></li>
+				 <li id="ca-talk"><a href="Talk_Query_Mechanism.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="Query_Mechanism.html">Edit</a></li>
+				 <li id="ca-history"><a href="Query_Mechanism.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 71,309 times.</li>
+				<li id="credits">This page was last modified 21:27, 18 March 2016 by SA-MP Wiki user <a href="User_SickAttack.html" class="new" title="User:SickAttack">SickAttack</a>. Based on work by SA-MP Wiki user(s) <a href="User_Dragony92.html" class="new" title="User:Dragony92">Dragony92</a> and <a href="User_Westie.html" title="User:Westie">Westie</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 40.82 secs. -->
+</body></html>

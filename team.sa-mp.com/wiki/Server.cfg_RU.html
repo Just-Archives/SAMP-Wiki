@@ -1,0 +1,397 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Server.cfg RU,Remote Console,SetGameModeText RU" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>Server.cfg RU - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Server.cfg RU</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<div class="editsection" style="float:right;margin-left:5px;">[<a href="Server.cfg_RU.html" title="Edit section: Server.cfg">edit</a>]</div><a name="Server.cfg"></a><h1 class="firstheading" style="position:absolute; top:0px; background:#FFF; width:95%;">Server.cfg</h1>
+<div class="thumb tright"><div style="width:182px;"><a href="Image_SA-MP_Wiki_Windows_3.png.html" class="internal" title="Запущенный сервер!"><img src="../upload/thumb/0/02/SA-MP_Wiki_Windows_3.png/180px-SA-MP_Wiki_Windows_3.png" alt="Запущенный сервер!" width="180" height="96" longdesc="Image_SA-MP_Wiki_Windows_3.png.html" /></a>  <div class="thumbcaption" ><div class="magnify" style="float:right"><a href="Image_SA-MP_Wiki_Windows_3.png.html" class="internal" title="Enlarge"><img src="../skins/common/images/magnify-clip.png" width="15" height="11" alt="Enlarge" /></a></div>Запущенный сервер!</div></div></div>
+<p><b>Описание:</b><br />
+</p>
+<div style="padding-left:35px;"><b>server.cfg</b> - это файл конфигурации сервера, который позволяет изменять настройки вашего sa-mp сервера, как, например, его название, подключение дополнительных фильтрскриптов и плагинов или даже пароль, если вы хотите таковой установить.<br />Этот файл необходим для каждого сервера и должен быть расположен в папке сервера рядом с его программой.<br /></div>
+<p><br />
+</p><p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Server.cfg_RU.html" title="Edit section: Настройки">edit</a>]</div><a name=".D0.9D.D0.B0.D1.81.D1.82.D1.80.D0.BE.D0.B9.D0.BA.D0.B8"></a><h2>Настройки</h2>
+<p>В следующей таблице приведено детальное объяснение для каждого параметра:
+</p>
+<table class="wikitable">
+
+<tr>
+<th> Параметр
+</th><th> Значение по умолчанию
+</th><th> Только для чтения
+</th><th> Результат
+</th></tr>
+<tr>
+<td> echo
+</td><td>
+</td><td style="background-color: #b82e2e;"> Да
+</td><td> Это то, что sampserver.exe выводит при загрузке server.cfg. Нет необходимости менять это вообще, т.к. вы будете единственным, кто увидит консоль. По умолчанию выводится <b>Executing Server Config...</b>
+</td></tr>
+<tr>
+<td> lanmode
+</td><td> 0
+</td><td style="background-color: #2eb82e;"> Нет
+</td><td> Устаревшая переменная, не имеет эффекта.
+</td></tr>
+<tr>
+<td> maxplayers
+</td><td> 50
+</td><td style="background-color: #b82e2e;"> Да
+</td><td> Это значение задаёт максимальное количество игроков на сервере; изменяя это число, вы можете изменить число игроков, которое сможет войти в сервер. Максимум <b>1000</b> и минимум <b>1</b>.
+</td></tr>
+<tr>
+<td> announce
+</td><td> 0
+</td><td style="background-color: #2eb82e;"> Нет
+</td><td> Позволяет отображаться серверу в SA-MP мастер-листе (вкладка "Internet"). Установив <b>1</b> это включит его отображение, <b>0</b> - отключит.
+</td></tr>
+<tr>
+<td> query
+</td><td> 1
+</td><td style="background-color: #2eb82e;"> Нет
+</td><td> Позволяет отправлять запросы на сервер. Если это будет отключено, то информация о сервере не будет отображаться в браузере серверов. Установите <b>1</b> для выполнения запросов или <b>0</b> для их отключения. (Игроки по-прежнему могут войти на сервер, который отключил обработку запросов!)
+</td></tr>
+<tr>
+<td> port
+</td><td> 7777
+</td><td style="background-color: #b82e2e;"> Да
+</td><td> Порт, который сервер будет использовать для связи, может быть изменён здесь. Вам нужно <a href="http://www.portforward.com/" class='external text' title="http://www.portforward.com" rel="nofollow">Пробросить Порты</a> для того, чтобы запустить сервер.
+</td></tr>
+<tr>
+<td> hostname
+</td><td> SA-MP 0.3 Server
+</td><td style="background-color: #2eb82e;"> Нет
+</td><td> Это имя, которое будет отображаться в браузере серверов для просмотра другими пользователями.
+</td></tr>
+<tr>
+<td> gamemode(n)&nbsp;(N)&nbsp;(t)
+</td><td> gamemode0 grandlarc 1
+</td><td style="background-color: #2eb82e;"> Нет
+</td><td> Возможность установить gamemode, который будет выполняться, как долго он будет выполняться и в какой последовательности путём изменения этих значений. Чтобы использовать это правильно, вы должны понимать, как это работает, <b>(n)</b> это номер режима игры, <b>(N)</b> это название режима игры*, и <b>(t)</b> это количество времени, которое будет выполняться мод перед его сменой на следующий.
+<ul><li><i>Название режима игры это название скомпилированного файла режима игры в вашей папке gamemodes. Названия должны полностью соответствовать, за исключением расширения .amx - оно должно отсутствовать</i>.
+</li></ul>
+</td></tr>
+<tr>
+<td> weburl
+</td><td> www.sa-mp.com
+</td><td style="background-color: #2eb82e;"> Нет
+</td><td> Это веб-сайт, который люди могут посетить, чтобы получить более подробную информацию о сервере. Веб-адрес не требуется.
+</td></tr>
+<tr>
+<td> rcon_password
+</td><td>
+</td><td style="background-color: #2eb82e;"> Нет
+</td><td> Это пароль, используется для администрирования сервером и использования rcon. Вы должны убедиться, что изменили это на что-то трудно подбираемое, чтобы другие не могли получить контроль над вашим сервером. По умолчанию этот параметр установлен на <b>changeme</b>. Ваш сервер НЕ запустится, если в качестве RCON пароля будет установлен "changeme"!
+</td></tr>
+<tr>
+<td> filterscripts&nbsp;(N)
+</td><td>
+</td><td style="background-color: #b82e2e;"> Да
+</td><td> Фильтрскрипты это скрипты, которые выполняются в фоновом режиме вашего мода, добавляя новые возможности на сервер без редактирования самого режима игры. Это очень полезно, если вы хотите добавить конкретные возможности для нескольких режимов одновременно. Чтобы использовать это, вам нужно найти в вашей папке сервера папку <b>filterscripts</b> и добавить ваши фильтрскрипты (.amx) туда. (N) означает название фильтрскрипта*. Если вы хотите загрузить сразу несколько фильтрскриптов, добавьте их все в одну строчку, разделяя их имена "пробелами", т.е. <i>filterscripts script1 script2</i>.
+<ul><li><i>Название фильтрскрипта это название скомпилированного файла фильтрскрипта в вашей папке filterscripts. Названия должны полностью соответствовать, за исключением расширения .amx - оно должно отсутствовать</i>.
+</li></ul>
+</td></tr>
+<tr>
+<td> plugins&nbsp;(N)
+</td><td>
+</td><td style="background-color: #b82e2e;"> Да
+</td><td> Это позволяет указать плагины, которые предназначены для улучшения игровых режимов и фильтрскриптов. (N) означает название плагина. Если вы хотите загрузить сразу несколько плагинов, добавьте их все в одну строчку, разделяя их имена "пробелами", т.е. <i>plugins plugin1 plugin2</i>.
+<ul><li> Пользователям Linux нужно добавить расширение .so после каждого названия плагина
+</li><li> Вы можете найти более подробную информацию о разработке плагинов в  <a href="http://forum.sa-mp.com/showthread.php?t=295798" class='external text' title="http://forum.sa-mp.com/showthread.php?t=295798" rel="nofollow">этой теме</a>.
+</li></ul>
+</td></tr>
+<tr>
+<td> password&nbsp;(p)
+</td><td> - (None)
+</td><td style="background-color: #2eb82e;"> Нет
+</td><td> Блокировка сервера паролем является еще одним вариантом, который доступен для rcon администратора сервера. Вы можете использовать эту функцию, чтобы не допускать нежелательных посетителей на сервер. (p) символизирует пароль, который будет использоваться.
+</td></tr>
+<tr>
+<td> mapname&nbsp;(m)
+</td><td> San Andreas
+</td><td style="background-color: #2eb82e;"> Нет
+</td><td> Название карты, которое будет отображаться в браузере серверов. (m) обозначает название карты.
+<ul><li>Измените (m) на то, что вы хотите видеть, например на <b>My Stunt Map</b>
+</li></ul>
+</td></tr>
+<tr>
+<td> language
+</td><td> English
+</td><td style="background-color: #2eb82e;"> Нет
+</td><td> Определяет язык, используемый на сервере. Таким образом игроки могут фильтровать серверы по языкам в браузере серверов. Если он не установлен - он будет пустым.
+<ul><li> <b>ПРИМЕЧАНИЕ:</b> Эта переменная была добавлена в 0.3.7 и не будет иметь никакого эффекта в предыдущих версиях.
+</li></ul>
+</td></tr>
+<tr>
+<td> bind
+</td><td>
+</td><td style="background-color: #b82e2e;"> Да
+</td><td> Принуждает сервер запускаться только с определённого IP. Этот IP должен соответствовать IP, назначенному сетевой картой сервера. Это полезно для запуска нескольких серверов на одном порту на одном и том же компьютере.
+</td></tr>
+<tr>
+<td> rcon
+</td><td> 1
+</td><td style="background-color: #2eb82e;"> Нет
+</td><td> Если задан 0, то функция <a href="Remote_Console.html" title="Remote Console">удалённого управления через консоль</a> будет отключена.
+</td></tr>
+<tr>
+<td> maxnpc
+</td><td> 0
+</td><td style="background-color: #2eb82e;"> Нет
+</td><td> Максимальное количество NPC (ботов), которые могут присоединиться к вашему серверу.
+</td></tr>
+<tr>
+<td> onfoot_rate<b>*</b>
+</td><td> 40
+</td><td style="background-color: #b82e2e;"> Да
+</td><td> Минимальное время в миллисекундах, через которое клиент будет обновлять сервер с новыми данными во время бега/ходьбы.
+</td></tr>
+<tr>
+<td> incar_rate
+</td><td> 40
+</td><td style="background-color: #b82e2e;"> Да
+</td><td> Минимальное время в миллисекундах, через которое клиент будет обновлять сервер с новыми данными во время нахождения в транспорте.
+</td></tr>
+<tr>
+<td> weapon_rate
+</td><td> 40
+</td><td style="background-color: #b82e2e;"> Да
+</td><td> Минимальное время в миллисекундах, через которое клиент будет обновлять сервер с новыми данными во время стрельбы из оружия.
+</td></tr>
+<tr>
+<td> stream_distance<b>**</b>
+</td><td> 300.0
+</td><td style="background-color: #2eb82e;"> Нет
+</td><td> Расстояние по осям X, Y плоскостей, на котором объекты сервера будут отображаться для подключенных игроков.
+</td></tr>
+<tr>
+<td> stream_rate<b>***</b>
+</td><td> 1000
+</td><td style="background-color: #2eb82e;"> Нет
+</td><td> Число миллисекунд, которое должно пройти до того, как сервер вновь обновит данные потоковой передачи для каждого игрока.
+</td></tr>
+<tr>
+<td> timestamp
+</td><td> 1
+</td><td style="background-color: #2eb82e;"> Нет
+</td><td> Включение/Отключение пометки времени.
+</td></tr>
+<tr>
+<td> logqueries
+</td><td> 0
+</td><td style="background-color: #2eb82e;"> Нет
+</td><td> 0 для отключения, 1 для включения. Это регистрирует все запросы, отправленные игроками на сервер, что значительно полезно во время DDoS атак.
+</td></tr>
+<tr>
+<td> logtimeformat
+</td><td> [%H:%M:%S]
+</td><td style="background-color: #b82e2e;"> Да
+</td><td> Позволяет настроить формат временной метки (timestamp). Формат базируется на <a href="http://cplusplus.com/reference/clibrary/ctime/strftime/" class='external text' title="http://cplusplus.com/reference/clibrary/ctime/strftime/" rel="nofollow">strftime</a> формате из C/C++. Вот некоторые примеры:
+<ul><li>logtimeformat [%H:%M:%S] - (по умолчанию) Это показывает только время и является форматом по умолчанию для всех предыдущих версий SA-MP сервера.
+</li><li>logtimeformat [%d/%m/%Y %H:%M:%S] - Это будет отображать дату в формате Дата/Месяц/Год, за которой следует формат времени в часах:минутах:секундах.
+</li></ul>
+</td></tr>
+<tr>
+<td> output
+</td><td> 0
+</td><td>
+</td><td> Включение/Отключение дублирования сообщений лога (например, напечатанного с print/printf из режимов игры или logprintf из плагинов) в консоли сервера. Если этот параметр установлен на <b>0</b> (по умолчанию), то сообщения печатаются только в лог сервера. Этот параметр работает только на серверах Linux.
+</td></tr>
+<tr>
+<td> gamemodetext
+</td><td> Unknown
+</td><td style="background-color: #2eb82e;"> Нет
+</td><td> Установить текст режима игры. Аналогичный эффект, если вы используете функцию <a href="SetGameModeText_RU.html" title="SetGameModeText RU">SetGameModeText</a>.
+</td></tr>
+<tr>
+<td> chatlogging
+</td><td> 1
+</td><td style="background-color: #2eb82e;"> Нет
+</td><td> Включение/отключение логирования игрового чата. Полезно отключить для предотвращения увеличения размера логов сервера или если вы имеете своё собственное решение для логирования.
+<ul><li> 0: Установите на <b>0</b> для отключения логирования.
+</li><li> 1: Установите на <b>1</b> для включения логирования.
+</li><li> <b>ПРИМЕЧАНИЕ:</b> Эта переменная была добавлена в 0.3e R2 и не будет иметь никакого эффекта в предыдущих версиях.
+</li></ul>
+</td></tr>
+<tr>
+<td> messageholelimit
+</td><td> 3000
+</td><td style="background-color: #2eb82e;"> Нет
+</td><td> <a href="http://forum.sa-mp.com/showpost.php?p=2868955&amp;postcount=14" class='external text' title="http://forum.sa-mp.com/showpost.php?p=2868955&amp;postcount=14" rel="nofollow">См. здесь.</a>
+</td></tr>
+<tr>
+<td> messageslimit
+</td><td> 500
+</td><td style="background-color: #2eb82e;"> Нет
+</td><td> Максимальное количество сообщений, которые пользователь может отправить за одну секунду.
+</td></tr>
+<tr>
+<td> lagcompmode
+</td><td> 1
+</td><td style="background-color: #b82e2e;"> Да
+</td><td>
+<ul><li> 0: Установка на 0 полностью отключает lagcomp.
+</li><li> 1: Установка на 1 включает lagcomp.
+</li><li> 2: Установка на 2 включает lagcomp только для позиции. Это означает, что для вращения игрока режим lagcomp работать не будет.
+</li></ul>
+</td></tr>
+<tr>
+<td> ackslimit
+</td><td> 3000
+</td><td style="background-color: #2eb82e;"> Нет
+</td><td> <a href="http://forum.sa-mp.com/showpost.php?p=2989045&amp;postcount=1" class='external text' title="http://forum.sa-mp.com/showpost.php?p=2989045&amp;postcount=1" rel="nofollow">См. здесь.</a>
+</td></tr>
+<tr>
+<td> playertimeout
+</td><td> 10000
+</td><td style="background-color: #2eb82e;"> Нет
+</td><td> Время в миллисекундах, после которого игрок будет отключен от сервера с причиной "тайм-аут", если на протяжении этого времени не посылает никаких данных на сервер.
+</td></tr>
+<tr>
+<td> minconnectiontime
+</td><td> 0
+</td><td style="background-color: #2eb82e;"> Нет
+</td><td> Время в миллисекундах, которое сервер будет ждать, прежде чем принять другое входящее соединение.
+</td></tr>
+<tr>
+<td> connseedtime
+</td><td> 300000
+</td><td style="background-color: #2eb82e;"> Нет
+</td><td> Используйте, чтобы задать, как часто будет обновляться значение подключений cookie.
+<ul><li> <b>ПРИМЕЧАНИЕ:</b> Эта переменная была добавлена в 0.3.7 и не будет иметь никакого эффекта в предыдущих версиях.
+</li></ul>
+</td></tr>
+<tr>
+<td> sleep
+</td><td> 5
+</td><td style="background-color: #2eb82e;"> Нет
+</td><td> Время в миллисекундах, на протяжении которого основной sa-mp и raknet сетевой поток будет "спать" (ничего не делать во время каждого цикла синхронизации). Используя более высокие значения, сервер потребует меньшего количества CPU, но качество синхронизации сильно пострадает. Используя более низкие значения, сервер будет потреблять больше ресурсов процессора, но позволит повысить производительность серверной синхронизации. Не рекомендуется изменять это значение, за исключением, если онлайн на вашем сервере очень высок и имеются проблемы со стабильностью fps сервера.
+</td></tr>
+<tr>
+<td> conncookies
+</td><td> 1
+</td><td style="background-color: #2eb82e;"> Нет
+</td><td> Если задан 0, это отключит систему подключений cookie, добавленную в 0.3.7.
+<ul><li> <b>ПРИМЕЧАНИЕ:</b> Эта переменная была добавлена в 0.3.7 R2 и не будет иметь никакого эффекта в предыдущих версиях.
+</li></ul>
+</td></tr>
+<tr>
+<td> cookielogging
+</td><td> 1
+</td><td style="background-color: #2eb82e;"> Нет
+</td><td> Если задан 0, это отключит логирование cookies, запрошенных вновь подключившимися игроками.
+<ul><li> <b>ПРИМЕЧАНИЕ:</b> Эта переменная была добавлена в 0.3.7 R2 и не будет иметь никакого эффекта в предыдущих версиях.
+</li></ul>
+</td></tr>
+<tr>
+<td> db_logging
+</td><td> 1
+</td><td style="background-color: #2eb82e;"> Нет
+</td><td> Логирование ошибок sqlite db_* функций в основной server_log.
+<ul><li> <b>ПРИМЕЧАНИЕ:</b> Эта переменная была добавлена в 0.3.7 R2 и не будет иметь никакого эффекта в предыдущих версиях.
+</li></ul>
+</td></tr>
+<tr>
+<td> db_log_queries
+</td><td> 1
+</td><td style="background-color: #2eb82e;"> Нет
+</td><td> Логирование всех sqlite db_query() вызовов, включая строку запроса.
+<ul><li> <b>ПРИМЕЧАНИЕ:</b> Эта переменная была добавлена в 0.3.7 R2 и не будет иметь никакого эффекта в предыдущих версиях.
+</li></ul>
+</td></tr></table>
+<p>[<b>*</b>] Более низкие значения onfoot_rate, incar_rate и weapon_rate улучшат качество синхронизации, но ухудшат пропускную способность сервера.
+</p><p>[<b>**</b>] stream_distance	При больших значениях игроки могут видеть объекты сервера на большем расстоянии, хотя потребуется больше ресурсов клиентов и потенциально более высокая пропускная способность.
+</p><p>[<b>***</b>] stream_rate	Более низкие значения приведут к большей активности CPU, поскольку это чаще будет перепроверять состояния потоковой передачи для каждого игрока.
+</p><p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Server.cfg_RU.html" title="Edit section: Примечания">edit</a>]</div><a name=".D0.9F.D1.80.D0.B8.D0.BC.D0.B5.D1.87.D0.B0.D0.BD.D0.B8.D1.8F"></a><h3>Примечания</h3>
+<ul><li> Значения, отмеченные как "Только для чтения", не могут быть изменены во время выполнения. Все остальные значения также могут быть изменены посредством взаимодействия с SendRconCommand.
+</li><li> Однако, stream_distance и stream_rate могут быть изменены во время работы сервера, введя в игре команды /rcon stream_distance 300.0 или /rcon stream_rate 1000. 
+</li><li> (Гейм-)Моды (и Фильтрскрипты) не обязательно должны быть расположены в "gamemodes/" или "filterscripts/". Информация в server.cfg представляет собой путь и может содержать "..": <sup>(<a href="http://forum.sa-mp.com/showthread.php?t=191239" class='external text' title="http://forum.sa-mp.com/showthread.php?t=191239" rel="nofollow">Цитата</a> пользователя <a href="http://forum.sa-mp.com/member.php?u=29176" class='external text' title="http://forum.sa-mp.com/member.php?u=29176" rel="nofollow">Y_Less</a>)</sup>
+</li></ul>
+<pre class="pawn">filterscripts ../scriptfiles/first ../minimodes/second</pre>
+<div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/Server.cfg_RU.html">http://localhost../wiki/Server.cfg_RU.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="Category_%25D0%25A1%25D0%25B5%25D1%2580%25D0%25B2%25D0%25B5%25D1%2580%25D0%25BD%25D0%25B0%25D1%258F_%25D0%25B4%25D0%25BE%25D0%25BA%25D1%2583%25D0%25BC%25D0%25B5%25D0%25BD%25D1%2582%25D0%25B0%25D1%2586%25D0%25B8%25D1%258F.html" title="Category:Серверная документация">Серверная документация</a></span> | <span dir='ltr'><a href="Category_%25D0%2594%25D0%25BE%25D0%25BA%25D1%2583%25D0%25BC%25D0%25B5%25D0%25BD%25D1%2582%25D0%25B0%25D1%2586%25D0%25B8%25D1%258F.html" title="Category:Документация">Документация</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="Server.cfg_RU.html">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="Talk_Server.cfg_RU.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="Server.cfg_RU.html">Edit</a></li>
+				 <li id="ca-history"><a href="Server.cfg_RU.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-en"><a href="Server.cfg.html">English</a></li>
+				<li class="interwiki-nl"><a href="Server.cfg_NL.html">Nederlands</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 15,455 times.</li>
+				<li id="credits">This page was last modified 11:21, 16 December 2017 by SA-MP Wiki user <a href="User_Dugi.html" title="User:Dugi">Dugi</a>. Based on work by SA-MP Wiki user(s) <a href="User_OstGot.html" title="User:OstGot">OstGot</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 110.48 secs. -->
+</body></html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="OnPlayerUpdate,Main Page,NPC,Scripting Basics,Server Plugins,Scripting Callbacks,Scripting Functions,Tutorials" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>OnPlayerUpdate - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">OnPlayerUpdate</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<div class="scripting" style="color: #4378A4; background-color: #FFFFFF; margin: 2px; margin-bottom: 10px;"><div align="center" style="border: 1px solid #AAAAAA; padding: 3px; padding-left: 5px;"><a href="../wiki-archive.html" title="Main Page">Main Page</a> | <a href="Category_Scripting_Functions.html" title="Category:Scripting Functions">Scripting Functions</a> | <a href="Category_Scripting_Callbacks.html" title="Category:Scripting Callbacks">Scripting Callbacks</a> | <a href="Scripting_Basics.html" title="Scripting Basics">Scripting Basics</a> | <a href="Server_Plugins.html" title="Server Plugins">Server Plugins</a> | <a href="Category_Tutorials.html" title="Category:Tutorials">Tutorials</a></div></div><br />
+<p><br />
+<b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">This callback is called every time a client/player updates the server with their status. It is often used to create custom callbacks for client updates that aren't actively tracked by the server, such as health or armor updates or players switching weapons.<br /></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+<p><strong>Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">This callback can also be called by <a href="NPC.html" title="NPC">NPC</a>.</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #FFEAEA; border-left: 10px solid #FCA9A9;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #FCA9A9;"><a href="Image_32px-Circle-style-warning.png.html" class="image" title="Image:32px-Circle-style-warning.png"><img src="../upload/5/57/32px-Circle-style-warning.png" alt="Image:32px-Circle-style-warning.png" width="32" height="32" longdesc="Image_32px-Circle-style-warning.png.html" /></a><br />
+<p><strong>Important<br />Notes</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">
+<ul><li>This callback is called, on average, 30 times per second, per player; only use it when you know what it's meant for (or more importantly what it's NOT meant for).
+</li><li>The frequency with which this callback is called for each player varies, depending on what the player is doing. Driving or shooting will trigger a lot more updates than idling. 
+</li></ul>
+<p></span>
+</p>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(playerid)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">ID of the player sending an update packet.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">
+<ul><li> <b>0</b> - Update from this player will not be replicated to other clients.
+</li><li> <b>1</b> - Indicates that this update can be processed normally and sent to other players.
+</li><li> It is always called first in filterscripts.<br /></div>
+</li></ul>
+<p><br />
+<b>Example: Make your own callback - OnPlayerChangeWeapon(playerid, oldweapon, newweapon)</b> 
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">public</span> OnPlayerUpdate<span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <span style="color: #228b22; font-weight: bold;">new</span> iCurWeap = <a href="http://wiki.sa-mp.com/wiki/GetPlayerWeapon"><span style="color: #006400;">GetPlayerWeapon</span></a><span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// Return the player's current weapon		</span>
+    <span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>iCurWeap&nbsp;!= GetPVarInt<span style="color: #66cc66;">&#40;</span>playerid, <span style="color: #b22222;">&quot;iCurrentWeapon&quot;</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span> <span style="color: #808080; font-style: italic;">// If he changed weapons since the last update</span>
+    <span style="color: #66cc66;">&#123;</span>
+        <span style="color: #808080; font-style: italic;">// Lets call a callback named OnPlayerChangeWeapon</span>
+        OnPlayerChangeWeapon<span style="color: #66cc66;">&#40;</span>playerid, GetPVarInt<span style="color: #66cc66;">&#40;</span>playerid, <span style="color: #b22222;">&quot;iCurrentWeapon&quot;</span><span style="color: #66cc66;">&#41;</span>, iCurWeap<span style="color: #66cc66;">&#41;</span>;
+        SetPVarInt<span style="color: #66cc66;">&#40;</span>playerid, <span style="color: #b22222;">&quot;iCurrentWeapon&quot;</span>, iCurWeap<span style="color: #66cc66;">&#41;</span>;<span style="color: #808080; font-style: italic;">//Update the weapon variable</span>
+    <span style="color: #66cc66;">&#125;</span>
+    <span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>; <span style="color: #808080; font-style: italic;">// Send this update to other players.</span>
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">stock</span> OnPlayerChangeWeapon<span style="color: #66cc66;">&#40;</span>playerid, oldweapon, newweapon<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #228b22; font-weight: bold;">new</span>     s<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">128</span><span style="color: #66cc66;">&#93;</span>,
+		oWeapon<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">24</span><span style="color: #66cc66;">&#93;</span>,
+		nWeapon<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">24</span><span style="color: #66cc66;">&#93;</span>;
+&nbsp;
+	<a href="http://wiki.sa-mp.com/wiki/GetWeaponName"><span style="color: #006400;">GetWeaponName</span></a><span style="color: #66cc66;">&#40;</span>oldweapon, oWeapon, <span style="color: orange; font-weight: bold;">sizeof</span><span style="color: #66cc66;">&#40;</span>oWeapon<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>;
+	<a href="http://wiki.sa-mp.com/wiki/GetWeaponName"><span style="color: #006400;">GetWeaponName</span></a><span style="color: #66cc66;">&#40;</span>newweapon, nWeapon, <span style="color: orange; font-weight: bold;">sizeof</span><span style="color: #66cc66;">&#40;</span>nWeapon<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+	<a href="http://wiki.sa-mp.com/wiki/format"><span style="color: #006400;">format</span></a><span style="color: #66cc66;">&#40;</span>s, <span style="color: orange; font-weight: bold;">sizeof</span><span style="color: #66cc66;">&#40;</span>s<span style="color: #66cc66;">&#41;</span>, <span style="color: #b22222;">&quot;You changed weapon from %s to %s!&quot;</span>, oWeapon, nWeapon<span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+	<a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, 0xFFFFFFFF, s<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>The example above shows you how you easily can create a callback, example shows OnPlayerChangeWeapon, with playerid and old/new weapon parameters, you can make TONS of others too! (Note, in the example you'd probably like to reset iCurrentWeapon variable upon player connect (OnPlayerConnect) and remember to forward OnPlayerChangeWeapon!)
+</p><p><b>Example: Track players health changing!</b> 
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">public</span> OnPlayerUpdate<span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #228b22; font-weight: bold;">new</span> <span style="color: orange;">Float</span>:fHealth;
+&nbsp;
+	<a href="http://wiki.sa-mp.com/wiki/GetPlayerHealth"><span style="color: #006400;">GetPlayerHealth</span></a><span style="color: #66cc66;">&#40;</span>playerid, fHealth<span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+	<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>fHealth&nbsp;!= GetPVarFloat<span style="color: #66cc66;">&#40;</span>playerid, <span style="color: #b22222;">&quot;faPlayerHealth&quot;</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>
+	<span style="color: #66cc66;">&#123;</span>
+	    <span style="color: #808080; font-style: italic;">// Player health has changed since the last update -&gt; server, so obviously thats the thing updated.</span>
+	    <span style="color: #808080; font-style: italic;">// Lets do further checks see if he's lost or gained health, anti-health cheat?&nbsp;;)</span>
+&nbsp;
+	    <span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>fHealth &gt; GetPVarFloat<span style="color: #66cc66;">&#40;</span>playerid, <span style="color: #b22222;">&quot;faPlayerHealth&quot;</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>
+	    <span style="color: #66cc66;">&#123;</span>
+	        <span style="color: #808080; font-style: italic;">/* He has gained health! Cheating? Write your own scripts here to figure how a player
+			gained health! */</span>
+	    <span style="color: #66cc66;">&#125;</span>
+	    <span style="color: #4169e1;">else</span>
+	    <span style="color: #66cc66;">&#123;</span>
+	        <span style="color: #808080; font-style: italic;">/* He has lost health! */</span>
+	    <span style="color: #66cc66;">&#125;</span>
+&nbsp;
+	    SetPVarFloat<span style="color: #66cc66;">&#40;</span>playerid, <span style="color: #b22222;">&quot;faPlayerHealth&quot;</span>, fHealth<span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #66cc66;">&#125;</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>Here's another neat script, possibly good for anti health hacks? Possibly VERY good? If you use another function for SetPlayerHealth so you can store the health you've set to players, you'll be able to track the health status at hundred percent accuracy, so you'll have a great chance to prevent health hacks totally - as it's quite limited where people can gain health through the SP possibilities - just vending machines and shops basically.
+</p><div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/OnPlayerUpdate.html">http://localhost../wiki/OnPlayerUpdate.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="Category_Scripting_Callbacks.html" title="Category:Scripting Callbacks">Scripting Callbacks</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="OnPlayerUpdate.html">Article</a></li>
+				 <li id="ca-talk"><a href="Talk_OnPlayerUpdate.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="OnPlayerUpdate.html">Edit</a></li>
+				 <li id="ca-history"><a href="OnPlayerUpdate.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-es"><a href="OnPlayerUpdate_ES.html">Español</a></li>
+				<li class="interwiki-lt"><a href="OnPlayerUpdate_LT.html">Lietuvių</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 62,478 times.</li>
+				<li id="credits">This page was last modified 14:09, 30 December 2017 by SA-MP Wiki user <a href="User_OstGot.html" title="User:OstGot">OstGot</a>. Based on work by SA-MP Wiki user(s) <a href="User_Vince.html" title="User:Vince">Vince</a>, <a href="User_MP2.html" title="User:MP2">MP2</a>, <a href="User_Vince.html" title="User:Vince">Vince</a> and <a href="User_Dugi.html" title="User:Dugi">Dugi</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 39.05 secs. -->
+</body></html>

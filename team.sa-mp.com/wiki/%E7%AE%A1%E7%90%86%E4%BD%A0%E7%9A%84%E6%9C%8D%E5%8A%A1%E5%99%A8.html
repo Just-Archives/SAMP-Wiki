@@ -1,0 +1,269 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="管理你的服务器,BanEx函数,Ban函数,Server.cfg,Server.cfg文件,远程控制台,OnRconLoginAttempt函数,IsPlayerAdmin函数,SendRconCommand函数" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>管理你的服务器 - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">管理你的服务器</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class='toclevel-1'><a href="#.E6.94.B9.E5.8F.98.E6.B8.B8.E6.88.8F.E6.A8.A1.E5.BC.8F_.28Gamemode.29"><span class="tocnumber">1</span> <span class="toctext">改变游戏模式 (Gamemode)</span></a>
+<ul>
+<li class='toclevel-2'><a href="#.E8.BF.90.E8.A1.8C.E4.B8.80.E4.B8.AA.E8.87.AA.E5.88.B6.2F.E4.B8.8B.E8.BD.BD.E7.9A.84.E6.B8.B8.E6.88.8F.E6.A8.A1.E5.BC.8F"><span class="tocnumber">1.1</span> <span class="toctext">运行一个自制/下载的游戏模式</span></a></li>
+<li class='toclevel-2'><a href="#.E4.BD.BF.E7.94.A8.E9.99.84.E5.8A.A0.E8.84.9A.E6.9C.AC_.28Filterscripts.29"><span class="tocnumber">1.2</span> <span class="toctext">使用附加脚本 (Filterscripts)</span></a></li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#.E7.BB.99.E4.BD.A0.E7.9A.84.E6.9C.8D.E5.8A.A1.E5.99.A8.E5.8A.A0.E4.B8.8A.E5.AF.86.E7.A0.81"><span class="tocnumber">2</span> <span class="toctext">给你的服务器加上密码</span></a></li>
+<li class='toclevel-1'><a href="#.E4.BD.BF.E7.94.A8_RCON"><span class="tocnumber">3</span> <span class="toctext">使用 RCON</span></a>
+<ul>
+<li class='toclevel-2'><a href="#.E7.99.BB.E5.BD.95"><span class="tocnumber">3.1</span> <span class="toctext">登录</span></a></li>
+<li class='toclevel-2'><a href="#.E5.B0.81.E7.A6.81"><span class="tocnumber">3.2</span> <span class="toctext">封禁</span></a>
+<ul>
+<li class='toclevel-3'><a href="#.E8.A7.A3.E9.99.A4.E5.B0.81.E7.A6.81"><span class="tocnumber">3.2.1</span> <span class="toctext">解除封禁</span></a>
+<ul>
+<li class='toclevel-4'><a href="#samp.ban.E6.96.87.E4.BB.B6"><span class="tocnumber">3.2.1.1</span> <span class="toctext">samp.ban文件</span></a></li>
+<li class='toclevel-4'><a href="#.E8.A7.A3.E9.99.A4IP.E5.B0.81.E7.A6.81"><span class="tocnumber">3.2.1.2</span> <span class="toctext">解除IP封禁</span></a></li>
+<li class='toclevel-4'><a href="#.E9.87.8D.E8.BD.BD.E5.B0.81.E7.A6.81.E8.AE.B0.E5.BD.95.E6.96.87.E4.BB.B6"><span class="tocnumber">3.2.1.3</span> <span class="toctext">重载封禁记录文件</span></a></li>
+</ul>
+</li>
+<li class='toclevel-3'><a href="#.E6.B7.BB.E5.8A.A0.E5.B0.81.E7.A6.81"><span class="tocnumber">3.2.2</span> <span class="toctext">添加封禁</span></a>
+<ul>
+<li class='toclevel-4'><a href="#samp.ban.E6.96.87.E4.BB.B6_2"><span class="tocnumber">3.2.2.1</span> <span class="toctext">samp.ban文件</span></a></li>
+<li class='toclevel-4'><a href="#Ban.28.29_.E5.87.BD.E6.95.B0"><span class="tocnumber">3.2.2.2</span> <span class="toctext">Ban() 函数</span></a></li>
+<li class='toclevel-4'><a href="#RCON_.E5.B0.81.E7.A6.81.E5.91.BD.E4.BB.A4"><span class="tocnumber">3.2.2.3</span> <span class="toctext">RCON 封禁命令</span></a></li>
+<li class='toclevel-4'><a href="#.E5.B0.81.E7.A6.81IP"><span class="tocnumber">3.2.2.4</span> <span class="toctext">封禁IP</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class='toclevel-2'><a href="#RCON_.E5.91.BD.E4.BB.A4"><span class="tocnumber">3.3</span> <span class="toctext">RCON 命令</span></a></li>
+<li class='toclevel-2'><a href="#.E6.9C.89.E5.85.B3.E8.81.94.E7.9A.84.E5.9B.9E.E8.B0.83.E5.92.8C.E5.87.BD.E6.95.B0"><span class="tocnumber">3.4</span> <span class="toctext">有关联的回调和函数</span></a></li>
+</ul>
+</li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25E7%25AE%25A1%25E7%2590%2586%25E4%25BD%25A0%25E7%259A%2584%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8.html" title="Edit section: 改变游戏模式 (Gamemode)">edit</a>]</div><a name=".E6.94.B9.E5.8F.98.E6.B8.B8.E6.88.8F.E6.A8.A1.E5.BC.8F_.28Gamemode.29"></a><h2>改变游戏模式 (Gamemode)</h2>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25E7%25AE%25A1%25E7%2590%2586%25E4%25BD%25A0%25E7%259A%2584%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8.html" title="Edit section: 运行一个自制/下载的游戏模式">edit</a>]</div><a name=".E8.BF.90.E8.A1.8C.E4.B8.80.E4.B8.AA.E8.87.AA.E5.88.B6.2F.E4.B8.8B.E8.BD.BD.E7.9A.84.E6.B8.B8.E6.88.8F.E6.A8.A1.E5.BC.8F"></a><h3>运行一个自制/下载的游戏模式</h3>
+<ul><li> 打开你将服务端安装到的目录 (例如: /Rockstar Games/GTA San Andreas/server)
+</li><li> 将下载或编译得到的.amx文件放入服务端安装目录下的gamemodes文件夹
+</li><li> 使用RCON更换游戏模式，如同之前提到的一样 (2.1)
+</li><li> 另外你可以把游戏模式加入一个循环，同样如同之前提到的 (2.3)
+</li></ul>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25E7%25AE%25A1%25E7%2590%2586%25E4%25BD%25A0%25E7%259A%2584%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8.html" title="Edit section: 使用附加脚本 (Filterscripts)">edit</a>]</div><a name=".E4.BD.BF.E7.94.A8.E9.99.84.E5.8A.A0.E8.84.9A.E6.9C.AC_.28Filterscripts.29"></a><h3>使用附加脚本 (Filterscripts)</h3>
+<p>跟运行自定义游戏模式一样，除了以下事情:
+</p>
+<ul><li> 把.amx文件放在名为 /filterscripts 的文件夹里
+</li><li> 添加到server.cfg：    <i>filterscripts <b>scriptname</b></i>
+</li></ul>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25E7%25AE%25A1%25E7%2590%2586%25E4%25BD%25A0%25E7%259A%2584%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8.html" title="Edit section: 给你的服务器加上密码">edit</a>]</div><a name=".E7.BB.99.E4.BD.A0.E7.9A.84.E6.9C.8D.E5.8A.A1.E5.99.A8.E5.8A.A0.E4.B8.8A.E5.AF.86.E7.A0.81"></a><h2>给你的服务器加上密码</h2>
+<ul><li> 如果你想加上密码，只让你的朋友进入的话，把这个加进server.cfg:
+</li></ul>
+<pre class="bash">password whatever</pre>
+<ul><li> 这会让你的服务器被设定为使用“whatever”这个密码进行保护 - 把它换成你想设置的密码&nbsp;:)
+</li><li> 你也可以在游戏中使用这条命令修改密码 <i>/rcon password newpasswordhere</i>
+</li><li> 你可以使用 <i>/rcon password 0</i> 来取消密码, 或者重启服务器。
+</li></ul>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25E7%25AE%25A1%25E7%2590%2586%25E4%25BD%25A0%25E7%259A%2584%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8.html" title="Edit section: 使用 RCON">edit</a>]</div><a name=".E4.BD.BF.E7.94.A8_RCON"></a><h2>使用 RCON</h2>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25E7%25AE%25A1%25E7%2590%2586%25E4%25BD%25A0%25E7%259A%2584%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8.html" title="Edit section: 登录">edit</a>]</div><a name=".E7.99.BB.E5.BD.95"></a><h3>登录</h3>
+<p>你可以通过在游戏中输入 '<b>/rcon login password'</b> 或者在游戏外使用 <a href="%25E8%25BF%259C%25E7%25A8%258B%25E6%258E%25A7%25E5%2588%25B6%25E5%258F%25B0.html" title="远程控制台">远程控制台</a> 里的RCON模式登录.
+</p><p>密码和你在 <a href="Server.cfg%25E6%2596%2587%25E4%25BB%25B6.html" title="Server.cfg文件">server.cfg</a> 里设置的一样。
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25E7%25AE%25A1%25E7%2590%2586%25E4%25BD%25A0%25E7%259A%2584%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8.html" title="Edit section: 封禁">edit</a>]</div><a name=".E5.B0.81.E7.A6.81"></a><h3>封禁</h3>
+<p>封禁是指阻止一个IP连接到服务器。
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25E7%25AE%25A1%25E7%2590%2586%25E4%25BD%25A0%25E7%259A%2584%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8.html" title="Edit section: 解除封禁">edit</a>]</div><a name=".E8.A7.A3.E9.99.A4.E5.B0.81.E7.A6.81"></a><h4>解除封禁</h4>
+<p>一旦某人被封禁了，有两种方式来解除：
+</p>
+<ul><li> 从 samp.ban 中移除
+</li><li> RCON unbanip 命令
+</li></ul>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25E7%25AE%25A1%25E7%2590%2586%25E4%25BD%25A0%25E7%259A%2584%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8.html" title="Edit section: samp.ban文件">edit</a>]</div><a name="samp.ban.E6.96.87.E4.BB.B6"></a><h5>samp.ban文件</h5>
+<p>samp.ban 可以在你的sa-mp服务端目录中找到, 它的每行包含每个封禁的下列信息:
+</p>
+<ul><li> IP
+</li><li> 日期
+</li><li> 时间
+</li><li> 名字 (一个人的名字或者封禁原因 (见 <a href="BanEx%25E5%2587%25BD%25E6%2595%25B0.html" title="BanEx函数">BanEx</a>))
+</li><li> 封禁类型 (INGAME, IP BAN, 等等)
+</li></ul>
+<p>例如:
+</p>
+<pre>127.8.57.32 [13/06/09 | 69:69:69] NONE - IP BAN
+13.37.13.37 [28/05/09 | 13:37:00] Kyeman - INGAME BAN
+</pre>
+<p>要解除他们的封禁， 移除这几行， 然后运行RCON命令 reloadbans 来使服务器重新读取samp.ban.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25E7%25AE%25A1%25E7%2590%2586%25E4%25BD%25A0%25E7%259A%2584%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8.html" title="Edit section: 解除IP封禁">edit</a>]</div><a name=".E8.A7.A3.E9.99.A4IP.E5.B0.81.E7.A6.81"></a><h5>解除IP封禁</h5>
+<p>RCON命令 unbanip 可以在游戏里或者服务端控制台使用。 要解封一个IP，在游戏里输入"/rcon unbanip IP_HERE"或者在控制台里输入"unbanip IP_HERE".
+</p><p>例如:
+</p>
+<pre>13.37.13.37 [28/05/09 | 13:37:00] Kyeman - INGAME BAN
+/rcon unbanip 13.37.13.37 &lt;&lt; INGAME
+unbanip 13.37.13.37 &lt;&lt; CONSOLE
+</pre>
+<p>要解除他们的封禁， 使用 unbanip 命令， 然后运行RCON命令 reloadbans 来使服务器重新读取samp.ban.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25E7%25AE%25A1%25E7%2590%2586%25E4%25BD%25A0%25E7%259A%2584%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8.html" title="Edit section: 重载封禁记录文件">edit</a>]</div><a name=".E9.87.8D.E8.BD.BD.E5.B0.81.E7.A6.81.E8.AE.B0.E5.BD.95.E6.96.87.E4.BB.B6"></a><h5>重载封禁记录文件</h5>
+<p>samp.ban是保存目前被服务器封禁的IP信息的文件。这个文件在服务器启动的时候读取，所以如果你解封了一个IP或者玩家你必须输入RCON命令 reloadbans 来让服务器重新读取samp.ban，允许他们进入服务器。
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25E7%25AE%25A1%25E7%2590%2586%25E4%25BD%25A0%25E7%259A%2584%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8.html" title="Edit section: 添加封禁">edit</a>]</div><a name=".E6.B7.BB.E5.8A.A0.E5.B0.81.E7.A6.81"></a><h4>添加封禁</h4>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25E7%25AE%25A1%25E7%2590%2586%25E4%25BD%25A0%25E7%259A%2584%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8.html" title="Edit section: samp.ban文件">edit</a>]</div><a name="samp.ban.E6.96.87.E4.BB.B6_2"></a><h5>samp.ban文件</h5>
+<p>samp.ban 是用来存储封禁的文件, 包含关于封禁的以下信息:
+</p>
+<ul><li> IP
+</li><li> 日期
+</li><li> 时间
+</li><li> 名字 (一个人的名字或者封禁原因 (见 <a href="BanEx%25E5%2587%25BD%25E6%2595%25B0.html" title="BanEx函数">BanEx</a>))
+</li><li> 封禁类型 (INGAME, IP BAN, 等等)
+</li></ul>
+<p>要增加一个封禁， 像这样一样加入一行:
+</p>
+<pre>IP_HERE [28/05/09 | 13:37:00] PLAYER - BAN REASON
+</pre>
+<p>IP_HERE 是你写你想要封禁的IP的地方。 这种方法要比使用RCON命令banip花更长时间, 所以建议使用RCON banip.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25E7%25AE%25A1%25E7%2590%2586%25E4%25BD%25A0%25E7%259A%2584%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8.html" title="Edit section: Ban() 函数">edit</a>]</div><a name="Ban.28.29_.E5.87.BD.E6.95.B0"></a><h5>Ban() 函数</h5>
+<p><a href="Ban%25E5%2587%25BD%25E6%2595%25B0.html" title="Ban函数">Ban</a> 函数可以用来从脚本中封禁一个玩家。
+<a href="BanEx%25E5%2587%25BD%25E6%2595%25B0.html" title="BanEx函数">BanEx</a> 函数会增加一个像这样的可选的原因:
+</p>
+<pre>13.37.13.37 [28/05/09 | 13:37:00] Cheater - INGAME BAN
+</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25E7%25AE%25A1%25E7%2590%2586%25E4%25BD%25A0%25E7%259A%2584%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8.html" title="Edit section: RCON 封禁命令">edit</a>]</div><a name="RCON_.E5.B0.81.E7.A6.81.E5.91.BD.E4.BB.A4"></a><h5>RCON 封禁命令</h5>
+<p>通过在游戏中输入 /rcon ban 或是在控制台中输入 "rcon ban" 来执行的RCON命令ban是被用来封禁正在你的服务器中的一个特定玩家的。要封禁一个IP，看下一段。
+</p><p>输入:
+</p>
+<pre>/rcon ban PLAYERID &lt;&lt;INGAME
+ban PLAYERID &lt;&lt;CONSOLE
+</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25E7%25AE%25A1%25E7%2590%2586%25E4%25BD%25A0%25E7%259A%2584%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8.html" title="Edit section: 封禁IP">edit</a>]</div><a name=".E5.B0.81.E7.A6.81IP"></a><h5>封禁IP</h5>
+<p>通过在游戏中输入 /rcon banip 或是在控制台中输入 "rcon banip" 来执行的RCON命令banip是被用来封禁一个特定IP地址的，要封禁一个特定玩家，看上一段。 接受通配符来封禁IP段。
+</p><p>输入:
+</p>
+<pre>/rcon banip IP &lt;&lt;INGAME
+banip IP &lt;&lt;CONSOLE
+</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="%25E7%25AE%25A1%25E7%2590%2586%25E4%25BD%25A0%25E7%259A%2584%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8.html" title="Edit section: RCON 命令">edit</a>]</div><a name="RCON_.E5.91.BD.E4.BB.A4"></a><h3>RCON 命令</h3>
+<p>输入 cmdlist 查看命令列表(varlist 查看变量列表)， 在游戏中的话利用RCON（'<b>/rcon cmdlist'</b>）。
+</p><p>这些是管理员可以使用的功能:
+</p>
+<ul><li> /rcon cmdlist - 显示命令列表.
+</li><li> /rcon varlist - 显示当前变量列表.
+</li><li> /rcon exit - 关闭服务器.
+</li><li> /rcon echo [text] - 在服务端控制台里显示 [text] (不是在游戏里的客户端聊天框).
+</li><li> /rcon hostname [name] - 更改服务器名 (<i>例如: /rcon hostname my server</i>).
+</li><li> /rcon gamemodetext [name] - 更改游戏模式名 (<i>例如: /rcon gamemodetext my gamemode</i>).
+</li><li> /rcon mapname [name] - 更改地图名 (<i>例如: /rcon mapname San Andreas</i>).
+</li><li> /rcon exec [filename] - 执行包含服务器配置的cfg文件 (<i>例如: /rcon exec blah.cfg</i>).
+</li><li> /rcon kick [ID] - 踢出把给定ID的玩家 (<i>例如: /rcon kick 2</i>).
+</li><li> /rcon ban [ID] - 封禁给定ID的玩家 (<i>例如: /rcon ban 2</i>).
+</li><li> /rcon changemode [mode] - 该命令会更换当前游戏模式到给定的游戏模式 (<i>例如: 如果你想玩 sftdm: /rcon changemode sftdm</i>).
+</li><li> /rcon gmx - 会载入 <a href="Server.cfg.html" title="Server.cfg">server.cfg</a> 中的下一个游戏模式.
+</li><li> /rcon reloadbans - 重新载入储存被封禁IP地址的samp.ban。
+</li><li> /rcon reloadlog - 清空 server_log.txt.
+</li><li> /rcon say - 在客户端聊天框显示一条消息给玩家。 (<i>例如: /rcon say blah</i>).
+</li><li> /rcon players - 显示当前在服务器中的玩家 (包含名字、Ping和IP).
+</li><li> /rcon banip [IP] - 封禁给定IP (<i>例如: /rcon banip 127.0.0.1</i>).
+</li><li> /rcon unbanip [IP] - 解封给定IP (<i>例如: /rcon unbanip 127.0.0.1</i>).
+</li><li> /rcon gravity - 更改重力 (<i>例如: /rcon gravity 0.008</i>).
+</li><li> /rcon weather [ID] - 更改天气 (<i>例如: /rcon weather 1</i>).
+</li><li> /rcon loadfs - 载入给定的附加脚本 (<i>例如: /rcon loadfs adminfs</i>).
+</li><li> /rcon unloadfs  - 卸载给定的附加脚本 (<i>例如: /rcon unloadfs adminfs</i>).
+</li><li> /rcon reloadfs  - 重新载入给定的附加脚本 (<i>例如: /rcon reloadfs adminfs</i>).
+</li><li> /rcon rcon_password [PASSWORD] - 更改RCON密码
+</li></ul>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Template_%25E6%259C%2589%25E5%2585%25B3%25E8%2581%2594%25E7%259A%2584%25E5%259B%259E%25E8%25B0%2583%25E5%2592%258C%25E5%2587%25BD%25E6%2595%25B0.html" title="Template:有关联的回调和函数">edit</a>]</div><a name=".E6.9C.89.E5.85.B3.E8.81.94.E7.9A.84.E5.9B.9E.E8.B0.83.E5.92.8C.E5.87.BD.E6.95.B0"></a><h3> <b>有关联的回调和函数</b> </h3>
+<p>以下回调和函数可能会对你有所帮助，他们可能跟这个文章有直接关系或间接关系。
+</p><p><b>回调:</b>
+</p>
+<ul><li> <a href="OnRconLoginAttempt%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="OnRconLoginAttempt函数">OnRconLoginAttempt</a>: 客户端尝试登陆上 RCON 的时候将被调用。
+</li></ul>
+<p><b>函数:</b>
+</p>
+<ul><li> <a href="IsPlayerAdmin%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="IsPlayerAdmin函数">IsPlayerAdmin</a>: 检查一个玩家是否已登陆 RCON 。
+</li></ul>
+<ul><li> <a href="SendRconCommand%25E5%2587%25BD%25E6%2595%25B0.html" class="new" title="SendRconCommand函数">SendRconCommand</a>: 发送一个 RCON 命令给脚本。
+</li></ul>
+<div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/%25E7%25AE%25A1%25E7%2590%2586%25E4%25BD%25A0%25E7%259A%2584%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8.html">http://localhost../wiki/%25E7%25AE%25A1%25E7%2590%2586%25E4%25BD%25A0%25E7%259A%2584%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="Category_%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8%25E6%2596%2587%25E6%25A1%25A3.html" title="Category:服务器文档">服务器文档</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="%25E7%25AE%25A1%25E7%2590%2586%25E4%25BD%25A0%25E7%259A%2584%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8.html">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="Talk_%25E7%25AE%25A1%25E7%2590%2586%25E4%25BD%25A0%25E7%259A%2584%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="%25E7%25AE%25A1%25E7%2590%2586%25E4%25BD%25A0%25E7%259A%2584%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8.html">Edit</a></li>
+				 <li id="ca-history"><a href="%25E7%25AE%25A1%25E7%2590%2586%25E4%25BD%25A0%25E7%259A%2584%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-en"><a href="Controlling_Your_Server.html">English</a></li>
+				<li class="interwiki-de"><a href="Einen_Server_konfigurieren_DE.html">Deutsch</a></li>
+				<li class="interwiki-nl"><a href="Advanced_Server_Controls_NL.html">Nederlands</a></li>
+				<li class="interwiki-hu"><a href="Controlling_Your_Server_HU.html">Magyar</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 34,839 times.</li>
+				<li id="credits">This page was last modified 10:02, 3 April 2011 by SA-MP Wiki user User:. Based on work by SA-MP Wiki user(s) <a href="User_Mk124.html" class="new" title="User:Mk124">Mk124</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 64.72 secs. -->
+</body></html>

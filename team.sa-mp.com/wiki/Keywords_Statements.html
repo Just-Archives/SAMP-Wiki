@@ -1,0 +1,638 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Keywords:Statements,Main Page,Scripting Basics,Server Plugins,Scripting Callbacks,Scripting Functions,Tutorials" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>Keywords:Statements - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Keywords:Statements</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<div class="scripting" style="color: #4378A4; background-color: #FFFFFF; margin: 2px; margin-bottom: 10px;"><div align="center" style="border: 1px solid #AAAAAA; padding: 3px; padding-left: 5px;"><a href="../wiki-archive.html" title="Main Page">Main Page</a> | <a href="Category_Scripting_Functions.html" title="Category:Scripting Functions">Scripting Functions</a> | <a href="Category_Scripting_Callbacks.html" title="Category:Scripting Callbacks">Scripting Callbacks</a> | <a href="Scripting_Basics.html" title="Scripting Basics">Scripting Basics</a> | <a href="Server_Plugins.html" title="Server Plugins">Server Plugins</a> | <a href="Category_Tutorials.html" title="Category:Tutorials">Tutorials</a></div></div><br />
+<p><br />
+</p>
+<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class='toclevel-1'><a href="#assert"><span class="tocnumber">1</span> <span class="toctext">assert</span></a></li>
+<li class='toclevel-1'><a href="#break"><span class="tocnumber">2</span> <span class="toctext">break</span></a></li>
+<li class='toclevel-1'><a href="#case"><span class="tocnumber">3</span> <span class="toctext">case</span></a></li>
+<li class='toclevel-1'><a href="#continue"><span class="tocnumber">4</span> <span class="toctext">continue</span></a></li>
+<li class='toclevel-1'><a href="#default"><span class="tocnumber">5</span> <span class="toctext">default</span></a></li>
+<li class='toclevel-1'><a href="#do"><span class="tocnumber">6</span> <span class="toctext">do</span></a></li>
+<li class='toclevel-1'><a href="#else"><span class="tocnumber">7</span> <span class="toctext">else</span></a></li>
+<li class='toclevel-1'><a href="#exit"><span class="tocnumber">8</span> <span class="toctext">exit</span></a></li>
+<li class='toclevel-1'><a href="#for"><span class="tocnumber">9</span> <span class="toctext">for</span></a></li>
+<li class='toclevel-1'><a href="#goto"><span class="tocnumber">10</span> <span class="toctext">goto</span></a></li>
+<li class='toclevel-1'><a href="#if"><span class="tocnumber">11</span> <span class="toctext">if</span></a></li>
+<li class='toclevel-1'><a href="#return"><span class="tocnumber">12</span> <span class="toctext">return</span></a></li>
+<li class='toclevel-1'><a href="#sleep"><span class="tocnumber">13</span> <span class="toctext">sleep</span></a></li>
+<li class='toclevel-1'><a href="#state"><span class="tocnumber">14</span> <span class="toctext">state</span></a></li>
+<li class='toclevel-1'><a href="#switch"><span class="tocnumber">15</span> <span class="toctext">switch</span></a></li>
+<li class='toclevel-1'><a href="#while"><span class="tocnumber">16</span> <span class="toctext">while</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Keywords_Statements.html" title="Edit section: assert">edit</a>]</div><a name="assert"></a><h2> assert </h2>
+<p>Aborts execution with a runtime error if the expression evaluates to logically false. Seems to work only in the main() block. The assert statement should be used to indicate a logical(programmer's) error, never a run-time(user's) error.
+</p>
+<pre class="pawn">main<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <span style="color: #228b22; font-weight: bold;">assert</span> <span style="color: #66cc66;">&#40;</span><span style="color: #E9967A; font-weight: bold;">MAX_PLAYERS</span> == <a href="http://wiki.sa-mp.com/wiki/GetMaxPlayers"><span style="color: #006400;">GetMaxPlayers</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// ascertain that the definition of MAX_PLAYERS is equal to the actual number of server slots in use</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Keywords_Statements.html" title="Edit section: break">edit</a>]</div><a name="break"></a><h2> break </h2>
+<p>Breaks out of a loop instantly, only leaves the top level loop, not all current loops.
+</p>
+<pre class="pawn"><span style="color: #4169e1;">for</span> <span style="color: #66cc66;">&#40;</span><span style="color: #228b22; font-weight: bold;">new</span> i = <span style="color: #4169e1;">0</span>; i &lt; <span style="color: #4169e1;">10</span>; i++<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;%d&quot;</span>, i<span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span>i == <span style="color: #4169e1;">5</span><span style="color: #66cc66;">&#41;</span>
+	<span style="color: #66cc66;">&#123;</span>
+		<span style="color: orange; font-weight: bold;">break</span>;
+	<span style="color: #66cc66;">&#125;</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>Will produce:
+</p>
+<pre class="pawn"><span style="color: #4169e1;">0</span>
+<span style="color: #4169e1;">1</span>
+<span style="color: #4169e1;">2</span>
+<span style="color: #4169e1;">3</span>
+<span style="color: #4169e1;">4</span>
+<span style="color: #4169e1;">5</span></pre>
+<p>While:
+</p>
+<pre class="pawn"><span style="color: #4169e1;">for</span> <span style="color: #66cc66;">&#40;</span><span style="color: #228b22; font-weight: bold;">new</span> i = <span style="color: #4169e1;">0</span>; i &lt; <span style="color: #4169e1;">10</span>; i++<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span>i == <span style="color: #4169e1;">5</span><span style="color: #66cc66;">&#41;</span>
+	<span style="color: #66cc66;">&#123;</span>
+		<span style="color: orange; font-weight: bold;">break</span>;
+	<span style="color: #66cc66;">&#125;</span>
+	<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;%d&quot;</span>, i<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>Will produce:
+</p>
+<pre class="pawn"><span style="color: #4169e1;">0</span>
+<span style="color: #4169e1;">1</span>
+<span style="color: #4169e1;">2</span>
+<span style="color: #4169e1;">3</span>
+<span style="color: #4169e1;">4</span></pre>
+<p>As the loop is instantly exited neither loop gets to 10 and the second one ends before the number 5 is printed.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Keywords_Statements.html" title="Edit section: case">edit</a>]</div><a name="case"></a><h2> case </h2>
+<p>Handles a specific result in a switch statement.  The result can be either a single number, a selection of numbers or a range of numbers:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span>
+	switchVar = <span style="color: #4169e1;">10</span>;
+<span style="color: #4169e1;">switch</span> <span style="color: #66cc66;">&#40;</span>switchVar<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: orange; font-weight: bold;">case</span> <span style="color: #4169e1;">1</span>:
+	<span style="color: #66cc66;">&#123;</span>
+		<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;switchVar is 1&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #66cc66;">&#125;</span>
+	<span style="color: orange; font-weight: bold;">case</span> <span style="color: #4169e1;">4</span>:
+	<span style="color: #66cc66;">&#123;</span>
+		<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;switchVar is 4&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #66cc66;">&#125;</span>
+	<span style="color: orange; font-weight: bold;">case</span> <span style="color: #4169e1;">2</span>, <span style="color: #4169e1;">3</span>, <span style="color: #4169e1;">5</span>:
+	<span style="color: #66cc66;">&#123;</span>
+		<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;switchVar is either 2, 3 or 5&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #66cc66;">&#125;</span>
+	<span style="color: orange; font-weight: bold;">case</span> <span style="color: #4169e1;">7</span> .. <span style="color: #4169e1;">11</span>:
+	<span style="color: #66cc66;">&#123;</span>
+		<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;switchVar is somewhere between 7 and 11 inclusive (7, 8, 9, 10 or 11)&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #66cc66;">&#125;</span>
+	<span style="color: orange; font-weight: bold;">default</span>:
+	<span style="color: #66cc66;">&#123;</span>
+		<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;switchVar is not 1, 2, 3, 4, 5, 7, 8, 9, 10 or 11&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #66cc66;">&#125;</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Keywords_Statements.html" title="Edit section: continue">edit</a>]</div><a name="continue"></a><h2> continue </h2>
+<p>Similar to break but just goes on to the next loop itteration.  It is important to note that the point to which it jumps varies depending on which loop type you use.
+</p>
+<pre class="pawn"><span style="color: #4169e1;">for</span> <span style="color: #66cc66;">&#40;</span><span style="color: #228b22; font-weight: bold;">new</span> i = <span style="color: #4169e1;">0</span>; i &lt; <span style="color: #4169e1;">10</span>; i++<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span>i == <span style="color: #4169e1;">5</span><span style="color: #66cc66;">&#41;</span>
+	<span style="color: #66cc66;">&#123;</span>
+		<span style="color: orange; font-weight: bold;">continue</span>;
+	<span style="color: #66cc66;">&#125;</span>
+	<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;%d&quot;</span>, i<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>Will produce:
+</p>
+<pre class="pawn"><span style="color: #4169e1;">0</span>
+<span style="color: #4169e1;">1</span>
+<span style="color: #4169e1;">2</span>
+<span style="color: #4169e1;">3</span>
+<span style="color: #4169e1;">4</span>
+<span style="color: #4169e1;">6</span>
+<span style="color: #4169e1;">7</span>
+<span style="color: #4169e1;">8</span>
+<span style="color: #4169e1;">9</span></pre>
+<p>A continue after the print will basically do nothing.  In a for loop continue jumps to the third statement in the for statement (in this example the "i++;" bit), this is different to how it behaves in a while loop:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span>
+	i = <span style="color: #4169e1;">0</span>;
+<span style="color: #4169e1;">while</span> <span style="color: #66cc66;">&#40;</span>i &lt; <span style="color: #4169e1;">10</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span>i == <span style="color: #4169e1;">5</span><span style="color: #66cc66;">&#41;</span>
+	<span style="color: #66cc66;">&#123;</span>
+		<span style="color: orange; font-weight: bold;">continue</span>;
+	<span style="color: #66cc66;">&#125;</span>
+	<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;%d&quot;</span>, i<span style="color: #66cc66;">&#41;</span>;
+	i++;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>This will produce an infinate loop as continue will jump to AFTER the "i++;" and go back to the "while (i &lt; 10)" part.  At this time, "i" will still be 5 as "i++;" was never called, and so continue will be called again and "i" will be stuck at 5 forever.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Keywords_Statements.html" title="Edit section: default">edit</a>]</div><a name="default"></a><h2> default </h2>
+<p>default handles switch statement results which aren't handled explicitly by case statements.  See the case example for an example.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Keywords_Statements.html" title="Edit section: do">edit</a>]</div><a name="do"></a><h2> do </h2>
+<p>do is a type of loop which can be used with while to produce a loop which will always be run at least once.  Note the semi-colon after the while () in the following example:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span>
+	i = <span style="color: #4169e1;">10</span>;
+<span style="color: #4169e1;">do</span>
+<span style="color: #66cc66;">&#123;</span>
+	<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;%d&quot;</span>, i<span style="color: #66cc66;">&#41;</span>;
+	i++;
+<span style="color: #66cc66;">&#125;</span>
+<span style="color: #4169e1;">while</span> <span style="color: #66cc66;">&#40;</span>i &lt; <span style="color: #4169e1;">10</span><span style="color: #66cc66;">&#41;</span>;</pre>
+<p>"i" is clearly not less that 10 but this loop will produce:
+</p>
+<pre class="pawn"><span style="color: #4169e1;">10</span></pre>
+<p>anyway.  The similar while loop:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span>
+	i = <span style="color: #4169e1;">10</span>;
+<span style="color: #4169e1;">while</span> <span style="color: #66cc66;">&#40;</span>i &lt; <span style="color: #4169e1;">10</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;%d&quot;</span>, i<span style="color: #66cc66;">&#41;</span>;
+	i++;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>Will not give any output as the condition instantly fails.
+</p><p>These are also useful for avoiding double checks:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span>
+	checkVar = <span style="color: #4169e1;">10</span>;
+<span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span>checkVar == <span style="color: #4169e1;">10</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #228b22; font-weight: bold;">new</span>
+		i = <span style="color: #4169e1;">0</span>;
+	<span style="color: #4169e1;">while</span> <span style="color: #66cc66;">&#40;</span>checkVar == <span style="color: #4169e1;">10</span><span style="color: #66cc66;">&#41;</span>
+	<span style="color: #66cc66;">&#123;</span>
+		checkVar = someFunction<span style="color: #66cc66;">&#40;</span>i<span style="color: #66cc66;">&#41;</span>;
+		i++;
+	<span style="color: #66cc66;">&#125;</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>This isn't obviously a major issue but you are checking checkVar twice in quick succession at the start of the loop, which is quite pointless, however the if is required as you need to do code if the condition is true but outside the loop (this is a fairly common situation).  This can be improved by doing:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span>
+	checkVar = <span style="color: #4169e1;">10</span>;
+<span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span>checkVar == <span style="color: #4169e1;">10</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #228b22; font-weight: bold;">new</span>
+		i = <span style="color: #4169e1;">0</span>;
+	<span style="color: #4169e1;">do</span>
+	<span style="color: #66cc66;">&#123;</span>
+		checkVar = someFunction<span style="color: #66cc66;">&#40;</span>i<span style="color: #66cc66;">&#41;</span>;
+		i++;
+	<span style="color: #66cc66;">&#125;</span>
+	<span style="color: #4169e1;">while</span> <span style="color: #66cc66;">&#40;</span>checkVar == <span style="color: #4169e1;">10</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>In this instance the result will be exactly the same but crucially with one less pointless check.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Keywords_Statements.html" title="Edit section: else">edit</a>]</div><a name="else"></a><h2> else </h2>
+<p>else is called when an if statement fails (assuming it is present):
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span>
+	checkVar = <span style="color: #4169e1;">5</span>;
+<span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span>checkVar == <span style="color: #4169e1;">10</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;This will never be called&quot;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span>
+<span style="color: #4169e1;">else</span>
+<span style="color: #66cc66;">&#123;</span>
+	<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;The if statement failed so this will be displayed&quot;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>else can also be combined with if:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span>
+	checkVar = <span style="color: #4169e1;">2</span>;
+<span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span>checkVar == <span style="color: #4169e1;">1</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;This will not be called&quot;</span><span style="color: #66cc66;">&#41;</span>:
+<span style="color: #66cc66;">&#125;</span>
+<span style="color: #4169e1;">else</span> <span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span>checkVar == <span style="color: #4169e1;">2</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;The first if failed so the second was checked and is true&quot;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span>
+<span style="color: #4169e1;">else</span>
+<span style="color: #66cc66;">&#123;</span>
+	<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;This will not be called as one of the ifs was true&quot;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Keywords_Statements.html" title="Edit section: exit">edit</a>]</div><a name="exit"></a><h2> exit </h2>
+<p>This exits the current program instantly.
+</p>
+<pre class="pawn">main<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <span style="color: orange; font-weight: bold;">exit</span>;
+    <span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">0</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Keywords_Statements.html" title="Edit section: for">edit</a>]</div><a name="for"></a><h2> for </h2>
+<p>A for loop is a type of loop involving three stages, initialisation, comparison and update.  These are each separated by a semicolon (Wink and can each be excluded by just setting a blank space.  The most basic for loop is:
+</p>
+<pre class="pawn"><span style="color: #4169e1;">for</span> <span style="color: #66cc66;">&#40;</span>&nbsp;;&nbsp;; <span style="color: #66cc66;">&#41;</span> <span style="color: #66cc66;">&#123;</span><span style="color: #66cc66;">&#125;</span></pre>
+<p>This has no initialisation, no comparison and no update and as a result will go forever (the comparison, being absent, defaults to true).
+</p><p>One of the more common loops is:
+</p>
+<pre class="pawn"><span style="color: #4169e1;">for</span> <span style="color: #66cc66;">&#40;</span><span style="color: #228b22; font-weight: bold;">new</span> i = <span style="color: #4169e1;">0</span>; i &lt; <span style="color: #E9967A; font-weight: bold;">MAX_PLAYERS</span>; i++<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;%d&quot;</span>, i<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>The initialisation in this loop is:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> i = <span style="color: #4169e1;">0</span>;</pre>
+<p>The semicolon marks the end of the initialisation.  This declares a new variable, called i, which can only be used with this loop.
+Next comparison is done.  This compares i to MAX_PLAYERS (default 500 - see #define) and if it is less continues.
+Then the contents of the loop is run.  Initially this will print "0".
+Finally the update is done "i++", this increases the value of i.
+Now a complete itteration is done, the loop loops, as its name implies, and goes back to the comparison stage (initialisation is only done once per call).
+</p><p>The result of this loop is all the numbers from 0 to 499 inclusive being printed out.  The equivalent while loop (ignoring the effects of continue) would be:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span>
+	i = <span style="color: #4169e1;">0</span>;
+<span style="color: #4169e1;">while</span> <span style="color: #66cc66;">&#40;</span>i &lt; <span style="color: #E9967A; font-weight: bold;">MAX_PLAYERS</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;%d&quot;</span>, i<span style="color: #66cc66;">&#41;</span>;
+	i++;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>The three stages can be made a lot more complex if required using commas for the first and last sections and standard comparisons for the middle section:
+</p>
+<pre class="pawn"><span style="color: #4169e1;">for</span> <span style="color: #66cc66;">&#40;</span><span style="color: #228b22; font-weight: bold;">new</span> i = <span style="color: #4169e1;">0</span>, j = <span style="color: #4169e1;">200</span>; i &lt; <span style="color: #E9967A; font-weight: bold;">MAX_PLAYERS</span> &amp;&amp; j &gt; <span style="color: #4169e1;">10</span>; i++, j -= <span style="color: #4169e1;">2</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;%d %d&quot;</span>, i, j<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>This will create two new variables and set them to 0 and 200, then loop while one is less than 200 and the other is greater than 10, increasing one each time and decreasing the other by two each time.
+</p><p>As stated before the scope of variables is limited to the loop usually;
+</p>
+<pre class="pawn"><span style="color: #4169e1;">for</span> <span style="color: #66cc66;">&#40;</span><span style="color: #228b22; font-weight: bold;">new</span> i = <span style="color: #4169e1;">0</span>; i &lt; <span style="color: #E9967A; font-weight: bold;">MAX_PLAYERS</span>; i++<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;%d&quot;</span>, i<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span>
+<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;%d&quot;</span>, i<span style="color: #66cc66;">&#41;</span>;</pre>
+<p>That will produce an error as "i" doesn't exist after the loop ends.  However:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span>
+	i = <span style="color: #4169e1;">0</span>;
+<span style="color: #4169e1;">for</span> <span style="color: #66cc66;">&#40;</span>&nbsp;; i &lt; <span style="color: #E9967A; font-weight: bold;">MAX_PLAYERS</span>; i++<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;%d&quot;</span>, i<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span>
+<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;%d&quot;</span>, i<span style="color: #66cc66;">&#41;</span>;</pre>
+<p>Is fine as "i" is not declared in the loop.  You could also initialise "i" in the loop but not declare it there:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span>
+	i;
+<span style="color: #4169e1;">for</span> <span style="color: #66cc66;">&#40;</span>i = <span style="color: #4169e1;">0</span>; i &lt; <span style="color: #E9967A; font-weight: bold;">MAX_PLAYERS</span>; i++<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;%d&quot;</span>, i<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span>
+<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;%d&quot;</span>, i<span style="color: #66cc66;">&#41;</span>;</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Keywords_Statements.html" title="Edit section: goto">edit</a>]</div><a name="goto"></a><h2> goto </h2>
+<p>goto and labels are generally discouraged in the coding community as what they do can usually be done better by restructuring your code properly.  However basically a goto is a jump:
+</p>
+<pre class="pawn"><span style="color: orange; font-weight: bold;">goto</span> my_label;
+<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;This will never be printed&quot;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: orange;">my_label</span>:
+<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;This will be printed&quot;</span><span style="color: #66cc66;">&#41;</span>;</pre>
+<p>The compiler however doesn't handle goto very well so that will not be optimised at all and things like:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">stock</span> MyFunction<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #228b22; font-weight: bold;">new</span>
+		i = <span style="color: #4169e1;">5</span>;
+	<span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span>i == <span style="color: #4169e1;">5</span><span style="color: #66cc66;">&#41;</span>
+	<span style="color: #66cc66;">&#123;</span>
+		<span style="color: orange; font-weight: bold;">goto</span> my_label;
+	<span style="color: #66cc66;">&#125;</span>
+	<span style="color: #4169e1;">else</span>
+	<span style="color: #66cc66;">&#123;</span>
+		<span style="color: orange;">my_label</span>:
+		<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">0</span>;
+	<span style="color: #66cc66;">&#125;</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>Will give a warning about inconsistent return types as it things the true branch doesn't return anything when it actually does, just in a very roundabout way.  Also:
+</p>
+<pre class="pawn">MyFunction<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #228b22; font-weight: bold;">new</span>
+		i = <span style="color: #4169e1;">5</span>;
+	<span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span>i == <span style="color: #4169e1;">5</span><span style="color: #66cc66;">&#41;</span>
+	<span style="color: #66cc66;">&#123;</span>
+		<span style="color: orange; font-weight: bold;">goto</span> my_label;
+	<span style="color: #66cc66;">&#125;</span>
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">0</span>;
+	<span style="color: orange;">my_label</span>:
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>Will give an unreachable code warning despite the fact it actually is reachable.
+</p><p>The basic syntax is:
+</p>
+<pre class="pawn"><span style="color: orange;">label</span>:
+&nbsp;
+<span style="color: orange; font-weight: bold;">goto</span> label;</pre>
+<p>The label should be on a line on it's own and ends in a colon, NOT a semicolon.  Labels follow the same naming restrictions as variables and functions etc.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Keywords_Statements.html" title="Edit section: if">edit</a>]</div><a name="if"></a><h2> if </h2>
+<p>If is one of the most important operators.  It determines wether something should be done or not and acts accordingly, it, along with goto, is the basis of almost all other control structures:
+</p>
+<pre class="pawn"><span style="color: #4169e1;">for</span> <span style="color: #66cc66;">&#40;</span><span style="color: #228b22; font-weight: bold;">new</span> i = <span style="color: #4169e1;">0</span>; i &lt; <span style="color: #4169e1;">10</span>; i++<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>Is equivalent to:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span>
+	i = <span style="color: #4169e1;">0</span>;
+<span style="color: orange;">for_loop</span>:
+<span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span>i &lt; <span style="color: #4169e1;">10</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	i++;
+	<span style="color: orange; font-weight: bold;">goto</span> for_loop;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>The conditions if can take are way too many for this post however some are listed below:
+</p><p>Operator	Explanation	Example	Result when a=1, b=0	Result when a=1, b=1	Result when a=0, b=1	Result when a=0, b=0
+==	Checks if one thing is equal to another	if (a == b)	false	true	false	true
+!=	Checks if one thing is not the same as another	if (a&nbsp;!= b)	true	false	true	false
+&lt;	Checks if one thing is less than another	if (a &lt; b)	false	false	true	false
+&gt;	Checks if one thing is greater than another	if (a &gt; b)	true	false	false	false
+&lt;=	Checks if one thing is less than or equal to another	if (a &lt;= b)	false	true	true	true
+&gt;=	Checks if one thing is greater than or equal to another	if (a &gt;= b)	true	true	false	true
+&amp;&amp;	Checks if two things are true (not 0)	if (a &amp;&amp; b)	false	true	false	false
+||	Checks if at least one of two things are true (not 0)	if (a || b)	true	true	true	false
+!	Checks if something is false	if (!(a == b))	true	false	true	false
+</p><p>Obviously with these you can build up complex conditionals:
+</p>
+<pre class="pawn"><span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span>a == b &amp;&amp; <span style="color: #66cc66;">&#40;</span>c&nbsp;!= d || f &lt; g<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span></pre>
+<p>That will be true if a is the same as b and either f is less than g or c is not the same as d (or both).
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Keywords_Statements.html" title="Edit section: return">edit</a>]</div><a name="return"></a><h2> return </h2>
+<p>This breaks out a function and can return data to the calling function:
+</p>
+<pre class="pawn">MyFunction<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #228b22; font-weight: bold;">new</span>
+		someVar = OtherFunction<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+OtherFunction<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">5</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>someVar will now be 5.
+</p>
+<pre class="pawn">MyFunction<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span>SomeFunction<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>
+	<span style="color: #66cc66;">&#123;</span>
+		<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;Returned 1&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #66cc66;">&#125;</span>
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+SomeFunction<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: orange; font-weight: bold;">return</span> <a href="http://wiki.sa-mp.com/wiki/random"><span style="color: #006400;">random</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">2</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>That will either return 1 or 0 to the calling function's if statement.  1 is true and 0 if false so the text will only be printed if 1 is returned.  However:
+</p>
+<pre class="pawn">MyFunction<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span>SomeFunction<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>
+	<span style="color: #66cc66;">&#123;</span>
+		<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;Returned something between 1 and 10&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #66cc66;">&#125;</span>
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+SomeFunction<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: orange; font-weight: bold;">return</span> <a href="http://wiki.sa-mp.com/wiki/random"><span style="color: #006400;">random</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">11</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>That will return 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 or 10.  Anything which is not 0 is true so the text will display if anything between 1 and 10 is returned.
+</p><p>You can also use return with strings:
+</p>
+<pre class="pawn">MyFunction<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;%s&quot;</span>, SomeFunction<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+SomeFunction<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #228b22; font-weight: bold;">new</span>
+		str<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">10</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #b22222;">&quot;Hello&quot;</span>;
+	<span style="color: orange; font-weight: bold;">return</span> str;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>Will print "Hello" (without the quotes).
+</p><p>You also don't have to return anything:
+</p>
+<pre class="pawn">MyFunction<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	SomeFunction<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+SomeFunction<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: orange; font-weight: bold;">return</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>However if you do this you must make sure the function's return is never used:
+</p>
+<pre class="pawn">MyFunction<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span>SomeFunction<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>
+	<span style="color: #66cc66;">&#123;</span>
+		<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;Problem&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #66cc66;">&#125;</span>
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+SomeFunction<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: orange; font-weight: bold;">return</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>Here SomeFunction is not returning anything however MyFunction is checking if the value returned from SomeFunction is true or not - it's neither as it just doesn't exist, so you will get a compiler error.  No return is the default, so:
+</p>
+<pre class="pawn">SomeFunction<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: orange; font-weight: bold;">return</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>And:
+</p>
+<pre class="pawn">SomeFunction<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>Are the same.
+</p><p>Finally, you can't mix return values:
+</p>
+<pre class="pawn">MyFunction<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	SomeFunction<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+SomeFunction<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span><a href="http://wiki.sa-mp.com/wiki/random"><span style="color: #006400;">random</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">2</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>
+	<span style="color: #66cc66;">&#123;</span>
+		<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+	<span style="color: #66cc66;">&#125;</span>
+	<span style="color: #4169e1;">else</span>
+	<span style="color: #66cc66;">&#123;</span>
+		<span style="color: orange; font-weight: bold;">return</span>;
+	<span style="color: #66cc66;">&#125;</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>This will give an error because it doesn't know what to do.
+</p>
+<pre class="pawn">SomeFunction<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span><a href="http://wiki.sa-mp.com/wiki/random"><span style="color: #006400;">random</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">2</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>
+	<span style="color: #66cc66;">&#123;</span>
+		<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+	<span style="color: #66cc66;">&#125;</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>Is also not allowed as the default return is nothing.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Keywords_Statements.html" title="Edit section: sleep">edit</a>]</div><a name="sleep"></a><h2> sleep </h2>
+<p>sleep is a psudo-function which makes execution pause for a given number of milliseconds:
+</p>
+<pre class="pawn"><a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;Time 0s&quot;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: orange; font-weight: bold;">sleep</span><span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">1000</span><span style="color: #66cc66;">&#41;</span>;
+<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;Time 1s&quot;</span><span style="color: #66cc66;">&#41;</span>;</pre>
+<p>This only works in main(), not callbacks however as it's run in the PAWN thread.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Keywords_Statements.html" title="Edit section: state">edit</a>]</div><a name="state"></a><h2> state </h2>
+<p>state is part of the PAWN state machine and autonoma system, see this thread <a href="http://forum.sa-mp.com/showthread.php?t=86850" class='external autonumber' title="http://forum.sa-mp.com/showthread.php?t=86850" rel="nofollow">[1]</a> for more information.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Keywords_Statements.html" title="Edit section: switch">edit</a>]</div><a name="switch"></a><h2> switch </h2>
+<p>switch is basically a structured if/else if/else system:
+</p>
+<pre class="pawn"><span style="color: #4169e1;">switch</span> <span style="color: #66cc66;">&#40;</span>someVar<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: orange; font-weight: bold;">case</span> <span style="color: #4169e1;">1</span>:
+	<span style="color: #66cc66;">&#123;</span>
+		<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;one&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #66cc66;">&#125;</span>
+	<span style="color: orange; font-weight: bold;">case</span> <span style="color: #4169e1;">2</span>:
+	<span style="color: #66cc66;">&#123;</span>
+		<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;two&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #66cc66;">&#125;</span>
+	<span style="color: orange; font-weight: bold;">case</span> <span style="color: #4169e1;">3</span>:
+	<span style="color: #66cc66;">&#123;</span>
+		<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;three&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #66cc66;">&#125;</span>
+	<span style="color: orange; font-weight: bold;">default</span>:
+	<span style="color: #66cc66;">&#123;</span>
+		<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;other&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #66cc66;">&#125;</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>Is just a slightly more efficient (and much cleaner) way of doing:
+</p>
+<pre class="pawn"><span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span>someVar == <span style="color: #4169e1;">1</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;one&quot;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span>
+<span style="color: #4169e1;">else</span> <span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span>someVar == <span style="color: #4169e1;">2</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;two&quot;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span>
+<span style="color: #4169e1;">else</span> <span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span>someVar == <span style="color: #4169e1;">3</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;three&quot;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span>
+<span style="color: #4169e1;">else</span>
+<span style="color: #66cc66;">&#123;</span>
+	<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;other&quot;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Keywords_Statements.html" title="Edit section: while">edit</a>]</div><a name="while"></a><h2> while </h2>
+<p>while is a loop type similar to for and do..while.  The basic operation is an if statement done which if true does some code and jumps back to the if.  If it's false it goes to after the loop code - there is no else.  Going back to the goto example:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span>
+	i = <span style="color: #4169e1;">0</span>;
+<span style="color: orange;">for_loop</span>:
+<span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span>i &lt; <span style="color: #4169e1;">10</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	i++;
+	<span style="color: orange; font-weight: bold;">goto</span> for_loop;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>This can also be written as:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span>
+	i = <span style="color: #4169e1;">0</span>;
+<span style="color: #4169e1;">while</span> <span style="color: #66cc66;">&#40;</span>i &lt; <span style="color: #4169e1;">10</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	i++;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>See <b>do</b> and <b>for</b> more information.
+</p><div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/Keywords_Statements.html">http://localhost../wiki/Keywords_Statements.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="Category_Tutorials.html" title="Category:Tutorials">Tutorials</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="Keywords_Statements.html">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="Talk_Keywords_Statements.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="Keywords_Statements.html">Edit</a></li>
+				 <li id="ca-history"><a href="Keywords_Statements.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 57,142 times.</li>
+				<li id="credits">This page was last modified 12:54, 1 August 2017 by SA-MP Wiki user <a href="User_OstGot.html" title="User:OstGot">OstGot</a>. Based on work by SA-MP Wiki user(s) <a href="User_Vince.html" title="User:Vince">Vince</a>, <a href="User_JoeBullet.html" title="User:JoeBullet">JoeBullet</a>, <a href="User_Vince.html" title="User:Vince">Vince</a> and <a href="User_LaZ.html" title="User:LaZ">LaZ</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 37.09 secs. -->
+</body></html>

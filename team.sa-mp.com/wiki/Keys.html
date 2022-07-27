@@ -1,0 +1,315 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Keys,Define KEY AIM,GameTextForPlayer,GetPlayerKeys,OnPlayerKeyStateChange,SendClientMessage,TextDrawCreate,TogglePlayerSpectating" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>Keys - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Keys</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<p>To be used with <a href="GetPlayerKeys.html" title="GetPlayerKeys">GetPlayerKeys</a> and <a href="OnPlayerKeyStateChange.html" title="OnPlayerKeyStateChange">OnPlayerKeyStateChange</a>.
+</p><p>SA-MP uses bitmasking to determine which keys are pressed and which are not. Here's an article on bitmasking: <a href="http://en.wikipedia.org/wiki/Mask_(computing)" class='external free' title="http://en.wikipedia.org/wiki/Mask_(computing)" rel="nofollow">http://en.wikipedia.org/wiki/Mask_(computing)</a>
+</p><p><br />
+</p>
+<table border="1" cellspacing="0" cellpadding="5" style="font-size:14px; background-color:#EDEDED;">
+
+<tr style="font-size:18px; background-color:#FF8000;">
+<td> <b>Macro</b>
+</td><td> <b>Value</b>
+</td><td> <b>Embedding Code (On Foot) <i>(7)</i> </b>
+</td><td> <b>Embedding Code (In Vehicle) <i>(7)</i> </b>
+</td><td> <b>Default Key (On Foot)</b>
+</td><td> <b>Default Key (In Vehicle)</b>
+</td></tr>
+<tr>
+<td> KEY_ACTION
+</td><td> 1
+</td><td> ~k~~PED_ANSWER_PHONE~
+</td><td> ~k~~VEHICLE_FIREWEAPON_ALT~
+</td><td> TAB
+</td><td> ALT GR / LCTRL / NUM0
+</td></tr>
+<tr>
+<td> KEY_CROUCH
+</td><td> 2
+</td><td> ~k~~PED_DUCK~
+</td><td> ~k~~VEHICLE_HORN~
+</td><td> C
+</td><td> H / CAPSLOCK
+</td></tr>
+
+<tr>
+<td> KEY_FIRE
+</td><td> 4
+</td><td> ~k~~PED_FIREWEAPON~
+</td><td> ~k~~VEHICLE_FIREWEAPON~
+</td><td> LCTRL / LMB (Left Mouse Button)
+</td><td> LALT
+</td></tr>
+
+<tr>
+<td> KEY_SPRINT
+</td><td> 8
+</td><td> ~k~~PED_SPRINT~
+</td><td> ~k~~VEHICLE_ACCELERATE~
+</td><td> SPACE
+</td><td> W
+</td></tr>
+
+<tr>
+<td> KEY_SECONDARY_ATTACK
+</td><td> 16
+</td><td> ~k~~VEHICLE_ENTER_EXIT~
+</td><td> ~k~~VEHICLE_ENTER_EXIT~
+</td><td> ENTER
+</td><td> ENTER
+</td></tr>
+
+<tr>
+<td> KEY_JUMP
+</td><td> 32
+</td><td> ~k~~PED_JUMPING~
+</td><td> ~k~~VEHICLE_BRAKE~
+</td><td> LSHIFT
+</td><td> S
+</td></tr>
+
+<tr>
+<td> KEY_LOOK_RIGHT
+</td><td> 64
+</td><td> -
+</td><td> ~k~~VEHICLE_LOOKRIGHT~
+</td><td> -
+</td><td> E
+</td></tr>
+
+<tr>
+<td> KEY_HANDBRAKE/KEY_AIM<sup><b>(1)</b></sup>
+</td><td> 128
+</td><td> ~k~~PED_LOCK_TARGET~
+</td><td> ~k~~VEHICLE_HANDBRAKE~
+</td><td> RMB (Right Mouse Button)
+</td><td> SPACE
+</td></tr>
+
+<tr>
+<td> KEY_LOOK_LEFT
+</td><td> 256
+</td><td> -
+</td><td> ~k~~VEHICLE_LOOKLEFT~
+</td><td> -
+</td><td> Q
+</td></tr>
+
+<tr>
+<td> KEY_LOOK_BEHIND
+</td><td> 320<sup><b>(5)</b></sup>
+</td><td> ~k~~PED_LOOKBEHIND~
+</td><td> ~k~~VEHICLE_LOOKBEHIND~
+</td><td> NUM1 / MMB (Middle Mouse Button - Click the mouse wheel)
+</td><td> 2
+</td></tr>
+
+<tr>
+<td> KEY_SUBMISSION
+</td><td> 512
+</td><td> -
+</td><td> ~k~~TOGGLE_SUBMISSIONS~
+</td><td> NUM1 / MMB (Middle Mouse Button - Click the mouse wheel)
+</td><td> 2 / NUMPAD +
+</td></tr>
+
+<tr>
+<td> KEY_WALK
+</td><td> 1024
+</td><td> ~k~~SNEAK_ABOUT~
+</td><td> -
+</td><td> LALT
+</td><td> -
+</td></tr>
+
+<tr>
+<td> KEY_ANALOG_UP
+</td><td> 2048
+</td><td> -
+</td><td> ~k~~VEHICLE_TURRETUP~
+</td><td> NUM8<sup><b>(6)</b></sup>
+</td><td> NUM8
+</td></tr>
+
+<tr>
+<td> KEY_ANALOG_DOWN
+</td><td> 4096
+</td><td> -
+</td><td> ~k~~VEHICLE_TURRETDOWN~
+</td><td> NUM2<sup><b>(6)</b></sup>
+</td><td> NUM2
+</td></tr>
+
+<tr>
+<td> KEY_ANALOG_LEFT
+</td><td> 8192
+</td><td> ~k~~VEHICLE_LOOKLEFT~
+</td><td> ~k~~VEHICLE_TURRETLEFT~
+</td><td> NUM4
+</td><td> NUM4
+</td></tr>
+
+<tr>
+<td> KEY_ANALOG_RIGHT
+</td><td> 16384
+</td><td> ~k~~VEHICLE_LOOKRIGHT~
+</td><td> ~k~~VEHICLE_TURRETRIGHT~
+</td><td> NUM6
+</td><td> NUM6
+</td></tr>
+
+<tr>
+<td> KEY_YES<sup><b>(2)</b></sup>
+</td><td> 65536
+</td><td> ~k~~CONVERSATION_YES~
+</td><td> ~k~~CONVERSATION_YES~
+</td><td> Y
+</td><td> Y
+</td></tr>
+
+<tr>
+<td> KEY_NO<sup><b>(2)</b></sup>
+</td><td> 131072
+</td><td> ~k~~CONVERSATION_NO~
+</td><td> ~k~~CONVERSATION_NO~
+</td><td> N
+</td><td> N
+</td></tr>
+
+<tr>
+<td> KEY_CTRL_BACK<sup><b>(2)</b></sup>
+</td><td> 262144<sup><b>(4)</b></sup>
+</td><td> ~k~~GROUP_CONTROL_BWD~
+</td><td> ~k~~GROUP_CONTROL_BWD~
+</td><td> H
+</td><td> H
+</td></tr>
+
+<tr>
+<td> UNDEFINED<sup><b>(3)</b></sup>
+</td><td> -
+</td><td> ~k~~GROUP_CONTROL_FWD~
+</td><td> ~k~~GROUP_CONTROL_FWD~
+</td><td> G
+</td><td> G
+</td></tr>
+<tr>
+<td> KEY_UP
+</td><td> -128
+</td><td> ~k~~GO_FORWARD~
+</td><td> ~k~~VEHICLE_STEERUP~
+</td><td> UP
+</td><td> UP
+</td></tr>
+
+<tr>
+<td> KEY_DOWN
+</td><td> 128
+</td><td> ~k~~GO_BACK~
+</td><td> ~k~~VEHICLE_STEERDOWN~
+</td><td> DOWN
+</td><td> DOWN
+</td></tr>
+
+<tr>
+<td> KEY_LEFT
+</td><td> -128
+</td><td> ~k~~GO_LEFT~
+</td><td> ~k~~VEHICLE_STEERLEFT~
+</td><td> LEFT
+</td><td> LEFT
+</td></tr>
+
+<tr>
+<td> KEY_RIGHT
+</td><td> 128
+</td><td> ~k~~GO_RIGHT~
+</td><td> ~k~~VEHICLE_STEERRIGHT~
+</td><td> RIGHT
+</td><td> RIGHT
+</td></tr>
+</table>
+<p><b>(1)</b> Key not defined in SA:MP includes. You must <a href="Define_KEY_AIM.html" title="Define KEY AIM">define this yourself</a> or use KEY_HANDBRAKE.
+</p><p><b>(2)</b> Supported since 0.3d. Not detectable in earlier versions. This key can not be detected when the player is in <a href="TogglePlayerSpectating.html" title="TogglePlayerSpectating">spectator mode</a>.
+</p><p><b>(3)</b> GROUP_CONTROL_FWD cannot be detected in SA-MP, as it used internally to enter vehicles as passenger. However, the gametext definition still exists.
+</p><p><b>(4)</b> If the key number "262144" does not work, just use key number "2".
+</p><p><b>(5)</b> This value is the sum of KEY_LOOK_LEFT and KEY_LOOK_RIGHT.
+</p><p><b>(6)</b> Only detected when "JOYPAD" configuration is selected for controller.
+</p><p><b>(7)</b> Embedding codes only work for <a href="SendClientMessage.html" title="SendClientMessage">client messages</a>, <a href="TextDrawCreate.html" title="TextDrawCreate">textdraws</a> and <a href="GameTextForPlayer.html" title="GameTextForPlayer">gametexts</a>.
+</p><div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/Keys.html">http://localhost../wiki/Keys.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="Category_Scripting_Documentation.html" title="Category:Scripting Documentation">Scripting Documentation</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="Keys.html">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="Talk_Keys.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="Keys.html">Edit</a></li>
+				 <li id="ca-history"><a href="Keys.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 250,661 times.</li>
+				<li id="credits">This page was last modified 15:45, 14 February 2018 by SA-MP Wiki user <a href="User_IstuntmanI.html" class="new" title="User:IstuntmanI">IstuntmanI</a>. Based on work by <a href="User_Kar.html" title="User:Kar">Kar</a> and SA-MP Wiki user(s) <a href="User_GangstaSunny.html" title="User:GangstaSunny">GangstaSunny</a>, <a href="User_Ikkentim.html" title="User:Ikkentim">Ikkentim</a>, <a href="User_JernejL.html" title="User:JernejL">JernejL</a>, <a href="User_Aerotactics.html" class="new" title="User:Aerotactics">Aerotactics</a>, <a href="User_MP2.html" title="User:MP2">MP2</a>, <a href="User_RoboN1X.html" title="User:RoboN1X">RoboN1X</a>, <a href="User_Smithy.html" title="User:Smithy">Smithy</a> and <a href="User_Ikkentim.html" title="User:Ikkentim">Ikkentim</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 81.18 secs. -->
+</body></html>

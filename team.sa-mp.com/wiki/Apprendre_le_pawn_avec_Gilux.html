@@ -1,0 +1,733 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Apprendre le pawn avec Gilux,SetPlayerSpecialAction FR,InteriorIDs FR" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>Apprendre le pawn avec Gilux - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Apprendre le pawn avec Gilux</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class='toclevel-1'><a href="#Apprenons_le_Pawn_avec_Gilux_.21"><span class="tocnumber">1</span> <span class="toctext">Apprenons le Pawn avec Gilux&nbsp;!</span></a>
+<ul>
+<li class='toclevel-2'><a href="#Partie_1:_Les_bases"><span class="tocnumber">1.1</span> <span class="toctext">Partie 1: Les bases</span></a>
+<ul>
+<li class='toclevel-3'><a href="#Introduction"><span class="tocnumber">1.1.1</span> <span class="toctext">Introduction</span></a></li>
+<li class='toclevel-3'><a href="#D.C3.A9couvrir_Pawno"><span class="tocnumber">1.1.2</span> <span class="toctext">Découvrir Pawno</span></a></li>
+<li class='toclevel-3'><a href="#La_structure_d.27un_code"><span class="tocnumber">1.1.3</span> <span class="toctext">La structure d'un code</span></a></li>
+<li class='toclevel-3'><a href="#Votre_premi.C3.A8re_instruction"><span class="tocnumber">1.1.4</span> <span class="toctext">Votre première instruction</span></a></li>
+<li class='toclevel-3'><a href="#Conclusion"><span class="tocnumber">1.1.5</span> <span class="toctext">Conclusion</span></a></li>
+</ul>
+</li>
+<li class='toclevel-2'><a href="#Partie_2_:Structures_utiles"><span class="tocnumber">1.2</span> <span class="toctext">Partie 2&nbsp;:Structures utiles</span></a>
+<ul>
+<li class='toclevel-3'><a href="#Les_variables"><span class="tocnumber">1.2.1</span> <span class="toctext">Les variables</span></a></li>
+<li class='toclevel-3'><a href="#Modifier_une_variable"><span class="tocnumber">1.2.2</span> <span class="toctext">Modifier une variable</span></a>
+<ul>
+<li class='toclevel-4'><a href="#Des_variables_sp.C3.A9ciales_:_Les_arrays"><span class="tocnumber">1.2.2.1</span> <span class="toctext">Des variables spéciales&nbsp;: Les arrays</span></a>
+<ul>
+<li class='toclevel-5'><a href="#Les_tableaux_simples"><span class="tocnumber">1.2.2.1.1</span> <span class="toctext">Les tableaux simples</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class='toclevel-3'><a href="#Les_conditions"><span class="tocnumber">1.2.3</span> <span class="toctext">Les conditions</span></a>
+<ul>
+<li class='toclevel-4'><a href="#if"><span class="tocnumber">1.2.3.1</span> <span class="toctext">if</span></a></li>
+<li class='toclevel-4'><a href="#else_if"><span class="tocnumber">1.2.3.2</span> <span class="toctext">else if</span></a></li>
+<li class='toclevel-4'><a href="#Les_conditions_multiples"><span class="tocnumber">1.2.3.3</span> <span class="toctext">Les conditions multiples</span></a></li>
+<li class='toclevel-4'><a href="#Inverse"><span class="tocnumber">1.2.3.4</span> <span class="toctext">Inverse</span></a></li>
+<li class='toclevel-4'><a href="#Retour_direct"><span class="tocnumber">1.2.3.5</span> <span class="toctext">Retour direct</span></a></li>
+</ul>
+</li>
+<li class='toclevel-3'><a href="#Les_boucles"><span class="tocnumber">1.2.4</span> <span class="toctext">Les boucles</span></a>
+<ul>
+<li class='toclevel-4'><a href="#While"><span class="tocnumber">1.2.4.1</span> <span class="toctext">While</span></a></li>
+<li class='toclevel-4'><a href="#Do.....While"><span class="tocnumber">1.2.4.2</span> <span class="toctext">Do.....While</span></a></li>
+<li class='toclevel-4'><a href="#For"><span class="tocnumber">1.2.4.3</span> <span class="toctext">For</span></a></li>
+</ul>
+</li>
+<li class='toclevel-3'><a href="#Conclusion_2"><span class="tocnumber">1.2.5</span> <span class="toctext">Conclusion</span></a></li>
+</ul>
+</li>
+<li class='toclevel-2'><a href="#Partie_3:_Conclusion"><span class="tocnumber">1.3</span> <span class="toctext">Partie 3: Conclusion</span></a>
+<ul>
+<li class='toclevel-3'><a href="#Notion_d.27int.C3.A9rieur"><span class="tocnumber">1.3.1</span> <span class="toctext">Notion d'intérieur</span></a></li>
+<li class='toclevel-3'><a href="#Notion_de_monde_virtuel"><span class="tocnumber">1.3.2</span> <span class="toctext">Notion de monde virtuel</span></a></li>
+<li class='toclevel-3'><a href="#Cr.C3.A9ez_vos_fonctions"><span class="tocnumber">1.3.3</span> <span class="toctext">Créez vos fonctions</span></a></li>
+<li class='toclevel-3'><a href="#Conseils_d.27h.C3.A9bergement"><span class="tocnumber">1.3.4</span> <span class="toctext">Conseils d'hébergement</span></a></li>
+</ul>
+</li>
+<li class='toclevel-2'><a href="#Information_sur_ce_tutoriel"><span class="tocnumber">1.4</span> <span class="toctext">Information sur ce tutoriel</span></a></li>
+</ul>
+</li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Apprendre_le_pawn_avec_Gilux.html" title="Edit section: Apprenons le Pawn avec Gilux&nbsp;!">edit</a>]</div><a name="Apprenons_le_Pawn_avec_Gilux_.21"></a><h1 style="float:center;text-align:center;">Apprenons le Pawn avec Gilux&nbsp;!</h1>
+<p>Je vais commencer en douceur, avec les bases du langage...
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Apprendre_le_pawn_avec_Gilux.html" title="Edit section: Partie 1: Les bases">edit</a>]</div><a name="Partie_1:_Les_bases"></a><h2>Partie 1: Les bases</h2>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Apprendre_le_pawn_avec_Gilux.html" title="Edit section: Introduction">edit</a>]</div><a name="Introduction"></a><h3>Introduction</h3>
+<p>Si vous lisez ce tutoriel, c'est que vous avez envie d'apprendre à coder en Pawn, et c'est un bon choix si vous débutez&nbsp;! En effet, le pawn est un langage de programmation simple, mais puissant (quand il est maîtrisé toutefois)
+</p><p>Sont requis&nbsp;:
+</p>
+<ul><li>La patience, l'apprentissage complet du PAWN prend quelques mois si c'est votre premier langage de programmation, et les erreurs vont venir mettre un peu plus vos nerfs à bout &nbsp;:D De plus, beaucoup de personnes veulent commencer un RP dès qu'ils apprennent, c'est la voie du suicide assurée&nbsp;! (Bon allez encore passable si vous connaissez le C)
+</li><li>Une maîtrise de l'anglais correcte, en effet le langage est 100% en anglais (Pas besoin de doctorat en anglais quand même hein ^^)
+</li><li>De l'envie et de la persévérance, les bugs ne doivent pas vous rebuter...
+</li><li>GTA San Andreas version 1.0 (Au cas où...) <i>En réalité vous n'avez pas réellement besoin de GTA pour réaliser vos scripts et pour les compiler, mais en revanche pour les tester il vous faudra aller sur SA:MP qui lui nécessite GTA:SA 1.0</i>
+</li></ul>
+<p>Sans plus attendre, débutons le tutoriel. (Je partirai du principe que vous savez ouvrir vos ports si besoin, et les risques que cela entraîne (hack) et que vous savez configurer un serveur)
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Apprendre_le_pawn_avec_Gilux.html" title="Edit section: Découvrir Pawno">edit</a>]</div><a name="D.C3.A9couvrir_Pawno"></a><h3>Découvrir Pawno</h3>
+<p>Je vais passer tout ce qui est configuration du serveur, vous trouverez sûrement comment configurer le serveur quelque part, ici je ne parlerai que de script.<br />
+Il va vous falloir ouvrir Pawno, livré avec l'archive de votre serveur <br />
+Vous découvrez l'interface de Pawno&nbsp;:<br />
+<a href="http://i27.servimg.com/u/f27/14/77/47/47/pawno10.jpg" class='external text' title="http://i27.servimg.com/u/f27/14/77/47/47/pawno10.jpg" rel="nofollow"><img src="http://i27.servimg.com/u/f27/14/77/47/47/pawno10.jpg" alt="pawno10.jpg" /></a>
+</p><p>En plus des boutons classiques "Nouveau" "Ouvrir" etc, il y a 2 boutons&nbsp;:
+<a href="http://i27.servimg.com/u/f27/14/77/47/47/captur10.png" class='external text' title="http://i27.servimg.com/u/f27/14/77/47/47/captur10.png" rel="nofollow"><img src="http://i27.servimg.com/u/f27/14/77/47/47/captur10.png" alt="captur10.png" /></a>
+</p><p>Ils servent à compiler le script, car votre serveur ne fonctionnera pas avec les fichiers .pwn mais avec les fichiers .amx (Compilés)<br />
+C'est lors de cette compilation que le logiciel vous retournera des erreurs / avertissements si il doit en retourner.
+</p><p>Info&nbsp;: Pawno est ce qu'on appelle un IDE&nbsp;: Integrated Development Environment. En Français, cela se traduit par Environnement de développement.<br />
+Il contient l'éditeur de code, le compilateur, et le débuggeur qui vous retournera les erreurs. Il vous évite donc d'éditer le texte et d'avoir à utiliser un autre logiciel pour compiler.
+</p><p>Cliquez sur "New", un code s'affichera (Comme sur le screen)<br />
+C'est la structure de base d'un code, Nous allons l'aborder plus précisément dans le prochain chapitre.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Apprendre_le_pawn_avec_Gilux.html" title="Edit section: La structure d'un code">edit</a>]</div><a name="La_structure_d.27un_code"></a><h3>La structure d'un code</h3>
+<p>Un code a plusieurs parties, nous allons les voir ici.
+</p><p>Les directives de précompilation<br />
+Voici quelques exemples&nbsp;:
+</p>
+<div style="color: blue;">#include &lt;a_samp&gt;
+<div></div>#include &lt;include_basique&gt;
+<div></div>#define COULEUR_ROUGE         0xFF0000FF
+<div></div>#define GivePlayerWeapon(%0,%1,%2); GiveWeaponToPlayer(%0,%1,%2);</div>
+<p>Ces lignes sont en haut de votre script, et sont introduites par un dièse.<br />
+Elles permettent d'inclure des includes (fichiers contenant des fonctions supplémentaires), de substituer une fonction par une autre, etc etc.
+</p>
+<div style="text-decoration: underline;">La fonction main</div>
+<pre class="pawn">main<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <a href="http://wiki.sa-mp.com/wiki/print"><span style="color: #006400;">print</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;<span style="color: #000099; font-weight: bold;">\n</span>----------------------------------&quot;</span><span style="color: #66cc66;">&#41;</span>;
+    <a href="http://wiki.sa-mp.com/wiki/print"><span style="color: #006400;">print</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot; Gilux's GM&quot;</span><span style="color: #66cc66;">&#41;</span>;
+    <a href="http://wiki.sa-mp.com/wiki/print"><span style="color: #006400;">print</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;----------------------------------<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>Cette fonction main est la fonction principale du script.<br />
+Elle permet juste de démarrer le serveur, il est inutile d'y toucher.
+</p>
+<div style="text-decoration: underline;">Les Callbacks</div>
+<p>Les Callbacks sont des sortes d'évènements (OnPlayerConnect = Que faire à la connexion d'un joueur&nbsp;?)<br />
+Elles se concluent toutes par un return 1; ou return 0; , Nous verrons cela plus en détail par la suite.
+</p>
+<div style="text-decoration: underline;">Les commentaires</div>
+<p>C'est pas tellement une partie de code, mais c'est tellement utile que je vais en parler ici.<br />
+Un commentaire est une note que vous pouvez laisser, mais qui ne sera pas prise en compte dans la compilation.<br />
+C'est donc utile pour noter des crédits, des choses à faire, etc.<br />
+Un commentaire sur une ligne se commence comme cela&nbsp;: // et votre texte sur la ligne deviendra tout vert&nbsp;!<br />
+Si vous voulez mettre un commentaire sur plusieurs lignes, il faut le commencer comme cela&nbsp;: 
+</p>
+<div style="color:green;">/* 
+<p>Et tout<br />
+Votre<br />
+Texte mis en commentaire deviendra vert&nbsp;!
+</p>
+<div></div>*/</div>
+<p>Vous l'avez remarqué, un commentaire multiligne se termine comme ça&nbsp;: */
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Apprendre_le_pawn_avec_Gilux.html" title="Edit section: Votre première instruction">edit</a>]</div><a name="Votre_premi.C3.A8re_instruction"></a><h3>Votre première instruction</h3>
+<p>Avant de commencer à scripter, il faut que je vous explique la différence entre un GameMode (GM) et FilterScript (FS) (Et include en même temps tiens&nbsp;!)
+<br /><br />
+Un GM, c'est le script principal de votre serveur, alors qu'un FS est un script additionnel qui peut être chargé / déchargé à tout instant.<br />
+Quand j'ai un test dont je ne suis pas sûr, je le met en FS pour le tester, après je le met en GM si il marche.
+<br /><br />
+Une include est un fichier avec l'extension <span style="font-weight:bold;">.inc</span> qui permet d'ajouter des fonctions au serveur.
+<br /><br />
+Rappel&nbsp;: Les FS s'ajoutent au server.cfg sur la ligne filterscripts&nbsp;! Vous pouvez aussi les charger / décharger IG avec la commande /rcon loadfs [Nom] et /rcon unloadfs [Nom]
+<br /><br />
+Si vous voulez faire un GM, laissez tel quel ou utilisez ce début de code  (Supprimez les #define, #if defined, OnFilterScriptInit et Exit qui correspondent aux initialisations et déchargement de FS, ce qui ne nous servira pas)&nbsp;:
+</p>
+<pre class="pawn"><span style="color: #6b8e23;">#include &lt;a_samp&gt;</span>
+&nbsp;
+&nbsp;
+main<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <a href="http://wiki.sa-mp.com/wiki/print"><span style="color: #006400;">print</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;<span style="color: #000099; font-weight: bold;">\n</span>----------------------------------&quot;</span><span style="color: #66cc66;">&#41;</span>;
+    <a href="http://wiki.sa-mp.com/wiki/print"><span style="color: #006400;">print</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot; Gilux's GM&quot;</span><span style="color: #66cc66;">&#41;</span>;
+    <a href="http://wiki.sa-mp.com/wiki/print"><span style="color: #006400;">print</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;----------------------------------<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnGameModeInit"><span style="color: #dc143c">OnGameModeInit</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <span style="color: #808080; font-style: italic;">// Don't use these lines if it's a filterscript</span>
+    <a href="http://wiki.sa-mp.com/wiki/SetGameModeText"><span style="color: #006400;">SetGameModeText</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;Blank Script&quot;</span><span style="color: #66cc66;">&#41;</span>;
+    <a href="http://wiki.sa-mp.com/wiki/AddPlayerClass"><span style="color: #006400;">AddPlayerClass</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">0</span>, <span style="color: #4169e1;">1958.3783</span>, <span style="color: #4169e1;">1343.1572</span>, <span style="color: #4169e1;">15.3746</span>, <span style="color: #4169e1;">269.1425</span>, <span style="color: #4169e1;">0</span>, <span style="color: #4169e1;">0</span>, <span style="color: #4169e1;">0</span>, <span style="color: #4169e1;">0</span>, <span style="color: #4169e1;">0</span>, <span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span>;
+    <span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span>
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnGameModeExit"><span style="color: #dc143c">OnGameModeExit</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>(On se débarasse des conditions inutiles)
+<br /><br />
+Nous allons commencer par un GM, histoire de pas trop nous embrouiller ^^
+<br /><br />
+Que diriez-vous de créer une commande /handsup, qui permettra au joueur de se retrouver les mains en l'air&nbsp;?
+<br /><br />
+Pour cela, vous devez trouver la callback "OnPlayerCommandText" <span style="color:orange;">=&gt; Callback appelée quand un joueur tape une commande (/commande)</span>
+<br /><br />
+NOTE&nbsp;: Je m'habituerai à mettre des flèches orange autour des Callbacks et des instructions pour vous en donner le sens.
+<br /><br />
+Voici le code à copier dans la callback (Entre les accolades d'ouverture et de fermeture)
+</p>
+<pre class="pawn"><span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span><a href="http://wiki.sa-mp.com/wiki/strcmp"><span style="color: #006400;">strcmp</span></a><span style="color: #66cc66;">&#40;</span>cmdtext, <span style="color: #b22222;">&quot;/handsup&quot;</span>, true<span style="color: #66cc66;">&#41;</span> == <span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <a href="http://wiki.sa-mp.com/wiki/SetPlayerSpecialAction"><span style="color: #006400;">SetPlayerSpecialAction</span></a><span style="color: #66cc66;">&#40;</span>playerid,<span style="color: #E9967A; font-weight: bold;">SPECIAL_ACTION_HANDSUP</span><span style="color: #66cc66;">&#41;</span>;
+    <span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>En voici une autre, qui donnera une bouteille de bière au joueur&nbsp;:
+</p>
+<pre class="pawn"><span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span><a href="http://wiki.sa-mp.com/wiki/strcmp"><span style="color: #006400;">strcmp</span></a><span style="color: #66cc66;">&#40;</span>cmdtext, <span style="color: #b22222;">&quot;/beer&quot;</span>, true<span style="color: #66cc66;">&#41;</span> == <span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <a href="http://wiki.sa-mp.com/wiki/SetPlayerSpecialAction"><span style="color: #006400;">SetPlayerSpecialAction</span></a><span style="color: #66cc66;">&#40;</span>playerid,SPECIAL_ACTION_DRINK_BEER<span style="color: #66cc66;">&#41;</span>;
+    <span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>Ce qui donne au final&nbsp;:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnPlayerCommandText"><span style="color: #dc143c">OnPlayerCommandText</span></a><span style="color: #66cc66;">&#40;</span>playerid, cmdtext<span style="color: #66cc66;">&#91;</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span> <span style="color: #808080; font-style: italic;">// La callback</span>
+<span style="color: #66cc66;">&#123;</span> <span style="color: #808080; font-style: italic;">// On ouvre la callback </span>
+<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span><a href="http://wiki.sa-mp.com/wiki/strcmp"><span style="color: #006400;">strcmp</span></a><span style="color: #66cc66;">&#40;</span>cmdtext, <span style="color: #b22222;">&quot;/handsup&quot;</span>, true<span style="color: #66cc66;">&#41;</span> == <span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span> <span style="color: #808080; font-style: italic;">// On compare la commande et la chaîne de caractères /handsup</span>
+    <span style="color: #66cc66;">&#123;</span> <span style="color: #808080; font-style: italic;">// Si la commande est /handsup, on ouvre une condition</span>
+    <a href="http://wiki.sa-mp.com/wiki/SetPlayerSpecialAction"><span style="color: #006400;">SetPlayerSpecialAction</span></a><span style="color: #66cc66;">&#40;</span>playerid,<span style="color: #E9967A; font-weight: bold;">SPECIAL_ACTION_HANDSUP</span><span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// On utilise une instruction</span>
+    <span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>; <span style="color: #808080; font-style: italic;">// On retourne 1 au compilateur, ce qui veut dire que l'action a été effectuée sans problèmes.</span>
+    <span style="color: #66cc66;">&#125;</span> <span style="color: #808080; font-style: italic;">// On ferme la condition car elle est finie</span>
+<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span><a href="http://wiki.sa-mp.com/wiki/strcmp"><span style="color: #006400;">strcmp</span></a><span style="color: #66cc66;">&#40;</span>cmdtext, <span style="color: #b22222;">&quot;/beer&quot;</span>, true<span style="color: #66cc66;">&#41;</span> == <span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span> <span style="color: #808080; font-style: italic;">// Si le joueur n'a pas tapé /handsup, on va vérifier si la commande est &quot;/beer&quot;, sinon on ne procèdera pas à la vérification et on sortira de la &quot;boucle&quot; </span>
+    <span style="color: #66cc66;">&#123;</span> <span style="color: #808080; font-style: italic;">// On ouvre les accolades si la commande est correcte, sinon on retourne 0 (commande invalide)</span>
+    <a href="http://wiki.sa-mp.com/wiki/SetPlayerSpecialAction"><span style="color: #006400;">SetPlayerSpecialAction</span></a><span style="color: #66cc66;">&#40;</span>playerid,SPECIAL_ACTION_DRINK_BEER<span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// On donne une bouteille au joueur (instruction)</span>
+    <span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>; <span style="color: #808080; font-style: italic;">// On retourne 1, le boulot est fait, et on sort de la &quot;boucle&quot;</span>
+    <span style="color: #66cc66;">&#125;</span> <span style="color: #808080; font-style: italic;">// on ferme la condition</span>
+<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">0</span>; <span style="color: #808080; font-style: italic;">// On retourne 0 si la commande tapée ne correspond à aucune commande listée.</span>
+<span style="color: #66cc66;">&#125;</span> <span style="color: #808080; font-style: italic;">// On referme la callback</span></pre>
+<p>Dans ce code, on va comparer la commande à plusieurs "propositions"&nbsp;: La 1ère étant "Si le joueur a tapé /handsup". <span style="font-weight:bold;">C'est une condition</span> (Je vous en reparlerai plus précisément dans une prochaine partie du tutoriel). Si la condition est fausse, on passe à la suivante, etc. jusqu'à ce qu'on arrive au return 0; , ce qui signifiera que la commande ne correspond à rien (Le joueur aura un SERVER:UNKNOWN COMMAND qui s'affichera)
+<br /><br />
+Dans les commentaires, j'ai parlé de "boucle". Ce terme n'est pas très approprié car il existe les "vraies" boucles qui n'ont pas du tout ce sens (quoique...) Bref, nous verrons les boucles plus tard ^^<br />
+Compilez le code, et lancez le serveur&nbsp;: Connectez-vous et tapez /beer et /handsup, cela devrait marcher sans problème si le compilateur n'a pas renvoyé d'erreur.<br />
+N'oubliez pas de sauvegarder le script dans "Gamemodes" et non dans "filterscripts" bien entendu&nbsp;::)
+<br /><br />
+Je vais maintenant revenir sur les instructions&nbsp;: Qu'est-ce qui caractérise une instruction&nbsp;?<br />
+Une instruction (Ou fonction) effectue une action, les instructions se chiffrent à un peu plus de 200 avec l'include a_samp.<br />
+<span style="font-weight:bold;">UNE INSTRUCTION SE TERMINE TOUJOURS PAR ";"</span> (A ne pas oublier&nbsp;!)<br />
+Une instruction reçoit des paramètres, donc on peut constater ici qu'elle en a reçu 2&nbsp;: playerid et SPECIAL_ACTION_HANDSUP<br />
+Et maintenant, je vous donne un petit lien vers la page du wiki samp consacrée à cette instruction&nbsp;: <a href="SetPlayerSpecialAction_FR.html" title="SetPlayerSpecialAction FR">SetPlayerSpecialAction</a><br />
+On voit 2 paramètres&nbsp;: playerid (Ce paramètre on a pas besoin d'y toucher, il définit tout simplement l'ID du joueur qui a tapé la commande, et par conséquent, à qui va être affectée l'action, et actionid (en cliquant sur le lien vous trouverez différentes actions, comme sortir un portable, etc etc)<br />
+Vous pouvez donc commencer à créer des commandes avec les différentes instructions (Elles sont presque toutes disponibles ici: )<br />
+Mais avant, nous allons voir comment envoyer du texte au joueur ("client")<br />
+C'est THE instruction à retenir, elle s'appelle&nbsp;: SendClientMessage(playerid,color,text);
+<br /><br />
+Les paramètres montrent&nbsp;: playerid (comme j'ai dit plus haut on touche pas), color ( la couleur en héxadécimal, utilisez SA:MP Color Picker) et le texte à afficher au joueur.
+<br /><br />
+Essayons une commande&nbsp;:
+</p>
+<pre class="pawn"><span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span><a href="http://wiki.sa-mp.com/wiki/strcmp"><span style="color: #006400;">strcmp</span></a><span style="color: #66cc66;">&#40;</span>cmdtext, <span style="color: #b22222;">&quot;/bonjour&quot;</span>, true<span style="color: #66cc66;">&#41;</span> == <span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span>
+    <span style="color: #66cc66;">&#123;</span> 
+    <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid,0x00FFFFFF,Au revoir&nbsp;!<span style="color: #66cc66;">&#41;</span>;
+    <span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+    <span style="color: #66cc66;">&#125;</span></pre>
+<p>Votre compilateur devrait vous renvoyer&nbsp;:<br />
+Undefined symbol "Au"<br />
+Undefined symbol "Revoir"
+<br /><br />
+Ce qui veut dire en gros, que Au et Revoir ne sont ni des instructions, ni des variables...<br />
+Pour résoudre ce problème, il faut savoir que Au revoir est une <span style="font-weight:bold;">chaine de caractères</span> (phrase pour les incultes, string pour les anglophones)<br />
+</p>
+<div style="font-weight:bold;">Et toute chaine de caractères doit être entourée de guillemets doubles&nbsp;!</div>
+<p>Reprenons le code&nbsp;:
+</p>
+<pre class="pawn"><span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span><a href="http://wiki.sa-mp.com/wiki/strcmp"><span style="color: #006400;">strcmp</span></a><span style="color: #66cc66;">&#40;</span>cmdtext, <span style="color: #b22222;">&quot;/bonjour&quot;</span>, true<span style="color: #66cc66;">&#41;</span> == <span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span>
+    <span style="color: #66cc66;">&#123;</span> 
+    <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid,0x00FFFFFF,<span style="color: #b22222;">&quot;Au revoir&nbsp;!&quot;</span><span style="color: #66cc66;">&#41;</span>;
+    <span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+    <span style="color: #66cc66;">&#125;</span></pre>
+<p>Cela marchera sans problème&nbsp;!
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Apprendre_le_pawn_avec_Gilux.html" title="Edit section: Conclusion">edit</a>]</div><a name="Conclusion"></a><h3>Conclusion</h3>
+<p>Ainsi se termine ce 1er tutoriel qui, je pense, aidera beaucoup de monde pour débuter.<br />
+J'ai volontairement omis la configuration (server.cfg) pour la raison que des tutos existent déjà à ce propos (Tapez créer son serveur SA:MP sur Google)<br />
+Vous pouvez aussi, par exemple, à la mort d'un joueur (OnPlayerDeath) lui retirer de l'argent (GivePlayerMoney) et lui afficher un message&nbsp;!<br />
+Ou vous pouvez créer des commandes pour vous remettre la vie au maximum (SetPlayerHealth) et de l'armure tant qu'on y est&nbsp;! (SetPlayerArmour)
+</p><p>++ et bon script à tous&nbsp;!
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Apprendre_le_pawn_avec_Gilux.html" title="Edit section: Partie 2&nbsp;:Structures utiles">edit</a>]</div><a name="Partie_2_:Structures_utiles"></a><h2>Partie 2&nbsp;:Structures utiles</h2>
+<p>Salut, et bienvenue dans la 2e partie de mon tutoriel PAWN.<br />
+Dans le 1er tuto, vous avez pu voir comment bien débuter en scripting, et créer vos premières commandes.
+<br /><br />
+Maintenant, nous allons voir comment gérer les structures avancées
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Apprendre_le_pawn_avec_Gilux.html" title="Edit section: Les variables">edit</a>]</div><a name="Les_variables"></a><h3>Les variables</h3>
+<p>Une variable est une information (32 bits) qui va aller se loger dans la mémoire vive de votre machine. Elle permet de contenir une information comme le nom du joueur, la couleur de son pseudo et bien d'autres choses.<br />
+Il existe 2 catégories de variables&nbsp;: Les variables globales et les variables locales<br />
+Contrairement à une variable locale qui fonctionne uniquement entre les accolades où elle est placée, une variable globale sera utilisé dans tout le script, elle pourra être modifiée dans tous les callbacks.<br />
+Une variable se déclare avec le terme new, qui peut être complété par un des tags suivants, en fonction du type de variable qu'il doit retenir&nbsp;:
+</p>
+<ul><li> bool&nbsp;: Booléen
+</li><li> Float: Nombre à virgule
+</li><li> File&nbsp;: Fichier
+</li><li> text&nbsp;: Textdraw
+</li><li> Menu&nbsp;: Menu
+</li></ul>
+<p>(Il n'est pas obligé d'en mettre)
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> <span style="color: orange;">Float</span>:PositionX;
+<span style="color: #228b22; font-weight: bold;">new</span> <span style="color: orange;">Menu</span>:tuning;
+<span style="color: #228b22; font-weight: bold;">new</span> <span style="color: orange;">File</span>:Listeban;</pre>
+<p>J'ai donc ici créé 3 variables, la 1ère stockera un nombre à virgule, le second un menu, et le dernier un fichier.<br />
+Note&nbsp;: Ne pas oublier le&nbsp;;&nbsp;!
+</p><p>On peut aussi déclarer une variable comme ça&nbsp;:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> vie = <span style="color: #4169e1;">40</span>;</pre>
+<p>(Donner une valeur à la variable dès sa déclaration)
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> vie, armure, argent;</pre>
+<p>(Déclarer plusieurs variables d'un seul coup (Mais on ne peut pas leur attribuer de valeur)
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Apprendre_le_pawn_avec_Gilux.html" title="Edit section: Modifier une variable">edit</a>]</div><a name="Modifier_une_variable"></a><h3>Modifier une variable</h3>
+<p>Si dans votre script, vous avez le besoin de modifier une variable, voici la syntaxe&nbsp;:
+</p>
+<pre class="pawn">MaVariable = <span style="color: #4169e1;">10</span>;</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Apprendre_le_pawn_avec_Gilux.html" title="Edit section: Des variables spéciales&nbsp;: Les arrays">edit</a>]</div><a name="Des_variables_sp.C3.A9ciales_:_Les_arrays"></a><h4>Des variables spéciales&nbsp;: Les arrays</h4>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Apprendre_le_pawn_avec_Gilux.html" title="Edit section: Les tableaux simples">edit</a>]</div><a name="Les_tableaux_simples"></a><h5>Les tableaux simples</h5>
+<p>Les arrays sont des tableaux de variables. Ils vous permettent de stocker des variables sans être obligé d'en créer un nombre énorme.<br />
+Dans un tableau, une valeur est associée à un index. Cet index commence toujours à 0. C'est à dire qu'un tableau avec 25 index se terminera par l'index 24.
+</p><p>Si cela vous est flou, voici une représentation de ces tableaux&nbsp;:<br />
+<a href="http://i27.servimg.com/u/f27/14/77/47/47/arrays10.png" class='external text' title="http://i27.servimg.com/u/f27/14/77/47/47/arrays10.png" rel="nofollow"><img src="http://i27.servimg.com/u/f27/14/77/47/47/arrays10.png" alt="arrays10.png" /></a><br />
+Pour créer un array, on procède de la même manière qu'une variable, c'est à dire avec new. Voici comment créer le tableau ci-dessus&nbsp;:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> monTableau<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">8</span><span style="color: #66cc66;">&#93;</span>;</pre>
+<p>Ce code va faire (à peu près) la même chose en une ligne que ceci&nbsp;:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> var0;
+<span style="color: #228b22; font-weight: bold;">new</span> var1;
+<span style="color: #228b22; font-weight: bold;">new</span> var2;
+<span style="color: #228b22; font-weight: bold;">new</span> var3;
+<span style="color: #228b22; font-weight: bold;">new</span> var4;
+<span style="color: #228b22; font-weight: bold;">new</span> var5;
+<span style="color: #228b22; font-weight: bold;">new</span> var6;
+<span style="color: #228b22; font-weight: bold;">new</span> var7;</pre>
+<p>Pour assigner une variable à un index particulier du tableau, on procède comme ceci&nbsp;:
+</p>
+<pre class="pawn">nomDuTableau<span style="color: #66cc66;">&#91;</span>index<span style="color: #66cc66;">&#93;</span> = valeur;</pre>
+<p>Ainsi, pour modifier la case avec l'index 4, qui est donc la <span style="font-weight:bold;">5e case</span>, on fera&nbsp;:
+</p>
+<pre class="pawn">nomDuTableau<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">4</span><span style="color: #66cc66;">&#93;</span> = valeur;</pre>
+<p>Les chaînes de caractères sont aussi des arrays&nbsp;! Chaque caractère occupe une case. Si l'on veut stocker le mot "Salut&nbsp;!" dans un tableau, il faudra 7 cases (5 lettres, 1 symbole et 1 espace) + 1 pour le <span style="font-weight:bold;">nullbyte</span> (\0) qui termine la chaîne de caractères.<br />
+Il faut donc déclarer un tableau de 8 cases.
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> string<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">8</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #b22222;">&quot;Salut&nbsp;!&quot;</span>; <span style="color: #808080; font-style: italic;">// </span>
+<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;Valeur de la 5e case (Et donc l'index 4) de mon tableau&nbsp;: %c&quot;</span>,monTableau<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">4</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// La fonction printf envoie un texte formaté dans la console&nbsp;: Il peut changer en fonction de la valeur d'une variable. Ici, %c représente un caractère.</span></pre>
+<p>Ici, la console affichera&nbsp;: <span style="text-decoration:underline;">Valeur de la 5e case (Et donc l'index 4) de mon tableau&nbsp;: t</span><br />
+Il existe d'autres symboles pour printf&nbsp;: %i pour un entier, %s pour une chaîne entière, et %f pour un flottant.
+</p><p>Nous allons maintenant apprendre à utiliser ces variables, avec l'ajout de conditions.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Apprendre_le_pawn_avec_Gilux.html" title="Edit section: Les conditions">edit</a>]</div><a name="Les_conditions"></a><h3>Les conditions</h3>
+<p>Les conditions vont permettre d'adapter le script en fonction de certains paramètres donnés.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Apprendre_le_pawn_avec_Gilux.html" title="Edit section: if">edit</a>]</div><a name="if"></a><h4>if</h4>
+<p>La condition basique est introduite avec le mot-clé "if" qui signifie "si", et "else" qui signifie "sinon".<br />
+Voici un bout de code&nbsp;:
+</p>
+<pre class="pawn"><span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span><a href="http://wiki.sa-mp.com/wiki/GetPlayerMoney"><span style="color: #006400;">GetPlayerMoney</span></a><span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span> &gt;= <span style="color: #4169e1;">25000</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+<a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid,0xFFFFFF,<span style="color: #b22222;">&quot;Tu as beaucoup d'argent&nbsp;!&quot;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span>
+<span style="color: #4169e1;">else</span>
+<span style="color: #66cc66;">&#123;</span>
+<a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid,0xFFFFFF,<span style="color: #b22222;">&quot;Tu es pauvre toi&nbsp;:p&quot;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>(Ce code dira "Tu as beaucoup d'argent&nbsp;!" si le joueur à plus de 25000 $)
+</p><p>Donc on peut remarquer que&nbsp;:
+</p>
+<ul><li>Toute ce qui suit une condition doit être entre accolades
+</li><li>Une condition ne prend jamais de point-virgule
+</li><li>Si la 1ère condition n'est pas remplie, on fait ce qui correspond à "else"
+</li><li>On utilise des signes comme &gt;=
+</li></ul>
+<table class="wikitable centre" width="80%">
+<caption> Ces signes sont des opérateurs, en voici une liste
+</caption>
+<tr>
+<th scope="col"> Signe
+</th><th scope="col"> Signification
+</th></tr>
+<tr>
+<td width="16%">
+<p>==
+</p>
+</td><td width="16%">
+<p>Egal à
+</p>
+</td></tr>
+<tr>
+<td width="16%">
+<div></div>!=
+</td><td width="16%">
+<p>Différent de
+</p>
+</td></tr>
+<tr>
+<td width="16%">
+<p>&gt;
+</p>
+</td><td width="16%">
+<p>Strictement plus grand que
+</p>
+</td></tr>
+<tr>
+<td width="16%">
+<p>&lt;
+</p>
+</td><td width="16%">
+<p>Strictement plus petit que
+</p>
+</td></tr>
+<tr>
+<td width="16%">
+<p>&gt;=
+</p>
+</td><td width="16%">
+<p>Plus grand ou égal à
+</p>
+</td></tr>
+<tr>
+<td width="16%">
+<p>&lt;=
+</p>
+</td><td width="16%">
+<p>Plus petit ou égal à
+</p>
+</td></tr>
+
+</table>
+<p>Cette structure à un défaut&nbsp;: elle ne permet que de tester qu'une condition, mais cela va être corrigé maintenant&nbsp;:
+</p><p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Apprendre_le_pawn_avec_Gilux.html" title="Edit section: else if">edit</a>]</div><a name="else_if"></a><h4>else if</h4>
+<p>"else if" signifie "sinon, si". Si une première condition n'est pas validée, on va continuer et chercher si la 2e est vraie, etc.... jusqu'au "else" final si aucune condition n'est validée.
+</p><p>Voici un exemple commenté&nbsp;:
+</p>
+<pre class="pawn"><span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span><a href="http://wiki.sa-mp.com/wiki/GetPlayerMoney"><span style="color: #006400;">GetPlayerMoney</span></a><span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span> &gt;= <span style="color: #4169e1;">25000</span><span style="color: #66cc66;">&#41;</span> <span style="color: #808080; font-style: italic;">// Si le joueur possède plus de 25 000 $</span>
+<span style="color: #66cc66;">&#123;</span>
+<a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid,0xFFFFFF,<span style="color: #b22222;">&quot;Tu as beaucoup d'argent&nbsp;!&quot;</span><span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// On envoie le message et le script ignorera les conditions suivantes.</span>
+<span style="color: #66cc66;">&#125;</span>
+<span style="color: #4169e1;">else</span> <span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span><a href="http://wiki.sa-mp.com/wiki/GetPlayerMoney"><span style="color: #006400;">GetPlayerMoney</span></a><span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span> &gt;= <span style="color: #4169e1;">10000</span><span style="color: #66cc66;">&#41;</span> <span style="color: #808080; font-style: italic;">// Si il ne possède pas plus de 25 000$, mais si il en possède plus de 10 000</span>
+<span style="color: #66cc66;">&#123;</span>
+<a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid,0xFFFFFF,<span style="color: #b22222;">&quot;C'est pas encore ça, mais tu as de quoi vivre&nbsp;;)&quot;</span><span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// Même chose, on envoie le message et on continue</span>
+<span style="color: #66cc66;">&#125;</span>
+<span style="color: #4169e1;">else</span> <span style="color: #808080; font-style: italic;">// Si il possède moins de 10000</span>
+<span style="color: #66cc66;">&#123;</span>
+<a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid,0xFFFFFF,<span style="color: #b22222;">&quot;Tu es pauvre toi&nbsp;:p&quot;</span><span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// Si les 2 premières conditions sont fausses (Il n'a pas plus de 25000, ni plus de 10000), on envoie ce message.</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Apprendre_le_pawn_avec_Gilux.html" title="Edit section: Les conditions multiples">edit</a>]</div><a name="Les_conditions_multiples"></a><h4>Les conditions multiples</h4>
+<p>Il peut vous arriver de vouloir tester 2 ou plusieurs conditions ensemble.
+</p><p>Pour cela, il existe 2 signes&nbsp;: &amp;&amp; et || (Alt Gr + 6). Le 1er signifie "ET" et le second signifie "OU"<br />
+Exemple:
+</p>
+<pre class="pawn"><span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span><a href="http://wiki.sa-mp.com/wiki/GetPlayerMoney"><span style="color: #006400;">GetPlayerMoney</span></a><span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span> &gt;= <span style="color: #4169e1;">25000</span><span style="color: #66cc66;">&#41;</span> &amp;&amp; <a href="http://wiki.sa-mp.com/wiki/GetPlayerScore"><span style="color: #006400;">GetPlayerScore</span></a><span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span> &gt;= <span style="color: #4169e1;">100</span><span style="color: #66cc66;">&#41;</span></pre>
+<p>signifiera "Si le joueur a 25000$ ou plus <span style="font-weight:bold;">ET</span> si il a 100 points ou plus"<br />
+alors que:
+</p>
+<pre class="pawn"><span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span><a href="http://wiki.sa-mp.com/wiki/GetPlayerMoney"><span style="color: #006400;">GetPlayerMoney</span></a><span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span> &gt;= <span style="color: #4169e1;">25000</span><span style="color: #66cc66;">&#41;</span> || <a href="http://wiki.sa-mp.com/wiki/GetPlayerScore"><span style="color: #006400;">GetPlayerScore</span></a><span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span> &gt;= <span style="color: #4169e1;">100</span><span style="color: #66cc66;">&#41;</span></pre>
+<p>signifiera "Si le joueur a 25000$ ou plus <span style="font-weight:bold;">OU</span> si il a 100 points ou plus"
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Apprendre_le_pawn_avec_Gilux.html" title="Edit section: Inverse">edit</a>]</div><a name="Inverse"></a><h4>Inverse</h4>
+<p>Il existe un symbole pour indiquer l'inverse&nbsp;: ce symbole est "!"<br />
+Exemple&nbsp;:
+</p>
+<pre class="pawn"><span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span>!<a href="http://wiki.sa-mp.com/wiki/GetPlayerMoney"><span style="color: #006400;">GetPlayerMoney</span></a><span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span> &gt; <span style="color: #4169e1;">25000</span><span style="color: #66cc66;">&#41;</span></pre>
+<p>Revient à dire&nbsp;: "Si le joueur n'a pas plus de 25000 $" et équivaut à&nbsp;: if (GetPlayerMoney(playerid) &lt; 25000)
+</p><p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Apprendre_le_pawn_avec_Gilux.html" title="Edit section: Retour direct">edit</a>]</div><a name="Retour_direct"></a><h4>Retour direct</h4>
+<p>Pourquoi garder 3 lignes alors qu'on peut en utiliser qu'une&nbsp;?
+</p><p>En effet,
+</p>
+<pre class="pawn"><span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span>!<a href="http://wiki.sa-mp.com/wiki/IsPlayerAdmin"><span style="color: #006400;">IsPlayerAdmin</span></a><span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span> <span style="color: #808080; font-style: italic;">// Si le joueur n'EST PAS admin</span>
+<span style="color: #66cc66;">&#123;</span>
+<a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid,color,<span style="color: #b22222;">&quot;Cette commande est réservée aux admins&nbsp;!&quot;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>Peut s'écrire&nbsp;:
+</p>
+<pre class="pawn"><span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span>!<a href="http://wiki.sa-mp.com/wiki/IsPlayerAdmin"><span style="color: #006400;">IsPlayerAdmin</span></a><span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span> <span style="color: orange; font-weight: bold;">return</span> <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid,color,<span style="color: #b22222;">&quot;Cette commande est réservée aux admins&nbsp;!&quot;</span><span style="color: #66cc66;">&#41;</span>;</pre>
+<p>Tout se joue après le return, vous pouvez utiliser la même chose pour varier du SERVER:UNKNOWN COMMAND.<br />
+Dans OnPlayerCommandText, remplacez "return 0;" par "return SendClientMessage(playerid,color,"Cette commande est réservée aux admins&nbsp;!");"<br />
+Cela remplacera le message pas beau à voir 
+</p><p>Passons à la suite, les boucles&nbsp;!
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Apprendre_le_pawn_avec_Gilux.html" title="Edit section: Les boucles">edit</a>]</div><a name="Les_boucles"></a><h3>Les boucles</h3>
+<p>Les boucles permettent de faire automatiquement des actions répétitives.<br />
+Ainsi, si vous voulez vous faire flooder pour le fun, au lieu de taper ceci&nbsp;:
+</p>
+<pre class="pawn"><span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span><a href="http://wiki.sa-mp.com/wiki/strcmp"><span style="color: #006400;">strcmp</span></a><span style="color: #66cc66;">&#40;</span>cmdtext, <span style="color: #b22222;">&quot;/floodemoi&quot;</span>, true<span style="color: #66cc66;">&#41;</span> == <span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid,0xFFFFFFFF, <span style="color: #b22222;">&quot;Haha je te flood&nbsp;!!!&quot;</span><span style="color: #66cc66;">&#41;</span>;
+    <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid,0xFFFFFFFF, <span style="color: #b22222;">&quot;Haha je te flood&nbsp;!!!&quot;</span><span style="color: #66cc66;">&#41;</span>; 
+    <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid,0xFFFFFFFF, <span style="color: #b22222;">&quot;Haha je te flood&nbsp;!!!&quot;</span><span style="color: #66cc66;">&#41;</span>; 
+    <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid,0xFFFFFFFF, <span style="color: #b22222;">&quot;Haha je te flood&nbsp;!!!&quot;</span><span style="color: #66cc66;">&#41;</span>;
+    <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid,0xFFFFFFFF, <span style="color: #b22222;">&quot;Haha je te flood&nbsp;!!!&quot;</span><span style="color: #66cc66;">&#41;</span>;
+    <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid,0xFFFFFFFF, <span style="color: #b22222;">&quot;Haha je te flood&nbsp;!!!&quot;</span><span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+<span style="color: #808080; font-style: italic;">// Et ceci 50 fois...</span>
+    <span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>Il existe des boucles, qui tourneront tant qu'une condition sera vraie.
+</p><p>Nous allons commencer avec "While", la plus basique.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Apprendre_le_pawn_avec_Gilux.html" title="Edit section: While">edit</a>]</div><a name="While"></a><h4>While</h4>
+<p>La boucle While reçoit un paramètre, c'est une condition. Tant que celle-ci sera vraie, la boucle tournera indéfiniment.
+</p><p>Voici un code qui fait la même chose que la commande précédente.
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> Flood;
+<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span><a href="http://wiki.sa-mp.com/wiki/strcmp"><span style="color: #006400;">strcmp</span></a><span style="color: #66cc66;">&#40;</span>cmdtext, <span style="color: #b22222;">&quot;/floodemoi&quot;</span>, true<span style="color: #66cc66;">&#41;</span> == <span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+<span style="color: #4169e1;">while</span><span style="color: #66cc66;">&#40;</span>Flood &lt; <span style="color: #4169e1;">200</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid,0xFFFFFFFF,<span style="color: #b22222;">&quot;Haha je te flood&nbsp;!!!&quot;</span><span style="color: #66cc66;">&#41;</span>;
+    Flood++;
+<span style="color: #66cc66;">&#125;</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>Je résume&nbsp;: Tant que "Flood" sera inférieur à 200, on envoie un message au joueur, et on incrémente Flood (Très important, sinon la boucle tournera indéfiniment, faisant crasher votre serveur)
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Apprendre_le_pawn_avec_Gilux.html" title="Edit section: Do.....While">edit</a>]</div><a name="Do.....While"></a><h4>Do.....While</h4>
+<p>Il existe une autre forme de boucle&nbsp;: do.....while. Celle-ci, contrairement à while, <span style="font-weight:bold;">effectuera une fois l'action, même si la condition est fausse&nbsp;!</span>. La syntaxe est quasiment identique, excepté une petite différence&nbsp;: la condition se met sous la boucle.
+</p><p>Exemple&nbsp;:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> test = <span style="color: #4169e1;">10</span>; <span style="color: #808080; font-style: italic;">// On crée une variable et on lui met 10 comme valeur.</span>
+<span style="color: #4169e1;">do</span> <span style="color: #808080; font-style: italic;">// Initialisation de la boucle</span>
+<span style="color: #66cc66;">&#123;</span>
+        test++; <span style="color: #808080; font-style: italic;">// Incrémentation de la variable</span>
+        <a href="http://wiki.sa-mp.com/wiki/print"><span style="color: #006400;">print</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;Boucle Do...while effectuee&quot;</span><span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// Envoie un message dans la console du serveur.</span>
+<span style="color: #66cc66;">&#125;</span>
+<span style="color: #4169e1;">while</span> <span style="color: #66cc66;">&#40;</span>test &lt; <span style="color: #4169e1;">10</span><span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// Tant que test est plus petit que 10</span></pre>
+<p>Dans ce premier code, on crée une variable égale à 10.<br />
+La condition à beau être fausse (10 n'est pas plus petit que 10), l'action sera effectuée une fois, la variable vaudra 11, et on sortira de cette boucle.
+</p><p>Maintenant, nous allons décrémenter la variable.
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> test = <span style="color: #4169e1;">10</span>; <span style="color: #808080; font-style: italic;">// On crée une variable et on lui met 10 comme valeur.</span>
+<span style="color: #4169e1;">do</span> <span style="color: #808080; font-style: italic;">// Initialisation de la boucle</span>
+<span style="color: #66cc66;">&#123;</span>
+        test--; <span style="color: #808080; font-style: italic;">// Incrémentation de la variable</span>
+        <a href="http://wiki.sa-mp.com/wiki/print"><span style="color: #006400;">print</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;Boucle Do...while effectuee&quot;</span><span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// Envoie un message dans la console du serveur.</span>
+<span style="color: #66cc66;">&#125;</span>
+<span style="color: #4169e1;">while</span> <span style="color: #66cc66;">&#40;</span>test &lt; <span style="color: #4169e1;">10</span><span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// Tant que test est plus petit que 10</span></pre>
+<p>La condition à l'entrée de la boucle est fausse, cependant elle sera effectuée une fois, et la variable sera décrémentée (-1)<br />
+La condition deviendra vraie (9 &lt; 10) et la boucle continuera indéfiniment jusqu'à l'irrémédiable crash&nbsp;!  
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Apprendre_le_pawn_avec_Gilux.html" title="Edit section: For">edit</a>]</div><a name="For"></a><h4>For</h4>
+<p>For fait la même action que While, mais elle regroupe la création de la variable, la condition et l'incrémentation directement.<br />
+Exemple&nbsp;:
+</p>
+<pre class="pawn"><span style="color: #4169e1;">for</span> <span style="color: #66cc66;">&#40;</span><span style="color: #228b22; font-weight: bold;">new</span> player = <span style="color: #4169e1;">0</span>; player &lt;= <span style="color: #E9967A; font-weight: bold;">MAX_PLAYERS</span>; player++<span style="color: #66cc66;">&#41;</span> <span style="color: #808080; font-style: italic;">// Ligne où tout se passe, je vais la décrire après</span>
+<span style="color: #66cc66;">&#123;</span>
+        <a href="http://wiki.sa-mp.com/wiki/GivePlayerMoney"><span style="color: #006400;">GivePlayerMoney</span></a><span style="color: #66cc66;">&#40;</span>player,<span style="color: #4169e1;">20000</span><span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// Attention&nbsp;! Remplacer &quot;playerid&quot; par le nom de votre variable&nbsp;!</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>Ce code donnera 20000$ à tous les joueurs connectés.
+</p><p>Revoyons la 1ère ligne&nbsp;:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> player = <span style="color: #4169e1;">0</span>;</pre>Déclaration de la variable.
+<pre class="pawn">player &lt;= <span style="color: #E9967A; font-weight: bold;">MAX_PLAYERS</span></pre>La condition (MAX_PLAYERS est une valeur automatique, elle signifie "L'ID le plus grand d'un joueur"&nbsp;: Cela revient à dire&nbsp;: Tant que tous les joueurs ne se sont pas servis ^^)
+<pre class="pawn">player++</pre> L'incrémentation de la variable.
+<p>A vous de voir quelle boucle vous souhaitez utiliser, sachant qu'elles sont quasiment identiques, "for" prend juste moins de place&nbsp;:)
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Apprendre_le_pawn_avec_Gilux.html" title="Edit section: Conclusion">edit</a>]</div><a name="Conclusion_2"></a><h3>Conclusion</h3>
+<p>Voila, c'est la fin de cette 2e partie&nbsp;!<br />
+Vous avez appris beaucoup de choses, avec ce que vous avez appris là vous avez ce qu'il faut pour commencer à avoir un serveur correct, néanmoins il vous faudra être curieux (parcourir le wiki, télécharger un GM de base pour voir sa constitution, etc.)<br />
+Une 3e partie viendra prochainement conclure ce tutoriel.
+</p><p>Sur ce, bon courage à tous&nbsp;;)
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Apprendre_le_pawn_avec_Gilux.html" title="Edit section: Partie 3: Conclusion">edit</a>]</div><a name="Partie_3:_Conclusion"></a><h2>Partie 3: Conclusion</h2>
+<p>Salut, et bienvenue dans la 3e partie de ce tutoriel PAWN qui sera assez courte&nbsp;!<br />
+Dans celle-ci, je vais vous apprendre à créer des fonctions, puis je vous donnerai quelques conseils pour l'hébergement.<br />
+Il y aura aussi une introduction rapide à la notion d'intérieur et de monde virtuel.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Apprendre_le_pawn_avec_Gilux.html" title="Edit section: Notion d'intérieur">edit</a>]</div><a name="Notion_d.27int.C3.A9rieur"></a><h3>Notion d'intérieur</h3>
+<p>Un intérieur est comme son nom l'indique, un intérieur de bâtiment. Si vous faites un téléport 10 unités de Z au dessus de la normale(lorsque vous êtes dans un bâtiment), vous pourrez admirer "l'underworld". Chaque intérieur possède quelques bâtiments et a un ID spécifique que vous pouvez retrouver <a href="http://weedarr.wikidot.com/interior" class='external text' title="http://weedarr.wikidot.com/interior" rel="nofollow">ici</a> ou encore <a href="InteriorIDs_FR.html" class="new" title="InteriorIDs FR">InteriorIDs</a><br />
+Pour téléporter un joueur dans un intérieur, il faudra donc utiliser&nbsp;:
+</p>
+<pre class="pawn"><a href="http://wiki.sa-mp.com/wiki/SetPlayerInterior"><span style="color: #006400;">SetPlayerInterior</span></a><span style="color: #66cc66;">&#40;</span>playerid,Interiorid<span style="color: #66cc66;">&#41;</span>;</pre>
+<p>(sans oublier de téléporter le joueur à la position de l'intérieur)<br />
+Vous trouverez les IDs et positions des intérieurs sur le lien ci-dessus.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Apprendre_le_pawn_avec_Gilux.html" title="Edit section: Notion de monde virtuel">edit</a>]</div><a name="Notion_de_monde_virtuel"></a><h3>Notion de monde virtuel</h3>
+<p>Il existe quelques millions (ou milliards&nbsp;??) de monde virtuels, ou "VirtualWorld" ou encore "VW". Ils permettent de séparer les joueurs tout en partageant la même map.<br />
+L'utilisation de mondes virtuels autres que le 0 (défaut) semble donc évidente si vous voulez créer un DM, pour éviter que les joueurs en DM ne puissent tuer les autres.<br />
+Pour lier un joueur à un monde virtuel, utilisez&nbsp;:
+</p>
+<pre class="pawn"><a href="http://wiki.sa-mp.com/wiki/SetPlayerVirtualWorld"><span style="color: #006400;">SetPlayerVirtualWorld</span></a></pre>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #FFEAEA; border-left: 10px solid #FCA9A9;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #FCA9A9;"><a href="Image_32px-Circle-style-warning.png.html" class="image" title="Image:32px-Circle-style-warning.png"><img src="../upload/5/57/32px-Circle-style-warning.png" alt="Image:32px-Circle-style-warning.png" width="32" height="32" longdesc="Image_32px-Circle-style-warning.png.html" /></a><br />
+<p><strong>Note<br />Importante</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">ATTENTION&nbsp;: Un véhicule placé normalement ne sera visible que dans l'intérieur 0 et le monde virtuel 0, il faut utiliser SetVehicleVirtualWorld et LinkVehicleToInterior pour y remédier.</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Apprendre_le_pawn_avec_Gilux.html" title="Edit section: Créez vos fonctions">edit</a>]</div><a name="Cr.C3.A9ez_vos_fonctions"></a><h3>Créez vos fonctions</h3>
+<p>Quelquefois, vous aurez des commandes répétitives à créer (je pense aux téléports), il serait donc plus judicieux de créer une seule fois tous les effets (Téléporter, téléporter le véhicule si besoin, ajuster l'angle, etc) et de résumer un téléport à une instruction du genre Teleport(playerid,Float:X,Float:Y,Float:Z,Interior,VirtualWorld);<br />
+Je vais reprendre et ajuster honteusement l'exemple de Syg (<a href="http://www.gtaonline.fr/forums/index.php/topic,6250.0.html" class='external free' title="http://www.gtaonline.fr/forums/index.php/topic,6250.0.html" rel="nofollow">http://www.gtaonline.fr/forums/index.php/topic,6250.0.html</a>)
+</p>
+<pre class="pawn"><span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span><a href="http://wiki.sa-mp.com/wiki/strcmp"><span style="color: #006400;">strcmp</span></a> <span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;/stade&quot;</span>, cmdtext, true<span style="color: #66cc66;">&#41;</span> == <span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+   <span style="color: #228b22; font-weight: bold;">new</span> vehicleid;
+&nbsp;
+   <span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span><a href="http://wiki.sa-mp.com/wiki/IsPlayerInAnyVehicle"><span style="color: #006400;">IsPlayerInAnyVehicle</span></a> <span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>
+   <span style="color: #66cc66;">&#123;</span>
+      vehicleid = GetPlayerVehicleId <span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span>;
+      <a href="http://wiki.sa-mp.com/wiki/SetPlayerPos"><span style="color: #006400;">SetPlayerPos</span></a> <span style="color: #66cc66;">&#40;</span>playerid, <span style="color: #4169e1;">1.0</span>, <span style="color: #4169e1;">2.0</span>, <span style="color: #4169e1;">3.0</span><span style="color: #66cc66;">&#41;</span>;
+      <a href="http://wiki.sa-mp.com/wiki/SetPlayerVirtualWorld"><span style="color: #006400;">SetPlayerVirtualWorld</span></a><span style="color: #66cc66;">&#40;</span>playerid,<span style="color: #4169e1;">5</span><span style="color: #66cc66;">&#41;</span>;
+      <a href="http://wiki.sa-mp.com/wiki/SetPlayerInterior"><span style="color: #006400;">SetPlayerInterior</span></a><span style="color: #66cc66;">&#40;</span>playerid,<span style="color: #4169e1;">2</span><span style="color: #66cc66;">&#41;</span>;
+      SetVehicleVirtualWorld<span style="color: #66cc66;">&#40;</span>vehicleid,<span style="color: #4169e1;">5</span><span style="color: #66cc66;">&#41;</span>;
+      LinkVehicleToInterior<span style="color: #66cc66;">&#40;</span>vehicleid,<span style="color: #4169e1;">2</span><span style="color: #66cc66;">&#41;</span>;
+      SetVehiclePos <span style="color: #66cc66;">&#40;</span>vehicleid, <span style="color: #4169e1;">1.0</span>, <span style="color: #4169e1;">2.0</span>, <span style="color: #4169e1;">3.0</span><span style="color: #66cc66;">&#41;</span>;
+      SetVehicleZAngle <span style="color: #66cc66;">&#40;</span>vehicleid, <span style="color: #4169e1;">4.0</span><span style="color: #66cc66;">&#41;</span>;
+      <a href="http://wiki.sa-mp.com/wiki/PutPlayerInVehicle"><span style="color: #006400;">PutPlayerInVehicle</span></a> <span style="color: #66cc66;">&#40;</span>playerid, vehicleid, <span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span>;
+      <a href="http://wiki.sa-mp.com/wiki/SetCameraBehindPlayer"><span style="color: #006400;">SetCameraBehindPlayer</span></a> <span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span>;
+   <span style="color: #66cc66;">&#125;</span>
+   <span style="color: #4169e1;">else</span>
+   <span style="color: #66cc66;">&#123;</span>
+      <a href="http://wiki.sa-mp.com/wiki/SetPlayerPos"><span style="color: #006400;">SetPlayerPos</span></a> <span style="color: #66cc66;">&#40;</span>playerid, <span style="color: #4169e1;">1.0</span>, <span style="color: #4169e1;">2.0</span>, <span style="color: #4169e1;">3.0</span><span style="color: #66cc66;">&#41;</span>;
+      <a href="http://wiki.sa-mp.com/wiki/SetPlayerInterior"><span style="color: #006400;">SetPlayerInterior</span></a><span style="color: #66cc66;">&#40;</span>playerid,<span style="color: #4169e1;">2</span><span style="color: #66cc66;">&#41;</span>;
+      <a href="http://wiki.sa-mp.com/wiki/SetPlayerVirtualWorld"><span style="color: #006400;">SetPlayerVirtualWorld</span></a><span style="color: #66cc66;">&#40;</span>playerid,<span style="color: #4169e1;">5</span><span style="color: #66cc66;">&#41;</span>;
+      <a href="http://wiki.sa-mp.com/wiki/SetCameraBehindPlayer"><span style="color: #006400;">SetCameraBehindPlayer</span></a> <span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span>;
+   <span style="color: #66cc66;">&#125;</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>Rien qu'à la vue de ce code, vous pouvez vous rendre compte qu'il s'agit d'un code lourd pour pas grand chose.<br />
+Cependant il peut être simplifié, nous allons créer une nouvelle instruction qui regroupera le tout&nbsp;:
+</p>
+<pre class="pawn">Teleport <span style="color: #66cc66;">&#40;</span>playerid, <span style="color: orange;">Float</span>:X, <span style="color: orange;">Float</span>:Y, <span style="color: orange;">Float</span>:Z, <span style="color: orange;">Float</span>:Angle, Interior, VirtualWorld<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+   <span style="color: #228b22; font-weight: bold;">new</span> vehicleid;
+   <span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span><a href="http://wiki.sa-mp.com/wiki/IsPlayerInAnyVehicle"><span style="color: #006400;">IsPlayerInAnyVehicle</span></a><span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>
+   <span style="color: #66cc66;">&#123;</span>
+      vehicleid = GetPlayerVehicleId <span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span>;
+      <a href="http://wiki.sa-mp.com/wiki/SetPlayerPos"><span style="color: #006400;">SetPlayerPos</span></a> <span style="color: #66cc66;">&#40;</span>playerid, X, Y, Z<span style="color: #66cc66;">&#41;</span>;
+      SetVehiclePos <span style="color: #66cc66;">&#40;</span>vehicleid, X, Y, Z<span style="color: #66cc66;">&#41;</span>;
+      SetVehicleZAngle <span style="color: #66cc66;">&#40;</span>vehicleid, Angle<span style="color: #66cc66;">&#41;</span>;
+      <a href="http://wiki.sa-mp.com/wiki/SetPlayerInterior"><span style="color: #006400;">SetPlayerInterior</span></a><span style="color: #66cc66;">&#40;</span>playerid,Interior<span style="color: #66cc66;">&#41;</span>;
+      LinkVehicleToInterior<span style="color: #66cc66;">&#40;</span>vehicleid,Interior<span style="color: #66cc66;">&#41;</span>;
+      <a href="http://wiki.sa-mp.com/wiki/SetPlayerVirtualWorld"><span style="color: #006400;">SetPlayerVirtualWorld</span></a><span style="color: #66cc66;">&#40;</span>playerid,VirtualWorld<span style="color: #66cc66;">&#41;</span>;
+      SetVehicleVirtualWorld<span style="color: #66cc66;">&#40;</span>vehicleid, VirtualWorld<span style="color: #66cc66;">&#41;</span>;
+      <a href="http://wiki.sa-mp.com/wiki/PutPlayerInVehicle"><span style="color: #006400;">PutPlayerInVehicle</span></a> <span style="color: #66cc66;">&#40;</span>playerid, vehicleid, <span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span>;
+      <a href="http://wiki.sa-mp.com/wiki/SetCameraBehindPlayer"><span style="color: #006400;">SetCameraBehindPlayer</span></a> <span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span>;
+   <span style="color: #66cc66;">&#125;</span>
+   <span style="color: #4169e1;">else</span>
+   <span style="color: #66cc66;">&#123;</span>
+      <a href="http://wiki.sa-mp.com/wiki/SetPlayerPos"><span style="color: #006400;">SetPlayerPos</span></a> <span style="color: #66cc66;">&#40;</span>playerid, X, Y, Z<span style="color: #66cc66;">&#41;</span>;
+      <a href="http://wiki.sa-mp.com/wiki/SetPlayerInterior"><span style="color: #006400;">SetPlayerInterior</span></a><span style="color: #66cc66;">&#40;</span>playerid,Interior<span style="color: #66cc66;">&#41;</span>;
+      <a href="http://wiki.sa-mp.com/wiki/SetPlayerVirtualWorld"><span style="color: #006400;">SetPlayerVirtualWorld</span></a><span style="color: #66cc66;">&#40;</span>playerid,VirtualWorld<span style="color: #66cc66;">&#41;</span>;
+      <a href="http://wiki.sa-mp.com/wiki/SetCameraBehindPlayer"><span style="color: #006400;">SetCameraBehindPlayer</span></a> <span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span>;
+   <span style="color: #66cc66;">&#125;</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>Maintenant, vous n'avez plus qu'a taper (dîtes non à la violence!):
+</p>
+<pre class="pawn"><span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span><a href="http://wiki.sa-mp.com/wiki/strcmp"><span style="color: #006400;">strcmp</span></a> <span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;/stade&quot;</span>, cmdtext, true<span style="color: #66cc66;">&#41;</span> == <span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+   Teleport<span style="color: #66cc66;">&#40;</span>playerid, <span style="color: #4169e1;">1.0</span>, <span style="color: #4169e1;">2.0</span>, <span style="color: #4169e1;">3.0</span>, <span style="color: #4169e1;">4.0</span>,<span style="color: #4169e1;">15</span>,<span style="color: #4169e1;">5</span><span style="color: #66cc66;">&#41;</span>;
+   <span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>Le joueur sera conduit aux positions (1;2;3), avec un angle de 4°, dans l'intérieur 15 et le monde virtuel 5.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Apprendre_le_pawn_avec_Gilux.html" title="Edit section: Conseils d'hébergement">edit</a>]</div><a name="Conseils_d.27h.C3.A9bergement"></a><h3>Conseils d'hébergement</h3>
+<p>Les hébergeurs se font nombreux, mais certains ne sont pas toujours honnêtes... Attention donc aux vols de scripts&nbsp;!<br />
+Pour éviter cela au maximum, voici 2 conseils&nbsp;:
+</p>
+<ul><li>Méfiez-vous des hébergeurs gratuits, très peu sont honnêtes. Si vous avez un réel projet, il vaut mieux chercher un hébergement certes payant, mais de qualité.
+</li><li>Ne mettez que le .amx (version compilée) sur votre session. (Les .pwn contiennent le code source en clair et sont inutiles au fonctionnement du serveur)
+</li></ul>
+<p>Attention aussi à la compatibilité Linux / Windows&nbsp;! La majorité des hébergements se font sous linux, mais il existe quelques différences, notamment au niveau des plugins (.dll à ajouter à votre serveur pour disposer de fonctions supplémentaires.) 
+<br />Par exemple, ici vous ne devrez pas mettre le .dll, mais le .so (Version Linux).
+</p><p>Voilà, c'est la fin de cette 3e partie et de ce tutoriel, vous avez maintenant les capacités pour faire un bon GM, bonne chance&nbsp;!<br />
+++
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Apprendre_le_pawn_avec_Gilux.html" title="Edit section: Information sur ce tutoriel">edit</a>]</div><a name="Information_sur_ce_tutoriel"></a><h2>Information sur ce tutoriel</h2>
+<p>Ce tutoriel a été réalisé par Gilux sur le forum GtaOnline
+</p>
+<ul><li><a href="http://www.gtaonline.net/forums/index.php/topic,11593.0.html" class='external text' title="http://www.gtaonline.net/forums/index.php/topic,11593.0.html" rel="nofollow">Partie 1: Les bases</a>
+</li><li><a href="http://www.gtaonline.net/forums/index.php/topic,11595.0.html" class='external text' title="http://www.gtaonline.net/forums/index.php/topic,11595.0.html" rel="nofollow">Partie 2: Structures utiles</a>
+</li><li><a href="http://www.gtaonline.net/forums/index.php/topic,11688.0.html" class='external text' title="http://www.gtaonline.net/forums/index.php/topic,11688.0.html" rel="nofollow">Partie 3: Conclusion</a>
+</li></ul>
+<p>Moi, Kilou, sous le compte de Connor Mead, qui n'a fait que transporter et éditer ce tutoriel (pour que la syntaxe soit conforme et lisible sur ce wiki), ne m'en attribue en aucun cas la réalisation.
+</p><div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/Apprendre_le_pawn_avec_Gilux.html">http://localhost../wiki/Apprendre_le_pawn_avec_Gilux.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="Category_Scripting_Functions_FR.html" title="Category:Scripting Functions FR">Scripting Functions FR</a></span> | <span dir='ltr'><a href="Category_Tutorials_FR.html" title="Category:Tutorials FR">Tutorials FR</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="Apprendre_le_pawn_avec_Gilux.html">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="Talk_Apprendre_le_pawn_avec_Gilux.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="Apprendre_le_pawn_avec_Gilux.html">Edit</a></li>
+				 <li id="ca-history"><a href="Apprendre_le_pawn_avec_Gilux.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 36,027 times.</li>
+				<li id="credits">This page was last modified 06:16, 24 April 2014 by <a href="User_Kilou.html" title="User:Kilou">Killian</a>. Based on work by SA-MP Wiki user(s) <a href="User_Connor_Mead.html" title="User:Connor Mead">Connor Mead</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 91.59 secs. -->
+</body></html>

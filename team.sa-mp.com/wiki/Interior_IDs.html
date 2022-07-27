@@ -1,0 +1,815 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Interior IDs,Function:SetPlayerPos,LinkVehicleToInterior,SetPlayerInterior" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>Interior IDs - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Interior IDs</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class='toclevel-1'><a href="#How_to_get_the_Interior_ID"><span class="tocnumber">1</span> <span class="toctext">How to get the Interior ID</span></a></li>
+<li class='toclevel-1'><a href="#Browse_Interiors_In-Game"><span class="tocnumber">2</span> <span class="toctext">Browse Interiors In-Game</span></a></li>
+<li class='toclevel-1'><a href="#24.2F7.27s"><span class="tocnumber">3</span> <span class="toctext">24/7's</span></a></li>
+<li class='toclevel-1'><a href="#Airports.2FAeroplane.27s"><span class="tocnumber">4</span> <span class="toctext">Airports/Aeroplane's</span></a></li>
+<li class='toclevel-1'><a href="#Ammunation.27s"><span class="tocnumber">5</span> <span class="toctext">Ammunation's</span></a></li>
+<li class='toclevel-1'><a href="#Burglary_Houses"><span class="tocnumber">6</span> <span class="toctext">Burglary Houses</span></a></li>
+<li class='toclevel-1'><a href="#Interiors_from_Missions.2FCutscenes"><span class="tocnumber">7</span> <span class="toctext">Interiors from Missions/Cutscenes</span></a></li>
+<li class='toclevel-1'><a href="#Safe_Houses"><span class="tocnumber">8</span> <span class="toctext">Safe Houses</span></a></li>
+<li class='toclevel-1'><a href="#Unused_Interiors"><span class="tocnumber">9</span> <span class="toctext">Unused Interiors</span></a></li>
+<li class='toclevel-1'><a href="#Shops.2C_Casinos"><span class="tocnumber">10</span> <span class="toctext">Shops, Casinos</span></a></li>
+<li class='toclevel-1'><a href="#Modding_shops"><span class="tocnumber">11</span> <span class="toctext">Modding shops</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Interior_IDs.html" title="Edit section: How to get the Interior ID">edit</a>]</div><a name="How_to_get_the_Interior_ID"></a><h2> How to get the Interior ID </h2>
+<p>If you are inside an interior type
+</p>
+<pre>/interior
+</pre>
+<p>and you'll see the ID of the interior universe.
+</p><p>Now you can safely use <a href="SetPlayerInterior.html" title="SetPlayerInterior">SetPlayerInterior</a> and <a href="LinkVehicleToInterior.html" title="LinkVehicleToInterior">LinkVehicleToInterior</a> before using <a href="Function_SetPlayerPos.html" title="Function:SetPlayerPos">SetPlayerPos</a>.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Interior_IDs.html" title="Edit section: Browse Interiors In-Game">edit</a>]</div><a name="Browse_Interiors_In-Game"></a><h2> Browse Interiors In-Game </h2>
+<p>You can use Limex's Interior Filterscript, which has quick access to all 146 Interiors using just two commands. It allows you browse through a list of names with one command, and then teleport to the interiors with the other command. It is designed to be extremely basic and user friendly. It is located at <a href="http://forum.sa-mp.com/showthread.php?t=71648" class='external free' title="http://forum.sa-mp.com/showthread.php?t=71648" rel="nofollow">http://forum.sa-mp.com/showthread.php?t=71648</a>
+</p><p>Another script which you might find useful is [03]Garsino's <a href="http://forum.sa-mp.com/showpost.php?p=476577&amp;postcount=1" class='external text' title="http://forum.sa-mp.com/showpost.php?p=476577&amp;postcount=1" rel="nofollow">Interior Dialog</a>. It allows you to browse all interiors using dialogs, interiors are sorted into categories to help users find the interiors they want fast and easy!
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Interior_IDs.html" title="Edit section: 24/7's">edit</a>]</div><a name="24.2F7.27s"></a><h2> 24/7's </h2>
+<table width="100%" class="wikitable">
+
+<tr>
+<th>Interior
+</th><th>Interior ID
+</th><th>X
+</th><th>Y
+</th><th>Z
+</th><th>Description
+</th><th>Singleplayer
+</th></tr>
+<tr>
+<td> 24/7 1
+</td><td> 17
+</td><td> -25.884499,-35.0952,-3.3979
+</td><td> -185.868988,-188.7431,-167.9059
+</td><td> 1003.549988,1002.5469,1008.7656
+</td><td> Big - L-shaped - NO EXIT
+</td><td>
+</td></tr>
+<tr>
+<td> 24/7 2
+</td><td> 10
+</td><td> 6.091180,-13.1705,10.8973
+</td><td> -29.271898,-32.5796,-73.7699
+</td><td> 1003.549988,1002.5494,1008.8979
+</td><td> Big - Oblong   - NO EXIT
+</td><td>
+</td></tr>
+<tr>
+<td> 24/7 3
+</td><td> 18
+</td><td> -30.946699,-39.2296,-12.9542
+</td><td> -89.609596,-92.6993,-73.7699
+</td><td> 1003.549988,1002.5469,1008.9487
+</td><td> Med - Square
+</td><td> Creek, LV
+</td></tr>
+<tr>
+<td> 24/7 4
+</td><td> 16
+</td><td> -25.132599,-39.1961,-14.0429
+</td><td> -139.066986,-142.2416,-122.4566
+</td><td> 1003.549988,1002.5469,1008.3311
+</td><td> Med - Square   - NO EXIT
+</td><td>
+</td></tr>
+<tr>
+<td> 24/7 5
+</td><td> 4
+</td><td> -27.312300,-36.9258,-25.8106
+</td><td> -29.277599,-32.1881,-1.8185
+</td><td> 1003.549988,1002.5573,1009.0845
+</td><td> Sml - Long
+</td><td> Mulholland
+</td></tr>
+<tr>
+<td> 24/7 6
+</td><td> 6
+</td><td> -26.691599,-37.4347,-16.2656
+</td><td> -55.714897,-58.9940,-48.4956
+</td><td> 1003.549988,1002.5469,1008.7020
+</td><td> Sml - Square
+</td><td> Whetstone
+</td></tr></table>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Interior_IDs.html" title="Edit section: Airports/Aeroplane's">edit</a>]</div><a name="Airports.2FAeroplane.27s"></a><h2> Airports/Aeroplane's </h2>
+<table width="100%" class="wikitable">
+
+<tr>
+<th>Interior
+</th><th>Interior ID
+</th><th>X
+</th><th>Y
+</th><th>Z
+</th><th>Description
+</th><th>Singleplayer
+</th></tr>
+<tr>
+<td> Francis Intn'l Airport - Ticket sales
+</td><td> 14
+</td><td> -1827.147338
+</td><td> 7.207418
+</td><td> 1061.143554
+</td><td> Francis Int. Airport (Front Exterior &amp; Ticket Sales)
+</td><td> Starting Cutscene
+</td></tr>
+<tr>
+<td> Francis Intn'l Airport - Baggage claim
+</td><td> 14
+</td><td> -1855.568725
+</td><td> 41.263156
+</td><td> 1061.143554
+</td><td> Francis Int. Airport (Baggage Claim)
+</td><td> Starting Cutscene
+</td></tr>
+<tr>
+<td> Shamal cabin
+</td><td> 1
+</td><td> 2.384830
+</td><td> 33.103397
+</td><td> 1199.849976
+</td><td> Shamal plane interior where you fight with Mafia
+</td><td> Mission "Free Fall"
+</td></tr>
+<tr>
+<td> Andromada cargo hold
+</td><td> 9
+</td><td> 315.856170
+</td><td> 1024.496459
+</td><td> 1949.797363
+</td><td> Interior of the Andromeda Plane
+</td><td> Mission "Stowaway"
+</td></tr></table>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Interior_IDs.html" title="Edit section: Ammunation's">edit</a>]</div><a name="Ammunation.27s"></a><h2> Ammunation's </h2>
+<table width="100%" class="wikitable">
+
+<tr>
+<th>Interior
+</th><th>Interior ID
+</th><th>X
+</th><th>Y
+</th><th>Z
+</th><th>Description
+</th><th>Singleplayer
+</th></tr>
+<tr>
+<td> Ammunation 1
+</td><td> 1
+</td><td> 286.148987
+</td><td> -40.644398
+</td><td> 1001.569946
+</td><td>
+</td><td> Ocean Flats, SF
+</td></tr>
+<tr>
+<td> Ammunation 2
+</td><td> 4
+</td><td> 286.800995
+</td><td> -82.547600
+</td><td> 1001.539978
+</td><td>
+</td><td> Palomino Creek, LV
+</td></tr>
+<tr>
+<td> Ammunation 3
+</td><td> 6
+</td><td> 296.919983
+</td><td> -108.071999
+</td><td> 1001.569946
+</td><td>
+</td><td> Angel Pine, SF
+</td></tr>
+<tr>
+<td> Ammunation 4
+</td><td> 7
+</td><td> 314.820984
+</td><td> -141.431992
+</td><td> 999.661987
+</td><td> 2 Stories, with Booth and Range
+</td><td>
+</td></tr>
+<tr>
+<td> Ammunation 5
+</td><td> 6
+</td><td> 316.524994
+</td><td> -167.706985
+</td><td> 999.661987
+</td><td>
+</td><td> El Quebrados, LV
+</td></tr>
+<tr>
+<td> Booth
+</td><td> 7
+</td><td> 302.292877
+</td><td> -143.139099
+</td><td> 1004.062500
+</td><td> Ammunation Booth from Ammunation 4
+</td><td>
+</td></tr>
+<tr>
+<td> Range
+</td><td> 7
+</td><td> 280.795104
+</td><td> -135.203353
+</td><td> 1004.062500
+</td><td> Ammunation Range from Ammunation 4
+</td><td>
+</td></tr></table>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Interior_IDs.html" title="Edit section: Burglary Houses">edit</a>]</div><a name="Burglary_Houses"></a><h2> Burglary Houses </h2>
+<table width="100%" class="wikitable">
+
+<tr>
+<th>Interior
+</th><th>Interior ID
+</th><th>X
+</th><th>Y
+</th><th>Z
+</th><th>Description
+</th><th>Singleplayer
+</th></tr>
+<tr>
+<td> House 1
+</td><td> 3
+</td><td> 235.508994
+</td><td> 1189.169897
+</td><td> 1080.339966
+</td><td> Large/2 story/3 bedrooms/clone of House 9
+</td><td>
+</td></tr>
+<tr>
+<td> House 2
+</td><td> 2
+</td><td> 225.756989
+</td><td> 1240.000000
+</td><td> 1082.149902
+</td><td> Medium/1 story/1 bedroom
+</td><td>
+</td></tr>
+<tr>
+<td> House 3
+</td><td> 1
+</td><td> 223.043991
+</td><td> 1289.259888
+</td><td> 1082.199951
+</td><td> Small/1 story/1 bedroom
+</td><td>
+</td></tr>
+<tr>
+<td> House 4
+</td><td> 7
+</td><td> 225.630997
+</td><td> 1022.479980
+</td><td> 1084.069946
+</td><td> VERY Large/2 story/4 bedrooms
+</td><td>
+</td></tr>
+<tr>
+<td> House 5
+</td><td> 15
+</td><td> 295.138977
+</td><td> 1474.469971
+</td><td> 1080.519897
+</td><td> Small/1 story/2 bedrooms
+</td><td>
+</td></tr>
+<tr>
+<td> House 6
+</td><td> 15
+</td><td> 328.493988
+</td><td> 1480.589966
+</td><td> 1084.449951
+</td><td> Small/1 story/2 bedrooms
+</td><td>
+</td></tr>
+<tr>
+<td> House 7
+</td><td> 15
+</td><td> 385.803986
+</td><td> 1471.769897
+</td><td> 1080.209961
+</td><td> Small/1 story/1 bedroom/NO BATHROOM!
+</td><td>
+</td></tr></table>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Interior_IDs.html" title="Edit section: Interiors from Missions/Cutscenes">edit</a>]</div><a name="Interiors_from_Missions.2FCutscenes"></a><h2> Interiors from Missions/Cutscenes </h2>
+<table width="100%" class="wikitable">
+
+<tr>
+<th>Interior
+</th><th>Interior ID
+</th><th>X
+</th><th>Y
+</th><th>Z
+</th><th>Description
+</th><th>Singleplayer
+</th></tr>
+<tr>
+<td> Atrium
+</td><td> 18
+</td><td> 1726.18
+</td><td> -1641.00
+</td><td> 20.23
+</td><td> Located in LS, near LSPD
+</td><td> Mission "Just Business"
+</td></tr>
+<tr>
+<td> Big Smoke's Crack Palace
+</td><td> 2
+</td><td> 2567.52
+</td><td> -1294.59
+</td><td> 1063.25
+</td><td> Crack Laboratory
+</td><td> Mission "End of the Line", after that opened for visit
+</td></tr>
+<tr>
+<td> Bloodbowl Stadium
+</td><td> 15
+</td><td> -1394.20
+</td><td> 987.62
+</td><td> 1023.96
+</td><td>
+</td><td> Arena Mission "Bloodbowl"
+</td></tr>
+<tr>
+<td> Burning Desire House
+</td><td> 5
+</td><td> 2338.32
+</td><td> -1180.61
+</td><td> 1027.98
+</td><td> House from the mission, partly no textures even if solid.
+</td><td> Mission "Burning Desire"
+</td></tr>
+<tr>
+<td> Colonel Furhberger's
+</td><td> 8
+</td><td> 2807.63
+</td><td> -1170.15
+</td><td> 1025.57
+</td><td> House you rob during a mission
+</td><td> Mission "Home Invasion"
+</td></tr>
+<tr>
+<td> Dillimore Gas Station
+</td><td> 0
+</td><td> 664.19
+</td><td> -570.73
+</td><td> 16.34
+</td><td> Only South &amp; West Wall + Floor solid
+</td><td> Mission "Tanker Commander"
+</td></tr>
+<tr>
+<td> Donut Shop
+</td><td> 17
+</td><td> 376.99
+</td><td> -191.21
+</td><td> 1000.63
+</td><td> The inside of the donut shop
+</td><td> Mission "Burning Desire"
+</td></tr>
+<tr>
+<td> Francis International Airport
+</td><td> 14
+</td><td> -1830.81
+</td><td> 16.83
+</td><td> 1061.14
+</td><td> Front Exterior &amp; Ticket Sale, visible floors are solid
+</td><td> Cutscene in "Opening Mission"
+</td></tr>
+<tr>
+<td> Jefferson Motel
+</td><td> 15
+</td><td> 2220.26
+</td><td> -1148.01
+</td><td> 1025.80
+</td><td> Large Motel with lot of rooms
+</td><td> Mission "Reuniting the Families", Jefferson, Los Santos
+</td></tr>
+<tr>
+<td> Kickstart Stadium
+</td><td> 14
+</td><td> -1410.72
+</td><td> 1591.16
+</td><td> 1052.53
+</td><td>
+</td><td> Arena Mission "Kickstart"
+</td></tr>
+<tr>
+<td> Liberty City
+</td><td> 1
+</td><td> -750.80
+</td><td> 491.00
+</td><td> 1371.70
+</td><td> Interior with parts of Liberty City, only Saint Marks Bistro and nearer surrounding solid
+</td><td> Mission "Saint Marks Bistro"
+</td></tr>
+<tr>
+<td> Los Santos Airport, Baggage Reclaim
+</td><td> 14
+</td><td> -1870.80
+</td><td> 59.81
+</td><td> 1056.25
+</td><td> only roof is solid, maybe some of floor too
+</td><td> Cutscene in "Opening Mission"
+</td></tr>
+<tr>
+<td> Pleasures Dome/Jizzy's
+</td><td> 3
+</td><td> -2637.69
+</td><td> 1404.24
+</td><td> 906.46
+</td><td> Club in San Fierro
+</td><td> Cutscene &amp; in Mission "Ice Cold Killa"
+</td></tr>
+<tr>
+<td> RC Battlefield
+</td><td> 10
+</td><td> -1079.99
+</td><td> 1061.58
+</td><td> 1343.04
+</td><td>
+</td><td> Mission "New Model Army"
+</td></tr>
+<tr>
+<td> Ryders House
+</td><td> 2
+</td><td> 2451.77
+</td><td> -1699.80
+</td><td> 1013.51
+</td><td> House of Ryder, some objects not solid
+</td><td> Cutscenes
+</td></tr>
+<tr>
+<td> San Fierro Garage Interior
+</td><td> 1
+</td><td> -2042.42
+</td><td> 178.59
+</td><td> 28.84
+</td><td> Interior of your Garage in Doherty. Locked Camera Position
+</td><td> Cutscenes
+</td></tr>
+<tr>
+<td> Sweets House
+</td><td> 1
+</td><td> 2535.83
+</td><td> -1674.32
+</td><td> 1015.50
+</td><td> House of your brother Sweet, some floors/walls &amp; objects not solid
+</td><td> Cutscenes
+</td></tr>
+<tr>
+<td> Welcome Pump
+</td><td> 1
+</td><td> 681.66
+</td><td> -453.32
+</td><td> -25.61
+</td><td> The truck Stop Dinner where you meet Catalina. Entrance Area not solid
+</td><td> Cutscene in "First Date"
+</td></tr>
+<tr>
+<td> Woozies Apartment
+</td><td> 1
+</td><td> -2158.72
+</td><td> 641.29
+</td><td> 1052.38
+</td><td> Appartment where you meet Woozie few times during Missions in San Fierro. Does also include Woozie's betting shop
+</td><td> Cutscenes
+</td></tr>
+<tr>
+<td> 8 Track Stadium
+</td><td> 7
+</td><td> -1395.958
+</td><td> -208.197
+</td><td> 1051.170
+</td><td> Figure-8 race track
+</td><td> Stadium
+</td></tr>
+<tr>
+<td> Dirt Bike Stadium
+</td><td> 4
+</td><td> -1424.9319
+</td><td> -664.5869
+</td><td> 1059.8585
+</td><td> Dirt Bike Stadium
+</td><td> Stadium
+</td></tr>
+<tr>
+<td> Crack Den
+</td><td> 5
+</td><td> 318.565
+</td><td> 1115.210
+</td><td> 1082.98
+</td><td> Crack House
+</td><td> Mission "Cleaning The Hood"
+</td></tr></table>
+<p>Notice: The Interiors in universe 0 are opened in SA:MP, but not when you start Singleplayer Missions.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Interior_IDs.html" title="Edit section: Safe Houses">edit</a>]</div><a name="Safe_Houses"></a><h2> Safe Houses </h2>
+<table width="100%" class="wikitable">
+
+<tr>
+<th>Interior
+</th><th>Interior ID
+</th><th>X
+</th><th>Y
+</th><th>Z
+</th><th>Description
+</th><th>Location
+</th></tr>
+<tr>
+<td> Golden Bed Motel Room
+</td><td> 9
+</td><td> 2251.85
+</td><td> -1138.16
+</td><td> 1050.63
+</td><td> Safe House Group 3
+</td><td>&nbsp;?
+</td></tr>
+<tr>
+<td> Hashbury House
+</td><td> 10
+</td><td> 2260.76
+</td><td> -1210.45
+</td><td> 1049.02
+</td><td> Safe House Group 4
+</td><td> Hashburry, San Fierro
+</td></tr>
+<tr>
+<td> Johnsons House, The
+</td><td> 3
+</td><td> 2496.65
+</td><td> -1696.55
+</td><td> 1014.74
+</td><td> House of CJ's family where his mum has been murdered
+</td><td> Ganton, Los Santos
+</td></tr>
+<tr>
+<td> Madd Doggs Mansion
+</td><td> 5
+</td><td> 1299.14
+</td><td> -794.77
+</td><td> 1084.00
+</td><td> The large mansion you get at the end of Las Venturas Storyline Section. Also part of mission "Madd Doggs Rhymes"
+</td><td> Mulholland, Los Santos
+</td></tr>
+<tr>
+<td> Red Bed Motel Room
+</td><td> 10
+</td><td> 2262.83
+</td><td> -1137.71
+</td><td> 1050.63
+</td><td> Safe House Group 4
+</td><td>&nbsp;?
+</td></tr>
+<tr>
+<td> Verdant Bluffs Safehouse
+</td><td> 8
+</td><td> 2365.42
+</td><td> -1131.85
+</td><td> 1050.88
+</td><td>
+</td><td> Verdant Bluffs, Las Venturas
+</td></tr>
+<tr>
+<td> Zeros RC Shop
+</td><td> 6
+</td><td> -2240.00
+</td><td> 131.00
+</td><td> 1035.40
+</td><td> The Shop you can buy and start missions from
+</td><td> Garcia, San Fierro
+</td></tr></table>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Interior_IDs.html" title="Edit section: Unused Interiors">edit</a>]</div><a name="Unused_Interiors"></a><h2> Unused Interiors </h2>
+<table width="100%" class="wikitable">
+
+<tr>
+<th>Interior
+</th><th>Interior ID
+</th><th>X
+</th><th>Y
+</th><th>Z
+</th><th>Description
+</th><th>Location
+</th></tr>
+<tr>
+<td> SF Police Department
+</td><td> 10
+</td><td> 246.40
+</td><td> 110.84
+</td><td> 1003.22
+</td><td>
+</td><td> Not used
+</td></tr>
+<tr>
+<td> Unused Safe House
+</td><td> 12
+</td><td> 2324.33
+</td><td> -1144.79
+</td><td> 1050.71
+</td><td> Large modern unused Safehouse
+</td><td> Not used
+</td></tr></table>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Interior_IDs.html" title="Edit section: Shops, Casinos">edit</a>]</div><a name="Shops.2C_Casinos"></a><h2> Shops, Casinos </h2>
+<table width="100%" class="wikitable">
+
+<tr>
+<th>Interior
+</th><th>Interior ID
+</th><th>X
+</th><th>Y
+</th><th>Z
+</th><th>Description
+</th><th>Location
+</th></tr>
+<tr>
+<td> Tattoos
+</td><td> 16
+</td><td> -203.0764
+</td><td> -24.1658
+</td><td> 1002.2734
+</td><td> Tattoo shop
+</td><td> Idlewood,LS
+</td></tr>
+<tr>
+<td> Burger Shot
+</td><td> 10
+</td><td> 363.4129
+</td><td> -74.5786
+</td><td> 1001.5078
+</td><td> Food shop
+</td><td> Throughout San Andreas
+</td></tr>
+<tr>
+<td> Well Stacked Pizza
+</td><td> 5
+</td><td> 372.3520
+</td><td> -131.6510
+</td><td> 1001.4922
+</td><td> Food shop
+</td><td> Throughout San Andreas
+</td></tr>
+<tr>
+<td> Cluckin' Bell
+</td><td> 9
+</td><td> 365.7158
+</td><td> -9.8873
+</td><td> 1001.8516
+</td><td> Food shop
+</td><td> Throughout San Andreas
+</td></tr>
+<tr>
+<td> Caligulas Casino
+</td><td> 1
+</td><td> 2233.8032
+</td><td> 1712.2303
+</td><td> 1011.7632
+</td><td> Casino
+</td><td> Las Venturas, Strip
+</td></tr>
+<tr>
+<td> Casino
+</td><td> 12
+</td><td> 1118.8878
+</td><td> -10.2737
+</td><td> 1002.0859
+</td><td> Casino
+</td><td> Las Venturas, Strip
+</td></tr>
+<tr>
+<td> 4 Dragons Casino
+</td><td> 10
+</td><td> 2016.2699
+</td><td> 1017.7790
+</td><td> 996.8750
+</td><td> Casino
+</td><td> Las Venturas, Strip
+</td></tr>
+<tr>
+<td> Rusty Brown's Donuts
+</td><td> 17
+</td><td> 378.026
+</td><td> -190.5155
+</td><td> 1000.6328
+</td><td> Donut Shop
+</td><td>
+</td></tr></table>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Interior_IDs.html" title="Edit section: Modding shops">edit</a>]</div><a name="Modding_shops"></a><h2> Modding shops </h2>
+<p><b>Note!</b>
+Garage doors are not solid in the modding shops.
+All Transfender tuning shops (LS, SF, LV) use the same interior.
+</p>
+<table width="100%" class="wikitable">
+
+<tr>
+<th>Interior
+</th><th>Interior ID
+</th><th>X
+</th><th>Y
+</th><th>Z
+</th><th>Description
+</th><th>Location
+</th></tr>
+<tr>
+<td> Loco Low
+</td><td> 2
+</td><td> 616.7820
+</td><td> -74.8151
+</td><td> 997.6350
+</td><td> Modding shop
+</td><td> Los Santos
+</td></tr>
+<tr>
+<td> Wheel Arch Angels
+</td><td> 3
+</td><td> 615.2851
+</td><td> -124.2390
+</td><td> 997.6350
+</td><td> Modding shop
+</td><td> San Fierro
+</td></tr>
+<tr>
+<td> Transfender
+</td><td> 1
+</td><td> 617.5380
+</td><td> -1.9900
+</td><td> 1000.6829
+</td><td> Modding shop
+</td><td> Los Santos, San Fierro, Las Venturas
+</td></tr></table>
+<div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/Interior_IDs.html">http://localhost../wiki/Interior_IDs.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="Category_Scripting_Documentation.html" title="Category:Scripting Documentation">Scripting Documentation</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="Interior_IDs.html">Article</a></li>
+				 <li id="ca-talk"><a href="Talk_Interior_IDs.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="Interior_IDs.html">Edit</a></li>
+				 <li id="ca-history"><a href="Interior_IDs.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 575,784 times.</li>
+				<li id="credits">This page was last modified 22:21, 24 December 2017 by SA-MP Wiki user <a href="User_Codeah.html" title="User:Codeah">Codeah</a>. Based on work by SA-MP Wiki user(s) <a href="User_OstGot.html" title="User:OstGot">OstGot</a>, <a href="User_Tamer.html" class="new" title="User:Tamer">Tamer</a>, <a href="User_DeathOnaStick.html" title="User:DeathOnaStick">DeathOnaStick</a>, <a href="User_Ikkentim.html" title="User:Ikkentim">Ikkentim</a>, <a href="User_LaZ.html" title="User:LaZ">LaZ</a>, <a href="User_Garsino.html" title="User:Garsino">Garsino</a>, <a href="User_1.html" title="User:1">1</a>, <a href="User_JernejL.html" title="User:JernejL">JernejL</a> and <a href="User_Tenshi.html" title="User:Tenshi">Tenshi</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 1.64 secs. -->
+</body></html>

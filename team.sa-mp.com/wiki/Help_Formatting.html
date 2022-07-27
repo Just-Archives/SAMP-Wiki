@@ -1,0 +1,275 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Help:Formatting" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>Help:Formatting - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-12 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Help:Formatting</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<p>When writing articles with code please ensure that the code is formatted consistently for readability.  The exact choice of formatting style you use is up to the author, the "which formatting style" debate is almost as old as coding itself so to try and enforce one is next to impossible.  An example of a formatting style is given below if you're not sure of what to use:
+</p>
+<pre class="pawn"><span style="color: #6b8e23;">#define SOME_DEFINE (5)</span>
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">stock</span> FunctionName<span style="color: #66cc66;">&#40;</span>parameter, list<span style="color: #66cc66;">&#91;</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #228b22; font-weight: bold;">new</span>
+		nVariable1 = <span style="color: #4169e1;">7</span>,
+		variable2;
+	<span style="color: #228b22; font-weight: bold;">static</span>
+		sVariableNumberThree<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">3</span><span style="color: #66cc66;">&#93;</span>;
+	<span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span>Function<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span> == <span style="color: #4169e1;">1</span> &amp;&amp; nVariable1 - SOME_DEFINE &lt; <span style="color: #4169e1;">10</span><span style="color: #66cc66;">&#41;</span>
+	<span style="color: #66cc66;">&#123;</span>
+		OtherFunction<span style="color: #66cc66;">&#40;</span>sVariableNumberThree, <span style="color: orange; font-weight: bold;">sizeof</span> <span style="color: #66cc66;">&#40;</span>sVariableNumberThree<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #66cc66;">&#125;</span>
+	<span style="color: #4169e1;">else</span> <span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">-1</span>;
+	<span style="color: #4169e1;">switch</span> <span style="color: #66cc66;">&#40;</span>nVariable1<span style="color: #66cc66;">&#41;</span>
+	<span style="color: #66cc66;">&#123;</span>
+		<span style="color: orange; font-weight: bold;">case</span> <span style="color: #b22222;">'a'</span>:
+		<span style="color: #66cc66;">&#123;</span>
+			DoSomething<span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">1</span>, <span style="color: #4169e1;">2</span>, <span style="color: #4169e1;">3</span><span style="color: #66cc66;">&#41;</span>;
+		<span style="color: #66cc66;">&#125;</span>
+		<span style="color: orange; font-weight: bold;">case</span> <span style="color: #4169e1;">0</span>, <span style="color: #4169e1;">1</span>, <span style="color: #4169e1;">2</span>:
+		<span style="color: #66cc66;">&#123;</span>
+			DoSomething<span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">4</span>, <span style="color: #4169e1;">5</span> * nVariable1, <span style="color: #4169e1;">8</span><span style="color: #66cc66;">&#41;</span>;
+			Another<span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">1</span><span style="color: #66cc66;">&#41;</span>;
+		<span style="color: #66cc66;">&#125;</span>
+		<span style="color: orange; font-weight: bold;">case</span> <span style="color: #4169e1;">4</span> .. <span style="color: #4169e1;">6</span>:
+		<span style="color: #66cc66;">&#123;</span>
+			<span style="color: #4169e1;">for</span> <span style="color: #66cc66;">&#40;</span><span style="color: #228b22; font-weight: bold;">new</span> i = <span style="color: #4169e1;">0</span>; i &lt; <span style="color: #4169e1;">10</span>; i++<span style="color: #66cc66;">&#41;</span>
+			<span style="color: #66cc66;">&#123;</span>
+				<span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span>CheckVar<span style="color: #66cc66;">&#40;</span>i<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>
+				<span style="color: #66cc66;">&#123;</span>
+					<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;checked: %d&quot;</span>, i<span style="color: #66cc66;">&#41;</span>;
+				<span style="color: #66cc66;">&#125;</span>
+			<span style="color: #66cc66;">&#125;</span>
+		<span style="color: #66cc66;">&#125;</span>
+		<span style="color: orange; font-weight: bold;">default</span>:
+		<span style="color: #66cc66;">&#123;</span>
+			<span style="color: #228b22; font-weight: bold;">new</span>
+				<span style="color: orange;">Float</span>:fVar;
+			fVar = <a href="http://wiki.sa-mp.com/wiki/float"><span style="color: #006400;">float</span></a><span style="color: #66cc66;">&#40;</span>nVariable1<span style="color: #66cc66;">&#41;</span>;
+			fVar *= <span style="color: #4169e1;">2.5</span>;
+			<span style="color: orange; font-weight: bold;">goto</span> ret_addr;
+		<span style="color: #66cc66;">&#125;</span>
+	<span style="color: #66cc66;">&#125;</span>
+	<span style="color: orange;">ret_addr</span>:
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #66cc66;">&#40;</span>variable2<span style="color: #66cc66;">&#41;</span>&nbsp;? <span style="color: #66cc66;">&#40;</span>nVariable1 * <span style="color: #4169e1;">7</span><span style="color: #66cc66;">&#41;</span>&nbsp;: <span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>The code above combines a number of different features to consider formatting for.  Some of these are explained below.
+</p>
+<ul><li> Keywords such as "if" and "sizeof" have a space between them and the opening bracket of their parameters.  This is to differentiate them from functions which don't.
+</li></ul>
+<ul><li> There should be no space between the opening bracket and the first symbol contained within, or the last symbol and the closing bracket, unless the statement is spread across multiple lines.
+</li></ul>
+<ul><li> The semi-colon at the end of a line should come immediately after the statement, i.e. no space.
+</li></ul>
+<ul><li> Empty statements ({}) should be separated from the control structure with which they're associated by one space, however the whole thing should be on a single line (again, excepting multiple line statements).
+</li></ul>
+<ul><li> Braces are on a new line in line with the control structure which they go with to make code easy to read when scanning through.
+</li></ul>
+<ul><li> Indentation is done one tab in from an opening brace, and one tab back at a closing brace.
+</li></ul>
+<ul><li> Single line statements should come after the control structure which they go with for clarity.  However this style is discouraged and single line statements should generally be done using braces for clarity and ease of modification.
+</li></ul>
+<ul><li> Variables are declared on separate lines for clarity of number and so variables initialised at declaration, arrays and tagged variables are aligned with regular variables.
+</li></ul>
+<ul><li> No variable should be declared on the line with the declarator, when using 4 space tabs "new" variables are in line but the size of a tab cannot be guaranteed and other declarators such as "static" will cause the first variable to be misaligned.  The exception to this is a for statement when the variable declaration comes within the for statement.
+</li></ul>
+<ul><li> Operators (*, ==, &amp;&amp; etc) should have a space to either side of them.
+</li></ul>
+<ul><li> Lists should be separated by a comma followed by a single space.
+</li></ul>
+<ul><li> Only one statement (code ending with a semi-colon) should exist per line, the obvious exception again being a for statement which contains three statements in one.
+</li></ul>
+<ul><li> Functions should be named with all words within the name starting with a capital letter.
+</li></ul>
+<ul><li> Variables should have all words in their name start with a capital letter except the first.
+</li></ul>
+<ul><li> It is generally advisable to prefix the variable name with a descriptor to make it easier to understand what a variable is without looking back to the declaration.  Examples include s for static, f for float or f_s (or s_f) for static float, i or n for integers (although these would be the most obvious ones to not prefix).  If a prefix is included it counts as the first word in the name for capitalisation purposes.
+</li></ul>
+<ul><li> If you're prefixing strings use sz, not s, to not confuse them with statics, sz stands for "string zero", indicating it's null terminated (i.e. ends in zero).
+</li></ul>
+<ul><li> Global variables should ALWAYS be prefixed with a g, this helps reduce the chance of shadowing problems and helps describe the scope of the variable.
+</li></ul>
+<ul><li> Constants and defined numbers should be written entirely in capitals with words separated by an underscore.
+</li></ul>
+<ul><li> Labels should be written entirely in lower case with words separated by an underscore.
+</li></ul>
+<pre class="pawn">SOME_SYMBOL <span style="color: #808080; font-style: italic;">// Define</span>
+someSymbol  <span style="color: #808080; font-style: italic;">// Variable</span>
+some_symbol <span style="color: #808080; font-style: italic;">// Label</span>
+SomeSymbol  <span style="color: #808080; font-style: italic;">// Function</span>
+sSomeSymbol <span style="color: #808080; font-style: italic;">// Static variable</span>
+gSomeSymbol <span style="color: #808080; font-style: italic;">// Global variable</span></pre>
+<p>Examples of different types of symbol showing how the type can be determined simply from the name.
+</p>
+<ul><li> Description comments should have at least a space between the comment open (and comment close if applicable) and the text.
+</li></ul>
+<ul><li> Commented out code should not have a space between the comments and the code.
+</li></ul>
+<ul><li> Code commented out for purely debugging purposes should have the comment characters at column 0.
+</li></ul>
+<pre class="pawn"><span style="color: #66cc66;">&#123;</span>
+	SomeFunction<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// Call SomeFunction()</span>
+	<span style="color: #808080; font-style: italic;">//RemovedFunction();</span>
+<span style="color: #808080; font-style: italic;">//	TemporarillyRemoved();</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>Examples of different types of comment showing how the spacing can help with for example debugging by differentiating code you don't want and code you've only removed temporarily to test something (so you don't forget to put something back).
+</p>
+<ul><li> #if/#else/#endif should be treated as braces for indentation purposes.
+</li></ul>
+<ul><li> Preprocessor directives should follow current indentation.
+</li></ul>
+<pre class="pawn"><span style="color: #6b8e23;">#if&nbsp;!defined SOMETHING</span>
+	<span style="color: #6b8e23;">#define SOMETHING (7)</span>
+<span style="color: #6b8e23;">#endif</span>
+&nbsp;
+<span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span>bla<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #6b8e23;">#if SOMETHING == 7</span>
+		<a href="http://wiki.sa-mp.com/wiki/print"><span style="color: #006400;">print</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;7&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #6b8e23;">#else</span>
+		<a href="http://wiki.sa-mp.com/wiki/print"><span style="color: #006400;">print</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;not 7&quot;</span><span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #6b8e23;">#endif</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<ul><li> There should be no spaces surrounding the colon in a tag variable declaration.
+</li></ul>
+<ul><li> There should be at least a space after the colon on a case statement however braces are encouraged a described above.
+</li></ul>
+<ul><li> There should be no code on the same line as a label.
+</li></ul>
+<ul><li> It is advisable to initialise variables explicitly in the declaration.  This is not required for variables which will be set to 0 in PAWN however it is best practice for conversion to other languages.
+</li></ul>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span>
+	var1;
+var1 = <span style="color: #4169e1;">3</span>; <span style="color: #808080; font-style: italic;">// var1 will be set twice, to 0 then 3</span>
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">new</span>
+	var2 = <span style="color: #4169e1;">3</span>; <span style="color: #808080; font-style: italic;">// var2 will only be set once</span>
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">new</span>
+	var3 = <span style="color: #4169e1;">0</span>, <span style="color: #808080; font-style: italic;">// Does not require defining explicitly but wastes no time and clarifies code</span>
+	var4 = SomeFunc<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// Set the variable to a function return</span>
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">static</span>
+	sVar5;
+sVar5 = SomeFunc<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// Static variables cannot be initialised with a function but are only zeroed once anyway.</span></pre>
+<ul><li> Variables should be declared for the smallest possible scope in which they are required.
+</li></ul>
+<ul><li> Variables should be declared in a single statement where possible.
+</li></ul>
+<ul><li> Defined numbers should be enclosed in brackets to ensure precedence.  As should define variables where possible.
+</li></ul>
+<ul><li> Code in a define statement should be spread out as if it was real code using \.  The \'s should be lined up.
+</li></ul>
+<ul><li> Variables in a define statement should be prefixed by an underscore, a representation of the define's name and another underscore then the name to reduce the chance of non-obvious variable shadowing or redeclaration problems.  Their scope should also be restricted to the define.  The leading _ separates them in naming style from labels.
+</li></ul>
+<pre class="pawn"><span style="color: #6b8e23;">#define SOME_NUMBER (5) // Number enclosed in brackets</span>
+&nbsp;
+<span style="color: #6b8e23;">#define SOME_CODE(%1) \</span>
+	<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#40;</span>%<span style="color: #4169e1;">1</span><span style="color: #66cc66;">&#41;</span> * <span style="color: #4169e1;">2</span><span style="color: #66cc66;">&#41;</span> <span style="color: #808080; font-style: italic;">// Variable enclosed in brackets</span>
+&nbsp;
+<span style="color: #808080; font-style: italic;">// Note the lack of braces below so the code ends on a semi-colon</span>
+<span style="color: #6b8e23;">#define LONGER_CODE(%1,%2)					   \ // Items not separated by a space due to define statement restrictions</span>
+	<span style="color: #4169e1;">for</span> <span style="color: #66cc66;">&#40;</span><span style="color: #228b22; font-weight: bold;">new</span> _lc_loopVar = <span style="color: #4169e1;">0</span>; _lc_loopVar &lt; <span style="color: #4169e1;">10</span>; _lc_loopVar++<span style="color: #66cc66;">&#41;</span> \ <span style="color: #808080; font-style: italic;">// \'s lined up</span>
+		<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#40;</span>%<span style="color: #4169e1;">1</span><span style="color: #66cc66;">&#41;</span>, %<span style="color: #4169e1;">2</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #808080; font-style: italic;">/*
+%2 has no brackets to collect all additional parameters, so:
+&nbsp;
+LONGER_CODE(&quot;hi %d %d&quot;, 4, 5);
+&nbsp;
+will compile to:
+&nbsp;
+for (new _lc_loop = 0; _lc_loop &lt; 10; _lc_loop++)
+	printf((&quot;hi %d %d&quot;), 4, 5);
+&nbsp;
+Whereas brackets would produce:
+&nbsp;
+for (new _lc_loop = 0; _lc_loop &lt; 10; _lc_loop++)
+	printf((&quot;hi %d %d&quot;), (4, 5));
+&nbsp;
+Which will not compile
+*/</span></pre>
+<ul><li> An exception to the brackets in defines is if you are using the define in a stringize token.  You need to be careful that you can ENSURE the define will only be a simple number.
+</li></ul>
+<pre class="pawn"><span style="color: #6b8e23;">#define NUMBER (5)</span>
+<a href="http://wiki.sa-mp.com/wiki/print"><span style="color: #006400;">print</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;NUMBER = &quot;</span> <span style="color: #6b8e23;">#NUMBER); // Will produce an error</span>
+&nbsp;
+<span style="color: #6b8e23;">#define NUMBER 5</span>
+<a href="http://wiki.sa-mp.com/wiki/print"><span style="color: #006400;">print</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;NUMBER = &quot;</span> <span style="color: #6b8e23;">#NUMBER); // Won't produce an error</span></pre>
+<p>Remember you do not have to follow this style but please ensure whatever style you use is consistent, a common mistake people make is to do something like:
+</p><p>function(par1,par2, par3);
+</p><p>Where obviously there is no space after the first comma but there is one after the second.
+</p><p>These formatting rules are not finalised, please see the discussion page.
+</p><div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/Help_Formatting.html">http://localhost../wiki/Help_Formatting.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="Category_Help.html" title="Category:Help">Help</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-help" class="selected"><a href="Help_Formatting.html">Help</a></li>
+				 <li id="ca-talk" class="new"><a href="Help_talk_Formatting.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="Help_Formatting.html">Edit</a></li>
+				 <li id="ca-history"><a href="Help_Formatting.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 2,990 times.</li>
+				<li id="credits">This page was last modified 12:02, 9 August 2017 by SA-MP Wiki user <a href="User_OstGot.html" title="User:OstGot">OstGot</a>. Based on work by SA-MP Wiki user(s) <a href="User_Y_Less.html" title="User:Y Less">Y Less</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 33.19 secs. -->
+</body></html>

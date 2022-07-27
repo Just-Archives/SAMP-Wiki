@@ -1,0 +1,698 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="RouteConnector" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>RouteConnector - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">RouteConnector</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<p>Documentation for Gamer_Z's <a href="http://forum.sa-mp.com/showthread.php?t=292031" class='external text' title="http://forum.sa-mp.com/showthread.php?t=292031" rel="nofollow">RouteConnector Plugin</a>.
+</p><p><br />
+</p>
+<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class='toclevel-1'><a href="#Plugin_Functions"><span class="tocnumber">1</span> <span class="toctext">Plugin Functions</span></a>
+<ul>
+<li class='toclevel-2'><a href="#AddNode"><span class="tocnumber">1.1</span> <span class="toctext">AddNode</span></a></li>
+<li class='toclevel-2'><a href="#AddNodeEx"><span class="tocnumber">1.2</span> <span class="toctext">AddNodeEx</span></a></li>
+<li class='toclevel-2'><a href="#ConnectNodes"><span class="tocnumber">1.3</span> <span class="toctext">ConnectNodes</span></a></li>
+<li class='toclevel-2'><a href="#NearestPlayerNode"><span class="tocnumber">1.4</span> <span class="toctext">NearestPlayerNode</span></a></li>
+<li class='toclevel-2'><a href="#NearestNodeFromPoint"><span class="tocnumber">1.5</span> <span class="toctext">NearestNodeFromPoint</span></a></li>
+<li class='toclevel-2'><a href="#WriteNodesToFile"><span class="tocnumber">1.6</span> <span class="toctext">WriteNodesToFile</span></a></li>
+<li class='toclevel-2'><a href="#ReadNodesFromFile"><span class="tocnumber">1.7</span> <span class="toctext">ReadNodesFromFile</span></a></li>
+<li class='toclevel-2'><a href="#GetNodePos"><span class="tocnumber">1.8</span> <span class="toctext">GetNodePos</span></a></li>
+<li class='toclevel-2'><a href="#CalculatePath"><span class="tocnumber">1.9</span> <span class="toctext">CalculatePath</span></a></li>
+<li class='toclevel-2'><a href="#IsNodeIntersection"><span class="tocnumber">1.10</span> <span class="toctext">IsNodeIntersection</span></a></li>
+<li class='toclevel-2'><a href="#GetAngleBetweenNodes"><span class="tocnumber">1.11</span> <span class="toctext">GetAngleBetweenNodes</span></a></li>
+<li class='toclevel-2'><a href="#GetConnectedNodes"><span class="tocnumber">1.12</span> <span class="toctext">GetConnectedNodes</span></a></li>
+<li class='toclevel-2'><a href="#GetNextEmptyNodeID"><span class="tocnumber">1.13</span> <span class="toctext">GetNextEmptyNodeID</span></a></li>
+<li class='toclevel-2'><a href="#GetQueueSize"><span class="tocnumber">1.14</span> <span class="toctext">GetQueueSize</span></a></li>
+<li class='toclevel-2'><a href="#GetConnectedNodeID"><span class="tocnumber">1.15</span> <span class="toctext">GetConnectedNodeID</span></a></li>
+<li class='toclevel-2'><a href="#Float:GetConnectedNodeDistance"><span class="tocnumber">1.16</span> <span class="toctext">Float:GetConnectedNodeDistance</span></a></li>
+<li class='toclevel-2'><a href="#Float:GetDistanceBetweenNodes"><span class="tocnumber">1.17</span> <span class="toctext">Float:GetDistanceBetweenNodes</span></a></li>
+<li class='toclevel-2'><a href="#IsNodeInPathFinder"><span class="tocnumber">1.18</span> <span class="toctext">IsNodeInPathFinder</span></a></li>
+<li class='toclevel-2'><a href="#GetRouteArray"><span class="tocnumber">1.19</span> <span class="toctext">GetRouteArray</span></a></li>
+<li class='toclevel-2'><a href="#GetRouteAtPos"><span class="tocnumber">1.20</span> <span class="toctext">GetRouteAtPos</span></a></li>
+<li class='toclevel-2'><a href="#StoreRouteArray"><span class="tocnumber">1.21</span> <span class="toctext">StoreRouteArray</span></a></li>
+<li class='toclevel-2'><a href="#DeleteArray"><span class="tocnumber">1.22</span> <span class="toctext">DeleteArray</span></a></li>
+<li class='toclevel-2'><a href="#AddExistingNodeToPathFinder"><span class="tocnumber">1.23</span> <span class="toctext">AddExistingNodeToPathFinder</span></a></li>
+<li class='toclevel-2'><a href="#RemoveNode"><span class="tocnumber">1.24</span> <span class="toctext">RemoveNode</span></a></li>
+<li class='toclevel-2'><a href="#DisconnectNodeFromNode"><span class="tocnumber">1.25</span> <span class="toctext">DisconnectNodeFromNode</span></a></li>
+<li class='toclevel-2'><a href="#DisconnectAllFromNode"><span class="tocnumber">1.26</span> <span class="toctext">DisconnectAllFromNode</span></a></li>
+<li class='toclevel-2'><a href="#DeleteNodeSystemAtNode"><span class="tocnumber">1.27</span> <span class="toctext">DeleteNodeSystemAtNode</span></a></li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#Plugin_Callbacks"><span class="tocnumber">2</span> <span class="toctext">Plugin Callbacks</span></a>
+<ul>
+<li class='toclevel-2'><a href="#OnPlayerClosestNodeIDChange"><span class="tocnumber">2.1</span> <span class="toctext">OnPlayerClosestNodeIDChange</span></a></li>
+<li class='toclevel-2'><a href="#GPS_WhenRouteIsCalculated"><span class="tocnumber">2.2</span> <span class="toctext">GPS_WhenRouteIsCalculated</span></a></li>
+</ul>
+</li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="RouteConnector.html" title="Edit section: Plugin Functions">edit</a>]</div><a name="Plugin_Functions"></a><h1> Plugin Functions </h1>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+<p><strong>Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">All the plugin source can be found in <a href="https://github.com/grasmanek94/GPB/tree/master/GPS RouteConnector" class='external text' title="https://github.com/grasmanek94/GPB/tree/master/GPS%20RouteConnector" rel="nofollow">Route Connector Github page</a></span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="RouteConnector.html" title="Edit section: AddNode">edit</a>]</div><a name="AddNode"></a><h2> AddNode </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;"> Adds a node into the memory of the plugin, this node will be unavailable in route calculations.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(Float:X, Float:Y, Float:Z, AddToPathFinder, AddToScanner)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> Float:X </td><td style="vertical-align:top;"> 3D coordinates from position X</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> Float:Y </td><td style="vertical-align:top;"> 3D coordinates from position Y</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> Float:Z </td><td style="vertical-align:top;"> 3D coordinates from position Z</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> AddToPathFinder </td><td style="vertical-align:top;"> If set to 1 it will also make sure the graph will be updated so when searching for a route it will be added to the list</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> AddToScanner </td><td style="vertical-align:top;"> If set to 1 the node will be available in OnPlayerClosestNodeIDChange, else not</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;"> The added nodeID if sucess, or -1 if fail.<br /></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+<p><strong>Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;"> NEVER set AddToPathFinder to 1 when a calculation is in progress! That is your own responsability if it happens!</span>
+</td></tr></table>
+</div>
+<p><br />
+</p><p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="RouteConnector.html" title="Edit section: AddNodeEx">edit</a>]</div><a name="AddNodeEx"></a><h2> AddNodeEx </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;"> The only difference with AddNode is that you can specify your own NodeID here AND the node will be automaticly added to the appropriate area.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(ID, Float:X, Float:Y, Float:Z, AddToPathFinder, AddToScanner)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> ID </td><td style="vertical-align:top;"> ID as Custom NodeID</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> Float:X </td><td style="vertical-align:top;"> 3D coordinates from position X</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> Float:Y </td><td style="vertical-align:top;"> 3D coordinates from position Y</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> Float:Z </td><td style="vertical-align:top;"> 3D coordinates from position Z</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> AddToPathFinder </td><td style="vertical-align:top;"> If set to 1 it will also make sure the graph will be updated so when searching for a route it will be added to the list</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> AddToScanner </td><td style="vertical-align:top;"> If set to 1 the node will be available in OnPlayerClosestNodeIDChange, else not</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;"> The added nodeID if sucess, or -1 if fail.<br /></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+<p><strong>Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;"> NEVER set AddToPathFinder to 1 when a calculation is in progress! That is your own responsability if it happens!</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="RouteConnector.html" title="Edit section: ConnectNodes">edit</a>]</div><a name="ConnectNodes"></a><h2> ConnectNodes </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;"> This will connect two nodes stored in memory, same rules as for AddNode(Ex), it won't be available in path calculations.
+When you connect NodeID_one with NodeID_two it will automatically connect the opposite, no distance suplying is needed as the XYZ are supplied at node creation.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(NodeID_one, NodeID_two, AddToPathFinder, direction)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> NodeID_one </td><td style="vertical-align:top;"> NodeID_one as NodeID</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> NodeID_two </td><td style="vertical-align:top;"> NodeID_two as NodeID</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> AddToPathFinder </td><td style="vertical-align:top;"> if set to 1 it will also make sure the graph will be updated so when searching for a route it will be added to the list</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> direction </td><td style="vertical-align:top;"> you can choose to only connect nodeID one with nodeID two (1) or to connect them together  (0)</td></tr></table></div>
+<p><br />
+</p><p><b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">
+<pre>       -1 - NodeOne is out of boundaries
+       -2 - NodeTwo is out of boundaries
+       -3 - NodeOne equals NodeTwo
+       -4 - NodeOne doesn't exist
+       -5 - NodeTwo doesn't exist
+       -6 - NodeOne already connected with NodeTwo
+       -7 - NodeTwo already connected with NodeOne
+       -8 - No more connection slots left or direction does not equal 1 or 0
+</pre>
+        Anything above or equal to 0 means success (the NodeOne[connectid] is retuned).<br /></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+<p><strong>Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;"> NEVER set AddToPathFinder to 1 when a calculation is in progress! That is your own responsability if it happens!</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="RouteConnector.html" title="Edit section: NearestPlayerNode">edit</a>]</div><a name="NearestPlayerNode"></a><h2> NearestPlayerNode </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;"> This function will get the closest player node, if you used AddNode(Ex) this nodes will also be considered.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(playerid, MaxDist, IgnoreNodeID, UseAreas)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> playerid </td><td style="vertical-align:top;">  The playerid to count from</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> MaxDist </td><td style="vertical-align:top;"> The maximal distance to search from the player</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> IgnoreNodeID </td><td style="vertical-align:top;"> This node ID will not be returned as the closest one, it will be ignored in the search.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> UseAreas </td><td style="vertical-align:top;"> If set to 0 it will go through all nodes in memory, else if to 1 it will do just the nodes in the area where the player is (not so accurate).</td></tr></table></div>
+<p><br />
+</p><p><b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;"> The closest nodeID, or -1 if no node Id is found in range.<br /></div>
+<p><br />
+</p><p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="RouteConnector.html" title="Edit section: NearestNodeFromPoint">edit</a>]</div><a name="NearestNodeFromPoint"></a><h2> NearestNodeFromPoint </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;"> Same as NearestPlayerNode, but here you can supply an point instead of an playerid.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(Float:X, Float:Y, Float:Z, MaxDist, IgnoreNodeID, UseAreas)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">  Float:X </td><td style="vertical-align:top;">3D coordinates from X</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">  Float:Y </td><td style="vertical-align:top;">3D coordinates from Y</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">  Float:Z </td><td style="vertical-align:top;">3D coordinates from Z</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> MaxDist </td><td style="vertical-align:top;"> The maximal distance to search from the point</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> IgnoreNodeID </td><td style="vertical-align:top;"> This node ID will not be returned as the closest one, it will be ignored in the search.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> UseAreas </td><td style="vertical-align:top;"> If set to 0 it will go through all nodes in memory, else if to 1 it will do just the nodes in the area where the player is (not so accurate).</td></tr></table></div>
+<p><br />
+</p><p><b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;"> The closest nodeID from point, or -1 if no node Id is found in range.<br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="RouteConnector.html" title="Edit section: WriteNodesToFile">edit</a>]</div><a name="WriteNodesToFile"></a><h2> WriteNodesToFile </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">  Write all nodes, connections, contents of the memory into an loadable file, can be used by ReadNodesFromFile later.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(filename[])<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> filename[] </td><td style="vertical-align:top;"> The 'path/filename.extension' to store the information in, note that if you want to make a file in the scriptfiles folder you need to supply: WriteNodesToFile('path/filename.extension');</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;"><br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="RouteConnector.html" title="Edit section: ReadNodesFromFile">edit</a>]</div><a name="ReadNodesFromFile"></a><h2> ReadNodesFromFile </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;"> Read all nodes, connections, contents of the file into the memory, this function will automaticly create nodes, connect them, create the virtual graph to search paths on after it has been loaded into the memory.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(filename[])<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> filename[] </td><td style="vertical-align:top;"> The 'path/filename.extension' to read the information from, note that if you want to read a file in the scriptfiles folder you need to supply: ReadNodesFromFile('scriptfiles/your.file.name');</td></tr></table></div>
+<p><br />
+</p><p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="RouteConnector.html" title="Edit section: GetNodePos">edit</a>]</div><a name="GetNodePos"></a><h2> GetNodePos </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">  Get the XYZ position of the supplied NodeID.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(NodeID, &amp;Float:X,&amp;Float:Y,&amp;Float:Z)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> NodeID </td><td style="vertical-align:top;"> The The NodeID to get the position from</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> Float:X </td><td style="vertical-align:top;"> The 3D coordinate X passed by reference</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> Float:Y </td><td style="vertical-align:top;"> The 3D coordinate Y passed by reference</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> Float:Z </td><td style="vertical-align:top;"> The 3D coordinate Z passed by reference</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;"> 0 on failure (Out Of Range?), -1 if node doesn't exist, 1 on success.<br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="RouteConnector.html" title="Edit section: CalculatePath">edit</a>]</div><a name="CalculatePath"></a><h2> CalculatePath </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;"> Calculates the path between two nodes, this is one of the most importtants plugin's functions.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(Start, End, RouteID, bool:CreatePolygon, PolygonWidth, bool:GrabNodePositions)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> Start </td><td style="vertical-align:top;"> The start NodeID</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> End </td><td style="vertical-align:top;"> The destination NodeID</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> RouteID </td><td style="vertical-align:top;"> (optional) Here you can specify an integer value that will be passed to the callback, Along with the calculated path information, for example the PlayerID</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> CreatePolygon </td><td style="vertical-align:top;">  Creates a polygon around the path if set to true</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> PolygonWidth </td><td style="vertical-align:top;"> The width from the node lines to the edge of the polygon</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> bool:GrabNodePositions </td><td style="vertical-align:top;"> If true, make sure that NodePos array is filled with usefull information.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;"> Always 1.<br /></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+<p><strong>Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;"> Please note that this can increase the needed stack size extremely.
+<pre>       For storing the nodes, a polygon and all positions you need: 
+       amount_of_nodes*4096*8+4096 bytes. The max amount of nodes I ever calculated wasn't higher than 1000. so:
+       3280896 bytes would be needed for the stack. Make sure to use
+       #pragma dynamic 4194304 //2^21 &lt; 32772096 &lt; 2^22, so we choose 2^22 bytes, this is 4MB of memory, so look out!
+       Also make sure you know how much heap you will need (global variables etc) and add this amount to the calculated value and round up to nearest power of two
+   Note:
+       if you will be using the routeID parameter for recognizing routes, make sure they all are unique,
+       once started route search cannot be aborted and will just be queued and the callback will still be called.
+</pre>
+<pre>       This function is Threaded, this means that if the CalculatePath search takes 3 seconds, it won't lagg your server.
+       Your server will continue to work normally.
+</pre>
+<pre>       Only the callback in the script which calls the plugin will get executed with this, if you do CalculatePath in Script1, 
+       and have your callback in Script2 then it won't get executed, however if you need that, make in script1 CallRemoteFunction in the callback to call the other script.</span>
+</pre>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="RouteConnector.html" title="Edit section: IsNodeIntersection">edit</a>]</div><a name="IsNodeIntersection"></a><h2> IsNodeIntersection </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;"> This function checks if a node has 3 or more connections.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">( NodeID)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> NodeID </td><td style="vertical-align:top;"> The NodeID to check</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;"> 1 if true, 0 if false, -1 if node doesn't exists<br /></div>
+<p><br />
+</p><p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="RouteConnector.html" title="Edit section: GetAngleBetweenNodes">edit</a>]</div><a name="GetAngleBetweenNodes"></a><h2> GetAngleBetweenNodes </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;"> Gets the angle between 3 nodes (2 connections/lines).<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">( NodeID_one, NodeID_two, NodeID_three)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> NodeID_one </td><td style="vertical-align:top;"> The first node ID</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> NodeID_two </td><td style="vertical-align:top;"> The second node ID</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> NodeID_three </td><td style="vertical-align:top;"> The third node ID</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;"> 0.0 if one of the three nodes doesn't exists<br /></div>
+<p><br />
+</p><p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="RouteConnector.html" title="Edit section: GetConnectedNodes">edit</a>]</div><a name="GetConnectedNodes"></a><h2> GetConnectedNodes </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;"> Get the amount of other nodes that are connected to this node, max is 5.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">( NodeID)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> NodeID </td><td style="vertical-align:top;"> The NodeID to get connected nodes.</td></tr></table></div>
+<p><br />
+</p><p><b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;"> amount of nodes connected (0 to 5), on failure -1.<br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="RouteConnector.html" title="Edit section: GetNextEmptyNodeID">edit</a>]</div><a name="GetNextEmptyNodeID"></a><h2> GetNextEmptyNodeID </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">  Get the closest empty node ID (closest starting from 0 to up).<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">( NodeID)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> NodeID </td><td style="vertical-align:top;"> The NodeID to get closest empty nodes.</td></tr></table></div>
+<p><br />
+</p>
+<pre class="pawn"><span style="color: orange;">Example</span>: 
+&nbsp;
+ <span style="color: #228b22; font-weight: bold;">new</span> id = GetNextEmptyNodeID<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>;
+ <span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>id&nbsp;!= <span style="color: #4169e1;">-1</span><span style="color: #66cc66;">&#41;</span>AddNodeEx<span style="color: #66cc66;">&#40;</span>id,X,Y,Z<span style="color: #66cc66;">&#41;</span>; 
+&nbsp;
+ <span style="color: #808080; font-style: italic;">//However this example results in:</span>
+ AddNode<span style="color: #66cc66;">&#40;</span>X,Y,Z<span style="color: #66cc66;">&#41;</span>;</pre>
+<p><b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;"> -1 if no more available node slots.<br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="RouteConnector.html" title="Edit section: GetQueueSize">edit</a>]</div><a name="GetQueueSize"></a><h2> GetQueueSize </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;"> Gets the size of all queued path calculations to do.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(This function has no parameters)<br /></div>
+<p><br />
+</p><p><b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;"> Older versions: -1 if the vector was locked when tried to access (Threading crash prevention), else it returns the vector size. Update R181: always 0<br /></div>
+<p><br />
+</p><p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="RouteConnector.html" title="Edit section: GetConnectedNodeID">edit</a>]</div><a name="GetConnectedNodeID"></a><h2> GetConnectedNodeID </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;"> Gets the ID of an connection to NodeID, -1 if ConnectID has no connection, connectid must be between 0 and (MAX_CONNECTIONS-1), however there is OFB prevention check.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">( NodeID, ConnectID)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> NodeID </td><td style="vertical-align:top;"> The NodeID to get connected nodes.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> NodeID </td><td style="vertical-align:top;"> The Connected NodeID variable passed by reference.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;"> -1 if ConnectID has no connection<br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="RouteConnector.html" title="Edit section: Float:GetConnectedNodeDistance">edit</a>]</div><a name="Float:GetConnectedNodeDistance"></a><h2> Float:GetConnectedNodeDistance </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;"> This function retrieves the distance between two <b>connected</b> Nodes.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">( NodeID, ConnectID)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> NodeID </td><td style="vertical-align:top;"> The first connected NodeID.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> ConnectID </td><td style="vertical-align:top;"> The second connected NodeID.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;"> the distance (in float) of the two connected nodes<br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="RouteConnector.html" title="Edit section: Float:GetDistanceBetweenNodes">edit</a>]</div><a name="Float:GetDistanceBetweenNodes"></a><h2> Float:GetDistanceBetweenNodes </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">  Gets the distance between the two nodes <b>(NOT VIA OTHER NODES, THIS JUST DOES THE X Y Z POSITION CALCULATION)</b>.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">( NodeID_one, NodeID_two)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> NodeID_one </td><td style="vertical-align:top;"> The first node ID</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> NodeID_two </td><td style="vertical-align:top;"> The second node ID</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;"> the distance (in float) of the two nodes<br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="RouteConnector.html" title="Edit section: IsNodeInPathFinder">edit</a>]</div><a name="IsNodeInPathFinder"></a><h2> IsNodeInPathFinder </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">  Checks if NodeID is added to the routecalculator.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">( NodeID)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> NodeID </td><td style="vertical-align:top;"> The NodeID to check</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;"> -1 if the NodeID is invalid and 0 if node is not in the route calculator, 1 if yes.<br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="RouteConnector.html" title="Edit section: GetRouteArray">edit</a>]</div><a name="GetRouteArray"></a><h2> GetRouteArray </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">  Stores an saved array with assigned ID to destination.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">( ID, destination[], size)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> ID </td><td style="vertical-align:top;"> The ID of Route Array</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> destination </td><td style="vertical-align:top;"> The destination which data will be stored in</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> size </td><td style="vertical-align:top;"> The size of destination</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;"> The amount of nodes in array at ID, Returns 0 if array is empty or ID doesn't exist..<br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="RouteConnector.html" title="Edit section: GetRouteAtPos">edit</a>]</div><a name="GetRouteAtPos"></a><h2> GetRouteAtPos </h2>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+<p><strong>Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;"> Optionally you can specify an variable to store the amount of nodes in it.</span>
+</td></tr></table>
+</div>
+<p><br />
+<b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">  Retrieves  the NodeID in array[array_pos] at ID.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(ID, array_pos, &amp;amount_of_nodes)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> ID </td><td style="vertical-align:top;"> The ID of Route</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> array_pos </td><td style="vertical-align:top;"> The position of node in Route Array</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> amount_of_nodes </td><td style="vertical-align:top;"> (optional)The size of destination <b>by default</b></td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;"> The NodeID in array[Array_Pos] at ID.<br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="RouteConnector.html" title="Edit section: StoreRouteArray">edit</a>]</div><a name="StoreRouteArray"></a><h2> StoreRouteArray </h2>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+<p><strong>Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;"> Hint: Optionally you can use the returned ID in GetRouteArray or DeleteArray.</span>
+</td></tr></table>
+</div>
+<p><br />
+<b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">   Stores an array to the plugins vector memory.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(amount_of_nodes, array[])<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> amount_of_nodes </td><td style="vertical-align:top;"> The amount of Nodes which will be stored</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> array </td><td style="vertical-align:top;"> The array which will be stored in plugin's vector memory</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">  Route Array ID.<br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="RouteConnector.html" title="Edit section: DeleteArray">edit</a>]</div><a name="DeleteArray"></a><h2> DeleteArray </h2>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+<p><strong>Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;"> Hint: Optionally you can use the returned ID in GetRouteArray or DeleteArray.</span>
+</td></tr></table>
+</div>
+<p><br />
+<b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">   Remove contents of the memory at specified ID.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(ID)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> ID </td><td style="vertical-align:top;"> The array ID which content will be removed.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;"> This function doesn't return any value<br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="RouteConnector.html" title="Edit section: AddExistingNodeToPathFinder">edit</a>]</div><a name="AddExistingNodeToPathFinder"></a><h2> AddExistingNodeToPathFinder </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;"> Adds an created node to the routecalculator.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(NodeID)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> NodeID </td><td style="vertical-align:top;"> The node to be added in routecalculator</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;"> -1 if the NodeID is invalid and 0 if node id does not exist or is already added, 1 on success.<br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="RouteConnector.html" title="Edit section: RemoveNode">edit</a>]</div><a name="RemoveNode"></a><h2> RemoveNode </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;"> Deletes an node from the memory, to use in Write data, nodes loaded into the calculator won't be deleted, connections too.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(NodeID)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> NodeID </td><td style="vertical-align:top;"> The node to be deleted</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">  Returns -1 if the NodeID is invalid and 0 if node id does not exist, 1 on success.<br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="RouteConnector.html" title="Edit section: DisconnectNodeFromNode">edit</a>]</div><a name="DisconnectNodeFromNode"></a><h2> DisconnectNodeFromNode </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;"> Disconnects Node ID One from Two, please see RemoveNode for information about the calculator memory.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(NodeID_One, NodeID_Two)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> NodeID_One</td><td style="vertical-align:top;"> The first NodeID</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> NodeID_Two</td><td style="vertical-align:top;"> The second NodeID</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">  -1 if the NodeID is invalid and 0 if node id does not exist, 1 on success.<br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="RouteConnector.html" title="Edit section: DisconnectAllFromNode">edit</a>]</div><a name="DisconnectAllFromNode"></a><h2> DisconnectAllFromNode </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;"> Disconnects all other nodes from NodeID, and NodeID from them.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(NodeID)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> NodeID</td><td style="vertical-align:top;"> The NodeID which will be disconnected</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">  -1 if the NodeID is invalid and 0 if node id does not exist, 1 on success.<br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="RouteConnector.html" title="Edit section: DeleteNodeSystemAtNode">edit</a>]</div><a name="DeleteNodeSystemAtNode"></a><h2> DeleteNodeSystemAtNode </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;"> Get ALL nodeIDs that are CONNECTED IN ANY WAY, ALSO VIA OTHER NODES to NodeID into the array[]. Useful for deleting big-not-connected chunks of nodes.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">({{{1}}})<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> NodeID</td><td style="vertical-align:top;"> The NodeID which will be the deleted in the array</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> array[]</td><td style="vertical-align:top;"> The array which the NodeSystem will be Deleted</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> size</td><td style="vertical-align:top;"> The size of array by default</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">  0 on failure, the array size on success.<br /></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="RouteConnector.html" title="Edit section: Plugin Callbacks">edit</a>]</div><a name="Plugin_Callbacks"></a><h1> Plugin Callbacks </h1>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+<p><strong>Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;"> This plugin only have 2 callbacks which are essentials to the functionality in any scripts!</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="RouteConnector.html" title="Edit section: OnPlayerClosestNodeIDChange">edit</a>]</div><a name="OnPlayerClosestNodeIDChange"></a><h2> OnPlayerClosestNodeIDChange </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;"> This callback is called when a player's closest nodeID changes.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">( playerid, old_NodeID, new_NodeID)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> playerid </td><td style="vertical-align:top;"> The player which node has changed</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> old_NodeID </td><td style="vertical-align:top;"> The previous node id </td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> new_NodeID </td><td style="vertical-align:top;"> The new node id</td></tr></table></div>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="RouteConnector.html" title="Edit section: GPS_WhenRouteIsCalculated">edit</a>]</div><a name="GPS_WhenRouteIsCalculated"></a><h2> GPS_WhenRouteIsCalculated </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;"> This callback is called when a path finding calculation is done.<br /></div>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(routeid,node_id_array[],amount_of_nodes,Float:distance, {...} )<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> routeid </td><td style="vertical-align:top;"> The id of calculated route</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> node_id_array[] </td><td style="vertical-align:top;"> This array is up to 1792 cells long it is build from the following information:                    node_id_array[0] ... node_id_array[1791] - all points (Node ID's) on the route in following order: from start, to end</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> amount_of_nodes </td><td style="vertical-align:top;"> This is the amount of nodes the total path is, is set to 0 when it's impossible to calculate the route.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> Float:distance </td><td style="vertical-align:top;"> The total distance all nodes take, rounded to an integer, is -1 if it's impossible to calculate the route.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> Float:Polygon[] </td><td style="vertical-align:top;"> The polygon around the path, only given if you specified it at calculatepath.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> Float:Polygon_Size/2 </td><td style="vertical-align:top;"> amount of points in polygon.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> Float:NodePosX[] </td><td style="vertical-align:top;"> The specified node coordinate X.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> Float:NodePosY[] </td><td style="vertical-align:top;"> The specified node coordinate Y.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'"> Float:NodePosZ[] </td><td style="vertical-align:top;"> The specified node coordinate Z.</td></tr></table></div>
+<p><br />
+</p>
+<pre class="pawn"><span style="color: #808080; font-style: italic;">//Example of usage:</span>
+&nbsp;
+    <span style="color: #228b22; font-weight: bold;">public</span> GPS_WhenRouteIsCalculated<span style="color: #66cc66;">&#40;</span>...<span style="color: #66cc66;">&#41;</span>
+    <span style="color: #66cc66;">&#123;</span>
+        <span style="color: #4169e1;">for</span><span style="color: #66cc66;">&#40;</span><span style="color: #228b22; font-weight: bold;">new</span> i = <span style="color: #4169e1;">0</span>; i &lt; amount_of_nodes; ++i<span style="color: #66cc66;">&#41;</span>
+        <span style="color: #66cc66;">&#123;</span> 
+            <a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;Point(%d)=NodeID(%d),position(X;Y;Z):%f;%f;%f}&quot;</span>,
+            i,node_id_array<span style="color: #66cc66;">&#91;</span><span style="color: orange;">i</span>:NodePosX<span style="color: #66cc66;">&#91;</span>i<span style="color: #66cc66;">&#93;</span>,:NodePosY<span style="color: #66cc66;">&#91;</span>i<span style="color: #66cc66;">&#93;</span>,:NodePosZ<span style="color: #66cc66;">&#91;</span>i<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>; 
+        <span style="color: #66cc66;">&#125;</span>
+        <span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+    <span style="color: #66cc66;">&#125;</span></pre>
+<div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/RouteConnector.html">http://localhost../wiki/RouteConnector.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="Category_Plugin_Documentation.html" title="Category:Plugin Documentation">Plugin Documentation</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="RouteConnector.html">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="Talk_RouteConnector.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="RouteConnector.html">Edit</a></li>
+				 <li id="ca-history"><a href="RouteConnector.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 20,173 times.</li>
+				<li id="credits">This page was last modified 11:42, 27 March 2017 by SA-MP Wiki user <a href="User_OstGot.html" title="User:OstGot">OstGot</a>. Based on work by SA-MP Wiki user(s) <a href="User_N0minal.html" title="User:N0minal">N0minal</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 104.67 secs. -->
+</body></html>

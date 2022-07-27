@@ -1,0 +1,255 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Linux Server PT,Advanced Server Controls,Windows Server PT" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>Linux Server PT - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Linux Server PT</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class='toclevel-1'><a href="#Requisitos"><span class="tocnumber">1</span> <span class="toctext">Requisitos</span></a></li>
+<li class='toclevel-1'><a href="#Configurando_o_servidor"><span class="tocnumber">2</span> <span class="toctext">Configurando o servidor</span></a>
+<ul>
+<li class='toclevel-2'><a href="#Baixe_e_extraia_os_arquivos"><span class="tocnumber">2.1</span> <span class="toctext">Baixe e extraia os arquivos</span></a></li>
+<li class='toclevel-2'><a href="#Configurando_seu_servidor"><span class="tocnumber">2.2</span> <span class="toctext">Configurando seu servidor</span></a></li>
+<li class='toclevel-2'><a href="#Adicionando_Gamemodes.2FFilterscripts_a_seu_servidor"><span class="tocnumber">2.3</span> <span class="toctext">Adicionando Gamemodes/Filterscripts a seu servidor</span></a></li>
+<li class='toclevel-2'><a href="#Rodando_seu_servidor"><span class="tocnumber">2.4</span> <span class="toctext">Rodando seu servidor</span></a></li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#Mantendo_o_servidor_online"><span class="tocnumber">3</span> <span class="toctext">Mantendo o servidor online</span></a>
+<ul>
+<li class='toclevel-2'><a href="#Metodo_um"><span class="tocnumber">3.1</span> <span class="toctext">Metodo um</span></a></li>
+<li class='toclevel-2'><a href="#Metodo_dois"><span class="tocnumber">3.2</span> <span class="toctext">Metodo dois</span></a></li>
+<li class='toclevel-2'><a href="#Metodo_tr.C3.AAs"><span class="tocnumber">3.3</span> <span class="toctext">Metodo três</span></a></li>
+</ul>
+</li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Linux_Server_PT.html" title="Edit section: Requisitos">edit</a>]</div><a name="Requisitos"></a><h2>Requisitos</h2>
+<ul><li> Um servidor linux com acesso SSH, libstdc++ 6 e um cliente SSH tal como <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/" class='external text' title="http://www.chiark.greenend.org.uk/~sgtatham/putty/" rel="nofollow">PuTTY</a>
+</li><li> Acesso a internet (um servidor com 100 jogadores usa em torno de 4Mbps upstream)
+</li><li> Uma porta UDP encaminhada (7777 é o padrão) | [Guia: <a href="http://www.portforward.com/" class='external free' title="http://www.portforward.com" rel="nofollow">http://www.portforward.com</a>]
+</li></ul>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Linux_Server_PT.html" title="Edit section: Configurando o servidor">edit</a>]</div><a name="Configurando_o_servidor"></a><h2>Configurando o servidor</h2>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Linux_Server_PT.html" title="Edit section: Baixe e extraia os arquivos">edit</a>]</div><a name="Baixe_e_extraia_os_arquivos"></a><h3>Baixe e extraia os arquivos</h3>
+<p>Antes de tudo, vá até <a href="http://www.sa-mp.com/download.php" class='external text' title="http://www.sa-mp.com/download.php" rel="nofollow">página de download do SA-MP</a> e encontre o URL para o <i>Linux Server</i>. Então use <i>wget</i> seguido pelo URL para baixar o <i>SA-MP Server</i> para seu servidor. Então, extraia os arquivos do pacote. Você pode querer <i>cd</i> até o diretório onde você quer instalar o servidor, ex: /home/user
+</p>
+<pre class="bash"><span style="color: #c20cb9; font-weight: bold;">wget</span> http://files.sa-mp.com/samp03xsvr_R2.<span style="color: #c20cb9; font-weight: bold;">tar</span>.gz
+<span style="color: #c20cb9; font-weight: bold;">tar</span> -zxf samp03*.<span style="color: #c20cb9; font-weight: bold;">tar</span>.gz
+<span style="color: #7a0874; font-weight: bold;">cd</span> samp03</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Linux_Server_PT.html" title="Edit section: Configurando seu servidor">edit</a>]</div><a name="Configurando_seu_servidor"></a><h3>Configurando seu servidor</h3>
+<p>Após você ter baixado e extraido os arquivos navegue até a pastaonde você instalou o servidor (normalmente através de digitar <tt>cd /home/user/samp03</tt>.) Depois, use seu editor de texto favorito ex: Pico ou Nano, edite o server.cfg e altere o <i>hostname, RCON password, etc</i> - mais informação está em <a href="Windows_Server_PT.html#Configurando_o_servidor" title="Windows Server PT">Configuração do servidor</a> e na página <a href="Advanced_Server_Controls.html" title="Advanced Server Controls">Advanced Server Controls</a>.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Linux_Server_PT.html" title="Edit section: Adicionando Gamemodes/Filterscripts a seu servidor">edit</a>]</div><a name="Adicionando_Gamemodes.2FFilterscripts_a_seu_servidor"></a><h3>Adicionando Gamemodes/Filterscripts a seu servidor</h3>
+<p>Talvez você queira rodar outro gamemode do que o gamemode exemplo vindo com o SA-MP. No fórum <a href="http://forum.sa-mp.com/forumdisplay.php?f=56" class='external text' title="http://forum.sa-mp.com/forumdisplay.php?f=56" rel="nofollow">Lançamentos/Releases</a> você pode encontrar vários scripts que você possa querer rodar em seu servidor. Para adiciona-los ao seu servidor, apenas baixe o arquivo .amx desejado para seu directório <tt>&lt;raíz do servidor&gt;\gamemodes</tt>, e edite seu <i>server.cfg</i> para rodar este gamemode alterando uma das linhas de gamemode&lt;numero&gt; com o nome do arquivo, excluindo o ".amx".
+</p><p>Isto funciona praticamente do mesmo jeito para filterscripts. Você pode encontra-los também nos Lançamentos/Releases. Para te-lôs em seu servidor apenas baixe-os e copie o arquivo para o diretório de filterscripts e adicione o nome do arquivo sem o ".amx" ao fim da linha que começa com "filterscripts" em seu server.cfg.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Linux_Server_PT.html" title="Edit section: Rodando seu servidor">edit</a>]</div><a name="Rodando_seu_servidor"></a><h3>Rodando seu servidor</h3>
+<p>Assim que você tiver seu server.cfg configurado do seu jeito, simplesmente execute o servidor usando um dos três metodos descritos abaixo. Cada metodo tem uma descrição abaixo da imagem. Escolhemos os três modos mais populares de iniciar o servidor, um pequeno script SSH para manter seu servidor rodando pode ser encontrado no final dessa página.
+</p><p><i><b>NOTA:</b></i> Tenha certeza de definir as permissões para o  samp03svr <b>e</b> announce se você quiser rodar um servidor na aba internet! Se você não fizer isso, você vai obter erro de permissão negada.
+Para definir as permissões, execute <tt>chmod 700 *</tt> no diretório do SA:MP server. NÃO é uma boa ideia rodar o servidor (ou qualquer outro programa desse tipo) sob root.
+</p><p><a href="Image_Samp_ssh.jpg.html" class="image" title="Image:Samp_ssh.jpg"><img src="../upload/d/d6/Samp_ssh.jpg" alt="Image:Samp_ssh.jpg" width="675" height="425" longdesc="Image_Samp_ssh.jpg.html" /></a>
+</p><p><b>Metodo um</b>
+</p><p>O primeiro metodo usa o comando <tt>nohup</tt> para manter o servidor rodando. <tt><b>nohup</b></tt> é um comando linux que inicia um programa, que vai ignorar qualquer sinal <tt>SIGHUP</tt> - sinais de disconexão. Isto significa que o servidor irá continuar rodando mesmo que você feche a janela do terminal(SSH) que você abriu antes. O E comercial (<tt>&amp;</tt>) ao fim do comando significa que o servidor tem que rodar em segundo plano, então você pode executar comandos, mesmo após você ter iniciado o SA-MP server.
+</p>
+<pre class="bash"><span style="color: #c20cb9; font-weight: bold;">nohup</span> ./samp03svr &amp;</pre>
+<p>Um log detalhado pode ser encontrado no arquivo <tt>nohup.out</tt>, no qual será criado no diretório onde você executou o comando (<tt>/home/gta</tt> neste caso). <tt>nohup</tt> está instalado na maiorias dos servidores linux.
+</p><p><br />
+<b>Metodo dois</b>
+</p><p>O segundo metodo permite que o processo do SA-MP Server rode em segundo plano. A vantagem disso é que você pode continuar trabalhando no ambiente-shell, sem precisar abrir outra janela. Em algunas servidores Linux, o processo continuará a ser executado mesmo após a janela de terminal ser fechada(SSH), mas este nem sempre é o caso.
+</p>
+<pre class="bash">./samp03svr &amp;</pre>
+<p>Não há arquivos de log ou similares criados. O shell irá retornar o PID do processo que acabou de ser criado, 9251 no exemplo acima. Este metodo é suportado por todos os servidores linux.
+</p><p><br />
+<b>Metodo três</b>
+</p><p>Este metodo é o original is the original descrito primeiro, e o mais fácil de ser entendido. O servidor irá rodar em primeiro plano, então todos os erros irão diretamente visiveis na janela (ex. falhas de segmentação). Mas mantenha em mente que o output normal, os que se tem no Windows Server, não é visível no the Linux server.
+</p>
+<pre class="bash">./samp03svr</pre>
+<p>O servidor irá desligar após a janela ser fechada. Este metodo pode ser o melhor para <i>scripting</i> e/ou para debug, já que é bem claro. 
+</p><p><br />
+<i><b>NOTA:</b></i> Se você obtem um erro dizendo <i>libstdc++ 6 cannot be found</i>, então baixe-o em seu servidor.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Linux_Server_PT.html" title="Edit section: Mantendo o servidor online">edit</a>]</div><a name="Mantendo_o_servidor_online"></a><h2>Mantendo o servidor online</h2>
+<p>Com limitadas opções de anti-crash disponiveis no SA-MP Server, há uma grande possibilidade de receber falhas de segmentação ou qualquer outro erro gerado por seu gamemode(Pawn). Isto fará com que seu servidor feche, e você terá que inicia-lo manualmente novamente.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Linux_Server_PT.html" title="Edit section: Metodo um">edit</a>]</div><a name="Metodo_um"></a><h3> Metodo um </h3>
+<p>Tudo que você precisa é usaro programa abaixo, ele é um ambiente linux com a possibilidade de usar <tt>cron</tt>. Este programa irá checar se o processo <tt>samp03svr</tt> está rodando, e se não estiver, liga-lo novamente. Você precisa instalar o seguinte <i>crontab</i>:
+</p>
+<pre>*/1 * * * * /path/to/samp/checksamp.sh &gt;/dev/null 2&gt;&amp;1
+</pre>
+<p>Ajuda sobre como usar o crontab pode ser encontrada <a href="http://www.adminschoice.com/docs/crontab.htm" class='external text' title="http://www.adminschoice.com/docs/crontab.htm" rel="nofollow">aqui</a>.
+</p><p><b>checksamp.sh:</b>
+</p>
+<pre class="bash"><span style="color: #808080; font-style: italic;">#!/bin/sh</span>
+&nbsp;
+<span style="color: #007800;">PROCESS_COUNT=</span>$<span style="color: #7a0874; font-weight: bold;">&#40;</span><span style="color: #c20cb9; font-weight: bold;">ps</span> -fu root | <span style="color: #c20cb9; font-weight: bold;">grep</span> samp03svr | <span style="color: #c20cb9; font-weight: bold;">grep</span> -v <span style="color: #c20cb9; font-weight: bold;">grep</span> | <span style="color: #c20cb9; font-weight: bold;">wc</span> -l<span style="color: #7a0874; font-weight: bold;">&#41;</span>
+<span style="color: #000000; font-weight: bold;">case</span> <span style="color: #007800;">$PROCESS_COUNT</span> <span style="color: #000000; font-weight: bold;">in</span>
+<span style="color: #000000;">0</span><span style="color: #7a0874; font-weight: bold;">&#41;</span> /path/to/samp03svr &amp;
+;;
+<span style="color: #000000;">1</span><span style="color: #7a0874; font-weight: bold;">&#41;</span> <span style="color: #808080; font-style: italic;">#OK, program is already running once</span>
+;;
+*<span style="color: #7a0874; font-weight: bold;">&#41;</span> <span style="color: #808080; font-style: italic;">#OK, program is already multiple times</span>
+;;
+<span style="color: #000000; font-weight: bold;">esac</span></pre>
+<p>Tenha certeza que você tem os caminhos corretos, o script não funcionará se não tiver. O script atualmente é incapaz de suportar multiplos servidores de SA-MP na mesma máquina, mas funciona perfeitamente onde há somente um rodando. <b>Você precisar chmod o arquivo <tt>checksamp.sh</tt> para 0755 (+x)!</b>
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Linux_Server_PT.html" title="Edit section: Metodo dois">edit</a>]</div><a name="Metodo_dois"></a><h3> Metodo dois </h3>
+<p>Se você não quiser usar <i>crontab</i> e se você quer ter o server log salvo em um diretório separado quando o servidor crashar você pode usar este script.
+</p><p>Para menter seu servidor online usando este script, primeiro você precisar parar seu servidor e executa-lo com este comando:
+</p>
+<pre class="bash"><span style="color: #c20cb9; font-weight: bold;">nohup</span> ./restart.<span style="color: #c20cb9; font-weight: bold;">sh</span> &amp;</pre>
+<p><b>restart.sh:</b>
+</p>
+<pre class="bash"><span style="color: #808080; font-style: italic;">#!/bin/sh</span>
+<span style="color: #007800;">log=</span>samp.log
+<span style="color: #007800;">dat=</span>`<span style="color: #c20cb9; font-weight: bold;">date</span>`
+<span style="color: #007800;">samp=</span><span style="color: #ff0000;">&quot;/path/to/samp/server/samp03svr&quot;</span>
+<span style="color: #7a0874; font-weight: bold;">cd</span> /path/to/samp/server
+&nbsp;
+<span style="color: #7a0874; font-weight: bold;">echo</span> <span style="color: #ff0000;">&quot;${dat} watchdog script starting.&quot;</span> &gt;&gt;<span style="color: #007800;">$<span style="color: #7a0874; font-weight: bold;">&#123;</span>log<span style="color: #7a0874; font-weight: bold;">&#125;</span></span>
+<span style="color: #000000; font-weight: bold;">while</span> <span style="color: #c20cb9; font-weight: bold;">true</span>; <span style="color: #000000; font-weight: bold;">do</span>
+        <span style="color: #7a0874; font-weight: bold;">echo</span> <span style="color: #ff0000;">&quot;${dat} Server exited, restarting...&quot;</span> &gt;&gt;<span style="color: #007800;">$<span style="color: #7a0874; font-weight: bold;">&#123;</span>log<span style="color: #7a0874; font-weight: bold;">&#125;</span></span>
+        <span style="color: #c20cb9; font-weight: bold;">mv</span> /path/to/samp/server/server_log.txt /path/to/samp/server/logs/server_log.`<span style="color: #c20cb9; font-weight: bold;">date</span> <span style="color: #ff0000;">'+%m%d%y%H%M%S'</span>`
+        <span style="color: #007800;">$<span style="color: #7a0874; font-weight: bold;">&#123;</span>samp<span style="color: #7a0874; font-weight: bold;">&#125;</span></span> &gt;&gt; <span style="color: #007800;">$log</span>
+	<span style="color: #c20cb9; font-weight: bold;">sleep</span> <span style="color: #000000;">2</span>
+<span style="color: #000000; font-weight: bold;">done</span></pre>
+<p>Este metodo irá trazer seu servidor de volta sempre que ele crashar ou quando usar o comando RCON exit. Isto também salvará um log em um diretório separado.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Linux_Server_PT.html" title="Edit section: Metodo três">edit</a>]</div><a name="Metodo_tr.C3.AAs"></a><h3> Metodo três </h3>
+<p>Você pode reiniciar o servidor usando este conjunto de scripts shell.
+Assumindo que o servidor esteja localizado no diretório <tt>/home/sampsvr</tt>.
+</p><p>Script numero 1 
+<b>startgtaserver.sh:</b>
+</p>
+<pre class="bash"><span style="color: #808080; font-style: italic;">#!/bin/bash</span>
+<span style="color: #7a0874; font-weight: bold;">export</span> <span style="color: #007800;">GTA_PATH=</span>/home/sampsvr
+<span style="color: #7a0874; font-weight: bold;">cd</span> <span style="color: #007800;">$GTA_PATH</span>
+<span style="color: #000000; font-weight: bold;">while</span> <span style="color: #7a0874; font-weight: bold;">&#91;</span> <span style="color: #c20cb9; font-weight: bold;">true</span> <span style="color: #7a0874; font-weight: bold;">&#93;</span>; <span style="color: #000000; font-weight: bold;">do</span>
+<span style="color: #c20cb9; font-weight: bold;">cat</span> <span style="color: #7a0874; font-weight: bold;">&#123;</span><span style="color: #007800;">$GTA_PATH</span><span style="color: #7a0874; font-weight: bold;">&#125;</span>/server_log.txt &gt;&gt; <span style="color: #7a0874; font-weight: bold;">&#123;</span><span style="color: #007800;">$GTA_PATH</span><span style="color: #7a0874; font-weight: bold;">&#125;</span>/full_server_log.txt
+<span style="color: #c20cb9; font-weight: bold;">rm</span> <span style="color: #7a0874; font-weight: bold;">&#123;</span><span style="color: #007800;">$GTA_PATH</span><span style="color: #7a0874; font-weight: bold;">&#125;</span>/server_log.txt
+<span style="color: #c20cb9; font-weight: bold;">touch</span> <span style="color: #7a0874; font-weight: bold;">&#123;</span><span style="color: #007800;">$GTA_PATH</span><span style="color: #7a0874; font-weight: bold;">&#125;</span>/server_log.txt
+./samp03svr
+<span style="color: #000000; font-weight: bold;">done</span></pre> 
+<p>Este aqui vai próximo ao binário do servidor.
+</p><p>Segundo script, nomeado  
+<b>gtaserver.sh:</b>
+</p>
+<pre class="bash"><span style="color: #808080; font-style: italic;">#!/bin/bash</span>
+&nbsp;
+server_start<span style="color: #7a0874; font-weight: bold;">&#40;</span><span style="color: #7a0874; font-weight: bold;">&#41;</span> <span style="color: #7a0874; font-weight: bold;">&#123;</span>
+screen /home/sampsvr/startgtaserver.<span style="color: #c20cb9; font-weight: bold;">sh</span> &amp; <span style="color: #808080; font-style: italic;"># put <span style="color: #000000; font-weight: bold;">in</span> full path and name of startup script</span>
+<span style="color: #7a0874; font-weight: bold;">&#125;</span> 
+&nbsp;
+server_stop<span style="color: #7a0874; font-weight: bold;">&#40;</span><span style="color: #7a0874; font-weight: bold;">&#41;</span> <span style="color: #7a0874; font-weight: bold;">&#123;</span>
+<span style="color: #c20cb9; font-weight: bold;">killall</span> startgtaserver.<span style="color: #c20cb9; font-weight: bold;">sh</span> <span style="color: #808080; font-style: italic;"># your startup script name</span>
+<span style="color: #c20cb9; font-weight: bold;">killall</span> samp03svr <span style="color: #808080; font-style: italic;"># need to put <span style="color: #000000; font-weight: bold;">in</span> path to <span style="color: #c20cb9; font-weight: bold;">killall</span> <span style="color: #000000; font-weight: bold;">if</span> its not <span style="color: #000000; font-weight: bold;">in</span> <span style="color: #007800;">$PATH</span></span>
+<span style="color: #7a0874; font-weight: bold;">&#125;</span> 
+&nbsp;
+server_restart<span style="color: #7a0874; font-weight: bold;">&#40;</span><span style="color: #7a0874; font-weight: bold;">&#41;</span> <span style="color: #7a0874; font-weight: bold;">&#123;</span>
+server_stop
+<span style="color: #c20cb9; font-weight: bold;">sleep</span> <span style="color: #000000;">1</span>
+server_start
+<span style="color: #7a0874; font-weight: bold;">&#125;</span>
+<span style="color: #000000; font-weight: bold;">case</span> <span style="color: #ff0000;">&quot;$1&quot;</span> <span style="color: #000000; font-weight: bold;">in</span>
+<span style="color: #ff0000;">'start'</span><span style="color: #7a0874; font-weight: bold;">&#41;</span>
+server_start
+;;
+<span style="color: #ff0000;">'stop'</span><span style="color: #7a0874; font-weight: bold;">&#41;</span>
+server_stop
+;;
+<span style="color: #ff0000;">'restart'</span><span style="color: #7a0874; font-weight: bold;">&#41;</span>
+server_restart
+;;
+*<span style="color: #7a0874; font-weight: bold;">&#41;</span>
+<span style="color: #7a0874; font-weight: bold;">echo</span> <span style="color: #ff0000;">&quot;usage $0 start|stop|restart&quot;</span>
+<span style="color: #000000; font-weight: bold;">esac</span></pre>
+<p>Coloque o script no <tt>/usr/local/bin/</tt>.
+</p><p>Apenas altere os caminhos de ambos os scripts para os seus, então você pode iniciar o servidor usando
+<tt>gtaserver start</tt>,
+e parar o servidor usando
+<tt>gtaserver stop</tt>,
+e finalmente reinicia-lo usando
+<tt>gtaserver restart</tt>. Tenha certeza de que os scripts são executáveis.
+</p><div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/Linux_Server_PT.html">http://localhost../wiki/Linux_Server_PT.html</a>"</div>
+						<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="Linux_Server_PT.html">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="Talk_Linux_Server_PT.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="Linux_Server_PT.html">Edit</a></li>
+				 <li id="ca-history"><a href="Linux_Server_PT.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-en"><a href="Linux_Server.html">English</a></li>
+				<li class="interwiki-de"><a href="Linux_Server_DE.html">Deutsch</a></li>
+				<li class="interwiki-ru"><a href="Linux_Server_RU.html">Русский</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 9,717 times.</li>
+				<li id="credits">This page was last modified 11:21, 16 December 2017 by SA-MP Wiki user <a href="User_Dugi.html" title="User:Dugi">Dugi</a>. Based on work by SA-MP Wiki user(s) <a href="User_GameMan.html" title="User:GameMan">GameMan</a> and <a href="User_Larceny.html" class="new" title="User:Larceny">Larceny</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 103.23 secs. -->
+</body></html>

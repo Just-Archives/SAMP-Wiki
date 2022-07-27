@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Server.cfg文件,Remote Console" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>Server.cfg文件 - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Server.cfg文件</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<ul><li> <i><b>echo</b></i> - 这是在 sampserver.exe 执行server.cfg时会回显的东西, 因为只有你能看到控制台，所以完全没有必要修改它。默认显示 <b>Executing Server Config...</b>
+</li></ul>
+<ul><li> <i><b>lanmode</b></i> - 开启lanmode会使服务器使用更多带宽，虽然这能让服务器更加精确一些。你可以通过把值改为<b>1</b>来将其启用，把值改为<b>0</b>来禁用。默认设定为<b>0</b>
+</li></ul>
+<ul><li> <i><b>maxplayers</b></i> - 这是你服务器可以容纳的最多玩家数， 通过修改这个数字你可以修改多少玩家能进入服务器。最大值是<b>500</b>，最小值是<b>1</b>。默认设置为<b>50</b>。
+</li></ul>
+<ul><li> <i><b>announce</b></i> - 控制服务器是否被通告给SA-MP主列表。设置为<b>1</b>启用通告，<b>0</b>禁用。
+</li></ul>
+<ul><li> <i><b>port</b></i> - 服务器用来通讯的端口可以在这里指定， 你可能需要进行 <a href="http://www.portforward.com/" class='external text' title="http://www.portforward.com" rel="nofollow">端口映射</a> 来运行服务器。默认设置为<b>7777</b>。
+</li></ul>
+<ul><li> <i><b>hostname</b></i> - 这是会在服务器浏览器里向其他用户显示的服务器名。 默认设置为 <b>SA-MP 0.3 Server</b> 。
+</li></ul>
+<ul><li> <i><b>gamemode(n) (N) (t)</b></i> - 通过修改这里的值能够设置要玩的游戏模式，什么时候玩以及要玩多少次。 要想正确使用，你必须理解它是什么意思， <b>(n)</b> 是游戏模式序号, <b>(N)</b> 是游戏模式名*, <b>(t)</b> 是在切换到下一个游戏模式前要玩多少次. 这部分默认会像下面这样: 
+<ul><li> gamemode0 lvdm 1
+</li><li> gamemode1 rivershell 1
+</li><li> gamemode2 area51 1
+</li><li> gamemode4 sftdm 1 <div class="thumb tright"><div style="width:182px;"><a href="Image_SA-MP_Wiki_Windows_2.gif.html" class="internal" title="一个正在运行的服务器!"><img src="../upload/thumb/7/7e/SA-MP_Wiki_Windows_2.gif/180px-SA-MP_Wiki_Windows_2.gif" alt="一个正在运行的服务器!" width="180" height="148" longdesc="Image_SA-MP_Wiki_Windows_2.gif.html" /></a>  <div class="thumbcaption" ><div class="magnify" style="float:right"><a href="Image_SA-MP_Wiki_Windows_2.gif.html" class="internal" title="Enlarge"><img src="../skins/common/images/magnify-clip.png" width="15" height="11" alt="Enlarge" /></a></div>一个正在运行的服务器!</div></div></div>
+</li></ul>
+</li></ul>
+<ul><li> <i><b>weburl</b></i> - 这是人们可以获取更多关于服务器的信息的网站地址。 不是必要的， 默认设置为<b>www.sa-mp.com</b>。
+</li></ul>
+<ul><li> <i><b>rcon_password</b></i> - 这是用来管理服务器和使用RCON的密码，你必须确保它难以被破解以防别人获得你的服务器的控制权。默认设置为<b>changeme</b>。 如果<b>changeme</b>是RCON密码的话服务器将不会启动。
+</li></ul>
+<ul><li> <i><b>filterscripts (N)</b></i> - 附加脚本是运行在你的游戏模式后台的脚本，它们可以在不编辑游戏模式的情况下额外添加到服务器。这对于在多个游戏模式里加入特定功能非常有用。要使用附加脚本，你必须在你的服务端目录下找到名为<b>filterscripts</b>的文件夹，然后把你的附加脚本(.amx)放进去。(N) 代表附加脚本名称。这个选项默认不存在。如果你想加载多个附加脚本，全部写在一行里，用空格隔开， 例如<i>filterscripts script1 script2</i>。
+</li></ul>
+<ul><li> <i><b>plugins (N)</b></i> - 插件指令允许你指定被设计来增强游戏模式和附加脚本的插件。(N) 代表插件名。 如果你想加载多个插件，全部写在一行里，用空格隔开， 例如<i>plugins plugin1 plugin2</i>.
+<ul><li> 你可以在论坛里找到更多有关插件开发用SDK的信息。<a href="http://forum.sa-mp.com/index.php?topic=21330.0" class='external text' title="http://forum.sa-mp.com/index.php?topic=21330.0" rel="nofollow">主讨论串</a>
+</li></ul>
+</li><li> <i><b>password (p)</b></i> - 锁定你的服务器是另一个服务器管理员可用的选项。你可以用这个选项来挡住不受欢迎的访客。(p) 代表你想要使用的密码。 服务器默认没有密码。
+</li><li> <i><b>mapname (m)</b></i> - mapname 在服务器浏览器中显示。 (m) 代表地图名. 默认设置为 <b>San Andreas</b>.
+<ul><li>把[Name]改成任意你想要的, 例如. My-stunt-map
+</li><li><i>游戏模式/附加脚本名是你的gamemodes/filterscripts目录中编译后的游戏模式/附加脚本文件名，除了必须去掉.amx扩展名之外，必须一字不差。</i>
+</li></ul>
+</li></ul>
+<ul><li> <i><b>bind</b></i> - 强制服务器使用一个特定的IP。 这个IP必须是服务器上的任一网卡关联到的IP。 这个选项对在同一主机上运行多个相同端口的服务器很有用。
+</li></ul>
+<ul><li> <i><b>rcon 0/1</b></i> - 如果指定了0，那么rcon<a href="Remote_Console.html" title="Remote Console">Remote Console</a>功能将被禁用。
+</li></ul>
+<ul><li> <i><b>maxnpc</b></i> - 能够进入服务器的最多NPC数量。
+</li></ul>
+<ul><li> <i><b>onfoot_rate</b></i> - 跑步或走路时客户端与服务端同步数据的最小时间(单位:毫秒)。
+</li></ul>
+<ul><li> <i><b>incar_rate</b></i> - 在载具上时客户端与服务端同步数据的最小时间(单位:毫秒)。
+</li></ul>
+<ul><li> <i><b>weapon_rate</b></i> - 开枪时客户端与服务端同步数据的最小时间(单位:毫秒)。
+</li></ul>
+<ul><li> <i><b>stream_distance</b></i> - 服务器为连接的玩家缓冲服务端元素数据的X,Y平面距离。
+</li></ul>
+<ul><li> <i><b>stream_rate</b></i> - 每个玩家缓冲距离更新前必须经过的毫秒数。
+</li></ul>
+<ul><li> <i><b>logtimeformat</b></i> - 允许你配置时间戳格式, 格式基于C/C++中的 strftime 格式.
+</li></ul>
+<p>更小的 onfoot_rate incar_rate weapon_rate 可以提高同步性能，但也增加了带宽占用。
+stream_distance	数值变高的话， 玩家可以看到更大距离内的服务端元素，但也需要更多的客户端处理和潜在的带宽占用增加。
+stream_rate	数值减小会因为需要更频繁的重新检查每个玩家的缓冲条件而增加服务器 CPU 占用。
+</p><p>stream_distance 和 stream_rate 可以在服务端运行时修改。 例如 /rcon stream_distance 300.0 或 /rcon stream_rate 1000. onfoot_rate, incar_rate, weapon_rate 也可以在服务端运行时修改, 但只会对新进入的玩家生效。
+</p><p>logtimeformat的例子:
+logtimeformat [%H:%M:%S] - (默认) 只显示时间，是之前所有版本的SA-MP服务端的显示格式。
+logtimeformat [%d/%m/%Y %H:%M:%S] - 以 dd/mm/yyyy 格式显示日期在 hour:minute:second 格式显示的时间之后.
+</p><div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/Server.cfg%25E6%2596%2587%25E4%25BB%25B6.html">http://localhost../wiki/Server.cfg%25E6%2596%2587%25E4%25BB%25B6.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="Category_%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8%25E6%2596%2587%25E6%25A1%25A3.html" title="Category:服务器文档">服务器文档</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="Server.cfg%25E6%2596%2587%25E4%25BB%25B6.html">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="Talk_Server.cfg%25E6%2596%2587%25E4%25BB%25B6.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="Server.cfg%25E6%2596%2587%25E4%25BB%25B6.html">Edit</a></li>
+				 <li id="ca-history"><a href="Server.cfg%25E6%2596%2587%25E4%25BB%25B6.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-en"><a href="Server.cfg.html">English</a></li>
+				<li class="interwiki-nl"><a href="Server.cfg_NL.html">Nederlands</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 11,113 times.</li>
+				<li id="credits">This page was last modified 11:20, 3 April 2011 by SA-MP Wiki user User:. Based on work by SA-MP Wiki user(s) <a href="User_Mk124.html" class="new" title="User:Mk124">Mk124</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 65.33 secs. -->
+</body></html>

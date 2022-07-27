@@ -1,0 +1,789 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Vehicle Synchronization,AddVehicleComponent,Car Component ID,ChangeVehiclePaintjob,Componentslots,GetVehicleComponentInSlot,GetVehicleComponentType,OnVehicleMod,Paintjob,SetVehicleParamsCarWindows,RIDE2DAY" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>Vehicle Synchronization - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Vehicle Synchronization</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<table class="wikitable" style="float:right;">
+<tr>
+<th colspan="2">vSync<br /><span style="color:#2299aa"><i>Include</i></span>
+</th></tr>
+<tr>
+<td style="text-align:center;">Author</td><td style="text-align:center;"><span class="plainlinks"><a href="http://forum.sa-mp.com/member.php?u=262298" class='external text' title="http://forum.sa-mp.com/member.php?u=262298" rel="nofollow">RIDE2DAY</a></span>
+</td></tr>
+<tr>
+<td style="text-align:center;">Released</td><td style="text-align:center;">23/09/2017
+</td></tr>
+<tr>
+<td style="text-align:center;">Latest Version</td><td style="text-align:center;">0.03 <small>(07/11/2017)</small>
+</td></tr>
+<tr>
+<td style="text-align:center;">Development Status </td><td style="text-align:center;"> Active
+</td></tr>
+<tr>
+<td style="text-align:center;">License </td><td style="text-align:center;"> <a href="https://www.mozilla.org/en-US/MPL/2.0/" class='external text' title="https://www.mozilla.org/en-US/MPL/2.0/" rel="nofollow">MPL</a>
+</td></tr>
+<tr>
+<td colspan="2" style="text-align:center;"><a href="http://forum.sa-mp.com/showthread.php?t=642022" class='external text' title="http://forum.sa-mp.com/showthread.php?t=642022" rel="nofollow">Forum Topic</a>
+</td></tr></table>
+<p>Here you may find all the documentation related to the vSync include scripted by <a href="User_RIDE2DAY.html" title="User:RIDE2DAY">RIDE2DAY</a>. If you find any bug, please, report it on the official topic.
+</p>
+<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class='toclevel-1'><a href="#New_Functions"><span class="tocnumber">1</span> <span class="toctext">New Functions</span></a>
+<ul>
+<li class='toclevel-2'><a href="#GetVehicleName"><span class="tocnumber">1.1</span> <span class="toctext">GetVehicleName</span></a></li>
+<li class='toclevel-2'><a href="#GetVehicleNumberPlate"><span class="tocnumber">1.2</span> <span class="toctext">GetVehicleNumberPlate</span></a></li>
+<li class='toclevel-2'><a href="#GetVehicleColor"><span class="tocnumber">1.3</span> <span class="toctext">GetVehicleColor</span></a></li>
+<li class='toclevel-2'><a href="#GetVehiclePaintjob"><span class="tocnumber">1.4</span> <span class="toctext">GetVehiclePaintjob</span></a></li>
+<li class='toclevel-2'><a href="#GetVehicleSiren"><span class="tocnumber">1.5</span> <span class="toctext">GetVehicleSiren</span></a></li>
+<li class='toclevel-2'><a href="#GetVehicleInterior"><span class="tocnumber">1.6</span> <span class="toctext">GetVehicleInterior</span></a></li>
+<li class='toclevel-2'><a href="#GetVehicleSpeed"><span class="tocnumber">1.7</span> <span class="toctext">GetVehicleSpeed</span></a></li>
+<li class='toclevel-2'><a href="#GetVehicleMaxSpeed"><span class="tocnumber">1.8</span> <span class="toctext">GetVehicleMaxSpeed</span></a></li>
+<li class='toclevel-2'><a href="#GetVehicleSeats"><span class="tocnumber">1.9</span> <span class="toctext">GetVehicleSeats</span></a></li>
+<li class='toclevel-2'><a href="#GetVehicleWindows"><span class="tocnumber">1.10</span> <span class="toctext">GetVehicleWindows</span></a></li>
+<li class='toclevel-2'><a href="#GetVehicleMass"><span class="tocnumber">1.11</span> <span class="toctext">GetVehicleMass</span></a></li>
+<li class='toclevel-2'><a href="#GetVehicleEngineType"><span class="tocnumber">1.12</span> <span class="toctext">GetVehicleEngineType</span></a></li>
+<li class='toclevel-2'><a href="#GetVehicleDriveType"><span class="tocnumber">1.13</span> <span class="toctext">GetVehicleDriveType</span></a></li>
+<li class='toclevel-2'><a href="#VehicleSupportsNeonLights"><span class="tocnumber">1.14</span> <span class="toctext">VehicleSupportsNeonLights</span></a></li>
+<li class='toclevel-2'><a href="#SetVehicleNeonLights"><span class="tocnumber">1.15</span> <span class="toctext">SetVehicleNeonLights</span></a></li>
+<li class='toclevel-2'><a href="#GetVehicleNeonLightsState"><span class="tocnumber">1.16</span> <span class="toctext">GetVehicleNeonLightsState</span></a></li>
+<li class='toclevel-2'><a href="#VehicleSupportsNitro"><span class="tocnumber">1.17</span> <span class="toctext">VehicleSupportsNitro</span></a></li>
+<li class='toclevel-2'><a href="#VehicleSupportsComponent"><span class="tocnumber">1.18</span> <span class="toctext">VehicleSupportsComponent</span></a></li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#Modified_Functions"><span class="tocnumber">2</span> <span class="toctext">Modified Functions</span></a></li>
+<li class='toclevel-1'><a href="#New_Callbacks"><span class="tocnumber">3</span> <span class="toctext">New Callbacks</span></a>
+<ul>
+<li class='toclevel-2'><a href="#OnVehicleCreated"><span class="tocnumber">3.1</span> <span class="toctext">OnVehicleCreated</span></a></li>
+<li class='toclevel-2'><a href="#OnVehicleChangePaintjob"><span class="tocnumber">3.2</span> <span class="toctext">OnVehicleChangePaintjob</span></a></li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#Notes"><span class="tocnumber">4</span> <span class="toctext">Notes</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Vehicle_Synchronization.html" title="Edit section: New Functions">edit</a>]</div><a name="New_Functions"></a><h1> New Functions </h1>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Vehicle_Synchronization.html" title="Edit section: GetVehicleName">edit</a>]</div><a name="GetVehicleName"></a><h2> GetVehicleName </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Returns the vehicle's name.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(vehicleid, name[], len = sizeof(name))<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">vehicleid</td><td style="vertical-align:top;">The ID of the vehicle to get the name of.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">name[]</td><td style="vertical-align:top;">An array into which to store the vehicle name, passed by reference.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">len</td><td style="vertical-align:top;">The length of the string that should be stored. Recommended to be MAX_VEHICLE_NAME.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">The length of the vehicle's name or 0 if the vehicle ID doesn't exist.<br /></div>
+<p><br />
+<b>Example Usage:</b> 
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> v_name<span style="color: #66cc66;">&#91;</span>MAX_VEHICLE_NAME<span style="color: #66cc66;">&#93;</span>;
+<span style="color: #228b22; font-weight: bold;">new</span> vehicleid = <a href="http://wiki.sa-mp.com/wiki/GetPlayerVehicleID"><span style="color: #006400;">GetPlayerVehicleID</span></a><span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+GetVehicleName<span style="color: #66cc66;">&#40;</span>vehicleid, v_name, MAX_VEHICLE_NAME<span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">new</span> string<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">128</span><span style="color: #66cc66;">&#93;</span>;
+<a href="http://wiki.sa-mp.com/wiki/format"><span style="color: #006400;">format</span></a><span style="color: #66cc66;">&#40;</span>string, <span style="color: #4169e1;">128</span>, <span style="color: #b22222;">&quot;Vehicle's name is %s.&quot;</span>, v_name<span style="color: #66cc66;">&#41;</span>;
+<a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, <span style="color: #4169e1;">-1</span>, string<span style="color: #66cc66;">&#41;</span>;</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Vehicle_Synchronization.html" title="Edit section: GetVehicleNumberPlate">edit</a>]</div><a name="GetVehicleNumberPlate"></a><h2> GetVehicleNumberPlate </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Returns the vehicle's number plate.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(vehicleid, dest[], len = sizeof(dest))<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">vehicleid</td><td style="vertical-align:top;">The ID of the vehicle to get the number plate of.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">dest[]</td><td style="vertical-align:top;">An array into which to store the vehicle number plate, passed by reference.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">len</td><td style="vertical-align:top;">The length of the string that should be stored. Recommended to be MAX_VEHICLE_NUMBERPLATE.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">The length of the vehicle's number plate or 0 if the vehicle ID doesn't exist.<br /></div>
+<p><br />
+<b>Example Usage:</b> 
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> v_np<span style="color: #66cc66;">&#91;</span>MAX_VEHICLE_NUMBERPLATE<span style="color: #66cc66;">&#93;</span>;
+<span style="color: #228b22; font-weight: bold;">new</span> vehicleid = <a href="http://wiki.sa-mp.com/wiki/GetPlayerVehicleID"><span style="color: #006400;">GetPlayerVehicleID</span></a><span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+GetVehicleName<span style="color: #66cc66;">&#40;</span>vehicleid, v_name, MAX_VEHICLE_NUMBERPLATE<span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">new</span> string<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">128</span><span style="color: #66cc66;">&#93;</span>;
+<a href="http://wiki.sa-mp.com/wiki/format"><span style="color: #006400;">format</span></a><span style="color: #66cc66;">&#40;</span>string, <span style="color: #4169e1;">128</span>, <span style="color: #b22222;">&quot;Vehicle's number plate is %s.&quot;</span>, v_np<span style="color: #66cc66;">&#41;</span>;
+<a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, <span style="color: #4169e1;">-1</span>, string<span style="color: #66cc66;">&#41;</span>;</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Vehicle_Synchronization.html" title="Edit section: GetVehicleColor">edit</a>]</div><a name="GetVehicleColor"></a><h2> GetVehicleColor </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Returns the primary and secondary color of a vehicle.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(vehicleid, &amp;color1, &amp;color2)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">vehicleid</td><td style="vertical-align:top;">The ID of the vehicle to get the colors of.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">&amp;color1</td><td style="vertical-align:top;">A variable in which to store vehicle's primary color ID, passed by reference.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">&amp;color2</td><td style="vertical-align:top;">A variable in which to store vehicle's secondary color ID, passed by reference.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">1 if the function executed successfully or 0 if the vehicle ID doesn't exist.<br /></div>
+<p><br />
+<b>Example Usage:</b> 
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> col1, col2;
+GetVehicleColor<span style="color: #66cc66;">&#40;</span><a href="http://wiki.sa-mp.com/wiki/GetPlayerVehicleID"><span style="color: #006400;">GetPlayerVehicleID</span></a><span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span>, col1, col2<span style="color: #66cc66;">&#41;</span>;</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Vehicle_Synchronization.html" title="Edit section: GetVehiclePaintjob">edit</a>]</div><a name="GetVehiclePaintjob"></a><h2> GetVehiclePaintjob </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Returns the paintjob ID of a vehicle.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(vehicleid)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">vehicleid</td><td style="vertical-align:top;">The ID of the vehicle to get the paintjob ID of.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">
+<ul><li> The <a href="Paintjob.html" title="Paintjob">paintjob ID</a> or INVALID_PAINTJOB_ID if the vehicle doesn't have a paintjob.
+</li><li> -1 if the vehicle ID doesn't exist.<br /></div>
+</li></ul>
+<p><br />
+<b>Example Usage:</b> 
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> msg<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">128</span><span style="color: #66cc66;">&#93;</span>;
+<a href="http://wiki.sa-mp.com/wiki/format"><span style="color: #006400;">format</span></a><span style="color: #66cc66;">&#40;</span>msg, <span style="color: #4169e1;">128</span>, <span style="color: #b22222;">&quot;The paintjob ID is %d.&quot;</span>, GetVehiclePaintjob<span style="color: #66cc66;">&#40;</span><a href="http://wiki.sa-mp.com/wiki/GetPlayerVehicleID"><span style="color: #006400;">GetPlayerVehicleID</span></a><span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>;
+<a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, <span style="color: #4169e1;">-1</span>, msg<span style="color: #66cc66;">&#41;</span>;</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Vehicle_Synchronization.html" title="Edit section: GetVehicleSiren">edit</a>]</div><a name="GetVehicleSiren"></a><h2> GetVehicleSiren </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Returns the state of the <i>addsiren</i> parameter.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(vehicleid)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">vehicleid</td><td style="vertical-align:top;">The ID of the vehicle to get the siren state of.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">0 if the <i>addsiren</i> parameter is set to off or 1 if it is set to true.<br /></div>
+<p><br />
+<b>Example Usage:</b> 
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> vehicleid = <a href="http://wiki.sa-mp.com/wiki/GetPlayerVehicleID"><span style="color: #006400;">GetPlayerVehicleID</span></a><span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>GetVehicleModel<span style="color: #66cc66;">&#40;</span>vehicleid<span style="color: #66cc66;">&#41;</span> == <span style="color: #4169e1;">411</span> &amp;&amp;&nbsp;!GetVehicleSiren<span style="color: #66cc66;">&#40;</span>vehicleid<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, <span style="color: #4169e1;">-1</span>, <span style="color: #b22222;">&quot;Your Infernus doesn't have a siren.&quot;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Vehicle_Synchronization.html" title="Edit section: GetVehicleInterior">edit</a>]</div><a name="GetVehicleInterior"></a><h2> GetVehicleInterior </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Returns a vehicle's current interior.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(vehicleid)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">vehicleid</td><td style="vertical-align:top;">The ID of the vehicle to get the interior of.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">The interior that the vehicle is in, if the vehicle ID doesn't exist it returns 0.<br /></div>
+<p><br />
+<b>Example Usage:</b> 
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> vehicleid = <a href="http://wiki.sa-mp.com/wiki/GetPlayerVehicleID"><span style="color: #006400;">GetPlayerVehicleID</span></a><span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+LinkVehicleToInterior<span style="color: #66cc66;">&#40;</span>vehicleid, <span style="color: #4169e1;">10</span><span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;The new interior is %d.&quot;</span>, GetVehicleInterior<span style="color: #66cc66;">&#40;</span>vehicleid<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>;</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Vehicle_Synchronization.html" title="Edit section: GetVehicleSpeed">edit</a>]</div><a name="GetVehicleSpeed"></a><h2> GetVehicleSpeed </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Returns the current speed of a vehicle in km/h.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(vehicleid)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">vehicleid</td><td style="vertical-align:top;">The vehicle ID to get the current speed of.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">Vehicle's current speed as an integer.<br /></div>
+<p><br />
+<b>Example Usage:</b> 
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> vehicleid = <a href="http://wiki.sa-mp.com/wiki/GetPlayerVehicleID"><span style="color: #006400;">GetPlayerVehicleID</span></a><span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;The current speed is %d km/h.&quot;</span>, GetVehicleSpeed<span style="color: #66cc66;">&#40;</span>vehicleid<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>;</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Vehicle_Synchronization.html" title="Edit section: GetVehicleMaxSpeed">edit</a>]</div><a name="GetVehicleMaxSpeed"></a><h2> GetVehicleMaxSpeed </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Returns the max. speed of a vehicle in km/h.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(modelid)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">modelid</td><td style="vertical-align:top;">The vehicle model ID to get the max. speed of.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">Vehicle's max. speed as an integer.<br /></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+<p><strong>Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">This function returns a max. speed of 0 km/h for trailers.</span>
+</td></tr></table>
+</div>
+<p><br />
+<b>Example Usage:</b> 
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> msg<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">128</span><span style="color: #66cc66;">&#93;</span>;
+<span style="color: #228b22; font-weight: bold;">new</span> max_speed = GetVehicleMaxSpeed<span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">411</span><span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+<a href="http://wiki.sa-mp.com/wiki/format"><span style="color: #006400;">format</span></a><span style="color: #66cc66;">&#40;</span>msg, <span style="color: #4169e1;">128</span>, <span style="color: #b22222;">&quot;The Infernus has a max. speed of %d.&quot;</span>, max_speed<span style="color: #66cc66;">&#41;</span>;
+<a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, <span style="color: #4169e1;">-1</span>, msg<span style="color: #66cc66;">&#41;</span>;</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Vehicle_Synchronization.html" title="Edit section: GetVehicleSeats">edit</a>]</div><a name="GetVehicleSeats"></a><h2> GetVehicleSeats </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Returns the amount of seats a vehicle has.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(modelid)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">modelid</td><td style="vertical-align:top;">The vehicle model ID to get the seats of.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">The amount of seats the vehicle has or -1 if the vehicle doesn't exist.<br /></div>
+<p><br />
+<b>Example Usage:</b> 
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> modelid = GetVehicleModel<span style="color: #66cc66;">&#40;</span> <a href="http://wiki.sa-mp.com/wiki/GetPlayerVehicleID"><span style="color: #006400;">GetPlayerVehicleID</span></a><span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span> <span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">new</span> msg<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">128</span><span style="color: #66cc66;">&#93;</span>;
+<a href="http://wiki.sa-mp.com/wiki/format"><span style="color: #006400;">format</span></a><span style="color: #66cc66;">&#40;</span>msg, <span style="color: #4169e1;">128</span>, <span style="color: #b22222;">&quot;Your vehicle has %d seats, call some fellas.&quot;</span>, GetVehicleSeats<span style="color: #66cc66;">&#40;</span>modelid<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>;
+<a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, <span style="color: #4169e1;">-1</span>, msg<span style="color: #66cc66;">&#41;</span>;</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Vehicle_Synchronization.html" title="Edit section: GetVehicleWindows">edit</a>]</div><a name="GetVehicleWindows"></a><h2> GetVehicleWindows </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Returns the amount of windows which can be used with <a href="SetVehicleParamsCarWindows.html" title="SetVehicleParamsCarWindows">SetVehicleParamsCarWindows</a>.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(modelid)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">modelid</td><td style="vertical-align:top;">The vehicle model ID to get the windows of.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">The amount of windows the vehicle has or 0 if the model ID isn't correct.<br /></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+<p><strong>Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">
+<ul><li> There are vehicles where the amount of windows don't match the amount of seats or doors.
+</li><li> Some vehicles have three windows:
+<ul><li> Camper (left side door)
+</li><li> Journey (right side door)
+</li><li> Newsvan (right back door)</span>
+</li></ul>
+</li></ul>
+</td></tr></table>
+</div>
+<p><br />
+<b>Example Usage:</b> 
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> modelid = GetVehicleModel<span style="color: #66cc66;">&#40;</span> <a href="http://wiki.sa-mp.com/wiki/GetPlayerVehicleID"><span style="color: #006400;">GetPlayerVehicleID</span></a><span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span> <span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">new</span> msg<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">128</span><span style="color: #66cc66;">&#93;</span>;
+<a href="http://wiki.sa-mp.com/wiki/format"><span style="color: #006400;">format</span></a><span style="color: #66cc66;">&#40;</span>msg, <span style="color: #4169e1;">128</span>, <span style="color: #b22222;">&quot;Your vehicle has %d windows, break them!&quot;</span>, GetVehicleWindows<span style="color: #66cc66;">&#40;</span>modelid<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>;
+<a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, <span style="color: #4169e1;">-1</span>, msg<span style="color: #66cc66;">&#41;</span>;</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Vehicle_Synchronization.html" title="Edit section: GetVehicleMass">edit</a>]</div><a name="GetVehicleMass"></a><h2> GetVehicleMass </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Returns the mass of a vehicle in kg as a float.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(modelid)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">modelid</td><td style="vertical-align:top;">The vehicle model ID to get the mass of.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">Vehicle's mass or 0.0 if the vehicle doesn't exist.<br /></div>
+<p><br />
+<b>Example Usage:</b> 
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> <span style="color: orange;">Float</span>:mass = GetVehicleMass<span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">411</span><span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+<a href="http://wiki.sa-mp.com/wiki/printf"><span style="color: #006400;">printf</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;The Infernus has a mass of %.1f kg.&quot;</span>, mass<span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// %.1f for one decimal.</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Vehicle_Synchronization.html" title="Edit section: GetVehicleEngineType">edit</a>]</div><a name="GetVehicleEngineType"></a><h2> GetVehicleEngineType </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Returns the engine type of a vehicle.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(modelid)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">modelid</td><td style="vertical-align:top;">The vehicle model ID to get the engine type of.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">
+<ul><li> <b>D</b> if the vehicle uses diesel.
+</li><li> <b>P</b> if the vehicle uses petrol.
+</li><li> <b>E</b> if the vehicle is electric.
+</li><li> <b>H</b> if the vehicle is a HPV (human-powered vehicle)<br /></div>
+</li></ul>
+<p><br />
+<b>Example Usage:</b> 
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> modelid = GetVehicleModel<span style="color: #66cc66;">&#40;</span><a href="http://wiki.sa-mp.com/wiki/GetPlayerVehicleID"><span style="color: #006400;">GetPlayerVehicleID</span></a><span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>GetVehicleEngineType<span style="color: #66cc66;">&#40;</span>modelid<span style="color: #66cc66;">&#41;</span>&nbsp;!= <span style="color: #b22222;">'H'</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, <span style="color: #4169e1;">-1</span>, <span style="color: #b22222;">&quot;You need a bike in order to start this mission.&quot;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span>
+<span style="color: #4169e1;">else</span>
+<span style="color: #66cc66;">&#123;</span>
+    <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, <span style="color: #4169e1;">-1</span>, <span style="color: #b22222;">&quot;Seems you have a bike, good.&quot;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Vehicle_Synchronization.html" title="Edit section: GetVehicleDriveType">edit</a>]</div><a name="GetVehicleDriveType"></a><h2> GetVehicleDriveType </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Returns the drive type (traction) of a vehicle.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(modelid)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">modelid</td><td style="vertical-align:top;">The vehicle model ID to get the drive type of.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">
+<ul><li> <b>F</b> if the vehicle is FWD (front-wheel drive).
+</li><li> <b>R</b> if the vehicle is RWD (rear-wheel drive).
+</li><li> <b>4</b> if the vehicle is 4WD (four-wheel drive).<br /></div>
+</li></ul>
+<p><br />
+<b>Example Usage:</b> 
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> modelid = GetVehicleModel<span style="color: #66cc66;">&#40;</span><a href="http://wiki.sa-mp.com/wiki/GetPlayerVehicleID"><span style="color: #006400;">GetPlayerVehicleID</span></a><span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>GetVehicleDriveType<span style="color: #66cc66;">&#40;</span>modelid<span style="color: #66cc66;">&#41;</span>&nbsp;!= <span style="color: #b22222;">'4'</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, <span style="color: #4169e1;">-1</span>, <span style="color: #b22222;">&quot;You need a 4WD vehicle to start this race.&quot;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Vehicle_Synchronization.html" title="Edit section: VehicleSupportsNeonLights">edit</a>]</div><a name="VehicleSupportsNeonLights"></a><h2> VehicleSupportsNeonLights </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Checks if a vehicle model supports neon lights.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(modelid)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">modelid</td><td style="vertical-align:top;">The vehicle model ID to check.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">1 if the vehicle model supports neon lights or 0 if it doesn't.<br /></div>
+<p><br />
+<b>Example Usage:</b> 
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> modelid = GetVehicleModel<span style="color: #66cc66;">&#40;</span><a href="http://wiki.sa-mp.com/wiki/GetPlayerVehicleID"><span style="color: #006400;">GetPlayerVehicleID</span></a><span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>!VehicleSupportsNeonLights<span style="color: #66cc66;">&#40;</span>modelid<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <span style="color: #228b22; font-weight: bold;">new</span> msg<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">128</span><span style="color: #66cc66;">&#93;</span>;
+    <span style="color: #228b22; font-weight: bold;">new</span> vname<span style="color: #66cc66;">&#91;</span>MAX_VEHICLE_NAME<span style="color: #66cc66;">&#93;</span>;
+    GetVehicleName<span style="color: #66cc66;">&#40;</span>newveh, vname, MAX_VEHICLE_NAME<span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+    <a href="http://wiki.sa-mp.com/wiki/format"><span style="color: #006400;">format</span></a><span style="color: #66cc66;">&#40;</span>msg, <span style="color: #4169e1;">128</span>, <span style="color: #b22222;">&quot;The %s has the neon lights {FF0000}disabled{FFFFFF}.&quot;</span>, vname<span style="color: #66cc66;">&#41;</span>;
+    <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, <span style="color: #4169e1;">-1</span>, msg<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Vehicle_Synchronization.html" title="Edit section: SetVehicleNeonLights">edit</a>]</div><a name="SetVehicleNeonLights"></a><h2> SetVehicleNeonLights </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Enables or disables the neon lights for a vehicle.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(vehicleid, bool:toggle = true, color = NEON_LIGHT_RED)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">vehicleid</td><td style="vertical-align:top;">The vehicle ID to set the neon lights to.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">bool:toggle</td><td style="vertical-align:top;"><b>true</b> to enable the neon lights and <b>false</b> to disable them.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">color</td><td style="vertical-align:top;">The object model for the neon lights, set to NEON_LIGHT_RED by default.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">1 if the function executed successfully or 0 if the vehicle ID doesn't exist.<br /></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+<p><strong>Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">
+<ul><li> You should use VehicleSupportsNeonLights before enabling the neon lights.
+</li><li> You don't have to disable the neon lights in order to set a new color, that's done automatically.</span>
+</li></ul>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<table class="wikitable">
+<tr>
+<th> Color Definition
+</th><th> Object Model
+</th></tr>
+<tr>
+<td> NEON_LIGHT_RED
+</td><td> 18647
+</td></tr>
+<tr>
+<td> NEON_LIGHT_BLUE
+</td><td> 18648
+</td></tr>
+<tr>
+<td> NEON_LIGHT_GREEN
+</td><td> 18649
+</td></tr>
+<tr>
+<td> NEON_LIGHT_YELLOW
+</td><td> 18650
+</td></tr>
+<tr>
+<td> NEON_LIGHT_PINK
+</td><td> 18651
+</td></tr>
+<tr>
+<td> NEON_LIGHT_WHITE
+</td><td> 18652
+</td></tr></table>
+<p><b>Example Usage:</b> 
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> vehicleid = <a href="http://wiki.sa-mp.com/wiki/GetPlayerVehicleID"><span style="color: #006400;">GetPlayerVehicleID</span></a><span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #228b22; font-weight: bold;">new</span> modelid = GetVehicleModel<span style="color: #66cc66;">&#40;</span>vehicleid<span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>VehicleSupportsNeonLights<span style="color: #66cc66;">&#40;</span>modelid<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    SetVehicleNeonLights<span style="color: #66cc66;">&#40;</span>vehicleid, true, NEON_LIGHT_GREEN<span style="color: #66cc66;">&#41;</span>;
+    <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, <span style="color: #4169e1;">-1</span>, <span style="color: #b22222;">&quot;Your car has {00FF00}green {FFFFFF}neon lights now.&quot;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Vehicle_Synchronization.html" title="Edit section: GetVehicleNeonLightsState">edit</a>]</div><a name="GetVehicleNeonLightsState"></a><h2> GetVehicleNeonLightsState </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Returns the state of the neon lights on a vehicle.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(vehicleid)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">vehicleid</td><td style="vertical-align:top;">The vehicle ID to get the neon lights state of.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">
+<ul><li> 1 if the the neon lights are enabled.
+</li><li> 0 if the the neon lights are disabled or if the vehicle ID doesn't exist.<br /></div>
+</li></ul>
+<p><br />
+<b>Example Usage:</b> 
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> vehicleid = <a href="http://wiki.sa-mp.com/wiki/GetPlayerVehicleID"><span style="color: #006400;">GetPlayerVehicleID</span></a><span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>GetVehicleNeonLightsState<span style="color: #66cc66;">&#40;</span>vehicleid<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, <span style="color: #4169e1;">-1</span>, <span style="color: #b22222;">&quot;You have neon lights, now you may join the Midnight Club!&quot;</span><span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Vehicle_Synchronization.html" title="Edit section: VehicleSupportsNitro">edit</a>]</div><a name="VehicleSupportsNitro"></a><h2> VehicleSupportsNitro </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Checks if a vehicle model supports nitro.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(modelid)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">modelid</td><td style="vertical-align:top;">The vehicle model ID to check.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">1 if the vehicle model supports nitro or 0 if it doesn't.<br /></div>
+<p><br />
+<b>Example Usage:</b> 
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> vehicleid = <a href="http://wiki.sa-mp.com/wiki/GetPlayerVehicleID"><span style="color: #006400;">GetPlayerVehicleID</span></a><span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #228b22; font-weight: bold;">new</span> modelid = GetVehicleModel<span style="color: #66cc66;">&#40;</span>vehicleid<span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>VehicleSupportsNitro<span style="color: #66cc66;">&#40;</span>modelid<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <span style="color: #228b22; font-weight: bold;">new</span> msg<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">128</span><span style="color: #66cc66;">&#93;</span>;
+    <span style="color: #228b22; font-weight: bold;">new</span> vname<span style="color: #66cc66;">&#91;</span>MAX_VEHICLE_NAME<span style="color: #66cc66;">&#93;</span>;
+    GetVehicleName<span style="color: #66cc66;">&#40;</span>newveh, vname, MAX_VEHICLE_NAME<span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+    AddVehicleComponent<span style="color: #66cc66;">&#40;</span>vehicleid, <span style="color: #4169e1;">1010</span><span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+    <a href="http://wiki.sa-mp.com/wiki/format"><span style="color: #006400;">format</span></a><span style="color: #66cc66;">&#40;</span>msg, <span style="color: #4169e1;">128</span>, <span style="color: #b22222;">&quot;Now your %s has nitro, enjoy!&quot;</span>, vname<span style="color: #66cc66;">&#41;</span>;
+    <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, <span style="color: #4169e1;">-1</span>, msg<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Vehicle_Synchronization.html" title="Edit section: VehicleSupportsComponent">edit</a>]</div><a name="VehicleSupportsComponent"></a><h2> VehicleSupportsComponent </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Checks if a vehicle model supports a component.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(modelid)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">modelid</td><td style="vertical-align:top;">The vehicle model ID to check.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">componentid</td><td style="vertical-align:top;">The <a href="Car_Component_ID.html" title="Car Component ID">ID of the component</a> you're going to check.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">1 if the vehicle model supports the component or 0 if it doesn't.<br /></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+<p><strong>Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">There are internal checks for <a href="OnVehicleMod.html" title="OnVehicleMod">OnVehicleMod</a> and <a href="AddVehicleComponent.html" title="AddVehicleComponent">AddVehicleComponent</a>, use this function wherever you need it.</span>
+</td></tr></table>
+</div>
+<p><br />
+<b>Example Usage:</b> 
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> vehicleid = <a href="http://wiki.sa-mp.com/wiki/GetPlayerVehicleID"><span style="color: #006400;">GetPlayerVehicleID</span></a><span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #228b22; font-weight: bold;">new</span> modelid = GetVehicleModel<span style="color: #66cc66;">&#40;</span>vehicleid<span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>VehicleSupportsComponent<span style="color: #66cc66;">&#40;</span>modelid, <span style="color: #4169e1;">1003</span><span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <span style="color: #228b22; font-weight: bold;">new</span> msg<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">128</span><span style="color: #66cc66;">&#93;</span>;
+    <span style="color: #228b22; font-weight: bold;">new</span> vname<span style="color: #66cc66;">&#91;</span>MAX_VEHICLE_NAME<span style="color: #66cc66;">&#93;</span>;
+    GetVehicleName<span style="color: #66cc66;">&#40;</span>newveh, vname, MAX_VEHICLE_NAME<span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+    AddVehicleComponent<span style="color: #66cc66;">&#40;</span>vehicleid, <span style="color: #4169e1;">1003</span><span style="color: #66cc66;">&#41;</span>;
+&nbsp;
+    <a href="http://wiki.sa-mp.com/wiki/format"><span style="color: #006400;">format</span></a><span style="color: #66cc66;">&#40;</span>msg, <span style="color: #4169e1;">128</span>, <span style="color: #b22222;">&quot;Alpha Spoiler added to your %s.&quot;</span>, vname<span style="color: #66cc66;">&#41;</span>;
+    <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, <span style="color: #4169e1;">-1</span>, msg<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Vehicle_Synchronization.html" title="Edit section: Modified Functions">edit</a>]</div><a name="Modified_Functions"></a><h1> Modified Functions </h1>
+<ul><li> There are two new <a href="Componentslots.html" title="Componentslots">component slots</a> for <a href="GetVehicleComponentType.html" title="GetVehicleComponentType">GetVehicleComponentType</a> and <a href="GetVehicleComponentInSlot.html" title="GetVehicleComponentInSlot">GetVehicleComponentInSlot</a>:
+<ul><li> CARMODTYPE_FRONT_BULLBAR
+</li><li> CARMODTYPE_REAR_BULLBAR
+</li></ul>
+</li></ul>
+<table class="wikitable">
+<tr>
+<th> Component ID
+</th><th> Slot
+</th><th> Type
+</th><th> Car
+</th></tr>
+<tr>
+<td> 1109
+</td><td> CARMODTYPE_REAR_BULLBAR
+</td><td> Chrome
+</td><td> Slamvan
+</td></tr>
+<tr>
+<td> 1110
+</td><td> CARMODTYPE_REAR_BULLBAR
+</td><td> Slamin
+</td><td> Slamvan
+</td></tr>
+<tr>
+<td> 1115
+</td><td> CARMODTYPE_FRONT_BULLBAR
+</td><td> Chrome
+</td><td> Slamvan
+</td></tr>
+<tr>
+<td> 1116
+</td><td> CARMODTYPE_FRONT_BULLBAR
+</td><td> Slamin
+</td><td> Slamvan
+</td></tr>
+<tr>
+<td> 1100
+</td><td> CARMODTYPE_FRONT_BULLBAR
+</td><td> Chrome Grill
+</td><td> Remington
+</td></tr>
+<tr>
+<td> 1123
+</td><td> CARMODTYPE_FRONT_BULLBAR
+</td><td> Bullbar Chrome Bars
+</td><td> Remington
+</td></tr>
+<tr>
+<td> 1125
+</td><td> CARMODTYPE_FRONT_BULLBAR
+</td><td> Bullbar Chrome Lights
+</td><td> Remington
+</td></tr></table>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Vehicle_Synchronization.html" title="Edit section: New Callbacks">edit</a>]</div><a name="New_Callbacks"></a><h1> New Callbacks </h1>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Vehicle_Synchronization.html" title="Edit section: OnVehicleCreated">edit</a>]</div><a name="OnVehicleCreated"></a><h2> OnVehicleCreated </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Called when a vehicle is created.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(vehicleid)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">vehicleid</td><td style="vertical-align:top;">The ID of the vehicle which has been created.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">This callback does not handle returns. <br /></div>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+<p><strong>Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">This callback is not called when a vehicle respawns.</span>
+</td></tr></table>
+</div>
+<p><br />
+<b>Example Usage:</b> 
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">public</span> OnVehicleCreated<span style="color: #66cc66;">&#40;</span>vehicleid<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    SetVehicleNumberPlate<span style="color: #66cc66;">&#40;</span>vehicleid, <span style="color: #b22222;">&quot;{FF0000}RIDE2DAY&quot;</span><span style="color: #66cc66;">&#41;</span>;
+    <span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Vehicle_Synchronization.html" title="Edit section: OnVehicleChangePaintjob">edit</a>]</div><a name="OnVehicleChangePaintjob"></a><h2> OnVehicleChangePaintjob </h2>
+<p><b>Description:</b><br />
+</p>
+<div class="description" style="padding-left:35px;">Called when a player buys a paintjob inside a mod shop.<br /></div>
+<p><br />
+</p>
+<b>Parameters:</b><div class="parameters" style="padding:2px; padding-left:5px; margin-left:35px; margin-top: 10px; font-family: Courier New; border-bottom: 1px solid #AAAAAA; border-right: 1px solid #AAAAAA; width: 75%; background-color: #f4f8fb">(playerid, vehicleid, paintjobid)<br /></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">playerid</td><td style="vertical-align:top;">The ID of the player that bought the paintjob.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">vehicleid</td><td style="vertical-align:top;">The ID of the vehicle which the paintjob was applied to.</td></tr></table></div>
+<div class="param" style="padding-left:50px;"><table><tr><td style="vertical-align:top;width:150px;font-family:'Courier New'">paintjobid</td><td style="vertical-align:top;">The ID of the new <a href="Paintjob.html" title="Paintjob">paintjob</a>.</td></tr></table></div>
+<p><br />
+<b>Return Values:</b><br />
+</p>
+<div style="padding-left:35px;">This callback does not handle returns. <br /></div>
+<p><br />
+</p><p><b>Example Usage:</b> 
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">public</span> OnVehicleChangePaintjob<span style="color: #66cc66;">&#40;</span>playerid, vehicleid, paintjobid<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <span style="color: #228b22; font-weight: bold;">new</span> msg<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">128</span><span style="color: #66cc66;">&#93;</span>;
+    <a href="http://wiki.sa-mp.com/wiki/format"><span style="color: #006400;">format</span></a><span style="color: #66cc66;">&#40;</span>msg, <span style="color: #4169e1;">128</span>, <span style="color: #b22222;">&quot;The ID of the paintjob you just bought is %d.&quot;</span>, paintjobid<span style="color: #66cc66;">&#41;</span>;
+    <a href="http://wiki.sa-mp.com/wiki/SendClientMessage"><span style="color: #006400;">SendClientMessage</span></a><span style="color: #66cc66;">&#40;</span>playerid, <span style="color: #4169e1;">-1</span>, msg<span style="color: #66cc66;">&#41;</span>;
+    <span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Vehicle_Synchronization.html" title="Edit section: Notes">edit</a>]</div><a name="Notes"></a><h1> Notes </h1>
+<ul><li> You might use INVALID_PAINTJOB_ID with <a href="ChangeVehiclePaintjob.html" title="ChangeVehiclePaintjob">ChangeVehiclePaintjob</a> to remove a paintjob.
+</li><li> When a vehicle respawns it returns to its original colors (those which had when was created), that's how it works by default.
+</li><li> When a vehicle respawns all its mods are removed, that's how it works by default.
+</li><li> This scripts uses y_hooks or the ALS hooking method.
+</li><li> Functions hooked:
+<ul><li> CreateVehicle
+</li><li> DestroyVehicle
+</li><li> AddStaticVehicle
+</li><li> AddStaticVehicleEx
+</li><li> SetVehicleNumberPlate
+</li><li> LinkVehicleToInterior
+</li><li> ChangeVehicleColor
+</li><li> ChangeVehiclePaintjob
+</li><li> GetVehicleComponentType
+</li><li> GetVehicleComponentInSlot
+</li><li> AddVehicleComponent
+</li><li> RemoveVehicleComponent
+</li></ul>
+</li><li> Callbacks hooked:
+<ul><li> OnPlayerConnect
+</li><li> OnPlayerUpdate
+</li><li> OnPlayerKeyStateChange
+</li><li> OnEnterExitModShop
+</li><li> OnVehiclePaintjob
+</li><li> OnVehicleRespray
+</li><li> OnVehicleSpawn
+</li><li> OnVehicleMod
+</li></ul>
+</li><li> Vehicles with <b>NeonOffsetX = NeonOffsetY = NeonOffsetZ = 0.0</b> don't support neon lights, you're free to modify those offsets if you wish. <a href="https://pastebin.com/mGfnVFKu" class='external text' title="https://pastebin.com/mGfnVFKu" rel="nofollow">Here</a> you have list with those vehicles.
+</li><li> Now <a href="AddVehicleComponent.html" title="AddVehicleComponent">AddVehicleComponent</a> has internal checks, you don't have to check anymore if a component is valid when using this function.
+</li></ul>
+<div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/Vehicle_Synchronization.html">http://localhost../wiki/Vehicle_Synchronization.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="Category_Useful_includes.html" class="new" title="Category:Useful includes">Useful includes</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="Vehicle_Synchronization.html">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="Talk_Vehicle_Synchronization.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="Vehicle_Synchronization.html">Edit</a></li>
+				 <li id="ca-history"><a href="Vehicle_Synchronization.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 19,172 times.</li>
+				<li id="credits">This page was last modified 23:21, 7 November 2017 by SA-MP Wiki user <a href="User_RIDE2DAY.html" title="User:RIDE2DAY">RIDE2DAY</a>. Based on work by SA-MP Wiki user(s) <a href="User_OstGot.html" title="User:OstGot">OstGot</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 115.38 secs. -->
+</body></html>

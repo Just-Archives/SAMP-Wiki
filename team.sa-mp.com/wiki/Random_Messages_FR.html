@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Random Messages FR,Public functions" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>Random Messages FR - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Random Messages FR</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<div class="editsection" style="float:right;margin-left:5px;">[<a href="Random_Messages_FR.html" title="Edit section: Préparation">edit</a>]</div><a name="Pr.C3.A9paration"></a><h3>Préparation</h3>
+<p>Ce tutoriel va vous montrer comment créer des messages aléatoires
+</p><p>Premièrement, on crée la variable qui contiendra trois message:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> AleaMSG<span style="color: #66cc66;">&#91;</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span><span style="color: #66cc66;">&#93;</span> =
+<span style="color: #66cc66;">&#123;</span>
+    <span style="color: #b22222;">&quot;Message Aléatoire 1&quot;</span>,
+    <span style="color: #b22222;">&quot;Message Aléatoire 2&quot;</span>,
+    <span style="color: #b22222;">&quot;Message Aléatoire 3&quot;</span>
+<span style="color: #66cc66;">&#125;</span>;</pre>
+<p>Deuxièmement, on va créer un timer et on va le regler sur 60 secondes (for example, OnGameModeInit):
+</p>
+<pre class="pawn"><a href="http://wiki.sa-mp.com/wiki/SetTimer"><span style="color: #006400;">SetTimer</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #b22222;">&quot;SendMSG&quot;</span>, <span style="color: #4169e1;">60000</span>, true<span style="color: #66cc66;">&#41;</span>;
+<span style="color: #808080; font-style: italic;">// 60000ms = 60 secondes = 1 minute</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Random_Messages_FR.html" title="Edit section: Paramétrage du timer">edit</a>]</div><a name="Param.C3.A9trage_du_timer"></a><h3>Paramétrage du timer</h3>
+<p>On va ensuite créer une callback "<b>SendMSG</b>", et on va utiliser le forward pour ça (<a href="Public_functions.html" title="Public functions">Forward</a>)
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">forward</span> SendMSG<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>;</pre>
+<p>Maintenant on peux créer le "public":
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">public</span> SendMSG<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span></pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Random_Messages_FR.html" title="Edit section: Faire en sorte que le message soit envoyé">edit</a>]</div><a name="Faire_en_sorte_que_le_message_soit_envoy.C3.A9"></a><h3>Faire en sorte que le message soit envoyé</h3>
+<p>On va créer une variable random, qui va envoyer un message aléatoire
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">public</span> SendMSG<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+        <span style="color: #228b22; font-weight: bold;">new</span> randMSG = <a href="http://wiki.sa-mp.com/wiki/random"><span style="color: #006400;">random</span></a><span style="color: #66cc66;">&#40;</span><span style="color: orange; font-weight: bold;">sizeof</span><span style="color: #66cc66;">&#40;</span>RandomMSG<span style="color: #66cc66;">&#41;</span><span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">//On calcule par rapport à la taille de la variable AleaMsg qui est 3</span>
+        <a href="http://wiki.sa-mp.com/wiki/SendClientMessageToAll"><span style="color: #006400;">SendClientMessageToAll</span></a><span style="color: #66cc66;">&#40;</span>COULEUR, RandomMSG<span style="color: #66cc66;">&#91;</span>randMSG<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// Remplacez &quot;COULEUR&quot; par la couleur de votre choix</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>Ainsi, toute les 1 minutes, un message sera envoyé. Soit ça sera&nbsp;:
+- "Message Aléatoire 1"
+- "Message Aléatoire 2"
+- "Message Aléatoire 3"
+</p><p>Traduit par <a href="http://wiki.sa-mp.com/wiki/User:Connor_Mead" class='external text' title="http://wiki.sa-mp.com/wiki/User:Connor_Mead" rel="nofollow">Connor Mead</a>
+</p><div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/Random_Messages_FR.html">http://localhost../wiki/Random_Messages_FR.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="Category_Tutorials_FR.html" title="Category:Tutorials FR">Tutorials FR</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="Random_Messages_FR.html">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="Talk_Random_Messages_FR.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="Random_Messages_FR.html">Edit</a></li>
+				 <li id="ca-history"><a href="Random_Messages_FR.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-en"><a href="Random_Messages.html">English</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 7,096 times.</li>
+				<li id="credits">This page was last modified 16:31, 24 January 2014 by SA-MP Wiki user User:. Based on work by SA-MP Wiki user(s) <a href="User_Smithy.html" title="User:Smithy">Smithy</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 79.62 secs. -->
+</body></html>

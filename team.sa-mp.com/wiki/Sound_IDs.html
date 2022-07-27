@@ -1,0 +1,831 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Sound IDs,Crime List,PlayCrimeReportForPlayer,PlayerPlaySound,SetPlayerInterior" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>Sound IDs - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Sound IDs</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<p>To be used with <a href="PlayerPlaySound.html" title="PlayerPlaySound">PlayerPlaySound</a>.
+</p><p>For <a href="PlayCrimeReportForPlayer.html" title="PlayCrimeReportForPlayer">crime report sound IDs</a> check <a href="Crime_List.html" title="Crime List">here</a>.
+</p><p><br />
+Scripts:
+</p>
+<ul><li> <a href="http://pastebin.com/sA5DNFaw" class='external text' title="http://pastebin.com/sA5DNFaw" rel="nofollow">Sound ID array available in 0.3d</a> by Tomo and <a href="http://forum.sa-mp.com/member.php?u=50348" class='external text' title="http://forum.sa-mp.com/member.php?u=50348" rel="nofollow">Garsino</a>.
+</li><li> <a href="http://pastebin.com/A1PbQZPd" class='external text' title="http://pastebin.com/A1PbQZPd" rel="nofollow">Sound ID array including the dialog and the characters who spoke it</a> by <a href="http://forum.sa-mp.com/member.php?u=2790" class='external text' title="http://forum.sa-mp.com/member.php?u=2790" rel="nofollow">Austin</a> and <a href="http://forum.sa-mp.com/member.php?u=29025" class='external text' title="http://forum.sa-mp.com/member.php?u=29025" rel="nofollow">LaZ</a>.
+</li></ul>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a><br />
+<p><strong>Notes</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">
+<ul><li> You have to use sound ID <b>0</b> to stop the sound ID that is currently playing.
+</li><li> Since <b>0.3.7-R2</b>:
+<ul><li> Sound ID <b>1</b> can be used to disable the <a href="SetPlayerInterior.html" title="SetPlayerInterior">interior 0 (default)</a> ambience track (wind noise). <i>Hint: it can help to create more realistically fake interiors.</i>
+</li><li> Sound ID <b>0</b> can be used additionally to return the game's normal outdoor ambience track.
+</li></ul>
+</li></ul>
+<p></span>
+</p>
+</td></tr></table>
+</div>
+<p><br />
+0.3.7-R2 sounds (found by Vince and BigETI)
+</p>
+<pre>2 - 59 police radio
+66 - 134 radio adverts
+135 - 136 Ventilation
+137 Ammu-Nation interior
+138 Area 51 interior
+139 awards ceremony music
+140 Disco (Rock)
+141 Let&#39;s Get Ready to Bumble (Bee Bee Gone) music
+142 same as 1185
+143 Marco&#39;s Bistro music
+144 Diner music
+145 same as 1097
+146 casino music
+147 Disco (Electro)
+148 Plane interior humming
+149 same as 1183
+150 same as 1068
+151 Fan
+152 Bar (outside?)
+153 same as 1062
+154 Ventilation
+155, 156 plane interior humming
+157 Disco (Hip-Hop)
+158 Ventilation
+159 - 160 Horse race
+161 same as 1187
+162 Disco (Hip-Hop)
+163 Ventilation
+164, 165 aircraft carrier lift
+166 Riot
+167 Rain
+168 Plane interior
+169 Stunt race
+170 Strip club
+171 Disco (Rock): Guns N&#39; Roses - Welcome To The Jungle
+172 Some dark theme
+173 Conveyor belt?
+174 Water
+175 Disco
+176 SA intro music
+177 - 179 Disco
+179 Lowrider challenge
+180 Lowrider challenge
+181 Lowrider challenge
+182 mission passed theme / property bought
+183 Mission passed
+184 Voice line
+185 - 314 Playback FM
+315 - 469 K-ROSE
+470 - 625 K-DST (534 Rod Stewart - Young hearts be free tonight)
+626 - 668 Voice samples
+669 girlfriend date failed music (&#39;&#39;fuck you I won&#39;t do what you tell me&#39;&#39;)
+670 girlfriend date success music
+671 - 766 Voice lines (743 - Big Smoke&#39;s order)
+767 - 945 Bounce FM
+946 - 999 SF-UR</pre>
+<p><br />
+</p>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+<p><strong>Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">These Sound IDs below only work since version 0.3d!</span>
+</td></tr></table>
+</div>
+<p><br />
+You can find all available Sound IDs in the file located within your GTA San Andreas folder, at \data\AudioEvents.txt
+</p><p>Special Sound IDs:
+</p>
+<pre>1000 - Disable helicopter sounds.
+1001 - Enable helicopter sounds. (handy to fix heli sound bug)</pre>
+<p>0.3d Sound IDs (found by WackoX):
+</p>
+<pre>2200-2214 (Police Radio):
+2200 - &quot;Black&quot;
+2201 - &quot;Blue&quot;
+2202 - &quot;Brown&quot;
+2203 - &quot;Copper&quot;
+2204 - &quot;Custom&quot;
+2205 - &quot;Customized&quot;
+2206 - &quot;Dark&quot;
+2207 - &quot;Gold&quot;
+2208 - &quot;Green&quot;
+2209 - &quot;Grey&quot;
+2210 - &quot;Light&quot;
+2211 - &quot;Pink&quot;
+2212 - &quot;Red&quot;
+2213 - &quot;Silver&quot;
+2214 - &quot;White&quot;
+
+
+2400-2404 (Police Radio):
+2400 - &quot;Central&quot;
+2401 - &quot;East&quot;
+2402 - &quot;North&quot;
+2403 - &quot;South&quot;
+2404 - &quot;West&quot;
+
+
+2600-2608 (Police Radio):
+2600 - &quot;Head to a 10-&quot;
+2601 - &quot;In a&quot;
+2602 - &quot;In water&quot;
+2603 - &quot;On a&quot;
+2604 - &quot;On foot&quot;
+2605 - &quot;Respond to a 10-&quot;
+2606 - &quot;Suspect in water&quot;
+2607 - &quot;Suspect last seen&quot;
+2608 - &quot;We got a 10-&quot;
+
+
+2800-2813 (Police Radio):
+2800 - &quot;17 in&quot;
+2801 - &quot;21 in&quot;
+2802 - &quot;24 in&quot;
+2803 - &quot;28 in&quot;
+2804 - &quot;34 in&quot;
+2805 - &quot;37 in&quot;
+2806 - &quot;7 in&quot;
+2807 - &quot;71 in&quot;
+2808 - &quot;81 in&quot;
+2809 - &quot;90 in&quot;
+2810 - &quot;91 in&quot;
+2811-2813: a 10/attempt???
+
+
+3000-3057 (Police Radio):
+3000 - &quot;2 Door&quot;
+3001 - &quot;4 Door&quot;
+3002 - &quot;Ambulance&quot;
+3003 - &quot;Artic Cab&quot;
+3004 - &quot;Beach Buggy&quot;
+3005 - &quot;Bike&quot;
+3006 - &quot;Boat&quot;
+3007 - &quot;Buggy&quot;
+3008 - &quot;Bulldozer&quot;
+3009 - &quot;Bus&quot;
+3010 - &quot;Camper Van&quot;
+3011 - &quot;Coach&quot;
+3012 - &quot;Combine Harvester&quot;
+3013 - &quot;Compact&quot;
+3014 - &quot;Convertible&quot;
+3015 - &quot;Coupe&quot;
+3016 - &quot;Cruiser&quot;
+3017 - &quot;Firetruck&quot;
+3018 - &quot;Forklift&quot;
+3019 - &quot;Freight Train&quot;
+3020 - &quot;Garbage Truck&quot;
+3021 - &quot;Gas Tanker&quot;
+3022 - &quot;Golf Car&quot;
+3023 - &quot;Go Kart&quot;
+3024 - &quot;Hearse&quot;
+3025 - &quot;Helicopter&quot;
+3026 - &quot;Hovercraft&quot;
+3027 - &quot;Icecream Van&quot;
+3028 - &quot;Jeep&quot;
+3029 - &quot;Lawn Mower&quot;
+3030 - &quot;Limo&quot;
+3031 - &quot;Lowrider&quot;
+3032 - &quot;Moped&quot;
+3033 - &quot;Motorbike&quot;
+3034 - &quot;Offroad&quot;
+3035 - &quot;People Carrier&quot;
+3036 - &quot;Pickup&quot;
+3037 - &quot;Plane&quot;
+3038 - &quot;Police Car&quot;
+3039 - &quot;Police Van&quot;
+3040 - &quot;Quad Bike&quot;
+3041 - &quot;Rubber Dinghy&quot;
+3042 - &quot;Sand Buggy&quot;
+3043 - &quot;Sea Plane&quot;
+3044 - &quot;Snowcat&quot;
+3045 - &quot;Speedboat&quot;
+3046 - &quot;Sport&quot;
+3047 - &quot;Sports Car&quot;
+3048 - &quot;Sports Bike&quot;
+3049 - &quot;Station Wagon&quot;
+3050 - &quot;SUV&quot;
+3051 - &quot;Tank&quot;
+3052 - &quot;Taxi&quot;
+3053 - &quot;Tractor&quot;
+3054 - &quot;Train&quot;
+3055 - &quot;Tram&quot;
+3056 - &quot;Truck&quot;
+3057 - &quot;Van&quot;
+
+
+4200-4203 (Casino Sounds):
+Bandit wheel start
+4201 - Falling coints
+4202 - Blip
+4203 - Blip 
+
+
+4800-4807 (Gym Guy):
+4800 - &quot;Yo&#39; you wanna learn some new moves?&quot;
+4801 - &quot;Suit youself homes, but the streets are mean dude.&quot;
+4802 - &quot;Man you&#39;re an embarrassment, get yourselves some muscles first.&quot;
+4803 - &quot;Hey you wanna go around with me?&quot;
+4804 - &quot;Yo&#39; pay attention and you might learn something.&quot;
+4805 - &quot;Yo&#39; charge in and batter yo opponent!&quot;
+4806 - &quot;Make sure yo&#39; opponent is down and out!&quot;
+4807 - &quot;Never give your opponent time to recover.&quot;
+
+
+5200-5206 (Game Souds):
+5200 - Continuous buzz.
+5201 - Bling
+5202 - Bumblebee video game take damage
+5203 - Bumblebee video game game over
+5204 - Bumblebee video game firing sound
+5205 - Bumblebee video game beep
+5206 - Bumblebee video game death
+
+
+5400-5464 (Casino Woman):
+5400 - &quot;Place your bets!&quot;
+5401 - &quot;Place your bets ladies and gentlemen.&quot;
+5402 - &quot;An offer of credit has been made sir.&quot;
+5403 - &quot;The house is prepared to offer you credit sir.&quot;
+5404 - &quot;The house recognises sir&#39;s credit rating.&quot;
+5405 - &quot;Sir doesn&#39;t have sufficient money to back another bet.&quot;
+5406 - &quot;Sorry sir you do not have enough funds.&quot;
+5407 - &quot;You appear to have insufficient funds to continue betting.&quot;
+5408 - &quot;No more bets please!&quot;
+5409 - &quot;No more bets ladies and gentlemen, please.&quot;
+5410 - &quot;No more bets people.&quot;
+5411-5447: Roulette numbers, eg. &quot;Black, 26!&quot;
+5448 - &quot;You win!&quot;
+5449 - &quot;You win sir well done.&quot;
+5450 - &quot;Congratulations sir!&quot;
+5451 - &quot;Sorry sir, regulars only.&quot;
+5452 - &quot;The house does not recognize your limit at this table sir.&quot;
+5453 - &quot;Thank you sir have a nice day!&quot;
+5454 - &quot;Thank you for playing sir!&quot;
+5455 - &quot;One dollar pays out!&quot;
+5456 - &quot;Two dollars pays out!&quot;
+5457 - &quot;Five dollars pays out!&quot;
+5458 - &quot;Ten dollars pays out.&quot;
+5459 - &quot;Twenty dollars pays out.&quot;
+5460 - &quot;Forty dollars pays out.&quot;
+5461 - &quot;Jackpot!&quot;
+5462 - &quot;Another win for sir!&quot;
+5463 - &quot;Congratulations sir, you&#39;re having quite a run.&quot;
+5464 - &quot;I hope sir&#39;s luck holds!&quot;
+
+6200-6205 (Boat School):
+6200 - Seagulls
+6201 - &quot;Welcome to the boat school.&quot;
+6202 - &quot;To pass, you must achieve bronze or higher in all five tests.&quot;
+6203 - &quot;To view a demonstration of each test, please use the TV over there.&quot;
+6204 - &quot;Passing the test, will unlock the next test.&quot;
+6205 - &quot;You can come back and check you scores or take new tests, at any time.&quot;
+
+
+Random/Extra:
+3200 - Air horn
+3201 - Air horn (longer than previous one)
+3400 - Air conditioning
+3401 - Continuous ringing bell
+3600 - Calling tone
+3800 - Videotape (continuous)
+4400 - Barber trimming hair (electric razor).
+6000 - Blast door sliding
+6001 - Repeating siren (repeats every 2 seconds).
+6002 - Heavy door
+6003 - Electricity (could be used for tazer)
+6400 - Blip (&#39;door buzzer&#39; in game files)
+6401 - Lift bell rings
+39000 - &quot;What would your mother think?&quot;
+39002 - &quot;Filth like you always have to pay for sex!&quot;</pre>
+<p>0.3d Sound IDs (found by WackoX):
+</p>
+<pre>&quot;ALDEA MALVADA&quot; - 2000
+&quot;ANGEL PINE&quot; - 2001
+&quot;ARCO DEL OESTE&quot; - 2002
+&quot;AVISPA COUNTRY CLUB&quot; - 2003
+&quot;BACK O BEYOND&quot; - 2004
+&quot;BATTERY POINT&quot; - 2005
+&quot;BAYSIDE&quot; - 2006
+&quot;BAYSIDE MARINA&quot; - 2007
+&quot;BAYSIDE TUNNEL&quot; - 2008
+&quot;BEACON HILL&quot; - 2009
+&quot;BLACKFIELD&quot; - 2010
+&quot;BLACKFIELD CHAPEL&quot; - 2011
+&quot;BLACKFIELD INTERSECTION&quot; - 2012
+&quot;BLUEBERRY ACRES&quot; - 2013
+&quot;BLUEBERRY&quot; - 2014
+&quot;BONE COUNTY&quot; - 2015
+&quot;CALIGULAS PALACE&quot; - 2016
+&quot;CALTON HEIGHTS&quot; - 2017
+&quot;CHINATOWN&quot; - 2018
+&quot;CITY HALL&quot; - 2019
+&quot;COME A LOT&quot; - 2020
+&quot;COMMERCE&quot; - 2021
+&quot;CONFERENCE CENTRE&quot; - 2022
+&quot;CRANBERRY STATION&quot; - 2023
+&quot;DILLIMORE&quot; - 2024
+&quot;DOHERTY&quot; - 2025
+&quot;DOWNTOWN&quot; - 2026
+&quot;DOWNTOWN LOS SANTOS&quot; - 2027
+&quot;EAST LOS SANTOS&quot; - 2028
+&quot;EAST BEACH&quot; - 2029
+&quot;EASTER BASIN&quot; - 2030
+&quot;EASTER BAY AIRPORT&quot; - 2031
+&quot;EASTER BAY BLUFFS CHEMICAL PLANT&quot; - 2032
+&quot;EASTER TUNNEL&quot; - 2033
+&quot;EL CASTILLO DEL DIABLO&quot; - 2034
+&quot;EL CORONA&quot; - 2035
+&quot;EL QUEBRADOS&quot; - 2036
+&quot;ESPLANADE EAST&quot; - 2037
+&quot;ESPLANADE NORTH&quot; - 2038
+&quot;FALLEN TREE&quot; - 2039
+&quot;FALLOW BRIDGE&quot; - 2040
+&quot;FERN RIDGE&quot; - 2041
+&quot;FINANCIAL&quot; - 2042
+&quot;FISHERS LAGOON&quot; - 2043
+&quot;FLINT COUNTY&quot; - 2044
+&quot;FLINT INTERSECTION&quot; - 2045
+&quot;FLINT RANGE&quot; - 2046
+&quot;FLINT WATER&quot; - 2047
+&quot;FORT CARSON&quot; - 2048
+&quot;FOSTER VALLEY&quot; - 2049
+&quot;FREDERICK BRIDGE&quot; - 2050
+&quot;GANTON&quot; - 2051
+&quot;GANT BRIDGE&quot; - 2052
+&quot;GARCIA&quot; - 2053
+&quot;GARVER BRIDGE&quot; - 2054
+&quot;GLEN PARK&quot; - 2055
+&quot;GREENGLASS COLLEGE&quot; - 2056
+&quot;GREEN PALMS&quot; - 2057
+&quot;HAMPTON BARNS&quot; - 2058
+&quot;HANKYPANKY POINT&quot; - 2059
+&quot;HARRY GOLD PARKWAY&quot; - 2060
+&quot;HASHBERRY&quot; - 2061
+&quot;HILLTOP FARM&quot; - 2062
+&quot;HUNTER QUARRY&quot; - 2063
+&quot;IDLEWOOD&quot; - 2064
+&quot;JULIUS THRUWAY EAST&quot; - 2065
+&quot;JULIUS THRUWAY NORTH&quot; - 2066
+&quot;JULIUS THRUWAY SOUTH&quot; - 2067
+&quot;JULIUS THRUWAY WEST&quot; - 2068
+&quot;JUNIPER HILL&quot; - 2069
+&quot;JUNIPER HOLLOW&quot; - 2070
+&quot;KACC MILITARY FUELS&quot; - 2071
+&quot;KINCAID BRIDGE&quot; - 2072
+&quot;KINGS&quot; - 2073
+&quot;LAS BARRANCAS&quot; - 2074
+&quot;LAS BRUJAS&quot; - 2075
+&quot;LAS PAYASADAS&quot; - 2076
+&quot;LAST DIME MOTEL&quot; - 2077
+&quot;LAS VENTURAS&quot; - 2078
+&quot;LEAFY HOLLOW&quot; - 2079
+&quot;LIL PROBE INN&quot; - 2080
+&quot;LINDEN SIDE&quot; - 2081
+&quot;LINDEN STATION&quot; - 2082
+&quot;LITTLE MEXICO&quot; - 2083
+&quot;LAS COLINAS&quot; - 2084
+&quot;LOS FLORES&quot; - 2085
+&quot;LOS SANTOS&quot; - 2086
+&quot;LOS SANTOS INLET&quot; - 2087
+&quot;LOS SANTOS INTERNATIONAL&quot; - 2088
+&quot;LOS SEPULCROS&quot; - 2089
+&quot;LAS VENTURAS AIRPORT&quot; - 2090
+&quot;LVA FREIGHT DEPOT&quot; - 2091
+&quot;MARINA&quot; - 2092
+&quot;MARKET&quot; - 2093
+&quot;MARKET STATION&quot; - 2094
+&quot;MARTIN BRIDGE&quot; - 2095
+&quot;MISSIONARY HILL&quot; - 2096
+&quot;MONTGOMERY&quot; - 2097
+&quot;MONTGOMERY INTERSECTION&quot; - 2098
+&quot;MOUNT CHILLIAD&quot; - 2099
+&quot;MULHOLLAND&quot; - 2100
+&quot;MULHOLLAND INTERSECTION&quot; - 2101
+&quot;NORTHSTAR ROCK&quot; - 2102
+&quot;OCEAN DOCKS&quot; - 2103
+&quot;OCEAN FLATS&quot; - 2104
+&quot;OCTANE SPRINGS&quot; - 2105
+&quot;OLD VENTURAS STRIP&quot; - 2106
+&quot;OPEN OCEAN&quot; - 2107
+&quot;PALLISADES&quot; - 2108
+&quot;PALOMINO CREEK&quot; - 2109
+&quot;PARADISO&quot; - 2110
+&quot;PILGRAMS CREEK&quot; - 2111
+&quot;PILSON INTERSECTIION&quot; - 2112
+&quot;PLAYA DEL SEVILLE&quot; - 2113
+&quot;PRICKLE PINE&quot; - 2114
+&quot;QUEENS&quot; - 2115
+&quot;RANDOLPH INDUSTRIAL ESTATE&quot; - 2116
+&quot;RED COUNTY&quot; - 2117
+&quot;REDSANDS EAST&quot; - 2118
+&quot;REDSANDS WEST&quot; - 2119
+&quot;REGULAR TOM&quot; - 2120
+&quot;RICHMAN&quot; - 2121
+&quot;ROCA ESCALANTE&quot; - 2122
+&quot;ROCKSHORE EAST&quot; - 2123
+&quot;ROCKSHORE WEST&quot; - 2124
+&quot;RODEO&quot; - 2125
+&quot;ROYALE CASINO&quot; - 2126
+&quot;SAN ANDREAS SOUND&quot; - 2127
+&quot;SAN FIERRO&quot; - 2128
+&quot;SAN FIERRO BAY&quot; - 2129
+&quot;SANTA FLORA&quot; - 2130
+&quot;SANTA MARIA BEACH&quot; - 2131
+&quot;SHADY CREEKS&quot; - 2132
+&quot;SHERMAN RESERVOIR&quot; - 2133
+&quot;SOBELL RAILYARDS&quot; - 2134
+&quot;SPINYBED&quot; - 2135
+&quot;STARFISH CASINO&quot; - 2136
+&quot;SUNNYSIDE&quot; - 2137
+&quot;TEMPLE&quot; - 2138
+&quot;THE BIG EAR RADIOTELESCOPE&quot; - 2139
+&quot;THE CAMELS TOE&quot; - 2140
+&quot;THE CLOWNS POCKET&quot; - 2141
+&quot;THE EMERALD ISLE&quot; - 2142
+&quot;THE FARM&quot; - 2143
+&quot;THE FOUR DRAGONS CASINO&quot; - 2144
+&quot;THE HIGH ROLLER&quot; - 2145
+&quot;THE MAKO SPAN&quot; - 2146
+&quot;THE PANOPTICON&quot; - 2147
+&quot;THE PINK SWAN&quot; - 2148
+&quot;THE PIRATES IN MENS PANTS&quot; - 2149
+&quot;THE SHERMAN DAM&quot; - 2150
+&quot;THE VISAGE&quot; - 2151
+&quot;TIERRA ROBADA&quot; - 2152
+&quot;UNITY STATION&quot; - 2153
+&quot;VALLE OCULTADO&quot; - 2154
+&quot;VERDANT BLUFFS&quot; - 2155
+&quot;VERDANT MEADOWS&quot; - 2156
+&quot;VERONA BEACH&quot; - 2157
+&quot;VINEWOOD&quot; - 2158
+&quot;WHETSTONE&quot; - 2159
+&quot;WHITEWOOD ESTATES&quot; - 2160
+&quot;WILLOWFIELD&quot; - 2161
+&quot;YELLOWBELL GOLF COURSE&quot; - 2162
+&quot;YELLOWBELL STATION&quot; - 2163</pre>
+<div style="max-width: 750px; width:auto;">
+<table style="padding: 5px; background-color: #ffeecc; border-left: 10px solid #ffbf7f;">
+
+<tr>
+<td align="center" style="padding-right:10px; padding-left:5px; border-right:1px solid #ffbf7f;"><a href="Image_32px-Ambox_warning_orange.png.html" class="image" title="Image:32px-Ambox_warning_orange.png"><img src="../upload/6/65/32px-Ambox_warning_orange.png" alt="Image:32px-Ambox_warning_orange.png" width="32" height="28" longdesc="Image_32px-Ambox_warning_orange.png.html" /></a>
+<p><strong>Note</strong>
+</p>
+</td><td align="left" style="padding-left:10px; padding-right:7px;"><span style="font-size:14px;">These Sound IDs work in every version!</span>
+</td></tr></table>
+</div>
+<p><br />
+</p>
+<table>
+<tr>
+<th style="text-align: left;"> Name </th><th style="text-align: left;"> ID
+</th></tr>
+<tr>
+<td> SOUND_CEILING_VENT_LAND </td><td> 1002
+</td></tr>
+<tr>
+<td> SOUND_BONNET_DENT </td><td> 1009
+</td></tr>
+<tr>
+<td> SOUND_WHEEL_OF_FORTUNE_CLACKER </td><td> 1027
+</td></tr>
+<tr>
+<td> SOUND_SHUTTER_DOOR_START </td><td> 1035
+</td></tr>
+<tr>
+<td> SOUND_SHUTTER_DOOR_STOP </td><td> 1036
+</td></tr>
+<tr>
+<td> SOUND_PARACHUTE_OPEN </td><td> 1039
+</td></tr>
+<tr>
+<td> SOUND_AMMUNATION_BUY_WEAPON </td><td> 1052
+</td></tr>
+<tr>
+<td> SOUND_AMMUNATION_BUY_WEAPON_DENIED </td><td> 1053
+</td></tr>
+<tr>
+<td> SOUND_SHOP_BUY </td><td> 1054
+</td></tr>
+<tr>
+<td> SOUND_SHOP_BUY_DENIED </td><td> 1055
+</td></tr>
+<tr>
+<td> SOUND_RACE_321 </td><td> 1056
+</td></tr>
+<tr>
+<td> SOUND_RACE_GO </td><td> 1057
+</td></tr>
+<tr>
+<td> SOUND_PART_MISSION_COMPLETE </td><td> 1058
+</td></tr>
+<tr>
+<td> SOUND_GOGO_TRACK_START </td><td> 1062 (music)
+</td></tr>
+<tr>
+<td> SOUND_GOGO_TRACK_STOP </td><td> 1063 (music)
+</td></tr>
+<tr>
+<td> SOUND_DUAL_TRACK_START </td><td> 1068 (music)
+</td></tr>
+<tr>
+<td> SOUND_DUAL_TRACK_STOP </td><td> 1069  (music)
+</td></tr>
+<tr>
+<td> SOUND_BEE_TRACK_START </td><td> 1076 (music)
+</td></tr>
+<tr>
+<td> SOUND_BEE_TRACK_STOP </td><td> 1077 (music)
+</td></tr>
+<tr>
+<td> SOUND_ROULETTE_ADD_CASH </td><td> 1083
+</td></tr>
+<tr>
+<td> SOUND_ROULETTE_REMOVE_CASH </td><td> 1084
+</td></tr>
+<tr>
+<td> SOUND_ROULETTE_NO_CASH </td><td> 1085
+</td></tr>
+<tr>
+<td> SOUND_BIKE_PACKER_CLUNK </td><td> 1095
+</td></tr>
+<tr>
+<td> SOUND_AWARD_TRACK_START </td><td> 1097 (music)
+</td></tr>
+<tr>
+<td> SOUND_AWARD_TRACK_STOP </td><td> 1098 (music)
+</td></tr>
+<tr>
+<td> SOUND_MESH_GATE_OPEN_START </td><td> 1100
+</td></tr>
+<tr>
+<td> SOUND_MESH_GATE_OPEN_STOP </td><td> 1101
+</td></tr>
+<tr>
+<td> SOUND_PUNCH_PED </td><td> 1130
+</td></tr>
+<tr>
+<td> SOUND_AMMUNATION_GUN_COLLISION </td><td> 1131
+</td></tr>
+<tr>
+<td> SOUND_CAMERA_SHOT </td><td> 1132
+</td></tr>
+<tr>
+<td> SOUND_BUY_CAR_MOD </td><td> 1133
+</td></tr>
+<tr>
+<td> SOUND_BUY_CAR_RESPRAY </td><td> 1134
+</td></tr>
+<tr>
+<td> SOUND_BASEBALL_BAT_HIT_PED </td><td> 1135
+</td></tr>
+<tr>
+<td> SOUND_STAMP_PED </td><td> 1136
+</td></tr>
+<tr>
+<td> SOUND_CHECKPOINT_AMBER </td><td> 1137
+</td></tr>
+<tr>
+<td> SOUND_CHECKPOINT_GREEN </td><td> 1138
+</td></tr>
+<tr>
+<td> SOUND_CHECKPOINT_RED </td><td> 1139
+</td></tr>
+<tr>
+<td> SOUND_CAR_SMASH_CAR </td><td> 1140
+</td></tr>
+<tr>
+<td> SOUND_CAR_SMASH_GATE </td><td> 1141
+</td></tr>
+<tr>
+<td> SOUND_OTB_TRACK_START </td><td> 1142
+</td></tr>
+<tr>
+<td> SOUND_OTB_TRACK_STOP </td><td> 1143
+</td></tr>
+<tr>
+<td> SOUND_PED_HIT_WATER_SPLASH </td><td> 1144
+</td></tr>
+<tr>
+<td> SOUND_RESTAURANT_TRAY_COLLISION </td><td> 1145
+</td></tr>
+<tr>
+<td> SOUND_SWEETS_HORN </td><td> 1147
+</td></tr>
+<tr>
+<td> SOUND_MAGNET_VEHICLE_COLLISION </td><td> 1148
+</td></tr>
+<tr>
+<td> SOUND_PROPERTY_PURCHASED </td><td> 1149
+</td></tr>
+<tr>
+<td> SOUND_PICKUP_STANDARD </td><td> 1150
+</td></tr>
+<tr>
+<td> SOUND_GARAGE_DOOR_START </td><td> 1153
+</td></tr>
+<tr>
+<td> SOUND_GARAGE_DOOR_STOP </td><td> 1154
+</td></tr>
+<tr>
+<td> SOUND_PED_COLLAPSE </td><td> 1163
+</td></tr>
+<tr>
+<td> SOUND_SHUTTER_DOOR_SLOW_START </td><td> 1165
+</td></tr>
+<tr>
+<td> SOUND_SHUTTER_DOOR_SLOW_STOP </td><td> 1166
+</td></tr>
+<tr>
+<td> SOUND_RESTAURANT_CJ_PUKE </td><td> 1169
+</td></tr>
+<tr>
+<td> SOUND_DRIVING_AWARD_TRACK_START </td><td> 1183 (music)
+</td></tr>
+<tr>
+<td> SOUND_DRIVING_AWARD_TRACK_STOP </td><td> 1184
+</td></tr>
+<tr>
+<td> SOUND_BIKE_AWARD_TRACK_START </td><td> 1185 (music)
+</td></tr>
+<tr>
+<td> SOUND_BIKE_AWARD_TRACK_STOP </td><td> 1186
+</td></tr>
+<tr>
+<td> SOUND_PILOT_AWARD_TRACK_START </td><td> 1187 (music)
+</td></tr>
+<tr>
+<td> SOUND_PILOT_AWARD_TRACK_STOP </td><td> 1188
+</td></tr>
+<tr>
+<td> SOUND_SLAP </td><td> 1190
+</td></tr></table>
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Sound_IDs.html" title="Edit section: Old list">edit</a>]</div><a name="Old_list"></a><h2>Old list</h2>
+<p><a href="http://forum.sa-mp.com/index.php?topic=139.msg1563#msg1563" class='external text' title="http://forum.sa-mp.com/index.php?topic=139.msg1563#msg1563" rel="nofollow">from jbeta</a>
+</p>
+<pre>1002 weak hit 
+1009 crash 
+1020 constant machinery noise 
+1021 machinery 
+1022 motor, stopping 
+1027 weaker hit 
+1035 garage door opening 
+1039 Parachute opening noise (by Maxx)
+1052 blip A 
+1053 blip B 
+1054 blip A (same as 1052) 
+1055 blip B (same as 1053) 
+1056 race: green light sound 
+1057 race: red light sound (start sound) 
+1058 selection sound 
+1062 *Videogame music: Go Go Space Monkey* 
+1068 *Videogame music: Duality* 
+1076 *Videogame music: Let´s Get Ready to Bumble* 
+1083 map: place a marker 
+1084 map: remove a marker 
+1085 blip C 
+1095 loud hit 
+1097 *background music* 
+1100 metallic fence rattle A 
+1101 metallic fence rattle B 
+1130 punch A 
+1131 hit wooden object? 
+1132 camera click 
+1133 Add Vehicle component sound (transfender) 
+1134 spray can 
+1135 hit 
+1136 punch B 
+1137 high-pitch blip A 
+1138 high-pitch blip A 
+1139 high-pitch blip A 
+1140 crash A 
+1141 crash B 
+1142 stadium background noise 
+1144 splash 
+1145 throw a satchel??
+1147 car horn 
+1148 crash C 
+1149 blip (same as 1052?) 
+1150 selection sound 
+1153 garage door opening (same as 1035)
+1159 explosion 
+1163 two-feet stomp (after jumping) 
+1165 bigger garage (hangar?) doors 
+1183 *Driving school results music* 
+1185 *Bike and boat school results Music* 
+1187 *Flight school results music* 
+1190 slap
+</pre>
+<pre>39047 &quot; where&#39;s my cellphone!! &quot; 
+39051 &quot; that&#39;s right put your hands there &quot;
+39052 &quot; Holy fuck I&#39;ve got my phone &quot;
+39074 &quot; I&#39;m listening ... &quot;
+39076 &quot; Aha , real interesting &quot;
+50002 &quot; Just Try Punk&nbsp;! Just Try It&nbsp;! &quot;
+50004 &quot; You&#39;re My World Now&nbsp;! &quot;
+50050 &quot; Tell My Wife I Love Her &quot;
+50051 &quot; I&#39;m going in &quot;
+50052 &quot; What The Hell&nbsp;! &quot;
+50053 &quot; Uh , My Coffee &quot;
+50094 &quot; Wait Wait , think about what you&#39;re doing &quot;
+100001 &quot; Come On , time is money &quot;
+100005 &quot; Not This Car&nbsp;! &quot;
+100006 &quot; My boss is gonna kill me &quot;
+100007 &quot; There goes another tip &quot;
+100008 &quot; OH NO MAN&nbsp;! &quot;
+100009 &quot; Today couldn&#39;t get any worse &quot; 
+100010 &quot; This is not good &quot;
+100011 &quot; You Idiot &quot; 
+100012 &quot; Look Out! &quot;
+100013 &quot; What Are You Doing?! &quot;
+100014 &quot; Heeeeey &quot;
+100015 &quot; Oh Fuck &quot; 
+100016 &quot; What The Fuck &quot; 
+100017 &quot; Hey Man&nbsp;! &quot;</pre>
+<div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/Sound_IDs.html">http://localhost../wiki/Sound_IDs.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="Category_Scripting_Documentation.html" title="Category:Scripting Documentation">Scripting Documentation</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="Sound_IDs.html">Article</a></li>
+				 <li id="ca-talk"><a href="Talk_Sound_IDs.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="Sound_IDs.html">Edit</a></li>
+				 <li id="ca-history"><a href="Sound_IDs.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 220,294 times.</li>
+				<li id="credits">This page was last modified 19:33, 6 January 2019 by SA-MP Wiki user <a href="User_Edugta.html" class="new" title="User:Edugta">Edugta</a>. Based on work by SA-MP Wiki user(s) <a href="User_RoboN1X.html" title="User:RoboN1X">RoboN1X</a>, <a href="User_Freaksken.html" title="User:Freaksken">Freaksken</a>, <a href="User_Freshncool.html" title="User:Freshncool">Freshncool</a>, <a href="User_IstuntmanI.html" class="new" title="User:IstuntmanI">IstuntmanI</a>, <a href="User_BigETI.html" title="User:BigETI">BigETI</a>, <a href="User_Vince.html" title="User:Vince">Vince</a>, <a href="User_OstGot.html" title="User:OstGot">OstGot</a>, <a href="User_Ikkentim.html" title="User:Ikkentim">Ikkentim</a>, <a href="User_Threshold.html" title="User:Threshold">Threshold</a>, <a href="User_BenJackster.html" class="new" title="User:BenJackster">BenJackster</a>, <a href="User_Onfroi.html" title="User:Onfroi">Onfroi</a>, <a href="User_Smithy.html" title="User:Smithy">Smithy</a>, <a href="User_WackoX.html" class="new" title="User:WackoX">WackoX</a>, <a href="User_Garsino.html" title="User:Garsino">Garsino</a>, <a href="User_Grove.html" title="User:Grove">Grove</a> and <a href="User_Dugi.html" title="User:Dugi">Dugi</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 2.58 secs. -->
+</body></html>

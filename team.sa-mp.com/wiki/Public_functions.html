@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Public functions,CallLocalFunction,CallRemoteFunction,SetTimer,SetTimerEx,Scripting Callbacks" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>Public functions - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Public functions</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<p>A <b>public function</b> is a normal function with the <tt>public</tt> keyword in front of it. It is important to realize that <a href="Category_Scripting_Callbacks.html" title="Category:Scripting Callbacks">callbacks</a> are just public functions as well.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Public_functions.html" title="Edit section: When should I use a public function?">edit</a>]</div><a name="When_should_I_use_a_public_function.3F"></a><h2> When should I use a public function? </h2>
+<p>In general, functions do not need the <tt>public</tt> keyword. Don't add <tt>public</tt> to a function just because it looks nice.
+If you are an experienced scripter, it's quite easy to understand when a function should be public:
+</p><p><i>A function should be public whenever "the server" must be able to call the function at run time.</i>
+</p><p>Always add <tt>public</tt> to your function when it is called by
+</p>
+<ul><li> a timer, (see also <a href="SetTimer.html" title="SetTimer">SetTimer</a> and <a href="SetTimerEx.html" title="SetTimerEx">SetTimerEx</a>),
+</li><li> <a href="CallLocalFunction.html" title="CallLocalFunction">CallLocalFunction</a>,
+</li><li> <a href="CallRemoteFunction.html" title="CallRemoteFunction">CallRemoteFunction</a>.
+</li></ul>
+<p><a href="Category_Scripting_Callbacks.html" title="Category:Scripting Callbacks">Callbacks</a> need the <tt>public</tt> keyword as well. (This also applies to Pawn functions you would like to call from a SA-MP server plug-in.)
+</p><p>If a function is not public while it should be, you will not receive any errors. You will only notice that the code does not work the way you want it to work. For example, a timer function will not be called.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Public_functions.html" title="Edit section: Forwarding">edit</a>]</div><a name="Forwarding"></a><h2> Forwarding </h2>
+<p>All public functions must be forwarded. That is a rule of Pawn. If you do not forward a public function, you will receive warnings from the compiler. It's best to forward a function at the top of the script (but below the <tt>#include</tt> directives, though).
+</p><p>Suppose you have a public function:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">public</span> countdown<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <span style="color: #808080; font-style: italic;">// code...</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>To forward it, you would add this to the top of the script:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">forward</span> countdown<span style="color: #66cc66;">&#40;</span><span style="color: #66cc66;">&#41;</span>;</pre>
+<p><br />
+To forward, copy the function's <i>prototype</i>, add <tt>forward</tt> in front of it, and add a <tt>;</tt> behind it. The prototype must be <b>exactly</b> the same. You will receive errors when it's not the same. Another example, this time with a parameter.
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">public</span> AreaCheck<span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <span style="color: #808080; font-style: italic;">// code....</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>The forward statement would be:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">forward</span> AreaCheck<span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span>;</pre>
+<p><br />
+Since it is so important that the code after <tt>public</tt> and <tt>forward</tt> is the same, it's best to copy and paste it. Here is a final example:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">public</span> <span style="color: orange;">Float</span>:MashPotatoes<span style="color: #66cc66;">&#40;</span>milk, <span style="color: orange;">Float</span>:salt, <span style="color: orange;">bool</span>:heated<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <span style="color: #808080; font-style: italic;">// code...</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>It should be forwarded like this:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">forward</span> <span style="color: orange;">Float</span>:MashPotatoes<span style="color: #66cc66;">&#40;</span>milk, <span style="color: orange;">Float</span>:salt, <span style="color: orange;">bool</span>:heated<span style="color: #66cc66;">&#41;</span>;</pre>
+<p><br />
+<b>Notice that there is no <tt>;</tt> behind the line that starts with <tt>public</tt>, but there <i>is</i> a <tt>;</tt> after a <tt>forward</tt> statement.</b>
+</p><p>You may wonder why you don't have to forward <a href="Category_Scripting_Callbacks.html" title="Category:Scripting Callbacks">callbacks</a>. Well, you do have to forward them, but this is already done for you in a file you always include: <tt>a_samp.inc</tt>. Open that file (in the <tt>include</tt> folder) and scroll to the end. You will see that all callbacks are forwarded in there.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Public_functions.html" title="Edit section: 0.1 scripts">edit</a>]</div><a name="0.1_scripts"></a><h2> 0.1 scripts </h2>
+<p>Some SA-MP 0.1 scripts (older scripts) heavily misused the <tt>public</tt> keyword. Their programmers may have added <tt>public</tt> to every function. In general, it's a better idea to remove the <tt>public</tt> keyword from them rather than forwarding. A quick search using <tt>Ctrl + F</tt> allows you to see if a function is used by a timer. If it is used by a timer, do not remove <tt>public</tt>, but forward the function instead.
+</p><p>Do not remove <tt>public</tt> when the function's name starts with 'On'! It is most likely to be a <a href="Category_Scripting_Callbacks.html" title="Category:Scripting Callbacks">callback</a>. They require the <tt>public</tt> keyword.
+</p><div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/Public_functions.html">http://localhost../wiki/Public_functions.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="Category_Scripting.html" title="Category:Scripting">Scripting</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="Public_functions.html">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="Talk_Public_functions.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="Public_functions.html">Edit</a></li>
+				 <li id="ca-history"><a href="Public_functions.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 39,535 times.</li>
+				<li id="credits">This page was last modified 06:11, 31 October 2010 by SA-MP Wiki user User:. Based on work by SA-MP Wiki user(s) <a href="User_IJzerenRita.html" class="new" title="User:IJzerenRita">IJzerenRita</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 32.58 secs. -->
+</body></html>

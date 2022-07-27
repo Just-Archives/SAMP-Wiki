@@ -1,0 +1,195 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Debug Guide,Main Page,Scripting Basics,Server Plugins,Skins,Vehicle Model ID List,Vehicle Model IDs,Scripting Callbacks,Scripting Functions,Tutorials" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>Debug Guide - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Debug Guide</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<div class="scripting" style="color: #4378A4; background-color: #FFFFFF; margin: 2px; margin-bottom: 10px;"><div align="center" style="border: 1px solid #AAAAAA; padding: 3px; padding-left: 5px;"><a href="../wiki-archive.html" title="Main Page">Main Page</a> | <a href="Category_Scripting_Functions.html" title="Category:Scripting Functions">Scripting Functions</a> | <a href="Category_Scripting_Callbacks.html" title="Category:Scripting Callbacks">Scripting Callbacks</a> | <a href="Scripting_Basics.html" title="Scripting Basics">Scripting Basics</a> | <a href="Server_Plugins.html" title="Server Plugins">Server Plugins</a> | <a href="Category_Tutorials.html" title="Category:Tutorials">Tutorials</a></div></div><br />
+<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class='toclevel-1'><a href="#Purpose"><span class="tocnumber">1</span> <span class="toctext">Purpose</span></a></li>
+<li class='toclevel-1'><a href="#Getting_Started"><span class="tocnumber">2</span> <span class="toctext">Getting Started</span></a></li>
+<li class='toclevel-1'><a href="#Vehicles"><span class="tocnumber">3</span> <span class="toctext">Vehicles</span></a>
+<ul>
+<li class='toclevel-2'><a href="#Spawning_a_vehicle"><span class="tocnumber">3.1</span> <span class="toctext">Spawning a vehicle</span></a></li>
+<li class='toclevel-2'><a href="#Saving_Vehicle_Spawns"><span class="tocnumber">3.2</span> <span class="toctext">Saving Vehicle Spawns</span></a></li>
+<li class='toclevel-2'><a href="#Importing_the_Saved_Locations"><span class="tocnumber">3.3</span> <span class="toctext">Importing the Saved Locations</span></a></li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#Player_Spawns"><span class="tocnumber">4</span> <span class="toctext">Player Spawns</span></a>
+<ul>
+<li class='toclevel-2'><a href="#Skins"><span class="tocnumber">4.1</span> <span class="toctext">Skins</span></a></li>
+<li class='toclevel-2'><a href="#Save_command"><span class="tocnumber">4.2</span> <span class="toctext">Save command</span></a></li>
+<li class='toclevel-2'><a href="#Interiors"><span class="tocnumber">4.3</span> <span class="toctext">Interiors</span></a></li>
+</ul>
+</li>
+<li class='toclevel-1'><a href="#Related"><span class="tocnumber">5</span> <span class="toctext">Related</span></a></li>
+<li class='toclevel-1'><a href="#External_Links"><span class="tocnumber">6</span> <span class="toctext">External Links</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Debug_Guide.html" title="Edit section: Purpose">edit</a>]</div><a name="Purpose"></a><h2>Purpose</h2>
+<p>The main purpose of debug mode is to record the location of vehicle and player spawns allowing you to use them in your scripts.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Debug_Guide.html" title="Edit section: Getting Started">edit</a>]</div><a name="Getting_Started"></a><h2>Getting Started</h2>
+<div class="thumb tright"><div style="width:182px;"><a href="Image_Debuglauncher.gif.html" class="internal" title="SAMP Debug Launcher"><img src="../upload/thumb/3/30/Debuglauncher.gif/180px-Debuglauncher.gif" alt="SAMP Debug Launcher" width="180" height="150" longdesc="Image_Debuglauncher.gif.html" /></a>  <div class="thumbcaption" ><div class="magnify" style="float:right"><a href="Image_Debuglauncher.gif.html" class="internal" title="Enlarge"><img src="../skins/common/images/magnify-clip.png" width="15" height="11" alt="Enlarge" /></a></div>SAMP Debug Launcher</div></div></div>
+<ul><li>Browse through My Computer to your San Andreas folder
+</li></ul>
+<pre>Example: C:\Program Files\Rockstar Games\GTA San Andreas
+</pre>
+<ul><li>Open up samp_debug.exe
+</li><li>Click on Launch Debug
+</li></ul>
+<p>So here you are by the Vinewood sign in Los Santos; first step is to get some transportation.
+</p><p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Debug_Guide.html" title="Edit section: Vehicles">edit</a>]</div><a name="Vehicles"></a><h1>Vehicles</h1>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Debug_Guide.html" title="Edit section: Spawning a vehicle">edit</a>]</div><a name="Spawning_a_vehicle"></a><h3><b>Spawning a vehicle</b></h3>
+<div class="thumb tright"><div style="width:182px;"><a href="Image_Spawnchopper.jpg.html" class="internal" title="Spawning a Police Helicopter"><img src="../upload/thumb/0/0e/Spawnchopper.jpg/180px-Spawnchopper.jpg" alt="Spawning a Police Helicopter" width="180" height="144" longdesc="Image_Spawnchopper.jpg.html" /></a>  <div class="thumbcaption" ><div class="magnify" style="float:right"><a href="Image_Spawnchopper.jpg.html" class="internal" title="Enlarge"><img src="../skins/common/images/magnify-clip.png" width="15" height="11" alt="Enlarge" /></a></div>Spawning a Police Helicopter</div></div></div>		
+<p>	To spawn a vehicle type into chat	
+</p>
+<pre>       /v [id]	
+</pre>
+<p>	Example	
+	/v 497 //spawns a police helicopter	
+</p>
+	<div class="thumb tright"><div style="width:182px;"><a href="Image_Vsel.jpg.html" class="internal" title="/vsel command"><img src="../upload/thumb/f/f2/Vsel.jpg/180px-Vsel.jpg" alt="/vsel command" width="180" height="144" longdesc="Image_Vsel.jpg.html" /></a>  <div class="thumbcaption" ><div class="magnify" style="float:right"><a href="Image_Vsel.jpg.html" class="internal" title="Enlarge"><img src="../skins/common/images/magnify-clip.png" width="15" height="11" alt="Enlarge" /></a></div>/vsel command</div></div></div>	
+<p>	If you don't know the vehicle ID you can browse through each using the following command. Space and shift will cycle through different cars.	
+</p><p>	/vsel	
+</p><p>	*<a href="Vehicle_Model_ID_List.html" title="Vehicle Model ID List">List of vehicle IDs</a>
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Debug_Guide.html" title="Edit section: Saving Vehicle Spawns">edit</a>]</div><a name="Saving_Vehicle_Spawns"></a><h3><b>Saving Vehicle Spawns</b></h3>
+	<div class="thumb tright"><div style="width:182px;"><a href="Image_Vehicleload.jpg.html" class="internal" title="Saving a vehicle position."><img src="../upload/thumb/3/30/Vehicleload.jpg/180px-Vehicleload.jpg" alt="Saving a vehicle position." width="180" height="144" longdesc="Image_Vehicleload.jpg.html" /></a>  <div class="thumbcaption" ><div class="magnify" style="float:right"><a href="Image_Vehicleload.jpg.html" class="internal" title="Enlarge"><img src="../skins/common/images/magnify-clip.png" width="15" height="11" alt="Enlarge" /></a></div>Saving a vehicle position.</div></div></div>	
+<p>	To save a car location, get in it and drive it to the position you want it in such as a driveway and type:	
+	/save [comment]	
+</p><p>	Example	
+</p>
+<pre>      /save LS expensive car	
+</pre>
+<p>Tips:
+	*The comment is optional but it helps when you are doing many different types of cars. You can just use the one car to do all your vehicle spawns and simply change the vehicleid afterwards to save time. 	
+	*Avoid saving on steep hills, the car may slide down it when spawned.	
+	*Leave enough space at all sides of the vehicle especially if you plan on adding a car next to it. Park too close and the vehicle can sometimes be moved to an odd position when spawned.	+
+	*Don't worry about the color of the vehicle, it can be changed afterwards.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Debug_Guide.html" title="Edit section: Importing the Saved Locations">edit</a>]</div><a name="Importing_the_Saved_Locations"></a><h3><b>Importing the Saved Locations</b></h3>
+<p>The /save command simply saves some information to a text file called <i>savedpositions.txt</i> in My Documents -> GTA San Andreas User Files -> SAMP. (If you can't find it, run the debug program as an admin) Open up and you should be greeted with a list of these:
+</p>
+<pre class="pawn"><a href="http://wiki.sa-mp.com/wiki/AddStaticVehicle"><span style="color: #006400;">AddStaticVehicle</span></a><span style="color: #66cc66;">&#40;</span><span style="color: #4169e1;">565</span>,<span style="color: #4169e1;">1528.7856</span>,<span style="color: #4169e1;">-811.6795</span>,<span style="color: #4169e1;">71.5422</span>,<span style="color: #4169e1;">93.1689</span>,<span style="color: #4169e1;">53</span>,<span style="color: #4169e1;">53</span><span style="color: #66cc66;">&#41;</span>; <span style="color: #808080; font-style: italic;">// LS driveway - expensive car</span></pre>
+<p>You can copy this directly into the OnGameModeInit function.
+</p><p>If you would like to change some of the properties the layout is like this:
+</p>
+<pre class="pawn"><a href="http://wiki.sa-mp.com/wiki/AddStaticVehicle"><span style="color: #006400;">AddStaticVehicle</span></a><span style="color: #66cc66;">&#40;</span>modelid,x,y,z,angle,color1,color2<span style="color: #66cc66;">&#41;</span>;</pre>
+<p>So for example changing the modelid from 565 to 420 would result in a taxi spawning
+And changing the colors 53,53 to -1,-1 would result in the color of the car being random and not blue.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Debug_Guide.html" title="Edit section: Player Spawns">edit</a>]</div><a name="Player_Spawns"></a><h1>Player Spawns</h1>
+<p>Saving player positions works in a similar way to vehicles but there are a few extra options that can be considered.  
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Debug_Guide.html" title="Edit section: Skins">edit</a>]</div><a name="Skins"></a><h3><b>Skins</b></h3>
+<p>First you can change the <a href="Skins.html" title="Skins">skin</a> of the player using the F11 and F12 keys to cycle through each, or if you know the id you can type
+</p>
+<pre>/player_skin [id]
+</pre>
+<p>If you are adding multiple skins to the same spawn location it is recommended that you simply only save with one skin and simply note the others down and change them as you copy into pawno.
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Debug_Guide.html" title="Edit section: Save command">edit</a>]</div><a name="Save_command"></a><h3><b>Save command</b></h3>
+<p>As with vehicles you use the save command
+</p>
+<pre>/save [comment]
+Example
+/save Grove spawn.
+</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Debug_Guide.html" title="Edit section: Interiors">edit</a>]</div><a name="Interiors"></a><h3><b>Interiors</b></h3>
+<p>If you decide you want to start the player inside an interior such as a shop or a house you need to get the interiorid if you do not know it already. This is needed as you need to set the interiorid on player spawn otherwise you will spawn into the middle of nowhere. This command lists the current interior you are in:
+</p><p><b>NOTE: Being in the debug mode is not required for this function!</b>
+</p>
+<pre>/interior
+</pre>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Debug_Guide.html" title="Edit section: Related">edit</a>]</div><a name="Related"></a><h1>Related</h1>
+<ul><li><a href="Vehicle_Model_IDs.html" title="Vehicle Model IDs">List of vehicle IDs</a>
+</li></ul>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Debug_Guide.html" title="Edit section: External Links">edit</a>]</div><a name="External_Links"></a><h1>External Links</h1>
+<ul><li><a href="http://stephantom2.st.funpic.de/experiments/samp/files/a_samp-inc.html" class='external text' title="http://stephantom2.st.funpic.de/experiments/samp/files/a_samp-inc.html" rel="nofollow">Unofficial Pawn Reference Guide</a>
+</li></ul>
+<div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/Debug_Guide.html">http://localhost../wiki/Debug_Guide.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="Category_Tutorials.html" title="Category:Tutorials">Tutorials</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="Debug_Guide.html">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="Talk_Debug_Guide.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="Debug_Guide.html">Edit</a></li>
+				 <li id="ca-history"><a href="Debug_Guide.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-ru"><a href="%25D0%2598%25D1%2581%25D0%25BF%25D0%25BE%25D0%25BB%25D1%258C%25D0%25B7%25D0%25BE%25D0%25B2%25D0%25B0%25D0%25BD%25D0%25B8%25D0%25B5_Debug_RU.html">Русский</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 193,831 times.</li>
+				<li id="credits">This page was last modified 12:54, 24 March 2017 by SA-MP Wiki user <a href="User_OstGot.html" title="User:OstGot">OstGot</a>. Based on work by SA-MP Wiki user(s) <a href="User_TheKiller.html" class="new" title="User:TheKiller">TheKiller</a> and <a href="User_DaumosSS.html" class="new" title="User:DaumosSS">DaumosSS</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 1.68 secs. -->
+</body></html>

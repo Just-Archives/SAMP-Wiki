@@ -1,0 +1,483 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Saving car mods,Main Page,Scripting Basics,Server Plugins,Scripting Callbacks,Scripting Functions,Tutorials" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>Saving car mods - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Saving car mods</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<div class="scripting" style="color: #4378A4; background-color: #FFFFFF; margin: 2px; margin-bottom: 10px;"><div align="center" style="border: 1px solid #AAAAAA; padding: 3px; padding-left: 5px;"><a href="../wiki-archive.html" title="Main Page">Main Page</a> | <a href="Category_Scripting_Functions.html" title="Category:Scripting Functions">Scripting Functions</a> | <a href="Category_Scripting_Callbacks.html" title="Category:Scripting Callbacks">Scripting Callbacks</a> | <a href="Scripting_Basics.html" title="Scripting Basics">Scripting Basics</a> | <a href="Server_Plugins.html" title="Server Plugins">Server Plugins</a> | <a href="Category_Tutorials.html" title="Category:Tutorials">Tutorials</a></div></div><br />
+<p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Saving_car_mods.html" title="Edit section: OnVehicleMod">edit</a>]</div><a name="OnVehicleMod"></a><h2> <b>OnVehicleMod</b> </h2>
+<p><i>Params:</i> 
+vehicleid - The vehicle id of the vehicle that just been moded.
+componentid - The component id (used for AddVehicleComponent(vehicleid, componentid) )
+</p><p><br />
+</p>
+<div class="editsection" style="float:right;margin-left:5px;">[<a href="Saving_car_mods.html" title="Edit section: Info:">edit</a>]</div><a name="Info:"></a><h2> Info: </h2>
+<p>There is no need to add anything like 'AddVehicleComponent(vehicleid, componentid)' under this line. Also, if you would like to save vehicle components...
+Here's the guide how to save vehicle mods:
+Firstly, create new values for vehicle mods 1-17.
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">enum</span> vInfo
+<span style="color: #66cc66;">&#123;</span>
+    mod<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">17</span><span style="color: #66cc66;">&#93;</span>,
+    owner
+<span style="color: #66cc66;">&#125;</span>;
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">new</span> VehicleInfo<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">200</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>vInfo<span style="color: #66cc66;">&#93;</span>;
+&nbsp;
+<span style="color: #6b8e23;">#define CARMODTYPE_FRONT_BULLBAR 	14</span>
+<span style="color: #6b8e23;">#define CARMODTYPE_REAR_BULLBAR 	15</span>
+<span style="color: #6b8e23;">#define CARMODTYPE_SIDESKIRT_RIGHT 	3</span>
+<span style="color: #6b8e23;">#define CARMODTYPE_SIDESKIRT_LEFT 	16</span></pre>
+<p>And also the vehicle components divided into groups:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">new</span> spoiler<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">20</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #66cc66;">&#123;</span>
+	<span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1000</span><span style="color: #66cc66;">&#125;</span>,
+	<span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1001</span><span style="color: #66cc66;">&#125;</span>,
+	<span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1002</span><span style="color: #66cc66;">&#125;</span>,
+	<span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1003</span><span style="color: #66cc66;">&#125;</span>,
+	<span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1014</span><span style="color: #66cc66;">&#125;</span>,
+	<span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1015</span><span style="color: #66cc66;">&#125;</span>,
+	<span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1016</span><span style="color: #66cc66;">&#125;</span>,
+	<span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1023</span><span style="color: #66cc66;">&#125;</span>,
+	<span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1058</span><span style="color: #66cc66;">&#125;</span>,
+	<span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1060</span><span style="color: #66cc66;">&#125;</span>,
+	<span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1049</span><span style="color: #66cc66;">&#125;</span>,
+	<span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1050</span><span style="color: #66cc66;">&#125;</span>,
+	<span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1138</span><span style="color: #66cc66;">&#125;</span>,
+	<span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1139</span><span style="color: #66cc66;">&#125;</span>,
+	<span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1146</span><span style="color: #66cc66;">&#125;</span>,
+	<span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1147</span><span style="color: #66cc66;">&#125;</span>,
+	<span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1158</span><span style="color: #66cc66;">&#125;</span>,
+	<span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1162</span><span style="color: #66cc66;">&#125;</span>,
+	<span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1163</span><span style="color: #66cc66;">&#125;</span>,
+	<span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1164</span><span style="color: #66cc66;">&#125;</span>
+<span style="color: #66cc66;">&#125;</span>;
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">new</span> nitro<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">3</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #66cc66;">&#123;</span>
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1008</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1009</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1010</span><span style="color: #66cc66;">&#125;</span>
+<span style="color: #66cc66;">&#125;</span>;
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">new</span> fbumper<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">23</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #66cc66;">&#123;</span>
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1117</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1152</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1153</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1155</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1157</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1160</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1165</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1166</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1169</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1170</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1171</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1172</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1173</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1174</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1175</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1179</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1181</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1182</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1185</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1188</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1189</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1192</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1193</span><span style="color: #66cc66;">&#125;</span>
+<span style="color: #66cc66;">&#125;</span>;
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">new</span> rbumper<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">22</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #66cc66;">&#123;</span>
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1140</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1141</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1148</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1149</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1150</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1151</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1154</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1156</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1159</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1161</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1167</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1168</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1176</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1177</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1178</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1180</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1183</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1184</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1186</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1187</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1190</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1191</span><span style="color: #66cc66;">&#125;</span>
+<span style="color: #66cc66;">&#125;</span>;
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">new</span> exhaust<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">28</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #66cc66;">&#123;</span>
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1018</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1019</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1020</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1021</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1022</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1028</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1029</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1037</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1043</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1044</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1045</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1046</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1059</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1064</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1065</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1066</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1089</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1092</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1104</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1105</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1113</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1114</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1126</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1127</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1129</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1132</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1135</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1136</span><span style="color: #66cc66;">&#125;</span>
+<span style="color: #66cc66;">&#125;</span>;
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">new</span> bventr<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">2</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #66cc66;">&#123;</span>
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1142</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1144</span><span style="color: #66cc66;">&#125;</span>
+<span style="color: #66cc66;">&#125;</span>;
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">new</span> bventl<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">2</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #66cc66;">&#123;</span>
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1143</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1145</span><span style="color: #66cc66;">&#125;</span>
+<span style="color: #66cc66;">&#125;</span>;
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">new</span> bscoop<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">4</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #66cc66;">&#123;</span>
+	<span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1004</span><span style="color: #66cc66;">&#125;</span>,
+	<span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1005</span><span style="color: #66cc66;">&#125;</span>,
+	<span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1011</span><span style="color: #66cc66;">&#125;</span>,
+	<span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1012</span><span style="color: #66cc66;">&#125;</span>
+<span style="color: #66cc66;">&#125;</span>;
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">new</span> rscoop<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">17</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #66cc66;">&#123;</span>
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1006</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1032</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1033</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1035</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1038</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1053</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1054</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1055</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1061</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1067</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1068</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1088</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1091</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1103</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1128</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1130</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1131</span><span style="color: #66cc66;">&#125;</span>
+<span style="color: #66cc66;">&#125;</span>;
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">new</span> lskirt<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">21</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #66cc66;">&#123;</span>
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1007</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1026</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1031</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1036</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1039</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1042</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1047</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1048</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1056</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1057</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1069</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1070</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1090</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1093</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1106</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1108</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1118</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1119</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1133</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1122</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1134</span><span style="color: #66cc66;">&#125;</span>
+<span style="color: #66cc66;">&#125;</span>;
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">new</span> rskirt<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">21</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #66cc66;">&#123;</span>
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1017</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1027</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1030</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1040</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1041</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1051</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1052</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1062</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1063</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1071</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1072</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1094</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1095</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1099</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1101</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1102</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1107</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1120</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1121</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1124</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1137</span><span style="color: #66cc66;">&#125;</span>
+<span style="color: #66cc66;">&#125;</span>;
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">new</span> hydraulics<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">1</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #66cc66;">&#123;</span>
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1087</span><span style="color: #66cc66;">&#125;</span>
+<span style="color: #66cc66;">&#125;</span>;
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">new</span> base<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">1</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #66cc66;">&#123;</span>
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1086</span><span style="color: #66cc66;">&#125;</span>
+<span style="color: #66cc66;">&#125;</span>;
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">new</span> rbbars<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">4</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #66cc66;">&#123;</span>
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1109</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1110</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1123</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1125</span><span style="color: #66cc66;">&#125;</span>
+<span style="color: #66cc66;">&#125;</span>;
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">new</span> fbbars<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">2</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #66cc66;">&#123;</span>
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1115</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1116</span><span style="color: #66cc66;">&#125;</span>
+<span style="color: #66cc66;">&#125;</span>;
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">new</span> wheels<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">17</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #66cc66;">&#123;</span>
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1025</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1073</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1074</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1075</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1076</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1077</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1078</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1079</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1080</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1081</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1082</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1083</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1084</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1085</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1096</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1097</span><span style="color: #66cc66;">&#125;</span>,
+    <span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1098</span><span style="color: #66cc66;">&#125;</span>
+<span style="color: #66cc66;">&#125;</span>;
+&nbsp;
+<span style="color: #228b22; font-weight: bold;">new</span> lights<span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">2</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#93;</span> = <span style="color: #66cc66;">&#123;</span>
+	<span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1013</span><span style="color: #66cc66;">&#125;</span>,
+	<span style="color: #66cc66;">&#123;</span><span style="color: #4169e1;">1024</span><span style="color: #66cc66;">&#125;</span>
+<span style="color: #66cc66;">&#125;</span>;</pre>
+<p>Create a public callback "SaveComponent" and don't forget to forward it (forward SaveComponent(vehicleid, componentid);) on top of your script.
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">public</span> SaveComponent<span style="color: #66cc66;">&#40;</span>vehicleid, componentid<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <span style="color: #228b22; font-weight: bold;">new</span> playerid = GetDriverID<span style="color: #66cc66;">&#40;</span>vehicleid<span style="color: #66cc66;">&#41;</span>;
+	<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span><a href="http://wiki.sa-mp.com/wiki/GetPlayerState"><span style="color: #006400;">GetPlayerState</span></a><span style="color: #66cc66;">&#40;</span>playerid<span style="color: #66cc66;">&#41;</span> == <span style="color: #E9967A; font-weight: bold;">PLAYER_STATE_DRIVER</span><span style="color: #66cc66;">&#41;</span> <span style="color: #66cc66;">&#123;</span>
+	    <span style="color: #4169e1;">if</span> <span style="color: #66cc66;">&#40;</span><a href="http://wiki.sa-mp.com/wiki/strcmp"><span style="color: #006400;">strcmp</span></a><span style="color: #66cc66;">&#40;</span>VehicleInfo<span style="color: #66cc66;">&#91;</span>vehicleid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>owner<span style="color: #66cc66;">&#93;</span>, PlInfo<span style="color: #66cc66;">&#91;</span>playerid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>name<span style="color: #66cc66;">&#93;</span>, false<span style="color: #66cc66;">&#41;</span> == <span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span> <span style="color: #66cc66;">&#123;</span>
+			<span style="color: #4169e1;">for</span><span style="color: #66cc66;">&#40;</span><span style="color: #228b22; font-weight: bold;">new</span> s=<span style="color: #4169e1;">0</span>; s&lt;<span style="color: #4169e1;">20</span>; s++<span style="color: #66cc66;">&#41;</span> <span style="color: #66cc66;">&#123;</span>
+ 				<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>componentid == spoiler<span style="color: #66cc66;">&#91;</span>s<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span> <span style="color: #66cc66;">&#123;</span>
+   					VehicleInfo<span style="color: #66cc66;">&#91;</span>vehicleid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>mod<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#93;</span> = componentid;
+				<span style="color: #66cc66;">&#125;</span>
+			<span style="color: #66cc66;">&#125;</span>
+			<span style="color: #4169e1;">for</span><span style="color: #66cc66;">&#40;</span><span style="color: #228b22; font-weight: bold;">new</span> s=<span style="color: #4169e1;">0</span>; s&lt;<span style="color: #4169e1;">4</span>; s++<span style="color: #66cc66;">&#41;</span> <span style="color: #66cc66;">&#123;</span>
+ 				<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>componentid == bscoop<span style="color: #66cc66;">&#91;</span>s<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span> <span style="color: #66cc66;">&#123;</span>
+   					VehicleInfo<span style="color: #66cc66;">&#91;</span>vehicleid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>mod<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">1</span><span style="color: #66cc66;">&#93;</span> = componentid;
+				<span style="color: #66cc66;">&#125;</span>
+			<span style="color: #66cc66;">&#125;</span>
+			<span style="color: #4169e1;">for</span><span style="color: #66cc66;">&#40;</span><span style="color: #228b22; font-weight: bold;">new</span> s=<span style="color: #4169e1;">0</span>; s&lt;<span style="color: #4169e1;">17</span>; s++<span style="color: #66cc66;">&#41;</span> <span style="color: #66cc66;">&#123;</span>
+ 				<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>componentid == rscoop<span style="color: #66cc66;">&#91;</span>s<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span> <span style="color: #66cc66;">&#123;</span>
+   					VehicleInfo<span style="color: #66cc66;">&#91;</span>vehicleid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>mod<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">2</span><span style="color: #66cc66;">&#93;</span> = componentid;
+				<span style="color: #66cc66;">&#125;</span>
+			<span style="color: #66cc66;">&#125;</span>
+			<span style="color: #4169e1;">for</span><span style="color: #66cc66;">&#40;</span><span style="color: #228b22; font-weight: bold;">new</span> s=<span style="color: #4169e1;">0</span>; s&lt;<span style="color: #4169e1;">21</span>; s++<span style="color: #66cc66;">&#41;</span> <span style="color: #66cc66;">&#123;</span>
+ 				<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>componentid == rskirt<span style="color: #66cc66;">&#91;</span>s<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span> <span style="color: #66cc66;">&#123;</span>
+   					VehicleInfo<span style="color: #66cc66;">&#91;</span>vehicleid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>mod<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">3</span><span style="color: #66cc66;">&#93;</span> = componentid;
+				<span style="color: #66cc66;">&#125;</span>
+			<span style="color: #66cc66;">&#125;</span>
+			<span style="color: #4169e1;">for</span><span style="color: #66cc66;">&#40;</span><span style="color: #228b22; font-weight: bold;">new</span> s=<span style="color: #4169e1;">0</span>; s&lt;<span style="color: #4169e1;">21</span>; s++<span style="color: #66cc66;">&#41;</span> <span style="color: #66cc66;">&#123;</span>
+ 				<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>componentid == lskirt<span style="color: #66cc66;">&#91;</span>s<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span> <span style="color: #66cc66;">&#123;</span>
+   					VehicleInfo<span style="color: #66cc66;">&#91;</span>vehicleid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>mod<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">16</span><span style="color: #66cc66;">&#93;</span> = componentid;
+				<span style="color: #66cc66;">&#125;</span>
+			<span style="color: #66cc66;">&#125;</span>
+			<span style="color: #4169e1;">for</span><span style="color: #66cc66;">&#40;</span><span style="color: #228b22; font-weight: bold;">new</span> s=<span style="color: #4169e1;">0</span>; s&lt;<span style="color: #4169e1;">2</span>; s++<span style="color: #66cc66;">&#41;</span> <span style="color: #66cc66;">&#123;</span>
+ 				<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>componentid == lights<span style="color: #66cc66;">&#91;</span>s<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span> <span style="color: #66cc66;">&#123;</span>
+   					VehicleInfo<span style="color: #66cc66;">&#91;</span>vehicleid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>mod<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">4</span><span style="color: #66cc66;">&#93;</span> = componentid;
+				<span style="color: #66cc66;">&#125;</span>
+			<span style="color: #66cc66;">&#125;</span>
+			<span style="color: #4169e1;">for</span><span style="color: #66cc66;">&#40;</span><span style="color: #228b22; font-weight: bold;">new</span> s=<span style="color: #4169e1;">0</span>; s&lt;<span style="color: #4169e1;">3</span>; s++<span style="color: #66cc66;">&#41;</span> <span style="color: #66cc66;">&#123;</span>
+ 				<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>componentid == nitro<span style="color: #66cc66;">&#91;</span>s<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span> <span style="color: #66cc66;">&#123;</span>
+   					VehicleInfo<span style="color: #66cc66;">&#91;</span>vehicleid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>mod<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">5</span><span style="color: #66cc66;">&#93;</span> = componentid;
+				<span style="color: #66cc66;">&#125;</span>
+			<span style="color: #66cc66;">&#125;</span>
+			<span style="color: #4169e1;">for</span><span style="color: #66cc66;">&#40;</span><span style="color: #228b22; font-weight: bold;">new</span> s=<span style="color: #4169e1;">0</span>; s&lt;<span style="color: #4169e1;">28</span>; s++<span style="color: #66cc66;">&#41;</span> <span style="color: #66cc66;">&#123;</span>
+ 				<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>componentid == exhaust<span style="color: #66cc66;">&#91;</span>s<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span> <span style="color: #66cc66;">&#123;</span>
+   					VehicleInfo<span style="color: #66cc66;">&#91;</span>vehicleid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>mod<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">6</span><span style="color: #66cc66;">&#93;</span> = componentid;
+				<span style="color: #66cc66;">&#125;</span>
+			<span style="color: #66cc66;">&#125;</span>
+			<span style="color: #4169e1;">for</span><span style="color: #66cc66;">&#40;</span><span style="color: #228b22; font-weight: bold;">new</span> s=<span style="color: #4169e1;">0</span>; s&lt;<span style="color: #4169e1;">17</span>; s++<span style="color: #66cc66;">&#41;</span> <span style="color: #66cc66;">&#123;</span>
+ 				<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>componentid == wheels<span style="color: #66cc66;">&#91;</span>s<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span> <span style="color: #66cc66;">&#123;</span>
+   					VehicleInfo<span style="color: #66cc66;">&#91;</span>vehicleid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>mod<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">7</span><span style="color: #66cc66;">&#93;</span> = componentid;
+				<span style="color: #66cc66;">&#125;</span>
+			<span style="color: #66cc66;">&#125;</span>
+			<span style="color: #4169e1;">for</span><span style="color: #66cc66;">&#40;</span><span style="color: #228b22; font-weight: bold;">new</span> s=<span style="color: #4169e1;">0</span>; s&lt;<span style="color: #4169e1;">1</span>; s++<span style="color: #66cc66;">&#41;</span> <span style="color: #66cc66;">&#123;</span>
+ 				<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>componentid == base<span style="color: #66cc66;">&#91;</span>s<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span> <span style="color: #66cc66;">&#123;</span>
+   					VehicleInfo<span style="color: #66cc66;">&#91;</span>vehicleid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>mod<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">8</span><span style="color: #66cc66;">&#93;</span> = componentid;
+				<span style="color: #66cc66;">&#125;</span>
+			<span style="color: #66cc66;">&#125;</span>
+			<span style="color: #4169e1;">for</span><span style="color: #66cc66;">&#40;</span><span style="color: #228b22; font-weight: bold;">new</span> s=<span style="color: #4169e1;">0</span>; s&lt;<span style="color: #4169e1;">1</span>; s++<span style="color: #66cc66;">&#41;</span> <span style="color: #66cc66;">&#123;</span>
+ 				<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>componentid == hydraulics<span style="color: #66cc66;">&#91;</span>s<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span> <span style="color: #66cc66;">&#123;</span>
+   					VehicleInfo<span style="color: #66cc66;">&#91;</span>vehicleid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>mod<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">9</span><span style="color: #66cc66;">&#93;</span> = componentid;
+				<span style="color: #66cc66;">&#125;</span>
+			<span style="color: #66cc66;">&#125;</span>
+			<span style="color: #4169e1;">for</span><span style="color: #66cc66;">&#40;</span><span style="color: #228b22; font-weight: bold;">new</span> s=<span style="color: #4169e1;">0</span>; s&lt;<span style="color: #4169e1;">23</span>; s++<span style="color: #66cc66;">&#41;</span> <span style="color: #66cc66;">&#123;</span>
+ 				<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>componentid == fbumper<span style="color: #66cc66;">&#91;</span>s<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span> <span style="color: #66cc66;">&#123;</span>
+   					VehicleInfo<span style="color: #66cc66;">&#91;</span>vehicleid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>mod<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">10</span><span style="color: #66cc66;">&#93;</span> = componentid;
+				<span style="color: #66cc66;">&#125;</span>
+			<span style="color: #66cc66;">&#125;</span>
+			<span style="color: #4169e1;">for</span><span style="color: #66cc66;">&#40;</span><span style="color: #228b22; font-weight: bold;">new</span> s=<span style="color: #4169e1;">0</span>; s&lt;<span style="color: #4169e1;">22</span>; s++<span style="color: #66cc66;">&#41;</span> <span style="color: #66cc66;">&#123;</span>
+ 				<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>componentid == rbumper<span style="color: #66cc66;">&#91;</span>s<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span> <span style="color: #66cc66;">&#123;</span>
+   					VehicleInfo<span style="color: #66cc66;">&#91;</span>vehicleid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>mod<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">11</span><span style="color: #66cc66;">&#93;</span> = componentid;
+				<span style="color: #66cc66;">&#125;</span>
+			<span style="color: #66cc66;">&#125;</span>
+			<span style="color: #4169e1;">for</span><span style="color: #66cc66;">&#40;</span><span style="color: #228b22; font-weight: bold;">new</span> s=<span style="color: #4169e1;">0</span>; s&lt;<span style="color: #4169e1;">2</span>; s++<span style="color: #66cc66;">&#41;</span> <span style="color: #66cc66;">&#123;</span>
+ 				<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>componentid == bventr<span style="color: #66cc66;">&#91;</span>s<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span> <span style="color: #66cc66;">&#123;</span>
+   					VehicleInfo<span style="color: #66cc66;">&#91;</span>vehicleid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>mod<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">12</span><span style="color: #66cc66;">&#93;</span> = componentid;
+				<span style="color: #66cc66;">&#125;</span>
+			<span style="color: #66cc66;">&#125;</span>
+			<span style="color: #4169e1;">for</span><span style="color: #66cc66;">&#40;</span><span style="color: #228b22; font-weight: bold;">new</span> s=<span style="color: #4169e1;">0</span>; s&lt;<span style="color: #4169e1;">2</span>; s++<span style="color: #66cc66;">&#41;</span> <span style="color: #66cc66;">&#123;</span>
+ 				<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>componentid == bventl<span style="color: #66cc66;">&#91;</span>s<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span> <span style="color: #66cc66;">&#123;</span>
+   					VehicleInfo<span style="color: #66cc66;">&#91;</span>vehicleid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>mod<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">13</span><span style="color: #66cc66;">&#93;</span> = componentid;
+				<span style="color: #66cc66;">&#125;</span>
+			<span style="color: #66cc66;">&#125;</span>
+			<span style="color: #4169e1;">for</span><span style="color: #66cc66;">&#40;</span><span style="color: #228b22; font-weight: bold;">new</span> s=<span style="color: #4169e1;">0</span>; s&lt;<span style="color: #4169e1;">2</span>; s++<span style="color: #66cc66;">&#41;</span> <span style="color: #66cc66;">&#123;</span>
+ 				<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>componentid == fbbars<span style="color: #66cc66;">&#91;</span>s<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span> <span style="color: #66cc66;">&#123;</span>
+   					VehicleInfo<span style="color: #66cc66;">&#91;</span>vehicleid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>mod<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">15</span><span style="color: #66cc66;">&#93;</span> = componentid;
+				<span style="color: #66cc66;">&#125;</span>
+			<span style="color: #66cc66;">&#125;</span>
+			<span style="color: #4169e1;">for</span><span style="color: #66cc66;">&#40;</span><span style="color: #228b22; font-weight: bold;">new</span> s=<span style="color: #4169e1;">0</span>; s&lt;<span style="color: #4169e1;">4</span>; s++<span style="color: #66cc66;">&#41;</span> <span style="color: #66cc66;">&#123;</span>
+ 				<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>componentid == rbbars<span style="color: #66cc66;">&#91;</span>s<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span> <span style="color: #66cc66;">&#123;</span>
+   					VehicleInfo<span style="color: #66cc66;">&#91;</span>vehicleid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>mod<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span><span style="color: #4169e1;">14</span><span style="color: #66cc66;">&#93;</span> = componentid;
+				<span style="color: #66cc66;">&#125;</span>
+			<span style="color: #66cc66;">&#125;</span>
+			<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+		<span style="color: #66cc66;">&#125;</span>
+	<span style="color: #66cc66;">&#125;</span>
+	<span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">0</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>Also don't forget to tell your script when to SaveComponent:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnVehicleMod"><span style="color: #dc143c">OnVehicleMod</span></a><span style="color: #66cc66;">&#40;</span>vehicleid, componentid<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    SaveComponent<span style="color: #66cc66;">&#40;</span>vehicleid, componentid<span style="color: #66cc66;">&#41;</span>;
+    <span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>If you want your vehicle to spawn with the saved mods:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">public</span> <a href="http://wiki.sa-mp.com/wiki/OnVehicleSpawn"><span style="color: #dc143c">OnVehicleSpawn</span></a><span style="color: #66cc66;">&#40;</span>vehicleid<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    ModVehicle<span style="color: #66cc66;">&#40;</span>vehicleid<span style="color: #66cc66;">&#41;</span>;
+    <span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>Don't forget to add the function "ModVehicle".
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">stock</span> ModVehicle<span style="color: #66cc66;">&#40;</span>vehicleid<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+	<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>vehicleid &lt;= <span style="color: #4169e1;">0</span> || vehicleid &gt;= <span style="color: #E9967A; font-weight: bold;">MAX_VEHICLES</span><span style="color: #66cc66;">&#41;</span> <span style="color: orange; font-weight: bold;">return</span>;
+	<span style="color: #4169e1;">for</span><span style="color: #66cc66;">&#40;</span><span style="color: #228b22; font-weight: bold;">new</span> i = <span style="color: #4169e1;">0</span>; i &lt; <span style="color: #4169e1;">17</span>; ++i<span style="color: #66cc66;">&#41;</span> <span style="color: #66cc66;">&#123;</span>
+		<span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span>VehicleInfo<span style="color: #66cc66;">&#91;</span>vehicleid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>mod<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>i<span style="color: #66cc66;">&#93;</span>&nbsp;!= <span style="color: #4169e1;">0</span><span style="color: #66cc66;">&#41;</span> <span style="color: #66cc66;">&#123;</span>
+			AddVehicleComponent<span style="color: #66cc66;">&#40;</span>vehicleid, VehicleInfo<span style="color: #66cc66;">&#91;</span>vehicleid<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>mod<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#91;</span>i<span style="color: #66cc66;">&#93;</span><span style="color: #66cc66;">&#41;</span>;
+		<span style="color: #66cc66;">&#125;</span>
+	<span style="color: #66cc66;">&#125;</span>
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>All you need now is the GetDriverID(vehicleid) function. Here it is:
+</p>
+<pre class="pawn"><span style="color: #228b22; font-weight: bold;">stock</span> GetDriverID<span style="color: #66cc66;">&#40;</span>vehicleid<span style="color: #66cc66;">&#41;</span>
+<span style="color: #66cc66;">&#123;</span>
+    <span style="color: #4169e1;">for</span><span style="color: #66cc66;">&#40;</span><span style="color: #228b22; font-weight: bold;">new</span> i = <span style="color: #4169e1;">0</span>; i &lt; <span style="color: #E9967A; font-weight: bold;">MAX_PLAYERS</span>; i++<span style="color: #66cc66;">&#41;</span>
+    <span style="color: #66cc66;">&#123;</span>
+        <span style="color: #4169e1;">if</span><span style="color: #66cc66;">&#40;</span><a href="http://wiki.sa-mp.com/wiki/GetPlayerVehicleID"><span style="color: #006400;">GetPlayerVehicleID</span></a><span style="color: #66cc66;">&#40;</span>i<span style="color: #66cc66;">&#41;</span> == vehicleid &amp;&amp; <a href="http://wiki.sa-mp.com/wiki/GetPlayerState"><span style="color: #006400;">GetPlayerState</span></a><span style="color: #66cc66;">&#40;</span>i<span style="color: #66cc66;">&#41;</span> == <span style="color: #E9967A; font-weight: bold;">PLAYER_STATE_DRIVER</span><span style="color: #66cc66;">&#41;</span> <span style="color: orange; font-weight: bold;">return</span> i;
+    <span style="color: #66cc66;">&#125;</span>
+    <span style="color: orange; font-weight: bold;">return</span> <span style="color: #4169e1;">-1</span>;
+<span style="color: #66cc66;">&#125;</span></pre>
+<p>Don't forget to add forward for each and every callback we entered.
+</p><p>OLD: Wiki info by Ignas1337 out of work of tAxI. 
+</p><p>Improved by Kar - This code has been altered for better viewing and fixed Uranus bumper mix up.
+</p><div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/Saving_car_mods.html">http://localhost../wiki/Saving_car_mods.html</a>"</div>
+			<div id="catlinks"><p class='catlinks'><a href="Special_Categories.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="Category_Tutorials.html" title="Category:Tutorials">Tutorials</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="Saving_car_mods.html">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="Talk_Saving_car_mods.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="Saving_car_mods.html">Edit</a></li>
+				 <li id="ca-history"><a href="Saving_car_mods.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 17,535 times.</li>
+				<li id="credits">This page was last modified 11:36, 27 March 2017 by SA-MP Wiki user <a href="User_OstGot.html" title="User:OstGot">OstGot</a>. Based on work by <a href="User_Kar.html" title="User:Kar">Kar</a> and SA-MP Wiki user(s) <a href="User_TheKiller.html" class="new" title="User:TheKiller">TheKiller</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 34.07 secs. -->
+</body></html>

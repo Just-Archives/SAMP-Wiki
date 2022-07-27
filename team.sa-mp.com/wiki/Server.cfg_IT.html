@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="keywords" content="Server.cfg IT,Remote Console IT" />
+<link rel="shortcut icon" href="../favicon.html" />
+		<title>Server.cfg IT - SA-MP Wiki</title>
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "../skins/monobook/main8f14.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="../skins/common/commonPrint.css" />
+		<!--[if lt IE 5.5000]><style type="text/css">@import "../skins/monobook/IE50Fixes.css";</style><![endif]-->
+		<!--[if IE 5.5000]><style type="text/css">@import "../skins/monobook/IE55Fixes.css";</style><![endif]-->
+		<!--[if IE 6]><style type="text/css">@import "../skins/monobook/IE60Fixes.css";</style><![endif]-->
+		<!--[if IE 7]><style type="text/css">@import "../skins/monobook/IE70Fixes.css?1";</style><![endif]-->
+		<!--[if lt IE 7]><script type="text/javascript" src="../skins/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '../skins';</script>
+		<script type="text/javascript" src="../skins/common/wikibits.js"><!-- wikibits js --></script>
+		<script type="text/javascript" src="../raw/gen.js"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "../raw/MediaWiki_Common.css";
+@import "../raw/MediaWiki_Monobook.css";
+@import "../raw/gen.css";
+/*]]>*/</style>
+		<!-- Head Scripts -->
+			</head>
+<body  class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 class="firstHeading">Server.cfg IT</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From SA-MP Wiki</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<ul><li> <i><b>echo</b></i> - Questo è quando echos sampserver.exe durante l'esecuzione di server.cfg, questo non sarà necessario modificarlo perchè lo leggerà automaticamente la console. Per impostazione predefinita dice <b>Executing Server Config...</b>
+</li></ul>
+<ul><li> <i><b>lanmode</b></i> - Girando su lanmode porterà al server utilizzando più larghezza di banda, questo modo rende il server molto più preciso anche se. È possibile attivare la lanmode modificando il valore a <b>1</b> e la puoi spegnere cambiarla in <b>0</b>. Per default è impostato su <b>0</b>
+</li></ul>
+<ul><li> <i><b>maxplayers</b></i> - Questo è l'importo massimo di giocatori che il server può contenere, cambiando questo numero è possibile modificare il numero di giocatori che possono entrare nel server. Il limite è <b>500</b> e minimo è <b>1</b>. Per default è impostato su <b>50</b>.
+</li></ul>
+<ul><li> <i><b>announce</b></i> - Il server sarà visto nel masterserver di SA-MP. Impostare su <b>1</b> per attivare l'announcing o <b>0</b> per disattivarla.
+</li></ul>
+<ul><li> <i><b>port</b></i> - The port in which the server will use to communicate can be specified here, you will need to <a href="http://www.portforward.com/" class='external text' title="http://www.portforward.com" rel="nofollow">Port Forward</a> in order to run the server. By default this is set to <b>7777</b>.
+</li></ul>
+<ul><li> <i><b>hostname</b></i> - This is the name that will display in the server browser for other users to see. By default this is set to <b>SA-MP 0.3a Server</b>.
+</li></ul>
+<ul><li> <i><b>gamemode(n) (N) (t)</b></i> - It's possible to set the gamemode that plays, how many times it plays and when it plays by editing the values here. To use this correctly you must understand how it works, <b>(n)</b> is the gamemode number, <b>(N)</b> is the gamemode name*, and <b>(t)</b> is the times played before switching onto the next mode. By default this area will look like this: 
+<ul><li> gamemode0 lvdm 1
+</li><li> gamemode1 rivershell 1
+</li><li> gamemode2 area51 1
+</li><li> gamemode4 sftdm 1 <div class="thumb tright"><div style="width:182px;"><a href="Image_SA-MP_Wiki_Windows_2.gif.html" class="internal" title="A Working Server!"><img src="../upload/thumb/7/7e/SA-MP_Wiki_Windows_2.gif/180px-SA-MP_Wiki_Windows_2.gif" alt="A Working Server!" width="180" height="148" longdesc="Image_SA-MP_Wiki_Windows_2.gif.html" /></a>  <div class="thumbcaption" ><div class="magnify" style="float:right"><a href="Image_SA-MP_Wiki_Windows_2.gif.html" class="internal" title="Enlarge"><img src="../skins/common/images/magnify-clip.png" width="15" height="11" alt="Enlarge" /></a></div>A Working Server!</div></div></div>
+</li></ul>
+</li></ul>
+<ul><li> <i><b>weburl</b></i> - This is the website people can visit to gain more information about the server, a web url is not needed. By default this is set to <b>www.sa-mp.com</b>.
+</li></ul>
+<ul><li> <i><b>rcon_password</b></i> - This is the password used to administrate the server and use the rcon, you must make sure you change this to something hard to crack so that others cannot take control of your server. By default this is set to <b>changeme</b>. Your server will NOT start if "changeme" is the RCON password!
+</li></ul>
+<ul><li> <i><b>filterscripts (N)</b></i> - Filterscripts are scripts that run in the background of your gamemode, they are there to add extras to the server without editing the gamemode. It's very useful if you want to carry a specific property to more than one gamemode. To use this you must find the folder in your server folder named <b>filterscripts</b> and place your filterscripts (.amx) in there. (N) symbolizes the filterscript name*. By default this option is not here. If you have multiple filterscripts you want to load, put them all in a row separated by "space", e.g. <i>filterscripts script1 script2</i>.
+</li></ul>
+<ul><li> <i><b>plugins (N)</b></i> - The plugins directive allows you to specify plugins which are designed to enhance gamemodes and filterscripts. (N) symbolizes the plugin's name. If you have multiple plugins you want to load, put them all in a row separated by "space", e.g. <i>plugins plugin1 plugin2</i>.
+<ul><li> You may find more information about the SDK for plugin development in the forum's <a href="http://forum.sa-mp.com/index.php?topic=21330.0" class='external text' title="http://forum.sa-mp.com/index.php?topic=21330.0" rel="nofollow">main topic</a>
+</li></ul>
+</li><li> <i><b>password (p)</b></i> - Locking your server is another option that is available for the root server administrator. You can use this to lock unwanted visitors from the server. (p) symbolizes the password that will be used. By default your server will not have a password.
+</li><li> <i><b>mapname (m)</b></i> - The mapname appears in the server browser. (m) symolizes the mapname. By default this is set to <b>San Andreas</b>.
+<ul><li>Replace [name] to anything you want, e.g. My-stunt-map
+</li><li><i>The gamemode/filterscript name is the gamemodes/filterscripts compiled name in your gamemodes/filterscripts folder, all must match exactly except you must leave the .amx extension off</i>.
+</li></ul>
+</li></ul>
+<ul><li> <i><b>bind</b></i> - Force the server to use a specific IP on a server. This IP must match one assigned to a network card on the server. This is useful for running multiple servers on the same port on the same box.
+</li></ul>
+<ul><li> <i><b>rcon 0/1</b></i> - If 0 is specified the rcon <a href="Remote_Console_IT.html" title="Remote Console IT">Remote Console</a> feature is disabled.
+</li></ul>
+<ul><li> <i><b>maxnpc</b></i> - The maximum number of NPCs that can join your server.
+</li></ul>
+<ul><li> <i><b>onfoot_rate</b></i> - The minimum time in milliseconds a client updates the server with new data while running/walking.
+</li></ul>
+<ul><li> <i><b>incar_rate</b></i> - The minimum time in milliseconds a client updates the server with new data while in a vehicle.
+</li></ul>
+<ul><li> <i><b>weapon_rate</b></i> - The minimum time in milliseconds a client updates the server with new data while firing a weapon.
+</li></ul>
+<ul><li> <i><b>stream_distance</b></i> - The distance on the X,Y plane which server entities will stream in for connected players.
+</li></ul>
+<ul><li> <i><b>stream_rate</b></i> - The number of milliseconds that must elapse before server entities stream distance is retested for each player.
+</li></ul>
+<p>Lower values of onfoot_rate incar_rate weapon_rate increase sync performance although increase bandwidth.
+stream_distance	With larger values, players can see server entities at a greater distance although will require more client processing and potentially more bandwidth.
+stream_rate	Lower values increase server CPU as it has to recheck streaming conditions more frequently for each player.
+</p><p>The stream_distance and stream_rate can be changed while the server is running e.g. /rcon stream_distance 300.0 or /rcon stream_rate 1000. The onfoot_rate, incar_rate, weapon_rate can also be changed while the server is running, although it will only effect newly connecting players.
+</p><div class="printfooter">
+Retrieved from "<a href="http://localhost../wiki/Server.cfg_IT.html">http://localhost../wiki/Server.cfg_IT.html</a>"</div>
+						<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a href="Server.cfg_IT.html">Article</a></li>
+				 <li id="ca-talk" class="new"><a href="Talk_Server.cfg_IT.html">Discussion</a></li>
+				 <li id="ca-edit"><a href="Server.cfg_IT.html">Edit</a></li>
+				 <li id="ca-history"><a href="Server.cfg_IT.html">History</a></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+		<h5>Navigation</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../wiki-archive.html">Main Page</a></li>
+				<li id="n-help"><a href="Help_Contents.html">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-nl"><a href="Server.cfg_NL.html">Nederlands</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="MediaWiki" /></a></div>
+			<ul id="f-list">
+				<li id="viewcount">This page has been accessed 6,949 times.</li>
+				<li id="credits">This page was last modified 18:42, 23 December 2010 by SA-MP Wiki user User:. Based on work by SA-MP Wiki user(s) <a href="User_Brian_Furious.html" title="User:Brian Furious">Brian Furious</a>.</li>
+				<li id="privacy"><a href="SA-MP_Wiki_Privacy_policy.html" title="SA-MP Wiki:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="SA-MP_Wiki_About.html" title="SA-MP Wiki:About">About SA-MP Wiki</a></li>
+				<li id="disclaimer"><a href="SA-MP_Wiki_General_disclaimer.html" title="SA-MP Wiki:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by forum in 59.26 secs. -->
+</body></html>
